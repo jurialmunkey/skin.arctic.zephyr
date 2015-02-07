@@ -6,11 +6,6 @@
     <views>50,54,500,53,51,52</views>
     <controls>
 
-        <control type="radiobutton" id="19">
-            <description>Filter (hidden)</description>
-            <include>HiddenButton</include>
-        </control>
-
         <include>GlobalBackground</include>
 
         <include>View_50_List</include>
@@ -56,22 +51,8 @@
                     <label>584</label>
                     <altlabel>585</altlabel>
                 </control>
-
-                <control type="button" id="5">
-                    <description>Files</description>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>31001</label>
-                    <onclick>SetFocus(50)</onclick>
-                </control>
-
-                <control type="radiobutton" id="7">
-                    <description>Stack</description>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>14000</label>
-                    <altlabel>14001</altlabel>
-                </control>
+                
+             
 
                 <control type="button" id="8">
                     <description>Search</description>
@@ -96,32 +77,11 @@
                     <align>left</align>
                     <label>589</label>
                 </control>
-
-                <control type="radiobutton" id="17">
-                    <description>Flatten</description>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>20411</label>
-                </control>
-
-                <control type="button" id="21">
-                    <description>Activate Filter</description>
-                    <include>DefContextButton</include>
-                    <align>left</align>
+                
+                <control type="edit" id="19">
                     <label>587</label>
-                    <onclick>SendClick(videolibrary,19)</onclick>
-                    <onclick>SetFocus(22)</onclick>
-                    <visible>IsEmpty(Window.Property(filter))</visible>
-                </control>
-
-                <control type="button" id="22">
-                    <description>Show Filter Label</description>
+                    <description>Filter (hidden)</description>
                     <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>$INFO[Window.Property(filter)]</label>
-                    <onclick>SendClick(videolibrary,19)</onclick>
-                    <onclick>SetFocus(21)</onclick>
-                    <visible>!IsEmpty(Window.Property(filter))</visible>
                 </control>
 
                 <control type="button" id="9332">
