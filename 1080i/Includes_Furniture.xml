@@ -317,7 +317,7 @@
     
     <variable name="SubHeaderLabel">
         <value condition="Window.IsVisible(LoginScreen.xml)">$LOCALIZE[10029]</value>
-        <value condition="Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyPVR) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml)">$INFO[Container.NumItems,[COLOR=Highlight],[/COLOR] $LOCALIZE[31101]]  •  $INFO[Control.GetLabel(3)]</value>
+        <value condition="!IsEmpty(Container.NumItems) + !Window.IsVisible(home)">$INFO[Container.NumItems,[COLOR=Highlight],[/COLOR] $LOCALIZE[31101]]  •  $INFO[Control.GetLabel(3)]</value>
         <value>[COLOR=Highlight]$INFO[Window(home).Property(Movies.Count)][/COLOR] $LOCALIZE[20342]  •  [COLOR=Highlight]$INFO[Window(home).Property(Episodes.Count)][/COLOR] $LOCALIZE[20360]  •  [COLOR=Highlight]$INFO[Window(home).Property(Music.SongsCount)][/COLOR] $LOCALIZE[134]$INFO[Pvr.BackendChannels,  •  [COLOR=Highlight],[/COLOR] $LOCALIZE[19019]]</value>
     </variable>
   
