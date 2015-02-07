@@ -98,6 +98,14 @@
                         <selected>Skin.HasSetting(global.showvideo)</selected>
                         <onclick>Skin.ToggleSetting(global.showvideo)</onclick>
                     </control>
+                    <control type="radiobutton" id="9222" description="Show fanart">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9102)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31121</label>
+                        <selected>!Skin.HasSetting(global.hidefanart)</selected>
+                        <onclick>Skin.ToggleSetting(global.hidefanart)</onclick>
+                    </control>
                     
                     <!-- OSD -->
                     <control type="radiobutton" id="9231" description="Show slideshow in background">

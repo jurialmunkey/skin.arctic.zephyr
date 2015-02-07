@@ -94,6 +94,7 @@
         <value condition="Window.IsVisible(home)">$INFO[Container(301).ListItem.Art(fanart)]</value>
         <value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
         <value condition="!IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
+        <value>common/null.png</value>
     </variable>
     <include name="GlobalVideoWindow">
         <control type="image" description="Background">
@@ -123,6 +124,7 @@
         <control type="multiimage" description="Fanart">
             <include condition="!Window.IsVisible(home)">GlobalBackgroundFade</include>
             <visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+            <visible>!Skin.HasSetting(global.hidefanart) | Window.IsVisible(home)</visible>
             <include>Dimensions_Fullscreen</include>
             <include>Animation.FadeFromHome</include>
             <animation effect="fade" end="0" start="100" time="350" tween="cubic" easing="inout" condition="Window.IsVisible(home)">WindowClose</animation>
