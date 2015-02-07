@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<includes>
+    <include name="View_50_List">
+        <description>List View (id=50)</description>
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(50)</visible>
+            <control type="group">
+                <control type="list" id="50">
+                    <visible>Container.Content(movies) | Container.Content(tvshows) | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)] | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
+                    <top>PosterPad</top>
+                    <height>PosterH</height>
+                    <left>ListX</left>
+                    <right>SidePad</right>
+                    <onleft>9000</onleft>
+                    <onright>60</onright>
+                    <onup>50</onup>
+                    <ondown>50</ondown>
+                    <pagecontrol>60</pagecontrol>
+                    <viewtype label="535">list</viewtype>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout width="ListW" height="64">
+                        <include>50itemlayout</include>
+                    </itemlayout>
+
+                    <focusedlayout width="ListW" height="64">
+                        <control type="group">
+                            <visible>Control.HasFocus(50) + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+                            <include>50focuslayout</include>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(50) | Window.IsVisible(DialogVideoInfo.xml)</visible>
+                            <include>50itemlayout</include>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <include>Furniture_Scrollbar</include>
+            </control>
+            <control type="group" description="Poster">
+                
+                <left>SidePad</left>
+                <top>PosterPad</top>
+                <control type="image">
+                    <top>PosterH</top>
+                    <width>PosterW</width>
+                    <height>PosterH</height>
+                    <fadetime>100</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture flipy="true" diffuse="diffuse/listposter-ref.png">$VAR[PosterImage]</texture>
+                    <visible>Skin.HasSetting(show.reflections)</visible>
+                </control>
+                <control type="image">
+                    <centertop>PosterH</centertop>
+                    <width>PosterW</width>
+                    <height>48</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>diffuse/shadowspot.png</texture>
+                    
+                </control>
+                <control type="image">
+                    <width>PosterW</width>
+                    <height>PosterH</height>
+                    <texture border="5" colordiffuse="Dark1">common/box.png</texture>
+                </control>
+                <control type="image">
+                    <width>PosterW</width>
+                    <height>PosterH</height>
+                    <fadetime>100</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
+                </control>
+                <control type="image">
+                    <left>-24</left>
+                    <top>-24</top>
+                    <width>PosterShadowW</width>
+                    <height>PosterShadowH</height>
+                    <texture border="32">common/shadow-24.png</texture>
+                </control>
+            </control>
+        </control>
+    </include>
+    
+    <include name="View_50_List_Square">
+        <description>List View (id=50)</description>
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(50)</visible>
+            <control type="group">
+                <control type="list" id="50">
+                    <top>PosterPad</top>
+                    <height>PosterH</height>
+                    <left>ListSquareX</left>
+                    <right>SidePad</right>
+                    <onleft>9000</onleft>
+                    <onright>60</onright>
+                    <onup>50</onup>
+                    <ondown>50</ondown>
+                    <pagecontrol>60</pagecontrol>
+                    <viewtype label="535">list</viewtype>
+                    <scrolltime>200</scrolltime>
+                    <itemlayout width="ListSquareW" height="64">
+                        <include>50itemlayout_square</include>
+                    </itemlayout>
+
+                    <focusedlayout width="ListSquareW" height="64">
+                        <control type="group">
+                            <visible>Control.HasFocus(50)</visible>
+                            <include>50focuslayout_square</include>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(50)</visible>
+                            <include>50itemlayout_square</include>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <include>Furniture_Scrollbar</include>
+            </control>
+            <control type="group" description="Poster">
+                
+                <left>SidePad</left>
+                <top>PosterPad</top>
+                <control type="image">
+                    <top>PosterH</top>
+                    <width>PosterH</width>
+                    <height>PosterH</height>
+                    <fadetime>100</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture flipy="true" diffuse="diffuse/listposter-ref.png">$VAR[PosterImage]</texture>
+                    <visible>Skin.HasSetting(show.reflections)</visible>
+                </control>
+                <control type="image">
+                    <centertop>PosterH</centertop>
+                    <width>PosterH</width>
+                    <height>48</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>diffuse/shadowspot.png</texture>
+                    
+                </control>
+                <control type="image">
+                    <width>PosterH</width>
+                    <height>PosterH</height>
+                    <texture border="5" colordiffuse="Dark1">common/box.png</texture>
+                </control>
+                <control type="image">
+                    <width>PosterH</width>
+                    <height>PosterH</height>
+                    <fadetime>100</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
+                </control>
+                <control type="image">
+                    <left>-24</left>
+                    <top>-24</top>
+                    <width>PosterShadowH</width>
+                    <height>PosterShadowH</height>
+                    <texture border="32">common/shadow-24.png</texture>
+                </control>
+            </control>
+        </control>
+    </include>
+    
+    <include name="50focuslayout">
+        <control type="image">                                
+            <width>100%</width>
+            <height>100%</height>
+            <texture border="8" colordiffuse="Dark1">common/box.png</texture>
+        </control>
+        <control type="label">
+            <posx>30</posx>
+            <width>200</width>
+            <font>Small</font>
+            <aligny>center</aligny>
+            <height>64</height>
+            <textcolor>Light1</textcolor>
+            <selectedcolor>Light1</selectedcolor>
+            <label>$VAR[LabelYear]</label>
+            <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
+        </control>
+        <control type="label">
+            <posx>120</posx>
+            <width>auto</width>
+            <aligny>center</aligny>
+            <height>64</height>
+            <font>SmallBold</font>
+            <textcolor>Light1</textcolor>
+            <selectedcolor>Light1</selectedcolor>
+            <label>$INFO[ListItem.Label]</label>
+            <animation effect="slide" start="0" end="-90" time="0" condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]">Conditional</animation>
+            <animation effect="slide" start="0" end="70" time="0" condition="Container.Content(episodes)">Conditional</animation>
+        </control>
+        <control type="label">
+            <right>154</right>
+            <width>500</width>
+            <aligny>center</aligny>
+            <height>64</height>
+            <align>right</align>
+            <font>Small</font>
+            <textcolor>Light1</textcolor>
+            <selectedcolor>Light1</selectedcolor>
+            <label>$VAR[LabelDuration]</label>
+        </control>
+        <control type="image">
+            <centerright>110</centerright>
+            <centertop>32</centertop>
+            <width>32</width>
+            <height>32</height>
+            <aspectratio aligny="top">keep</aspectratio>
+            <texture>$VAR[PercentWatched]</texture>
+            <visible>!stringcompare(ListItem.Label,..)</visible>
+            <animation effect="slide" start="0" end="64" time="0" condition="Container.Content(Seasons)">Conditional</animation>
+        </control>
+        <control type="label">
+            <right>30</right>
+            <width>500</width>
+            <aligny>center</aligny>
+            <height>64</height>
+            <align>right</align>
+            <font>Small</font>
+            <textcolor>Light1</textcolor>
+            <selectedcolor>Light1</selectedcolor>
+            <label>$INFO[ListItem.Rating]</label>
+            <visible>!Container.Content(seasons)</visible>
+        </control>
+    </include>
+
+    <include name="50itemlayout">
+        <control type="label">
+            <posx>30</posx>
+            <width>200</width>
+            <font>Small</font>
+            <aligny>center</aligny>
+            <height>64</height>
+            <label>$VAR[LabelYear]</label>
+            <textcolor>Dark1</textcolor>
+            <selectedcolor>Dark1</selectedcolor>
+            <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
+        </control>
+        <control type="label">
+            <posx>120</posx>
+            <width>auto</width>
+            <aligny>center</aligny>
+            <height>64</height>
+            <font>SmallBold</font>
+            <label>$INFO[ListItem.Label]</label>
+            <textcolor>Dark1</textcolor>
+            <selectedcolor>Dark1</selectedcolor>
+            <animation effect="slide" start="0" end="-90" time="0" condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]">Conditional</animation>
+            <animation effect="slide" start="0" end="70" time="0" condition="Container.Content(episodes)">Conditional</animation>
+        </control>
+        <control type="label">
+            <right>154</right>
+            <width>500</width>
+            <aligny>center</aligny>
+            <height>64</height>
+            <align>right</align>
+            <font>Small</font>
+            <textcolor>Dark1</textcolor>
+            <selectedcolor>Dark1</selectedcolor>
+            <label>$VAR[LabelDuration]</label>
+        </control>
+        <control type="image">
+            <centerright>110</centerright>
+            <centertop>32</centertop>
+            <width>32</width>
+            <height>32</height>
+            <aspectratio aligny="top">keep</aspectratio>
+            <texture>$VAR[PercentWatched]</texture>
+            <visible>!stringcompare(ListItem.Label,..)</visible>
+            <animation effect="slide" start="0" end="64" time="0" condition="Container.Content(Seasons)">Conditional</animation>
+        </control>
+        <control type="label">
+            <right>30</right>
+            <width>500</width>
+            <aligny>center</aligny>
+            <height>64</height>
+            <align>right</align>
+            <font>Small</font>
+            <textcolor>Dark1</textcolor>
+            <selectedcolor>Dark1</selectedcolor>
+            <label>$INFO[ListItem.Rating]</label>
+            
+            <visible>!Container.Content(seasons)</visible>
+        </control>
+    </include>
+    <include name="50itemlayout_square">
+        <control type="label">
+            <posx>120</posx>
+            <width>auto</width>
+            <aligny>center</aligny>
+            <height>64</height>
+            <font>SmallBold</font>
+            <label>$INFO[ListItem.Label]</label>
+            <textcolor>Dark1</textcolor>
+            <selectedcolor>Dark1</selectedcolor>
+            <animation effect="slide" start="0" end="-90" time="0" condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]">Conditional</animation>
+            <animation effect="slide" start="0" end="70" time="0" condition="Container.Content(episodes)">Conditional</animation>
+        </control>
+        <control type="label">
+            <right>30</right>
+            <width>500</width>
+            <aligny>center</aligny>
+            <height>64</height>
+            <align>right</align>
+            <font>Small</font>
+            <textcolor>Dark1</textcolor>
+            <selectedcolor>Dark1</selectedcolor>
+            <label>$INFO[ListItem.Label2]</label>
+        </control>
+    </include>
+    <include name="50focuslayout_square">
+        <control type="image">                                
+            <width>100%</width>
+            <height>100%</height>
+            <texture border="8" colordiffuse="Dark1">common/box.png</texture>
+        </control>
+        <control type="label">
+            <posx>120</posx>
+            <width>auto</width>
+            <aligny>center</aligny>
+            <height>64</height>
+            <font>SmallBold</font>
+            <label>$INFO[ListItem.Label]</label>
+            <textcolor>Light1</textcolor>
+            <selectedcolor>Light1</selectedcolor>
+            <animation effect="slide" start="0" end="-90" time="0" condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]">Conditional</animation>
+            <animation effect="slide" start="0" end="70" time="0" condition="Container.Content(episodes)">Conditional</animation>
+        </control>
+        <control type="label">
+            <right>30</right>
+            <width>500</width>
+            <aligny>center</aligny>
+            <height>64</height>
+            <align>right</align>
+            <font>Small</font>
+            <textcolor>Light1</textcolor>
+            <selectedcolor>Light1</selectedcolor>
+            <label>$INFO[ListItem.Label2]</label>
+        </control>
+    </include>
+</includes>

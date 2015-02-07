@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window id="123">
+    <defaultcontrol always="true">5</defaultcontrol>
+    <allowoverlay>yes</allowoverlay>
+    <zorder>3</zorder>
+    <controls>
+        <include>GlobalOverlay</include>
+        <control type="group">
+            <animation effect="fade" start="100" end="0" time="400" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(FileBrowser)">Conditional</animation>
+
+            <height>866</height>
+            <include>DefDialogInfoPanel</include>
+            
+            <control type="label">
+                <description>Header Label</description>
+                <centerleft>50%</centerleft>
+                <width>1000</width>
+                <align>center</align>
+                <label>5</label>
+                <posy>15</posy>
+                <font>MediumBold</font>
+            </control>
+  
+            <control type="grouplist" id="5">
+                <description>Control Area</description>
+                <left>15</left>
+                <right>15</right>
+                <bottom>15</bottom>
+                <height>756</height>
+                <itemgap>3</itemgap>
+                <orientation>vertical</orientation>
+                <pagecontrol>60</pagecontrol>
+                <onleft>28</onleft>
+                <onright>28</onright>
+                <onup>28</onup>
+                <ondown>28</ondown>
+            </control>
+
+            <control type="button" id="7">
+                <description>Default Button</description>
+                <align>left</align>
+                <texturefocus colordiffuse="Highlight" border="8">common/box.png</texturefocus>
+            </control>
+
+            <control type="radiobutton" id="8">
+                <description>Default RadioButton</description>
+                <align>left</align>
+                <radioposx>1230</radioposx>
+                <texturefocus colordiffuse="Highlight" border="8">common/box.png</texturefocus>
+            </control>
+
+            <control type="spincontrolex" id="9">
+                <description>Default spincontrolex</description>
+                <align>left</align>
+                <reverse>yes</reverse>
+                <texturefocus colordiffuse="Highlight" border="8">common/box.png</texturefocus>
+            </control>
+
+            <control type="sliderex" id="13">
+                <description>Default Slider</description>
+                <texturefocus colordiffuse="Highlight" border="8">common/box.png</texturefocus>
+            </control>
+
+        </control>
+
+    </controls>
+
+</window>

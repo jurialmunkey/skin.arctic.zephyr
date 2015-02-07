@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window id="6">
+	<defaultcontrol always="true">50</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+	<views>50</views>
+    <backgroundcolor>0x00000000</backgroundcolor>
+	<controls>
+
+		<include>GlobalBackground</include>
+
+		<include>View_50_List</include>
+
+		<control type="grouplist" id="9000">
+			<posx>15</posx>
+			<posy>210</posy>
+			<width>330</width>
+			<height>900</height>
+			<itemgap>3</itemgap>
+			<onleft>50</onleft>
+			<onright>50</onright>
+			<onup>9000</onup>
+			<ondown>9000</ondown>
+			<orientation>vertical</orientation>
+			<animation type="Conditional" condition="!ControlGroup(9000).HasFocus()">
+				<effect type="fade" start="100" end="50" time="200" />
+				<effect type="zoom" center="0,450" start="100" end="80" time="200" />
+			</animation>
+
+			<control type="button" id="2">
+				<description>View</description>
+				<width>330</width>
+				<align>left</align>
+			</control>
+
+			<control type="button" id="3">
+				<description>Sort</description>
+				<width>330</width>
+				<align>left</align>
+			</control>
+
+			<control type="togglebutton" id="4">
+				<description>Ascending</description>
+				<width>330</width>
+				<align>left</align>
+				<label>584</label>
+				<altlabel>585</altlabel>
+			</control>
+
+			<control type="radiobutton" id="20">
+				<description>Shuffle</description>
+				<width>330</width>
+				<align>left</align>
+				<label>191</label>
+			</control>
+
+			<control type="button" id="21">
+				<description>Save</description>
+				<width>330</width>
+				<align>left</align>
+				<label>190</label>
+			</control>
+
+			<control type="button" id="22">
+				<description>Clear</description>
+				<width>330</width>
+				<align>left</align>
+				<label>192</label>
+			</control>
+
+			<control type="button" id="23">
+				<description>Play</description>
+				<width>330</width>
+				<align>left</align>
+				<label>208</label>
+			</control>
+
+			<control type="button" id="98">
+				<description>Open Player Controls</description>
+				<width>330</width>
+				<align>left</align>
+				<label>31015</label>
+				<onclick>ActivateWindow(playercontrols)</onclick>
+				<visible>Player.HasMedia</visible>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<includes>
+    <include name="View_51_BigWide">
+        <description>List View (id=51)</description>
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(51)</visible>
+            <control type="group">
+                <top>PosterPad</top>
+                <left>180</left>
+                <width>1560</width>
+                <height>640</height>
+                <control type="image">
+                    <left>-8</left>
+                    <right>-8</right>
+                    <top>-8</top>
+                    <bottom>-8</bottom>
+                    
+                    <texture border="15" colordiffuse="Dark4">common/rounded-shadow8.png</texture>
+                </control>
+                <control type="wraplist" id="51">
+                    <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(sets)</visible>
+                    <left>10</left>
+                    <right>10</right>
+                    <top>10</top>
+                    <bottom>10</bottom>
+                    <onup>9000</onup>
+                    <ondown>60</ondown>
+                    <onleft>51</onleft>
+                    <onright>51</onright>
+                    <preloaditems>2</preloaditems>
+                    <pagecontrol>60</pagecontrol>
+                    <orientation>horizontal</orientation>
+                    <viewtype label="540">list</viewtype>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout height="620" width="1570">
+                        <control type="image">
+                            <width>100%</width>
+                            <height>100%</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture>$VAR[FanartImage]</texture>
+                        </control>
+                    </itemlayout>
+
+                    <focusedlayout height="620" width="1570">
+                        <control type="image">
+                            <width>100%</width>
+                            <height>100%</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture>$VAR[FanartImage]</texture>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <control type="group">
+                    <left>10</left>
+                    <right>10</right>
+                    <bottom>10</bottom>
+                    <height>70</height>
+                    <control type="image">
+                        <left>0</left>
+                        <right>0</right>
+                        <bottom>0</bottom>
+                        <height>70</height>
+                        <texture border="15" colordiffuse="df000000">common/white.png</texture>
+                    </control>
+                    <control type="label">
+                        <posx>30</posx>
+                        <width>200</width>
+                        <font>Small</font>
+                        <aligny>center</aligny>
+                        <height>64</height>
+                        <textcolor>White70</textcolor>
+                        <selectedcolor>White70</selectedcolor>
+                        <label>$VAR[LabelYear]</label>
+                        <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
+                    </control>
+                    <control type="label">
+                        <posx>120</posx>
+                        <width>auto</width>
+                        <aligny>center</aligny>
+                        <height>64</height>
+                        <font>SmallBold</font>
+                        <textcolor>White70</textcolor>
+                        <selectedcolor>White70</selectedcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                        <animation effect="slide" start="0" end="-90" time="0" condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]">Conditional</animation>
+                        <animation effect="slide" start="0" end="70" time="0" condition="Container.Content(episodes)">Conditional</animation>
+                    </control>
+                    <control type="label">
+                        <right>154</right>
+                        <width>500</width>
+                        <aligny>center</aligny>
+                        <height>64</height>
+                        <align>right</align>
+                        <font>Small</font>
+                        <textcolor>White70</textcolor>
+                        <selectedcolor>White70</selectedcolor>
+                        <label>$VAR[LabelDuration]</label>
+                    </control>
+                    <control type="image">
+                        <centerright>110</centerright>
+                        <centertop>32</centertop>
+                        <width>32</width>
+                        <height>32</height>
+                        <aspectratio aligny="top">keep</aspectratio>
+                        <texture>$VAR[PercentWatched]</texture>
+                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <animation effect="slide" start="0" end="64" time="0" condition="Container.Content(Seasons)">Conditional</animation>
+                    </control>
+                    <control type="label">
+                        <right>30</right>
+                        <width>500</width>
+                        <aligny>center</aligny>
+                        <height>64</height>
+                        <align>right</align>
+                        <font>Small</font>
+                        <textcolor>White70</textcolor>
+                        <selectedcolor>White70</selectedcolor>
+                        <label>$INFO[ListItem.Rating]</label>
+                        <visible>!Container.Content(seasons)</visible>
+                    </control>
+                </control>
+            </control>
+            <include>Furniture_Scrollbar_Horizontal</include>
+        </control>
+    </include>
+
+</includes>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window id="146">
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+
+    <controls>
+
+        <include>GlobalOverlay</include>
+
+        <control type="group">
+            <include>DefDialogInfoPanel</include>
+
+           
+            <control type="image">
+                <posx>30</posx>
+                <top>100</top>
+                <width>450</width>
+                <height>274</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture diffuse="diffuse/pvrinfo.png" fallback="pvr/background.jpg">$INFO[ListItem.Art(fanart)]</texture>
+            </control>
+            
+            <control type="label">
+                <description>Header Label</description>
+                <include>DefDialogInfoHeader</include>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+            
+            <control type="grouplist">
+                <left>510</left>
+                <right>30</right>
+                <posy>112</posy>
+                <orientation>vertical</orientation>
+                <usecontrolcoords>true</usecontrolcoords>
+                
+                <!-- Channel Name -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <label>551</label>
+                    <aligny>center</aligny>
+                </control>
+                <control type="label">
+                    <width>100%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <aligny>top</aligny>
+                    <label>$INFO[ListItem.Property(Addon.Name)]</label>
+                </control>
+                
+                <!-- Summary -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <label>20037</label>
+                    <aligny>center</aligny>
+                </control>
+                <control type="label">
+                    <width>100%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <aligny>top</aligny>
+                    <label>$INFO[ListItem.Property(Addon.Summary)]</label>
+                </control>
+                
+                <!-- Creator -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <label>21863</label>
+                    <aligny>center</aligny>
+                </control>
+                <control type="label">
+                    <width>100%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <aligny>top</aligny>
+                    <label>$INFO[ListItem.Property(Addon.Creator)]</label>
+                </control>
+                
+                <!-- Version -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <label>19114</label>
+                    <aligny>center</aligny>
+                </control>
+                <control type="label">
+                    <width>100%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <aligny>top</aligny>
+                    <label>$INFO[ListItem.Property(Addon.Version)]</label>
+                </control>
+                
+                <!-- Type -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <label>564</label>
+                    <aligny>center</aligny>
+                </control>
+                <control type="label">
+                    <width>100%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <aligny>top</aligny>
+                    <label>$INFO[ListItem.Property(Addon.Type)]</label>
+                </control>
+                
+                <!-- Description -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <label>21821</label>
+                    <aligny>center</aligny>
+                </control>
+                <control type="textbox">
+                    <width>100%</width>
+                    <height>190</height>
+                    <font>Tiny</font>
+                    <label>$INFO[ListItem.Property(Addon.Description)]</label>
+                    <align>justify</align>
+                </control>
+            </control>
+
+
+            <control type="grouplist" id="9000">
+                <posx>30</posx>
+                <width>450</width>
+                <height>423</height>
+                <bottom>30</bottom>
+                <itemgap>3</itemgap>
+                <onup>9000</onup>
+                <ondown>9000</ondown>
+                <onright>50</onright>
+                <onleft>50</onleft>
+                <orientation>vertical</orientation>
+                
+                <control type="button" id="12">
+                    <description>Launch</description>
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                    <label>518</label>
+                </control>
+                
+                <control type="button" id="6">
+                    <description>Install/Uninstall Addon button</description>
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                    <label>24022</label>
+                </control>
+
+                <control type="button" id="7">
+                    <description>Enable/Disable Addon button</description>
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                    <label>24021</label>    
+                </control>
+
+                <control type="button" id="9">
+                    <description>Addon Settings</description>
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                    <label>24020</label>
+                </control>
+
+                <control type="button" id="8">
+                    <description>Update Addon button</description>
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                    <label>24069</label>
+                </control>
+
+                <control type="button" id="10">
+                    <description>Changelog button</description>
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                    <label>24036</label>
+                </control>
+                
+                <control type="button" id="11">
+                    <description>Rollback</description>
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                    <label>24048</label>
+                </control>
+
+            </control>
+        </control>
+
+    </controls>
+
+</window>

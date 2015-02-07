@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window id="120">
+    <defaultcontrol always="true">15</defaultcontrol>
+
+    <controls>
+
+        <control type="group">
+            <animation type="WindowOpen">
+                <effect type="fade" start="0" end="100" time="150"/>
+                <effect type="slide" start="0,-64" end="0" time="150"/>
+            </animation>
+            <animation type="WindowClose">
+                <effect type="fade" end="0" start="100" time="150"/>
+                <effect type="slide" end="0,-64" start="0" time="150"/>
+            </animation>
+            <animation type="Visible">
+                <effect type="fade" start="0" end="100" time="150"/>
+                <effect type="slide" start="0,-64" end="0" time="150"/>
+            </animation>
+            <animation type="Hidden">
+                <effect type="fade" end="0" start="100" time="150"/>
+                <effect type="slide" end="0,-64" start="0" time="150"/>
+            </animation>
+            <control type="image">
+                <width>100%</width>
+                <height>74</height>
+                <texture colordiffuse="OSDBack">common/white.png</texture>
+            </control>
+            
+            <control type="grouplist" id="100">
+                <top>13</top>
+                <height>48</height>
+                <itemgap>16</itemgap>
+                <orientation>horizontal</orientation>
+                <align>left</align>
+                <onleft>6</onleft>
+                <onright condition="!Player.CanRecord | !VideoPlayer.Content(LiveTV)">12</onright>
+                <onright condition="Player.CanRecord + VideoPlayer.Content(LiveTV)">9003</onright>
+                <onup>noop</onup>
+                <ondown>noop</ondown>
+                <usecontrolcoords>true</usecontrolcoords>
+        
+                
+
+                <control type="button" id="1">
+                    <description>Repeat</description>
+                    <label>$LOCALIZE[486]$INFO[Playlist.Repeat, : ]</label>
+                    <onclick>XBMC.PlayerControl(Repeat)</onclick>
+                    <include>DefOSDButtons</include>
+                </control>
+
+                <control type="button" id="2">
+                    <description>Lyrics</description>
+                    <label>24013</label>
+                    <onclick>noop</onclick>
+                    <include>DefOSDButtons</include>
+                </control>
+                
+                <control type="button" id="3">
+                    <description>Playlist</description>
+                    <label>559</label>
+                    <onclick>ActivateWindow(MusicPlaylist)</onclick>
+                    <include>DefOSDButtons</include>
+                </control>
+            </control>
+            <control type="grouplist" id="101">
+            
+                <top>13</top>
+                <width>100%</width>
+                <height>48</height>
+                <itemgap>16</itemgap>
+                <orientation>horizontal</orientation>
+                <align>center</align>
+                <onleft>3</onleft>
+                <onright>500</onright>
+                <ondown>noop</ondown>
+                
+                <control type="button" id="12">
+                    <description>Skip Back</description>
+                    <width>48</width>
+                    <height>48</height>
+                    <label></label>
+                    <font>noop</font>
+                    <include>DefOSDUpDown</include>
+                    <texturefocus colordiffuse="Highlight" flipx="true">osd/next.png</texturefocus>
+                    <texturenofocus colordiffuse="White70" flipx="true">osd/next.png</texturenofocus>
+                    <onclick>PlayerControl(Previous)</onclick>
+                </control>
+
+                <control type="button" id="13">
+                    <description>Rewind</description>
+                    <width>48</width>
+                    <height>48</height>
+                    <label></label>
+                    <font>noop</font>
+                    <include>DefOSDUpDown</include>
+                    <texturefocus colordiffuse="Highlight" flipx="true">osd/ff.png</texturefocus>
+                    <texturenofocus colordiffuse="White70" flipx="true">osd/ff.png</texturenofocus>
+                    <onclick>PlayerControl(Rewind)</onclick>
+                    <enable>Player.SeekEnabled</enable>
+                    <animation effect="fade" start="100" end="33" time="100" condition="!Player.SeekEnabled">Conditional</animation>
+                </control>
+
+                <control type="togglebutton" id="14">
+                    <description>Play/Pause</description>
+                    <width>48</width>
+                    <height>48</height>
+                    <label></label>
+                    <altlabel></altlabel>
+                    <font>noop</font>
+                    <include>DefOSDUpDown</include>
+                    <texturefocus colordiffuse="Highlight">osd/pause.png</texturefocus>
+                    <texturenofocus colordiffuse="White70">osd/pause.png</texturenofocus>
+                    <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+                    <alttexturefocus colordiffuse="Highlight">osd/play.png</alttexturefocus>
+                    <alttexturenofocus colordiffuse="White70">osd/play.png</alttexturenofocus>
+                    <onclick>PlayerControl(Play)</onclick>
+                    <enable>Player.PauseEnabled</enable>
+                    <animation effect="fade" start="100" end="33" time="100" condition="!Player.PauseEnabled">Conditional</animation>
+                </control>
+
+                <control type="button" id="15">
+                    <description>Stop</description>
+                    <width>48</width>
+                    <height>48</height>
+                    <label></label>
+                    <font>noop</font>
+                    <include>DefOSDUpDown</include>
+                    <texturefocus colordiffuse="Highlight">osd/stop.png</texturefocus>
+                    <texturenofocus colordiffuse="White70">osd/stop.png</texturenofocus>
+                    <onclick>PlayerControl(Stop)</onclick>
+                </control>
+
+                <control type="button" id="16">
+                    <description>Fast Forward</description>
+                    <width>48</width>
+                    <height>48</height>
+                    <label></label>
+                    <font>noop</font>
+                    <include>DefOSDUpDown</include>
+                    <texturefocus colordiffuse="Highlight">osd/ff.png</texturefocus>
+                    <texturenofocus colordiffuse="White70">osd/ff.png</texturenofocus>
+                    <onclick>PlayerControl(Forward)</onclick>
+                    <enable>Player.SeekEnabled</enable>
+                    <animation effect="fade" start="100" end="33" time="100" condition="!Player.SeekEnabled">Conditional</animation>
+                </control>
+
+                <control type="button" id="17">
+                    <description>Next</description>
+                    <width>48</width>
+                    <height>48</height>
+                    <label></label>
+                    <font>noop</font>
+                    <include>DefOSDUpDown</include>
+                    <texturefocus colordiffuse="Highlight">osd/next.png</texturefocus>
+                    <texturenofocus colordiffuse="White70">osd/next.png</texturenofocus>
+                    <onclick>PlayerControl(Next)</onclick>
+                </control>
+                
+                <control type="button" id="9002">
+                    <width>48</width>
+                    <height>48</height>
+                    <font>noop</font>
+                    <include>DefOSDUpDown</include>
+                    <texturefocus colordiffuse="Highlight">osd/eject.png</texturefocus>
+                    <texturenofocus colordiffuse="White70">osd/eject.png</texturenofocus>
+                    <onclick>EjectTray()</onclick>
+                    <visible>System.HasMediadvd</visible>
+                </control>
+                <include condition="!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)">VideoOSDFullscreen</include>
+            
+            </control>
+            
+            <control type="grouplist" id="102">
+                <top>13</top>
+                <right>0</right>
+                <height>48</height>
+                <itemgap>16</itemgap>
+                <orientation>horizontal</orientation>
+                <align>right</align>
+                <onleft>17</onleft>
+                <onright>1</onright>
+                <onup>noop</onup>
+                <ondown>noop</ondown>
+                <usecontrolcoords>true</usecontrolcoords>
+        
+                <control type="button" id="500">
+                    <description>Vis</description>
+                    <label>250</label>
+                    <include>DefOSDButtons</include>
+                    <disabledcolor>White12</disabledcolor>
+                </control>
+
+                <control type="button" id="5">
+                    <width>150</width>
+                    <description>Presets</description>
+                    <label>13388</label>
+                    <onclick>ActivateWindow(122)</onclick>
+                    <include>DefOSDButtons</include>
+                    <disabledcolor>White12</disabledcolor>
+                </control>
+
+                <control type="button" id="6">
+                    <width>270</width>
+                    <description>Random</description>
+                    <include>DefOSDButtons</include>
+                    <label>$LOCALIZE[590]$INFO[Playlist.Random, : ]</label>
+                    <onclick>XBMC.PlayerControl(Random)</onclick>
+                </control>
+            </control>
+        </control>
+        
+    
+    </controls>
+
+</window>

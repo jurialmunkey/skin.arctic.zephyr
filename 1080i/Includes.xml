@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<includes>
+
+    <include file="Defaults.xml" />
+    <include file="CommonViews.xml" />
+    
+    <!-- Views -->
+    <include file="View_50_List.xml" />
+    <include file="View_51_BigWide.xml" />
+    <include file="View_52_BigList.xml" />
+    <include file="View_53_Poster.xml" />
+    <include file="View_54_Banner.xml" />
+    <include file="View_500_Wall.xml" />
+    
+    
+    <include file="Includes_Furniture.xml" />
+    <include file="Includes_Labels.xml" />
+    <include file="Includes_Images.xml" />
+    <include file="Includes_Animations.xml" />
+    <include file="Includes_Defs.xml" />
+    <include file="Includes_PVR.xml" />
+    
+    <!-- Skin Shortcuts -->
+    <include file="script-skinshortcuts-includes.xml"/>
+    
+
+    <include name="HiddenButton">
+        <posx>-20</posx>
+        <posy>-20</posy>
+        <width>1</width>
+        <height>1</height>
+        <label>-</label>
+        <texturenofocus>-</texturenofocus>
+        <texturefocus>-</texturefocus>
+    </include>
+
+    <include name="Dimensions_Fullscreen">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>1920</width>
+        <height>1080</height>
+    </include>
+
+    <include name="WindowID">
+        <width>780</width>
+        <height>21</height>
+        <textcolor>Blue</textcolor>
+        <shadowcolor>Black</shadowcolor>
+        <align>left</align>
+    </include>
+
+    <include name="DialogID">
+        <width>780</width>
+        <height>21</height>
+        <textcolor>Green</textcolor>
+        <shadowcolor>Black</shadowcolor>
+        <align>left</align>
+    </include>
+
+    <include name="PathID">
+        <posx>15r</posx>
+        <posy>15</posy>
+        <width>780</width>
+        <height>21</height>
+        <textcolor>Blue</textcolor>
+        <shadowcolor>Black</shadowcolor>
+        <align>right</align>
+    </include>
+
+    <include name="ControlID">
+        <posx>15r</posx>
+        <posy>48</posy>
+        <width>780</width>
+        <height>21</height>
+        <textcolor>Red</textcolor>
+        <shadowcolor>Black</shadowcolor>
+        <align>right</align>
+    </include>
+
+    <include name="GlobalOverlay">
+
+        <control type="image">
+            <include>Animation.FadeIn</include>
+            <include condition="!Window.IsVisible(DialogButtonMenu.xml)">Animation.FadeOut</include>
+            <include>Dimensions_Fullscreen</include>
+            <texture border="2">common/black-back.png</texture>
+        </control>
+
+    </include>
+
+    <variable name="GlobalFanart">
+        <value condition="Window.IsVisible(home)">$INFO[Container(301).ListItem.Art(fanart)]</value>
+        <value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="!IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
+    </variable>
+    <include name="GlobalVideoWindow">
+        <control type="image" description="Background">
+            <include>Dimensions_Fullscreen</include>
+            <texture colordiffuse="Background">common/bg.jpg</texture>
+        </control>
+        <control type="image" description="Background">
+            <include>Dimensions_Fullscreen</include>
+            <texture colordiffuse="Black">common/white.png</texture>
+            <visible>Player.HasVideo + Skin.HasSetting(global.showvideo)</visible>
+        </control>
+        <control type="videowindow">
+            <visible>Skin.HasSetting(global.showvideo)</visible>
+            <include>Dimensions_Fullscreen</include>
+        </control>
+    </include>
+    <include name="GlobalBackgroundFade"><colordiffuse>FanartFade</colordiffuse></include>
+    <include name="GlobalBackground">
+        <include>GlobalVideoWindow</include>
+        <control type="image" description="Background">
+            <include>Dimensions_Fullscreen</include>
+            <include>Animation.FadeFromHome</include>
+            <texture colordiffuse="Background">common/bg.jpg</texture>
+            <visible>!Window.IsVisible(home)</visible>
+            <animation effect="fade" start="100" end="75" time="200" condition="Player.HasVideo + Skin.HasSetting(global.showvideo)">Conditional</animation>
+        </control>
+        <control type="multiimage" description="Fanart">
+            <include condition="!Window.IsVisible(home)">GlobalBackgroundFade</include>
+            <visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+            <include>Dimensions_Fullscreen</include>
+            <include>Animation.FadeFromHome</include>
+            <animation effect="fade" end="0" start="100" time="350" tween="cubic" easing="inout" condition="Window.IsVisible(home)">WindowClose</animation>
+            <fadetime>600</fadetime>
+            <timeperimage>12000</timeperimage>
+            <randomize>true</randomize>
+            <imagepath background="true">$VAR[GlobalFanart]</imagepath>
+            <animation effect="zoom" start="110" end="120" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
+            <animation effect="slide" start="-20,-20" end="20,20" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
+        </control>
+        <control type="image" description="FanartOverlay">
+            <include>Dimensions_Fullscreen</include>
+            <visible>!Window.IsVisible(home)</visible>
+            <include>Animation.FadeFromHome</include>
+            <texture colordiffuse="FloorFade">common/floor.png</texture>
+        </control>
+        
+    </include>
+
+</includes>

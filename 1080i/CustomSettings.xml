@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window id="56">
+	<defaultcontrol always="true">100</defaultcontrol>
+	<allowoverlay>yes</allowoverlay>
+
+	<controls>
+
+		<include>GlobalBackground</include>
+
+		<control type="list" id="100">
+			<description>List</description>
+			<posx>15</posx>
+			<posy>210</posy>
+			<width>450</width>
+			<height>720</height>
+			<onup>100</onup>
+			<ondown>100</ondown>
+			<onleft>-</onleft>
+			<onright>99</onright>
+			<scrolltime>0</scrolltime>
+			<orientation>vertical</orientation>
+			<pagecontrol>-</pagecontrol>
+
+			<itemlayout height="69" width="450">
+
+				<control type="image">
+					<width>450</width>
+					<height>66</height>
+					<texture border="2">other_textures/ButtonNF.png</texture>
+				</control>
+
+				<control type="label">
+					<posx>30</posx>
+					<width>390</width>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+
+			</itemlayout>
+
+			<focusedlayout height="69" width="450">
+
+				<control type="image">
+					<width>450</width>
+					<height>66</height>
+					<texture border="5">other_textures/ButtonFO.png</texture>
+					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(100)">Conditional</animation>
+				</control>
+
+				<control type="label">
+					<posx>30</posx>
+					<width>390</width>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+
+			</focusedlayout>
+
+			<content>
+
+				<item id="1">
+					<description>Background Visuals</description>
+					<label>31016</label>
+					<onclick>-</onclick>
+				</item>
+
+				<item id="2">
+					<description>Lyrics/Subtitles</description>
+					<label>31017</label>
+					<onclick>-</onclick>
+				</item>
+
+				<item id="3">
+					<description>Debug</description>
+					<label>31033</label>
+					<onclick>-</onclick>
+				</item>
+
+			</content>
+
+		</control>
+
+		<control type="group" id="99">
+			<posx>510</posx>
+			<posy>210</posy>
+
+			<control type="grouplist" id="200">
+				<description>Control Area</description>
+				<width>1230</width>
+				<height>720</height>
+				<itemgap>3</itemgap>
+				<onup>200</onup>
+				<ondown>200</ondown>
+				<onleft>100</onleft>
+				<onright>-</onright>
+				<orientation>vertical</orientation>
+				<visible>Container(100).Hasfocus(1)</visible>
+
+				<control type="radiobutton" id="201">
+					<description>Background Visualiser</description>
+					<width>1230</width>
+					<align>left</align>
+					<label>31023</label>
+					<onclick>Skin.ToggleSetting(NoBackgroundVisualiser)</onclick>
+					<selected>Skin.HasSetting(NoBackgroundVisualiser)</selected>
+				</control>
+
+				<control type="radiobutton" id="202">
+					<description>Background Video</description>
+					<width>1230</width>
+					<align>left</align>
+					<label>31024</label>
+					<onclick>Skin.ToggleSetting(NoBackgroundVideo)</onclick>
+					<selected>Skin.HasSetting(NoBackgroundVideo)</selected>
+				</control>
+
+			</control>
+
+			<control type="grouplist" id="300">
+				<description>Control Area</description>
+				<width>1230</width>
+				<height>720</height>
+				<itemgap>3</itemgap>
+				<onup>200</onup>
+				<ondown>200</ondown>
+				<onleft>100</onleft>
+				<onright>-</onright>
+				<orientation>vertical</orientation>
+				<visible>Container(100).Hasfocus(2)</visible>
+
+				<control type="button" id="301">
+					<description>Default Button</description>
+					<width>1230</width>
+					<align>left</align>
+					<label>31025</label>
+					<onclick>Skin.SetAddon(LyricPath,xbmc.python.lyrics)</onclick>
+				</control>
+
+				<control type="button" id="302">
+					<description>Default Button</description>
+					<width>1230</width>
+					<align>left</align>
+					<label>31026</label>
+					<onclick>Skin.SetAddon(SubtitlePath,xbmc.python.subtitles)</onclick>
+				</control>
+
+			</control>
+
+			<control type="grouplist" id="400">
+				<description>Control Area</description>
+				<width>1230</width>
+				<height>720</height>
+				<itemgap>3</itemgap>
+				<onup>200</onup>
+				<ondown>200</ondown>
+				<onleft>100</onleft>
+				<onright>-</onright>
+				<orientation>vertical</orientation>
+				<visible>Container(100).Hasfocus(2)</visible>
+
+				<control type="label" id="401">
+					<description>Default Button</description>
+					<width>1200</width>
+					<align>right</align>
+					<label>$INFO[Skin.String(LyricPath)]</label>
+					<visible>!IsEmpty(Skin.String(LyricPath))</visible>
+				</control>
+
+				<control type="label" id="402">
+					<description>Default Button</description>
+					<width>1200</width>
+					<align>right</align>
+					<label>CU Lyrics</label>
+					<visible>IsEmpty(Skin.String(LyricPath))</visible>
+				</control>
+
+				<control type="label" id="403">
+					<description>Default Button</description>
+					<width>1200</width>
+					<align>right</align>
+					<label>$INFO[Skin.String(SubtitlesPath)]</label>
+					<visible>!IsEmpty(Skin.String(SubtitlesPath))</visible>
+				</control>
+
+				<control type="label" id="404">
+					<description>Default Button</description>
+					<width>1200</width>
+					<align>right</align>
+					<label>XBMC Subtitles</label>
+					<visible>IsEmpty(Skin.String(SubtitlesPath))</visible>
+				</control>
+
+			</control>
+
+			<control type="grouplist" id="500">
+				<description>Control Area</description>
+				<width>1230</width>
+				<height>720</height>
+				<itemgap>3</itemgap>
+				<onup>500</onup>
+				<ondown>500</ondown>
+				<onleft>100</onleft>
+				<onright>-</onright>
+				<orientation>vertical</orientation>
+				<visible>Container(100).Hasfocus(3)</visible>
+
+				<control type="radiobutton" id="501">
+					<description>Enable Debug Grid</description>
+					<width>1230</width>
+					<align>left</align>
+					<label>31034</label>
+					<onclick>Skin.ToggleSetting(DebugGrid)</onclick>
+					<selected>Skin.HasSetting(DebugGrid)</selected>
+				</control>
+
+				<control type="radiobutton" id="502">
+					<description>Disable Debug Info</description>
+					<width>1230</width>
+					<align>left</align>
+					<label>31035</label>
+					<onclick>Skin.ToggleSetting(HideDebugInfo)</onclick>
+					<selected>Skin.HasSetting(HideDebugInfo)</selected>
+				</control>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

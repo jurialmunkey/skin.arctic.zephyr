@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window id="135">
+    <defaultcontrol always="true">10</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+
+    <controls>
+
+        <include>GlobalOverlay</include>
+
+        <control type="group">
+            <height>870</height>
+            <include>DefDialogInfoPanel</include>
+
+            <control type="label">
+                <description>Header Label</description>
+                <include>DefDialogInfoHeader</include>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+            <control type="image">
+                <posx>30</posx>
+                <top>100</top>
+                <width>450</width>
+                <height>450</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture diffuse="diffuse/pvrinfo.png">$VAR[FanartImage]</texture>
+            </control>
+            
+            <control type="grouplist">
+                <right>14</right>
+                <posy>18</posy>
+                <width>600</width>
+                <height>64</height>
+                <orientation>horizontal</orientation>
+                <align>right</align>
+                <itemgap>24</itemgap>
+                <usecontrolcoords>true</usecontrolcoords>
+                <control type="image">
+                    <width>64</width>
+                    <height>64</height>
+                    <texture colordiffuse="Black70">flags/3D.png</texture>
+                    <visible>ListItem.IsStereoscopic</visible>
+                </control>
+                <control type="image">
+                    <width>64</width>
+                    <height>64</height>
+                    <texture colordiffuse="Black70">flags/bluray.png</texture>
+                    <visible>[substring(ListItem.FilenameAndPath,bluray) | substring(ListItem.FilenameAndPath,bdrip) | substring(ListItem.FilenameAndPath,bd25) | substring(ListItem.FilenameAndPath,bd50)]</visible>
+                </control>
+                <control type="image">
+                    <width>64</width>
+                    <height>64</height>
+                    <texture colordiffuse="Black70">flags/dvd.png</texture>
+                    <visible>substring(ListItem.FilenameAndPath,dvd)</visible>
+                </control>
+
+                <control type="image">
+                    <width>64</width>
+                    <height>64</height>
+                    <texture colordiffuse="Black70">flags/$VAR[MusicFlagstar1].png</texture>
+                </control>
+                <control type="image">
+                    <posx>-48</posx>
+                    <width>64</width>
+                    <height>64</height>
+                    <texture colordiffuse="Black70">flags/$VAR[MusicFlagstar2].png</texture>
+                </control>
+                <control type="image">
+                    <posx>-48</posx>
+                    <width>64</width>
+                    <height>64</height>
+                    <texture colordiffuse="Black70">flags/$VAR[MusicFlagstar3].png</texture>
+                </control>
+                <control type="image">
+                    <posx>-48</posx>
+                    <width>64</width>
+                    <height>64</height>
+                    <texture colordiffuse="Black70">flags/$VAR[MusicFlagstar4].png</texture>
+                </control>
+                <control type="image">
+                    <posx>-48</posx>
+                    <width>64</width>
+                    <height>64</height>
+                    <texture colordiffuse="Black70">flags/$VAR[MusicFlagstar5].png</texture>
+                </control>
+                
+                
+            </control>
+
+            <control type="grouplist">
+                <left>510</left>
+                <right>30</right>
+                <posy>112</posy>
+                <orientation>vertical</orientation>
+                <usecontrolcoords>true</usecontrolcoords>
+                
+                <!-- Artist -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <label>557</label>
+                    <aligny>center</aligny>
+                </control>
+                <control type="label">
+                    <width>65%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <aligny>top</aligny>
+                    <label fallback="19055">$INFO[ListItem.Artist]</label>
+                </control>
+                
+                <!-- Album -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <label>558</label>
+                    <aligny>center</aligny>
+                </control>
+                <control type="label">
+                    <width>65%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <aligny>top</aligny>
+                    <label fallback="19055">$INFO[ListItem.Album]</label>
+                </control>
+                
+                <!-- Genre -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <label>515</label>
+                    <aligny>center</aligny>
+                </control>
+                <control type="label">
+                    <width>65%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <aligny>top</aligny>
+                    <label fallback="19055">$INFO[ListItem.Genre]</label>
+                </control>
+                
+                
+                <!-- Year -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <label>562</label>
+                    <aligny>center</aligny>
+                </control>
+                <control type="label">
+                    <width>65%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <aligny>top</aligny>
+                    <label fallback="19055">$INFO[ListItem.Year]</label>
+                </control>
+                
+            </control>
+
+            <control type="grouplist" id="9000">
+                <posx>30</posx>
+                <width>450</width>
+                <height>281</height>
+                <bottom>33</bottom>
+                <itemgap>3</itemgap>
+                <onup>9000</onup>
+                <ondown>9000</ondown>
+                <onright>50</onright>
+                <onleft>50</onleft>
+                <orientation>vertical</orientation>
+
+                <control type="button" id ="10">
+                    <width>450</width>
+                    <height>68</height>
+                    <label>186</label>
+                    <onright>IncreaseRating</onright>
+                    <onleft>DecreaseRating</onleft>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                </control>
+                
+                <control type="button" id ="11">
+                    <width>450</width>
+                    <height>68</height>
+                    <label>222</label>
+                    <onright>IncreaseRating</onright>
+                    <onleft>DecreaseRating</onleft>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                </control>
+                
+                <control type="button" id ="12">
+                    <width>450</width>
+                    <height>68</height>
+                    <label>10523</label>
+                    <onright>IncreaseRating</onright>
+                    <onleft>DecreaseRating</onleft>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                </control>
+                
+                <control type="button" id ="13">
+                    <width>450</width>
+                    <height>68</height>
+                    <label>13405</label>
+                    <onright>IncreaseRating</onright>
+                    <onleft>DecreaseRating</onleft>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                </control>
+
+            </control>
+
+        </control>
+
+
+    </controls>
+
+</window>

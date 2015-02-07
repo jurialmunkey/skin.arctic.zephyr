@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<includes>
+
+   <include name="View_500_Wall">
+    
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(500)</visible>
+            <control type="group">
+                <left>70</left>
+                <width>418</width>
+                <top>206</top>
+                <height>660</height>
+                <control type="image">
+                    <width>100%</width>
+                    <height>100%</height>
+                    <texture border="10">common/nofocus-shadow10.png</texture>
+                </control>
+                <control type="image">
+                    <left>10</left>
+                    <top>10</top>
+                    <right>10</right>
+                    <bottom>10</bottom>
+                    <texture border="10" colordiffuse="Panel">common/box.png</texture>
+                </control>
+                <control type="image">
+                    <left>10</left>
+                    <top>10</top>
+                    <right>10</right>
+                    <bottom>10</bottom>
+                    <fadetime>300</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
+                    <texture diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
+                </control>
+                <control type="group">
+                    <left>30</left>
+                    <top>243</top>
+                    <right>30</right>
+                    <bottom>10</bottom>
+                    <visible>false</visible>
+                    <control type="label">
+                        <top>10</top>
+                        <aligny>center</aligny>
+                        <height>64</height>
+                        <font>SmallBold</font>
+                        <textcolor>White100</textcolor>
+                        <selectedcolor>White100</selectedcolor>
+                        <label>$INFO[ListItem.Title]</label>
+                    </control>
+                    <control type="label">
+                        <top>50</top>
+                        <height>64</height>
+                        <aligny>center</aligny>
+                        <font>Tiny</font>
+                        <textcolor>White100</textcolor>
+                        <selectedcolor>White100</selectedcolor>
+                        <label>$INFO[ListItem.Genre]</label>
+                    </control>
+                    <control type="textbox">
+                        <top>125</top>
+                        <height>248</height>
+                        <align>justify</align>
+                        <font>Tiny</font>
+                        <textcolor>White100</textcolor>
+                        <selectedcolor>White100</selectedcolor>
+                        <label>$INFO[ListItem.Plot]</label>
+                    </control>
+                </control>
+            
+            </control>
+            <control type="group">
+                <control type="panel" id="500">
+                    <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+                    <top>206</top>
+                    <right>70</right>
+                    <width>1362</width>
+                    <height>660</height>
+                    <onleft>9000</onleft>
+                    <onright>60</onright>
+                    <onup>500</onup>
+                    <ondown>500</ondown>
+                    <preloaditems>2</preloaditems>
+                    <pagecontrol>60</pagecontrol>
+                    <viewtype label="536">list</viewtype>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout height="330" width="227">
+                        <control type="image">
+                            <width>100%</width>
+                            <height>100%</height>
+                            <texture border="10">common/nofocus-shadow10.png</texture>
+                        </control>
+                        <control type="image">
+                            <left>10</left>
+                            <top>10</top>
+                            <right>10</right>
+                            <bottom>10</bottom>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture diffuse="diffuse/wall.png">$VAR[PosterImage]</texture>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="330" width="227">
+                        <control type="group">
+                            <control type="image">
+                                <width>100%</width>
+                                <height>100%</height>
+                                <texture border="10">common/nofocus-shadow10.png</texture>
+                            </control>
+                            <control type="image">
+                                <left>10</left>
+                                <top>10</top>
+                                <right>10</right>
+                                <bottom>10</bottom>
+                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <texture diffuse="diffuse/wall.png">$VAR[PosterImage]</texture>
+                            </control>
+                            <control type="image">
+                                <left>8</left>
+                                <top>8</top>
+                                <right>8</right>
+                                <bottom>8</bottom>
+                                <texture colordiffuse="Highlight">common/select-box.png</texture>
+                                <animation type="Focus">
+                                    <effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+                                    <effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+                                </animation>
+                                <animation type="Unfocus">
+                                    <effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+                                    <effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+                                </animation>
+                            </control>
+                          
+                        </control>
+                    </focusedlayout>
+                </control>
+                <include>Furniture_Scrollbar</include>
+            </control>
+        </control>
+    </include>
+</includes>

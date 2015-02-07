@@ -1,0 +1,155 @@
+<window>
+    <defaultcontrol>30</defaultcontrol>
+    <allowoverlay>yes</allowoverlay>
+    <defaultcontrol always="true">9101</defaultcontrol>
+    <onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=0)</onunload>
+
+    <controls>
+        <include>GlobalBackground</include>
+        <include>Furniture_Header</include>
+        <include>Furniture_Clock</include>
+        <control type="group">
+            <include>Animation.Common</include>
+            <left>72</left>
+            <right>72</right>
+            <top>208</top>
+            <height>656</height>
+            
+            <control type="image">
+                <width>100%</width>
+                <height>100%</height>
+                <texture border="16" colordiffuse="Panel">common/rounded-shadow8.png</texture>
+            </control>
+            
+            <control type="group">
+                <left>8</left>
+                <right>8</right>
+                <top>8</top>
+                <bottom>8</bottom>
+                <!-- Left Group -->
+                <control type="grouplist" id="9100">
+                    <description>Button Area</description>
+                    <width>450</width>
+                    <top>140</top>
+                    <bottom>0</bottom>
+                    <itemgap>0</itemgap>
+                    <onleft>9000</onleft>
+                    <onright>9200</onright>
+                    <onup>20</onup>
+                    <ondown>9100</ondown>
+                    <orientation>vertical</orientation>
+                    <control type="togglebutton" id="9101" description="Home">
+                        <usealttexture>ControlGroup(9100).HasFocus(9101)</usealttexture>
+                        <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
+                        <include>DefSettingsButton</include>
+                        <label>10000</label>
+                    </control>
+                    <control type="togglebutton" id="9102" description="Global">
+                        <usealttexture>ControlGroup(9100).HasFocus(9102)</usealttexture>
+                        <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
+                        <include>DefSettingsButton</include>
+                        <label>31110</label>
+                    </control>
+                </control>
+                
+                
+                <!-- Right Group -->
+                <control type="grouplist" id="9200">
+                    <description>Control Area</description>
+                    <left>450</left>
+                    <right>0</right>
+                    <top>140</top>
+                    <bottom>10</bottom>
+                    <itemgap>0</itemgap>
+                    <onleft>9100</onleft>
+                    <onright>9000</onright>
+                    <onup>9200</onup>
+                    <ondown>9200</ondown>
+                    <orientation>vertical</orientation>
+                    <!-- Home -->
+                    <control type="button" id="9211" description="Customise Home">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31109</label>
+                        <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
+                    </control>
+                    <control type="radiobutton" id="9212" description="Show Header">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31115</label>
+                        <selected>Skin.HasSetting(home.showheader)</selected>
+                        <onclick>Skin.ToggleSetting(home.showheader)</onclick>
+                    </control>
+                    
+                    <!-- Global -->
+                    <control type="radiobutton" id="9221" description="Show video in background">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9102)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31111</label>
+                        <selected>Skin.HasSetting(global.showvideo)</selected>
+                        <onclick>Skin.ToggleSetting(global.showvideo)</onclick>
+                    </control>
+                </control>
+                
+                
+                
+                <!-- Lines -->
+                <control type="image">
+                    <top>10</top>
+                    <left>450</left>
+                    <width>1</width>
+                    <bottom>10</bottom>
+                    <colordiffuse>Black12</colordiffuse>
+                    <texture>common/white.png</texture>
+                </control>
+         
+                
+                <!-- Header -->
+                <control type="label">
+                    <left>30</left>
+                    <width>390</width>
+                    <posy>18</posy>
+                    <font>MediumBold</font>
+                    <label>5</label>
+                    <textcolor>White100</textcolor>
+                </control>
+                <control type="label">
+                    <left>30</left>
+                    <right>30</right>
+                    <posy>77</posy>
+                    <height>30</height>
+                    <font>Tiny</font>
+                    <textcolor>White100</textcolor>
+                    <scroll>true</scroll>
+                    <align>left</align>
+                    <textoffsetx>0</textoffsetx>
+                    <texturenofocus>noop</texturenofocus>
+                    <texturefocus>noop</texturefocus>
+                    <label>$INFO[System.ProfileName]</label>
+                </control>
+                <control type="label">
+                    <left>480</left>
+                    <width>390</width>
+                    <posy>18</posy>
+                    <font>MediumBold</font>
+                    <label>$VAR[Label_SettingsHeader]</label>
+                    <textcolor>White100</textcolor>
+                </control>
+                <control type="label">
+                    <left>480</left>
+                    <right>30</right>
+                    <posy>77</posy>
+                    <height>30</height>
+                    <font>Tiny</font>
+                    <textcolor>White100</textcolor>
+                    <scroll>true</scroll>
+                    <label>19055</label>
+                </control>
+            </control>
+        </control>
+        <include>Def9000SettingsMenu</include>
+    </controls>
+</window>

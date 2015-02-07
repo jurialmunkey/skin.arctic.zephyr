@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window id="2001">
+    <defaultcontrol always="true">9000</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+
+    <controls>
+
+        <include>GlobalOverlay</include>
+
+        <control type="group">
+            <height>870</height>
+            <include>DefDialogInfoPanel</include>
+
+            <control type="label">
+                <description>Header Label</description>
+                <include>DefDialogInfoHeader</include>
+                <label>$INFO[ListItem.Album]$INFO[ListItem.Year, (,)]</label>
+                <visible>Container.Content(albums)</visible>
+            </control>
+            <control type="label">
+                <description>Header Label</description>
+                <include>DefDialogInfoHeader</include>
+                <label>$INFO[ListItem.Artist]</label>
+                <visible>!Container.Content(albums)</visible>
+            </control>
+            <control type="image">
+                <posx>30</posx>
+                <top>100</top>
+                <width>450</width>
+                <height>450</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture diffuse="diffuse/pvrinfo.png">$VAR[FanartImage]</texture>
+                <visible>!Control.HasFocus(50)</visible>
+            </control>
+            <control type="image">
+                <posx>30</posx>
+                <top>100</top>
+                <width>450</width>
+                <height>450</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture diffuse="diffuse/pvrinfo.png">$INFO[Container(50).ListItem.Thumb]</texture>
+                <visible>Control.HasFocus(50)</visible>
+            </control>
+            
+            <control type="grouplist">
+                <right>14</right>
+                <posy>18</posy>
+                <width>600</width>
+                <height>64</height>
+                <orientation>horizontal</orientation>
+                <align>right</align>
+                <itemgap>24</itemgap>
+                <usecontrolcoords>true</usecontrolcoords>
+
+                <control type="image">
+                    <width>64</width>
+                    <height>64</height>
+                    <texture colordiffuse="Black70">flags/$VAR[MusicFlagstar1].png</texture>
+                </control>
+                <control type="image">
+                    <posx>-48</posx>
+                    <width>64</width>
+                    <height>64</height>
+                    <texture colordiffuse="Black70">flags/$VAR[MusicFlagstar2].png</texture>
+                </control>
+                <control type="image">
+                    <posx>-48</posx>
+                    <width>64</width>
+                    <height>64</height>
+                    <texture colordiffuse="Black70">flags/$VAR[MusicFlagstar3].png</texture>
+                </control>
+                <control type="image">
+                    <posx>-48</posx>
+                    <width>64</width>
+                    <height>64</height>
+                    <texture colordiffuse="Black70">flags/$VAR[MusicFlagstar4].png</texture>
+                </control>
+                <control type="image">
+                    <posx>-48</posx>
+                    <width>64</width>
+                    <height>64</height>
+                    <texture colordiffuse="Black70">flags/$VAR[MusicFlagstar5].png</texture>
+                </control>
+                
+                
+            </control>
+
+            <control type="grouplist">
+                <left>510</left>
+                <right>30</right>
+                <posy>112</posy>
+                <visible>Control.IsVisible(4)</visible>
+                <orientation>vertical</orientation>
+                <usecontrolcoords>true</usecontrolcoords>
+                
+                <!-- Artist -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <label>557</label>
+                    <aligny>center</aligny>
+                    <visible>Container.Content(albums)</visible>
+                </control>
+                <control type="label">
+                    <width>65%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <aligny>top</aligny>
+                    <label fallback="19055">$INFO[ListItem.Artist]</label>
+                    <visible>Container.Content(albums)</visible>
+                </control>
+                
+                <!-- Genre -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <label>515</label>
+                    <aligny>center</aligny>
+                    <visible>Container.Content(albums)</visible>
+                </control>
+                <control type="label">
+                    <width>100%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <aligny>top</aligny>
+                    <visible>Container.Content(albums)</visible>
+                    <label fallback="19055">$INFO[ListItem.Genre]</label>
+                </control>
+                
+                <!-- Studio -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <label>572</label>
+                    <aligny>center</aligny>
+                    <visible>Container.Content(albums)</visible>
+                </control>
+                <control type="label">
+                    <width>100%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <aligny>top</aligny>
+                    <visible>Container.Content(albums)</visible>
+                    <label fallback="19055">$INFO[ListItem.Property(Album_Label)]</label>
+                </control>
+                
+                <!-- Styles -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <label>176</label>
+                    <aligny>center</aligny>
+                    <visible>Container.Content(albums)</visible>
+                </control>
+                <control type="label">
+                    <width>100%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <aligny>top</aligny>
+                    <visible>Container.Content(albums)</visible>
+                    <label fallback="19055">$INFO[ListItem.Property(Album_Style)]</label>
+                </control>
+                
+                <!-- Mood -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <label>175</label>
+                    <visible>Container.Content(albums)</visible>
+                    <aligny>center</aligny>
+                </control>
+                <control type="label">
+                    <width>100%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <aligny>top</aligny>
+                    <visible>Container.Content(albums)</visible>
+                    <label fallback="19055">$INFO[ListItem.Property(Album_Mood)]</label>
+                </control>
+                
+                <!-- Formed Born -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <visible>!Container.Content(albums)</visible>
+                    <label>$LOCALIZE[21893] / $LOCALIZE[21894]</label>
+                    <aligny>center</aligny>
+                </control>
+                <control type="label">
+                    <width>65%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <visible>!Container.Content(albums)</visible>
+                    <aligny>top</aligny>
+                    <label fallback="19055">$INFO[ListItem.Property(Artist_Formed),,  ]$INFO[ListItem.Property(Artist_Born)]</label>
+                </control>
+                
+                <!-- Died Disbanded-->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <visible>!Container.Content(albums)</visible>
+                    <label>$LOCALIZE[21897] / $LOCALIZE[21896]</label>
+                    <aligny>center</aligny>
+                </control>
+                <control type="label">
+                    <width>100%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <visible>!Container.Content(albums)</visible>
+                    <aligny>top</aligny>
+                    <label fallback="19055">$INFO[ListItem.Property(Artist_Disbanded),,  ]$INFO[ListItem.Property(Artist_Died)]</label>
+                </control>
+                
+                <!-- Years Actives -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <visible>!Container.Content(albums)</visible>
+                    <label>21898</label>
+                    <aligny>center</aligny>
+                </control>
+                <control type="label">
+                    <width>100%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <visible>!Container.Content(albums)</visible>
+                    <aligny>top</aligny>
+                    <label fallback="19055">$INFO[ListItem.Property(Artist_YearsActive)]</label>
+                </control>
+                
+                <!-- Styles -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <label>176</label>
+                    <visible>!Container.Content(albums)</visible>
+                    <aligny>center</aligny>
+                </control>
+                <control type="label">
+                    <width>100%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <aligny>top</aligny>
+                    <visible>!Container.Content(albums)</visible>
+                    <label fallback="19055">$INFO[ListItem.Property(Artist_Style)]</label>
+                </control>
+                
+                <!-- Genre -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <label>515</label>
+                    <visible>!Container.Content(albums)</visible>
+                    <aligny>center</aligny>
+                </control>
+                <control type="label">
+                    <width>100%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <aligny>top</aligny>
+                    <visible>!Container.Content(albums)</visible>
+                    <label fallback="19055">$INFO[ListItem.Property(Artist_Genre)]</label>
+                </control>
+                
+                <!-- Description -->
+                <control type="label">
+                    <width>100%</width>
+                    <height>25</height>
+                    <font>SmallBold</font>
+                    <label>21821</label>
+                    <aligny>center</aligny>
+                </control>
+                <control type="textbox" id="4">
+                    <width>100%</width>
+                    <height>220</height>
+                    <font>Tiny</font>
+                    <align>justify</align>
+                </control>
+            </control>
+
+            <control type="grouplist" id="9000">
+                <posx>30</posx>
+                <width>450</width>
+                <height>281</height>
+                <bottom>33</bottom>
+                <itemgap>3</itemgap>
+                <onup>9000</onup>
+                <ondown>9000</ondown>
+                <onright>50</onright>
+                <onleft>50</onleft>
+                <orientation>vertical</orientation>
+
+                <control type="button" id ="5">
+                    <description>Plot/Cast</description>
+                    <label>206</label>
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                    <visible>Container.Content(artists)</visible>
+                </control>
+
+                <control type="button" id ="6">
+                    <description>Refresh</description>
+                    <label>184</label>
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                </control>
+
+                <control type="button" id="11">
+                    <description>Trailer button</description>
+                    <label>15200</label>
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                    <visible>!Container.Content(artists)</visible>
+                </control>
+
+                <control type="button" id ="10">
+                    <description>Get Thumb</description>
+                    <label>13405</label>
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                </control>
+                
+                <control type="button" id ="12">
+                    <description>Get Thumb</description>
+                    <label>20413</label>
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                </control>
+
+            </control>
+
+            <control type="list" id="50">
+                <description>Cast</description>
+                <left>510</left>
+                <right>30</right>
+                <top>100</top>
+                <height>710</height>
+                <onup>50</onup>
+                <ondown>50</ondown>
+                <onleft>9000</onleft>
+                <onright>9000</onright>
+                <orientation>vertical</orientation>
+                <scrolltime>200</scrolltime>
+
+                <itemlayout height="71" width="780">
+
+                    <control type="image">
+                        <width>100%</width>
+                        <height>68</height>
+                        <texture border="5" colordiffuse="Black12">common/box.png</texture>
+                    </control>
+
+                    <control type="label">
+                        <posx>30</posx>
+                        <width>810</width>
+                        <info>ListItem.Label</info>
+                    </control>
+
+                </itemlayout>
+
+                <focusedlayout height="71" width="780">
+                    <control type="group">
+                        <visible>Control.HasFocus(50)</visible>
+                        <control type="image">
+                            <width>100%</width>
+                            <height>68</height>
+                            <texture border="5" colordiffuse="Highlight">common/box.png</texture>
+                        </control>
+
+                        <control type="label">
+                            <posx>30</posx>
+                            <width>810</width>
+                            <info>ListItem.Label</info>
+                            <textcolor>White100</textcolor>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <visible>!Control.HasFocus(50)</visible>
+                        <control type="image">
+                            <width>100%</width>
+                            <height>68</height>
+                            <texture border="5" colordiffuse="Black12">common/box.png</texture>
+                        </control>
+
+                        <control type="label">
+                            <posx>30</posx>
+                            <width>810</width>
+                            <info>ListItem.Label</info>
+                        </control>
+                    </control>
+
+                </focusedlayout>
+
+            </control>
+
+        </control>
+
+    </controls>
+
+</window>

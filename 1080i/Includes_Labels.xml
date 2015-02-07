@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <variable name="LabelYear">
+        <value condition="Container.Content(episodes)">$INFO[ListItem.Premiered]</value>
+        <value condition="!IsEmpty(ListItem.Year)">$INFO[ListItem.Year]</value>
+    </variable>
+    <variable name="LabelEpisodeZero">
+        <value condition="!IntegerGreaterThan(ListItem.Episode,9)">$NUMBER[0]</value>
+    </variable>
+    <variable name="LabelDuration">
+        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[20074])">$INFO[ListItem.MPAA]</value>
+        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[570])">$INFO[ListItem.DateAdded]</value>
+        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[567])">$INFO[ListItem.PlayCount]</value>
+        <value condition="!IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration,, $LOCALIZE[31102]]</value>
+    </variable>
+    <variable name="LabelAudioChannels">
+        <value condition="stringcompare(ListItem.AudioChannels,8)">7.1</value>
+        <value condition="stringcompare(ListItem.AudioChannels,6)">5.1</value>
+        <value condition="stringcompare(ListItem.AudioChannels,5)">4.1</value>
+        <value condition="stringcompare(ListItem.AudioChannels,4)">4.0</value>
+        <value condition="stringcompare(ListItem.AudioChannels,3)">2.1</value>
+        <value condition="stringcompare(ListItem.AudioChannels,2)">2.0</value>
+        <value condition="stringcompare(ListItem.AudioChannels,1)">1.0</value>
+        <value>???</value>
+    </variable>
+    <variable name="LabelOSDAudioChannels">
+        <value condition="stringcompare(VideoPlayer.AudioChannels,8)">7.1</value>
+        <value condition="stringcompare(VideoPlayer.AudioChannels,6)">5.1</value>
+        <value condition="stringcompare(VideoPlayer.AudioChannels,5)">4.1</value>
+        <value condition="stringcompare(VideoPlayer.AudioChannels,4)">4.0</value>
+        <value condition="stringcompare(VideoPlayer.AudioChannels,3)">2.1</value>
+        <value condition="stringcompare(VideoPlayer.AudioChannels,2)">2.0</value>
+        <value condition="stringcompare(VideoPlayer.AudioChannels,1)">1.0</value>
+        <value>???</value>
+    </variable>
+    <variable name="Label_SettingsHeader">
+        <value condition="Control.HasFocus(111) | Window.IsActive(systeminfo)">$LOCALIZE[130]</value>
+        <value condition="Control.HasFocus(110) | Window.IsActive(weathersettings)">$LOCALIZE[8]</value>
+        <value condition="Control.HasFocus(109) | Window.IsActive(systemsettings)">$LOCALIZE[13000]</value>
+        <value condition="Control.HasFocus(108) | Window.IsActive(pvrsettings)">$LOCALIZE[19020]</value>
+        <value condition="Control.HasFocus(107) | Window.IsActive(skinsettings)">$LOCALIZE[166]</value>
+        <value condition="Control.HasFocus(106) | Window.IsActive(picturessettings)">$LOCALIZE[1]</value>
+        <value condition="Control.HasFocus(105) | Window.IsActive(addonbrowser)">$LOCALIZE[24001]</value>
+        <value condition="Control.HasFocus(104) | Window.IsActive(musicsettings)">$LOCALIZE[2]</value>
+        <value condition="Control.HasFocus(103) | Window.IsActive(profiles)">$LOCALIZE[13200]</value>
+        <value condition="Control.HasFocus(102) | Window.IsActive(videossettings)">$LOCALIZE[157]</value>
+        <value condition="Control.HasFocus(101) | Window.IsActive(servicesettings)">$LOCALIZE[14036]</value>
+        <value>$LOCALIZE[480]</value>
+    </variable>
+    <variable name="PVRInfoStatus">
+        <value condition="ListItem.IsRecording">$LOCALIZE[19158]</value>
+        <value condition="ListItem.HasTimer">$LOCALIZE[19058]</value>
+        <value>$LOCALIZE[31113]</value>
+    </variable>
+    <variable name="PlayerStatus">
+        <value condition="Player.Caching">$LOCALIZE[439] $INFO[Player.CacheLevel,,%]</value>
+        <value condition="Player.Paused">$LOCALIZE[112]</value>
+        <value condition="Player.Forwarding32x">FF 32x</value>
+        <value condition="Player.Forwarding16x">FF 16x</value>
+        <value condition="Player.Forwarding8x">FF 8x</value>
+        <value condition="Player.Forwarding4x">FF 4x</value>
+        <value condition="Player.Forwarding2x">FF 2x</value>
+        <value condition="Player.Forwarding">FF</value>
+        <value condition="Player.Rewinding32x">RW 32x</value>
+        <value condition="Player.Rewinding16x">RW 16x</value>
+        <value condition="Player.Rewinding8x">RW 8x</value>
+        <value condition="Player.Rewinding4x">RW 4x</value>
+        <value condition="Player.Rewinding2x">RW 2x</value>
+        <value condition="Player.Rewinding">RW</value>
+        <value condition="Player.Seeking">$LOCALIZE[773]</value>
+        <value condition="!Player.HasVideo + !IsEmpty(MusicPlayer.offset(1).Title)">[B]$LOCALIZE[209]...  [/B]$INFO[MusicPlayer.offset(1).Title]</value>
+        <value>$INFO[Player.FinishTime,$LOCALIZE[31106] ,]</value>
+    </variable>
+    <variable name="HDSD">
+        <value condition="IntegerGreaterThan(ListItem.VideoResolution,719)">HD</value>
+        <value condition="!IsEmpty(ListItem.VideoResolution)">SD</value>
+    </variable>
+    <variable name="PlayerTitle">
+        <value condition="!Player.HasVideo">$INFO[MusicPlayer.TrackNumber,,. ]$INFO[MusicPlayer.Title]</value>
+        <value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelNumber,,. ]$INFO[VideoPlayer.ChannelName]</value>
+        <value condition="substring(Player.Filenameandpath,http)">$LOCALIZE[31107]</value>
+        <value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Tagline]</value>
+        <value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Season,,x]$INFO[VideoPlayer.Episode,,. ]$INFO[Player.Title]$INFO[VideoPlayer.Premiered,  (,)]</value>
+    </variable>
+    <variable name="PlayerBigTitle">
+        <value condition="!Player.HasVideo">$INFO[MusicPlayer.Artist]</value>
+        <value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Title]</value>
+        <value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.TvShowTitle]</value>
+        <value>$INFO[VideoPlayer.Title]</value>
+    </variable>
+    <variable name="PlayerPlotBox">
+        <value condition="!Player.HasVideo">$INFO[MusicPlayer.Album,, ]$INFO[MusicPlayer.Year,(,)]</value>
+        <value>$INFO[VideoPlayer.Plot]</value>
+    </variable>
+    
+</includes>

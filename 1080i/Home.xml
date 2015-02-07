@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window id="0">
+    <defaultcontrol always="true">300</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+    <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=0)</onload>
+    <controls>
+        <include>GlobalBackground</include>
+        
+        <!-- Header -->
+        <control type="group">
+            <visible>Skin.HasSetting(home.showheader)</visible>
+            <animation effect="slide" start="0" end="0,-250" time="150" condition="Control.HasFocus(301)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,-250" time="150">WindowClose</animation>
+            <animation effect="slide" end="0" start="0,-250" time="150">WindowOpen</animation>
+            <control type="image" description="TopBG">
+                <width>100%</width>
+                <top>0</top>
+                <height>230</height>
+                <aspectratio aligny="top">scale</aspectratio>
+                <texture colordiffuse="Background">common/bg.jpg</texture>
+                <animation effect="fade" start="100" end="75" time="200" condition="true">Conditional</animation>
+            </control>
+            <control type="image" description="FanartOverlay">
+                <width>100%</width>
+                <height>240</height>
+                <top>0</top>
+                <aspectratio aligny="bottom">scale</aspectratio>
+                <texture colordiffuse="FloorFade">common/floor.png</texture>
+            </control>
+            <control type="image" description="Shadow">
+                <width>100%</width>
+                <height>16</height>
+                <top>240</top>
+                <texture flipy="false">common/shadow16B.png</texture>
+            </control>
+            <include>Furniture_Header</include>
+            <control type="group">
+                <visible>Player.HasMedia</visible>
+                <include>Animation.FadeIn</include>
+                <include>Animation.FadeOut</include>
+                <include>Furniture_NowPlaying</include>
+            </control>
+        </control>
+        
+        <!-- Widget Info -->
+        <control type="wraplist" id="301">
+            <description>Widget</description>
+            <width>100%</width>
+            <height>100%</height>
+            <onup>300</onup>
+            <ondown>300</ondown>
+            <onleft>301</onleft>
+            <onright>301</onright>
+            <preloaditems>2</preloaditems>
+            <orientation>horizontal</orientation>
+            <autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
+            <scrolltime tween="quadratic">400</scrolltime>
+            <animation effect="slide" start="0" end="0,220" time="500" tween="back" reversible="false" easing="out" condition="Control.HasFocus(301)">Conditional</animation>
+            <animation effect="slide" end="0" start="0,220" time="150" reversible="false" condition="!Control.HasFocus(301)">Conditional</animation>
+            <include>Animation.FadeIn</include>
+            <include>Animation.FadeOut</include>
+            <itemlayout width="1920" height="1080">
+                <control type="group">
+                    <visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+                    <left>40</left>
+                    <bottom>250</bottom>
+                    <width>890</width>
+                    <height>339</height>
+                    <control type="image">
+                        <left>0</left>
+                        <right>5</right>
+                        <top>0</top>
+                        <height>334</height>
+                        <texture border="10">common/shadow-5.png</texture>
+                    </control>
+                    <control type="image">
+                        <top>5</top>
+                        <left>5</left>
+                        <right>10</right>
+                        <height>324</height>
+                        <animation effect="fade" start="100" end="90" time="200" condition="true">Conditional</animation>
+                        <texture border="5" colordiffuse="Background">common/box.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>5</left>
+                        <top>5</top>
+                        <width>216</width>
+                        <height>324</height>
+                        <fadetime>350</fadetime>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/widgetposter.png">$INFO[ListItem.Thumb]</texture>
+                    </control>
+                    <control type="label">
+                        <left>241</left>
+                        <top>5</top>
+                        <right>30</right>
+                        <aligny>center</aligny>
+                        <height>80</height>
+                        <font>TinyBold</font>
+                        <textcolor>Dark2</textcolor>
+                        <selectedcolor>Dark2</selectedcolor>
+                        <label>31105</label>
+                    </control>
+                    <control type="label">
+                        <left>241</left>
+                        <top>55</top>
+                        <right>30</right>
+                        <aligny>center</aligny>
+                        <height>80</height>
+                        <font>MediumBold</font>
+                        <textcolor>Dark1</textcolor>
+                        <selectedcolor>Dark1</selectedcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="textbox">
+                        <left>241</left>
+                        <right>30</right>
+                        <top>132</top>
+                        <height>127</height>
+                        <font>Tiny</font>
+                        <align>justify</align>
+                        <autoscroll>false</autoscroll>
+                        <textcolor>Dark2</textcolor>
+                        <selectedcolor>Dark2</selectedcolor>
+                        <shadowcolor>noop</shadowcolor>
+                        <label>$INFO[ListItem.Plot]</label>
+                    </control>
+                    <control type="label">
+                        <left>241</left>
+                        <right>30</right>
+                        <top>265</top>
+                        <bottom>324</bottom>
+                        <align>right</align>
+                        <autoscroll>false</autoscroll>
+                        <textcolor>Dark1</textcolor>
+                        <selectedcolor>Dark1</selectedcolor>
+                        <label>$VAR[LabelYear,,  •  ]$VAR[LabelDuration,,  •  ]$INFO[ListItem.Rating]</label>
+                        <font>Flag</font>
+                    </control>
+                </control>
+            
+            </itemlayout>
+            <focusedlayout width="1920" height="1080">
+                <control type="group">
+                    <visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+                    <left>40</left>
+                    <bottom>250</bottom>
+                    <width>890</width>
+                    <height>339</height>
+                    <control type="image">
+                        <left>0</left>
+                        <right>5</right>
+                        <top>0</top>
+                        <height>334</height>
+                        <texture border="10">common/shadow-5.png</texture>
+                    </control>
+                    <control type="image">
+                        <top>5</top>
+                        <left>5</left>
+                        <right>10</right>
+                        <height>324</height>
+                        <animation effect="fade" start="100" end="90" time="200" condition="true">Conditional</animation>
+                        <texture border="5" colordiffuse="Background">common/box.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>5</left>
+                        <top>5</top>
+                        <width>216</width>
+                        <height>324</height>
+                        <fadetime>350</fadetime>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/widgetposter.png">$INFO[ListItem.Thumb]</texture>
+                    </control>
+                    <control type="label">
+                        <left>241</left>
+                        <top>5</top>
+                        <right>30</right>
+                        <aligny>center</aligny>
+                        <height>80</height>
+                        <font>TinyBold</font>
+                        <textcolor>Dark2</textcolor>
+                        <selectedcolor>Dark2</selectedcolor>
+                        <label>31105</label>
+                    </control>
+                    <control type="label">
+                        <left>241</left>
+                        <top>55</top>
+                        <right>30</right>
+                        <aligny>center</aligny>
+                        <height>80</height>
+                        <font>MediumBold</font>
+                        <textcolor>Dark1</textcolor>
+                        <selectedcolor>Dark1</selectedcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="textbox">
+                        <left>241</left>
+                        <right>30</right>
+                        <top>132</top>
+                        <height>127</height>
+                        <font>Tiny</font>
+                        <align>justify</align>
+                        <autoscroll>false</autoscroll>
+                        <textcolor>Dark2</textcolor>
+                        <selectedcolor>Dark2</selectedcolor>
+                        <shadowcolor>noop</shadowcolor>
+                        <label>$INFO[ListItem.Plot]</label>
+                    </control>
+                    <control type="label">
+                        <left>241</left>
+                        <right>30</right>
+                        <top>265</top>
+                        <bottom>324</bottom>
+                        <align>right</align>
+                        <autoscroll>false</autoscroll>
+                        <textcolor>Dark1</textcolor>
+                        <selectedcolor>Dark1</selectedcolor>
+                        <label>$VAR[LabelYear,,  •  ]$VAR[LabelDuration,,  •  ]$INFO[ListItem.Rating]</label>
+                        <font>Flag</font>
+                    </control>
+                </control>
+            </focusedlayout>
+            <content target="video">$VAR[DefWidgetContent]</content>
+        </control>
+        
+        <!-- Home Row -->
+        <control type="group">
+            <animation effect="slide" start="0" end="0,250" time="150" condition="Control.HasFocus(301)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,250" time="150">WindowClose</animation>
+            <animation effect="slide" end="0" start="0,250" time="150">WindowOpen</animation>
+            <control type="image" description="BottomBG">
+                <width>100%</width>
+                <height>220</height>
+                <bottom>0</bottom>
+                <aspectratio aligny="bottom">scale</aspectratio>
+                <texture colordiffuse="Background">common/bg.jpg</texture>
+                <animation effect="fade" start="100" end="75" time="200" condition="true">Conditional</animation>
+            </control>
+            <control type="image" description="FanartOverlay">
+                <width>100%</width>
+                <height>210</height>
+                <bottom>0</bottom>
+                <aspectratio aligny="bottom">scale</aspectratio>
+                <texture colordiffuse="FloorFade">common/floor.png</texture>
+            </control>
+            <control type="image" description="Shadow">
+                <width>100%</width>
+                <height>16</height>
+                <bottom>220</bottom>
+                <texture flipy="true">common/shadow16B.png</texture>
+            </control>
+            <include>Furniture_Clock</include>
+            <control type="image">
+                <top>962</top>
+                <left>32</left>
+                <width>16</width>
+                <height>16</height>
+                <texture colordiffuse="Dark2" flipx="true">common/arrow-small-right.png</texture>
+            </control>
+            <control type="image">
+                <top>962</top>
+                <right>470</right>
+                <width>16</width>
+                <height>16</height>
+                <texture colordiffuse="Dark2" flipx="false">common/arrow-small-right.png</texture>
+            </control>
+            <control type="list" id="300">
+                <include>Animation.FadeIn.Delay</include>
+                <include>Animation.FadeOut</include>
+                <description>Home Wraplist</description>
+                <top>948</top>
+                <left>SidePad</left>
+                <right>520</right>
+                <onup condition="!Player.HasVideo | !Skin.HasSetting(global.showvideo)">301</onup>
+                <ondown>302</ondown>
+                <onleft>300</onleft>
+                <onright>300</onright>
+                <orientation>horizontal</orientation>
+                <scrolltime>200</scrolltime>
+
+                <itemlayout width="220" height="64">
+                   
+                  
+                    <control type="label">
+                        <align>center</align>
+                        <aligny>top</aligny>
+                        <width>180</width>
+                        <top>0</top>
+                        <centerleft>50%</centerleft>
+                        <textcolor>Dark3</textcolor>
+                        <font>Home</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+             
+                    
+                </itemlayout>
+
+                <focusedlayout width="220" height="64">
+                   
+                  
+                    <control type="label">
+                        <align>center</align>
+                        <aligny>top</aligny>
+                        <width>90%</width>
+                        <top>0</top>
+                        <centerleft>50%</centerleft>
+                        <textcolor>Dark1</textcolor>
+                        <font>Home</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="image">
+                        <top>55</top>
+                        <centerleft>50%</centerleft>
+                        <width>90%</width>
+                        <height>4</height>
+                        <texture colordiffuse="Highlight">common/box.png</texture>
+                        <visible>Control.HasFocus(300)</visible>
+                        <include>Animation.FadeIn</include>
+                        <include>Animation.FadeOut</include>
+                    </control>
+                    <control type="image">
+                        <top>70</top>
+                        <centerleft>50%</centerleft>
+                        <width>16</width>
+                        <height>16</height>
+                        <texture colordiffuse="Dark3">common/arrow-small.png</texture>
+                        <visible>Control.HasFocus(300)</visible>
+                        <include>Animation.FadeIn</include>
+                        <include>Animation.FadeOut</include>
+                    </control>
+                    
+             
+                </focusedlayout>
+
+                <content>
+                    <include>skinshortcuts-mainmenu</include>
+                </content>
+            </control>
+        
+        </control>
+        
+        
+        <!-- Sub Menu -->
+        <control type="group">
+            <visible allowhiddenfocus="true">Control.HasFocus(302)</visible>
+
+            <include>Animation.SlideUp</include>
+            <include>Animation.FadeOut</include>
+            <animation effect="slide" start="0" end="220" condition="Container(300).Position(1)">Conditional</animation>
+            <animation effect="slide" start="0" end="440" condition="Container(300).Position(2)">Conditional</animation>
+            <animation effect="slide" start="0" end="660" condition="Container(300).Position(3)">Conditional</animation>
+            <animation effect="slide" start="0" end="880" condition="Container(300).Position(4)">Conditional</animation>
+            <animation effect="slide" start="0" end="1100" condition="Container(300).Position(5)">Conditional</animation>
+            
+            <animation effect="slide" start="0" end="0,250" time="150" condition="Control.HasFocus(301)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,250" time="150">WindowClose</animation>
+            <animation effect="slide" end="0" start="0,250" time="150">WindowOpen</animation>
+            <posy>460</posy>
+            <centerleft>190</centerleft>
+            <width>316</width>
+            <height>452</height>
+            <control type="image">
+                <description>background image</description>
+                <width>100%</width>
+                <height>100%</height>
+                <texture border="16" colordiffuse="Light1">common/rounded-shadow8.png</texture>
+            </control>
+            <control type="list" id="302">
+                <include>Animation.FadeIn.Delay</include>
+                <include>Animation.FadeOut</include>
+                <top>16</top>
+                <bottom>16</bottom>
+                <left>8</left>
+                <right>8</right>
+                <onup>302</onup>
+                <ondown>302</ondown>
+                <onleft>300</onleft>
+                <onright>300</onright>
+                <orientation>vertical</orientation>
+                <scrolltime>200</scrolltime>
+
+                <itemlayout width="300" height="70">
+                   
+                  
+                    <control type="label">
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <width>100%</width>
+                        <centertop>50%</centertop>
+                        <height>100%</height>
+                        <textcolor>Dark2</textcolor>
+                        <include>DefContextButton</include>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+             
+                    
+                </itemlayout>
+
+                <focusedlayout width="300" height="70">
+                   
+                    <control type="image">
+                        <width>100%</width>
+                        <height>100%</height>
+                        <texture colordiffuse="Highlight">common/white.png</texture>
+                    </control>
+                    <control type="label">
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <width>100%</width>
+                        <centertop>50%</centertop>
+                        <height>100%</height>
+                        <textcolor>White100</textcolor>
+                        <include>DefContextButton</include>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    
+                    
+             
+                </focusedlayout>
+
+                <content>
+                    <include>skinshortcuts-submenu</include>
+                </content>
+            </control>
+        
+        </control>
+ 
+        
+    </controls>
+</window>

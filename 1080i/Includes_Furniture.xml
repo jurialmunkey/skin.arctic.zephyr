@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <include name="Furniture_Scrollbar">
+        <control type="scrollbar" id="60">
+            <onback>50</onback>
+            <centerright>60</centerright>
+            <posy>PosterPad</posy>
+            <height>PosterH</height>
+            <width>8</width>
+            <onleft>50</onleft>
+            <onright>9000</onright>
+            <texturesliderbackground border="4" colordiffuse="Dark4">scrollbar/scrollv.png</texturesliderbackground>
+            <texturesliderbar border="4" colordiffuse="Dark3">scrollbar/scrollv.png</texturesliderbar>
+            <texturesliderbarfocus border="4" colordiffuse="Dark2">scrollbar/scrollv.png</texturesliderbarfocus>
+            <animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
+        </control>
+    </include>
+    
+    <include name="Furniture_Scrollbar_Horizontal">
+        <control type="scrollbar" id="60">
+            <onback>50</onback>
+            
+            <left>180</left>
+            <width>1560</width>
+            <bottom>200</bottom>
+            <orientation>horizontal</orientation>
+            <height>8</height>
+            <onup>50</onup>
+            <ondown>9000</ondown>
+            <texturesliderbackground border="4" colordiffuse="Dark4">scrollbar/scrollv.png</texturesliderbackground>
+            <texturesliderbar border="4" colordiffuse="Dark3">scrollbar/scrollv.png</texturesliderbar>
+            <texturesliderbarfocus border="4" colordiffuse="Dark2">scrollbar/scrollv.png</texturesliderbarfocus>
+            <animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
+        </control>
+    </include>
+    
+    <include name="Furniture_ButtonBack">
+        <width>64</width>
+        <height>64</height>
+        <animation type="Focus" reversible="false">
+            <effect type="zoom" start="75" end="100" center="auto" time="200"/>
+        </animation>
+    </include>
+    
+    <include name="Furniture_ButtonBack_Circle">
+        <width>64</width>
+        <height>64</height>
+        <texture colordiffuse="Dark1">common/circle.png</texture>
+    </include>
+    
+    <!-- Flags -->
+    <variable name="Flagstar1">
+        <value condition="IntegerGreaterThan(ListItem.Rating,1)">star10</value>
+        <value condition="IntegerGreaterThan(ListItem.Rating,0)">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="Flagstar2">
+        <value condition="IntegerGreaterThan(ListItem.Rating,3)">star10</value>
+        <value condition="IntegerGreaterThan(ListItem.Rating,2)">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="Flagstar3">
+        <value condition="IntegerGreaterThan(ListItem.Rating,5)">star10</value>
+        <value condition="IntegerGreaterThan(ListItem.Rating,4)">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="Flagstar4">
+        <value condition="IntegerGreaterThan(ListItem.Rating,7)">star10</value>
+        <value condition="IntegerGreaterThan(ListItem.Rating,6)">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="Flagstar5">
+        <value condition="IntegerGreaterThan(ListItem.Rating,9)">star10</value>
+        <value condition="IntegerGreaterThan(ListItem.Rating,8)">star5</value>
+        <value>star0</value>
+    </variable>
+    
+    <!-- MusicFlags -->
+    <variable name="MusicFlagstar5">
+        <value condition="StringCompare(ListItem.StarRating,rating5.png)">star10</value>
+        <value>star0</value>
+    </variable>
+    <variable name="MusicFlagstar4">
+        <value condition="StringCompare(ListItem.StarRating,rating5.png)">star10</value>
+        <value condition="StringCompare(ListItem.StarRating,rating4.png)">star10</value>
+        <value>star0</value>
+    </variable>
+    <variable name="MusicFlagstar3">
+        <value condition="StringCompare(ListItem.StarRating,rating5.png)">star10</value>
+        <value condition="StringCompare(ListItem.StarRating,rating4.png)">star10</value>
+        <value condition="StringCompare(ListItem.StarRating,rating3.png)">star10</value>
+        <value>star0</value>
+    </variable>
+    <variable name="MusicFlagstar2">
+        <value condition="StringCompare(ListItem.StarRating,rating5.png)">star10</value>
+        <value condition="StringCompare(ListItem.StarRating,rating4.png)">star10</value>
+        <value condition="StringCompare(ListItem.StarRating,rating3.png)">star10</value>
+        <value condition="StringCompare(ListItem.StarRating,rating2.png)">star10</value>
+        <value>star0</value>
+    </variable>
+    <variable name="MusicFlagstar1">
+        <value condition="StringCompare(ListItem.StarRating,rating5.png)">star10</value>
+        <value condition="StringCompare(ListItem.StarRating,rating4.png)">star10</value>
+        <value condition="StringCompare(ListItem.StarRating,rating3.png)">star10</value>
+        <value condition="StringCompare(ListItem.StarRating,rating2.png)">star10</value>
+        <value condition="StringCompare(ListItem.StarRating,rating1.png)">star10</value>
+        <value>star0</value>
+    </variable>
+    
+    <!-- MusicOSDFlags -->
+    <variable name="OSDMusicFlagstar5">
+        <value condition="StringCompare(Player.StarRating,rating5.png)">star10</value>
+        <value>star0</value>
+    </variable>
+    <variable name="OSDMusicFlagstar4">
+        <value condition="StringCompare(Player.StarRating,rating5.png)">star10</value>
+        <value condition="StringCompare(Player.StarRating,rating4.png)">star10</value>
+        <value>star0</value>
+    </variable>
+    <variable name="OSDMusicFlagstar3">
+        <value condition="StringCompare(Player.StarRating,rating5.png)">star10</value>
+        <value condition="StringCompare(Player.StarRating,rating4.png)">star10</value>
+        <value condition="StringCompare(Player.StarRating,rating3.png)">star10</value>
+        <value>star0</value>
+    </variable>
+    <variable name="OSDMusicFlagstar2">
+        <value condition="StringCompare(Player.StarRating,rating5.png)">star10</value>
+        <value condition="StringCompare(Player.StarRating,rating4.png)">star10</value>
+        <value condition="StringCompare(Player.StarRating,rating3.png)">star10</value>
+        <value condition="StringCompare(Player.StarRating,rating2.png)">star10</value>
+        <value>star0</value>
+    </variable>
+    <variable name="OSDMusicFlagstar1">
+        <value condition="StringCompare(Player.StarRating,rating5.png)">star10</value>
+        <value condition="StringCompare(Player.StarRating,rating4.png)">star10</value>
+        <value condition="StringCompare(Player.StarRating,rating3.png)">star10</value>
+        <value condition="StringCompare(Player.StarRating,rating2.png)">star10</value>
+        <value condition="StringCompare(Player.StarRating,rating1.png)">star10</value>
+        <value>star0</value>
+    </variable>
+    
+    <include name="Furniture_Flags">
+        <control type="grouplist">
+            <visible>Container.Content(movies) | Container.Content(episodes)</visible>
+            <include>Animation.FadeIn</include>
+            <include>Animation.FadeOut</include>
+            <left>SidePad</left>
+            <centerbottom>NavBarPad</centerbottom>
+            <width>1200</width>
+            <height>64</height>
+            <orientation>horizontal</orientation>
+            <align>left</align>
+            <itemgap>24</itemgap>
+            <usecontrolcoords>true</usecontrolcoords>
+            <control type="group">
+                <width>64</width>
+                <height>64</height>
+                <control type="image" description="button back">
+                    <width>64</width>
+                    <height>64</height>
+                    <texture border="32" colordiffuse="Dark1">common/circle.png</texture>
+                </control>
+                <control type="label">
+                    <width>64</width>
+                    <height>64</height>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <label>$VAR[HDSD]</label>
+                    <font>SmallBold</font>
+                    <textcolor>Light1</textcolor>
+                    <visible>!substring(ListItem.Path,videodb://movies/sets,left)</visible>
+                </control>
+                <control type="image">
+                    <width>64</width>
+                    <height>64</height>
+                    <texture colordiffuse="Light1">flags/sets.png</texture>
+                    <visible>substring(ListItem.Path,videodb://movies/sets,left)</visible>
+                </control>
+            </control>
+            
+            <control type="image">
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/$VAR[Flagstar1].png</texture>
+            </control>
+            <control type="image">
+                <posx>-48</posx>
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/$VAR[Flagstar2].png</texture>
+            </control>
+            <control type="image">
+                <posx>-48</posx>
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/$VAR[Flagstar3].png</texture>
+            </control>
+            <control type="image">
+                <posx>-48</posx>
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/$VAR[Flagstar4].png</texture>
+            </control>
+            <control type="image">
+                <posx>-48</posx>
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/$VAR[Flagstar5].png</texture>
+            </control>
+            
+            <control type="image">
+                <width>48</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/video.png</texture>
+                <aspectratio align="left">scale</aspectratio>
+                <visible>!IsEmpty(ListItem.VideoCodec)</visible>
+            </control>
+            <control type="label">
+                <width>128</width>
+                <height>64</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$INFO[ListItem.VideoCodec,,  •  ]$INFO[ListItem.VideoResolution]</label>
+                <font>Flag</font>
+                <textcolor>Dark1</textcolor>
+                <visible>!IsEmpty(ListItem.VideoCodec)</visible>
+            </control>
+            <control type="image">
+                <width>48</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/audio.png</texture>
+                <aspectratio align="left">scale</aspectratio>
+                <visible>!IsEmpty(ListItem.AudioCodec)</visible>
+            </control>
+            <control type="label">
+                <width>128</width>
+                <height>64</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$INFO[ListItem.AudioCodec]$VAR[LabelAudioChannels,  •  ,]</label>
+                <font>Flag</font>
+                <textcolor>Dark1</textcolor>
+                <visible>!IsEmpty(ListItem.AudioCodec)</visible>
+            </control>
+            
+            <control type="image">
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/3D.png</texture>
+                <visible>ListItem.IsStereoscopic</visible>
+            </control>
+            <control type="image">
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/bluray.png</texture>
+                <visible>[substring(ListItem.FilenameAndPath,bluray) | substring(ListItem.FilenameAndPath,bdrip) | substring(ListItem.FilenameAndPath,bd25) | substring(ListItem.FilenameAndPath,bd50)]</visible>
+            </control>
+            <control type="image">
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/dvd.png</texture>
+                <visible>substring(ListItem.FilenameAndPath,dvd)</visible>
+            </control>
+            
+            
+
+            
+            
+        </control>
+    </include>
+    
+    <variable name="HeaderIcon">
+        <value condition="Window.IsVisible(DialogMuteBug.xml)">special://skin/extras/icons/mute.png</value>
+        <value condition="Window.IsVisible(DialogButtonMenu.xml)">special://skin/extras/icons/power.png</value>
+        <value condition="Window.IsVisible(DialogFavourites.xml)">special://skin/extras/icons/favourites.png</value>
+        <value condition="Player.HasAudio + [Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation) | Window.IsVisible(home)]">special://skin/extras/icons/songs.png</value>
+        <value condition="Player.HasVideo + VideoPlayer.Content(livetv) + [Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation) | Window.IsVisible(home)]">special://skin/extras/icons/livetv.png</value>
+        <value condition="Player.HasVideo + VideoPlayer.Content(movies) + [Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation) | Window.IsVisible(home)]">special://skin/extras/icons/film.png</value>
+        <value condition="Player.HasVideo + VideoPlayer.Content(episodes) + [Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation) | Window.IsVisible(home)]">special://skin/extras/icons/tv.png</value>
+        <value condition="Player.HasVideo + [Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation) | Window.IsVisible(home)]">special://skin/extras/icons/eye.png</value>
+        
+        <value condition="Window.IsVisible(3201)">special://skin/extras/icons/film.png</value>
+        <value condition="Window.IsVisible(3202)">special://skin/extras/icons/tv.png</value>
+        <value condition="Window.IsVisible(3203)">special://skin/extras/icons/songs.png</value>
+        
+        <value condition="Window.IsVisible(MyVideoNav.xml) + substring(Container.FolderPath,videodb://movies) | substring(Container.FolderPath,videodb://recentlyaddedmovies)">special://skin/extras/icons/film.png</value>
+        <value condition="Window.IsVisible(MyVideoNav.xml) + [substring(Container.FolderPath,videodb://tvshows) | substring(Container.FolderPath,videodb://recentlyaddedepisodes)]">special://skin/extras/icons/tv.png</value>
+        <value condition="Window.IsVisible(MyVideoNav.xml)">special://skin/extras/icons/video-addons.png</value>
+        <value condition="Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(3204)">special://skin/extras/icons/livetv.png</value>
+        <value condition="Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyMusicSongs.xml)">special://skin/extras/icons/songs.png</value>
+        <value condition="Window.IsVisible(MyPics.xml)">special://skin/extras/icons/pictures.png</value>
+        <value condition="Window.IsVisible(MyPrograms.xml) | Window.IsVisible(AddonBrowser.xml)">special://skin/extras/icons/addons.png</value>
+        <value condition="Window.IsVisible(weather)">special://skin/extras/icons/sun.png</value>
+        <value condition="Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(settings) | Window.IsVisible(SkinSettings.xml)">special://skin/extras/icons/settings.png</value>
+        <value condition="Window.IsVisible(MyMusicPlaylist.xml)">special://skin/extras/icons/playlist.png</value>
+        <value condition="Window.IsVisible(FileManager.xml)">special://skin/extras/icons/database.png</value>
+        <value>special://skin/extras/icons/artist.png</value>
+    </variable>
+    
+    <variable name="MainHeaderLabel">
+        <value condition="Window.IsVisible(DialogButtonMenu.xml)">$LOCALIZE[33060]</value>
+        <value condition="Window.IsVisible(DialogFavourites.xml)">$LOCALIZE[1036]</value>
+        <value condition="Window.IsVisible(MyVideoNav.xml) + substring(Container.FolderPath,videodb://movies) | substring(Container.FolderPath,videodb://recentlyaddedmovies)">$LOCALIZE[20342]</value>
+        <value condition="Window.IsVisible(MyVideoNav.xml) + [substring(Container.FolderPath,videodb://tvshows) | substring(Container.FolderPath,videodb://recentlyaddedepisodes)]">$LOCALIZE[20343]</value>
+        <value condition="Window.IsVisible(MyVideoNav.xml)">$LOCALIZE[3]</value>
+        <value condition="Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(3204)">$LOCALIZE[31103]</value>
+        <value condition="Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyMusicSongs.xml)">$LOCALIZE[2]</value>
+        <value condition="Window.IsVisible(SettingsSystemInfo.xml) | Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(settings) | Window.IsVisible(SkinSettings.xml)">$LOCALIZE[5]</value>
+        <value condition="Window.IsVisible(weather)">$LOCALIZE[8]</value>
+        <value condition="Window.IsVisible(MyPics.xml)">$LOCALIZE[1]</value>
+        <value condition="Window.IsVisible(MyPrograms.xml)">$LOCALIZE[0]</value>
+        <value condition="Window.IsVisible(AddonBrowser.xml)">$LOCALIZE[24001]</value>
+        <value condition="Window.IsVisible(MyMusicPlaylist.xml)">$LOCALIZE[559]</value>
+        <value condition="Window.IsVisible(FileManager.xml)">$LOCALIZE[744]</value>
+        <value>$LOCALIZE[10000]</value>
+    </variable>
+    
+    <variable name="SubHeaderLabel">
+        <value condition="Window.IsVisible(LoginScreen.xml)">$LOCALIZE[10029]</value>
+        <value condition="Window.IsVisible(MyVideoNav.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyPVR) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml)">$INFO[Container.NumItems,[COLOR=Highlight],[/COLOR] $LOCALIZE[31101]]  •  $INFO[Control.GetLabel(3)]</value>
+        <value>[COLOR=Highlight]$INFO[Window(home).Property(Movies.Count)][/COLOR] $LOCALIZE[20342]  •  [COLOR=Highlight]$INFO[Window(home).Property(Episodes.Count)][/COLOR] $LOCALIZE[20360]  •  [COLOR=Highlight]$INFO[Window(home).Property(Music.SongsCount)][/COLOR] $LOCALIZE[134]$INFO[Pvr.BackendChannels,  •  [COLOR=Highlight],[/COLOR] $LOCALIZE[19019]]</value>
+    </variable>
+  
+    <include name="Furniture_Header">
+        <control type="grouplist">
+            <top>SidePad</top>
+            <left>SidePad</left>
+            <include>Animation.FadeIn</include>
+            <include>Animation.FadeOut</include>
+            <orientation>horizontal</orientation>
+            <itemgap>24</itemgap>
+            <control type="group" description="iconbox">
+                <width>80</width>
+                <height>80</height>
+                <control type="image">
+                    <width>80</width>
+                    <height>80</height>
+                    <texture colordiffuse="Panel" border="8">common/box.png</texture>
+                </control>
+                <control type="image">
+                    <top>-14</top>
+                    <left>-14</left>
+                    <width>108</width>
+                    <height>108</height>
+                    <texture colordiffuse="White100" border="8">$VAR[HeaderIcon]</texture>
+                    <visible>!Container.Scrolling</visible>
+                    <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+                </control>
+                <control type="label">
+                    <centertop>39</centertop>
+                    <centerleft>40</centerleft>
+                    <width>80</width>
+                    <height>80</height>
+                    <font>LargeBold</font>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <label>$INFO[ListItem.SortLetter]</label>
+                    <textcolor>White100</textcolor>
+                    <visible>Container.Scrolling</visible>
+                    <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+                </control>
+            </control>
+            <control type="group">
+                <control type="label">
+                    <centertop>24</centertop>
+                    <width>auto</width>
+                    <font>MediumBold</font>
+                    <textcolor>Dark1</textcolor>
+                    <label>$VAR[MainHeaderLabel]</label>
+                </control>
+                <control type="label">
+                    <centertop>58</centertop>
+                    <font>Flag</font>
+                    <width>auto</width>
+                    <textcolor>Dark2</textcolor>
+                    <label>$VAR[SubHeaderLabel]</label>
+                </control>
+            </control>
+      
+        </control>
+        
+    </include>
+    <include name="Furniture_Clock">
+        <control type="group">
+            <include>Animation.FadeIn</include>
+            <include>Animation.FadeOut</include>
+            <centerbottom>NavBarPad</centerbottom>
+            <height>84</height>
+            <control type="label">
+                <centertop>24</centertop>
+                <right>128</right>
+                <align>right</align>
+                <font>LargeBold</font>
+                <textcolor>Dark1</textcolor>
+                <label>$INFO[System.Time(hh:mm)]</label>
+                <animation effect="slide" start="0" end="48" time="0" condition="IsEmpty(System.Time(xx))">Conditional</animation>
+            </control>
+            <control type="label">
+                <centertop>30</centertop>
+                <right>SidePad</right>
+                <font>SmallBold</font>
+                <textcolor>Dark3</textcolor>
+                <align>right</align>
+                <width>120</width>
+                <label>$INFO[System.Time(xx)]</label>
+                <visible>!IsEmpty(System.Time(xx))</visible>
+            </control>  
+            <control type="label">
+                <centertop>64</centertop>
+                <right>SidePad</right>
+                <font>Flag</font>
+                <textcolor>Dark2</textcolor>
+                <align>right</align>
+                <width>50%</width>
+                <label>$INFO[System.Date(DDD)]$COMMA $INFO[System.Date(d MMM yyyy)]</label>
+            </control>
+      
+        </control>
+        
+    </include>
+    <include name="Furniture_NowPlaying">
+        <control type="grouplist">
+            <include>Animation.FadeIn</include>
+            <include>Animation.FadeOut</include>
+            <visible>!Window.IsActive(DialogKaiToast.xml)</visible>
+            <animation effect="slide" start="0" end="0,-250" time="150" condition="Control.HasFocus(301)">Conditional</animation>
+            <top>SidePad</top>
+            <right>SidePad</right>
+            <orientation>horizontal</orientation>
+            <itemgap>24</itemgap>
+            <align>right</align>
+            <control type="group">
+                <width>700</width>
+                <visible>Player.HasVideo</visible>
+                <control type="label">
+                    <centertop>24</centertop>
+                    <width>auto</width>
+                    <font>MediumBold</font>
+                    <align>right</align>
+                    <textcolor>Dark1</textcolor>
+                    <label>$INFO[VideoPlayer.Title]</label>
+                </control>
+                <control type="label">
+                    <centertop>58</centertop>
+                    <align>right</align>
+                    <font>Flag</font>
+                    <width>auto</width>
+                    <textcolor>Dark2</textcolor>
+                    <label>$INFO[VideoPlayer.Time,, / ]$INFO[VideoPlayer.Duration]</label>
+                </control>
+            </control>
+            <control type="group">
+                <width>700</width>
+                <visible>!Player.HasVideo</visible>
+                <control type="label">
+                    <centertop>24</centertop>
+                    <width>auto</width>
+                    <font>MediumBold</font>
+                    <align>right</align>
+                    <textcolor>Dark1</textcolor>
+                    <label>$INFO[MusicPlayer.Title]</label>
+                </control>
+                <control type="label">
+                    <centertop>58</centertop>
+                    <align>right</align>
+                    <font>Flag</font>
+                    <width>auto</width>
+                    <textcolor>Dark2</textcolor>
+                    <label>$INFO[MusicPlayer.Artist,,  ]$INFO[VideoPlayer.Time,, / ]$INFO[VideoPlayer.Duration]</label>
+                </control>
+            </control>
+            <control type="group">
+                <height>80</height>
+                <width>64</width>
+                <control type="image" description="Back">
+                    <centerleft>50%</centerleft>
+                    <centertop>50%</centertop>
+                    <width>100</width>
+                    <height>100</height>
+                    <aspectratio align="center" aligny="center">keep</aspectratio>
+                    <texture>progress/back.png</texture>
+                    <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+                </control>
+                <control type="image" description="Play">
+                    <centerleft>50%</centerleft>
+                    <centertop>50%</centertop>
+                    <width>100</width>
+                    <height>100</height>
+                    <aspectratio align="center" aligny="center">keep</aspectratio>
+                    <texture colordiffuse="Dark1">progress/play.png</texture>
+                    <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+                    <visible>!Player.Paused</visible>
+                </control>
+                <control type="image" description="Pause">
+                    <centerleft>50%</centerleft>
+                    <centertop>50%</centertop>
+                    <width>100</width>
+                    <height>100</height>
+                    <aspectratio align="center" aligny="center">keep</aspectratio>
+                    <texture colordiffuse="Dark1">progress/pause.png</texture>
+                    <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+                    <visible>Player.Paused</visible>
+                </control>
+                <control type="progress" id="933">
+                    <texturebg>-</texturebg>
+                    <lefttexture>-</lefttexture>
+                    <midtexture>-</midtexture>
+                    <righttexture>-</righttexture>
+                    <info>Player.Progress</info>
+                    <visible>false</visible>
+                </control>
+                <control type="image">
+                    <centerleft>50%</centerleft>
+                    <centertop>50%</centertop>
+                    <width>100</width>
+                    <height>100</height>
+                    <texture>$INFO[Control.GetLabel(933),progress/circle/p,.png]</texture>
+                    <visible>!IsEmpty(Player.Duration)</visible>
+                    <aspectratio align="center">keep</aspectratio>
+                </control>
+                <control type="image">
+                    <description>Loading indicator</description>
+                    <centerleft>50%</centerleft>
+                    <centertop>50%</centertop>
+                    <width>100</width>
+                    <height>100</height>
+                    <texture>progress/loading.png</texture>
+                    <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="!Player.Paused">Conditional</animation>
+                    <visible>IsEmpty(Player.Duration)</visible>
+                    <aspectratio align="center">keep</aspectratio>
+                </control>
+            </control>
+        </control>
+    </include>
+    
+</includes>
