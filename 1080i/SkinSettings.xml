@@ -50,6 +50,12 @@
                         <include>DefSettingsButton</include>
                         <label>31110</label>
                     </control>
+                    <control type="togglebutton" id="9103" description="OSD">
+                        <usealttexture>ControlGroup(9100).HasFocus(9103)</usealttexture>
+                        <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
+                        <include>DefSettingsButton</include>
+                        <label>478</label>
+                    </control>
                 </control>
                 
                 
@@ -91,6 +97,32 @@
                         <label>31111</label>
                         <selected>Skin.HasSetting(global.showvideo)</selected>
                         <onclick>Skin.ToggleSetting(global.showvideo)</onclick>
+                    </control>
+                    
+                    <!-- OSD -->
+                    <control type="radiobutton" id="9231" description="Show slideshow in background">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9103)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31118</label>
+                        <selected>!Skin.HasSetting(ArtistSlideShow.Disabled)</selected>
+                        <onclick>Skin.ToggleSetting(ArtistSlideShow.Disabled)</onclick>
+                    </control>
+                    <control type="radiobutton" id="9232" description="Show slideshow in background">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9103)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31119</label>
+                        <selected>Skin.HasSetting(OSDVisualisation.ShowFanart)</selected>
+                        <onclick>Skin.ToggleSetting(OSDVisualisation.ShowFanart)</onclick>
+                    </control>
+                    <control type="radiobutton" id="9233" description="Animate Artist slideshow">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9103)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31120</label>
+                        <selected>Skin.HasSetting(ArtistSlideshow.Animate)</selected>
+                        <onclick>Skin.ToggleSetting(ArtistSlideshow.Animate)</onclick>
                     </control>
                 </control>
                 
