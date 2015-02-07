@@ -25,6 +25,7 @@
             <animation effect="slide" start="-30,-30" end="30,30" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
         </control>
 
+        
         <control type="group">
             <visible>Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.ShowInfo</visible>
             <animation effect="slide" start="0,110" end="0" time="150">Visible</animation>
@@ -39,6 +40,7 @@
                 <animation effect="slide" start="0,110" end="0" time="150">WindowOpen</animation>
                 <include>Animation.FadeOut</include>
             </control>
+            
             <control type="group">
                 <top>300r</top>
                 <bottom>0</bottom>
@@ -234,7 +236,7 @@
             
         </control>
 
-
+        <include>Furniture_OSDClock</include>
     </controls>
 
 </window>
