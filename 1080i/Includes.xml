@@ -92,7 +92,7 @@
 
     <variable name="GlobalFanart">
         <value condition="Window.IsVisible(home) + !IsEmpty(Container(301).ListItem.Art(fanart))">$INFO[Container(301).ListItem.Art(fanart)]</value>
-        <value condition="Window.IsVisible(home) + !IsEmpty(Skin.String(home.fallbackimage))">$INFO[Skin.String(home.fallbackimage)]</value>
+        <value condition="Window.IsVisible(home) + !IsEmpty(Skin.String(home.slideshowpath)) + Skin.HasSetting(home.showslideshow) + [IsEmpty(Container(300).ListItem.Property(widget)) | Container(301).IsUpdating]">$INFO[Skin.String(home.slideshowpath)]</value>
         <value condition="Window.IsVisible(home)">pvr/background.jpg</value>
         <value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
         <value condition="!IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>

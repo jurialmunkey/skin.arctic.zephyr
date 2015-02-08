@@ -88,7 +88,25 @@
                         <selected>Skin.HasSetting(home.showheader)</selected>
                         <onclick>Skin.ToggleSetting(home.showheader)</onclick>
                     </control>
-                    <control type="button" id="9213" description="Custom Widget 1">
+                    <control type="radiobutton" id="9213" description="Show slideshow as default widget">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31130</label>
+                        <selected>Skin.HasSetting(home.showslideshow)</selected>
+                        <onclick>Skin.ToggleSetting(home.showslideshow)</onclick>
+                    </control>
+                    <control type="button" id="9214" description="Set Slideshow Path">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31131</label>
+                        <enable>Skin.HasSetting(home.showslideshow)</enable>
+                        <label2>$INFO[Skin.String(home.slideshowpath)]</label2>
+                        <onclick>Skin.SetPath(home.slideshowpath)</onclick>
+                    </control>
+                    
+                    <control type="button" id="9218" description="Custom Widget 1">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
@@ -96,7 +114,7 @@
                         <label2>$INFO[Skin.String(CustomWidget1)]</label2>
                         <onclick>Skin.SetString(CustomWidget1)</onclick>
                     </control>
-                    <control type="button" id="9214" description="Custom Widget 2">
+                    <control type="button" id="9219" description="Custom Widget 2">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
@@ -104,6 +122,7 @@
                         <label2>$INFO[Skin.String(CustomWidget2)]</label2>
                         <onclick>Skin.SetString(CustomWidget2)</onclick>
                     </control>
+                    
                     
                     <!-- Global -->
                     <control type="radiobutton" id="9221" description="Show video in background">

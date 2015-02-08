@@ -44,6 +44,7 @@
         
         <!-- Widget Selector -->
         <control type="group">
+            <visible>![Window.IsVisible(home) + !IsEmpty(Skin.String(home.slideshowpath)) + Skin.HasSetting(home.showslideshow) + IsEmpty(Container(300).ListItem.Property(widget))]</visible>
             <animation effect="slide" end="0" start="0,-250" time="150" reversible="false" condition="ControlGroup(303).HasFocus()">Conditional</animation>
             <animation effect="slide" start="0" end="0,-250" time="150" reversible="false" condition="!ControlGroup(303).HasFocus()">Conditional</animation>
             <include>Animation.FadeOut</include>
@@ -138,7 +139,9 @@
             <include>Animation.FadeOut</include>
             <itemlayout width="1920" height="1080">
                 <control type="group">
+                    <visible>![Window.IsVisible(home) + !IsEmpty(Skin.String(home.slideshowpath)) + Skin.HasSetting(home.showslideshow) + IsEmpty(Container(300).ListItem.Property(widget))]</visible>
                     <visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+                    <include>Animation.FadeIn</include>
                     <left>40</left>
                     <bottom>250</bottom>
                     <width>890</width>
@@ -219,7 +222,9 @@
             </itemlayout>
             <focusedlayout width="1920" height="1080">
                 <control type="group">
+                    <visible>![Window.IsVisible(home) + !IsEmpty(Skin.String(home.slideshowpath)) + Skin.HasSetting(home.showslideshow) + IsEmpty(Container(300).ListItem.Property(widget))]</visible>
                     <visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+                    <include>Animation.FadeIn</include>
                     <left>40</left>
                     <bottom>250</bottom>
                     <width>890</width>
