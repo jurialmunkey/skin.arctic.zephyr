@@ -9,7 +9,7 @@
         <!-- Header -->
         <control type="group">
             <visible>Skin.HasSetting(home.showheader)</visible>
-            <animation effect="slide" start="0" end="0,-250" time="150" condition="Control.HasFocus(301)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,-250" time="150" condition="Control.HasFocus(301) | ControlGroup(303).HasFocus()">Conditional</animation>
             <animation effect="slide" start="0" end="0,-250" time="150">WindowClose</animation>
             <animation effect="slide" end="0" start="0,-250" time="150">WindowOpen</animation>
             <control type="image" description="TopBG">
@@ -42,12 +42,89 @@
             </control>
         </control>
         
+        <!-- Widget Selector -->
+        <control type="group">
+            <animation effect="slide" end="0" start="0,-250" time="150" reversible="false" condition="ControlGroup(303).HasFocus()">Conditional</animation>
+            <animation effect="slide" start="0" end="0,-250" time="150" reversible="false" condition="!ControlGroup(303).HasFocus()">Conditional</animation>
+            <include>Animation.FadeOut</include>
+            <control type="image" description="TopBG">
+                <width>100%</width>
+                <top>0</top>
+                <height>90</height>
+                <aspectratio aligny="top">scale</aspectratio>
+                <texture colordiffuse="Background">common/bg.jpg</texture>
+                <animation effect="fade" start="100" end="75" time="200" condition="true">Conditional</animation>
+            </control>
+            <control type="image" description="FanartOverlay">
+                <width>100%</width>
+                <height>100</height>
+                <top>0</top>
+                <aspectratio aligny="bottom">scale</aspectratio>
+                <texture colordiffuse="FloorFade">common/floor.png</texture>
+            </control>
+            <control type="image" description="Shadow">
+                <width>100%</width>
+                <height>16</height>
+                <top>100</top>
+                <texture flipy="false">common/shadow16B.png</texture>
+            </control>
+            <control type="grouplist" id="303">
+                <include>Animation.FadeIn.Delay</include>
+                <include>Animation.FadeOut</include>
+                <description>Widget Selector</description>
+                <top>12</top>
+                <left>SidePad</left>
+                <right>SidePad</right>
+                <onup>301</onup>
+                <ondown>301</ondown>
+                <onleft>303</onleft>
+                <onright>303</onright>
+                <orientation>horizontal</orientation>
+                <scrolltime>200</scrolltime>
+                <itemgap>0</itemgap>
+                <control type="button" id="331">
+                    <label>31127</label>
+                    <onfocus>SetProperty(widget,RandomMovies,home)</onfocus>
+                    <include>DefWidgetSelector</include>
+                </control>
+                <control type="button" id="332">
+                    <label>31124</label>
+                    <onfocus>SetProperty(widget,RecentMovies,home)</onfocus>
+                    <include>DefWidgetSelector</include>
+                </control>
+                <control type="button" id="333">
+                    <label>31123</label>
+                    <onfocus>SetProperty(widget,RecommendedMovies,home)</onfocus>
+                    <include>DefWidgetSelector</include>
+                </control>
+                <control type="button" id="334">
+                    <label>31126</label>
+                    <onfocus>SetProperty(widget,RandomEpisodes,home)</onfocus>
+                    <include>DefWidgetSelector</include>
+                </control>
+                <control type="button" id="335">
+                    <label>31125</label>
+                    <onfocus>SetProperty(widget,RecentEpisodes,home)</onfocus>
+                    <include>DefWidgetSelector</include>
+                </control>
+                <control type="button" id="336">
+                    <label>31122</label>
+                    <onfocus>SetProperty(widget,RecommendedEpisodes,home)</onfocus>
+                    <include>DefWidgetSelector</include>
+                </control>
+             
+            </control>
+        
+            
+        </control>
+        
         <!-- Widget Info -->
         <control type="wraplist" id="301">
             <description>Widget</description>
             <width>100%</width>
             <height>100%</height>
-            <onup>300</onup>
+            <onup condition="IsEmpty(Container(300).ListItem.Property(widget))">303</onup>
+            <onup condition="!IsEmpty(Container(300).ListItem.Property(widget))">300</onup>
             <ondown>300</ondown>
             <onleft>301</onleft>
             <onright>301</onright>
@@ -55,8 +132,8 @@
             <orientation>horizontal</orientation>
             <autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
             <scrolltime tween="quadratic">0</scrolltime>
-            <animation effect="slide" start="0" end="0,220" time="500" tween="back" reversible="false" easing="out" condition="Control.HasFocus(301)">Conditional</animation>
-            <animation effect="slide" end="0" start="0,220" time="150" reversible="false" condition="!Control.HasFocus(301)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,220" time="500" tween="back" reversible="false" easing="out" condition="Control.HasFocus(301) | ControlGroup(303).HasFocus()">Conditional</animation>
+            <animation effect="slide" end="0" start="0,220" time="150" reversible="false" condition="!Control.HasFocus(301) + !ControlGroup(303).HasFocus()">Conditional</animation>
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
             <itemlayout width="1920" height="1080">
@@ -225,7 +302,7 @@
         
         <!-- Home Row -->
         <control type="group">
-            <animation effect="slide" start="0" end="0,250" time="150" condition="Control.HasFocus(301)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,250" time="150" condition="Control.HasFocus(301) | ControlGroup(303).HasFocus()">Conditional</animation>
             <animation effect="slide" start="0" end="0,250" time="150">WindowClose</animation>
             <animation effect="slide" end="0" start="0,250" time="150">WindowOpen</animation>
             <control type="image" description="BottomBG">
@@ -251,6 +328,7 @@
             </control>
             <include>Furniture_Clock</include>
             <control type="image">
+                <visible>IntegerGreaterThan(Container(300).NumItems,6)</visible>
                 <top>962</top>
                 <left>32</left>
                 <width>16</width>
@@ -258,6 +336,7 @@
                 <texture colordiffuse="Dark2" flipx="true">common/arrow-small-right.png</texture>
             </control>
             <control type="image">
+                <visible>IntegerGreaterThan(Container(300).NumItems,6)</visible>
                 <top>962</top>
                 <right>470</right>
                 <width>16</width>
@@ -355,7 +434,7 @@
             <animation effect="slide" start="0" end="880" condition="Container(300).Position(4)">Conditional</animation>
             <animation effect="slide" start="0" end="1100" condition="Container(300).Position(5)">Conditional</animation>
             
-            <animation effect="slide" start="0" end="0,250" time="150" condition="Control.HasFocus(301)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,250" time="150" condition="Control.HasFocus(301) | ControlGroup(303).HasFocus()">Conditional</animation>
             <animation effect="slide" start="0" end="0,250" time="150">WindowClose</animation>
             <animation effect="slide" end="0" start="0,250" time="150">WindowOpen</animation>
             <posy>460</posy>

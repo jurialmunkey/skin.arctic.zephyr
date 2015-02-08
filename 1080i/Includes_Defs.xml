@@ -26,14 +26,20 @@
     
     <variable name="DefWidgetContent">
         <value condition="StringCompare(Container(300).ListItem.Property(widget),Playlist)">$INFO[Container(300).ListItem.Property(widgetPlaylist)]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RandomMovies)">special://skin/extras/playlists/RandomMovies.xsp</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RandomEpisodes)">special://skin/extras/playlists/RandomEpisodes.xsp</value>
+        <value condition="StringCompare(Container(300).ListItem.Property(widget),RandomMovies)">plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window.Property(randommovies)]</value>
+        <value condition="StringCompare(Container(300).ListItem.Property(widget),RandomEpisodes)">plugin://service.library.data.provider?type=randomepisodes&amp;reload=$INFO[Window.Property(randomepisodes)]</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),RecentEpisodes)">plugin://service.library.data.provider?type=recentepisodes&amp;reload=$INFO[Window.Property(recentepisodes)]</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),RecentMovies)">plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window.Property(recentmovies)]</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),RecommendedEpisodes)">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window.Property(recommendedepisodes)]</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),RecommendedMovies)">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window.Property(recommendedmovies)]</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),Custom1)">$INFO[Skin.String(CustomWidget1)]</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),Custom2)">$INFO[Skin.String(CustomWidget2)]</value>
+        <value condition="StringCompare(Window(home).Property(widget),RandomMovies) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window.Property(randommovies)]</value>
+        <value condition="StringCompare(Window(home).Property(widget),RandomEpisodes) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=randomepisodes&amp;reload=$INFO[Window.Property(randomepisodes)]</value>
+        <value condition="StringCompare(Window(home).Property(widget),RecentEpisodes) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=recentepisodes&amp;reload=$INFO[Window.Property(recentepisodes)]</value>
+        <value condition="StringCompare(Window(home).Property(widget),RecentMovies) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window.Property(recentmovies)]</value>
+        <value condition="StringCompare(Window(home).Property(widget),RecommendedEpisodes) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window.Property(recommendedepisodes)]</value>
+        <value condition="StringCompare(Window(home).Property(widget),RecommendedMovies) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window.Property(recommendedmovies)]</value>
         <value>special://skin/extras/playlists/RandomMovies.xsp</value>
     </variable>
     
@@ -46,6 +52,19 @@
         <focusedcolor>Highlight</focusedcolor>
         <texturefocus>noop</texturefocus>
         <width>210</width>
+    </include>
+    
+    <include name="DefWidgetSelector">
+        <align>center</align>
+        <aligny>center</aligny>
+        <width>293</width>
+        <onclick>SetFocus(301)</onclick>
+        <top>0</top>
+        <height>64</height>
+        <centerleft>50%</centerleft>
+        <textcolor>Dark3</textcolor>
+        <font>WidgetSelector</font>
+        <texturefocus>noop</texturefocus>
     </include>
     
     <include name="DefDialogButtons">
