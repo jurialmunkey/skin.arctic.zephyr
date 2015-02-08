@@ -87,6 +87,14 @@
         <value condition="!Player.HasVideo + !IsEmpty(MusicPlayer.offset(1).Title)">[B]$LOCALIZE[209]...  [/B]$INFO[MusicPlayer.offset(1).Title]</value>
         <value>$INFO[Player.FinishTime,$LOCALIZE[31106] ,]</value>
     </variable>
+    <variable name="LabelNextRecordingHeader">
+        <value condition="Pvr.IsRecording">$LOCALIZE[19158]...</value>
+        <value condition="Pvr.HasTimer">$LOCALIZE[19157]...</value>
+    </variable>
+    <variable name="LabelNextRecording">
+        <value condition="Pvr.IsRecording">$INFO[Pvr.NowRecordingTitle,[COLOR=Highlight],[/COLOR]]$INFO[Pvr.NowRecordingChannel,  ,]</value>
+        <value condition="Pvr.HasTimer">$INFO[Pvr.NextRecordingTitle,[COLOR=Highlight],[/COLOR]]$INFO[Pvr.NextRecordingDateTime,  ,]$INFO[Pvr.NextRecordingChannel,  ,]</value>
+    </variable>
     <variable name="HDSD">
         <value condition="IntegerGreaterThan(ListItem.VideoResolution,719)">HD</value>
         <value condition="!IsEmpty(ListItem.VideoResolution)">SD</value>
