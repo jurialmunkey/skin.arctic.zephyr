@@ -6,7 +6,6 @@
     <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=0)</onload>
     <controls>
         <include>GlobalBackground</include>
-        
         <!-- Header -->
         <control type="group">
             <visible>Skin.HasSetting(home.showheader)</visible>
@@ -273,7 +272,7 @@
                 <left>SidePad</left>
                 <right>520</right>
                 <onup condition="!Player.HasVideo | !Skin.HasSetting(global.showvideo)">301</onup>
-                <ondown>302</ondown>
+                <ondown condition="IntegerGreaterThan(Container(302).NumItems,0)">302</ondown>
                 <onleft>300</onleft>
                 <onright>300</onright>
                 <orientation>horizontal</orientation>
@@ -326,8 +325,8 @@
                         <height>16</height>
                         <texture colordiffuse="Dark3">common/arrow-small.png</texture>
                         <visible>Control.HasFocus(300)</visible>
-                        <include>Animation.FadeIn</include>
-                        <include>Animation.FadeOut</include>
+                        <visible>IntegerGreaterThan(Container(302).NumItems,0)</visible>
+                        <animation effect="fade" end="100" start="0" delay="300" time="400" reversible="false">Focus</animation>
                     </control>
                     
              
@@ -343,9 +342,12 @@
         
         <!-- Sub Menu -->
         <control type="group">
-            <visible allowhiddenfocus="true">Control.HasFocus(302)</visible>
-
-            <include>Animation.SlideUp</include>
+            <animation type="Conditional" condition="Control.HasFocus(302)" reversible="false">
+                <effect type="fade" start="0" end="100" time="250" delay="0" tween="cubic" easing="inout"/>
+                <effect type="slide" start="0,48" end="0" center="auto" tween="back" easing="out" time="400" delay="0"/>
+            </animation>
+            
+            <animation effect="fade" end="0" start="100" time="150" condition="!Control.HasFocus(302)" reversible="false">Conditional</animation>
             <include>Animation.FadeOut</include>
             <animation effect="slide" start="0" end="220" condition="Container(300).Position(1)">Conditional</animation>
             <animation effect="slide" start="0" end="440" condition="Container(300).Position(2)">Conditional</animation>
