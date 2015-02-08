@@ -40,7 +40,7 @@
         <value condition="StringCompare(Window(home).Property(widget),RecentMovies) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window.Property(recentmovies)]</value>
         <value condition="StringCompare(Window(home).Property(widget),RecommendedEpisodes) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window.Property(recommendedepisodes)]</value>
         <value condition="StringCompare(Window(home).Property(widget),RecommendedMovies) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window.Property(recommendedmovies)]</value>
-        <value>special://skin/extras/playlists/RandomMovies.xsp</value>
+        <value>plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window.Property(randommovies)]</value>
     </variable>
     
     <include name="DefOSDButtons">
