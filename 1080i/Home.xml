@@ -54,6 +54,7 @@
             <visible>!Window.IsVisible(DialogExtendedProgress.xml)</visible>
             <visible>!Window.IsVisible(DialogVolumeBar.xml)</visible>
             <visible>![Skin.HasSetting(home.showheader) + Player.HasMedia]</visible>
+            <visible>Pvr.IsRecording | Pvr.HasTimer</visible>
             <control type="image">
                 <description>background image</description>
                 <posx>0</posx>
