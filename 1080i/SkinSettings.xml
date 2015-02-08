@@ -88,6 +88,22 @@
                         <selected>Skin.HasSetting(home.showheader)</selected>
                         <onclick>Skin.ToggleSetting(home.showheader)</onclick>
                     </control>
+                    <control type="button" id="9213" description="Custom Widget 1">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31128</label>
+                        <label2>$INFO[Skin.String(CustomWidget1)]</label2>
+                        <onclick>Skin.SetString(CustomWidget1)</onclick>
+                    </control>
+                    <control type="button" id="9214" description="Custom Widget 2">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31129</label>
+                        <label2>$INFO[Skin.String(CustomWidget2)]</label2>
+                        <onclick>Skin.SetString(CustomWidget2)</onclick>
+                    </control>
                     
                     <!-- Global -->
                     <control type="radiobutton" id="9221" description="Show video in background">

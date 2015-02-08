@@ -47,6 +47,14 @@
         <value condition="Control.HasFocus(101) | Window.IsActive(servicesettings)">$LOCALIZE[14036]</value>
         <value>$LOCALIZE[480]</value>
     </variable>
+    
+    <variable name="WidgetLabel">
+        <value condition="StringCompare(Container(300).ListItem.Property(widget),RecommendedMovies)">$LOCALIZE[31123]</value>
+        <value condition="StringCompare(Container(300).ListItem.Property(widget),RecommendedEpisodes)">$LOCALIZE[31122]</value>
+        <value condition="StringCompare(Container(300).ListItem.Property(widget),RecentEpisodes)">$LOCALIZE[31125]</value>
+        <value condition="StringCompare(Container(300).ListItem.Property(widget),RecentMovies)">$LOCALIZE[31124]</value>
+        <value>$LOCALIZE[31105]</value>
+    </variable>
     <variable name="PVRInfoStatus">
         <value condition="ListItem.IsRecording">$LOCALIZE[19158]</value>
         <value condition="ListItem.HasTimer">$LOCALIZE[19058]</value>

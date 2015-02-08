@@ -91,7 +91,9 @@
     </include>
 
     <variable name="GlobalFanart">
-        <value condition="Window.IsVisible(home)">$INFO[Container(301).ListItem.Art(fanart)]</value>
+        <value condition="Window.IsVisible(home) + !IsEmpty(Container(301).ListItem.Art(fanart))">$INFO[Container(301).ListItem.Art(fanart)]</value>
+        <value condition="Window.IsVisible(home) + !IsEmpty(Skin.String(home.fallbackimage))">$INFO[Skin.String(home.fallbackimage)]</value>
+        <value condition="Window.IsVisible(home)">pvr/background.jpg</value>
         <value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
         <value condition="!IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
         <value>common/null.png</value>
@@ -131,6 +133,7 @@
             <fadetime>600</fadetime>
             <timeperimage>12000</timeperimage>
             <randomize>true</randomize>
+            <aspectratio>scale</aspectratio>
             <imagepath background="true">$VAR[GlobalFanart]</imagepath>
             <animation effect="zoom" start="110" end="120" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
             <animation effect="slide" start="-20,-20" end="20,20" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
