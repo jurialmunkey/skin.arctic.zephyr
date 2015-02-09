@@ -80,6 +80,13 @@
                         <label>31109</label>
                         <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
                     </control>
+                    <control type="button" id="9213" description="Reset Home to Defaults">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31132</label>
+                        <onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
+                    </control>
                     <control type="radiobutton" id="9212" description="Show Header">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
@@ -88,7 +95,8 @@
                         <selected>Skin.HasSetting(home.showheader)</selected>
                         <onclick>Skin.ToggleSetting(home.showheader)</onclick>
                     </control>
-                    <control type="radiobutton" id="9213" description="Show slideshow as default widget">
+                    
+                    <control type="radiobutton" id="9214" description="Show slideshow as default widget">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
@@ -96,7 +104,7 @@
                         <selected>Skin.HasSetting(home.showslideshow)</selected>
                         <onclick>Skin.ToggleSetting(home.showslideshow)</onclick>
                     </control>
-                    <control type="button" id="9214" description="Set Slideshow Path">
+                    <control type="button" id="9215" description="Set Slideshow Path">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
