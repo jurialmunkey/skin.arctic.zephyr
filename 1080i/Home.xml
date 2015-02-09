@@ -495,6 +495,12 @@
             <animation effect="slide" start="0" end="880" condition="Container(300).Position(4)">Conditional</animation>
             <animation effect="slide" start="0" end="1100" condition="Container(300).Position(5)">Conditional</animation>
             
+            <animation effect="slide" end="0,70" condition="!IntegerGreaterThan(Container(302).NumItems,5)">Conditional</animation>
+            <animation effect="slide" end="0,70" condition="!IntegerGreaterThan(Container(302).NumItems,4)">Conditional</animation>
+            <animation effect="slide" end="0,70" condition="!IntegerGreaterThan(Container(302).NumItems,3)">Conditional</animation>
+            <animation effect="slide" end="0,70" condition="!IntegerGreaterThan(Container(302).NumItems,2)">Conditional</animation>
+            <animation effect="slide" end="0,70" condition="!IntegerGreaterThan(Container(302).NumItems,1)">Conditional</animation>
+            
             <animation effect="slide" start="0" end="0,250" time="150" condition="Control.HasFocus(301) | ControlGroup(303).HasFocus()">Conditional</animation>
             <animation effect="slide" start="0" end="0,250" time="150">WindowClose</animation>
             <animation effect="slide" end="0" start="0,250" time="150">WindowOpen</animation>
@@ -503,10 +509,46 @@
             <width>316</width>
             <height>452</height>
             <control type="image">
-                <description>background image</description>
+                <description>6 Option Menu</description>
                 <width>100%</width>
-                <height>100%</height>
+                <height>452</height>
                 <texture border="16" colordiffuse="Background">common/rounded-shadow8.png</texture>
+                <visible>IntegerGreaterThan(Container(302).NumItems,5)</visible>
+            </control>
+            <control type="image">
+                <description>5 Option Menu</description>
+                <width>100%</width>
+                <height>382</height>
+                <texture border="16" colordiffuse="Background">common/rounded-shadow8.png</texture>
+                <visible>IntegerGreaterThan(Container(302).NumItems,4) + !IntegerGreaterThan(Container(302).NumItems,5)</visible>
+            </control>
+            <control type="image">
+                <description>4 Option Menu</description>
+                <width>100%</width>
+                <height>312</height>
+                <texture border="16" colordiffuse="Background">common/rounded-shadow8.png</texture>
+                <visible>IntegerGreaterThan(Container(302).NumItems,3) + !IntegerGreaterThan(Container(302).NumItems,4)</visible>
+            </control>
+            <control type="image">
+                <description>3 Option Menu</description>
+                <width>100%</width>
+                <height>242</height>
+                <texture border="16" colordiffuse="Background">common/rounded-shadow8.png</texture>
+                <visible>IntegerGreaterThan(Container(302).NumItems,2) + !IntegerGreaterThan(Container(302).NumItems,3)</visible>
+            </control>
+            <control type="image">
+                <description>2 Option Menu</description>
+                <width>100%</width>
+                <height>172</height>
+                <texture border="16" colordiffuse="Background">common/rounded-shadow8.png</texture>
+                <visible>IntegerGreaterThan(Container(302).NumItems,1) + !IntegerGreaterThan(Container(302).NumItems,2)</visible>
+            </control>
+            <control type="image">
+                <description>1 Option Menu</description>
+                <width>100%</width>
+                <height>102</height>
+                <texture border="16" colordiffuse="Background">common/rounded-shadow8.png</texture>
+                <visible>!IntegerGreaterThan(Container(302).NumItems,1)</visible>
             </control>
             <control type="list" id="302">
                 <include>Animation.FadeIn.Delay</include>
