@@ -177,6 +177,7 @@
         
         <!-- Widget Info -->
         <control type="wraplist" id="301">
+            <animation effect="fade" start="100" end="0" time="200" condition="Container(301).IsUpdating">Conditional</animation>
             <description>Widget</description>
             <width>100%</width>
             <height>100%</height>
@@ -360,6 +361,49 @@
             </focusedlayout>
             <content target="video">$VAR[DefWidgetContent]</content>
         </control>
+        
+        <!-- Container Updating -->
+        <control type="group">
+            <left>40</left>
+            <bottom>250</bottom>
+            <width>450</width>
+            <height>117</height>
+            <visible>Container(301).IsUpdating</visible>
+            <include>Animation.FadeIn</include>
+            <include>Animation.FadeOut</include>
+            <control type="image">
+                <description>background image</description>
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>450</width>
+                <height>117</height>
+                <texture border="16" colordiffuse="Background">common/rounded-shadow8.png</texture>
+            </control>
+
+            <control type="image">
+                <description>Busy animation</description>
+                <posx>30</posx>
+                <posy>30</posy>
+                <width>48</width>
+                <height>48</height>
+                <texture colordiffuse="Highlight">buttons/busy.png</texture>
+                <aspectratio>keep</aspectratio>
+                <animation effect="rotate" start="0" end="360" center="54,54" time="1200" loop="true" condition="true">conditional</animation>
+            </control>
+
+            <control type="label">
+                <description>Busy label</description>
+                <posx>105</posx>
+                <posy>30</posy>
+                <width>720</width>
+                <height>48</height>
+                <align>left</align>
+                <label>$LOCALIZE[31138]...</label>
+                <textcolor>Dark1</textcolor>
+            </control>
+
+        </control>
+
         
         <!-- Home Row -->
         <control type="group">
