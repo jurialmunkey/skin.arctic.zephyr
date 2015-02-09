@@ -7,6 +7,18 @@
     <variable name="LabelEpisodeZero">
         <value condition="!IntegerGreaterThan(ListItem.Episode,9)">$NUMBER[0]</value>
     </variable>
+    <variable name="LabelDirector">
+        <value condition="Container.Content(episodes) | Container.Content(seasons)">$INFO[ListItem.TvShowTitle]</value>
+        <value condition="Container.Content(tvshows)">$INFO[ListItem.Studio]</value>
+        <value condition="!IsEmpty(ListItem.Director)">$INFO[ListItem.Director]</value>
+        <value>$LOCALIZE[19055]</value>
+    </variable>
+    <variable name="LabelGenre">
+        <value condition="Container.Content(tvshows) | Container.Content(seasons)">$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20360]]$INFO[ListItem.Property(UnWatchedEpisodes),  •  , $LOCALIZE[16101]]</value>
+        <value condition="Container.Content(episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] ,  ]$INFO[ListItem.Episode,$LOCALIZE[20359] ,]</value>
+        <value condition="!IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre]</value>
+        <value>$LOCALIZE[19055]</value>
+    </variable>
     <variable name="LabelDuration">
         <value condition="stringcompare(Container.SortMethod,$LOCALIZE[20074])">$INFO[ListItem.MPAA]</value>
         <value condition="stringcompare(Container.SortMethod,$LOCALIZE[570])">$INFO[ListItem.DateAdded]</value>
