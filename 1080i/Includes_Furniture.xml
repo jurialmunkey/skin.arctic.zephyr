@@ -336,7 +336,7 @@
         <value condition="Window.IsVisible(MyVideoNav.xml) + [substring(Container.FolderPath,videodb://tvshows) | substring(Container.FolderPath,videodb://recentlyaddedepisodes)]">special://skin/extras/icons/tv.png</value>
         <value condition="Window.IsVisible(MyVideoNav.xml)">special://skin/extras/icons/video-addons.png</value>
         <value condition="Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(3204)">special://skin/extras/icons/livetv.png</value>
-        <value condition="Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyMusicSongs.xml)">special://skin/extras/icons/songs.png</value>
+        <value condition="Window.IsVisible(MyMusicPlaylistEditor.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyMusicSongs.xml)">special://skin/extras/icons/songs.png</value>
         <value condition="Window.IsVisible(MyPics.xml)">special://skin/extras/icons/pictures.png</value>
         <value condition="Window.IsVisible(MyPrograms.xml) | Window.IsVisible(AddonBrowser.xml)">special://skin/extras/icons/addons.png</value>
         <value condition="Window.IsVisible(weather)">special://skin/extras/icons/sun.png</value>
@@ -347,6 +347,7 @@
     </variable>
     
     <variable name="MainHeaderLabel">
+        <value condition="Window.IsVisible(MyMusicPlaylistEditor.xml)">$LOCALIZE[20011]</value>
         <value condition="Window.IsVisible(DialogButtonMenu.xml)">$LOCALIZE[33060]</value>
         <value condition="Window.IsVisible(DialogFavourites.xml)">$LOCALIZE[1036]</value>
         <value condition="Window.IsVisible(MyVideoNav.xml) + substring(Container.FolderPath,videodb://movies) | substring(Container.FolderPath,videodb://recentlyaddedmovies)">$LOCALIZE[20342]</value>
@@ -366,7 +367,7 @@
     
     <variable name="SubHeaderLabel">
         <value condition="Window.IsVisible(LoginScreen.xml)">$LOCALIZE[10029]</value>
-        <value condition="!IsEmpty(Container.NumItems) + !Window.IsVisible(home)">$INFO[Container.NumItems,[COLOR=Highlight],[/COLOR] $LOCALIZE[31101]]  •  $INFO[Control.GetLabel(3)]</value>
+        <value condition="!IsEmpty(Container.NumItems) + !Window.IsVisible(home)">$INFO[Container.NumItems,[COLOR=Highlight],[/COLOR] $LOCALIZE[31101]]$INFO[Control.GetLabel(3),  •  ,]</value>
         <value>[COLOR=Highlight]$INFO[Window(home).Property(Movies.Count)][/COLOR] $LOCALIZE[20342]  •  [COLOR=Highlight]$INFO[Window(home).Property(Episodes.Count)][/COLOR] $LOCALIZE[20360]  •  [COLOR=Highlight]$INFO[Window(home).Property(Music.SongsCount)][/COLOR] $LOCALIZE[134]$INFO[Pvr.BackendChannels,  •  [COLOR=Highlight],[/COLOR] $LOCALIZE[19019]]</value>
     </variable>
   
