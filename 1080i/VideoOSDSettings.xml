@@ -5,7 +5,10 @@
     <allowoverlay>yes</allowoverlay>
     <zorder>3</zorder>
     <controls>
-        <include>GlobalOverlay</include>
+        <control type="group">
+            <animation effect="fade" start="100" end="0" time="400" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(FileBrowser)">Conditional</animation>
+            <include>GlobalOverlay</include>
+        </control>
         <control type="group">
             <animation effect="fade" start="100" end="0" time="400" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(FileBrowser)">Conditional</animation>
 

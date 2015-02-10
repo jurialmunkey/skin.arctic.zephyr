@@ -1,144 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
 <window id="10140">
-	<defaultcontrol always="true">20</defaultcontrol>
+    <defaultcontrol always="true">20</defaultcontrol>
 
-	<controls>
+    <controls>
 
-		<include>GlobalOverlay</include>
+        <include>GlobalOverlay</include>
 
-		<control type="group">
-			<posx>503</posx>
-			<posy>45</posy>
-			<visible>!Window.IsVisible(PeripheralSettings)</visible>
+        <control type="group">
+            <include>DefDialogBackground</include>
+            
+            <control type="label id="1">
+                <include>DefDialogHeader</include>
+                <label>35000</label>
+            </control>
+            
+            <visible>!Window.IsVisible(PeripheralSettings)</visible>
 
-			<control type="image">
-				<description>background image</description>
-				<posx>-30</posx>
-				<posy>-30</posy>
-				<width>975</width>
-				<height>1035</height>
-				<texture border="22">other_textures/ContentPanel.png</texture>
-			</control>
+            <control type="list" id="20">
+                <left>38</left>
+                <right>38</right>
+                <posy>90</posy>
+                <height>690</height>
+                <onup>-</onup>
+                <ondown>10</ondown>
+                <scrolltime>200</scrolltime>
 
-			<control type="label" id="1">
-				<description>header label</description>
-				<posx>60</posx>
-				<posy>30</posy>
-				<width>795</width>
-				<height>45</height>
-				<align>center</align>
-				<font>Medium</font>
-				<label>35000</label>
-			</control>
+                <itemlayout height="138" width="1004">
 
-			<control type="list" id="20">
-				<posx>45</posx>
-				<posy>120</posy>
-				<width>825</width>
-				<height>690</height>
-				<onup>-</onup>
-				<ondown>10</ondown>
-				<scrolltime>200</scrolltime>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>100%</width>
+                        <height>135</height>
+                        <texture border="5" colordiffuse="Black12">common/box.png</texture>
+                    </control>
 
-				<itemlayout height="138" width="825">
+                    <control type="label">
+                        <description>Name</description>
+                        <left>30</left>
+                        <posy>15</posy>
+                        <right>30</right>
+                        <height>30</height>
+                        <label>$INFO[ListItem.Label]</label>
+                        <textcolor>Black70</textcolor>
+                    </control>
 
-					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>825</width>
-						<height>135</height>
-						<texture border="2">other_textures/ButtonNF.png</texture>
-					</control>
+                    <control type="label">
+                        <description>Product ID Vendor ID</description>
+                        <left>30</left>
+                        <posy>51</posy>
+                        <right>30</right>
+                        <height>30</height>
+                        <label>$LOCALIZE[35504]:  [COLOR=Black70]$INFO[ListItem.Property(Product)][/COLOR]    $LOCALIZE[35503]:  [COLOR=Black70]$INFO[ListItem.Property(Vendor)][/COLOR]</label>
+                        <textcolor>Black30</textcolor>
+                    </control>
 
-					<control type="label">
-						<description>Name</description>
-						<posx>30</posx>
-						<posy>15</posy>
-						<width>780</width>
-						<height>30</height>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
+                    <control type="label">
+                        <description>class</description>
+                        <left>30</left>
+                        <right>30</right>
+                        <posy>87</posy>
+                        <width>780</width>
+                        <height>30</height>
+                        <label>$LOCALIZE[35501]:  [COLOR=Black70]$INFO[ListItem.Property(Class)][/COLOR]</label>
+                        <font>Tiny</font>
+                        <textcolor>Black30</textcolor>
+                    </control>
 
-					<control type="label">
-						<description>Product ID Vendor ID</description>
-						<posx>30</posx>
-						<posy>51</posy>
-						<width>780</width>
-						<height>30</height>
-						<label>$LOCALIZE[35504]:  [COLOR=white]$INFO[ListItem.Property(Product)][/COLOR]    $LOCALIZE[35503]:  [COLOR=white]$INFO[ListItem.Property(Vendor)][/COLOR]</label>
-						<textcolor>blue</textcolor>
-					</control>
+                </itemlayout>
 
-					<control type="label">
-						<description>class</description>
-						<posx>30</posx>
-						<posy>87</posy>
-						<width>780</width>
-						<height>30</height>
-						<label>$LOCALIZE[35501]:  [COLOR=white]$INFO[ListItem.Property(Class)][/COLOR]</label>
-						<font>font12</font>
-						<textcolor>blue</textcolor>
-					</control>
+                <focusedlayout height="138" width="1004">
 
-				</itemlayout>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>825</width>
+                        <height>135</height>
+                        <texture border="5" colordiffuse="Highlight">common/box.png</texture>
+                        <animation effect="fade" start="100" end="50" condition="!Control.HasFocus(20)">Conditional</animation>
+                    </control>
 
-				<focusedlayout height="138" width="825">
+                    <control type="label">
+                        <description>Name</description>
+                        <left>30</left>
+                        <right>30</right>
+                        <posy>15</posy>
+                        <height>30</height>
+                        <label>$INFO[ListItem.Label]</label
+                        <textcolor>White100</textcolor>
+                    </control>
 
-					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>825</width>
-						<height>135</height>
-						<texture border="5">other_textures/ButtonFO.png</texture>
-						<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(20)">Conditional</animation>
-					</control>
+                    <control type="label">
+                        <description>Product ID Vendor ID</description>
+                        <left>30</left>
+                        <right>30</right>
+                        <posy>51</posy>
+                        <height>30</height>
+                        <label>$LOCALIZE[35504]:  [COLOR=White100]$INFO[ListItem.Property(Product)][/COLOR]    $LOCALIZE[35503]:  [COLOR=White100]$INFO[ListItem.Property(Vendor)][/COLOR]</label>
+                        <textcolor>White70</textcolor>
+                    </control>
 
-					<control type="label">
-						<description>Name</description>
-						<posx>30</posx>
-						<posy>15</posy>
-						<width>780</width>
-						<height>30</height>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
+                    <control type="label">
+                        <description>class</description>
+                        <left>30</left>
+                        <right>30</right>
+                        <posy>87</posy>
+                        <height>30</height>
+                        <label>$LOCALIZE[35501]:  [COLOR=White100]$INFO[ListItem.Property(Class)][/COLOR]</label>
+                        <font>Tiny</font>
+                        <textcolor>White70</textcolor>
+                    </control>
 
-					<control type="label">
-						<description>Product ID Vendor ID</description>
-						<posx>30</posx>
-						<posy>51</posy>
-						<width>780</width>
-						<height>30</height>
-						<label>$LOCALIZE[35504]:  [COLOR=white]$INFO[ListItem.Property(Product)][/COLOR]    $LOCALIZE[35503]:  [COLOR=white]$INFO[ListItem.Property(Vendor)][/COLOR]</label>
-						<textcolor>blue</textcolor>
-					</control>
+                </focusedlayout>
 
-					<control type="label">
-						<description>class</description>
-						<posx>30</posx>
-						<posy>87</posy>
-						<width>780</width>
-						<height>30</height>
-						<label>$LOCALIZE[35501]:  [COLOR=white]$INFO[ListItem.Property(Class)][/COLOR]</label>
-						<font>font12</font>
-						<textcolor>blue</textcolor>
-					</control>
+            </control>
 
-				</focusedlayout>
+            <control type="button" id="10">
+                <description>OK button</description>
+                <label>186</label>
+                <onup>20</onup>
+                <onright>11</onright>
+                <onleft>11</onleft>
+                <centerright>33%</centerright>
+                <bottom>30</bottom>
+                <width>300</width>
+                <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                <include>DefDialogButtons</include>
+            </control>
+            <control type="button" id="11">
+                <description>Settings button</description>
+                <label>5</label>
+                <onup>20</onup>
+                <onright>10</onright>
+                <onleft>10</onleft>
+                <centerleft>33%</centerleft>
+                <bottom>30</bottom>
+                <width>300</width>
+                <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                <include>DefDialogButtons</include>
+            </control>
 
-			</control>
+        </control>
 
-			<control type="button" id="10">
-				<description>OK button</description>
-				<posx>293</posx>
-				<posy>878</posy>
-				<width>330</width>
-				<label>186</label>
-				<onup>20</onup>
-			</control>
-
-		</control>
-
-	</controls>
+    </controls>
 
 </window>
