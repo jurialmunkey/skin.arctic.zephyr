@@ -190,6 +190,17 @@
                 <onright>50</onright>
                 <onleft>50</onleft>
                 <orientation>vertical</orientation>
+                
+                <control type="button" id ="9001">
+                    <description>Extended Info</description>
+                    <label>31147</label>
+                    <onclick>RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[ListItem.Label])</onclick>
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                </control>
 
                 <control type="button" id ="5">
                     <description>Switch</description>

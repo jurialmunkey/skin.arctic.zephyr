@@ -254,16 +254,12 @@
                 <onup>noop</onup>
                 <ondown>noop</ondown>
                 <usecontrolcoords>true</usecontrolcoords>
+                
+                <include condition="VideoPlayer.HasMenu | [!VideoPlayer.Content(movies) + !VideoPlayer.Content(episodes)]">OSDDVDMenu</include>
+                <include condition="!VideoPlayer.HasMenu + VideoPlayer.Content(episodes)">OSDExtraInfoTV</include>
+                <include condition="!VideoPlayer.HasMenu + VideoPlayer.Content(movies)">OSDExtraInfoMOVIES</include>
         
-                <control type="button" id="4">
-                    <description>DVD Menu</description>
-                    <label>$LOCALIZE[31116]</label>
-                    <include>DefOSDButtons</include>
-                    <onclick>PlayerControl(ShowVideoMenu)</onclick>
-                    <enable>VideoPlayer.HasMenu</enable>
-                    <disabledcolor>White12</disabledcolor>
-                </control>
-
+                
                 <control type="button" id="5">
                     <description>3D Mode</description>
                     <label>31117</label>

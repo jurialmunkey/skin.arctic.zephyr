@@ -393,4 +393,32 @@
         </control>
     </include>
     
+    <include name="OSDDVDMenu">
+        <control type="button" id="4">
+            <description>DVD Menu</description>
+            <label>$LOCALIZE[31116]</label>
+            <include>DefOSDButtons</include>
+            <onclick>PlayerControl(ShowVideoMenu)</onclick>
+            <enable>VideoPlayer.HasMenu</enable>
+            <disabledcolor>White12</disabledcolor>
+        </control>
+    </include>
+    <include name="OSDExtraInfoTV">
+        <control type="button" id="4">
+            <description>Info</description>
+            <label>31147</label>
+            <include>DefOSDButtons</include>
+            <onclick>RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[VideoPlayer.TvShowTitle])</onclick>
+            <disabledcolor>White12</disabledcolor>
+        </control>
+    </include>
+    <include name="OSDExtraInfoMOVIES">
+        <control type="button" id="4">
+            <description>Info</description>
+            <label>31147</label>
+            <include>DefOSDButtons</include>
+            <onclick>RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[VideoPlayer.Title])</onclick>
+            <disabledcolor>White12</disabledcolor>
+        </control>
+    </include>
 </includes>
