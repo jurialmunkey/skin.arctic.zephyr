@@ -36,8 +36,20 @@
                     <font>SmallBold</font>
                     <textcolor>White100</textcolor>
                     <selectedcolor>White100</selectedcolor>
-                    <label>$INFO[ListItem.Label]$INFO[ListItem.Genre,  -  ,]</label>
+                    <label>$INFO[ListItem.Label]</label>
                 </control>
+                <control type="label">
+                    <top>0</top>
+                    <right>0</right>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <height>64</height>
+                    <font>TinyBold</font>
+                    <textcolor>White70</textcolor>
+                    <selectedcolor>White70</selectedcolor>
+                    <label>$INFO[ListItem.Genre,,  •  ]$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
+                </control>
+                
                 <control type="textbox">
                     <top>50</top>
                     <height>70</height>

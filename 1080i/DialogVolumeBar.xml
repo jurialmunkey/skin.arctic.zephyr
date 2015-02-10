@@ -7,7 +7,7 @@
     <controls>
 
         <control type="group">
-            <visible>!VideoPlayer.IsFullscreen + !Window.IsVisible(visualisation)</visible>
+            <visible>!VideoPlayer.IsFullscreen + !Window.IsVisible(visualisation) + !Window.IsVisible(home)</visible>
             <posx>680r</posx>
             <posy>70</posy>
             <width>660</width>
@@ -96,7 +96,7 @@
 
         </control>
         <control type="group">
-            <visible>VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)</visible>
+            <visible>VideoPlayer.IsFullscreen | Window.IsVisible(visualisation) | Window.IsVisible(home)</visible>
             <posx>680r</posx>
             <posy>72</posy>
             <width>660</width>

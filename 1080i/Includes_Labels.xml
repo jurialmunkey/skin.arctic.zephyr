@@ -71,6 +71,7 @@
         <value condition="StringCompare(Container(300).ListItem.Property(widget),TrendingShows)">$LOCALIZE[31135]</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),AiringShows)">$LOCALIZE[31136]</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),PremiereShows)">$LOCALIZE[31137]</value>
+        <value condition="StringCompare(Container(300).ListItem.Property(widget),Weather)">$LOCALIZE[8]</value>
         <value condition="StringCompare(Window(home).Property(widget),RecommendedMovies) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31123]</value>
         <value condition="StringCompare(Window(home).Property(widget),RecommendedEpisodes) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31122]</value>
         <value condition="StringCompare(Window(home).Property(widget),RecentEpisodes) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31125]</value>
@@ -78,6 +79,14 @@
         <value condition="StringCompare(Window(home).Property(widget),RandomEpisodes) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31126]</value>
         <value condition="StringCompare(Window(home).Property(widget),RandomMovies) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31127]</value>
         <value>$LOCALIZE[31105]</value>
+    </variable>
+    <variable name="WidgetTitle">
+        <value condition="StringCompare(Container(300).ListItem.Property(widget),Weather)">$INFO[Weather.Temperature]</value>
+        <value>$INFO[Container(301).ListItem.Label]</value>
+    </variable>
+    <variable name="WidgetPlot">
+        <value condition="StringCompare(Container(300).ListItem.Property(widget),Weather)">$INFO[Weather.Conditions]</value>
+        <value>$INFO[Container(301).ListItem.Plot]</value>
     </variable>
     <variable name="PVRInfoStatus">
         <value condition="ListItem.IsRecording">$LOCALIZE[19158]</value>

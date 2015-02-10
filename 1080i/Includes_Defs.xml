@@ -39,6 +39,7 @@
         <value condition="StringCompare(Container(300).ListItem.Property(widget),TrendingShows)">plugin://script.extendedinfo?info=trendingshows</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),AiringShows)">plugin://script.extendedinfo?info=airingshows</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),PremiereShows)">plugin://script.extendedinfo?info=premiereshows</value>
+        <value condition="StringCompare(Container(300).ListItem.Property(widget),Weather) + !IsEmpty(Skin.String(weather.fanart))">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Current.FanartCode)]/</value>
         
         <!-- Slideshow -->
         <value condition="Skin.HasSetting(home.showslideshow) + !IsEmpty(Skin.String(home.slideshowpath)) + IsEmpty(Container(300).ListItem.Property(widget))">$INFO[Skin.String(home.slideshowpath)]</value>

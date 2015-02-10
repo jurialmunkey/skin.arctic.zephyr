@@ -56,6 +56,12 @@
                         <include>DefSettingsButton</include>
                         <label>478</label>
                     </control>
+                    <control type="togglebutton" id="9104" description="Widgets">
+                        <usealttexture>ControlGroup(9100).HasFocus(9104)</usealttexture>
+                        <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
+                        <include>DefSettingsButton</include>
+                        <label>31144</label>
+                    </control>
                 </control>
                 
                 
@@ -80,14 +86,14 @@
                         <label>31109</label>
                         <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
                     </control>
-                    <control type="button" id="9213" description="Reset Home to Defaults">
+                    <control type="button" id="9212" description="Reset Home to Defaults">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
                         <label>31132</label>
                         <onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
                     </control>
-                    <control type="radiobutton" id="9212" description="Show Header">
+                    <control type="radiobutton" id="9213" description="Show Header">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
@@ -95,8 +101,15 @@
                         <selected>Skin.HasSetting(home.showheader)</selected>
                         <onclick>Skin.ToggleSetting(home.showheader)</onclick>
                     </control>
-                    
-                    <control type="radiobutton" id="9214" description="Show slideshow as default widget">
+                    <!--<control type="radiobutton" id="9214" description="Always Show Weather Widget">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31145</label>
+                        <selected>Skin.HasSetting(home.showweatherfanart)</selected>
+                        <onclick>Skin.ToggleSetting(home.showweatherfanart)</onclick>
+                    </control>-->
+                    <control type="radiobutton" id="9215" description="Show slideshow as default widget">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
@@ -104,7 +117,7 @@
                         <selected>Skin.HasSetting(home.showslideshow)</selected>
                         <onclick>Skin.ToggleSetting(home.showslideshow)</onclick>
                     </control>
-                    <control type="button" id="9215" description="Set Slideshow Path">
+                    <control type="button" id="9216" description="Set Slideshow Path">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
@@ -112,27 +125,9 @@
                         <enable>Skin.HasSetting(home.showslideshow)</enable>
                         <label2>$INFO[Skin.String(home.slideshowpath)]</label2>
                         <onclick>Skin.SetPath(home.slideshowpath)</onclick>
-                    </control>
+                    </control>                    
                     
-                    <control type="button" id="9218" description="Custom Widget 1">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31128</label>
-                        <label2>$INFO[Skin.String(CustomWidget1)]</label2>
-                        <onclick>Skin.SetString(CustomWidget1)</onclick>
-                    </control>
-                    <control type="button" id="9219" description="Custom Widget 2">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31129</label>
-                        <label2>$INFO[Skin.String(CustomWidget2)]</label2>
-                        <onclick>Skin.SetString(CustomWidget2)</onclick>
-                    </control>
-                    
-                    
-                    <!-- Global -->
+                    <!-- Fanart -->
                     <control type="radiobutton" id="9221" description="Show video in background">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9102)</visible>
@@ -149,6 +144,24 @@
                         <selected>!Skin.HasSetting(global.hidefanart)</selected>
                         <onclick>Skin.ToggleSetting(global.hidefanart)</onclick>
                     </control>
+                    <control type="radiobutton" id="9223" description="Animate Fanart">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9102)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31146</label>
+                        <selected>Skin.HasSetting(Fanart.Animate)</selected>
+                        <onclick>Skin.ToggleSetting(Fanart.Animate)</onclick>
+                    </control>
+                    <control type="button" id="9224" description="Set Weather Fanart">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9102)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31143</label>
+                        <label2>$INFO[Skin.String(weather.fanart)]</label2>
+                        <onclick condition="IsEmpty(Skin.String(weather.fanart))">Skin.SetPath(weather.fanart)</onclick>
+                        <onclick condition="!IsEmpty(Skin.String(weather.fanart))">Skin.Reset(weather.fanart)</onclick>
+                    </control>
+                    
                     
                     <!-- OSD -->
                     <control type="radiobutton" id="9231" description="Show slideshow in background">
@@ -174,6 +187,24 @@
                         <label>31120</label>
                         <selected>Skin.HasSetting(ArtistSlideshow.Animate)</selected>
                         <onclick>Skin.ToggleSetting(ArtistSlideshow.Animate)</onclick>
+                    </control>
+                    
+                    <!-- Widgets -->
+                    <control type="button" id="9241" description="Custom Widget 1">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9104)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31128</label>
+                        <label2>$INFO[Skin.String(CustomWidget1)]</label2>
+                        <onclick>Skin.SetString(CustomWidget1)</onclick>
+                    </control>
+                    <control type="button" id="9242" description="Custom Widget 2">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9104)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31129</label>
+                        <label2>$INFO[Skin.String(CustomWidget2)]</label2>
+                        <onclick>Skin.SetString(CustomWidget2)</onclick>
                     </control>
                 </control>
                 
