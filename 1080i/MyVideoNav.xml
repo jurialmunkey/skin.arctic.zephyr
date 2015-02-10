@@ -8,7 +8,8 @@
 
         <include>GlobalBackground</include>
 
-        <include>View_50_List</include>
+        <include condition="!Skin.HasSetting(50list.low)">View_50_List</include>
+        <include condition="Skin.HasSetting(50list.low)">View_50_LowList</include>
         <include>View_51_BigWide</include>
         <include>View_52_BigList</include>
         <include>View_53_Poster</include>
@@ -34,7 +35,8 @@
             <control type="grouplist" id="9000">
                 <usecontrolcoords>true</usecontrolcoords>
                 <include>Def9000GroupList</include>
-
+                
+                <!-- Sort Options -->
                 <control type="button" id="2">
                     <description>View</description>
                     <include>DefContextButton</include>
@@ -63,6 +65,20 @@
                     <label>137</label>
                 </control>
                 
+                <!-- View Options -->
+                <control type="radiobutton" id="9001">
+                    <description>Low List</description>
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31142</label>
+                    <selected>Skin.HasSetting(50list.low)</selected>
+                    <onclick>Skin.ToggleSetting(50list.low)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Control.IsVisible(50)</visible>
+                </control>
+                
+                
+                <!-- Other Options -->
                 <control type="radiobutton" id="14">
                     <description>Hide watched</description>
                     <include>DefContextButton</include>
