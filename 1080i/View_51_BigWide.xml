@@ -8,8 +8,10 @@
             <visible>Control.IsVisible(51)</visible>
             <control type="group">
                 <top>PosterPad</top>
-                <left>180</left>
-                <width>1560</width>
+                <!--<left>180</left>
+                <width>1560</width>-->
+                <left>SidePad</left>
+                <right>SidePad</right>
                 <height>640</height>
                 <control type="image">
                     <left>-8</left>
@@ -34,19 +36,23 @@
                     <orientation>horizontal</orientation>
                     <viewtype label="540">list</viewtype>
                     <scrolltime tween="quadratic">400</scrolltime>
-                    <itemlayout height="620" width="1570">
+                    <itemlayout height="620" width="1740">
                         <control type="image">
-                            <width>100%</width>
-                            <height>100%</height>
+                            <centerleft>50%</centerleft>
+                            <centertop>50%</centertop>
+                            <width>1920</width>
+                            <height>1080</height>
                             <aspectratio>scale</aspectratio>
                             <texture background="true">$VAR[FanartImage]</texture>
                         </control>
                     </itemlayout>
 
-                    <focusedlayout height="620" width="1570">
+                    <focusedlayout height="620" width="1740">
                         <control type="image">
-                            <width>100%</width>
-                            <height>100%</height>
+                            <centerleft>50%</centerleft>
+                            <centertop>50%</centertop>
+                            <width>1920</width>
+                            <height>1080</height>
                             <aspectratio>scale</aspectratio>
                             <texture background="true">$VAR[FanartImage]</texture>
                         </control>
