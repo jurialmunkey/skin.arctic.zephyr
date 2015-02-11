@@ -3,7 +3,7 @@
 <window id="115">
     <defaultcontrol always="true">901</defaultcontrol>
     <allowoverlay>no</allowoverlay>
-    <visible>[VideoPlayer.IsFullscreen] + [Window.IsVisible(fullscreeninfo) | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding]</visible>
+    <visible>[VideoPlayer.IsFullscreen] + [Window.IsVisible(fullscreeninfo) | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.ShowInfo | !IsEmpty(Window(home).Property(osdshowinfo))]</visible>
 
     <controls>
         <control type="image">
@@ -11,7 +11,7 @@
             <width>100%</width>
             <height>300</height>
             <texture colordiffuse="OSDBack">common/white.png</texture>
-            <animation effect="slide" start="0" end="0,-190" time="150" condition="Window.IsVisible(fullscreeninfo) | Player.ShowInfo">Conditional</animation>
+            <animation effect="slide" start="0" end="0,-190" time="150" condition="Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !IsEmpty(Window(home).Property(osdshowinfo))">Conditional</animation>
             <animation effect="slide" start="0,110" end="0" time="150">Visible</animation>
             <animation effect="slide" start="0,110" end="0" time="150">WindowOpen</animation>
             <include>Animation.FadeOut</include>
@@ -20,7 +20,7 @@
             <top>300r</top>
             <bottom>0</bottom>
             <width>100%</width>
-            <visible>Window.IsVisible(fullscreeninfo) | Player.ShowInfo</visible>
+            <visible>Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !IsEmpty(Window(home).Property(osdshowinfo))</visible>
             <animation effect="fade" start="0" end="100" delay="150" time="150">Visible</animation>
             <animation effect="fade" start="0" end="100" delay="150" time="150">WindowOpen</animation>
             <control type="group">
@@ -131,7 +131,7 @@
             </control>
         </control>
         <control type="group">
-            <visible>!Window.IsVisible(fullscreeninfo) + !Player.ShowInfo</visible>
+            <visible>!Window.IsVisible(fullscreeninfo) + !Player.ShowInfo + IsEmpty(Window(home).Property(osdshowinfo))</visible>
             <visible>Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding</visible>
             <animation effect="fade" start="0" end="100" delay="150" time="150">Visible</animation>
             <animation effect="fade" start="0" end="100" delay="150" time="150">WindowOpen</animation>

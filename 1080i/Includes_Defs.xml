@@ -65,6 +65,13 @@
         <width>210</width>
     </include>
     
+    <include name="DefOSDUpDown">
+        <onup condition="IsEmpty(Window(home).Property(osdshowinfo))">SetProperty(osdshowinfo,1,home)</onup>
+        <onup condition="!IsEmpty(Window(home).Property(osdshowinfo))">ClearProperty(osdshowinfo,home)</onup>
+        <ondown condition="IsEmpty(Window(home).Property(osdshowinfo))">SetProperty(osdshowinfo,1,home)</ondown>
+        <ondown condition="!IsEmpty(Window(home).Property(osdshowinfo))">ClearProperty(osdshowinfo,home)</ondown>
+    </include>
+    
     <include name="DefWidgetSelector">
         <align>center</align>
         <aligny>center</aligny>

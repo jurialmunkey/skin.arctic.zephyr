@@ -3,7 +3,7 @@
 <window id="2901">
     <defaultcontrol always="true">15</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
-
+    <onunload>ClearProperty(osdshowinfo,home)</onunload>
     <controls>
         <control type="group">
             <animation type="WindowOpen">
@@ -88,8 +88,7 @@
                 <onleft>6</onleft>
                 <onright condition="!Player.CanRecord | !VideoPlayer.Content(LiveTV)">12</onright>
                 <onright condition="Player.CanRecord + VideoPlayer.Content(LiveTV)">9003</onright>
-                <onup>noop</onup>
-                <ondown>noop</ondown>
+                <include>DefOSDUpDown</include>
                 <usecontrolcoords>true</usecontrolcoords>
         
                 
@@ -251,8 +250,7 @@
                 <align>right</align>
                 <onleft>17</onleft>
                 <onright>1</onright>
-                <onup>noop</onup>
-                <ondown>noop</ondown>
+                <include>DefOSDUpDown</include>
                 <usecontrolcoords>true</usecontrolcoords>
                 
                 <include condition="VideoPlayer.HasMenu | [!VideoPlayer.Content(movies) + !VideoPlayer.Content(episodes)]">OSDDVDMenu</include>
