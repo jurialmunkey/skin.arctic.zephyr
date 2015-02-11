@@ -283,4 +283,69 @@
             <info>Container(100).ListItem.Property(Plot)</info>
         </control>
     </include>
+    
+    
+    <include name="NextAiredListItem">
+        <control type="image">
+            <left>0</left>
+            <right>10</right>
+            <top>0</top>
+            <bottom>10</bottom>
+            <aspectratio>scale</aspectratio>
+            <texture fallback="pvr/background.jpg">$VAR[GlobalSearchArt]</texture>
+        </control>
+        <control type="image">
+            <left>0</left>
+            <right>10</right>
+            <height>48</height>
+            <bottom>10</bottom>
+            <texture colordiffuse="Black70">common/white.png</texture>
+        </control>
+        <control type="label">
+            <left>20</left>
+            <right>30</right>
+            <height>48</height>
+            <bottom>10</bottom>
+            <align>left</align>
+            <font>TinyBold</font>
+            <textcolor>White100</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+        </control>
+    </include>
+    <include name="NextAiredListFocus">
+        <control type="image">
+            <left>0</left>
+            <right>10</right>
+            <top>0</top>
+            <bottom>10</bottom>
+            <aspectratio>scale</aspectratio>
+            <texture fallback="pvr/background.jpg">$VAR[GlobalSearchArt]</texture>
+        </control>
+        <control type="image">
+            <left>0</left>
+            <right>10</right>
+            <height>48</height>
+            <bottom>10</bottom>
+            <texture colordiffuse="Highlight">common/white.png</texture>
+        </control>
+        <control type="label">
+            <left>20</left>
+            <right>30</right>
+            <height>48</height>
+            <bottom>10</bottom>
+            <align>left</align>
+            <font>TinyBold</font>
+            <textcolor>White100</textcolor>
+            <label>$INFO[ListItem.Label]</label>
+        </control>
+    </include>
+    <include name="NextAiredList">
+        <posy>50</posy>
+        <height>220</height>
+        <width>1712</width>
+        <orientation>horizontal</orientation>
+        <itemlayout height="220" width="428">
+            <include>NextAiredListItem</include>
+        </itemlayout>
+    </include>
 </includes>
