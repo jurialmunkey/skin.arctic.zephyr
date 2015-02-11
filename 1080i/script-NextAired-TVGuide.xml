@@ -1,0 +1,201 @@
+<window type="dialog">
+    <defaultcontrol always="true">9500</defaultcontrol>
+    <backgroundcolor>0</backgroundcolor>
+    
+    <controls>
+        <control type="group">
+            <include>GlobalOverlay</include>
+            
+            <control type="group">
+                <left>SidePad</left>
+                <right>SidePad</right>
+                <top>SidePad</top>
+                <bottom>SidePad</bottom>
+                <include>Animation.FadeIn.Slide</include>
+                <include>Animation.FadeOut</include>
+                <control type="image">
+                    <left>-8</left>
+                    <right>-8</right>
+                    <top>-8</top>
+                    <bottom>-8</bottom>
+                    <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
+                </control>
+                <control type="label" description="Searching">
+                    <centerleft>50%</centerleft>
+                    <posy>10</posy>
+                    <font>MediumBold</font>
+                    <align>center</align>
+                    <label>4</label>
+                </control>
+                
+                <control type="grouplist">
+                    <posy>80</posy>
+                    <height>810</height>
+                    <left>30</left>
+                    <right>30</right>
+                    <itemgap>0</itemgap>
+                    <orientation>vertical</orientation>
+                    <control type="group">
+                        <include>GlobalSearchGroup</include>
+                        <control type="label">
+                            <include>GlobalSearchLabel</include>
+                            <label>$INFO[Window(home).Property(NextAired.200.Weekday)]$INFO[Window(home).Property(NextAired.200.Date), - ,]</label>
+                        </control>
+                        <control type="list" id="200">
+                            <onup>215</onup>
+                            <ondown>201</ondown>
+                            <include>GlobalSearchList</include>
+                            <focusedlayout height="220" width="428">
+                                <control type="group">
+                                    <visible>!Control.HasFocus(200)</visible>
+                                    <include>GlobalSearchListItem</include>
+                                </control>
+                                <control type="group">
+                                    <visible>Control.HasFocus(200)</visible>
+                                    <include>GlobalSearchListFocus</include>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <include>GlobalSearchGroup</include>
+                        <control type="label">
+                            <include>GlobalSearchLabel</include>
+                            <label>$INFO[Window(home).Property(NextAired.201.Weekday)]$INFO[Window(home).Property(NextAired.201.Date), - ,]</label>
+                        </control>
+                        <control type="list" id="201">
+                            <onup>200</onup>
+                            <ondown>202</ondown>
+                            <include>GlobalSearchList</include>
+                            <focusedlayout height="220" width="428">
+                                <control type="group">
+                                    <visible>!Control.HasFocus(201)</visible>
+                                    <include>GlobalSearchListItem</include>
+                                </control>
+                                <control type="group">
+                                    <visible>Control.HasFocus(201)</visible>
+                                    <include>GlobalSearchListFocus</include>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <include>GlobalSearchGroup</include>
+                        <control type="label">
+                            <include>GlobalSearchLabel</include>
+                            <label>$INFO[Window(home).Property(NextAired.202.Weekday)]$INFO[Window(home).Property(NextAired.202.Date), - ,]</label>
+                        </control>
+                        <control type="list" id="202">
+                            <onup>201</onup>
+                            <ondown>203</ondown>
+                            <include>GlobalSearchList</include>
+                            <focusedlayout height="220" width="428">
+                                <control type="group">
+                                    <visible>!Control.HasFocus(202)</visible>
+                                    <include>GlobalSearchListItem</include>
+                                </control>
+                                <control type="group">
+                                    <visible>Control.HasFocus(202)</visible>
+                                    <include>GlobalSearchListFocus</include>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <include>GlobalSearchGroup</include>
+                        <control type="label">
+                            <include>GlobalSearchLabel</include>
+                            <label>$INFO[Window(home).Property(NextAired.203.Weekday)]$INFO[Window(home).Property(NextAired.203.Date), - ,]</label>
+                        </control>
+                        <control type="list" id="203">
+                            <onup>202</onup>
+                            <ondown>204</ondown>
+                            <include>GlobalSearchList</include>
+                            <focusedlayout height="220" width="428">
+                                <control type="group">
+                                    <visible>!Control.HasFocus(203)</visible>
+                                    <include>GlobalSearchListItem</include>
+                                </control>
+                                <control type="group">
+                                    <visible>Control.HasFocus(203)</visible>
+                                    <include>GlobalSearchListFocus</include>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <include>GlobalSearchGroup</include>
+                        <control type="label">
+                            <include>GlobalSearchLabel</include>
+                            <label>$INFO[Window(home).Property(NextAired.204.Weekday)]$INFO[Window(home).Property(NextAired.204.Date), - ,]</label>
+                        </control>
+                        <control type="list" id="204">
+                            <onup>203</onup>
+                            <ondown>205</ondown>
+                            <include>GlobalSearchList</include>
+                            <focusedlayout height="220" width="428">
+                                <control type="group">
+                                    <visible>!Control.HasFocus(204)</visible>
+                                    <include>GlobalSearchListItem</include>
+                                </control>
+                                <control type="group">
+                                    <visible>Control.HasFocus(204)</visible>
+                                    <include>GlobalSearchListFocus</include>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <include>GlobalSearchGroup</include>
+                        <control type="label">
+                            <include>GlobalSearchLabel</include>
+                            <label>$INFO[Window(home).Property(NextAired.205.Weekday)]$INFO[Window(home).Property(NextAired.205.Date), - ,]</label>
+                        </control>
+                        <control type="list" id="205">
+                            <onup>204</onup>
+                            <ondown>206</ondown>
+                            <include>GlobalSearchList</include>
+                            <focusedlayout height="220" width="428">
+                                <control type="group">
+                                    <visible>!Control.HasFocus(205)</visible>
+                                    <include>GlobalSearchListItem</include>
+                                </control>
+                                <control type="group">
+                                    <visible>Control.HasFocus(205)</visible>
+                                    <include>GlobalSearchListFocus</include>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <include>GlobalSearchGroup</include>
+                        <control type="label">
+                            <include>GlobalSearchLabel</include>
+                            <label>$INFO[Window(home).Property(NextAired.206.Weekday)]$INFO[Window(home).Property(NextAired.206.Date), - ,]</label>
+                        </control>
+                        <control type="list" id="206">
+                            <onup>205</onup>
+                            <ondown>200</ondown>
+                            <include>GlobalSearchList</include>
+                            <focusedlayout height="220" width="428">
+                                <control type="group">
+                                    <visible>!Control.HasFocus(206)</visible>
+                                    <include>GlobalSearchListItem</include>
+                                </control>
+                                <control type="group">
+                                    <visible>Control.HasFocus(206)</visible>
+                                    <include>GlobalSearchListFocus</include>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                
+                
+                
+                
+                </control>
+            </control>
+        </control>
+        
+    </controls>
+</window>
