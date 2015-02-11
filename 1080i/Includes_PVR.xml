@@ -200,13 +200,39 @@
                         <control type="label">
                             <right>30</right>
                             <width>500</width>
+                            <top>12</top>
                             <aligny>center</aligny>
-                            <height>100%</height>
+                            <height>64</height>
                             <align>right</align>
-                            <font>Small</font>
+                            <font>Tiny</font>
                             <textcolor>White100</textcolor>
                             <selectedcolor>White100</selectedcolor>
                             <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
+                            <visible>!IsEmpty(ListItem.NextTitle)</visible>
+                        </control>
+                        <control type="label">
+                            <right>30</right>
+                            <width>500</width>
+                            <aligny>center</aligny>
+                            <height>100%</height>
+                            <align>right</align>
+                            <font>Tiny</font>
+                            <textcolor>White100</textcolor>
+                            <selectedcolor>White100</selectedcolor>
+                            <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
+                            <visible>IsEmpty(ListItem.NextTitle)</visible>
+                        </control>
+                        <control type="label">
+                            <right>30</right>
+                            <width>500</width>
+                            <bottom>8</bottom>
+                            <aligny>center</aligny>
+                            <height>64</height>
+                            <align>right</align>
+                            <font>Tiny</font>
+                            <textcolor>White100</textcolor>
+                            <selectedcolor>White100</selectedcolor>
+                            <label>$INFO[ListItem.NextTitle,[B],[/B] $LOCALIZE[19031]]</label>
                         </control>
                     </control>
                     <control type="group">
@@ -308,9 +334,22 @@
                             <aligny>center</aligny>
                             <height>64</height>
                             <font>Small</font>
-                            <textcolor>White70</textcolor>
-                            <selectedcolor>White70</selectedcolor>
+                            <textcolor>White100</textcolor>
+                            <selectedcolor>White100</selectedcolor>
                             <label>$INFO[ListItem.Title]</label>
+                        </control>
+                        <control type="label">
+                            <right>30</right>
+                            <width>500</width>
+                            <top>12</top>
+                            <aligny>center</aligny>
+                            <height>64</height>
+                            <align>right</align>
+                            <font>Tiny</font>
+                            <textcolor>White100</textcolor>
+                            <selectedcolor>White100</selectedcolor>
+                            <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
+                            <visible>!IsEmpty(ListItem.NextTitle)</visible>
                         </control>
                         <control type="label">
                             <right>30</right>
@@ -318,10 +357,23 @@
                             <aligny>center</aligny>
                             <height>100%</height>
                             <align>right</align>
-                            <font>Small</font>
+                            <font>Tiny</font>
                             <textcolor>White100</textcolor>
                             <selectedcolor>White100</selectedcolor>
                             <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
+                            <visible>IsEmpty(ListItem.NextTitle)</visible>
+                        </control>
+                        <control type="label">
+                            <right>30</right>
+                            <width>500</width>
+                            <bottom>8</bottom>
+                            <aligny>center</aligny>
+                            <height>64</height>
+                            <align>right</align>
+                            <font>Tiny</font>
+                            <textcolor>White100</textcolor>
+                            <selectedcolor>White100</selectedcolor>
+                            <label>$INFO[ListItem.NextTitle,[B],[/B] $LOCALIZE[19031]]</label>
                         </control>
                     </control>
                     <control type="group">
