@@ -101,14 +101,14 @@
                         <selected>Skin.HasSetting(home.showheader)</selected>
                         <onclick>Skin.ToggleSetting(home.showheader)</onclick>
                     </control>
-                    <!--<control type="radiobutton" id="9214" description="Always Show Weather Widget">
+                    <control type="radiobutton" id="9214" description="Always Show Weather Widget">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
                         <label>31145</label>
                         <selected>Skin.HasSetting(home.showweatherfanart)</selected>
                         <onclick>Skin.ToggleSetting(home.showweatherfanart)</onclick>
-                    </control>-->
+                    </control>
                     <control type="radiobutton" id="9215" description="Show slideshow as default widget">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
@@ -124,7 +124,8 @@
                         <label>31131</label>
                         <enable>Skin.HasSetting(home.showslideshow)</enable>
                         <label2>$INFO[Skin.String(home.slideshowpath)]</label2>
-                        <onclick>Skin.SetPath(home.slideshowpath)</onclick>
+                        <onclick condition="IsEmpty(Skin.String(home.slideshowpath))">Skin.SetPath(home.slideshowpath)</onclick>
+                        <onclick condition="!IsEmpty(Skin.String(home.slideshowpath))">Skin.Reset(home.slideshowpath)</onclick>
                     </control>                    
                     
                     <!-- Fanart -->
