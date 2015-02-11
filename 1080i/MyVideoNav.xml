@@ -42,7 +42,6 @@
                     <include>DefContextButton</include>
                     <align>left</align>
                 </control>
-
                 
                 <control type="button" id="3">
                     <description>Sort</description>
@@ -75,6 +74,17 @@
                     <onclick>Skin.ToggleSetting(50list.low)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(50)</visible>
+                </control>
+                
+                <control type="radiobutton" id="9002">
+                    <description>Low List</description>
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31148</label>
+                    <selected>!Skin.HasSetting(53poster.nowrap)</selected>
+                    <onclick>Skin.ToggleSetting(53poster.nowrap)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Control.IsVisible(53)</visible>
                 </control>
                 
                 
