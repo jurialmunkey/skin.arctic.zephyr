@@ -1,0 +1,255 @@
+<window type="dialog">
+    <defaultcontrol always="true">9500</defaultcontrol>
+    <backgroundcolor>0</backgroundcolor>
+    
+    <controls>
+        <control type="group" id="100">
+            <include>GlobalOverlay</include>
+            
+            <control type="group">
+                <left>SidePad</left>
+                <right>SidePad</right>
+                <top>SidePad</top>
+                <bottom>SidePad</bottom>
+                <include>Animation.FadeIn.Slide</include>
+                <include>Animation.FadeOut</include>
+                <control type="image">
+                    <left>-8</left>
+                    <right>-8</right>
+                    <top>-8</top>
+                    <bottom>-8</bottom>
+                    <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
+                </control>
+                <control type="label" description="Searching">
+                    <centerleft>50%</centerleft>
+                    <posy>10</posy>
+                    <font>MediumBold</font>
+                    <align>center</align>
+                    <label fallback="283">$INFO[Control.GetLabel(190)]$INFO[Control.GetLabel(191)]$INFO[Control.GetLabel(199)]</label>
+                </control>
+                
+                <control type="grouplist">
+                    <posy>80</posy>
+                    <height>810</height>
+                    <left>30</left>
+                    <right>30</right>
+                    <itemgap>0</itemgap>
+                    <orientation>vertical</orientation>
+                    <control type="group" id="119" description="Movies">
+                        <include>GlobalSearchGroup</include>
+                        <control type="label">
+                            <include>GlobalSearchLabel</include>
+                            <label>$INFO[Control.GetLabel(110),$LOCALIZE[20342] (,)]</label>
+                        </control>
+                        <control type="list" id="111">
+                            <onup>181</onup>
+                            <ondown>121</ondown>
+                            <include>GlobalSearchList</include>
+                            <focusedlayout height="220" width="428">
+                                <control type="group">
+                                    <visible>!Control.HasFocus(111)</visible>
+                                    <include>GlobalSearchListItem</include>
+                                </control>
+                                <control type="group">
+                                    <visible>Control.HasFocus(111)</visible>
+                                    <include>GlobalSearchListFocus</include>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <control type="group" id="129" description="TV">
+                        <include>GlobalSearchGroup</include>
+                        <control type="label">
+                            <include>GlobalSearchLabel</include>
+                            <label>$INFO[Control.GetLabel(120),$LOCALIZE[20343] (,)]</label>
+                        </control>
+                        <control type="list" id="121">
+                            <include>GlobalSearchList</include>
+                            <onup>111</onup>
+                            <ondown>131</ondown>
+                            <focusedlayout height="220" width="428">
+                                <control type="group">
+                                    <visible>!Control.HasFocus(121)</visible>
+                                    <include>GlobalSearchListItem</include>
+                                </control>
+                                <control type="group">
+                                    <visible>Control.HasFocus(121)</visible>
+                                    <include>GlobalSearchListFocus</include>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <control type="group" id="139" description="Seasons">
+                        <include>GlobalSearchGroup</include>
+                        <control type="label">
+                            <include>GlobalSearchLabel</include>
+                            <label>$INFO[Control.GetLabel(130),$LOCALIZE[33054] (,)]</label>
+                        </control>
+                        <control type="list" id="131">
+                            <include>GlobalSearchList</include>
+                            <onup>121</onup>
+                            <ondown>141</ondown>
+                            <focusedlayout height="220" width="428">
+                                <control type="group">
+                                    <visible>!Control.HasFocus(131)</visible>
+                                    <include>GlobalSearchListItem</include>
+                                </control>
+                                <control type="group">
+                                    <visible>Control.HasFocus(131)</visible>
+                                    <include>GlobalSearchListFocus</include>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <control type="group" id="149" description="Eps">
+                        <include>GlobalSearchGroup</include>
+                        <control type="label">
+                            <include>GlobalSearchLabel</include>
+                            <label>$INFO[Control.GetLabel(140),$LOCALIZE[20360] (,)]</label>
+                        </control>
+                        <control type="list" id="141">
+                            <include>GlobalSearchList</include>
+                            <onup>131</onup>
+                            <ondown>151</ondown>
+                            <focusedlayout height="220" width="428">
+                                <control type="group">
+                                    <visible>!Control.HasFocus(141)</visible>
+                                    <include>GlobalSearchListItem</include>
+                                </control>
+                                <control type="group">
+                                    <visible>Control.HasFocus(141)</visible>
+                                    <include>GlobalSearchListFocus</include>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <control type="group" id="159" description="Music Vids">
+                        <include>GlobalSearchGroup</include>
+                        <control type="label">
+                            <include>GlobalSearchLabel</include>
+                            <label>$INFO[Control.GetLabel(150),$LOCALIZE[20389] (,)]</label>
+                        </control>
+                        <control type="list" id="151">
+                            <include>GlobalSearchList</include>
+                            <onup>141</onup>
+                            <ondown>161</ondown>
+                            <focusedlayout height="220" width="428">
+                                <control type="group">
+                                    <visible>!Control.HasFocus(151)</visible>
+                                    <include>GlobalSearchListItem</include>
+                                </control>
+                                <control type="group">
+                                    <visible>Control.HasFocus(151)</visible>
+                                    <include>GlobalSearchListFocus</include>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <control type="group" id="169" description="Artist">
+                        <include>GlobalSearchGroup</include>
+                        <control type="label">
+                            <include>GlobalSearchLabel</include>
+                            <label>$INFO[Control.GetLabel(160),$LOCALIZE[133] (,)]</label>
+                        </control>
+                        <control type="list" id="161">
+                            <include>GlobalSearchList</include>
+                            <onup>151</onup>
+                            <ondown>171</ondown>
+                            <focusedlayout height="220" width="428">
+                                <control type="group">
+                                    <visible>!Control.HasFocus(161)</visible>
+                                    <include>GlobalSearchListItem</include>
+                                </control>
+                                <control type="group">
+                                    <visible>Control.HasFocus(161)</visible>
+                                    <include>GlobalSearchListFocus</include>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <control type="group" id="179" description="Albums">
+                        <include>GlobalSearchGroup</include>
+                        <control type="label">
+                            <include>GlobalSearchLabel</include>
+                            <label>$INFO[Control.GetLabel(170),$LOCALIZE[132] (,)]</label>
+                        </control>
+                        <control type="list" id="171">
+                            <include>GlobalSearchList</include>
+                            <onup>161</onup>
+                            <ondown>181</ondown>
+                            <focusedlayout height="220" width="428">
+                                <control type="group">
+                                    <visible>!Control.HasFocus(171)</visible>
+                                    <include>GlobalSearchListItem</include>
+                                </control>
+                                <control type="group">
+                                    <visible>Control.HasFocus(171)</visible>
+                                    <include>GlobalSearchListFocus</include>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                    <control type="group" id="189" description="Songs">
+                        <include>GlobalSearchGroup</include>
+                        <control type="label">
+                            <include>GlobalSearchLabel</include>
+                            <label>$INFO[Control.GetLabel(180),$LOCALIZE[134] (,)]</label>
+                        </control>
+                        <control type="list" id="181">
+                            <include>GlobalSearchList</include>
+                            <onup>171</onup>
+                            <ondown>111</ondown>
+                            <focusedlayout height="220" width="428">
+                                <control type="group">
+                                    <visible>!Control.HasFocus(181)</visible>
+                                    <include>GlobalSearchListItem</include>
+                                </control>
+                                <control type="group">
+                                    <visible>Control.HasFocus(181)</visible>
+                                    <include>GlobalSearchListFocus</include>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                </control>
+            </control>
+        </control>
+        <control type="label" id="110">
+            <visible>false</visible>
+        </control>
+        <control type="label" id="120">
+            <visible>false</visible>
+        </control>
+        <control type="label" id="130">
+            <visible>false</visible>
+        </control>
+        <control type="label" id="140">
+            <visible>false</visible>
+        </control>
+        <control type="label" id="150">
+            <visible>false</visible>
+        </control>
+        <control type="label" id="160">
+            <visible>false</visible>
+        </control>
+        <control type="label" id="170">
+            <visible>false</visible>
+        </control>
+        <control type="label" id="180">
+            <visible>false</visible>
+        </control>
+        <control type="label" id="190" description="Searching">
+            <visible>false</visible>
+        </control>
+        <control type="label" id="191" description="Currently Searching">
+            <visible>false</visible>
+        </control>
+        <control type="label" id="198" description="New Search Button">
+            <visible>false</visible>
+        </control>
+        <control type="label" id="199">
+            <visible>false</visible>
+        </control>
+        
+    </controls>
+</window>

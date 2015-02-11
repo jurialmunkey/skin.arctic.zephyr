@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
+    <defaultcontrol always="true">9901</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+    <controls>
+        <control type="list" id="100">
+            <posx>-10</posx>
+            <posy>-10</posy>
+            <width>1</width>
+            <height>1</height>
+            <visible>false</visible>
+            <itemlayout width="1" height="1"/>
+            <focusedlayout width="1" height="1"/>
+        </control>
+        
+        <include>GlobalOverlay</include>
+
+        <control type="group">
+            <visible>!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
+            <visible>!Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
+            <include>DefDialogInfoPanel</include>
+
+            <control type="label">
+                <description>Header Label</description>
+                <include>DefDialogInfoHeader</include>
+                <label>$INFO[Container(100).ListItem.Label]$INFO[Container(100).ListItem.Property(Year), (,)]</label>
+            </control>
+            <control type="image">
+                <posx>30</posx>
+                <top>100</top>
+                <width>450</width>
+                <height>274</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture diffuse="diffuse/pvrinfo.png">$VAR[GlobalSearchArtInfo]</texture>
+            </control>
+            
+            <control type="group" id="110">
+                <control type="grouplist">
+                    <include>GlobalSearchInfoGroupList</include>
+                    <include>GlobalSearchMPAA</include>
+                    <include>GlobalSearchRuntime</include>
+                    <include>GlobalSearchDirector</include>
+                    <include>GlobalSearchWriter</include>
+                    <include>GlobalSearchGenre</include>
+                    <include>GlobalSearchStudio</include>
+                    <include>GlobalSearchPlot</include>
+                </control>                
+            </control>
+            <control type="group" id="120">
+                <control type="grouplist">
+                    <include>GlobalSearchInfoGroupList</include>
+                    <include>GlobalSearchMPAA</include>
+                    <include>GlobalSearchEpisode</include>
+                    <include>GlobalSearchPremiered</include>
+                    <include>GlobalSearchGenre</include>
+                    <include>GlobalSearchStudio</include>
+                    <include>GlobalSearchPlot</include>
+                </control> 
+            </control>
+            <control type="group" id="130">
+            </control>
+            <control type="group" id="140">
+                <control type="grouplist">
+                    <include>GlobalSearchInfoGroupList</include>
+                    <include>GlobalSearchTvShowTitle</include>
+                    <include>GlobalSearchRuntime</include>
+                    <include>GlobalSearchSeasonEpisode</include>
+                    <include>GlobalSearchPremiered</include>
+                    <include>GlobalSearchDirector</include>
+                    <include>GlobalSearchWriter</include>
+                    <include>GlobalSearchPlot</include>
+                </control> 
+            </control>
+            <control type="group" id="150">
+            </control>
+            <control type="group" id="160">
+            </control>
+            <control type="group" id="170">
+            </control>
+            <control type="group" id="180">
+            </control>
+
+
+            <control type="grouplist" id="9000">
+                <posx>30</posx>
+                <width>450</width>
+                <height>423</height>
+                <bottom>33</bottom>
+                <itemgap>3</itemgap>
+                <onup>9000</onup>
+                <ondown>9000</ondown>
+                <onright condition="Control.IsVisible(50)">50</onright>
+                <orientation>vertical</orientation>
+
+                <control type="button" id ="191">
+                    <description>Plot/Cast</description>
+                    <label>186</label>
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                </control>
+
+                <control type="button" id ="192">
+                    <description>Play</description>
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                </control>
+
+                <control type="button" id ="193">
+                    <description>Resume</description>
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>>
+                </control>
+            </control>
+        </control>
+    </controls>
+
+</window>
