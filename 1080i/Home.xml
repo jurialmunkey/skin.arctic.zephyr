@@ -101,7 +101,7 @@
         <!-- Weather Widget -->
         <control type="group">
             <animation effect="slide" start="0" end="0,200" time="150" condition="Skin.HasSetting(home.showheader)">Conditional</animation>
-            <animation effect="slide" start="0" end="0,100" time="150" condition="[Pvr.IsRecording | Pvr.HasTimer | Window.IsVisible(DialogKaiToast.xml) | Window.IsVisible(DialogExtendedProgress.xml) | Window.IsVisible(DialogVolumeBar.xml)]">Conditional</animation>
+            <animation effect="slide" start="0" end="0,100" time="150" condition="[Pvr.IsRecording | Pvr.HasTimer | Window.IsVisible(DialogKaiToast.xml) | Window.IsVisible(DialogExtendedProgressBar.xml) | Window.IsVisible(DialogVolumeBar.xml)]">Conditional</animation>
             <visible>StringCompare(Container(300).ListItem.Property(widget),Weather) | Skin.HasSetting(home.showweatherfanart)</visible>
             <visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
             <visible>!Control.HasFocus(301) + !ControlGroup(303).HasFocus()</visible>
