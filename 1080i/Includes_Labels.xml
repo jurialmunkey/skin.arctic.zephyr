@@ -15,7 +15,7 @@
     </variable>
     <variable name="LabelGenre">
         <value condition="Container.Content(tvshows) | Container.Content(seasons)">$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20360]]$INFO[ListItem.Property(UnWatchedEpisodes),  •  , $LOCALIZE[16101]]</value>
-        <value condition="Container.Content(episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] ,  ]$INFO[ListItem.Episode,$LOCALIZE[20359] ,]</value>
+        <value condition="Container.Content(episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] ,]$INFO[ListItem.Episode,  •  $LOCALIZE[20359] ,]$INFO[ListItem.Premiered,  •  ,]</value>
         <value condition="!IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre]</value>
         <value>$LOCALIZE[19055]</value>
     </variable>

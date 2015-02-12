@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<includes>
+    <include name="View_57_ExtraInfo">
+        <description>List View (id=57)</description>
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(57)</visible>
+            <control type="group">
+                <control type="list" id="57">
+                    <visible>Container.Content(movies) | Container.Content(tvshows) | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)] | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
+                    <top>PosterPad</top>
+                    <height>PosterH</height>
+                    <right>SidePad</right>
+                    <width>1100</width>
+                    <onleft>9000</onleft>
+                    <onright>60</onright>
+                    <onup>57</onup>
+                    <ondown>57</ondown>
+                    <focusposition>3</focusposition>
+                    <movement>3</movement>
+                    <pagecontrol>60</pagecontrol>
+                    <viewtype label="31147">list</viewtype>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout width="1100" height="64">
+                        <include>50itemlayout</include>
+                    </itemlayout>
+
+                    <focusedlayout width="1100" height="64">
+                        <control type="group">
+                            <visible>Control.HasFocus(57) + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+                            <include>50focuslayout</include>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(57) | Window.IsVisible(DialogVideoInfo.xml)</visible>
+                            <include>50itemlayout</include>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <include>Furniture_Scrollbar</include>
+            </control>
+            <control type="group">
+                <left>70</left>
+                <width>645</width>
+                <top>206</top>
+                <height>660</height>
+                <control type="group">
+                    <height>330</height>
+                    <control type="image">
+                        <width>100%</width>
+                        <height>100%</height>
+                        <texture border="10">common/nofocus-shadow10.png</texture>
+                    </control>
+                 
+                    <control type="image">
+                        <left>10</left>
+                        <top>10</top>
+                        <right>10</right>
+                        <bottom>10</bottom>
+                        <fadetime>200</fadetime>
+                        <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/pvrinfo.png" background="true">$VAR[FanartImage]</texture>
+                    </control>
+                </control>
+                <control type="group">
+                    <left>20</left>
+                    <right>20</right>
+                    <posy>330</posy>
+                    <height>330</height>
+                    
+                    <control type="label">
+                        <top>10</top>
+                        <aligny>center</aligny>
+                        <height>64</height>
+                        <font>SmallBold</font>
+                        <textcolor>Dark1</textcolor>
+                        <selectedcolor>Dark1</selectedcolor>
+                        <label>$VAR[LabelDirector]</label>
+                    </control>
+                    <control type="label">
+                        <top>50</top>
+                        <height>64</height>
+                        <aligny>center</aligny>
+                        <font>Tiny</font>
+                        <textcolor>Dark1</textcolor>
+                        <selectedcolor>Dark1</selectedcolor>
+                        <label>$VAR[LabelGenre]</label>
+                    </control>
+                    <control type="textbox">
+                        <top>125</top>
+                        <bottom>17</bottom>
+                        <align>justify</align>
+                        <font>Tiny</font>
+                        <textcolor>Dark1</textcolor>
+                        <selectedcolor>Dark1</selectedcolor>
+                        <label>$INFO[ListItem.Plot]</label>
+                    </control>
+                </control>
+            
+            </control>
+            
+        </control>
+    </include>
+    
+
+</includes>
