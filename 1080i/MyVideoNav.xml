@@ -65,8 +65,7 @@
                 </control>
                 
                 <!-- View Options -->
-                <control type="radiobutton" id="9001">
-                    <description>Low List</description>
+                <control type="radiobutton" id="9001" description="Low List (50)">
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31142</label>
@@ -76,8 +75,7 @@
                     <visible>Control.IsVisible(50)</visible>
                 </control>
                 
-                <control type="radiobutton" id="9002">
-                    <description>Low List</description>
+                <control type="radiobutton" id="9002" description="No Wrap (53)">
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31148</label>
@@ -85,6 +83,16 @@
                     <onclick>Skin.ToggleSetting(53poster.nowrap)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(53)</visible>
+                </control>
+                
+                <control type="radiobutton" id="9003" description="Info Wall (55)">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31147</label>
+                    <selected>Skin.HasSetting(55wall.showinfo)</selected>
+                    <onclick>Skin.ToggleSetting(55wall.showinfo)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Control.IsVisible(55)</visible>
                 </control>
                 
                 
@@ -119,14 +127,14 @@
                     <include>DefContextButton</include>
                 </control>
                 
-                <!--<control type="button" id="9091">
+                <control type="button" id="9091">
                     <description>Video Playlist</description>
                     <include>DefContextButton</include>
                     <label>559</label>
                     <align>left</align>
                     <onclick>ActivateWindow(VideoPlaylist)</onclick>
                     <visible>IntegerGreaterThan(Playlist.Length(video),1)</visible>
-                </control>-->
+                </control>
 
                 <control type="button" id="9332">
                     <description>Update</description>
