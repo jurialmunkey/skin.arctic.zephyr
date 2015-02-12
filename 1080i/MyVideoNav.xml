@@ -57,11 +57,19 @@
                     <altlabel>585</altlabel>
                 </control>
 
-                <control type="button" id="8">
+                <!--<control type="button" id="8">
                     <description>Search</description>
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>137</label>
+                </control>-->
+                
+                <control type="button" id="9091">
+                    <description>Global Search</description>
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>137</label>
+                    <onclick>RunScript(script.globalsearch,tvshows=true&amp;movies=true&amp;episodes=true)</onclick>
                 </control>
                 
                 <!-- View Options -->
@@ -119,15 +127,28 @@
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>589</label>
+                    <visible>Container.Content(MusicVideo)</visible>
                 </control>
                 
                 <control type="edit" id="19">
                     <label>587</label>
                     <description>Filter (hidden)</description>
                     <include>DefContextButton</include>
+                    <visible>!Container.CanFilterAdvanced</visible>
+                </control>
+
+                <control type="radiobutton" id="98">
+                    <visible>Container.CanFilterAdvanced</visible>
+                    <description>Filter</description>
+                    <include>DefContextButton</include>
+                    <label>587</label>
+                    <align>left</align>
+                    <onclick>SetFocus(50)</onclick>
+                    <onclick>Filter</onclick>
+                    <selected>Container.Filtered</selected>
                 </control>
                 
-                <control type="button" id="9091">
+                <control type="button" id="9098">
                     <description>Video Playlist</description>
                     <include>DefContextButton</include>
                     <label>559</label>
@@ -136,13 +157,12 @@
                     <visible>IntegerGreaterThan(Playlist.Length(video),1)</visible>
                 </control>
 
-                <control type="button" id="9332">
+                <control type="button" id="9099">
                     <description>Update</description>
                     <align>left</align>
                     <label>653</label>
                     <onclick>UpdateLibrary(video)</onclick>
                     <include>DefContextButton</include>
-                    
                 </control>
             </control>
         </control>
