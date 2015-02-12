@@ -115,5 +115,147 @@
             </control>
         </control>
     </include>
+    <include name="View_56_MediaInfo2">
+        <description>List View (id=56)</description>
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(56)</visible>
+            <control type="group">
+                <control type="list" id="56">
+                    <visible>Container.Content(movies) | Container.Content(tvshows) | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)] | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
+                    <top>PosterPad</top>
+                    <height>PosterH</height>
+                    <right>735</right>
+                    <width>650</width>
+                    <onleft>9000</onleft>
+                    <onright>60</onright>
+                    <onup>56</onup>
+                    <ondown>56</ondown>
+                    <focusposition>3</focusposition>
+                    <movement>3</movement>
+                    <pagecontrol>60</pagecontrol>
+                    <viewtype label="544">list</viewtype>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout width="650" height="64">
+                        <include>50itemlayout</include>
+                    </itemlayout>
+
+                    <focusedlayout width="650" height="64">
+                        <control type="group">
+                            <visible>Control.HasFocus(56) + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+                            <include>50focuslayout</include>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(56) | Window.IsVisible(DialogVideoInfo.xml)</visible>
+                            <include>50itemlayout</include>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <include>Furniture_Scrollbar</include>
+            </control>
+            <control type="group" description="Poster">
+                
+                <left>SidePad</left>
+                <top>PosterPad</top>
+                <control type="image">
+                    <top>PosterH</top>
+                    <width>PosterW</width>
+                    <height>PosterH</height>
+                    <fadetime>200</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$VAR[PosterImage]</texture>
+                    <visible>Skin.HasSetting(show.reflections)</visible>
+                </control>
+                <control type="image">
+                    <centertop>PosterH</centertop>
+                    <width>PosterW</width>
+                    <height>48</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>diffuse/shadowspot.png</texture>
+                    
+                </control>
+                <control type="image">
+                    <width>PosterW</width>
+                    <height>PosterH</height>
+                    <texture border="5" colordiffuse="FF181818">common/box.png</texture>
+                </control>
+                <control type="image">
+                    <width>PosterW</width>
+                    <height>PosterH</height>
+                    <fadetime>200</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
+                </control>
+                <control type="image">
+                    <left>-24</left>
+                    <top>-24</top>
+                    <width>PosterShadowW</width>
+                    <height>PosterShadowH</height>
+                    <texture border="32">common/shadow-24.png</texture>
+                </control>
+            </control>
+            <control type="group">
+                <right>70</right>
+                <width>645</width>
+                <top>206</top>
+                <height>660</height>
+                <control type="group">
+                    <height>330</height>
+                    <control type="image">
+                        <width>100%</width>
+                        <height>100%</height>
+                        <texture border="10">common/nofocus-shadow10.png</texture>
+                    </control>
+                 
+                    <control type="image">
+                        <left>10</left>
+                        <top>10</top>
+                        <right>10</right>
+                        <bottom>10</bottom>
+                        <fadetime>200</fadetime>
+                        <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/pvrinfo.png" background="true">$VAR[FanartImage]</texture>
+                    </control>
+                </control>
+                <control type="group">
+                    <left>12</left>
+                    <right>12</right>
+                    <posy>330</posy>
+                    <height>330</height>
+                    
+                    <control type="label">
+                        <top>10</top>
+                        <aligny>center</aligny>
+                        <height>64</height>
+                        <font>SmallBold</font>
+                        <textcolor>White100</textcolor>
+                        <selectedcolor>White100</selectedcolor>
+                        <label>$INFO[ListItem.Title]</label>
+                    </control>
+                    <control type="label">
+                        <top>50</top>
+                        <height>64</height>
+                        <aligny>center</aligny>
+                        <font>Tiny</font>
+                        <textcolor>White100</textcolor>
+                        <selectedcolor>White100</selectedcolor>
+                        <label>$INFO[ListItem.Genre]</label>
+                    </control>
+                    <control type="textbox">
+                        <top>125</top>
+                        <bottom>17</bottom>
+                        <align>justify</align>
+                        <font>Tiny</font>
+                        <textcolor>White100</textcolor>
+                        <selectedcolor>White100</selectedcolor>
+                        <label>$INFO[ListItem.Plot]</label>
+                    </control>
+                </control>
+            
+            </control>
+            
+        </control>
+    </include>
+    
 
 </includes>
