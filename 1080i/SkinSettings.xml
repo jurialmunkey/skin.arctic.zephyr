@@ -44,7 +44,7 @@
                         <include>DefSettingsButton</include>
                         <label>10000</label>
                     </control>
-                    <control type="togglebutton" id="9102" description="Global">
+                    <control type="togglebutton" id="9102" description="Fanart">
                         <usealttexture>ControlGroup(9100).HasFocus(9102)</usealttexture>
                         <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
                         <include>DefSettingsButton</include>
@@ -61,6 +61,12 @@
                         <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
                         <include>DefSettingsButton</include>
                         <label>31144</label>
+                    </control>
+                    <control type="togglebutton" id="9105" description="Addons">
+                        <usealttexture>ControlGroup(9100).HasFocus(9105)</usealttexture>
+                        <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
+                        <include>DefSettingsButton</include>
+                        <label>24001</label>
                     </control>
                 </control>
                 
@@ -115,7 +121,9 @@
                         <include>DefSettingsButton</include>
                         <label>31130</label>
                         <selected>Skin.HasSetting(home.showslideshow)</selected>
+                        <onclick condition="Skin.HasSetting(home.showslideshow)">Skin.Reset(home.dontshowfanart)</onclick>
                         <onclick>Skin.ToggleSetting(home.showslideshow)</onclick>
+                        
                     </control>
                     <control type="button" id="9216" description="Set Slideshow Path">
                         <width>1310</width>
@@ -125,8 +133,18 @@
                         <enable>Skin.HasSetting(home.showslideshow)</enable>
                         <label2>$INFO[Skin.String(home.slideshowpath)]</label2>
                         <onclick condition="IsEmpty(Skin.String(home.slideshowpath))">Skin.SetPath(home.slideshowpath)</onclick>
+                        <onclick condition="!IsEmpty(Skin.String(home.slideshowpath))">Skin.Reset(home.dontshowfanart)</onclick>
                         <onclick condition="!IsEmpty(Skin.String(home.slideshowpath))">Skin.Reset(home.slideshowpath)</onclick>
-                    </control>                    
+                    </control>      
+                    <control type="radiobutton" id="9217" description="Show slideshow instead of fanart">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31149</label>
+                        <selected>Skin.HasSetting(home.dontshowfanart)</selected>
+                        <onclick>Skin.ToggleSetting(home.dontshowfanart)</onclick>
+                        <enable>Skin.HasSetting(home.showslideshow) + !IsEmpty(Skin.String(home.slideshowpath))</enable>
+                    </control>              
                     
                     <!-- Fanart -->
                     <control type="radiobutton" id="9221" description="Show video in background">
@@ -153,7 +171,16 @@
                         <selected>Skin.HasSetting(Fanart.Animate)</selected>
                         <onclick>Skin.ToggleSetting(Fanart.Animate)</onclick>
                     </control>
-                    <control type="button" id="9224" description="Set Weather Fanart">
+                    <control type="button" id="9224" description="Set Fallback Image">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9102)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31150</label>
+                        <label2>$INFO[Skin.String(fanart.fallback)]</label2>
+                        <onclick condition="IsEmpty(Skin.String(fanart.fallback))">Skin.SetImage(fanart.fallback)</onclick>
+                        <onclick condition="!IsEmpty(Skin.String(fanart.fallback))">Skin.Reset(fanart.fallback)</onclick>
+                    </control>
+                    <control type="button" id="9229" description="Set Weather Fanart">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9102)</visible>
                         <include>DefSettingsButton</include>
@@ -206,6 +233,17 @@
                         <label>31129</label>
                         <label2>$INFO[Skin.String(CustomWidget2)]</label2>
                         <onclick>Skin.SetString(CustomWidget2)</onclick>
+                    </control>
+                    
+                    <!-- Addons -->
+                    <control type="radiobutton" id="9251" description="TV Tunes">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9105)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31151</label>
+                        <selected>Skin.HasSetting(ActivateTvTunes)</selected>
+                        <onclick>Skin.ToggleSetting(ActivateTvTunes)</onclick>
+                        <enable>System.HasAddon(script.tvtunes)</enable>
                     </control>
                 </control>
                 

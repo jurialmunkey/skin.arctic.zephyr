@@ -472,6 +472,7 @@
         <control type="grouplist">
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
+            <visible>IsEmpty(Window(10025).Property(TvTunesIsAlive))</visible>
             <visible>!Window.IsActive(DialogKaiToast.xml)</visible>
             <animation effect="slide" start="0" end="0,-250" time="150" condition="Control.HasFocus(301)">Conditional</animation>
             <top>SidePad</top>
