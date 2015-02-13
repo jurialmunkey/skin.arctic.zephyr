@@ -109,7 +109,8 @@
             <right>-8</right>
             <top>-8</top>
             <bottom>-8</bottom>
-            <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
+            <include condition="!Skin.HasSetting(dialog.dark)">DefLightBackground</include>
+            <include condition="Skin.HasSetting(dialog.dark)">DefDarkBackground</include>
         </control>
     </include>
     
@@ -119,6 +120,8 @@
         <posy>18</posy>
         <font>MediumBold</font>
         <align>left</align>
+        <include condition="!Skin.HasSetting(dialog.dark)">DefLightBackgroundText</include>
+        <include condition="Skin.HasSetting(dialog.dark)">DefDarkBackgroundText</include>
     </include>
     
     <include name="DefDialogHeader">
@@ -196,17 +199,30 @@
         <radioposx>400</radioposx>
         <radioposy>22</radioposy>
     </include>
+    
+    <include name="DefLightBackground"><texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture></include>
+    <include name="DefDarkBackground"><texture border="16" colordiffuse="Panel">common/rounded-shadow8.png</texture></include>
+    <include name="DefLightBackgroundText">
+        <textcolor>Black70</textcolor>
+        <textureradiofocus colordiffuse="Black70">buttons/radio-on.png</textureradiofocus>
+        <textureradionofocus colordiffuse="Black30">buttons/radio-off.png</textureradionofocus>
+    </include>
+    <include name="DefDarkBackgroundText">
+        <textcolor>White70</textcolor>
+        <textureradiofocus colordiffuse="White70">buttons/radio-on.png</textureradiofocus>
+        <textureradionofocus colordiffuse="White30">buttons/radio-off.png</textureradionofocus>
+    </include>
+    
     <include name="DefContextButton">
         <radioposx>400</radioposx>
         <width>450</width>
         <height>70</height>
         <font>Tiny</font>
-        <textcolor>Black70</textcolor>
+        <include condition="!Skin.HasSetting(dialog.dark)">DefLightBackgroundText</include>
+        <include condition="Skin.HasSetting(dialog.dark)">DefDarkBackgroundText</include>
         <focusedcolor>White100</focusedcolor>
         <alttexturefocus colordiffuse="Highlight" border="16">common/white.png</alttexturefocus>
         <texturefocus colordiffuse="Highlight" border="16">common/white.png</texturefocus>
-        <textureradiofocus colordiffuse="Black70">buttons/radio-on.png</textureradiofocus>
-        <textureradionofocus colordiffuse="Black30">buttons/radio-off.png</textureradionofocus>
     </include>
     <include name="DefSettingsButton">
         <align>left</align>
@@ -396,7 +412,8 @@
             <posy>0</posy>
             <width>466</width>
             <height>100%</height>
-            <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
+            <include condition="!Skin.HasSetting(dialog.dark)">DefLightBackground</include>
+            <include condition="Skin.HasSetting(dialog.dark)">DefDarkBackground</include>
         </control>
     </include>
     
@@ -481,4 +498,6 @@
 
         
     </include>
+    
+    
 </includes>
