@@ -17,7 +17,7 @@
             <control type="image">
                 <width>1080</width>
                 <height>900</height>
-                <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
+                <texture border="16" colordiffuse="DialogBackground">common/rounded-shadow8.png</texture>
             </control>
 
             <control type="label" id="411">
@@ -27,7 +27,7 @@
                 <width>990</width>
                 <align>center</align>
                 <font>MediumBold</font>
-                <textcolor>Black70</textcolor>
+                <textcolor>DialogForeground</textcolor>
                 <label>1023</label>
             </control>
 
@@ -40,7 +40,7 @@
                 <width>750</width>
                 <haspath>true</haspath>
                 <font>Tiny</font>
-                <textcolor>Black70</textcolor>
+                <textcolor>DialogForeground</textcolor>
             </control>
 
             <control type="list" id="450">
@@ -70,8 +70,8 @@
                         <width>496</width>
                         <height>135</height>
                         <font>SmallBold</font>
-                        <textcolor>Black70</textcolor>
-                        <selectedcolor>Black70</selectedcolor>
+                        <textcolor>DialogForeground</textcolor>
+                        <selectedcolor>DialogForeground</selectedcolor>
                         <info>ListItem.Label</info>
                         <animation effect="slide" end="0,18" condition="IsEmpty(ListItem.Property(Addon.Summary))">Conditional</animation>
                     </control>
@@ -81,8 +81,8 @@
                         <width>496</width>
                         <height>135</height>
                         <font>Mini</font>
-                        <textcolor>Black70</textcolor>
-                        <selectedcolor>Black70</selectedcolor>
+                        <textcolor>DialogForeground</textcolor>
+                        <selectedcolor>DialogForeground</selectedcolor>
                         <label>$INFO[ListItem.Property(Addon.Summary)]</label>
                     </control>
 
@@ -106,8 +106,8 @@
                             <width>496</width>
                             <height>135</height>
                             <font>SmallBold</font>
-                            <textcolor>Black70</textcolor>
-                            <selectedcolor>Black70</selectedcolor>
+                            <textcolor>DialogForeground</textcolor>
+                            <selectedcolor>DialogForeground</selectedcolor>
                             <info>ListItem.Label</info>
                             <animation effect="slide" end="0,18" condition="IsEmpty(ListItem.Label2)">Conditional</animation>
                         </control>
@@ -117,8 +117,8 @@
                             <width>496</width>
                             <height>135</height>
                             <font>Mini</font>
-                            <textcolor>Black70</textcolor>
-                            <selectedcolor>Black70</selectedcolor>
+                            <textcolor>DialogForeground</textcolor>
+                            <selectedcolor>DialogForeground</selectedcolor>
                             <label>$INFO[ListItem.Label2]</label>
                         </control>
                     </control>

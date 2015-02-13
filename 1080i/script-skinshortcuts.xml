@@ -16,7 +16,7 @@
                 <bottom>-8</bottom>
                 <left>-8</left>
                 <right>-8</right>
-                <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
+                <texture border="16" colordiffuse="DialogBackground">common/rounded-shadow8.png</texture>
             </control>
 
             <control type="label" id="500">
@@ -26,7 +26,7 @@
                 <width>1140</width>
                 <font>MediumBold</font>
                 <align>center</align>
-                <textcolor>Black70</textcolor>
+                <textcolor>DialogForeground</textcolor>
             </control>
             
             <!-- Center Buttons -->
@@ -113,7 +113,7 @@
                 <aligny>top</aligny>
                 <width>500</width>
                 <font>SmallBold</font>
-                <textcolor>Black70</textcolor>
+                <textcolor>DialogForeground</textcolor>
                 <label>Current Menu</label>
             </control>
             <!-- Left List: Current Shortcuts -->
@@ -174,7 +174,7 @@
                 <aligny>top</aligny>
                 <width>470</width>
                 <font>SmallBold</font>
-                <textcolor>Black70</textcolor>
+                <textcolor>DialogForeground</textcolor>
                 <label>31108</label>
             </control>
             <control type="button" id="102">
@@ -186,7 +186,7 @@
                 <onleft>103</onleft>
                 <ondown>111</ondown>
                 <onright>111</onright>
-                <texturenofocus flipy="false" colordiffuse="Black30">buttons/spin-down.png</texturenofocus>
+                <texturenofocus flipy="false" colordiffuse="DialogForeground30">buttons/spin-down.png</texturenofocus>
                 <texturefocus flipy="false" colordiffuse="Highlight">buttons/spin-down.png</texturefocus>
             </control>
             <control type="button" id="103">
@@ -198,7 +198,7 @@
                 <aligny>top</aligny>
                 <width>32</width>
                 <height>32</height>
-                <texturenofocus flipy="true" colordiffuse="Black30">buttons/spin-down.png</texturenofocus>
+                <texturenofocus flipy="true" colordiffuse="DialogForeground30">buttons/spin-down.png</texturenofocus>
                 <texturefocus flipy="true" colordiffuse="Highlight">buttons/spin-down.png</texturefocus>
             </control>
             <control type="list" id="111">
@@ -252,7 +252,7 @@
                         <left>30</left>
                         <right>30</right>
                         <info>ListItem.Label</info>
-                        <textcolor>Black70</textcolor>
+                        <textcolor>DialogForeground</textcolor>
                         <visible>!Control.HasFocus(111)</visible>
                     </control>
                 </focusedlayout>
