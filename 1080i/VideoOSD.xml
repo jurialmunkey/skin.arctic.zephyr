@@ -60,7 +60,7 @@
                     <control type="button" id="9301" description="Download">
                         <width>100%</width>
                         <height>60</height>
-                        <textcolor>White70</textcolor>
+                        <textcolor>PanelWhite70</textcolor>
                         <include>DefContextButton</include>
                         <label>33003</label>
                         <onclick>ActivateWindow(SubtitleSearch)</onclick>
@@ -68,7 +68,7 @@
                     <control type="togglebutton" id="9302" description="Enable Subs">
                         <width>100%</width>
                         <height>60</height>
-                        <textcolor>White70</textcolor>
+                        <textcolor>PanelWhite70</textcolor>
                         <include>DefContextButton</include>
                         <label>305</label>
                         <altlabel>13106</altlabel>
@@ -135,10 +135,10 @@
                     <font>noop</font>
                     <include>DefOSDUpDown</include>
                     <texturefocus colordiffuse="Highlight" flipx="true">osd/record.png</texturefocus>
-                    <texturenofocus colordiffuse="White70" flipx="true">osd/record.png</texturenofocus>
+                    <texturenofocus colordiffuse="PanelWhite70" flipx="true">osd/record.png</texturenofocus>
                     <usealttexture>Player.Recording</usealttexture>
                     <alttexturefocus colordiffuse="Highlight" flipx="true">osd/record-on.png</alttexturefocus>
-                    <alttexturenofocus colordiffuse="White70" flipx="true">osd/record-on.png</alttexturenofocus>
+                    <alttexturenofocus colordiffuse="PanelWhite70" flipx="true">osd/record-on.png</alttexturenofocus>
                     <onclick>PlayerControl(Record)</onclick>
                     <enable>Player.CanRecord</enable>
                     <visible>VideoPlayer.Content(LiveTV)</visible>
@@ -153,7 +153,7 @@
                     <font>noop</font>
                     <include>DefOSDUpDown</include>
                     <texturefocus colordiffuse="Highlight" flipx="true">osd/next.png</texturefocus>
-                    <texturenofocus colordiffuse="White70" flipx="true">osd/next.png</texturenofocus>
+                    <texturenofocus colordiffuse="PanelWhite70" flipx="true">osd/next.png</texturenofocus>
                     <onclick>PlayerControl(Previous)</onclick>
                 </control>
 
@@ -165,7 +165,7 @@
                     <font>noop</font>
                     <include>DefOSDUpDown</include>
                     <texturefocus colordiffuse="Highlight" flipx="true">osd/ff.png</texturefocus>
-                    <texturenofocus colordiffuse="White70" flipx="true">osd/ff.png</texturenofocus>
+                    <texturenofocus colordiffuse="PanelWhite70" flipx="true">osd/ff.png</texturenofocus>
                     <onclick>PlayerControl(Rewind)</onclick>
                     <enable>Player.SeekEnabled</enable>
                     <animation effect="fade" start="100" end="33" time="100" condition="!Player.SeekEnabled">Conditional</animation>
@@ -180,10 +180,10 @@
                     <font>noop</font>
                     <include>DefOSDUpDown</include>
                     <texturefocus colordiffuse="Highlight">osd/pause.png</texturefocus>
-                    <texturenofocus colordiffuse="White70">osd/pause.png</texturenofocus>
+                    <texturenofocus colordiffuse="PanelWhite70">osd/pause.png</texturenofocus>
                     <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
                     <alttexturefocus colordiffuse="Highlight">osd/play.png</alttexturefocus>
-                    <alttexturenofocus colordiffuse="White70">osd/play.png</alttexturenofocus>
+                    <alttexturenofocus colordiffuse="PanelWhite70">osd/play.png</alttexturenofocus>
                     <onclick>PlayerControl(Play)</onclick>
                     <enable>Player.PauseEnabled</enable>
                     <animation effect="fade" start="100" end="33" time="100" condition="!Player.PauseEnabled">Conditional</animation>
@@ -197,7 +197,7 @@
                     <font>noop</font>
                     <include>DefOSDUpDown</include>
                     <texturefocus colordiffuse="Highlight">osd/stop.png</texturefocus>
-                    <texturenofocus colordiffuse="White70">osd/stop.png</texturenofocus>
+                    <texturenofocus colordiffuse="PanelWhite70">osd/stop.png</texturenofocus>
                     <onclick>PlayerControl(Stop)</onclick>
                 </control>
 
@@ -209,7 +209,7 @@
                     <font>noop</font>
                     <include>DefOSDUpDown</include>
                     <texturefocus colordiffuse="Highlight">osd/ff.png</texturefocus>
-                    <texturenofocus colordiffuse="White70">osd/ff.png</texturenofocus>
+                    <texturenofocus colordiffuse="PanelWhite70">osd/ff.png</texturenofocus>
                     <onclick>PlayerControl(Forward)</onclick>
                     <enable>Player.SeekEnabled</enable>
                     <animation effect="fade" start="100" end="33" time="100" condition="!Player.SeekEnabled">Conditional</animation>
@@ -223,7 +223,7 @@
                     <font>noop</font>
                     <include>DefOSDUpDown</include>
                     <texturefocus colordiffuse="Highlight">osd/next.png</texturefocus>
-                    <texturenofocus colordiffuse="White70">osd/next.png</texturenofocus>
+                    <texturenofocus colordiffuse="PanelWhite70">osd/next.png</texturenofocus>
                     <onclick>PlayerControl(Next)</onclick>
                 </control>
                 
@@ -233,7 +233,7 @@
                     <font>noop</font>
                     <include>DefOSDUpDown</include>
                     <texturefocus colordiffuse="Highlight">osd/eject.png</texturefocus>
-                    <texturenofocus colordiffuse="White70">osd/eject.png</texturenofocus>
+                    <texturenofocus colordiffuse="PanelWhite70">osd/eject.png</texturenofocus>
                     <onclick>EjectTray()</onclick>
                     <visible>System.HasMediadvd</visible>
                 </control>
@@ -264,7 +264,7 @@
                     <onclick>StereoMode</onclick>
                     <include>DefOSDButtons</include>
                     <enable>VideoPlayer.IsStereoscopic</enable>
-                    <disabledcolor>White12</disabledcolor>
+                    <disabledcolor>PanelWhite12</disabledcolor>
                 </control>
 
                 <control type="button" id="6">

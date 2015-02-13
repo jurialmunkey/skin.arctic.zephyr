@@ -59,7 +59,7 @@
         <align>center</align>
         <height>48</height>
         <font>Tiny</font>
-        <textcolor>White30</textcolor>
+        <textcolor>PanelWhite30</textcolor>
         <focusedcolor>Highlight</focusedcolor>
         <texturefocus>noop</texturefocus>
         <width>210</width>
@@ -109,8 +109,7 @@
             <right>-8</right>
             <top>-8</top>
             <bottom>-8</bottom>
-            <include condition="!Skin.HasSetting(dialog.dark)">DefLightBackground</include>
-            <include condition="Skin.HasSetting(dialog.dark)">DefDarkBackground</include>
+            <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
         </control>
     </include>
     
@@ -120,8 +119,9 @@
         <posy>18</posy>
         <font>MediumBold</font>
         <align>left</align>
-        <include condition="!Skin.HasSetting(dialog.dark)">DefLightBackgroundText</include>
-        <include condition="Skin.HasSetting(dialog.dark)">DefDarkBackgroundText</include>
+        <textcolor>Black70</textcolor>
+        <textureradiofocus colordiffuse="Black70">buttons/radio-on.png</textureradiofocus>
+        <textureradionofocus colordiffuse="Black30">buttons/radio-off.png</textureradionofocus>
     </include>
     
     <include name="DefDialogHeader">
@@ -191,26 +191,13 @@
     <include name="DefKeyboardKeys">
         <width>110</width>
         <height>75</height>
-        <texturenofocus border="5" colordiffuse="Black30">common/box.png</texturenofocus>
-        <texturefocus border="5" colordiffuse="White12">common/box.png</texturefocus>
+        <texturenofocus border="5" colordiffuse="PanelBlack30">common/box.png</texturenofocus>
+        <texturefocus border="5" colordiffuse="PanelWhite12">common/box.png</texturefocus>
         <textoffsetx>0</textoffsetx>
-        <textcolor>White70</textcolor>
-        <focusedcolor>White100</focusedcolor>
+        <textcolor>PanelWhite70</textcolor>
+        <focusedcolor>Selected</focusedcolor>
         <radioposx>400</radioposx>
         <radioposy>22</radioposy>
-    </include>
-    
-    <include name="DefLightBackground"><texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture></include>
-    <include name="DefDarkBackground"><texture border="16" colordiffuse="Panel">common/rounded-shadow8.png</texture></include>
-    <include name="DefLightBackgroundText">
-        <textcolor>Black70</textcolor>
-        <textureradiofocus colordiffuse="Black70">buttons/radio-on.png</textureradiofocus>
-        <textureradionofocus colordiffuse="Black30">buttons/radio-off.png</textureradionofocus>
-    </include>
-    <include name="DefDarkBackgroundText">
-        <textcolor>White70</textcolor>
-        <textureradiofocus colordiffuse="White70">buttons/radio-on.png</textureradiofocus>
-        <textureradionofocus colordiffuse="White30">buttons/radio-off.png</textureradionofocus>
     </include>
     
     <include name="DefContextButton">
@@ -218,24 +205,25 @@
         <width>450</width>
         <height>70</height>
         <font>Tiny</font>
-        <include condition="!Skin.HasSetting(dialog.dark)">DefLightBackgroundText</include>
-        <include condition="Skin.HasSetting(dialog.dark)">DefDarkBackgroundText</include>
-        <focusedcolor>White100</focusedcolor>
+        <textcolor>Black70</textcolor>
+        <textureradiofocus colordiffuse="Black70">buttons/radio-on.png</textureradiofocus>
+        <textureradionofocus colordiffuse="Black30">buttons/radio-off.png</textureradionofocus>
+        <focusedcolor>Selected</focusedcolor>
         <alttexturefocus colordiffuse="Highlight" border="16">common/white.png</alttexturefocus>
         <texturefocus colordiffuse="Highlight" border="16">common/white.png</texturefocus>
     </include>
     <include name="DefSettingsButton">
         <align>left</align>
         <font>Small</font>
-        <textcolor>White100</textcolor>
-        <disabledcolor>White12</disabledcolor>
+        <textcolor>PanelWhite100</textcolor>
+        <disabledcolor>PanelWhite12</disabledcolor>
         <height>70</height>
-        <textureup flipy="true" colordiffuse="White30">buttons/spin-down.png</textureup>
-        <texturedown colordiffuse="White30">buttons/spin-down.png</texturedown>
-        <textureupfocus flipy="true" colordiffuse="White100">buttons/spin-down.png</textureupfocus>
-        <texturedownfocus colordiffuse="White100">buttons/spin-down.png</texturedownfocus>
-        <textureradiofocus colordiffuse="White70">buttons/radio-on.png</textureradiofocus>
-        <textureradionofocus colordiffuse="White12">buttons/radio-off.png</textureradionofocus>
+        <textureup flipy="true" colordiffuse="PanelWhite30">buttons/spin-down.png</textureup>
+        <texturedown colordiffuse="PanelWhite30">buttons/spin-down.png</texturedown>
+        <textureupfocus flipy="true" colordiffuse="PanelWhite100">buttons/spin-down.png</textureupfocus>
+        <texturedownfocus colordiffuse="PanelWhite100">buttons/spin-down.png</texturedownfocus>
+        <textureradiofocus colordiffuse="PanelWhite70">buttons/radio-on.png</textureradiofocus>
+        <textureradionofocus colordiffuse="PanelWhite12">buttons/radio-off.png</textureradionofocus>
         <texturefocus colordiffuse="Highlight">common/white.png</texturefocus>
         <alttexturefocus colordiffuse="Highlight">common/white.png</alttexturefocus>
     </include>
@@ -412,8 +400,7 @@
             <posy>0</posy>
             <width>466</width>
             <height>100%</height>
-            <include condition="!Skin.HasSetting(dialog.dark)">DefLightBackground</include>
-            <include condition="Skin.HasSetting(dialog.dark)">DefDarkBackground</include>
+            <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
         </control>
     </include>
     

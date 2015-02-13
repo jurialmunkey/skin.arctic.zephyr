@@ -34,8 +34,8 @@
                     <aligny>center</aligny>
                     <height>64</height>
                     <font>SmallBold</font>
-                    <textcolor>White100</textcolor>
-                    <selectedcolor>White100</selectedcolor>
+                    <textcolor>PanelWhite100</textcolor>
+                    <selectedcolor>PanelWhite100</selectedcolor>
                     <label>$INFO[ListItem.Label]</label>
                 </control>
                 <control type="label">
@@ -45,8 +45,8 @@
                     <aligny>center</aligny>
                     <height>64</height>
                     <font>TinyBold</font>
-                    <textcolor>White70</textcolor>
-                    <selectedcolor>White70</selectedcolor>
+                    <textcolor>PanelWhite70</textcolor>
+                    <selectedcolor>PanelWhite70</selectedcolor>
                     <label>$INFO[ListItem.Genre,,  •  ]$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
                 </control>
                 
@@ -55,8 +55,8 @@
                     <height>70</height>
                     <align>justify</align>
                     <font>Tiny</font>
-                    <textcolor>White100</textcolor>
-                    <selectedcolor>White100</selectedcolor>
+                    <textcolor>PanelWhite100</textcolor>
+                    <selectedcolor>PanelWhite100</selectedcolor>
                     <label>$INFO[ListItem.Plot]</label>
                 </control>
             </control>
@@ -90,7 +90,7 @@
                         <width>340</width>
                         <aligny>center</aligny>
                         <height>67</height>
-                        <textcolor>White100</textcolor>
+                        <textcolor>PanelWhite100</textcolor>
                         <label>$INFO[ListItem.ChannelName]</label>
                     </control>
                     <control type="label">
@@ -99,7 +99,7 @@
                         <align>center</align>
                         <aligny>center</aligny>
                         <height>67</height>
-                        <textcolor>White100</textcolor>
+                        <textcolor>PanelWhite100</textcolor>
                         <label>$INFO[ListItem.ChannelNumber]</label>
                     </control>
                 </channellayout>
@@ -115,7 +115,7 @@
                         <width>340</width>
                         <aligny>center</aligny>
                         <height>67</height>
-                        <textcolor>White100</textcolor>
+                        <textcolor>Selected</textcolor>
                         <label>$INFO[ListItem.ChannelName]</label>
                     </control>
                     <control type="label">
@@ -124,7 +124,7 @@
                         <align>center</align>
                         <aligny>center</aligny>
                         <height>67</height>
-                        <textcolor>White100</textcolor>
+                        <textcolor>Selected</textcolor>
                         <label>$INFO[ListItem.ChannelNumber]</label>
                     </control>
                 </focusedchannellayout>    
@@ -148,7 +148,7 @@
                         <width>52</width>
                         <height>52</height>
                         <texture>special://skin/extras/icons/timer.png</texture>
-                        <colordiffuse>White70</colordiffuse>
+                        <colordiffuse>PanelWhite70</colordiffuse>
                         <visible>ListItem.HasTimer | ListItem.IsRecording</visible>
                     </control>   
                     <control type="label" id="1">
@@ -156,7 +156,7 @@
                         <height>66</height>
                         <width>285</width>
                         <textoffsetx>50</textoffsetx>
-                        <textcolor>White30</textcolor>
+                        <textcolor>PanelWhite30</textcolor>
                         <label>$INFO[ListItem.Label]</label>
                         <visible>ListItem.HasTimer | ListItem.IsRecording</visible>
                     </control>
@@ -164,7 +164,7 @@
                         <posx>15</posx>
                         <width>226</width>
                         <height>67</height>
-                        <textcolor>White30</textcolor>
+                        <textcolor>PanelWhite30</textcolor>
                         <textoffsetx>0</textoffsetx>
                         <label>$INFO[ListItem.Label]</label>
                         <visible>!ListItem.HasTimer + !ListItem.IsRecording</visible>
@@ -184,7 +184,7 @@
                         <width>52</width>
                         <height>52</height>
                         <texture>special://skin/extras/icons/timer.png</texture>
-                        <colordiffuse>White100</colordiffuse>
+                        <colordiffuse>Selected</colordiffuse>
                         <visible>ListItem.HasTimer | ListItem.IsRecording</visible>
                     </control>   
                     <control type="label" id="1">
@@ -192,7 +192,7 @@
                         <height>66</height>
                         <width>285</width>
                         <textoffsetx>50</textoffsetx>
-                        <textcolor>White100</textcolor>
+                        <textcolor>Selected</textcolor>
                         <label>$INFO[ListItem.Label]</label>
                         <visible>ListItem.HasTimer | ListItem.IsRecording</visible>
                     </control>
@@ -200,7 +200,7 @@
                         <posx>15</posx>
                         <width>226</width>
                         <height>67</height>
-                        <textcolor>White100</textcolor>
+                        <textcolor>Selected</textcolor>
                         <textoffsetx>0</textoffsetx>
                         <label>$INFO[ListItem.Label]</label>
                         <visible>!ListItem.HasTimer + !ListItem.IsRecording</visible>
