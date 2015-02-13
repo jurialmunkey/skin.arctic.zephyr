@@ -5,7 +5,7 @@
         <value condition="!IsEmpty(ListItem.Year)">$INFO[ListItem.Year]</value>
     </variable>
     <variable name="LabelEpisodeZero">
-        <value condition="!IntegerGreaterThan(ListItem.Episode,9)">$NUMBER[0]</value>
+        <value condition="!IntegerGreaterThan(ListItem.Episode,9) + substring(ListItem.Episode,S)">$NUMBER[0]</value>
     </variable>
     <variable name="LabelDirector">
         <value condition="Container.Content(episodes) | Container.Content(seasons)">$INFO[ListItem.TvShowTitle]</value>
