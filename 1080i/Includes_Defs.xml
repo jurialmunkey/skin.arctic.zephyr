@@ -428,4 +428,57 @@
             <disabledcolor>White12</disabledcolor>
         </control>
     </include>
+    
+    
+    <include name="Def9000MusicSide">
+        <control type="button" id="2">
+            <description>View</description>
+            <include>DefContextButton</include>
+            <align>left</align>
+        </control>
+
+        <control type="button" id="3">
+            <description>Sort</description>
+            <include>DefContextButton</include>
+            <align>left</align>
+        </control>
+
+        <control type="togglebutton" id="4">
+            <description>Ascending</description>
+            <include>DefContextButton</include>
+            <align>left</align>
+            <label>584</label>
+            <altlabel>585</altlabel>
+        </control>
+
+        <control type="button" id="5">
+            <description>Files</description>
+            <include>DefContextButton</include>
+            <align>left</align>
+            <label>744</label>
+            <onclick>SetFocus(50)</onclick>
+            <visible>Window.IsVisible(MyMusicNav.xml)</visible>
+        </control>
+
+        <control type="button" id="7">
+            <description>Playlist</description>
+            <include>DefContextButton</include>
+            <align>left</align>
+            <label>136</label>
+            <onclick>SetFocus(50)</onclick>
+            <visible>Window.IsVisible(MyMusicSongs.xml)</visible>
+            <visible>!stringcompare(Container.FolderPath,special://musicplaylists/)</visible>
+        </control>
+        
+        <control type="button" id="9098">
+            <description>Now Playing</description>
+            <include>DefContextButton</include>
+            <label>13350</label>
+            <align>left</align>
+            <onclick>ActivateWindow(MusicPlaylist)</onclick>
+            <visible>IntegerGreaterThan(Playlist.Length(music),1)</visible>
+        </control>
+
+        
+    </include>
 </includes>

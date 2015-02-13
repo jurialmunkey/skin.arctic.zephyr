@@ -101,7 +101,7 @@
         <!-- Weather Widget -->
         <control type="group">
             <animation effect="slide" start="0" end="0,200" time="150" condition="Skin.HasSetting(home.showheader)">Conditional</animation>
-            <animation effect="slide" start="0" end="0,100" time="150" condition="[Pvr.IsRecording | Pvr.HasTimer | Window.IsVisible(DialogKaiToast.xml) | Window.IsVisible(DialogExtendedProgressBar.xml) | Window.IsVisible(DialogVolumeBar.xml)]">Conditional</animation>
+            <animation effect="slide" start="0" end="0,100" time="150" condition="[Pvr.IsRecording | Pvr.HasTimer | [!Skin.HasSetting(home.showheader) + [Window.IsVisible(DialogKaiToast.xml) | Window.IsVisible(DialogExtendedProgressBar.xml) | Window.IsVisible(DialogVolumeBar.xml)]]]">Conditional</animation>
             <visible>StringCompare(Container(300).ListItem.Property(widget),Weather) | Skin.HasSetting(home.showweatherfanart)</visible>
             <visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
             <visible>!Control.HasFocus(301) + !ControlGroup(303).HasFocus()</visible>
@@ -110,7 +110,7 @@
             <posx>680r</posx>
             <posy>70</posy>
             <width>660</width>
-            <height>200</height>
+            <height>100</height>
             <control type="image">
             <description>background image</description>
                 <left>0</left>
@@ -120,48 +120,45 @@
                 <texture border="16" colordiffuse="OSDBack">common/rounded-shadow8.png</texture>
             </control>
             <control type="image">
-                <left>5</left>
-                <top>5</top>
-                <width>195</width>
-                <height>195</height>
+                <centertop>52</centertop>
+                <centerleft>52</centerleft>
+                <width>80</width>
+                <height>80</height>
                 <fadetime>350</fadetime>
-                <aspectratio scalediffuse="false">keep</aspectratio>
-                <texture>$INFO[Weather.FanartCode,weather/,.png]</texture>
+                <aspectratio aligny="center" align="center">keep</aspectratio>
+                <texture>$INFO[Weather.FanartCode,weather/small/,.png]</texture>
             </control>
             <control type="label">
-                <left>210</left>
-                <top>5</top>
+                <left>104</left>
+                <top>22</top>
                 <right>30</right>
                 <aligny>center</aligny>
-                <height>80</height>
+                <height>24</height>
                 <font>TinyBold</font>
                 <textcolor>White70</textcolor>
-                <selectedcolor>White70</selectedcolor>
-                <label>$LOCALIZE[8]</label>
+                <label>$INFO[Weather.Conditions]</label>
             </control>
             <control type="label">
-                <left>210</left>
-                <top>55</top>
+                <left>104</left>
+                <bottom>22</bottom>
                 <right>30</right>
                 <aligny>center</aligny>
-                <height>80</height>
-                <font>MediumBold</font>
+                <height>24</height>
+                <font>SmallBold</font>
                 <textcolor>White100</textcolor>
-                <selectedcolor>White100</selectedcolor>
                 <label>$INFO[Weather.Temperature]</label>
             </control>
-            <control type="textbox">
-                <left>210</left>
+            <control type="label">
+                <left>104</left>
+                <bottom>22</bottom>
                 <right>30</right>
-                <top>132</top>
-                <height>127</height>
-                <font>Tiny</font>
-                <align>justify</align>
+                <aligny>center</aligny>
+                <height>24</height>
+                <align>right</align>
+                <font>Flag</font>
                 <autoscroll>false</autoscroll>
-                <textcolor>White70</textcolor>
-                <selectedcolor>White70</selectedcolor>
-                <shadowcolor>noop</shadowcolor>
-                <label>$INFO[Weather.Conditions]</label>
+                <textcolor>White30</textcolor>
+                <label>$INFO[Weather.Location]</label>
             </control>
         </control>
         

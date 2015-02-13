@@ -17,7 +17,8 @@
         <include>View_55_Wall</include>
         <include condition="!Skin.HasSetting(56media.showinfo)">View_56_MediaInfo</include>
         <include condition="Skin.HasSetting(56media.showinfo)">View_56_MediaInfo2</include>
-        <include>View_57_ExtraInfo</include>
+        <include condition="!Skin.HasSetting(57list.low)">View_57_ExtraInfo</include>
+        <include condition="Skin.HasSetting(57list.low)">View_57_ExtraInfo_LowList</include>
         <include>View_500_Wall_Square</include>
         
         <include>Furniture_Header</include>
@@ -115,6 +116,16 @@
                     <visible>Control.IsVisible(56)</visible>
                 </control>
                 
+                <control type="radiobutton" id="9005" description="Low List (57)">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31142</label>
+                    <selected>Skin.HasSetting(57list.low)</selected>
+                    <onclick>Skin.ToggleSetting(57list.low)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Control.IsVisible(57)</visible>
+                </control>
+                
                 
                 <!-- Other Options -->
                 <control type="radiobutton" id="14">
@@ -169,7 +180,7 @@
                     <visible>IntegerGreaterThan(Playlist.Length(video),1)</visible>
                 </control>
 
-                <control type="button" id="9099">
+                <control type="button" id="20">
                     <description>Update</description>
                     <align>left</align>
                     <label>653</label>
