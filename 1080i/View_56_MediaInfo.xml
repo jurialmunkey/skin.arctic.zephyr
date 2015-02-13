@@ -255,6 +255,143 @@
             
         </control>
     </include>
+    <include name="View_56_MediaInfo3">
+        <description>List View (id=56)</description>
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(56)</visible>
+            <control type="group">
+                <posy>320</posy>
+                <control type="fixedlist" id="56">
+                    <visible>Container.Content(movies) | Container.Content(tvshows) | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)] | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
+                    <top>PosterPad</top>
+                    <height>320</height>
+                    <right>731</right>
+                    <width>654</width>
+                    <onleft>9000</onleft>
+                    <onright>60</onright>
+                    <onup>56</onup>
+                    <ondown>56</ondown>
+                    <focusposition>2</focusposition>
+                    <movement>2</movement>
+                    <pagecontrol>60</pagecontrol>
+                    <viewtype label="544">list</viewtype>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout width="654" height="64">
+                        <include>56itemlayout</include>
+                    </itemlayout>
+
+                    <focusedlayout width="654" height="64">
+                        <control type="group">
+                            <visible>Control.HasFocus(56) + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+                            <include>56focuslayout</include>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(56) | Window.IsVisible(DialogVideoInfo.xml)</visible>
+                            <include>56itemlayout</include>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <control type="scrollbar" id="60">
+                    <onback>50</onback>
+                    <centerright>60</centerright>
+                    <posy>PosterPad</posy>
+                    <height>320</height>
+                    <width>8</width>
+                    <onleft>50</onleft>
+                    <onright>9000</onright>
+                    <texturesliderbackground border="4" colordiffuse="Dark4">scrollbar/scrollv.png</texturesliderbackground>
+                    <texturesliderbar border="4" colordiffuse="Dark3">scrollbar/scrollv.png</texturesliderbar>
+                    <texturesliderbarfocus border="4" colordiffuse="Dark2">scrollbar/scrollv.png</texturesliderbarfocus>
+                    <animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
+                </control>
+            </control>
+            <control type="group" description="Poster">
+                
+                <left>SidePad</left>
+                <top>PosterPad</top>
+                <control type="image">
+                    <top>PosterH</top>
+                    <width>PosterW</width>
+                    <height>PosterH</height>
+                    <fadetime>200</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$VAR[PosterImage]</texture>
+                    <visible>Skin.HasSetting(show.reflections)</visible>
+                </control>
+                <control type="image">
+                    <centertop>PosterH</centertop>
+                    <width>PosterW</width>
+                    <height>48</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>diffuse/shadowspot.png</texture>
+                    
+                </control>
+                <control type="image">
+                    <width>PosterW</width>
+                    <height>PosterH</height>
+                    <texture border="5" colordiffuse="FF181818">common/box.png</texture>
+                </control>
+                <control type="image">
+                    <width>PosterW</width>
+                    <height>PosterH</height>
+                    <fadetime>200</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
+                </control>
+                <control type="image">
+                    <left>-24</left>
+                    <top>-24</top>
+                    <width>PosterShadowW</width>
+                    <height>PosterShadowH</height>
+                    <texture border="32">common/shadow-24.png</texture>
+                </control>
+            </control>
+            <control type="group">
+                <right>70</right>
+                <width>645</width>
+                <top>206</top>
+                <height>660</height>
+                <control type="group">
+                    <left>12</left>
+                    <right>12</right>
+                    <posy>319</posy>
+                    <height>330</height>
+                    
+                    <control type="label">
+                        <top>10</top>
+                        <aligny>center</aligny>
+                        <height>64</height>
+                        <font>SmallBold</font>
+                        <textcolor>Dark1</textcolor>
+                        <selectedcolor>Dark1</selectedcolor>
+                        <label>$VAR[LabelDirector]</label>
+                    </control>
+                    <control type="label">
+                        <top>50</top>
+                        <height>64</height>
+                        <aligny>center</aligny>
+                        <font>Tiny</font>
+                        <textcolor>Dark1</textcolor>
+                        <selectedcolor>Dark1</selectedcolor>
+                        <label>$VAR[LabelGenre]</label>
+                    </control>
+                    <control type="textbox">
+                        <top>125</top>
+                        <bottom>17</bottom>
+                        <align>justify</align>
+                        <font>Tiny</font>
+                        <textcolor>Dark1</textcolor>
+                        <selectedcolor>Dark1</selectedcolor>
+                        <label>$INFO[ListItem.Plot]</label>
+                    </control>
+                </control>
+            
+            </control>
+            
+        </control>
+    </include>
+    
     <include name="56focuslayout">
         <control type="image">                                
             <width>100%</width>

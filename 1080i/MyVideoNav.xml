@@ -16,8 +16,9 @@
         <include>View_53_Poster</include>
         <include>View_54_Banner</include>
         <include>View_55_Wall</include>
-        <include condition="!Skin.HasSetting(56media.showinfo)">View_56_MediaInfo</include>
-        <include condition="Skin.HasSetting(56media.showinfo)">View_56_MediaInfo2</include>
+        <include condition="!Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)">View_56_MediaInfo</include>
+        <include condition="Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)">View_56_MediaInfo2</include>
+        <include condition="Skin.HasSetting(56media.low)">View_56_MediaInfo3</include>
         <include condition="!Skin.HasSetting(57list.low)">View_57_ExtraInfo</include>
         <include condition="Skin.HasSetting(57list.low)">View_57_ExtraInfo_LowList</include>
         <include>View_500_Wall_Square</include>
@@ -113,11 +114,23 @@
                     <label>31147</label>
                     <selected>Skin.HasSetting(56media.showinfo)</selected>
                     <onclick>Skin.ToggleSetting(56media.showinfo)</onclick>
+                    <onclick>Skin.Reset(56media.low)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(56)</visible>
                 </control>
                 
-                <control type="radiobutton" id="9005" description="Low List (57)">
+                <control type="radiobutton" id="9005" description="Low List Media (56)">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31142</label>
+                    <selected>Skin.HasSetting(56media.low)</selected>
+                    <onclick>Skin.ToggleSetting(56media.low)</onclick>
+                    <onclick>Skin.Reset(56media.showinfo)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Control.IsVisible(56)</visible>
+                </control>
+                
+                <control type="radiobutton" id="9007" description="Low List (57)">
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31142</label>
