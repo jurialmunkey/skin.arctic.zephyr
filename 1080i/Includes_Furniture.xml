@@ -190,6 +190,7 @@
     
     <include name="Furniture_Flags">
         <control type="grouplist">
+            <visible>!Skin.HasSetting(furniture.flags)</visible>
             <visible>Container.Content(movies) | Container.Content(episodes)</visible>
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
@@ -375,6 +376,7 @@
         <control type="grouplist">
             <top>SidePad</top>
             <left>SidePad</left>
+            <visible>!Skin.HasSetting(furniture.header)</visible>
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
             <orientation>horizontal</orientation>
@@ -435,6 +437,7 @@
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
             <centerbottom>NavBarPad</centerbottom>
+            <visible>!Skin.HasSetting(furniture.clock)</visible>
             <height>84</height>
             <control type="label">
                 <centertop>24</centertop>
@@ -470,6 +473,7 @@
     </include>
     <include name="Furniture_NowPlaying">
         <control type="grouplist">
+            <visible>!Skin.HasSetting(furniture.nowplaying)</visible>
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
             <visible>IsEmpty(Window(10025).Property(TvTunesIsAlive))</visible>

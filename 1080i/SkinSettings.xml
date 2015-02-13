@@ -68,6 +68,12 @@
                         <include>DefSettingsButton</include>
                         <label>24001</label>
                     </control>
+                    <control type="togglebutton" id="9106" description="Furniture">
+                        <usealttexture>ControlGroup(9100).HasFocus(9106)</usealttexture>
+                        <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
+                        <include>DefSettingsButton</include>
+                        <label>31152</label>
+                    </control>
                 </control>
                 
                 
@@ -254,6 +260,40 @@
                         <selected>Skin.HasSetting(dialog.dark)</selected>
                         <onclick>Skin.ToggleSetting(dialog.dark)</onclick>
                     </control>-->
+                    
+                    <!-- Furniture -->
+                    <control type="radiobutton" id="9261" description="Header">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31115</label>
+                        <selected>!Skin.HasSetting(furniture.header)</selected>
+                        <onclick>Skin.ToggleSetting(furniture.header)</onclick>
+                    </control>
+                    <control type="radiobutton" id="9262" description="Clock">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31153</label>
+                        <selected>!Skin.HasSetting(furniture.clock)</selected>
+                        <onclick>Skin.ToggleSetting(furniture.clock)</onclick>
+                    </control>
+                    <control type="radiobutton" id="9263" description="Flags">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31154</label>
+                        <selected>!Skin.HasSetting(furniture.flags)</selected>
+                        <onclick>Skin.ToggleSetting(furniture.flags)</onclick>
+                    </control>
+                    <control type="radiobutton" id="9264" description="Now Playing">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31155</label>
+                        <selected>!Skin.HasSetting(furniture.nowplaying)</selected>
+                        <onclick>Skin.ToggleSetting(furniture.nowplaying)</onclick>
+                    </control>
                 </control>
                 
                 
