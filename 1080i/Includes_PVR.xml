@@ -456,50 +456,49 @@
                             <top>0</top>
                             <right>10</right>
                             <bottom>10</bottom>
-                            <texture colordiffuse="White12" border="5">common/box.png</texture>
+                            <texture colordiffuse="PanelWhite12" border="5">common/box.png</texture>
                         </control>
                         <control type="image">                                
                             <left>20</left>
                             <top>20</top>
-                            <width>170</width>
-                            <height>170</height>
+                            <width>220</width>
+                            <height>220</height>
                             <aspectratio align="left" aligny="top">keep</aspectratio>
                             <texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
                         </control>
-                        <control type="textbox">
-                            <left>210</left>
+                        <control type="label">
+                            <left>260</left>
                             <right>30</right>
-                            <top>20</top>
-                            <bottom>168</bottom>
+                            <top>14</top>
+                            <height>50</height>
+                            <align>left</align>
+                            <font>SmallBold</font>
+                            <textcolor>PanelWhite70</textcolor>
+                            <selectedcolor>PanelWhite70</selectedcolor>
+                            <label>$INFO[ListItem.Title]</label>
+                        </control>
+                        <control type="textbox">
+                            <left>260</left>
+                            <right>30</right>
+                            <top>60</top>
+                            <bottom>128</bottom>
                             <align>justify</align>
                             <font>Tiny</font>
-                            <textcolor>PanelWhite100</textcolor>
-                            <selectedcolor>PanelWhite100</selectedcolor>
+                            <textcolor>PanelWhite70</textcolor>
+                            <selectedcolor>PanelWhite70</selectedcolor>
                             <label>$INFO[ListItem.Plot]</label>
                         </control>
                         <control type="label">
-                            <left>210</left>
+                            <left>260</left>
                             <right>30</right>
-                            <bottom>122</bottom>
+                            <bottom>80</bottom>
                             <aligny>center</aligny>
                             <height>38</height>
                             <align>left</align>
                             <font>Tiny</font>
-                            <textcolor>PanelWhite100</textcolor>
-                            <selectedcolor>PanelWhite100</selectedcolor>
-                            <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
-                        </control>
-                        <control type="label">
-                            <left>210</left>
-                            <right>30</right>
-                            <bottom>122</bottom>
-                            <aligny>center</aligny>
-                            <height>38</height>
-                            <align>right</align>
-                            <font>Tiny</font>
-                            <textcolor>PanelWhite100</textcolor>
-                            <selectedcolor>PanelWhite100</selectedcolor>
-                            <label>$INFO[ListItem.NextTitle,[B],[/B] $LOCALIZE[19031]]</label>
+                            <textcolor>PanelWhite70</textcolor>
+                            <selectedcolor>PanelWhite70</selectedcolor>
+                            <label>$INFO[ListItem.NextTitle,[B]$LOCALIZE[19031]:[/B] ,]</label>
                         </control>
                         <control type="label">
                             <right>30</right>
@@ -508,21 +507,9 @@
                             <aligny>center</aligny>
                             <align>right</align>
                             <font>EpisodeNumber</font>
-                            <textcolor>PanelWhite100</textcolor>
-                            <selectedcolor>PanelWhite100</selectedcolor>
+                            <textcolor>PanelWhite70</textcolor>
+                            <selectedcolor>PanelWhite70</selectedcolor>
                             <label>$INFO[ListItem.ChannelNumber]</label>
-                        </control>
-                        <control type="label">
-                            <left>20</left>
-                            <right>30</right>
-                            <bottom>74</bottom>
-                            <height>24</height>
-                            <aligny>center</aligny>
-                            <align>left</align>
-                            <font>SmallBold</font>
-                            <textcolor>PanelWhite100</textcolor>
-                            <selectedcolor>PanelWhite100</selectedcolor>
-                            <label>$INFO[ListItem.ChannelName]</label>
                         </control>
                         <control type="progress">
                             <posx>20</posx>
@@ -535,7 +522,7 @@
                             <midtexture>pvr/progress-mid.png</midtexture>
                             <righttexture>pvr/progress-leftright.png</righttexture>
                             <info>ListItem.Progress</info>
-                            <colordiffuse>PanelWhite100</colordiffuse>
+                            <colordiffuse>PanelWhite70</colordiffuse>
                         </control>
                         <control type="label">
                             <left>110</left>
@@ -544,10 +531,10 @@
                             <height>24</height>
                             <aligny>center</aligny>
                             <align>left</align>
-                            <font>Small</font>
-                            <textcolor>PanelWhite100</textcolor>
-                            <selectedcolor>PanelWhite100</selectedcolor>
-                            <label>$INFO[ListItem.Title]</label>
+                            <font>SmallBold</font>
+                            <textcolor>PanelWhite70</textcolor>
+                            <selectedcolor>PanelWhite70</selectedcolor>
+                            <label>$INFO[ListItem.ChannelName]</label>
                         </control>
                     </itemlayout>
                     <focusedlayout height="315" width="875">
@@ -561,16 +548,27 @@
                         <control type="image">                                
                             <left>20</left>
                             <top>20</top>
-                            <width>170</width>
-                            <height>170</height>
+                            <width>220</width>
+                            <height>220</height>
                             <aspectratio align="left" aligny="top">keep</aspectratio>
                             <texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
                         </control>
-                        <control type="textbox">
-                            <left>210</left>
+                        <control type="label">
+                            <left>260</left>
                             <right>30</right>
-                            <top>20</top>
-                            <bottom>168</bottom>
+                            <top>14</top>
+                            <height>50</height>
+                            <align>left</align>
+                            <font>SmallBold</font>
+                            <textcolor>Selected</textcolor>
+                            <selectedcolor>Selected</selectedcolor>
+                            <label>$INFO[ListItem.Title]</label>
+                        </control>
+                        <control type="textbox">
+                            <left>260</left>
+                            <right>30</right>
+                            <top>60</top>
+                            <bottom>128</bottom>
                             <align>justify</align>
                             <font>Tiny</font>
                             <textcolor>Selected</textcolor>
@@ -578,28 +576,16 @@
                             <label>$INFO[ListItem.Plot]</label>
                         </control>
                         <control type="label">
-                            <left>210</left>
+                            <left>260</left>
                             <right>30</right>
-                            <bottom>122</bottom>
+                            <bottom>80</bottom>
                             <aligny>center</aligny>
                             <height>38</height>
                             <align>left</align>
                             <font>Tiny</font>
                             <textcolor>Selected</textcolor>
                             <selectedcolor>Selected</selectedcolor>
-                            <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
-                        </control>
-                        <control type="label">
-                            <left>210</left>
-                            <right>30</right>
-                            <bottom>122</bottom>
-                            <aligny>center</aligny>
-                            <height>38</height>
-                            <align>right</align>
-                            <font>Tiny</font>
-                            <textcolor>Selected</textcolor>
-                            <selectedcolor>Selected</selectedcolor>
-                            <label>$INFO[ListItem.NextTitle,[B],[/B] $LOCALIZE[19031]]</label>
+                            <label>$INFO[ListItem.NextTitle,[B]$LOCALIZE[19031]:[/B] ,]</label>
                         </control>
                         <control type="label">
                             <right>30</right>
@@ -611,18 +597,6 @@
                             <textcolor>Selected</textcolor>
                             <selectedcolor>Selected</selectedcolor>
                             <label>$INFO[ListItem.ChannelNumber]</label>
-                        </control>
-                        <control type="label">
-                            <left>20</left>
-                            <right>30</right>
-                            <bottom>74</bottom>
-                            <height>24</height>
-                            <aligny>center</aligny>
-                            <align>left</align>
-                            <font>SmallBold</font>
-                            <textcolor>Selected</textcolor>
-                            <selectedcolor>Selected</selectedcolor>
-                            <label>$INFO[ListItem.ChannelName]</label>
                         </control>
                         <control type="progress">
                             <posx>20</posx>
@@ -644,10 +618,10 @@
                             <height>24</height>
                             <aligny>center</aligny>
                             <align>left</align>
-                            <font>Small</font>
+                            <font>SmallBold</font>
                             <textcolor>Selected</textcolor>
                             <selectedcolor>Selected</selectedcolor>
-                            <label>$INFO[ListItem.Title]</label>
+                            <label>$INFO[ListItem.ChannelName]</label>
                         </control>
                        
                         
