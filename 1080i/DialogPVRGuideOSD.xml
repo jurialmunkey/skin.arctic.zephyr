@@ -24,22 +24,22 @@
                 <width>128</width>
                 <height>128</height>
                 <texture>special://skin/extras/icons/livetv.png</texture>
-                <colordiffuse>White100</colordiffuse>
-                <visible>IsEmpty(VideoPlayer.Thumb)</visible>
+                <colordiffuse>PanelWhite100</colordiffuse>
+                <visible>IsEmpty(Player.Art(thumb)</visible>
             </control>
             <control type="image">
                 <posx>562</posx>
                 <posy>28</posy>  
                 <width>64</width>
                 <height>64</height>
-                <texture>$INFO[VideoPlayer.Thumb]</texture>
+                <texture>$INFO[Player.Art(thumb)]</texture>
             </control>
             <control type="label">
                 <posx>33</posx>
                 <posy>10</posy>
                 <width>400</width>
                 <align>left</align>
-                <textcolor>White100</textcolor>
+                <textcolor>PanelWhite100</textcolor>
                 <font>MediumBold</font>
                 <label>$INFO[VideoPlayer.ChannelName]</label>
             </control>
@@ -48,7 +48,7 @@
                 <posy>43</posy>
                 <width>400</width>
                 <align>left</align>
-                <textcolor>White70</textcolor>
+                <textcolor>PanelWhite70</textcolor>
                 <font>TinyBold</font>
                 <label>$INFO[Container(11).ListItem.StartDate]</label>
             </control>
@@ -66,16 +66,16 @@
                         <texture>common/selected.png</texture>
                         <aspectratio aligny="top">center</aspectratio>
                         <animation effect="fade" start="100" end="15" condition="true">Conditional</animation>
-                        <visible>ListItem.IsPlaying</visible>
-                        <colordiffuse>White100</colordiffuse>
+                        <visible>StringCompare(ListItem.Title,VideoPlayer.Title) + StringCompare(ListItem.ChannelNumberLabel,VideoPlayer.ChannelNumberLabel) + StringCompare(ListItem.EndTime,VideoPlayer.EndTime)</visible>
+                        <colordiffuse>PanelWhite100</colordiffuse>
                     </control>
                     <control type="label">
                         <left>33</left>
                         <right>22</right>
                         <posy>5</posy>
                         <align>left</align>
-                        <textcolor>White70</textcolor>
-                        <White100color>White70</White100color>
+                        <textcolor>PanelWhite70</textcolor>
+                        <PanelWhite100color>PanelWhite70</PanelWhite100color>
                         <font>SmallBold</font>
                         <label>$INFO[ListItem.Title]</label>
                     </control>
@@ -85,8 +85,8 @@
                         <right>22</right>
                         <align>left</align>
                         <font>Small</font>
-                        <textcolor>White70</textcolor>
-                        <White100color>White70</White100color>
+                        <textcolor>PanelWhite70</textcolor>
+                        <PanelWhite100color>PanelWhite70</PanelWhite100color>
                         <label>$INFO[ListItem.StartTime,,   ]</label>
                     </control>
                     <control type="image">
@@ -95,7 +95,7 @@
                         <width>128</width>
                         <height>128</height>
                         <texture>special://skin/extras/icons/timer.png</texture>
-                        <colordiffuse>White100</colordiffuse>
+                        <colordiffuse>PanelWhite100</colordiffuse>
                         <visible>ListItem.HasTimer | ListItem.IsRecording</visible>
                         <aspectratio aligny="center" align="center">keep</aspectratio>
                     </control>
@@ -111,8 +111,8 @@
                         <height>109</height>
                         <texture>common/selected.png</texture>
                         <aspectratio aligny="top">center</aspectratio>
-                        <animation effect="fade" start="100" end="10" condition="true">Conditional</animation>
-                        <visible>ListItem.IsPlaying</visible>
+                        <animation effect="fade" start="100" end="30" condition="true">Conditional</animation>
+                        <visible>StringCompare(ListItem.Title,VideoPlayer.Title) + StringCompare(ListItem.ChannelNumberLabel,VideoPlayer.ChannelNumberLabel) + StringCompare(ListItem.EndTime,VideoPlayer.EndTime)</visible>
                     </control>
                     <control type="image">
                         <centertop>54</centertop>
@@ -120,7 +120,7 @@
                         <width>128</width>
                         <height>128</height>
                         <texture>special://skin/extras/icons/timer.png</texture>
-                        <colordiffuse>White100</colordiffuse>
+                        <colordiffuse>Selected</colordiffuse>
                         <visible>ListItem.HasTimer | ListItem.IsRecording</visible>
                         <aspectratio aligny="center" align="center">keep</aspectratio>
                     </control>
@@ -129,8 +129,8 @@
                         <right>22</right>
                         <posy>5</posy>
                         <align>left</align>
-                        <textcolor>White100</textcolor>
-                        <White100color>White100</White100color>
+                        <textcolor>Selected</textcolor>
+                        <Selectedcolor>Selected</Selectedcolor>
                         <font>SmallBold</font>
                         <label>$INFO[ListItem.Title]</label>
                     </control>
@@ -140,8 +140,8 @@
                         <right>22</right>
                         <align>left</align>
                         <font>Small</font>
-                        <textcolor>White100</textcolor>
-                        <White100color>White100</White100color>
+                        <textcolor>Selected</textcolor>
+                        <Selectedcolor>Selected</Selectedcolor>
                         <label>$INFO[ListItem.StartTime,,   ]</label>
                     </control>
                 </focusedlayout>
