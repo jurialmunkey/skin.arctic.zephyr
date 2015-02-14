@@ -17,7 +17,7 @@
         <value>$INFO[Container(301).ListItem.Icon]</value>
     </variable>
     <variable name="ThumbImage">
-        <value condition="Window.IsVisible(MyVideoNav.xml)">$VAR[FanartImage]</value>
+        <value condition="Window.IsVisible(MyVideoNav.xml) + Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets)">$VAR[FanartImage]</value>
         <value>$INFO[ListItem.Icon]</value>
     </variable>
     <variable name="PlayerPoster">
