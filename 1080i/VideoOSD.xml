@@ -253,26 +253,12 @@
                 <include>DefOSDUpDown</include>
                 <usecontrolcoords>true</usecontrolcoords>
                 
-                <include condition="VideoPlayer.HasMenu | [!VideoPlayer.Content(movies) + !VideoPlayer.Content(episodes)]">OSDDVDMenu</include>
+                <include condition="!VideoPlayer.Content(livetv) + [VideoPlayer.HasMenu | [!VideoPlayer.Content(movies) + !VideoPlayer.Content(episodes)]]">OSDDVDMenu</include>
                 <include condition="!VideoPlayer.HasMenu + VideoPlayer.Content(episodes)">OSDExtraInfoTV</include>
                 <include condition="!VideoPlayer.HasMenu + VideoPlayer.Content(movies)">OSDExtraInfoMOVIES</include>
-        
                 
-                <control type="button" id="5">
-                    <description>3D Mode</description>
-                    <label>31117</label>
-                    <onclick>StereoMode</onclick>
-                    <include>DefOSDButtons</include>
-                    <enable>VideoPlayer.IsStereoscopic</enable>
-                    <disabledcolor>PanelWhite12</disabledcolor>
-                </control>
-
-                <control type="button" id="6">
-                    <description>BookMarks</description>
-                    <include>DefOSDButtons</include>
-                    <label>298</label>
-                    <onclick>ActivateWindow(125)</onclick>
-                </control>
+                <include condition="!VideoPlayer.Content(livetv)">OSDVideosRight</include>
+                <include condition="VideoPlayer.Content(livetv)">OSDPVRRight</include>
             </control>
         </control>
     

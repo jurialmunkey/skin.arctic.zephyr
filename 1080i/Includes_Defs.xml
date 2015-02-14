@@ -403,7 +403,45 @@
             <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
         </control>
     </include>
-    
+
+    <include name="OSDVideosRight">
+        <control type="button" id="5">
+            <description>3D Mode</description>
+            <label>31117</label>
+            <onclick>StereoMode</onclick>
+            <include>DefOSDButtons</include>
+            <enable>VideoPlayer.IsStereoscopic</enable>
+            <disabledcolor>PanelWhite12</disabledcolor>
+        </control>
+
+        <control type="button" id="6">
+            <description>BookMarks</description>
+            <include>DefOSDButtons</include>
+            <label>298</label>
+            <onclick>ActivateWindow(125)</onclick>
+        </control>
+    </include>
+    <include name="OSDPVRRight">
+        <control type="button" id="4">
+            <description>CHANNELS</description>
+            <label>19019</label>
+            <include>DefOSDButtons</include>
+            <onclick>ActivateWindow(pvrosdchannels)</onclick>
+        </control>
+        <control type="button" id="5">
+            <description>EPG</description>
+            <label>$LOCALIZE[19030] / $LOCALIZE[19031]</label>
+            <onclick>ActivateWindow(pvrosdguide)</onclick>
+            <include>DefOSDButtons</include>
+        </control>
+
+        <control type="button" id="6">
+            <description>TIMELINE</description>
+            <include>DefOSDButtons</include>
+            <label>19032</label>
+            <onclick>ActivateWindow(tvguide,,return)</onclick>
+        </control>
+    </include>
     <include name="OSDDVDMenu">
         <control type="button" id="4">
             <description>DVD Menu</description>
