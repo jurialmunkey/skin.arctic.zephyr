@@ -74,6 +74,12 @@
                         <include>DefSettingsButton</include>
                         <label>31152</label>
                     </control>
+                    <control type="togglebutton" id="9107" description="Extras">
+                        <usealttexture>ControlGroup(9100).HasFocus(9107)</usealttexture>
+                        <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
+                        <include>DefSettingsButton</include>
+                        <label>31169</label>
+                    </control>
                 </control>
                 
                 
@@ -252,6 +258,7 @@
                         <enable>System.HasAddon(script.tvtunes)</enable>
                     </control>
                     
+                    
                     <!-- Furniture -->
                     <control type="radiobutton" id="9261" description="Header">
                         <width>1310</width>
@@ -284,6 +291,17 @@
                         <label>31155</label>
                         <selected>!Skin.HasSetting(furniture.nowplaying)</selected>
                         <onclick>Skin.ToggleSetting(furniture.nowplaying)</onclick>
+                    </control>
+                    
+                    <!-- Extras -->
+                    <control type="button" id="9271" description="Startup Video">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9107)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31168</label>
+                        <label2>$INFO[Skin.String(StartupPlaylist)]</label2>
+                        <onclick condition="IsEmpty(Skin.String(StartupPlaylist))">Skin.SetFile(StartupPlaylist,.mp4|.avi|.mkv|.xvid|.wmv|.mov)</onclick>
+                        <onclick condition="!IsEmpty(Skin.String(StartupPlaylist))">Skin.Reset(StartupPlaylist)</onclick>
                     </control>
                 </control>
                 

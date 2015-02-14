@@ -2,8 +2,12 @@
     <defaultcontrol always="true">52</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <backgroundcolor>0</backgroundcolor>
+    <onload condition="IsEmpty(Window(home).Property(SkinInitStarted)) + !IsEmpty(Skin.String(StartupPlaylist))">PlayMedia($ESCINFO[Skin.String(StartupPlaylist)])</onload>
+    <onload>SetProperty(SkinInitStarted,1,home)</onload>
     <controls>
         <control type="group">
+            <visible>!Player.HasVideo</visible>
+            <visible>!IsEmpty(Window(home).Property(SkinInitStarted))</visible>
             <include>GlobalBackground</include>
             <include>Furniture_Header</include>
             <include>Furniture_Clock</include>
@@ -78,9 +82,6 @@
                     </control>
                 </focusedlayout>
             </control>
-            
-            
-            
         </control>
     </controls>
 </window>
