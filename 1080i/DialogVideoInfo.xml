@@ -301,6 +301,19 @@
                     <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
                     <include>DefDialogButtons</include>
                 </control>
+                
+                <control type="button" id="49">
+                    <description>Home Theatre</description>
+                    <label>31170</label>
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                    <onclick>Dialog.Close(MovieInformation)</onclick>
+                    <onclick>XBMC.RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
+                    <visible>system.hasaddon(script.cinema.experience) + Container.Content(movies)</visible>
+                </control>
 
                 <control type="button" id ="6">
                     <description>Refresh</description>
