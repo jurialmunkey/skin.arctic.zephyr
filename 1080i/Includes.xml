@@ -122,19 +122,43 @@
             <include>Dimensions_Fullscreen</include>
         </control>
     </include>
+    <include name="GlobalVisualisation">
+        <control type="group">
+            <visible>Player.HasAudio + Skin.HasSetting(global.showvisualisation)</visible>
+            <control type="visualisation">
+                <visible>Skin.HasSetting(ArtistSlideShow.Disabled) | !System.HasAddon(script.artistslideshow) | Skin.HasSetting(OSDVisualisation.ShowFanart)</visible>
+                <description>visualisation</description>
+                <include>Dimensions_Fullscreen</include>
+            </control>
+            <control type="multiimage">
+                <aspectratio>scale</aspectratio>
+                <include>Dimensions_Fullscreen</include>
+                <timeperimage>10000</timeperimage>
+                <randomize>true</randomize>
+                <fadetime>600</fadetime>
+                <loop>yes</loop>
+                <imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
+                <visible>System.HasAddon(script.artistslideshow) + !Skin.HasSetting(ArtistSlideShow.Disabled)</visible>
+                <animation effect="fade" start="100" end="65" time="0" condition="Skin.HasSetting(OSDVisualisation.ShowFanart)">Conditional</animation>
+                <animation effect="zoom" start="110" end="130" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
+                <animation effect="slide" start="-30,-30" end="30,30" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
+            </control>
+        </control>
+    </include>
     <include name="GlobalBackgroundFade"><colordiffuse>FanartFade</colordiffuse></include>
     <include name="GlobalBackground">
         <include>GlobalVideoWindow</include>
+        <include>GlobalVisualisation</include>
         <control type="image" description="Background">
             <include>Dimensions_Fullscreen</include>
             <include>Animation.FadeFromHome</include>
             <texture colordiffuse="Background">common/bg.jpg</texture>
             <visible>!Window.IsVisible(home)</visible>
-            <animation effect="fade" start="100" end="75" time="200" condition="Player.HasVideo + Skin.HasSetting(global.showvideo)">Conditional</animation>
+            <animation effect="fade" start="100" end="75" time="200" condition="Player.HasVideo + Skin.HasSetting(global.showvideo) | Player.HasAudio + Skin.HasSetting(global.showvisualisation)">Conditional</animation>
         </control>
         <control type="multiimage" description="Fanart">
             <include condition="!Window.IsVisible(home)">GlobalBackgroundFade</include>
-            <visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+            <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio]</visible>
             <visible>!Skin.HasSetting(global.hidefanart) | Window.IsVisible(home)</visible>
             <include>Dimensions_Fullscreen</include>
             <include>Animation.FadeFromHome</include>

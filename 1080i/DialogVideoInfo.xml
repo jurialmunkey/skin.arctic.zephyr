@@ -3,7 +3,7 @@
 <window id="2003">
     <defaultcontrol always="true">8</defaultcontrol>
     <allowoverlay>no</allowoverlay>
-
+    <onload condition="System.HasAddon(script.videoextras)">RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
     <controls>
 
         <include>GlobalOverlay</include>
@@ -313,6 +313,14 @@
                     <onclick>Dialog.Close(MovieInformation)</onclick>
                     <onclick>XBMC.RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
                     <visible>system.hasaddon(script.cinema.experience) + Container.Content(movies)</visible>
+                </control>
+
+                <control type="button" id="105">
+                    <description>Extras</description>
+                    <include>ButtonInfoDialogsCommonValues</include>
+                    <label>31171</label>
+                    <onclick>RunScript(script.videoextras,display,"$INFO[ListItem.FilenameAndPath]")</onclick>
+                    <visible>System.HasAddon(script.videoextras) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(TVShows) | Container.Content(musicvideos)] + IsEmpty(Window(movieinformation).Property("HideVideoExtrasButton"))</visible>
                 </control>
 
                 <control type="button" id ="6">

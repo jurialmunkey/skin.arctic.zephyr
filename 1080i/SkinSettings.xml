@@ -159,15 +159,7 @@
                     </control>              
                     
                     <!-- Fanart -->
-                    <control type="radiobutton" id="9221" description="Show video in background">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9102)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31111</label>
-                        <selected>Skin.HasSetting(global.showvideo)</selected>
-                        <onclick>Skin.ToggleSetting(global.showvideo)</onclick>
-                    </control>
-                    <control type="radiobutton" id="9222" description="Show fanart">
+                    <control type="radiobutton" id="9223" description="Show fanart">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9102)</visible>
                         <include>DefSettingsButton</include>
@@ -175,7 +167,7 @@
                         <selected>!Skin.HasSetting(global.hidefanart)</selected>
                         <onclick>Skin.ToggleSetting(global.hidefanart)</onclick>
                     </control>
-                    <control type="radiobutton" id="9223" description="Animate Fanart">
+                    <control type="radiobutton" id="9224" description="Animate Fanart">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9102)</visible>
                         <include>DefSettingsButton</include>
@@ -183,7 +175,7 @@
                         <selected>Skin.HasSetting(Fanart.Animate)</selected>
                         <onclick>Skin.ToggleSetting(Fanart.Animate)</onclick>
                     </control>
-                    <control type="button" id="9224" description="Set Fallback Image">
+                    <control type="button" id="9225" description="Set Fallback Image">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9102)</visible>
                         <include>DefSettingsButton</include>
@@ -201,7 +193,22 @@
                         <onclick condition="IsEmpty(Skin.String(weather.fanart))">Skin.SetPath(weather.fanart)</onclick>
                         <onclick condition="!IsEmpty(Skin.String(weather.fanart))">Skin.Reset(weather.fanart)</onclick>
                     </control>
-                    
+                    <control type="radiobutton" id="9221" description="Show video in background">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9102)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31111</label>
+                        <selected>Skin.HasSetting(global.showvideo)</selected>
+                        <onclick>Skin.ToggleSetting(global.showvideo)</onclick>
+                    </control>
+                    <control type="radiobutton" id="9222" description="Show vis in background">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9102)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31172</label>
+                        <selected>Skin.HasSetting(global.showvisualisation)</selected>
+                        <onclick>Skin.ToggleSetting(global.showvisualisation)</onclick>
+                    </control>
                     
                     <!-- OSD -->
                     <control type="radiobutton" id="9231" description="Show slideshow in background">
