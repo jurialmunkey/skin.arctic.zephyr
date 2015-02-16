@@ -16,16 +16,21 @@
                 <right>SidePad</right>
                 <height>640</height>
                 <control type="group">
-                    <control type="button" id="9502">
+                    <control type="image">
                         <left>0</left>
                         <width>1120</width>
                         <top>0</top>
                         <height>640</height>
-                        <onright>9501</onright>
-                        <onup>Control.Move(9500,-1)</onup>
-                        <ondown>Control.Move(9500,1)</ondown>               
-                        <texturenofocus border="15" colordiffuse="Dark4">common/box.png</texturenofocus>
-                        <texturefocus border="15" colordiffuse="Dark1">common/box.png</texturefocus>
+                        <texture border="15" colordiffuse="Dark4">common/box.png</texture>
+                        <visible>!Control.HasFocus(9500)</visible>
+                    </control>
+                    <control type="image">
+                        <left>0</left>
+                        <width>1120</width>
+                        <top>0</top>
+                        <height>640</height>
+                        <texture border="15" colordiffuse="Dark1">common/box.png</texture>
+                        <visible>Control.HasFocus(9500)</visible>
                     </control>
                     <control type="wraplist" id="9500">
                         <description>Widget</description>
@@ -33,10 +38,12 @@
                         <width>1102</width>
                         <top>10</top>
                         <bottom>10</bottom>
-                   
+                        <onright>9501</onright>
+                        <onup>9500</onup>
+                        <ondown>9500</ondown>
                         <preloaditems>1</preloaditems>
-                        <orientation>horizontal</orientation>
-                        <autoscroll time="10000">!Control.HasFocus(9500) + !Control.HasFocus(9502)</autoscroll>
+                        <orientation>vertical</orientation>
+                        <autoscroll time="10000">!Control.HasFocus(9500)</autoscroll>
                         <scrolltime tween="quadratic">400</scrolltime>
                         <include>Animation.FadeIn</include>
                         <include>Animation.FadeOut</include>
@@ -114,12 +121,12 @@
                 
                 <control type="group">
                     <control type="list" id="9501">
-                        <description>Widget</description>
+                        <description>list</description>
                         <left>1140</left>
                         <right>0</right>
                         <top>0</top>
                         <height>640</height>
-                        <onleft>9502</onleft>
+                        <onleft>9500</onleft>
                         <onright>60</onright>
                         <onup>9501</onup>
                         <ondown>9501</ondown>
