@@ -164,7 +164,7 @@
         
         <!-- Widget Selector -->
         <control type="group">
-            <visible>![Window.IsVisible(home) + !IsEmpty(Skin.String(home.slideshowpath)) + Skin.HasSetting(home.showslideshow) + IsEmpty(Container(300).ListItem.Property(widget))]</visible>
+            <visible>![Window.IsVisible(home) + !IsEmpty(Skin.String(home.slideshowpath)) + Skin.HasSetting(home.showslideshow) + IsEmpty(Container(300).ListItem.Property(widget))] + IsEmpty(Container(300).ListItem.Property(Background))</visible>
             <animation effect="slide" end="0" start="0,-250" time="150" reversible="false" condition="ControlGroup(303).HasFocus()">Conditional</animation>
             <animation effect="slide" start="0" end="0,-250" time="150" reversible="false" condition="!ControlGroup(303).HasFocus()">Conditional</animation>
             <include>Animation.FadeOut</include>
@@ -270,7 +270,7 @@
             <control type="group">
                 <visible>!Container(301).IsUpdating</visible>
                 <visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
-                <visible>![Window.IsVisible(home) + !IsEmpty(Skin.String(home.slideshowpath)) + Skin.HasSetting(home.showslideshow) + IsEmpty(Container(300).ListItem.Property(widget))]</visible>
+                <visible>![Window.IsVisible(home) + !IsEmpty(Skin.String(home.slideshowpath)) + Skin.HasSetting(home.showslideshow) + IsEmpty(Container(300).ListItem.Property(widget))] + [IsEmpty(Container(300).ListItem.Property(Background)) | !IsEmpty(Container(300).ListItem.Property(widget))]</visible>
                 <visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
                 <include>Animation.FadeIn</include>
                 <animation effect="slide" start="0" end="0,220" time="500" tween="back" reversible="false" easing="out" condition="Control.HasFocus(301) | ControlGroup(303).HasFocus()">Conditional</animation>
