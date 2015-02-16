@@ -445,8 +445,18 @@
             </control>
             <control type="image">
                 <visible>IntegerGreaterThan(Container(300).NumItems,6)</visible>
+                <visible>!Skin.HasSetting(furniture.clock)</visible>
                 <top>962</top>
                 <right>470</right>
+                <width>16</width>
+                <height>16</height>
+                <texture colordiffuse="Dark2" flipx="false">common/arrow-small-right.png</texture>
+            </control>
+            <control type="image">
+                <visible>IntegerGreaterThan(Container(300).NumItems,6)</visible>
+                <visible>Skin.HasSetting(furniture.clock)</visible>
+                <top>962</top>
+                <right>32</right>
                 <width>16</width>
                 <height>16</height>
                 <texture colordiffuse="Dark2" flipx="false">common/arrow-small-right.png</texture>
@@ -457,7 +467,8 @@
                 <description>Home Wraplist</description>
                 <top>948</top>
                 <left>SidePad</left>
-                <right>520</right>
+                <include condition="!Skin.HasSetting(furniture.clock)">DefHomeRight520</include>
+                <include condition="Skin.HasSetting(furniture.clock)">DefHomeRightSidePad</include>
                 <onup condition="!Player.HasVideo | !Skin.HasSetting(global.showvideo)">301</onup>
                 <ondown condition="IntegerGreaterThan(Container(302).NumItems,0)">302</ondown>
                 <onleft>300</onleft>
