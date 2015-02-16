@@ -131,6 +131,7 @@
         <value condition="Pvr.HasTimer">$INFO[Pvr.NextRecordingTitle,[COLOR=Highlight],[/COLOR]]$INFO[Pvr.NextRecordingDateTime,  ,]$INFO[Pvr.NextRecordingChannel,  ,]</value>
     </variable>
     <variable name="HDSD">
+        <value condition="Container.Content(tvshows) | Container.Content(seasons)">$INFO[ListItem.Property(UnWatchedEpisodes)]</value>
         <value condition="IntegerGreaterThan(Container(9500).ListItem.VideoResolution,719)">HD</value>
         <value condition="IntegerGreaterThan(ListItem.VideoResolution,719)">HD</value>
         <value>SD</value>
@@ -152,6 +153,10 @@
     <variable name="PlayerPlotBox">
         <value condition="!Player.HasVideo">$INFO[MusicPlayer.Album,, ]$INFO[MusicPlayer.Year,(,)]</value>
         <value>$INFO[VideoPlayer.Plot]</value>
+    </variable>
+    <variable name="LabelNextAiredDetails">
+        <value condition="!IsEmpty(Window(Home).Property(NextAired.NextDate))">[COLOR=Dark1][B]$INFO[Window(Home).Property(NextAired.NextTitle),,  ][/B][/COLOR]$INFO[Window(Home).Property(NextAired.AirTime),, • ]$INFO[Window(Home).Property(NextAired.NextDate)]</value>
+        <value condition="IsEmpty(Window(Home).Property(NextAired.NextDate)) + !IsEmpty(Window(Home).Property(NextAired.LatestTitle))">[COLOR=Dark1][B]$INFO[Window(Home).Property(NextAired.LatestTitle),,  ][/B][/COLOR]$INFO[Window(Home).Property(NextAired.Status),, • ]$INFO[Window(Home).Property(NextAired.LatestDate)]</value>
     </variable>
     
 </includes>
