@@ -317,7 +317,11 @@
 
                 <control type="button" id="105">
                     <description>Extras</description>
-                    <include>ButtonInfoDialogsCommonValues</include>
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
                     <label>31171</label>
                     <onclick>RunScript(script.videoextras,display,"$INFO[ListItem.FilenameAndPath]")</onclick>
                     <visible>System.HasAddon(script.videoextras) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(TVShows) | Container.Content(musicvideos)] + IsEmpty(Window(movieinformation).Property("HideVideoExtrasButton"))</visible>
