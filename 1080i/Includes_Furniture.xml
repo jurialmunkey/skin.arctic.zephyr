@@ -123,6 +123,31 @@
         <value condition="IntegerGreaterThan(ListItem.Rating,8)">star5</value>
         <value>star0</value>
     </variable>
+    <variable name="HubFlagstar1">
+        <value condition="IntegerGreaterThan(Container(9500).ListItem.Rating,1)">star10</value>
+        <value condition="IntegerGreaterThan(Container(9500).ListItem.Rating,0)">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="HubFlagstar2">
+        <value condition="IntegerGreaterThan(Container(9500).ListItem.Rating,3)">star10</value>
+        <value condition="IntegerGreaterThan(Container(9500).ListItem.Rating,2)">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="HubFlagstar3">
+        <value condition="IntegerGreaterThan(Container(9500).ListItem.Rating,5)">star10</value>
+        <value condition="IntegerGreaterThan(Container(9500).ListItem.Rating,4)">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="HubFlagstar4">
+        <value condition="IntegerGreaterThan(Container(9500).ListItem.Rating,7)">star10</value>
+        <value condition="IntegerGreaterThan(Container(9500).ListItem.Rating,6)">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="HubFlagstar5">
+        <value condition="IntegerGreaterThan(Container(9500).ListItem.Rating,9)">star10</value>
+        <value condition="IntegerGreaterThan(Container(9500).ListItem.Rating,8)">star5</value>
+        <value>star0</value>
+    </variable>
     
     <!-- MusicFlags -->
     <variable name="MusicFlagstar5">
@@ -310,6 +335,135 @@
                 <height>64</height>
                 <texture colordiffuse="Dark1">flags/dvd.png</texture>
                 <visible>substring(ListItem.FilenameAndPath,dvd)</visible>
+            </control>
+            
+            
+
+            
+            
+        </control>
+    </include>
+    <include name="Furniture_Hub_Flags">
+        <control type="grouplist">
+            <visible>!Skin.HasSetting(furniture.flags)</visible>
+            <include>Animation.FadeIn</include>
+            <include>Animation.FadeOut</include>
+            <left>SidePad</left>
+            <centerbottom>NavBarPad</centerbottom>
+            <width>1400</width>
+            <height>64</height>
+            <orientation>horizontal</orientation>
+            <align>left</align>
+            <itemgap>24</itemgap>
+            <usecontrolcoords>true</usecontrolcoords>
+            <control type="group">
+                <width>64</width>
+                <height>64</height>
+                <control type="image" description="button back">
+                    <width>64</width>
+                    <height>64</height>
+                    <texture border="32" colordiffuse="Dark1">common/circle.png</texture>
+                </control>
+                <control type="label">
+                    <width>64</width>
+                    <height>64</height>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <label>$VAR[HDSD]</label>
+                    <font>SmallBold</font>
+                    <textcolor>Light1</textcolor>
+                    <visible>!substring(Container(9500).ListItem.Path,videodb://movies/sets,left)</visible>
+                </control>
+                <control type="image">
+                    <width>64</width>
+                    <height>64</height>
+                    <texture colordiffuse="Light1">flags/sets.png</texture>
+                    <visible>substring(Container(9500).ListItem.Path,videodb://movies/sets,left)</visible>
+                </control>
+            </control>
+            
+            <control type="image">
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/$VAR[HubFlagstar1].png</texture>
+            </control>
+            <control type="image">
+                <posx>-48</posx>
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/$VAR[HubFlagstar2].png</texture>
+            </control>
+            <control type="image">
+                <posx>-48</posx>
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/$VAR[HubFlagstar3].png</texture>
+            </control>
+            <control type="image">
+                <posx>-48</posx>
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/$VAR[HubFlagstar4].png</texture>
+            </control>
+            <control type="image">
+                <posx>-48</posx>
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/$VAR[HubFlagstar5].png</texture>
+            </control>
+            
+            <control type="image">
+                <width>48</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/video.png</texture>
+                <aspectratio align="left">scale</aspectratio>
+                <visible>!IsEmpty(Container(9500).ListItem.VideoCodec)</visible>
+            </control>
+            <control type="label">
+                <width min="128">auto</width>
+                <height>64</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$INFO[Container(9500).ListItem.VideoCodec,,  •  ]$INFO[Container(9500).ListItem.VideoResolution]</label>
+                <font>Flag</font>
+                <textcolor>Dark1</textcolor>
+                <visible>!IsEmpty(Container(9500).ListItem.VideoCodec)</visible>
+            </control>
+            <control type="image">
+                <width>48</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/audio.png</texture>
+                <aspectratio align="left">scale</aspectratio>
+                <visible>!IsEmpty(Container(9500).ListItem.AudioCodec)</visible>
+            </control>
+            <control type="label">
+                <width min="128">auto</width>
+                <height>64</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$INFO[Container(9500).ListItem.AudioCodec]$VAR[LabelHubAudioChannels,  •  ,]</label>
+                <font>Flag</font>
+                <textcolor>Dark1</textcolor>
+                <visible>!IsEmpty(Container(9500).ListItem.AudioCodec)</visible>
+            </control>
+            
+            <control type="image">
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/3D.png</texture>
+                <visible>Container(9500).ListItem.IsStereoscopic</visible>
+            </control>
+            <control type="image">
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/bluray.png</texture>
+                <visible>[substring(Container(9500).ListItem.FilenameAndPath,bluray) | substring(Container(9500).ListItem.FilenameAndPath,bdrip) | substring(Container(9500).ListItem.FilenameAndPath,bd25) | substring(Container(9500).ListItem.FilenameAndPath,bd50)]</visible>
+            </control>
+            <control type="image">
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/dvd.png</texture>
+                <visible>substring(Container(9500).ListItem.FilenameAndPath,dvd)</visible>
             </control>
             
             

@@ -35,6 +35,16 @@
         <value condition="stringcompare(ListItem.AudioChannels,1)">1.0</value>
         <value>???</value>
     </variable>
+    <variable name="LabelHubAudioChannels">
+        <value condition="stringcompare(Container(9500).ListItem.AudioChannels,8)">7.1</value>
+        <value condition="stringcompare(Container(9500).ListItem.AudioChannels,6)">5.1</value>
+        <value condition="stringcompare(Container(9500).ListItem.AudioChannels,5)">4.1</value>
+        <value condition="stringcompare(Container(9500).ListItem.AudioChannels,4)">4.0</value>
+        <value condition="stringcompare(Container(9500).ListItem.AudioChannels,3)">2.1</value>
+        <value condition="stringcompare(Container(9500).ListItem.AudioChannels,2)">2.0</value>
+        <value condition="stringcompare(Container(9500).ListItem.AudioChannels,1)">1.0</value>
+        <value>???</value>
+    </variable>
     <variable name="LabelOSDAudioChannels">
         <value condition="stringcompare(VideoPlayer.AudioChannels,8)">7.1</value>
         <value condition="stringcompare(VideoPlayer.AudioChannels,6)">5.1</value>
@@ -121,8 +131,9 @@
         <value condition="Pvr.HasTimer">$INFO[Pvr.NextRecordingTitle,[COLOR=Highlight],[/COLOR]]$INFO[Pvr.NextRecordingDateTime,  ,]$INFO[Pvr.NextRecordingChannel,  ,]</value>
     </variable>
     <variable name="HDSD">
+        <value condition="IntegerGreaterThan(Container(9500).ListItem.VideoResolution,719)">HD</value>
         <value condition="IntegerGreaterThan(ListItem.VideoResolution,719)">HD</value>
-        <value condition="!IsEmpty(ListItem.VideoResolution)">SD</value>
+        <value>SD</value>
     </variable>
     <variable name="PlayerTitle">
         <value condition="!Player.HasVideo">$INFO[MusicPlayer.TrackNumber,,. ]$INFO[MusicPlayer.Title]</value>

@@ -246,8 +246,8 @@
             </animation>
             <control type="wraplist" id="301">
                 <description>Widget</description>
-                <width>100%</width>
-                <height>100%</height>
+                <width>1</width>
+                <height>1</height>
                 <onup condition="IsEmpty(Container(300).ListItem.Property(widget))">303</onup>
                 <onup condition="!IsEmpty(Container(300).ListItem.Property(widget))">300</onup>
                 <ondown>300</ondown>
@@ -260,9 +260,9 @@
                 <scrolltime tween="quadratic">0</scrolltime>
                 <include>Animation.FadeIn</include>
                 <include>Animation.FadeOut</include>
-                <itemlayout width="1920" height="1080">
+                <itemlayout width="1" height="1">
                 </itemlayout>
-                <focusedlayout width="1920" height="1080">
+                <focusedlayout width="1" height="1">
                 </focusedlayout>
                 <content target="video">$VAR[DefWidgetContent]</content>
             </control>

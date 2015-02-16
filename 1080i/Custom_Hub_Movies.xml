@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window type="window" id="3201">
+    <defaultcontrol always="true">9501</defaultcontrol>
+    <allowoverlay>false</allowoverlay>
+    <controls>
+        <include>GlobalBackground</include>
+        <include>Furniture_Header</include>
+        <include>Furniture_Clock</include>
+        <include>Furniture_Hub_Flags</include>
+        <control type="group">
+            <include>Animation.Common</include>
+            <control type="group">
+                <top>PosterPad</top>
+                <left>SidePad</left>
+                <right>SidePad</right>
+                <height>640</height>
+                <control type="group">
+                    <control type="button" id="9502">
+                        <left>0</left>
+                        <width>1120</width>
+                        <top>0</top>
+                        <height>640</height>
+                        <onright>9501</onright>
+                        <onup>Control.Move(9500,-1)</onup>
+                        <ondown>Control.Move(9500,1)</ondown>               
+                        <texturenofocus border="15" colordiffuse="Dark4">common/box.png</texturenofocus>
+                        <texturefocus border="15" colordiffuse="Dark1">common/box.png</texturefocus>
+                    </control>
+                    <control type="wraplist" id="9500">
+                        <description>Widget</description>
+                        <left>10</left>
+                        <width>1102</width>
+                        <top>10</top>
+                        <bottom>10</bottom>
+                   
+                        <preloaditems>1</preloaditems>
+                        <orientation>horizontal</orientation>
+                        <autoscroll time="10000">!Control.HasFocus(9500) + !Control.HasFocus(9502)</autoscroll>
+                        <scrolltime tween="quadratic">400</scrolltime>
+                        <include>Animation.FadeIn</include>
+                        <include>Animation.FadeOut</include>
+                        <itemlayout width="1102" height="620">
+                            <control type="image">
+                                <width>100%</width>
+                                <height>100%</height>
+                                <texture background="true">$VAR[FanartImage]</texture>
+                            </control>
+                        </itemlayout>
+                        <focusedlayout width="1102" height="620">
+                            <control type="image">
+                                <width>100%</width>
+                                <height>100%</height>
+                                <texture background="true">$VAR[FanartImage]</texture>
+                            </control>
+                        </focusedlayout>
+                        <content target="video">special://skin/extras/playlists/RandomMovies.xsp</content>
+                    </control>
+                    <control type="group">
+                        <left>10</left>
+                        <width>1102</width>
+                        <bottom>10</bottom>
+                        <height>70</height>
+                        <control type="image">
+                            <left>0</left>
+                            <right>0</right>
+                            <bottom>0</bottom>
+                            <height>70</height>
+                            <texture border="15" colordiffuse="df000000">common/white.png</texture>
+                        </control>
+                        <control type="label">
+                            <posx>30</posx>
+                            <width>200</width>
+                            <font>Small</font>
+                            <aligny>center</aligny>
+                            <height>64</height>
+                            <textcolor>PanelWhite70</textcolor>
+                            <selectedcolor>PanelWhite70</selectedcolor>
+                            <label>$INFO[Container(9500).ListItem.Year]</label>
+                        </control>
+                        <control type="label">
+                            <posx>120</posx>
+                            <width>auto</width>
+                            <aligny>center</aligny>
+                            <height>64</height>
+                            <font>SmallBold</font>
+                            <textcolor>PanelWhite70</textcolor>
+                            <selectedcolor>PanelWhite70</selectedcolor>
+                            <label>$INFO[Container(9500).ListItem.Label]</label>
+                        </control>
+                        <control type="label">
+                            <right>154</right>
+                            <width>500</width>
+                            <aligny>center</aligny>
+                            <height>64</height>
+                            <align>right</align>
+                            <font>Small</font>
+                            <textcolor>PanelWhite70</textcolor>
+                            <selectedcolor>PanelWhite70</selectedcolor>
+                            <label>$INFO[Container(9500).ListItem.Duration,, $LOCALIZE[31102]]</label>
+                        </control>
+                        <control type="image">
+                            <centerright>110</centerright>
+                            <centertop>32</centertop>
+                            <width>32</width>
+                            <height>32</height>
+                            <aspectratio aligny="top">keep</aspectratio>
+                            <texture>$VAR[PercentWatched9500]</texture>
+                        </control>
+                        <control type="label">
+                            <right>30</right>
+                            <width>500</width>
+                            <aligny>center</aligny>
+                            <height>64</height>
+                            <align>right</align>
+                            <font>Small</font>
+                            <textcolor>PanelWhite70</textcolor>
+                            <selectedcolor>PanelWhite70</selectedcolor>
+                            <label>$INFO[Container(9500).ListItem.Rating]</label>
+                        </control>
+                    </control>
+                    
+                </control>
+                
+                <control type="group">
+                    <control type="list" id="9501">
+                        <description>Widget</description>
+                        <left>1140</left>
+                        <right>0</right>
+                        <top>0</top>
+                        <height>640</height>
+                        <onleft>9502</onleft>
+                        <onright>60</onright>
+                        <onup>9501</onup>
+                        <ondown>9501</ondown>
+                        <pagecontrol>60</pagecontrol>
+                        <preloaditems>2</preloaditems>
+                        <orientation>vertical</orientation>
+                        <scrolltime tween="quadratic">400</scrolltime>
+                        <include>Animation.FadeIn</include>
+                        <include>Animation.FadeOut</include>
+                        <itemlayout width="620" height="80">
+                            <control type="image">
+                                <right>0</right>
+                                <top>0</top>
+                                <bottom>0</bottom>
+                                <width>80</width>
+                                <texture colordiffuse="Dark2">$INFO[ListItem.Icon]</texture>
+                            </control>
+                            <control type="label">
+                                <left>30</left>
+                                <right>80</right>
+                                <height>100%</height>
+                                <font>SmallBold</font>
+                                <textcolor>Dark2</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                            </control>
+                        </itemlayout>
+                        <focusedlayout width="620" height="80">
+                            <control type="group">
+                                <visible>Control.HasFocus(9501)</visible>
+                                <control type="image">
+                                    <width>100%</width>
+                                    <height>100%</height>
+                                    <texture border="15" colordiffuse="Dark1">common/box.png</texture>
+                                </control>
+                                <control type="image">
+                                    <right>0</right>
+                                    <top>0</top>
+                                    <bottom>0</bottom>
+                                    <width>80</width>
+                                    <texture colordiffuse="Light1">$INFO[ListItem.Icon]</texture>
+                                </control>
+                                <control type="label">
+                                    <left>30</left>
+                                    <right>80</right>
+                                    <height>100%</height>
+                                    <font>SmallBold</font>
+                                    <textcolor>Light1</textcolor>
+                                    <label>$INFO[ListItem.Label]</label>
+                                </control>
+                            </control>
+                            <control type="group">
+                                <visible>!Control.HasFocus(9501)</visible>
+                                <control type="image">
+                                    <right>0</right>
+                                    <top>0</top>
+                                    <bottom>0</bottom>
+                                    <width>80</width>
+                                    <texture colordiffuse="Dark1">$INFO[ListItem.Icon]</texture>
+                                </control>
+                                <control type="label">
+                                    <left>30</left>
+                                    <right>80</right>
+                                    <height>100%</height>
+                                    <font>SmallBold</font>
+                                    <textcolor>Dark2</textcolor>
+                                    <label>$INFO[ListItem.Label]</label>
+                                </control>
+                            </control>
+                        </focusedlayout>
+                        <content>
+                            <item id="1">
+                                <label>20342</label>
+                                <onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
+                                <icon>special://skin/extras/icons/title.png</icon>
+                                <property name="Color">1</property>
+                            </item>
+                            <item id="2">
+                                <label>20386</label>
+                                <onclick>ActivateWindow(Videos,RecentlyAddedMovies,return)</onclick>
+                                <icon>special://skin/extras/icons/timer.png</icon>
+                                <property name="Color">1</property>
+                            </item>
+                            <item id="3">
+                                <label>137</label>
+                                <onclick>RunScript(script.globalsearch,tvshows=true&episodes=true&movies=true)</onclick>
+                                <icon>special://skin/extras/icons/search.png</icon>
+                                <property name="Color">1</property>
+                                </item>
+                            <item id="4">
+                            <label>135</label>
+                                <onclick>ActivateWindow(Videos,MovieGenres,return)</onclick>
+                                <icon>special://skin/extras/icons/genre.png</icon>
+                                <property name="Color">1</property>
+                            </item>
+                            <item id="5">
+                                <label>20348</label>
+                                <onclick>ActivateWindow(Videos,MovieDirectors,return)</onclick>
+                                <icon>special://skin/extras/icons/director.png</icon>
+                                <property name="Color">1</property>
+                            </item>
+                            <item id="6">
+                                <label>344</label>
+                                <onclick>ActivateWindow(Videos,MovieActors,return)</onclick>
+                                <icon>special://skin/extras/icons/actor.png</icon>
+                                <property name="Color">1</property>
+                            </item>
+                            <item id="7">
+                                <label>20434</label>
+                                <onclick>ActivateWindow(Videos,MovieSets,return)</onclick>
+                                <icon>special://skin/extras/icons/year.png</icon>
+                                <property name="Color">1</property>
+                            </item>
+                            <item id="8">
+                                <label>136</label>
+                                <onclick>ActivateWindow(videos,special://videoplaylists/,return)</onclick>
+                                <icon>special://skin/extras/icons/playlist.png</icon>
+                                <property name="Color">1</property>
+                            </item>
+                            <item id="9">
+                                <label>1214</label>
+                                <onclick>ActivateWindow(Videos,Files,return)</onclick>
+                                <icon>special://skin/extras/icons/files.png</icon>
+                                <property name="Color">1</property>
+                            </item>
+                            <item id="10">
+                                <label>653</label>
+                                <onclick>UpdateLibrary(video)</onclick>
+                                <icon>special://skin/extras/icons/update.png</icon>
+                                <property name="Color">1</property>
+                            </item>
+                        </content>
+                    </control>
+                </control>
+                
+            </control>
+            <control type="scrollbar" id="60">
+                <onback>9501</onback>
+                <centerright>60</centerright>
+                <posy>PosterPad</posy>
+                <height>PosterH</height>
+                <width>8</width>
+                <onleft>9501</onleft>
+                <onright>9501</onright>
+                <texturesliderbackground border="4" colordiffuse="Dark4">scrollbar/scrollv.png</texturesliderbackground>
+                <texturesliderbar border="4" colordiffuse="Dark3">scrollbar/scrollv.png</texturesliderbar>
+                <texturesliderbarfocus border="4" colordiffuse="Dark2">scrollbar/scrollv.png</texturesliderbarfocus>
+                <animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
+            </control>
+        </control>
+    </controls>
+</window>
