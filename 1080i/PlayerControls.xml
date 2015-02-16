@@ -3,14 +3,18 @@
 <window type="dialog" id="400">
     <defaultcontrol always="true">300</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
-    <visible>Window.IsActive(PlayerControls) + !Window.IsVisible(home)</visible>
+    <visible>Window.IsActive(PlayerControls) + !Window.IsVisible(home) + !Window.IsVisible(fullscreenvideo) + !Window.IsVisible(musicvisualisation) + !Window.IsVisible(script-cu-lrclyrics-main.xml)</visible>
 
     <controls>
-
-        <include>GlobalOverlay</include>
+        <control type="group">
+            <visible>Window.IsActive(PlayerControls) + !Window.IsVisible(home) + !Window.IsVisible(fullscreenvideo) + !Window.IsVisible(musicvisualisation) + !Window.IsVisible(script-cu-lrclyrics-main.xml)</visible>
+            <include>GlobalOverlay</include>
+        </control>
+        
 
         <!-- Home Row -->
         <control type="group">
+            <visible>Window.IsActive(PlayerControls) + !Window.IsVisible(home) + !Window.IsVisible(fullscreenvideo) + !Window.IsVisible(musicvisualisation) + !Window.IsVisible(script-cu-lrclyrics-main.xml)</visible>
             <animation effect="slide" start="0" end="0,250" time="150" condition="Control.HasFocus(301) | ControlGroup(303).HasFocus()">Conditional</animation>
             <animation effect="slide" start="0" end="0,250" time="150">WindowClose</animation>
             <animation effect="slide" end="0" start="0,250" time="150">WindowOpen</animation>
