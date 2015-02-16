@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+    <variable name="LabelTitle">
+        <value condition="Container.Content(episodes) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
+        <value>$INFO[ListItem.Label]</value>
+    </variable>
     <variable name="LabelYear">
         <value condition="Container.Content(episodes)">$INFO[ListItem.Premiered]</value>
         <value condition="!IsEmpty(ListItem.Year)">$INFO[ListItem.Year]</value>
     </variable>
     <variable name="LabelEpisodeZero">
-        <value condition="!IntegerGreaterThan(ListItem.Episode,9) + !substring(ListItem.Episode,S)">$NUMBER[0]</value>
+        <value condition="!IntegerGreaterThan(ListItem.Episode,9) + !substring(ListItem.Episode,S) + !IsEmpty(ListItem.Episode)">$NUMBER[0]</value>
+        <value condition="IsEmpty(ListItem.Episode)">$NUMBER[0]$NUMBER[0]</value>
     </variable>
     <variable name="LabelDirector">
         <value condition="Container.Content(episodes) | Container.Content(seasons)">$INFO[ListItem.TvShowTitle]</value>
