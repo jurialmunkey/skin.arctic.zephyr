@@ -30,6 +30,14 @@
         <value condition="stringcompare(Container.SortMethod,$LOCALIZE[567])">$INFO[ListItem.PlayCount]</value>
         <value condition="!IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration,, $LOCALIZE[31102]]</value>
     </variable>
+    <variable name="LabelPlotBox">
+        <value condition="!IsEmpty(Window(home).Property(Set.Movies.ExtendedPlot)) + [Container.Content(Sets) | substring(ListItem.Path,videodb://movies/sets,left)]">$INFO[Window(home).Property(Set.Movies.ExtendedPlot)]</value>
+        <value condition="!IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
+        <value condition="!IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
+        <value condition="!IsEmpty(ListItem.Property(Addon.Description))">$INFO[ListItem.Property(Addon.Description)]</value>
+        <value condition="Container.Content(songs)">$INFO[ListItem.Artist,[B],[/B][CR]]$INFO[ListItem.Album]$INFO[ListItem.Year,  (,)]</value>
+        <value>$INFO[ListItem.Plot]</value>
+    </variable>
     <variable name="LabelAudioChannels">
         <value condition="stringcompare(ListItem.AudioChannels,8)">7.1</value>
         <value condition="stringcompare(ListItem.AudioChannels,6)">5.1</value>
@@ -163,5 +171,6 @@
         <value condition="!IsEmpty(Window(Home).Property(NextAired.NextDate))">[COLOR=Dark1][B]$INFO[Window(Home).Property(NextAired.NextTitle),,  ][/B][/COLOR]$INFO[Window(Home).Property(NextAired.AirTime),, • ]$INFO[Window(Home).Property(NextAired.NextDate)]</value>
         <value condition="IsEmpty(Window(Home).Property(NextAired.NextDate)) + !IsEmpty(Window(Home).Property(NextAired.LatestTitle))">[COLOR=Dark1][B]$INFO[Window(Home).Property(NextAired.LatestTitle),,  ][/B][/COLOR]$INFO[Window(Home).Property(NextAired.Status),, • ]$INFO[Window(Home).Property(NextAired.LatestDate)]</value>
     </variable>
+    
     
 </includes>

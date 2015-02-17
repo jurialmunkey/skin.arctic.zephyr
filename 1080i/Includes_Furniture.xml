@@ -223,12 +223,13 @@
             <left>SidePad</left>
             <centerbottom>NavBarPad</centerbottom>
             <width>1400</width>
-            <height>64</height>
+            <height>120</height>
             <orientation>horizontal</orientation>
             <align>left</align>
             <itemgap>24</itemgap>
             <usecontrolcoords>true</usecontrolcoords>
             <control type="group">
+                <centertop>50%</centertop>
                 <width>64</width>
                 <height>64</height>
                 <control type="image" description="button back">
@@ -257,42 +258,49 @@
             <control type="image">
                 <width>64</width>
                 <height>64</height>
+                <centertop>50%</centertop>
                 <texture colordiffuse="Dark1">flags/$VAR[Flagstar1].png</texture>
             </control>
             <control type="image">
                 <posx>-48</posx>
                 <width>64</width>
                 <height>64</height>
+                <centertop>50%</centertop>
                 <texture colordiffuse="Dark1">flags/$VAR[Flagstar2].png</texture>
             </control>
             <control type="image">
                 <posx>-48</posx>
                 <width>64</width>
                 <height>64</height>
+                <centertop>50%</centertop>
                 <texture colordiffuse="Dark1">flags/$VAR[Flagstar3].png</texture>
             </control>
             <control type="image">
                 <posx>-48</posx>
                 <width>64</width>
                 <height>64</height>
+                <centertop>50%</centertop>
                 <texture colordiffuse="Dark1">flags/$VAR[Flagstar4].png</texture>
             </control>
             <control type="image">
                 <posx>-48</posx>
                 <width>64</width>
                 <height>64</height>
+                <centertop>50%</centertop>
                 <texture colordiffuse="Dark1">flags/$VAR[Flagstar5].png</texture>
             </control>
             
             <control type="image">
                 <width>48</width>
                 <height>64</height>
+                <centertop>50%</centertop>
                 <texture colordiffuse="Dark1">flags/airing.png</texture>
                 <aspectratio align="left">scale</aspectratio>
                 <visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
             </control>
             <control type="label">
                 <width min="128">auto</width>
+                <centertop>50%</centertop>
                 <height>64</height>
                 <align>left</align>
                 <aligny>center</aligny>
@@ -306,12 +314,14 @@
             <control type="image">
                 <width>48</width>
                 <height>64</height>
+                <centertop>50%</centertop>
                 <texture colordiffuse="Dark1">flags/video.png</texture>
                 <aspectratio align="left">scale</aspectratio>
                 <visible>!IsEmpty(ListItem.VideoCodec)</visible>
             </control>
             <control type="label">
                 <width min="128">auto</width>
+                <centertop>50%</centertop>
                 <height>64</height>
                 <align>left</align>
                 <aligny>center</aligny>
@@ -322,6 +332,7 @@
             </control>
             <control type="image">
                 <width>48</width>
+                <centertop>50%</centertop>
                 <height>64</height>
                 <texture colordiffuse="Dark1">flags/audio.png</texture>
                 <aspectratio align="left">scale</aspectratio>
@@ -329,6 +340,7 @@
             </control>
             <control type="label">
                 <width min="128">auto</width>
+                <centertop>50%</centertop>
                 <height>64</height>
                 <align>left</align>
                 <aligny>center</aligny>
@@ -340,27 +352,34 @@
             
             <control type="image">
                 <width>64</width>
+                <centertop>50%</centertop>
                 <height>64</height>
                 <texture colordiffuse="Dark1">flags/3D.png</texture>
                 <visible>ListItem.IsStereoscopic</visible>
             </control>
             <control type="image">
                 <width>64</width>
+                <centertop>50%</centertop>
                 <height>64</height>
                 <texture colordiffuse="Dark1">flags/bluray.png</texture>
                 <visible>[substring(ListItem.FilenameAndPath,bluray) | substring(ListItem.FilenameAndPath,bdrip) | substring(ListItem.FilenameAndPath,bd25) | substring(ListItem.FilenameAndPath,bd50)]</visible>
             </control>
             <control type="image">
                 <width>64</width>
+                <centertop>50%</centertop>
                 <height>64</height>
                 <texture colordiffuse="Dark1">flags/dvd.png</texture>
                 <visible>substring(ListItem.FilenameAndPath,dvd)</visible>
             </control>
             
-            
-
-            
-            
+            <control type="image">
+                <centertop>50%</centertop>
+                <width max="600">auto</width>
+                <height>120</height>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <texture fallback="blank.png">$INFO[ListItem.Art(clearlogo)]</texture>
+                <visible>Skin.HasSetting(furniture.clearlogo)</visible>
+            </control>
         </control>
     </include>
     <include name="Furniture_Hub_Flags">

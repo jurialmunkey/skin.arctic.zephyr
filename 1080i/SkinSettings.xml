@@ -264,6 +264,15 @@
                         <onclick>Skin.ToggleSetting(ActivateTvTunes)</onclick>
                         <enable>System.HasAddon(script.tvtunes)</enable>
                     </control>
+                    <control type="radiobutton" id="9252" description="Update Next Aired on Startup">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9105)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31180</label>
+                        <selected>Skin.HasSetting(NextAired.Update)</selected>
+                        <onclick>Skin.ToggleSetting(NextAired.Update)</onclick>
+                        <enable>System.HasAddon(script.tv.show.next.aired)</enable>
+                    </control>
                     
                     
                     <!-- Furniture -->
@@ -298,6 +307,14 @@
                         <label>31155</label>
                         <selected>!Skin.HasSetting(furniture.nowplaying)</selected>
                         <onclick>Skin.ToggleSetting(furniture.nowplaying)</onclick>
+                    </control>
+                    <control type="radiobutton" id="9265" description="Clearlogo">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31179</label>
+                        <selected>Skin.HasSetting(furniture.clearlogo)</selected>
+                        <onclick>Skin.ToggleSetting(furniture.clearlogo)</onclick>
                     </control>
                     
                     <!-- Extras -->
