@@ -61,7 +61,7 @@
                                 <texture background="true">$VAR[FanartImage]</texture>
                             </control>
                         </focusedlayout>
-                        <content target="video">special://skin/extras/playlists/RandomMovies.xsp</content>
+                        <content target="video">$VAR[DefMovieHubWidget]</content>
                     </control>
                     <control type="group">
                         <left>10</left>
@@ -153,6 +153,7 @@
                                 <bottom>0</bottom>
                                 <width>80</width>
                                 <texture colordiffuse="Dark2">$INFO[ListItem.Icon]</texture>
+                                <visible>substring(ListItem.Icon,special://skin/extras/icons/)</visible>
                             </control>
                             <control type="label">
                                 <left>30</left>
@@ -177,6 +178,7 @@
                                     <bottom>0</bottom>
                                     <width>80</width>
                                     <texture colordiffuse="Light1">$INFO[ListItem.Icon]</texture>
+                                    <visible>substring(ListItem.Icon,special://skin/extras/icons/)</visible>
                                 </control>
                                 <control type="label">
                                     <left>30</left>
@@ -195,6 +197,7 @@
                                     <bottom>0</bottom>
                                     <width>80</width>
                                     <texture colordiffuse="Dark1">$INFO[ListItem.Icon]</texture>
+                                    <visible>substring(ListItem.Icon,special://skin/extras/icons/)</visible>
                                 </control>
                                 <control type="label">
                                     <left>30</left>

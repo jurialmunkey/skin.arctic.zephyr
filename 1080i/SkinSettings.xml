@@ -237,7 +237,25 @@
                     </control>
                     
                     <!-- Widgets -->
-                    <control type="button" id="9241" description="Custom Widget 1">
+                    <control type="button" id="9241" description="Select Movies Hub Widget">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9104)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31182</label>
+                        <label2>$INFO[Skin.String(MovieHubWidget)]</label2>
+                        <onclick condition="IsEmpty(Skin.String(MovieHubWidget))">Skin.SetFile(MovieHubWidget,.xsp|.m3u,special://profile/playlists/video/)</onclick>
+                        <onclick condition="!IsEmpty(Skin.String(MovieHubWidget))">Skin.Reset(MovieHubWidget)</onclick>
+                    </control>
+                    <control type="button" id="9242" description="Select TV Shows Hub Widget">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9104)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31183</label>
+                        <label2>$INFO[Skin.String(TVHubWidget)]</label2>
+                        <onclick condition="IsEmpty(Skin.String(TVHubWidget))">Skin.SetFile(TVHubWidget,.xsp|.m3u,special://profile/playlists/video/)</onclick>
+                        <onclick condition="!IsEmpty(Skin.String(TVHubWidget))">Skin.Reset(TVHubWidget)</onclick>
+                    </control>
+                    <control type="button" id="9243" description="Custom Widget 1">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9104)</visible>
                         <include>DefSettingsButton</include>
@@ -245,7 +263,7 @@
                         <label2>$INFO[Skin.String(CustomWidget1)]</label2>
                         <onclick>Skin.SetString(CustomWidget1)</onclick>
                     </control>
-                    <control type="button" id="9242" description="Custom Widget 2">
+                    <control type="button" id="9244" description="Custom Widget 2">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9104)</visible>
                         <include>DefSettingsButton</include>
@@ -253,6 +271,7 @@
                         <label2>$INFO[Skin.String(CustomWidget2)]</label2>
                         <onclick>Skin.SetString(CustomWidget2)</onclick>
                     </control>
+                    
                     
                     <!-- Addons -->
                     <control type="radiobutton" id="9251" description="TV Tunes">

@@ -4,7 +4,7 @@
     <defaultcontrol always="true">901</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <visible>[VideoPlayer.IsFullscreen] + [Window.IsVisible(fullscreeninfo) | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.ShowInfo | !IsEmpty(Window(home).Property(osdshowinfo))]</visible>
-
+    <zorder>0</zorder>
     <controls>
         <control type="image">
             <top>110r</top>
