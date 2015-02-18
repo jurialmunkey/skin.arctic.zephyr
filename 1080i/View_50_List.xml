@@ -231,7 +231,7 @@
             <textcolor>Light1</textcolor>
             <selectedcolor>Light1</selectedcolor>
             <label>$VAR[LabelYear]</label>
-            <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
+            <visible>Container.Content(movies)</visible>
         </control>
         <control type="label">
             <posx>120</posx>
@@ -242,11 +242,11 @@
             <textcolor>Light1</textcolor>
             <selectedcolor>Light1</selectedcolor>
             <label>$INFO[ListItem.Label]</label>
-            <animation effect="slide" start="0" end="-90" time="0" condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]">Conditional</animation>
-            <visible>!Container.Content(episodes)</visible>
+            <animation effect="slide" start="0" end="-90" time="0" condition="!Container.Content(movies)">Conditional</animation>
+            <visible>!Container.Content(episodes) + !Container.Content(tvshows)</visible>
         </control>
         <control type="label">
-            <posx>190</posx>
+            <posx>30</posx>
             <width>auto</width>
             <aligny>center</aligny>
             <height>64</height>
@@ -254,7 +254,7 @@
             <textcolor>Light1</textcolor>
             <selectedcolor>Light1</selectedcolor>
             <label>$INFO[ListItem.Label]</label>
-            <visible>Container.Content(episodes)</visible>
+            <visible>Container.Content(episodes) | Container.Content(tvshows)</visible>
         </control>
         <control type="label">
             <right>154</right>
@@ -301,7 +301,7 @@
             <label>$VAR[LabelYear]</label>
             <textcolor>Dark1</textcolor>
             <selectedcolor>Dark1</selectedcolor>
-            <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
+            <visible>Container.Content(movies)</visible>
         </control>
         <control type="label">
             <posx>120</posx>
@@ -312,11 +312,11 @@
             <label>$INFO[ListItem.Label]</label>
             <textcolor>Dark1</textcolor>
             <selectedcolor>Dark1</selectedcolor>
-            <animation effect="slide" start="0" end="-90" time="0" condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]">Conditional</animation>
-            <visible>!Container.Content(episodes)</visible>
+            <animation effect="slide" start="0" end="-90" time="0" condition="!Container.Content(movies)">Conditional</animation>
+            <visible>!Container.Content(episodes) + !Container.Content(tvshows)</visible>
         </control>
         <control type="label">
-            <posx>190</posx>
+            <posx>30</posx>
             <width>auto</width>
             <aligny>center</aligny>
             <height>64</height>
@@ -324,7 +324,7 @@
             <label>$INFO[ListItem.Label]</label>
             <textcolor>Dark1</textcolor>
             <selectedcolor>Dark1</selectedcolor>
-            <visible>Container.Content(episodes)</visible>
+            <visible>Container.Content(episodes) | Container.Content(tvshows)</visible>
         </control>
         <control type="label">
             <right>154</right>

@@ -105,7 +105,7 @@
                     </control>
                     <control type="textbox">
                         <font>Tiny</font>
-                        <label>$VAR[LabelPlotBox]</label>
+                        <label>$INFO[ListItem.Plot]</label>
                         <textcolor>Dark2</textcolor>
                         <height>68</height>
                         <align>justify</align>
@@ -408,29 +408,17 @@
             <selectedcolor>Light1</selectedcolor>
             <label>$INFO[ListItem.Label]</label>
         </control>
-        <control type="label">
-            <right>154</right>
-            <width>500</width>
-            <aligny>center</aligny>
-            <height>64</height>
-            <align>right</align>
-            <font>Small</font>
-            <textcolor>Light1</textcolor>
-            <selectedcolor>Light1</selectedcolor>
-            <label>$VAR[LabelDuration]</label>
-        </control>
         <control type="image">
-            <centerright>110</centerright>
+            <centerright>32</centerright>>
             <centertop>32</centertop>
             <width>32</width>
             <height>32</height>
             <aspectratio aligny="top">keep</aspectratio>
             <texture>$VAR[PercentWatched]</texture>
             <visible>!stringcompare(ListItem.Label,..)</visible>
-            <animation effect="slide" start="0" end="64" time="0" condition="Container.Content(Seasons)">Conditional</animation>
         </control>
         <control type="label">
-            <right>30</right>
+            <right>70</right>
             <width>500</width>
             <aligny>center</aligny>
             <height>64</height>
@@ -438,8 +426,7 @@
             <font>Small</font>
             <textcolor>Light1</textcolor>
             <selectedcolor>Light1</selectedcolor>
-            <label>$INFO[ListItem.Rating]</label>
-            <visible>!Container.Content(seasons)</visible>
+            <label>$INFO[ListItem.Label2]</label>
         </control>
     </include>
 
@@ -454,29 +441,17 @@
             <textcolor>Dark1</textcolor>
             <selectedcolor>Dark1</selectedcolor>
         </control>
-        <control type="label">
-            <right>154</right>
-            <width>500</width>
-            <aligny>center</aligny>
-            <height>64</height>
-            <align>right</align>
-            <font>Small</font>
-            <textcolor>Dark1</textcolor>
-            <selectedcolor>Dark1</selectedcolor>
-            <label>$VAR[LabelDuration]</label>
-        </control>
         <control type="image">
-            <centerright>110</centerright>
+            <centerright>32</centerright>
             <centertop>32</centertop>
             <width>32</width>
             <height>32</height>
             <aspectratio aligny="top">keep</aspectratio>
             <texture>$VAR[PercentWatched]</texture>
             <visible>!stringcompare(ListItem.Label,..)</visible>
-            <animation effect="slide" start="0" end="64" time="0" condition="Container.Content(Seasons)">Conditional</animation>
         </control>
         <control type="label">
-            <right>30</right>
+            <right>70</right>
             <width>500</width>
             <aligny>center</aligny>
             <height>64</height>
@@ -484,8 +459,7 @@
             <font>Small</font>
             <textcolor>Dark1</textcolor>
             <selectedcolor>Dark1</selectedcolor>
-            <label>$INFO[ListItem.Rating]</label>
-            <visible>!Container.Content(seasons)</visible>
+            <label>$INFO[ListItem.Label2]</label>
         </control>
     </include>
     
