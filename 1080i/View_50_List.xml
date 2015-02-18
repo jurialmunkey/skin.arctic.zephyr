@@ -8,7 +8,7 @@
             <visible>Control.IsVisible(50)</visible>
             <control type="group">
                 <control type="list" id="50">
-                    <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left)]</visible>
+                    <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left)] | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)]</visible>
                     <top>PosterPad</top>
                     <height>PosterH</height>
                     <left>ListX</left>
@@ -48,7 +48,7 @@
             <control type="group">
                 <posy>320</posy>
                 <control type="fixedlist" id="50">
-                    <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left)]</visible>
+                    <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left)] | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)]</visible>
                     <top>PosterPad</top>
                     <height>320</height>
                     <left>ListX</left>
