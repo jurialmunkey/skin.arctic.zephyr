@@ -85,6 +85,14 @@
                     </control>
                 </rulerlayout>
                 <channellayout height="70" width="460">
+                    <control type="image">
+                        <width>100%</width>
+                        <height>100%</height>
+                        <texture>common/selected.png</texture>
+                        <aspectratio aligny="top">center</aspectratio>
+                        <animation effect="fade" start="100" end="10" condition="true">Conditional</animation>
+                        <visible>ListItem.IsPlaying</visible>
+                    </control>
                     <control type="label">
                         <posx>90</posx>
                         <width>340</width>
@@ -109,12 +117,21 @@
                         <width>100%</width>
                         <height>67</height>
                         <texture border="12" colordiffuse="Highlight">common/white.png</texture>
-                    </control>   
+                    </control>
+                    <control type="image">
+                        <width>100%</width>
+                        <height>100%</height>
+                        <texture>common/selected.png</texture>
+                        <aspectratio aligny="top">center</aspectratio>
+                        <animation effect="fade" start="100" end="20" condition="true">Conditional</animation>
+                        <visible>ListItem.IsPlaying</visible>
+                    </control>
                     <control type="label">
                         <posx>90</posx>
                         <width>340</width>
                         <aligny>center</aligny>
                         <height>67</height>
+                        <selectedcolor>Selected</selectedcolor>
                         <textcolor>Selected</textcolor>
                         <label>$INFO[ListItem.ChannelName]</label>
                     </control>
@@ -123,6 +140,7 @@
                         <width>90</width>
                         <align>center</align>
                         <aligny>center</aligny>
+                        <selectedcolor>Selected</selectedcolor>
                         <height>67</height>
                         <textcolor>Selected</textcolor>
                         <label>$INFO[ListItem.ChannelNumber]</label>
