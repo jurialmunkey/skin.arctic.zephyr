@@ -276,143 +276,286 @@
                         </control>
                     
                     </itemlayout>
+                    
+                    
                     <focusedlayout height="128" width="1100">
-                        <control type="image">
-                            <width>100%</width>
-                            <height>100%</height>
-                            <texture colordiffuse="Dark1" border="5">common/box.png</texture>
+                        <control type="group">
+                            <visible>Control.HasFocus(50)</visible>
+                            <control type="image">
+                                <width>100%</width>
+                                <height>100%</height>
+                                <texture colordiffuse="Dark1" border="5">common/box.png</texture>
+                            </control>
+                            <control type="image">                                
+                                <left>10</left>
+                                <centertop>50%</centertop>
+                                <width>111</width>
+                                <height>111</height>
+                                <aspectratio align="left">keep</aspectratio>
+                                <texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
+                            </control>
+                            
+                            <control type="group">
+                                <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+                                <control type="label">
+                                    <left>137</left>
+                                    <top>12</top>
+                                    <aligny>center</aligny>
+                                    <height>64</height>
+                                    <width>70</width>
+                                    <align>right</align>
+                                    <font>SmallBold</font>
+                                    <textcolor>Light1</textcolor>
+                                    <selectedcolor>Light1</selectedcolor>
+                                    <label>$INFO[ListItem.ChannelNumber]</label>
+                                </control>
+                                <control type="progress">
+                                    <posx>140</posx>
+                                    <posy>76</posy>
+                                    <width>67</width>
+                                    <height>19</height>
+                                    <reveal>true</reveal>
+                                    <texturebg>pvr/progress-back.png</texturebg>
+                                    <lefttexture>pvr/progress-leftright.png</lefttexture>
+                                    <midtexture>pvr/progress-mid.png</midtexture>
+                                    <righttexture>pvr/progress-leftright.png</righttexture>
+                                    <info>ListItem.Progress</info>
+                                    <colordiffuse>Light1</colordiffuse>
+                                </control>
+                                <control type="label">
+                                    <posx>220</posx>
+                                    <right>100</right>
+                                    <top>12</top>
+                                    <aligny>center</aligny>
+                                    <height>64</height>
+                                    <font>SmallBold</font>
+                                    <textcolor>Light1</textcolor>
+                                    <selectedcolor>Light1</selectedcolor>
+                                    <label>$INFO[ListItem.ChannelName]</label>
+                                </control>
+                                <control type="label">
+                                    <posx>220</posx>
+                                    <bottom>8</bottom>
+                                    <right>100</right>
+                                    <aligny>center</aligny>
+                                    <height>64</height>
+                                    <font>Small</font>
+                                    <textcolor>Light1</textcolor>
+                                    <selectedcolor>Light1</selectedcolor>
+                                    <label>$INFO[ListItem.Title]</label>
+                                </control>
+                                <control type="label">
+                                    <right>30</right>
+                                    <width>500</width>
+                                    <top>12</top>
+                                    <aligny>center</aligny>
+                                    <height>64</height>
+                                    <align>right</align>
+                                    <font>Tiny</font>
+                                    <textcolor>Light1</textcolor>
+                                    <selectedcolor>Light1</selectedcolor>
+                                    <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
+                                    <visible>!IsEmpty(ListItem.NextTitle)</visible>
+                                </control>
+                                <control type="label">
+                                    <right>30</right>
+                                    <width>500</width>
+                                    <aligny>center</aligny>
+                                    <height>100%</height>
+                                    <align>right</align>
+                                    <font>Tiny</font>
+                                    <textcolor>Light1</textcolor>
+                                    <selectedcolor>Light1</selectedcolor>
+                                    <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
+                                    <visible>IsEmpty(ListItem.NextTitle)</visible>
+                                </control>
+                                <control type="label">
+                                    <right>30</right>
+                                    <width>500</width>
+                                    <bottom>8</bottom>
+                                    <aligny>center</aligny>
+                                    <height>64</height>
+                                    <align>right</align>
+                                    <font>Tiny</font>
+                                    <textcolor>Light1</textcolor>
+                                    <selectedcolor>Light1</selectedcolor>
+                                    <label>$INFO[ListItem.NextTitle,[B],[/B] $LOCALIZE[19031]]</label>
+                                </control>
+                            </control>
+                            <control type="group">
+                                <visible>Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml)</visible>
+                                <control type="label">
+                                    <posx>130</posx>
+                                    <right>100</right>
+                                    <top>12</top>
+                                    <aligny>center</aligny>
+                                    <height>64</height>
+                                    <font>SmallBold</font>
+                                    <textcolor>Light1</textcolor>
+                                    <selectedcolor>Light1</selectedcolor>
+                                    <label>$INFO[ListItem.Label]</label>
+                                </control>
+                                <control type="label">
+                                    <posx>130</posx>
+                                    <bottom>8</bottom>
+                                    <right>100</right>
+                                    <aligny>center</aligny>
+                                    <height>64</height>
+                                    <font>Small</font>
+                                    <textcolor>Light1</textcolor>
+                                    <selectedcolor>Light1</selectedcolor>
+                                    <label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime,$COMMA  ,]</label>
+                                </control>
+                                <control type="label">
+                                    <right>30</right>
+                                    <width>500</width>
+                                    <aligny>center</aligny>
+                                    <height>100%</height>
+                                    <align>right</align>
+                                    <font>Small</font>
+                                    <textcolor>Light1</textcolor>
+                                    <selectedcolor>Light1</selectedcolor>
+                                    <label>$INFO[ListItem.ChannelName]</label>
+                                </control>
+                            </control>
                         </control>
-                        <control type="image">                                
-                            <left>10</left>
-                            <centertop>50%</centertop>
-                            <width>111</width>
-                            <height>111</height>
-                            <aspectratio align="left">keep</aspectratio>
-                            <texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
-                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(50)</visible>
+                            <control type="image">                                
+                                <left>10</left>
+                                <centertop>50%</centertop>
+                                <width>111</width>
+                                <height>111</height>
+                                <aspectratio align="left">keep</aspectratio>
+                                <texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
+                            </control>
+                            <control type="group">
+                                <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+                                
+                                <control type="label">
+                                    <left>137</left>
+                                    <top>12</top>
+                                    <aligny>center</aligny>
+                                    <height>64</height>
+                                    <width>70</width>
+                                    <align>right</align>
+                                    <font>SmallBold</font>
+                                    <textcolor>Dark1</textcolor>
+                                    <selectedcolor>Dark1</selectedcolor>
+                                    <label>$INFO[ListItem.ChannelNumber]</label>
+                                </control>
+                                <control type="progress">
+                                    <posx>140</posx>
+                                    <posy>76</posy>
+                                    <width>67</width>
+                                    <height>19</height>
+                                    <reveal>true</reveal>
+                                    <texturebg>pvr/progress-back.png</texturebg>
+                                    <lefttexture>pvr/progress-leftright.png</lefttexture>
+                                    <midtexture>pvr/progress-mid.png</midtexture>
+                                    <righttexture>pvr/progress-leftright.png</righttexture>
+                                    <info>ListItem.Progress</info>
+                                    <colordiffuse>Dark1</colordiffuse>
+                                </control>
+                                <control type="label">
+                                    <posx>220</posx>
+                                    <right>100</right>
+                                    <top>12</top>
+                                    <aligny>center</aligny>
+                                    <height>64</height>
+                                    <font>SmallBold</font>
+                                    <textcolor>Dark1</textcolor>
+                                    <selectedcolor>Dark1</selectedcolor>
+                                    <label>$INFO[ListItem.ChannelName]</label>
+                                </control>
+                                <control type="label">
+                                    <posx>220</posx>
+                                    <bottom>8</bottom>
+                                    <right>100</right>
+                                    <aligny>center</aligny>
+                                    <height>64</height>
+                                    <font>Small</font>
+                                    <textcolor>Dark2</textcolor>
+                                    <selectedcolor>Dark2</selectedcolor>
+                                    <label>$INFO[ListItem.Title]</label>
+                                </control>
+                                <control type="label">
+                                    <right>30</right>
+                                    <width>500</width>
+                                    <top>12</top>
+                                    <aligny>center</aligny>
+                                    <height>64</height>
+                                    <align>right</align>
+                                    <font>Tiny</font>
+                                    <textcolor>Dark1</textcolor>
+                                    <selectedcolor>Dark1</selectedcolor>
+                                    <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
+                                    <visible>!IsEmpty(ListItem.NextTitle)</visible>
+                                </control>
+                                <control type="label">
+                                    <right>30</right>
+                                    <width>500</width>
+                                    <aligny>center</aligny>
+                                    <height>100%</height>
+                                    <align>right</align>
+                                    <font>Tiny</font>
+                                    <textcolor>Dark1</textcolor>
+                                    <selectedcolor>Dark1</selectedcolor>
+                                    <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
+                                    <visible>IsEmpty(ListItem.NextTitle)</visible>
+                                </control>
+                                <control type="label">
+                                    <right>30</right>
+                                    <width>500</width>
+                                    <bottom>8</bottom>
+                                    <aligny>center</aligny>
+                                    <height>64</height>
+                                    <align>right</align>
+                                    <font>Tiny</font>
+                                    <textcolor>Dark1</textcolor>
+                                    <selectedcolor>Dark1</selectedcolor>
+                                    <label>$INFO[ListItem.NextTitle,[B],[/B] $LOCALIZE[19031]]</label>
+                                </control>
+                            </control>
+                            <control type="group">
+                                <visible>Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml)</visible>
+
+                                <control type="label">
+                                    <posx>130</posx>
+                                    <right>100</right>
+                                    <top>12</top>
+                                    <aligny>center</aligny>
+                                    <height>64</height>
+                                    <font>SmallBold</font>
+                                    <textcolor>Dark1</textcolor>
+                                    <selectedcolor>Dark1</selectedcolor>
+                                    <label>$INFO[ListItem.Label]</label>
+                                </control>
+                                <control type="label">
+                                    <posx>130</posx>
+                                    <bottom>8</bottom>
+                                    <right>100</right>
+                                    <aligny>center</aligny>
+                                    <height>64</height>
+                                    <font>Small</font>
+                                    <textcolor>Dark2</textcolor>
+                                    <selectedcolor>Dark2</selectedcolor>
+                                    <label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime,$COMMA  ,]</label>
+                                </control>
+                                <control type="label">
+                                    <right>30</right>
+                                    <width>500</width>
+                                    <aligny>center</aligny>
+                                    <height>100%</height>
+                                    <align>right</align>
+                                    <font>Small</font>
+                                    <textcolor>Dark1</textcolor>
+                                    <selectedcolor>Dark1</selectedcolor>
+                                    <label>$INFO[ListItem.ChannelName]</label>
+                                </control>
+                            </control>
                         
-                        <control type="group">
-                            <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
-                            <control type="label">
-                                <left>137</left>
-                                <top>12</top>
-                                <aligny>center</aligny>
-                                <height>64</height>
-                                <width>70</width>
-                                <align>right</align>
-                                <font>SmallBold</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
-                                <label>$INFO[ListItem.ChannelNumber]</label>
-                            </control>
-                            <control type="progress">
-                                <posx>140</posx>
-                                <posy>76</posy>
-                                <width>67</width>
-                                <height>19</height>
-                                <reveal>true</reveal>
-                                <texturebg>pvr/progress-back.png</texturebg>
-                                <lefttexture>pvr/progress-leftright.png</lefttexture>
-                                <midtexture>pvr/progress-mid.png</midtexture>
-                                <righttexture>pvr/progress-leftright.png</righttexture>
-                                <info>ListItem.Progress</info>
-                                <colordiffuse>Light1</colordiffuse>
-                            </control>
-                            <control type="label">
-                                <posx>220</posx>
-                                <right>100</right>
-                                <top>12</top>
-                                <aligny>center</aligny>
-                                <height>64</height>
-                                <font>SmallBold</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
-                                <label>$INFO[ListItem.ChannelName]</label>
-                            </control>
-                            <control type="label">
-                                <posx>220</posx>
-                                <bottom>8</bottom>
-                                <right>100</right>
-                                <aligny>center</aligny>
-                                <height>64</height>
-                                <font>Small</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
-                                <label>$INFO[ListItem.Title]</label>
-                            </control>
-                            <control type="label">
-                                <right>30</right>
-                                <width>500</width>
-                                <top>12</top>
-                                <aligny>center</aligny>
-                                <height>64</height>
-                                <align>right</align>
-                                <font>Tiny</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
-                                <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
-                                <visible>!IsEmpty(ListItem.NextTitle)</visible>
-                            </control>
-                            <control type="label">
-                                <right>30</right>
-                                <width>500</width>
-                                <aligny>center</aligny>
-                                <height>100%</height>
-                                <align>right</align>
-                                <font>Tiny</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
-                                <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
-                                <visible>IsEmpty(ListItem.NextTitle)</visible>
-                            </control>
-                            <control type="label">
-                                <right>30</right>
-                                <width>500</width>
-                                <bottom>8</bottom>
-                                <aligny>center</aligny>
-                                <height>64</height>
-                                <align>right</align>
-                                <font>Tiny</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
-                                <label>$INFO[ListItem.NextTitle,[B],[/B] $LOCALIZE[19031]]</label>
-                            </control>
-                        </control>
-                        <control type="group">
-                            <visible>Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml)</visible>
-                            <control type="label">
-                                <posx>130</posx>
-                                <right>100</right>
-                                <top>12</top>
-                                <aligny>center</aligny>
-                                <height>64</height>
-                                <font>SmallBold</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
-                                <label>$INFO[ListItem.Label]</label>
-                            </control>
-                            <control type="label">
-                                <posx>130</posx>
-                                <bottom>8</bottom>
-                                <right>100</right>
-                                <aligny>center</aligny>
-                                <height>64</height>
-                                <font>Small</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
-                                <label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime,$COMMA  ,]</label>
-                            </control>
-                            <control type="label">
-                                <right>30</right>
-                                <width>500</width>
-                                <aligny>center</aligny>
-                                <height>100%</height>
-                                <align>right</align>
-                                <font>Small</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
-                                <label>$INFO[ListItem.ChannelName]</label>
-                            </control>
+                        
                         </control>
                     
                         
