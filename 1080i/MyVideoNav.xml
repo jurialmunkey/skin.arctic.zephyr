@@ -17,7 +17,10 @@
         <include>View_52_BigList</include>
         <include>View_53_Poster</include>
         <include>View_54_Banner</include>
-        <include>View_55_Wall</include>
+        <include condition="!Skin.HasSetting(55wall.hideinfo)">View_55_Wall_Info</include>
+        <include condition="Skin.HasSetting(55wall.showposter)">View_55_Wall_Poster</include>
+        <include condition="Skin.HasSetting(55wall.hideinfo) + !Skin.HasSetting(55wall.showposter)">View_55_Wall</include>
+        
         <include condition="!Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)">View_56_MediaInfo</include>
         <include condition="Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)">View_56_MediaInfo2</include>
         <include condition="Skin.HasSetting(56media.low)">View_56_MediaInfo3</include>
@@ -63,21 +66,6 @@
                     <label>584</label>
                     <altlabel>585</altlabel>
                 </control>
-
-                <!--<control type="button" id="8">
-                    <description>Search</description>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>137</label>
-                </control>-->
-                
-                <control type="button" id="9091">
-                    <description>Global Search</description>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>137</label>
-                    <onclick>RunScript(script.globalsearch,tvshows=true&amp;movies=true&amp;episodes=true)</onclick>
-                </control>
                 
                 <!-- View Options -->
                 <control type="radiobutton" id="9001" description="Low List (50)">
@@ -104,13 +92,25 @@
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31147</label>
-                    <selected>Skin.HasSetting(55wall.showinfo)</selected>
-                    <onclick>Skin.ToggleSetting(55wall.showinfo)</onclick>
+                    <selected>!Skin.HasSetting(55wall.hideinfo)</selected>
+                    <onclick>Skin.Reset(55wall.showposter)</onclick>
+                    <onclick>Skin.ToggleSetting(55wall.hideinfo)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(55)</visible>
                 </control>
                 
-                <control type="radiobutton" id="9004" description="Info Media (56)">
+                <control type="radiobutton" id="9004" description="Poster Wall (55)">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>Big Poster</label>
+                    <selected>Skin.HasSetting(55wall.showposter)</selected>
+                    <onclick>Skin.SetBool(55wall.hideinfo)</onclick>
+                    <onclick>Skin.ToggleSetting(55wall.showposter)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Control.IsVisible(55)</visible>
+                </control>
+                
+                <control type="radiobutton" id="9005" description="Info Media (56)">
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31147</label>
@@ -121,7 +121,7 @@
                     <visible>Control.IsVisible(56)</visible>
                 </control>
                 
-                <control type="radiobutton" id="9005" description="Low List Media (56)">
+                <control type="radiobutton" id="9006" description="Low List Media (56)">
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31142</label>
@@ -185,6 +185,14 @@
                     <onclick>SetFocus(50)</onclick>
                     <onclick>Filter</onclick>
                     <selected>Container.Filtered</selected>
+                </control>
+                
+                <control type="button" id="9091">
+                    <description>Global Search</description>
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>137</label>
+                    <onclick>RunScript(script.globalsearch,tvshows=true&amp;movies=true&amp;episodes=true)</onclick>
                 </control>
                 
                 <control type="button" id="9098">
