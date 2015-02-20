@@ -919,7 +919,7 @@
                 <left>SidePad</left>
                 <include condition="!Skin.HasSetting(furniture.clock)">DefHomeRight520</include>
                 <include condition="Skin.HasSetting(furniture.clock)">DefHomeRightSidePad</include>
-                <onup condition="!Player.HasVideo | !Skin.HasSetting(global.showvideo)">301</onup>
+                <onup condition="IntegerGreaterThan(Container(301).NumItems,0)">301</onup>
                 <ondown condition="IntegerGreaterThan(Container(302).NumItems,0)">302</ondown>
                 <onleft>300</onleft>
                 <onright>300</onright>
