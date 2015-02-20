@@ -111,11 +111,14 @@
     </variable>
     <variable name="WidgetTitle">
         <value condition="StringCompare(Container(300).ListItem.Property(widget),Weather)">$INFO[Weather.Temperature]</value>
-        <value>$INFO[Container(301).ListItem.Label]</value>
+        <value>$INFO[Container(301).ListItem.Season,,]$INFO[Container(301).ListItem.Episode,x,. ]$INFO[Container(301).ListItem.Label]</value>
     </variable>
     <variable name="WidgetPlot">
         <value condition="StringCompare(Container(300).ListItem.Property(widget),Weather)">$INFO[Weather.Conditions]</value>
         <value>$INFO[Container(301).ListItem.Plot]</value>
+    </variable>
+    <variable name="WidgetSubLabel">
+        <value>$INFO[Container(301).ListItem.TvShowTitle,,  •  ]$INFO[Container(301).ListItem.Year,,  •  ]$INFO[Container(301).ListItem.Duration,, $LOCALIZE[31102]  •  ]$INFO[Container(301).ListItem.Rating]</value>
     </variable>
     <variable name="PVRInfoStatus">
         <value condition="ListItem.IsRecording">$LOCALIZE[19158]</value>
