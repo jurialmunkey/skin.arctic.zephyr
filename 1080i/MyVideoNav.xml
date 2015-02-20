@@ -13,7 +13,8 @@
 
         <include condition="!Skin.HasSetting(50list.low)">View_50_List</include>
         <include condition="Skin.HasSetting(50list.low)">View_50_LowList</include>
-        <include>View_51_BigWide</include>
+        <include condition="!Skin.HasSetting(51bigwide.showinfo)">View_51_BigWide</include>
+        <include condition="Skin.HasSetting(51bigwide.showinfo)">View_51_BigWide_Info</include>
         <include>View_52_BigList</include>
         <include>View_53_Poster</include>
         <include>View_54_Banner</include>
@@ -140,6 +141,16 @@
                     <onclick>Skin.ToggleSetting(57list.low)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(57)</visible>
+                </control>
+                
+                <control type="radiobutton" id="9005" description="Big Wide Info (51)">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31147</label>
+                    <selected>Skin.HasSetting(51bigwide.showinfo)</selected>
+                    <onclick>Skin.ToggleSetting(51bigwide.showinfo)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Control.IsVisible(51)</visible>
                 </control>
                 
                 
