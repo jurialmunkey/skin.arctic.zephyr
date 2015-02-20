@@ -35,6 +35,16 @@
                         <height>100</height>
                         <aspectratio scalediffuse="false">scale</aspectratio>
                         <texture diffuse="common/circle.png" background="true">$INFO[ListItem.Icon]</texture>
+                        <visible>!Skin.HasSetting(global.hidecirles)</visible>
+                    </control>
+                    <control type="image">
+                        <left>10</left>
+                        <top>10</top>
+                        <width>100</width>
+                        <height>100</height>
+                        <aspectratio scalediffuse="false">keep</aspectratio>
+                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                        <visible>Skin.HasSetting(global.hidecirles)</visible>
                     </control>
                     <control type="label">
                         <left>130</left>
@@ -73,6 +83,16 @@
                         <height>100</height>
                         <aspectratio scalediffuse="false">scale</aspectratio>
                         <texture diffuse="common/circle.png" background="true">$INFO[ListItem.Icon]</texture>
+                        <visible>!Skin.HasSetting(global.hidecirles)</visible>
+                    </control>
+                    <control type="image">
+                        <left>10</left>
+                        <top>10</top>
+                        <width>100</width>
+                        <height>100</height>
+                        <aspectratio scalediffuse="false">keep</aspectratio>
+                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                        <visible>Skin.HasSetting(global.hidecirles)</visible>
                     </control>
                     <control type="label">
                         <left>130</left>

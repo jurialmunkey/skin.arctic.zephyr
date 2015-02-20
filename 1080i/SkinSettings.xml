@@ -342,14 +342,6 @@
                         <selected>!Skin.HasSetting(furniture.nowplaying)</selected>
                         <onclick>Skin.ToggleSetting(furniture.nowplaying)</onclick>
                     </control>
-                    <!--<control type="radiobutton" id="9265" description="Clearlogo">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31179</label>
-                        <selected>Skin.HasSetting(furniture.clearlogo)</selected>
-                        <onclick>Skin.ToggleSetting(furniture.clearlogo)</onclick>
-                    </control>-->
                     
                     <!-- Extras -->
                     <control type="button" id="9271" description="Startup Video">
@@ -360,6 +352,14 @@
                         <label2>$INFO[Skin.String(StartupPlaylist)]</label2>
                         <onclick condition="IsEmpty(Skin.String(StartupPlaylist))">Skin.SetFile(StartupPlaylist,.mp4|.avi|.mkv|.xvid|.wmv|.mov)</onclick>
                         <onclick condition="!IsEmpty(Skin.String(StartupPlaylist))">Skin.Reset(StartupPlaylist)</onclick>
+                    </control>
+                    <control type="radiobutton" id="9272" description="Dont use circle icons">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9107)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31186</label>
+                        <selected>!Skin.HasSetting(global.hidecirles)</selected>
+                        <onclick>Skin.ToggleSetting(global.hidecirles)</onclick>
                     </control>
                 </control>
                 
