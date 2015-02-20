@@ -2,7 +2,6 @@
     <defaultcontrol>30</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
     <defaultcontrol always="true">9101</defaultcontrol>
-    <!--<onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;levels=0)</onunload>-->
 
     <controls>
         <include>GlobalBackground</include>
@@ -125,8 +124,6 @@
                         <include>DefSettingsButton</include>
                         <label>31184</label>
                         <selected>Skin.HasSetting(home.classicwidgets)</selected>
-                        <onclick condition="!Skin.HasSetting(home.classicwidgets)">Skin.Reset(home.dontshowfanart)</onclick>
-                        <onclick condition="!Skin.HasSetting(home.classicwidgets)">Skin.Reset(home.showslideshow)</onclick>
                         <onclick>Skin.ToggleSetting(home.classicwidgets)</onclick>
                     </control>
                     <control type="radiobutton" id="9215" description="Show slideshow as default widget">
@@ -134,7 +131,6 @@
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
                         <label>31130</label>
-                        <enable>!Skin.HasSetting(home.classicwidgets)</enable>
                         <selected>Skin.HasSetting(home.showslideshow)</selected>
                         <onclick condition="Skin.HasSetting(home.showslideshow)">Skin.Reset(home.dontshowfanart)</onclick>
                         <onclick>Skin.ToggleSetting(home.showslideshow)</onclick>
@@ -144,7 +140,6 @@
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
                         <label>31149</label>
-                        <enable>!Skin.HasSetting(home.classicwidgets)</enable>
                         <selected>Skin.HasSetting(home.dontshowfanart)</selected>
                         <onclick condition="!Skin.HasSetting(home.dontshowfanart)">Skin.SetBool(home.showslideshow)</onclick>
                         <onclick condition="!Skin.HasSetting(home.dontshowfanart) + IsEmpty(Skin.String(home.slideshowpath))">Skin.SetPath(home.slideshowpath)</onclick>
@@ -155,7 +150,7 @@
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
                         <label>31131</label>
-                        <enable>Skin.HasSetting(home.showslideshow) + !Skin.HasSetting(home.classicwidgets)</enable>
+                        <enable>Skin.HasSetting(home.showslideshow)</enable>
                         <label2>$INFO[Skin.String(home.slideshowpath)]</label2>
                         <onclick condition="IsEmpty(Skin.String(home.slideshowpath))">Skin.SetPath(home.slideshowpath)</onclick>
                         <onclick condition="!IsEmpty(Skin.String(home.slideshowpath))">Skin.Reset(home.dontshowfanart)</onclick>
