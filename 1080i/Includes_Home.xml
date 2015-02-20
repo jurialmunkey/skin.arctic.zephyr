@@ -484,7 +484,7 @@
                 <include condition="!Skin.HasSetting(furniture.clock)">DefHomeRight520</include>
                 <include condition="Skin.HasSetting(furniture.clock)">DefHomeRightSidePad</include>
                 <onup condition="!Player.HasVideo | !Skin.HasSetting(global.showvideo)">301</onup>
-                <ondown condition="IntegerGreaterThan(Container(302).NumItems,0)">302</ondown>
+                <ondown condition="IntegerGreaterThan(Container(302).NumItems,0)">SetFocus(302,0)</ondown>
                 <onleft>300</onleft>
                 <onright>300</onright>
                 <orientation>horizontal</orientation>
@@ -920,7 +920,7 @@
                 <include condition="!Skin.HasSetting(furniture.clock)">DefHomeRight520</include>
                 <include condition="Skin.HasSetting(furniture.clock)">DefHomeRightSidePad</include>
                 <onup condition="!StringCompare(Container(300).ListItem.Property(widget),Weather) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + IsEmpty(Container(300).ListItem.Property(Background))]]">301</onup>
-                <ondown condition="IntegerGreaterThan(Container(302).NumItems,0)">302</ondown>
+                <ondown condition="IntegerGreaterThan(Container(302).NumItems,0)">SetFocus(302,0)</ondown>
                 <onleft>300</onleft>
                 <onright>300</onright>
                 <orientation>horizontal</orientation>
