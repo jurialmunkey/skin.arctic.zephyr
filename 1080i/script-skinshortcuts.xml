@@ -7,9 +7,9 @@
         <control type="group">
             <include>Animation.FadeIn.Slide</include>
             <centerleft>50%</centerleft>
-            <top>165</top>
-            <width>1420</width>
-            <height>766</height>
+            <centertop>50%</centertop>
+            <width>865</width>
+            <height>795</height>
             <control type="image">
                 <description>background image</description>
                 <top>-8</top>
@@ -23,7 +23,7 @@
                 <description>header label</description>
                 <centerleft>50%</centerleft>
                 <posy>10</posy>
-                <width>1140</width>
+                <width>95%</width>
                 <font>MediumBold</font>
                 <align>center</align>
                 <textcolor>Black70</textcolor>
@@ -35,10 +35,10 @@
                 <onright>111</onright>
                 <onup>9100</onup>
                 <ondown>9100</ondown>
-                <centerleft>50%</centerleft>
+                <right>15</right>
                 <bottom>15</bottom>
                 <width>320</width>
-                <height>621</height>
+                <height>690</height>
                 <orientation>vertical</orientation>
                 <itemgap>3</itemgap>
                 <control type="button" id="301" description="Add">
@@ -65,7 +65,7 @@
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <include>DefDialogButtons</include>
                 </control>
-                <control type="button" id="305" description="Set Label">
+                <control type="button" id="401" description="Alt chooser">
                     <width>100%</width>
                     <height>66</height>
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
@@ -77,6 +77,13 @@
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <include>DefDialogButtons</include>
                 </control>
+                <control type="button" id="305" description="Set Label">
+                    <width>100%</width>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <include>DefDialogButtons</include>
+                </control>
+                
                 <control type="button" id="309" description="Widget">
                     <width>100%</width>
                     <height>66</height>
@@ -138,22 +145,22 @@
                 </control>
             </control>
             
-            <control type="label">
+            <!--<control type="label">
                 <left>30</left>
                 <top>75</top>
                 <aligny>top</aligny>
                 <width>500</width>
                 <font>SmallBold</font>
                 <textcolor>Black70</textcolor>
-                <label>Current Menu</label>
-            </control>
+                <label>111</label>
+            </control>-->
             <!-- Left List: Current Shortcuts -->
             <control type="list" id="211">
                 <description>Rules List Control</description>
                 <left>15</left>
                 <bottom>15</bottom>
                 <width>500</width>
-                <height>621</height>
+                <height>690</height>
                 <onup>211</onup>
                 <onleft>211</onleft>
                 <onright>9100</onright>
@@ -199,6 +206,7 @@
             </control>
             
             <!-- Right List: Select Shortcuts -->
+            <!--
             <control type="label" id="101">
                 <right>30</right>
                 <top>75</top>
@@ -236,7 +244,7 @@
                 <right>15</right>
                 <bottom>15</bottom>
                 <width>500</width>
-                <height>621</height>
+                <height>690</height>
                 <onup>103</onup>
                 <onleft>9100</onleft>
                 <onright>103</onright>
@@ -288,7 +296,7 @@
                     </control>
                 </focusedlayout>
             </control>
-
+            -->
         </control>
     </controls>
 </window>
