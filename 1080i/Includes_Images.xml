@@ -44,4 +44,9 @@
         <value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
         <value>$INFO[ListItem.Icon]</value>
     </variable>
+    <variable name="MusicImage">
+        <value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+        <value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value>$INFO[ListItem.Icon]</value>
+    </variable>
 </includes>
