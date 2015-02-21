@@ -15,15 +15,19 @@
         <value condition="IsEmpty(ListItem.Episode)">$NUMBER[0]$NUMBER[0]</value>
     </variable>
     <variable name="LabelDirector">
-        <!--<value condition="Container.Content(tvshows)"></value>-->
+        <value condition="Container.Content(songs)">$INFO[ListItem.Label]</value>
+        <value condition="Container.Content(albums)">$INFO[ListItem.Artist]</value>
+        <value condition="Container.Content(artists)">$INFO[ListItem.Artist]</value>
         <value condition="Container.Content(episodes) | Container.Content(seasons) | Container.Content(tvshows)">$INFO[ListItem.TvShowTitle]</value>
         <value condition="!IsEmpty(ListItem.Director)">$INFO[ListItem.Director]</value>
         <value>$LOCALIZE[19055]</value>
     </variable>
     <variable name="LabelGenre">
+        <value condition="Container.Content(albums)">$INFO[ListItem.Album]</value>
         <value condition="Container.Content(tvshows) | Container.Content(seasons)">$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20360]]$INFO[ListItem.Property(UnWatchedEpisodes),  •  , $LOCALIZE[16101]]$INFO[ListItem.Studio,  •  ]</value>
         <value condition="Container.Content(episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] ,]$INFO[ListItem.Episode,  •  $LOCALIZE[20359] ,]$INFO[ListItem.Premiered,  •  ,]$INFO[ListItem.Duration,  •  , $LOCALIZE[31102]]</value>
         <value condition="!IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre]</value>
+        <value condition="!IsEmpty(ListItem.Property(Artist_Genre))">$INFO[ListItem.Property(Artist_Genre)]</value>
         <value>$LOCALIZE[19055]</value>
     </variable>
     <variable name="LabelDuration">
@@ -104,8 +108,6 @@
         <value condition="StringCompare(Container(300).ListItem.Property(widget),RandomAlbums)">$LOCALIZE[31187]</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),RecentAlbums)">$LOCALIZE[31188]</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),RecommendedAlbums)">$LOCALIZE[31189]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RecentlyPlayedAlbums)">$LOCALIZE[517]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),Top100Albums)">$LOCALIZE[10505]</value>
         <value condition="StringCompare(Window(home).Property(widget),RecommendedMovies) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31123]</value>
         <value condition="StringCompare(Window(home).Property(widget),RecommendedEpisodes) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31122]</value>
         <value condition="StringCompare(Window(home).Property(widget),RecentEpisodes) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31125]</value>
