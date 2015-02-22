@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-    <defaultcontrol always="true">301</defaultcontrol>
+    <defaultcontrol always="true">401</defaultcontrol>
     <controls>
         <include>GlobalOverlay</include>
 
@@ -99,6 +99,30 @@
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <include>DefDialogButtons</include>
                 </control>
+                <control type="button" id="301" description="Add">
+                    <width>100%</width>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <include>DefDialogButtons</include>
+                </control>
+                <control type="button" id="302" description="Delete">
+                    <width>100%</width>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <include>DefDialogButtons</include>
+                </control>
+                <control type="button" id="303" description="Up">
+                    <width>100%</width>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <include>DefDialogButtons</include>
+                </control>
+                <control type="button" id="304" description="Down">
+                    <width>100%</width>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <include>DefDialogButtons</include>
+                </control>
                 <control type="button" id="307" description="Custom">
                     <width>100%</width>
                     <height>66</height>
@@ -164,30 +188,7 @@
                     <visible>stringcompare(Container(211).ListItem.Label2,TVHub)</visible>
                     <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=episodeshub)</onclick>
                 </control>
-                <control type="button" id="301" description="Add">
-                    <width>100%</width>
-                    <height>66</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <include>DefDialogButtons</include>
-                </control>
-                <control type="button" id="302" description="Delete">
-                    <width>100%</width>
-                    <height>66</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <include>DefDialogButtons</include>
-                </control>
-                <control type="button" id="303" description="Up">
-                    <width>100%</width>
-                    <height>66</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <include>DefDialogButtons</include>
-                </control>
-                <control type="button" id="304" description="Down">
-                    <width>100%</width>
-                    <height>66</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <include>DefDialogButtons</include>
-                </control>
+                
                 <control type="button" id="308" description="Reset">
                     <width>100%</width>
                     <height>66</height>
