@@ -18,6 +18,13 @@
                     <bottom>-8</bottom>
                     <texture border="15" colordiffuse="Dark4">common/rounded-shadow8.png</texture>
                 </control>
+                <control type="image">
+                    <left>10</left>
+                    <right>10</right>
+                    <top>10</top>
+                    <bottom>10</bottom>
+                    <texture border="15" colordiffuse="Panel">common/box.png</texture>
+                </control>
                 <control type="wraplist" id="51">
                     <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(sets)</visible>
                     <width>1102</width>
@@ -65,8 +72,8 @@
                         <aligny>center</aligny>
                         <height>64</height>
                         <font>SmallBold</font>
-                        <textcolor>Dark1</textcolor>
-                        <selectedcolor>Dark1</selectedcolor>
+                        <textcolor>PanelWhite100</textcolor>
+                        <selectedcolor>PanelWhite100</selectedcolor>
                         <label>$INFO[ListItem.Label]</label>
                     </control>
                     <control type="label">
@@ -74,8 +81,8 @@
                         <height>64</height>
                         <aligny>center</aligny>
                         <font>Tiny</font>
-                        <textcolor>Dark1</textcolor>
-                        <selectedcolor>Dark1</selectedcolor>
+                        <textcolor>PanelWhite100</textcolor>
+                        <selectedcolor>PanelWhite100</selectedcolor>
                         <label>$VAR[LabelGenre]</label>
                     </control>
                     <control type="textbox">
@@ -83,18 +90,18 @@
                         <height>432</height>
                         <align>justify</align>
                         <font>Tiny</font>
-                        <textcolor>Dark1</textcolor>
-                        <selectedcolor>Dark1</selectedcolor>
+                        <textcolor>PanelWhite100</textcolor>
+                        <selectedcolor>PanelWhite100</selectedcolor>
                         <label>$VAR[LabelPlotBox]</label>
                     </control>
                     <control type="label">
-                        <bottom>-10</bottom>
+                        <bottom>0</bottom>
                         <height>30</height>
                         <aligny>center</aligny>
                         <align>right</align>
                         <font>Tiny</font>
-                        <textcolor>Dark2</textcolor>
-                        <selectedcolor>Dark2</selectedcolor>
+                        <textcolor>PanelWhite70</textcolor>
+                        <selectedcolor>PanelWhite70</selectedcolor>
                         <label>$VAR[LabelYear,,  •  ]$VAR[LabelDuration]$INFO[ListItem.Rating,  •  ]</label>
                     </control>
                 </control>
