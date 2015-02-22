@@ -39,12 +39,28 @@
                     <label>$INFO[Container(9100).ListItem.Label2]</label>
                 </control>
             </control>
+            <control type="group">
+                <control type="image">
+                    <left>10</left>
+                    <top>10</top>
+                    <width>565</width>
+                    <height>632</height>
+                    <texture border="5" colordiffuse="PanelWhite12">common/box.png</texture>
+                </control>
+                <control type="image">
+                    <left>585</left>
+                    <top>10</top>
+                    <width>565</width>
+                    <height>632</height>
+                    <texture border="5" colordiffuse="PanelWhite12">common/box.png</texture>
+                </control>
+            </control>
             <control type="Panel" id="9100">
                 <left>10</left>
                 <width>1150</width>
                 <top>10</top>
                 <height>642</height>
-                <orientation>vertical</orientation>
+                <orientation>horizontal</orientation>
                 <itemlayout width="575" height="107">
                     <!--<control type="image">
                         <left>0</left>
@@ -105,6 +121,7 @@
                         <icon>special://skin/extras/icons/eye.png</icon>
                         <onclick>activatewindow(AppearanceSettings)</onclick>
                     </item>
+                    
                     <item id="2">
                         <label>3</label>
                         <label2>31157</label2>
@@ -117,12 +134,8 @@
                         <icon>special://skin/extras/icons/songs.png</icon>
                         <onclick>activatewindow(MusicSettings)</onclick>
                     </item>
-                    <item id="4">
-                        <label>24001</label>
-                        <label2>31162</label2>
-                        <icon>special://skin/extras/icons/addons.png</icon>
-                        <onclick>activatewindow(AddonBrowser)</onclick>
-                    </item>
+                    
+                    
                     <item id="5">
                         <label>1</label>
                         <label2>31159</label2>
@@ -135,11 +148,11 @@
                         <icon>special://skin/extras/icons/sun.png</icon>
                         <onclick>activatewindow(WeatherSettings)</onclick>
                     </item>
-                    <item id="7">
-                        <label>705</label>
-                        <label2>31164</label2>
-                        <icon>special://skin/extras/icons/network.png</icon>
-                        <onclick>activatewindow(NetworkSettings)</onclick>
+                    <item id="11">
+                        <label>19191</label>
+                        <label2>31163</label2>
+                        <icon>special://skin/extras/icons/livetv.png</icon>
+                        <onclick>activatewindow(pvrsettings)</onclick>
                     </item>
                     <item id="8">
                         <label>13000</label>
@@ -147,23 +160,31 @@
                         <icon>special://skin/extras/icons/configure.png</icon>
                         <onclick>activatewindow(SystemSettings)</onclick>
                     </item>
+                    <item id="7">
+                        <label>705</label>
+                        <label2>31164</label2>
+                        <icon>special://skin/extras/icons/network.png</icon>
+                        <onclick>activatewindow(NetworkSettings)</onclick>
+                    </item>
+                    
                     <item id="9">
                         <label>13200</label>
                         <label2>31165</label2>
                         <icon>special://skin/extras/icons/actor.png</icon>
                         <onclick>activatewindow(Profiles)</onclick>
                     </item>
+                    <item id="4">
+                        <label>24001</label>
+                        <label2>31162</label2>
+                        <icon>special://skin/extras/icons/addons.png</icon>
+                        <onclick>activatewindow(AddonBrowser)</onclick>
+                    </item>
+                    
                     <item id="10">
                         <label>130</label>
                         <label2>31167</label2>
                         <icon>special://skin/extras/icons/sysinfo.png</icon>
                         <onclick>activatewindow(7)</onclick>
-                    </item>
-                    <item id="11">
-                        <label>19191</label>
-                        <label2>31163</label2>
-                        <icon>special://skin/extras/icons/livetv.png</icon>
-                        <onclick>activatewindow(pvrsettings)</onclick>
                     </item>
                     <item id="12">
                         <label>20077</label>
@@ -171,6 +192,8 @@
                         <icon>special://skin/extras/icons/year.png</icon>
                         <onclick>activatewindow(SkinSettings)</onclick>
                     </item>
+                    
+                    
                 </content>
             </control>
             
