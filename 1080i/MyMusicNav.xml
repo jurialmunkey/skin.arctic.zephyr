@@ -3,7 +3,7 @@
 <window id="502">
     <defaultcontrol always="true">50</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
-    <views>50,505,506,500,503,54,57</views>
+    <views>50,505,506,500,503,54,57,51</views>
 
     <controls>
 
@@ -11,6 +11,8 @@
         <include>Furniture_Header</include>
         <include>Furniture_Clock</include>
         <include>View_50_List_Square</include>
+        <include condition="!Skin.HasSetting(51bigwide.showinfo)">View_51_BigWide</include>
+        <include condition="Skin.HasSetting(51bigwide.showinfo)">View_51_BigWide_Info</include>
         <include>View_500_Thumbnails</include>
         <include>View_503_Poster_Square</include>
         <include>View_505_506_Wall</include>
@@ -39,6 +41,16 @@
                     <onclick>Skin.ToggleSetting(57list.low)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(57)</visible>
+                </control>
+                
+                <control type="radiobutton" id="9008" description="Big Wide Info (51)">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31147</label>
+                    <selected>Skin.HasSetting(51bigwide.showinfo)</selected>
+                    <onclick>Skin.ToggleSetting(51bigwide.showinfo)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Control.IsVisible(51)</visible>
                 </control>
               
                 <control type="button" id="9091">
