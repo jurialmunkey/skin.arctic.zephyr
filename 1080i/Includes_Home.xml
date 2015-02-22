@@ -568,7 +568,6 @@
                 <include>Animation.FadeIn.Delay</include>
                 <include>Animation.FadeOut</include>
                 <description>Home Wraplist</description>
-                <top>948</top>
                 <left>SidePad</left>
                 <include condition="!Skin.HasSetting(furniture.clock)">DefHomeRight520</include>
                 <include condition="Skin.HasSetting(furniture.clock)">DefHomeRightSidePad</include>
@@ -578,64 +577,8 @@
                 <onright>300</onright>
                 <orientation>horizontal</orientation>
                 <scrolltime>200</scrolltime>
-
-                <itemlayout width="220" height="64">
-                   
-                  
-                    <control type="label">
-                        <align>center</align>
-                        <aligny>top</aligny>
-                        <width>180</width>
-                        <top>0</top>
-                        <centerleft>50%</centerleft>
-                        <textcolor>Dark3</textcolor>
-                        <font>Home</font>
-                        <label>$INFO[ListItem.Label]</label>
-                    </control>
-             
-                    
-                </itemlayout>
-
-                <focusedlayout width="220" height="64">
-                   
-                  
-                    <control type="label">
-                        <align>center</align>
-                        <aligny>top</aligny>
-                        <width>90%</width>
-                        <top>0</top>
-                        <centerleft>50%</centerleft>
-                        <textcolor>Dark1</textcolor>
-                        <font>Home</font>
-                        <label>$INFO[ListItem.Label]</label>
-                    </control>
-                    <control type="image">
-                        <top>55</top>
-                        <centerleft>50%</centerleft>
-                        <width>90%</width>
-                        <height>4</height>
-                        <texture colordiffuse="Highlight">common/box.png</texture>
-                        <visible>Control.HasFocus(300)</visible>
-                        <include>Animation.FadeIn</include>
-                        <include>Animation.FadeOut</include>
-                    </control>
-                    <control type="image">
-                        <top>70</top>
-                        <centerleft>50%</centerleft>
-                        <width>16</width>
-                        <height>16</height>
-                        <texture colordiffuse="Dark3">common/arrow-small.png</texture>
-                        <visible>Control.HasFocus(300)</visible>
-                        <visible>IntegerGreaterThan(Container(302).NumItems,0)</visible>
-                        <animation effect="fade" end="100" start="0" delay="300" time="400" reversible="false">Focus</animation>
-                    </control>
-                    
-             
-                </focusedlayout>
-
-                <content>
-                    <include>skinshortcuts-mainmenu</include>
-                </content>
+                <include condition="Skin.HasSetting(home.showicons)">HomeContentIcon</include>
+                <include condition="!Skin.HasSetting(home.showicons)">HomeContentNoIcon</include>
             </control>
         
         </control>
@@ -1041,7 +984,6 @@
                 <include>Animation.FadeIn.Delay</include>
                 <include>Animation.FadeOut</include>
                 <description>Home Wraplist</description>
-                <top>948</top>
                 <left>SidePad</left>
                 <include condition="!Skin.HasSetting(furniture.clock)">DefHomeRight520</include>
                 <include condition="Skin.HasSetting(furniture.clock)">DefHomeRightSidePad</include>
@@ -1051,67 +993,132 @@
                 <onright>300</onright>
                 <orientation>horizontal</orientation>
                 <scrolltime>200</scrolltime>
-
-                <itemlayout width="220" height="64">
-                   
-                  
-                    <control type="label">
-                        <align>center</align>
-                        <aligny>top</aligny>
-                        <width>180</width>
-                        <top>0</top>
-                        <centerleft>50%</centerleft>
-                        <textcolor>Dark3</textcolor>
-                        <font>Home</font>
-                        <label>$INFO[ListItem.Label]</label>
-                    </control>
-             
-                    
-                </itemlayout>
-
-                <focusedlayout width="220" height="64">
-                   
-                  
-                    <control type="label">
-                        <align>center</align>
-                        <aligny>top</aligny>
-                        <width>90%</width>
-                        <top>0</top>
-                        <centerleft>50%</centerleft>
-                        <textcolor>Dark1</textcolor>
-                        <font>Home</font>
-                        <label>$INFO[ListItem.Label]</label>
-                    </control>
-                    <control type="image">
-                        <top>55</top>
-                        <centerleft>50%</centerleft>
-                        <width>90%</width>
-                        <height>4</height>
-                        <texture colordiffuse="Highlight">common/box.png</texture>
-                        <visible>Control.HasFocus(300)</visible>
-                        <include>Animation.FadeIn</include>
-                        <include>Animation.FadeOut</include>
-                    </control>
-                    <control type="image">
-                        <top>70</top>
-                        <centerleft>50%</centerleft>
-                        <width>16</width>
-                        <height>16</height>
-                        <texture colordiffuse="Dark3">common/arrow-small.png</texture>
-                        <visible>Control.HasFocus(300)</visible>
-                        <visible>IntegerGreaterThan(Container(302).NumItems,0)</visible>
-                        <animation effect="fade" end="100" start="0" delay="300" time="400" reversible="false">Focus</animation>
-                    </control>
-                    
-             
-                </focusedlayout>
-
-                <content>
-                    <include>skinshortcuts-mainmenu</include>
-                </content>
+                <include condition="Skin.HasSetting(home.showicons)">HomeContentIcon</include>
+                <include condition="!Skin.HasSetting(home.showicons)">HomeContentNoIcon</include>
             </control>
             <include>Furniture_Clock</include>
         </control>
     </include>
+    
+    <include name="HomeContentNoIcon">
+        <top>948</top>
+        <itemlayout width="220" height="64">
+            <control type="label">
+                <align>center</align>
+                <aligny>top</aligny>
+                <width>180</width>
+                <top>0</top>
+                <centerleft>50%</centerleft>
+                <textcolor>Dark3</textcolor>
+                <font>Home</font>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+        </itemlayout>
+
+        <focusedlayout width="220" height="64">
+            <control type="label">
+                <align>center</align>
+                <aligny>top</aligny>
+                <width>90%</width>
+                <top>0</top>
+                <centerleft>50%</centerleft>
+                <textcolor>Dark1</textcolor>
+                <font>Home</font>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+            <control type="image">
+                <top>55</top>
+                <centerleft>50%</centerleft>
+                <width>90%</width>
+                <height>4</height>
+                <texture colordiffuse="Highlight">common/box.png</texture>
+                <visible>Control.HasFocus(300)</visible>
+                <include>Animation.FadeIn</include>
+                <include>Animation.FadeOut</include>
+            </control>
+            <control type="image">
+                <top>70</top>
+                <centerleft>50%</centerleft>
+                <width>16</width>
+                <height>16</height>
+                <texture colordiffuse="Dark3">common/arrow-small.png</texture>
+                <visible>Control.HasFocus(300)</visible>
+                <visible>IntegerGreaterThan(Container(302).NumItems,0)</visible>
+                <animation effect="fade" end="100" start="0" delay="300" time="400" reversible="false">Focus</animation>
+            </control>
+        </focusedlayout>
+        <content>
+            <include>skinshortcuts-mainmenu</include>
+        </content>
+    </include>
+    
+    <include name="HomeContentIcon">
+        <top>848</top>
+        <itemlayout width="220" height="220">
+            <control type="image">
+                <width>128</width>
+                <height>128</height>
+                <centerleft>50%</centerleft>
+                <centertop>40%</centertop>
+                <texture colordiffuse="Dark3">$INFO[ListItem.Icon]</texture>
+                <visible>substring(ListItem.Icon,special://skin/extras/icons)</visible>
+            </control>
+            <control type="label">
+                <align>center</align>
+                <aligny>top</aligny>
+                <width>180</width>
+                <bottom>0</bottom>
+                <centerleft>50%</centerleft>
+                <textcolor>Dark3</textcolor>
+                <font>HomeIcon</font>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+        </itemlayout>
+
+        <focusedlayout width="220" height="220">
+            <control type="image">
+                <width>128</width>
+                <height>128</height>
+                <centerleft>50%</centerleft>
+                <centertop>40%</centertop>
+                <texture colordiffuse="Dark1">$INFO[ListItem.Icon]</texture>
+                <visible>substring(ListItem.Icon,special://skin/extras/icons)</visible>
+            </control>
+            <control type="label">
+                <align>center</align>
+                <aligny>top</aligny>
+                <width>180</width>
+                <bottom>0</bottom>
+                <centerleft>50%</centerleft>
+                <textcolor>Dark1</textcolor>
+                <font>HomeIcon</font>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+            <control type="image">
+                <bottom>16</bottom>
+                <centerleft>50%</centerleft>
+                <width>90%</width>
+                <height>4</height>
+                <texture colordiffuse="Highlight">common/box.png</texture>
+                <visible>Control.HasFocus(300)</visible>
+                <include>Animation.FadeIn</include>
+                <include>Animation.FadeOut</include>
+            </control>
+            <control type="image">
+                <bottom>-4</bottom>
+                <centerleft>50%</centerleft>
+                <width>16</width>
+                <height>16</height>
+                <texture colordiffuse="Dark3">common/arrow-small.png</texture>
+                <visible>Control.HasFocus(300)</visible>
+                <visible>IntegerGreaterThan(Container(302).NumItems,0)</visible>
+                <animation effect="fade" end="100" start="0" delay="300" time="400" reversible="false">Focus</animation>
+            </control>
+        </focusedlayout>
+        <content>
+            <include>skinshortcuts-mainmenu</include>
+        </content>
+    </include>
+ 
     
 </includes>
