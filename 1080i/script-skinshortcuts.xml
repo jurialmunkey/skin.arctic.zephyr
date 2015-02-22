@@ -8,7 +8,7 @@
             <include>Animation.FadeIn.Slide</include>
             <centerleft>50%</centerleft>
             <centertop>50%</centertop>
-            <width>865</width>
+            <width>1065</width>
             <height>795</height>
             <control type="image">
                 <description>background image</description>
@@ -21,12 +21,63 @@
 
             <control type="label" id="500">
                 <description>header label</description>
-                <centerleft>50%</centerleft>
                 <posy>10</posy>
-                <width>95%</width>
-                <font>MediumBold</font>
-                <align>center</align>
+                <left>22</left>
+                <right>22</right>
+                <font>SmallBold</font>
+                <align>left</align>
                 <textcolor>Black70</textcolor>
+            </control>
+            
+            <!-- Left List: Current Shortcuts -->
+            <control type="list" id="211">
+                <description>Rules List Control</description>
+                <left>15</left>
+                <bottom>15</bottom>
+                <width>700</width>
+                <height>690</height>
+                <onup>211</onup>
+                <onleft>211</onleft>
+                <onright>9100</onright>
+                <ondown>211</ondown>
+                <itemlayout width="700" height="69">
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>100%</width>
+                        <height>66</height>
+                        <texture border="5" colordiffuse="Black12">common/box.png</texture>
+                    </control>
+                    <control type="label">
+                        <left>30</left>
+                        <right>30</right>
+                        <info>ListItem.Label</info>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="700" height="69">
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>100%</width>
+                        <height>66</height>
+                        <texture border="5" colordiffuse="Highlight">common/box.png</texture>
+                        <visible>Control.HasFocus(211)</visible>
+                    </control>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>100%</width>
+                        <height>66</height>
+                        <texture border="5" colordiffuse="PanelBlack30">common/box.png</texture>
+                        <visible>!Control.HasFocus(211)</visible>
+                    </control>
+                    <control type="label">
+                        <left>30</left>
+                        <right>30</right>
+                        <info>ListItem.Label</info>
+                        <textcolor>Selected</textcolor>
+                    </control>
+                </focusedlayout>
             </control>
             
             <!-- Right Buttons -->
@@ -41,30 +92,7 @@
                 <height>690</height>
                 <orientation>vertical</orientation>
                 <itemgap>3</itemgap>
-                <control type="button" id="301" description="Add">
-                    <width>100%</width>
-                    <height>66</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <include>DefDialogButtons</include>
-                </control>
-                <control type="button" id="302" description="Delete">
-                    <width>100%</width>
-                    <height>66</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <include>DefDialogButtons</include>
-                </control>
-                <control type="button" id="303" description="Up">
-                    <width>100%</width>
-                    <height>66</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <include>DefDialogButtons</include>
-                </control>
-                <control type="button" id="304" description="Down">
-                    <width>100%</width>
-                    <height>66</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <include>DefDialogButtons</include>
-                </control>
+                
                 <control type="button" id="401" description="Alt chooser">
                     <width>100%</width>
                     <height>66</height>
@@ -136,6 +164,30 @@
                     <visible>stringcompare(Container(211).ListItem.Label2,TVHub)</visible>
                     <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=episodeshub)</onclick>
                 </control>
+                <control type="button" id="301" description="Add">
+                    <width>100%</width>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <include>DefDialogButtons</include>
+                </control>
+                <control type="button" id="302" description="Delete">
+                    <width>100%</width>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <include>DefDialogButtons</include>
+                </control>
+                <control type="button" id="303" description="Up">
+                    <width>100%</width>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <include>DefDialogButtons</include>
+                </control>
+                <control type="button" id="304" description="Down">
+                    <width>100%</width>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <include>DefDialogButtons</include>
+                </control>
                 <control type="button" id="308" description="Reset">
                     <width>100%</width>
                     <height>66</height>
@@ -145,56 +197,6 @@
                 </control>
             </control>
         
-            <!-- Left List: Current Shortcuts -->
-            <control type="list" id="211">
-                <description>Rules List Control</description>
-                <left>15</left>
-                <bottom>15</bottom>
-                <width>500</width>
-                <height>690</height>
-                <onup>211</onup>
-                <onleft>211</onleft>
-                <onright>9100</onright>
-                <ondown>211</ondown>
-                <itemlayout width="500" height="69">
-                    <control type="image">
-                        <posx>0</posx>
-                        <posy>0</posy>
-                        <width>100%</width>
-                        <height>66</height>
-                        <texture border="5" colordiffuse="Black12">common/box.png</texture>
-                    </control>
-                    <control type="label">
-                        <left>30</left>
-                        <right>30</right>
-                        <info>ListItem.Label</info>
-                    </control>
-                </itemlayout>
-                <focusedlayout width="500" height="69">
-                    <control type="image">
-                        <posx>0</posx>
-                        <posy>0</posy>
-                        <width>100%</width>
-                        <height>66</height>
-                        <texture border="5" colordiffuse="Highlight">common/box.png</texture>
-                        <visible>Control.HasFocus(211)</visible>
-                    </control>
-                    <control type="image">
-                        <posx>0</posx>
-                        <posy>0</posy>
-                        <width>100%</width>
-                        <height>66</height>
-                        <texture border="5" colordiffuse="PanelBlack30">common/box.png</texture>
-                        <visible>!Control.HasFocus(211)</visible>
-                    </control>
-                    <control type="label">
-                        <left>30</left>
-                        <right>30</right>
-                        <info>ListItem.Label</info>
-                        <textcolor>Selected</textcolor>
-                    </control>
-                </focusedlayout>
-            </control>
             
            
         </control>
