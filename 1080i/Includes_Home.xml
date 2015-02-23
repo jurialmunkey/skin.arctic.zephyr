@@ -766,7 +766,7 @@
                         <description>Widget</description>
                         <!--<visible>!substring(Container(300).ListItem.Property(widget),Albums)</visible>-->
                         <animation effect="fade" start="100" end="0" time="0" delay="0" reversible="false" condition="Container(301).IsUpdating | Container(300).OnNext | Container(300).OnPrevious">Conditional</animation>
-                        <animation effect="fade" start="0" end="100" time="200" delay="200" reversible="false" condition="!Container(301).IsUpdating">Conditional</animation>
+                        <animation effect="fade" start="0" end="100" time="200" delay="200" reversible="false" condition="!Container(301).IsUpdating + !Container(300).OnNext + !Container(300).OnPrevious">Conditional</animation>
                         <left>70</left>
                         <right>70</right>
                         <top>20</top>
