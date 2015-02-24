@@ -93,31 +93,9 @@
                 <orientation>vertical</orientation>
                 <itemgap>3</itemgap>
                 
+                
+                
                 <control type="button" id="401" description="Alt chooser">
-                    <width>100%</width>
-                    <height>66</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <include>DefDialogButtons</include>
-                </control>
-                <control type="button" id="301" description="Add">
-                    <width>100%</width>
-                    <height>66</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <include>DefDialogButtons</include>
-                </control>
-                <control type="button" id="302" description="Delete">
-                    <width>100%</width>
-                    <height>66</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <include>DefDialogButtons</include>
-                </control>
-                <control type="button" id="303" description="Up">
-                    <width>100%</width>
-                    <height>66</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <include>DefDialogButtons</include>
-                </control>
-                <control type="button" id="304" description="Down">
                     <width>100%</width>
                     <height>66</height>
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
@@ -157,7 +135,7 @@
                     <label>31181</label>
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <include>DefDialogButtons</include>
-                    <!--<visible>stringcompare(Window.Property(groupname),movieshub) | stringcompare(Window.Property(groupname),episodeshub)</visible>-->
+                    <visible>stringcompare(Window.Property(groupname),movieshub) | stringcompare(Window.Property(groupname),episodeshub) | Skin.HasSetting(home.showicons)</visible>
                 </control>
                 <control type="button" id="405" description="Set Submenu">
                     <width>100%</width>
@@ -187,6 +165,30 @@
                     <include>DefDialogButtons</include>
                     <visible>stringcompare(Container(211).ListItem.Label2,TVHub)</visible>
                     <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=episodeshub)</onclick>
+                </control>
+                <control type="button" id="303" description="Up">
+                    <width>100%</width>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <include>DefDialogButtons</include>
+                </control>
+                <control type="button" id="304" description="Down">
+                    <width>100%</width>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <include>DefDialogButtons</include>
+                </control>
+                <control type="button" id="301" description="Add">
+                    <width>100%</width>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <include>DefDialogButtons</include>
+                </control>
+                <control type="button" id="302" description="Delete">
+                    <width>100%</width>
+                    <height>66</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <include>DefDialogButtons</include>
                 </control>
                 
                 <control type="button" id="308" description="Reset">

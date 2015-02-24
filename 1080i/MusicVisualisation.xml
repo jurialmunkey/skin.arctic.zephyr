@@ -8,9 +8,18 @@
     <controls>
 
         <control type="visualisation" id="2">
-            <visible>Skin.HasSetting(ArtistSlideShow.Disabled) | !System.HasAddon(script.artistslideshow) | Skin.HasSetting(OSDVisualisation.ShowFanart)</visible>
+            <visible>Skin.HasSetting(OSDVisualisation.ShowFanart)</visible>
             <description>visualisation</description>
             <include>Dimensions_Fullscreen</include>
+        </control>
+        <control type="image">
+            <aspectratio>scale</aspectratio>
+            <include>Dimensions_Fullscreen</include>
+            <texture background="true">$INFO[Player.Art(fanart)]</texture>
+            <visible>!System.HasAddon(script.artistslideshow) | Skin.HasSetting(ArtistSlideShow.Disabled)</visible>
+            <animation effect="fade" start="100" end="65" time="0" condition="Skin.HasSetting(OSDVisualisation.ShowFanart)">Conditional</animation>
+            <animation effect="zoom" start="110" end="130" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
+            <animation effect="slide" start="-30,-30" end="30,30" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
         </control>
         <control type="multiimage">
             <aspectratio>scale</aspectratio>
