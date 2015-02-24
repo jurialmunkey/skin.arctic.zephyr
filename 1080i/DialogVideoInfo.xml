@@ -265,7 +265,8 @@
                 <itemgap>3</itemgap>
                 <onup>9000</onup>
                 <ondown>9000</ondown>
-                <onright condition="Control.IsVisible(50)">52</onright>
+                <onright condition="Control.IsVisible(50) + !IsEmpty(ListItem.Director)">52</onright>
+                <onright condition="Control.IsVisible(50) + IsEmpty(ListItem.Director)">51  </onright>
                 <orientation>vertical</orientation>
 
                 <control type="button" id ="5">
@@ -362,24 +363,23 @@
                 <left>510</left>
                 <right>30</right>
                 <ondown>51</ondown>
-                <onup>51</onup>
                 <label>$INFO[ListItem.Director,$LOCALIZE[31191] ,]</label>
                 <align>left</align>
                 <onleft>9000</onleft>
                 <onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Director])</onclick>
                 <texturenofocus border="5" colordiffuse="Black12">common/box.png</texturenofocus>
                 <texturefocus border="5" colordiffuse="Highlight">common/box.png</texturefocus>
+                <visible>!IsEmpty(ListItem.Director)</visible>
             </control>
             <control type="list" id="50">
                 <description>Cast</description>
                 <left>510</left>
                 <right>30</right>
-                <top>171</top>
-                <height>639</height>
+                <include condition="!IsEmpty(ListItem.Director)">DefVideoInfoCastWithDirector</include>
+                <include condition="IsEmpty(ListItem.Director)">DefVideoInfoCastWithoutDirector</include>
                 <onup>50</onup>
                 <ondown>50</ondown>
                 <onleft>9000</onleft>
-                <!--<onright>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).ListItem.Label])</onright>-->
                 <orientation>vertical</orientation>
                 <scrolltime>200</scrolltime>
 
@@ -456,9 +456,9 @@
         </control>
         <control type="button" id="51">
             <visible allowhiddenfocus="true">false</visible>
-            <ondown>Control.Move(50,1)</ondown>
+            <ondown condition="!IsEmpty(Container(50).ListItemNoWrap(1).Label)">Control.Move(50,1)</ondown>
             <onup condition="!IsEmpty(Container(50).ListItemNoWrap(-1).Label)">Control.Move(50,-1)</onup>
-            <onup condition="IsEmpty(Container(50).ListItemNoWrap(-1).Label)">52</onup>
+            <onup condition="IsEmpty(Container(50).ListItemNoWrap(-1).Label) + !IsEmpty(ListItem.Director)">52</onup>
             <onleft>9000</onleft>
             <onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).ListItem.Label])</onclick>
         </control>
