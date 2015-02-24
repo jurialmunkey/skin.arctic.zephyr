@@ -6,35 +6,28 @@
     <onunload>ClearProperty(osdshowinfo,home)</onunload>
     <controls>
         <control type="group">
+            <height>74</height>
+            <bottom>0</bottom>
             <animation type="WindowOpen">
-                <effect type="fade" start="0" end="100" time="150"/>
-                <effect type="slide" start="0,-64" end="0" time="150"/>
+                <effect type="fade" start="0" end="100" time="150" delay="150"/>
             </animation>
             <animation type="WindowClose">
                 <effect type="fade" end="0" start="100" time="150"/>
-                <effect type="slide" end="0,-64" start="0" time="150"/>
             </animation>
             <animation type="Visible">
-                <effect type="fade" start="0" end="100" time="150"/>
-                <effect type="slide" start="0,-64" end="0" time="150"/>
+                <effect type="fade" start="0" end="100" time="150" delay="150"/>
             </animation>
             <animation type="Hidden">
                 <effect type="fade" end="0" start="100" time="150"/>
-                <effect type="slide" end="0,-64" start="0" time="150"/>
             </animation>
-            <control type="image">
-                <width>100%</width>
-                <height>74</height>
-                <texture colordiffuse="OSDBack">common/white.png</texture>
-            </control>
             <!-- Sub Menu -->
             <control type="group">
                 <visible allowhiddenfocus="true">ControlGroup(9300).HasFocus() | Control.HasFocus(3)</visible>
 
                 <include>Animation.SlideUp</include>
                 <include>Animation.FadeOut</include>
-                <posy>72</posy>
-                <centerleft>560</centerleft>
+                <bottom>72</bottom>
+                <centerleft>572</centerleft>
                 <width>316</width>
                 <height>152</height>
                 <control type="image">
@@ -81,6 +74,7 @@
             
             <control type="grouplist" id="100">
                 <top>13</top>
+                <left>50</left>
                 <height>48</height>
                 <itemgap>16</itemgap>
                 <orientation>horizontal</orientation>
@@ -96,6 +90,7 @@
                 <control type="button" id="1">
                     <description>Audio</description>
                     <label>292</label>
+                    <align>left</align>
                     <onclick>ActivateWindow(124)</onclick>
                     <include>DefOSDButtons</include>
                 </control>
@@ -103,13 +98,16 @@
                 <control type="button" id="2">
                     <description>Video Settings</description>
                     <label>291</label>
+                    <align>left</align>
                     <onclick>ActivateWindow(123)</onclick>
                     <include>DefOSDButtons</include>
                 </control>
                 
                 <control type="button" id="3">
+                    <onup>9302</onup>
                     <ondown>9301</ondown>
                     <description>Subs</description>
+                    <align>left</align>
                     <label>$LOCALIZE[287]</label>
                     <onclick>Action(ShowSubtitles)</onclick>
                     <include>DefOSDButtons</include>
@@ -243,7 +241,7 @@
             
             <control type="grouplist" id="102">
                 <top>13</top>
-                <right>0</right>
+                <right>50</right>
                 <height>48</height>
                 <itemgap>16</itemgap>
                 <orientation>horizontal</orientation>

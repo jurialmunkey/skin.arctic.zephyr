@@ -415,6 +415,7 @@
     <include name="OSDVideosRight">
         <control type="button" id="5">
             <description>3D Mode</description>
+            <align>right</align>
             <label>31117</label>
             <onclick>StereoMode</onclick>
             <include>DefOSDButtons</include>
@@ -424,6 +425,7 @@
 
         <control type="button" id="6">
             <description>BookMarks</description>
+            <align>right</align>
             <include>DefOSDButtons</include>
             <label>298</label>
             <onclick>ActivateWindow(125)</onclick>
@@ -432,12 +434,14 @@
     <include name="OSDPVRRight">
         <control type="button" id="4">
             <description>CHANNELS</description>
+            <align>right</align>
             <label>19019</label>
             <include>DefOSDButtons</include>
             <onclick>ActivateWindow(pvrosdchannels)</onclick>
         </control>
         <control type="button" id="5">
             <description>EPG</description>
+            <align>right</align>
             <label>$LOCALIZE[19030] / $LOCALIZE[19031]</label>
             <onclick>ActivateWindow(pvrosdguide)</onclick>
             <include>DefOSDButtons</include>
@@ -445,6 +449,7 @@
 
         <control type="button" id="6">
             <description>TIMELINE</description>
+            <align>right</align>
             <include>DefOSDButtons</include>
             <label>19032</label>
             <onclick>ActivateWindow(tvguide,,return)</onclick>
@@ -454,6 +459,7 @@
         <control type="button" id="4">
             <description>DVD Menu</description>
             <label>$LOCALIZE[31116]</label>
+            <align>right</align>
             <include>DefOSDButtons</include>
             <onclick>PlayerControl(ShowVideoMenu)</onclick>
             <enable>VideoPlayer.HasMenu</enable>
@@ -464,6 +470,7 @@
         <control type="button" id="4">
             <description>Info</description>
             <label>31147</label>
+            <align>right</align>
             <include>DefOSDButtons</include>
             <onclick>RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[VideoPlayer.TvShowTitle])</onclick>
             <disabledcolor>White12</disabledcolor>
@@ -473,6 +480,7 @@
         <control type="button" id="4">
             <description>Info</description>
             <label>31147</label>
+            <align>right</align>
             <include>DefOSDButtons</include>
             <onclick>RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[VideoPlayer.Title])</onclick>
             <disabledcolor>White12</disabledcolor>

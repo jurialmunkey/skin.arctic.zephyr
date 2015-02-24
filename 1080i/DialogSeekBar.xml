@@ -3,93 +3,151 @@
 <window id="115">
     <defaultcontrol always="true">901</defaultcontrol>
     <allowoverlay>no</allowoverlay>
-    <visible>[VideoPlayer.IsFullscreen] + [Window.IsVisible(fullscreeninfo) | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.ShowInfo | !IsEmpty(Window(home).Property(osdshowinfo))]</visible>
+    <visible>[VideoPlayer.IsFullscreen] + [Window.IsVisible(videoosd) | Window.IsVisible(fullscreeninfo) | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.ShowInfo | !IsEmpty(Window(home).Property(osdshowinfo))]</visible>
     <zorder>0</zorder>
     <controls>
-        <control type="image">
-            <top>110r</top>
-            <width>100%</width>
-            <height>300</height>
-            <texture colordiffuse="OSDBack">common/white.png</texture>
-            <animation effect="slide" start="0" end="0,-190" time="150" condition="Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !IsEmpty(Window(home).Property(osdshowinfo))">Conditional</animation>
-            <animation effect="slide" start="0,110" end="0" time="150">Visible</animation>
-            <animation effect="slide" start="0,110" end="0" time="150">WindowOpen</animation>
-            <include>Animation.FadeOut</include>
-        </control>
         <control type="group">
-            <top>300r</top>
-            <bottom>0</bottom>
-            <width>100%</width>
-            <visible>Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !IsEmpty(Window(home).Property(osdshowinfo))</visible>
-            <animation effect="fade" start="0" end="100" delay="150" time="150">Visible</animation>
-            <animation effect="fade" start="0" end="100" delay="150" time="150">WindowOpen</animation>
+            <animation effect="slide" start="0" end="0,-74" time="150" condition="Window.IsVisible(videoosd)">Conditional</animation>
+            <control type="image">
+                <top>110r</top>
+                <width>100%</width>
+                <height>374</height>
+                <texture colordiffuse="OSDBack">common/white.png</texture>
+                <animation effect="slide" start="0" end="0,-190" time="150" condition="Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !IsEmpty(Window(home).Property(osdshowinfo))">Conditional</animation>
+                <animation effect="slide" start="0" end="0,110" time="150" condition="!Window.IsVisible(fullscreeninfo) + !Player.Seeking + !Player.DisplayAfterSeek + !Player.Paused + !Player.Forwarding + !Player.Rewinding + !Player.ShowInfo + IsEmpty(Window(home).Property(osdshowinfo))">Conditional</animation>
+                <animation effect="slide" start="0,110" end="0" time="150">Visible</animation>
+                <animation effect="slide" start="0,110" end="0" time="150">WindowOpen</animation>
+                <include>Animation.FadeOut</include>
+            </control>
             <control type="group">
-                <left>SidePad</left>
-                <right>SidePad</right>
-                <top>20</top>
-                <bottom>20</bottom>
-                <control type="image">
-                    <width>173</width>
-                    <height>260</height>
-                    <texture>$VAR[PlayerPoster]</texture>
-                    <visible>!IsEmpty(Player.Art(tvshow.poster)) | !IsEmpty(Player.Art(poster))</visible>
+                <top>300r</top>
+                <bottom>0</bottom>
+                <width>100%</width>
+                <visible>Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !IsEmpty(Window(home).Property(osdshowinfo))</visible>
+                <animation effect="fade" start="0" end="100" delay="150" time="150">Visible</animation>
+                <animation effect="fade" start="0" end="100" delay="150" time="150">WindowOpen</animation>
+                <control type="group">
+                    <left>SidePad</left>
+                    <right>SidePad</right>
+                    <top>20</top>
+                    <bottom>20</bottom>
+                    <control type="image">
+                        <width>173</width>
+                        <height>260</height>
+                        <texture>$VAR[PlayerPoster]</texture>
+                        <visible>!IsEmpty(Player.Art(tvshow.poster)) | !IsEmpty(Player.Art(poster))</visible>
+                    </control>
+                    
+                    <!--<control type="image">
+                        <bottom>0</bottom>
+                        <width>260</width>
+                        <height>260</height>
+                        <texture>$VAR[PlayerPoster]</texture>
+                        <aspectratio aligny="center" align="center">keep</aspectratio>
+                        <visible>IsEmpty(Player.Art(tvshow.poster)) + IsEmpty(Player.Art(poster))</visible>
+                    </control>-->
+                    
+                    <control type="group">
+                        <include condition="!IsEmpty(Player.Art(tvshow.poster)) | !IsEmpty(Player.Art(poster))">DefPlayerPosterLeft203</include>
+                        <!--<include condition="IsEmpty(Player.Art(tvshow.poster)) + IsEmpty(Player.Art(poster))">DefPlayerPosterLeft290</include>-->
+                        <include condition="IsEmpty(Player.Art(tvshow.poster)) + IsEmpty(Player.Art(poster))">DefPlayerPosterLeft0</include>
+                        <right>0</right>
+                        <control type="label" description="Video Info">
+                            <right>0</right>
+                            <align>right</align>
+                            <width>1000</width>
+                            <top>0</top>
+                            <height>40</height>
+                            <font>Flag</font>
+                            <textcolor>PanelWhite30</textcolor>
+                            <label>$INFO[VideoPlayer.AudioCodec,,  •  ]$VAR[LabelOSDAudioChannels,,  •  ]$INFO[VideoPlayer.VideoResolution,,  •  ]$INFO[VideoPlayer.VideoCodec,,]$INFO[VideoPlayer.RatingAndVotes,  •  ,]</label>
+                        </control>
+                        
+                        <control type="label" description="Title">
+                            <width>1000</width>
+                            <top>0</top>
+                            <height>40</height>
+                            <font>TinyBold</font>
+                            <textcolor>PanelWhite70</textcolor>
+                            <label>$VAR[PlayerTitle]</label>
+                        </control>
+                        
+                        
+                        <control type="label" description="Show">
+                            <width>100%</width>
+                            <top>50</top>
+                            <height>40</height>
+                            <font>MediumBold</font>
+                            <textcolor>PanelWhite70</textcolor>
+                            <label>$VAR[PlayerBigTitle]</label>
+                        </control>
+                        
+                        <control type="textbox" description="Plot">
+                            <width>100%</width>
+                            <top>105</top>
+                            <height>68</height>
+                            <font>Tiny</font>
+                            <align>justify</align>
+                            <textcolor>PanelWhite30</textcolor>
+                            <label>$VAR[PlayerPlotBox]</label>
+                        </control>
+                        
+                        <control type="label" description="Elapsed Time">
+                            <width>400</width>
+                            <bottom>30</bottom>
+                            <height>40</height>
+                            <font>Tiny</font>
+                            <textcolor>PanelWhite70</textcolor>
+                            <label>$VAR[PlayerStatus]</label>
+                        </control>
+                        <control type="label" description="Total Time">
+                            <right>0</right>
+                            <align>right</align>
+                            <width>400</width>
+                            <bottom>30</bottom>
+                            <height>40</height>
+                            <font>Tiny</font>
+                            <textcolor>PanelWhite70</textcolor>
+                            <label>$INFO[Player.Time]  /  $INFO[Player.Duration]</label>
+                        </control>
+                        <control type="progress" description="cache">
+                            <description>Progress Bar</description>
+                            <width>100%</width>
+                            <bottom>10</bottom>
+                            <height>8</height>
+                            <info>Player.ProgressCache</info>
+                            <visible>true</visible>
+                            <texturebg colordiffuse="00ffffff">osd/progress-bg.png</texturebg>
+                            <lefttexture colordiffuse="Highlight2">osd/progress-end.png</lefttexture>
+                            <midtexture colordiffuse="Highlight2">osd/progress-end.png</midtexture>
+                            <righttexture colordiffuse="Highlight2">osd/progress-end.png</righttexture>
+                        </control>
+                        <control type="progress" id="23">
+                            <description>Progress Bar</description>
+                            <width>100%</width>
+                            <bottom>10</bottom>
+                            <height>8</height>
+                            <info>Player.Progress</info>
+                            <visible>true</visible>
+                        </control>
+                    </control>
                 </control>
-                
-                <!--<control type="image">
-                    <bottom>0</bottom>
-                    <width>260</width>
-                    <height>260</height>
-                    <texture>$VAR[PlayerPoster]</texture>
-                    <aspectratio aligny="center" align="center">keep</aspectratio>
-                    <visible>IsEmpty(Player.Art(tvshow.poster)) + IsEmpty(Player.Art(poster))</visible>
-                </control>-->
+            </control>
+            <control type="group">
+                <visible>!Window.IsVisible(fullscreeninfo) + !Player.ShowInfo + IsEmpty(Window(home).Property(osdshowinfo))</visible>
+                <visible>Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding</visible>
+                <animation effect="fade" start="0" end="100" delay="150" time="150">Visible</animation>
+                <animation effect="fade" start="0" end="100" delay="150" time="150">WindowOpen</animation>
+                <top>110r</top>
+                <bottom>0</bottom>
+                <width>100%</width>
                 
                 <control type="group">
-                    <include condition="!IsEmpty(Player.Art(tvshow.poster)) | !IsEmpty(Player.Art(poster))">DefPlayerPosterLeft203</include>
-                    <!--<include condition="IsEmpty(Player.Art(tvshow.poster)) + IsEmpty(Player.Art(poster))">DefPlayerPosterLeft290</include>-->
-                    <include condition="IsEmpty(Player.Art(tvshow.poster)) + IsEmpty(Player.Art(poster))">DefPlayerPosterLeft0</include>
-                    <right>0</right>
-                    <control type="label" description="Video Info">
-                        <right>0</right>
-                        <align>right</align>
-                        <width>1000</width>
-                        <top>0</top>
-                        <height>40</height>
-                        <font>Flag</font>
-                        <textcolor>PanelWhite30</textcolor>
-                        <label>$INFO[VideoPlayer.AudioCodec,,  •  ]$VAR[LabelOSDAudioChannels,,  •  ]$INFO[VideoPlayer.VideoResolution,,  •  ]$INFO[VideoPlayer.VideoCodec,,]$INFO[VideoPlayer.RatingAndVotes,  •  ,]</label>
-                    </control>
-                    
-                    <control type="label" description="Title">
-                        <width>1000</width>
-                        <top>0</top>
-                        <height>40</height>
-                        <font>TinyBold</font>
-                        <textcolor>PanelWhite70</textcolor>
-                        <label>$VAR[PlayerTitle]</label>
-                    </control>
-                    
-                    
-                    <control type="label" description="Show">
-                        <width>100%</width>
-                        <top>50</top>
-                        <height>40</height>
-                        <font>MediumBold</font>
-                        <textcolor>PanelWhite70</textcolor>
-                        <label>$VAR[PlayerBigTitle]</label>
-                    </control>
-                    
-                    <control type="textbox" description="Plot">
-                        <width>100%</width>
-                        <top>105</top>
-                        <height>68</height>
-                        <font>Tiny</font>
-                        <align>justify</align>
-                        <textcolor>PanelWhite30</textcolor>
-                        <label>$VAR[PlayerPlotBox]</label>
-                    </control>
-                    
-                    <control type="label" description="Elapsed Time">
+                    <left>SidePad</left>
+                    <right>SidePad</right>
+                    <top>20</top>
+                    <bottom>20</bottom>
+                    <control type="label" description="Finishes Time">
                         <width>400</width>
                         <bottom>30</bottom>
                         <height>40</height>
@@ -97,7 +155,7 @@
                         <textcolor>PanelWhite70</textcolor>
                         <label>$VAR[PlayerStatus]</label>
                     </control>
-                    <control type="label" description="Total Time">
+                    <control type="label" description="Duration Total Time">
                         <right>0</right>
                         <align>right</align>
                         <width>400</width>
@@ -129,62 +187,8 @@
                     </control>
                 </control>
             </control>
+        
         </control>
-        <control type="group">
-            <visible>!Window.IsVisible(fullscreeninfo) + !Player.ShowInfo + IsEmpty(Window(home).Property(osdshowinfo))</visible>
-            <visible>Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding</visible>
-            <animation effect="fade" start="0" end="100" delay="150" time="150">Visible</animation>
-            <animation effect="fade" start="0" end="100" delay="150" time="150">WindowOpen</animation>
-            <top>110r</top>
-            <bottom>0</bottom>
-            <width>100%</width>
-            
-            <control type="group">
-                <left>SidePad</left>
-                <right>SidePad</right>
-                <top>20</top>
-                <bottom>20</bottom>
-                <control type="label" description="Finishes Time">
-                    <width>400</width>
-                    <bottom>30</bottom>
-                    <height>40</height>
-                    <font>Tiny</font>
-                    <textcolor>PanelWhite70</textcolor>
-                    <label>$VAR[PlayerStatus]</label>
-                </control>
-                <control type="label" description="Duration Total Time">
-                    <right>0</right>
-                    <align>right</align>
-                    <width>400</width>
-                    <bottom>30</bottom>
-                    <height>40</height>
-                    <font>Tiny</font>
-                    <textcolor>PanelWhite70</textcolor>
-                    <label>$INFO[Player.Time]  /  $INFO[Player.Duration]</label>
-                </control>
-                <control type="progress" description="cache">
-                    <description>Progress Bar</description>
-                    <width>100%</width>
-                    <bottom>10</bottom>
-                    <height>8</height>
-                    <info>Player.ProgressCache</info>
-                    <visible>true</visible>
-                    <texturebg colordiffuse="00ffffff">osd/progress-bg.png</texturebg>
-                    <lefttexture colordiffuse="Highlight2">osd/progress-end.png</lefttexture>
-                    <midtexture colordiffuse="Highlight2">osd/progress-end.png</midtexture>
-                    <righttexture colordiffuse="Highlight2">osd/progress-end.png</righttexture>
-                </control>
-                <control type="progress" id="23">
-                    <description>Progress Bar</description>
-                    <width>100%</width>
-                    <bottom>10</bottom>
-                    <height>8</height>
-                    <info>Player.Progress</info>
-                    <visible>true</visible>
-                </control>
-            </control>
-        </control>
-    
         <!-- Clock -->
         <include>Furniture_OSDClock</include>
     </controls>

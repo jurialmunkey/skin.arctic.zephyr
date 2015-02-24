@@ -6,30 +6,24 @@
     <controls>
 
         <control type="group">
+            <height>74</height>
+            <bottom>0</bottom>
             <animation type="WindowOpen">
-                <effect type="fade" start="0" end="100" time="150"/>
-                <effect type="slide" start="0,-64" end="0" time="150"/>
+                <effect type="fade" start="0" end="100" time="150" delay="150"/>
             </animation>
             <animation type="WindowClose">
                 <effect type="fade" end="0" start="100" time="150"/>
-                <effect type="slide" end="0,-64" start="0" time="150"/>
             </animation>
             <animation type="Visible">
-                <effect type="fade" start="0" end="100" time="150"/>
-                <effect type="slide" start="0,-64" end="0" time="150"/>
+                <effect type="fade" start="0" end="100" time="150" delay="150"/>
             </animation>
             <animation type="Hidden">
                 <effect type="fade" end="0" start="100" time="150"/>
-                <effect type="slide" end="0,-64" start="0" time="150"/>
             </animation>
-            <control type="image">
-                <width>100%</width>
-                <height>74</height>
-                <texture colordiffuse="OSDBack">common/white.png</texture>
-            </control>
             
             <control type="grouplist" id="100">
                 <top>13</top>
+                <left>50</left>
                 <height>48</height>
                 <itemgap>16</itemgap>
                 <orientation>horizontal</orientation>
@@ -45,6 +39,7 @@
 
                 <control type="button" id="1">
                     <description>Repeat</description>
+                    <align>left</align>
                     <label>$LOCALIZE[486]$INFO[Playlist.Repeat, : ]</label>
                     <onclick>XBMC.PlayerControl(Repeat)</onclick>
                     <include>DefOSDButtons</include>
@@ -52,6 +47,7 @@
 
                 <control type="button" id="2">
                     <description>Lyrics</description>
+                    <align>left</align>
                     <label>24013</label>
                     <onclick>RunScript(script.cu.lrclyrics)</onclick>
                     <include>DefOSDButtons</include>
@@ -59,6 +55,7 @@
                 
                 <control type="button" id="3">
                     <description>Playlist</description>
+                    <align>left</align>
                     <label>559</label>
                     <onclick>ActivateWindow(MusicPlaylist)</onclick>
                     <include>DefOSDButtons</include>
@@ -174,7 +171,7 @@
             
             <control type="grouplist" id="102">
                 <top>13</top>
-                <right>0</right>
+                <right>50</right>
                 <height>48</height>
                 <itemgap>16</itemgap>
                 <orientation>horizontal</orientation>
@@ -188,6 +185,7 @@
                 <control type="button" id="500">
                     <description>Vis</description>
                     <label>250</label>
+                    <align>right</align>
                     <include>DefOSDButtons</include>
                     <disabledcolor>PanelWhite12</disabledcolor>
                 </control>
@@ -196,6 +194,7 @@
                     <width>150</width>
                     <description>Presets</description>
                     <label>13388</label>
+                    <align>right</align>
                     <onclick>ActivateWindow(122)</onclick>
                     <include>DefOSDButtons</include>
                     <disabledcolor>PanelWhite12</disabledcolor>
@@ -203,6 +202,7 @@
 
                 <control type="button" id="6">
                     <width>270</width>
+                    <align>right</align>
                     <description>Random</description>
                     <include>DefOSDButtons</include>
                     <label>$LOCALIZE[590]$INFO[Playlist.Random, : ]</label>
