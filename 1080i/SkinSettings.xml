@@ -243,6 +243,7 @@
                         <visible>ControlGroup(9100).HasFocus(9104)</visible>
                         <include>DefSettingsButton</include>
                         <label>31145</label>
+                        <enable>!Skin.HasSetting(furniture.weather)</enable>
                         <selected>Skin.HasSetting(home.showweatherfanart)</selected>
                         <onclick>Skin.ToggleSetting(home.showweatherfanart)</onclick>
                     </control>
@@ -348,6 +349,14 @@
                         <label>31155</label>
                         <selected>!Skin.HasSetting(furniture.nowplaying)</selected>
                         <onclick>Skin.ToggleSetting(furniture.nowplaying)</onclick>
+                    </control>
+                    <control type="radiobutton" id="9265" description="Weather">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31197</label>
+                        <selected>Skin.HasSetting(furniture.weather)</selected>
+                        <onclick>Skin.ToggleSetting(furniture.weather)</onclick>
                     </control>
                     
                     <!-- Extras -->

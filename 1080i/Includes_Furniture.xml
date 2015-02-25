@@ -590,14 +590,15 @@
             <centerbottom>NavBarPad</centerbottom>
             <visible>!Skin.HasSetting(furniture.clock)</visible>
             <height>84</height>
+            <animation effect="slide" start="0" end="0,-10" time="150" condition="Skin.HasSetting(furniture.weather)">Conditional</animation>
             <control type="label">
                 <centertop>24</centertop>
-                <right>128</right>
+                <right>130</right>
                 <align>right</align>
                 <font>LargeBold</font>
                 <textcolor>Dark1</textcolor>
                 <label>$INFO[System.Time(hh:mm)]</label>
-                <animation effect="slide" start="0" end="48" time="0" condition="IsEmpty(System.Time(xx))">Conditional</animation>
+                <animation effect="slide" start="0" end="50" time="0" condition="IsEmpty(System.Time(xx))">Conditional</animation>
             </control>
             <control type="label">
                 <centertop>30</centertop>
@@ -617,6 +618,16 @@
                 <align>right</align>
                 <width>50%</width>
                 <label>$INFO[System.Date(DDD)]$COMMA $INFO[System.Date(d MMM yyyy)]</label>
+            </control>
+            <control type="label">
+                <centertop>92</centertop>
+                <right>SidePad</right>
+                <font>Flag</font>
+                <textcolor>Dark3</textcolor>
+                <align>right</align>
+                <width>50%</width>
+                <visible>Skin.HasSetting(furniture.weather)</visible>
+                <label>$INFO[Weather.Temperature,[COLOR=Highlight],[/COLOR]  ]$INFO[Weather.Conditions]</label>
             </control>
       
         </control>
