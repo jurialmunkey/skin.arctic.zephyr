@@ -53,6 +53,15 @@
                         <right>30</right>
                         <info>ListItem.Label</info>
                     </control>
+                    <control type="image">
+                        <right>0</right>
+                        <top>0</top>
+                        <width>66</width>
+                        <height>66</height>
+                        <texture colordiffuse="Black30">$INFO[ListItem.Icon]</texture>
+                        <visible>substring(ListItem.Icon,special://skin/extras/icons)</visible>
+                        <visible>Skin.HasSetting(home.showicons)</visible>
+                    </control>
                 </itemlayout>
                 <focusedlayout width="700" height="69">
                     <control type="image">
@@ -76,6 +85,15 @@
                         <right>30</right>
                         <info>ListItem.Label</info>
                         <textcolor>Selected</textcolor>
+                    </control>
+                    <control type="image">
+                        <right>0</right>
+                        <top>0</top>
+                        <width>66</width>
+                        <height>66</height>
+                        <texture colordiffuse="Selected">$INFO[ListItem.Icon]</texture>
+                        <visible>substring(ListItem.Icon,special://skin/extras/icons)</visible>
+                        <visible>Skin.HasSetting(home.showicons)</visible>
                     </control>
                 </focusedlayout>
             </control>
