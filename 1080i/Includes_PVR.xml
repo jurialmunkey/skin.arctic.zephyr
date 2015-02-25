@@ -8,10 +8,58 @@
             <include>GlobalOverlay</include>
         </control>
         <control type="group">
+            <height>732</height>
             <include>Def9000Background</include>
-            <include>Def9000Arrows</include>
             <control type="grouplist" id="9000">
+                <height>700</height>
+                <onback condition="Window.IsVisible(MyPVRGuide.xml) + Control.IsVisible(10)">ActivateWindow(home)</onback>
                 <include>Def9000GroupList</include>
+                <control type="button" id="9001">
+                    <description>Channels</description>
+                    <label>19019</label>
+                    <onclick>ActivateWindow(TVChannels)</onclick>
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                </control>
+                <control type="button" id="9002">
+                    <description>Guide</description>
+                    <label>22020</label>
+                    <onclick>ActivateWindow(TvGuide)</onclick>
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                </control>
+                <control type="button" id="9003">
+                    <description>Recordings</description>
+                    <label>19017</label>
+                    <onclick>ActivateWindow(TVRecordings)</onclick>
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                </control>
+                <control type="button" id="9004">
+                    <description>Timers</description>
+                    <label>19040</label>
+                    <onclick>ActivateWindow(TVTimers)</onclick>
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                </control>
+                <control type="button" id="9005">
+                    <description>Search</description>
+                    <label>137</label>
+                    <onclick>ActivateWindow(TVSearch)</onclick>
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                </control>
+                
+                <!-- PVR options -->
+                <control type="label" id="9010">
+                    <description>Channels</description>
+                    <label>31194</label>
+                    <font>TinyBold</font>
+                    <textcolor>Black30</textcolor>
+                    <textoffsetx>30</textoffsetx>
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                </control>
                 <control type="button" id="28">
                     <description>Group</description>
                     <include>DefContextButton</include>
@@ -34,6 +82,8 @@
                     <label>584</label>
                     <altlabel>585</altlabel>
                 </control>
+                
+                
                 
             </control>
         </control>
@@ -134,7 +184,7 @@
                     <bottom>0</bottom>
                     <onup>50</onup>
                     <ondown>50</ondown>
-                    <onleft>9000</onleft>
+                    <onleft>28</onleft>
                     <onright>60</onright>
                     <pagecontrol>60</pagecontrol>
                     <viewtype label="535">list</viewtype>
@@ -589,7 +639,7 @@
                     <width>1750</width>
                     <top>10</top>
                     <bottom>0</bottom>
-                    <onup>9000</onup>
+                    <onup>28</onup>
                     <ondown>60</ondown>
                     <onleft>51</onleft>
                     <onright>51</onright>
