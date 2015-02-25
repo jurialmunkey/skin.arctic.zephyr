@@ -12,7 +12,9 @@
                 <top>110r</top>
                 <width>100%</width>
                 <height>374</height>
-                <texture colordiffuse="OSDBack">common/white.png</texture>
+                <texture>common/white.png</texture>
+                <colordiffuse>$VAR[OSDPanel]</colordiffuse>
+                <animation effect="fade" start="100" end="90" condition="Skin.HasSetting(osd.usetheme)">Conditional</animation>
                 <animation effect="slide" start="0" end="0,-190" time="150" condition="Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !IsEmpty(Window(home).Property(osdshowinfo))">Conditional</animation>
                 <animation effect="slide" start="0" end="0,110" time="150" condition="!Window.IsVisible(fullscreeninfo) + !Player.Seeking + !Player.DisplayAfterSeek + !Player.Paused + !Player.Forwarding + !Player.Rewinding + !Player.ShowInfo + IsEmpty(Window(home).Property(osdshowinfo))">Conditional</animation>
                 <animation effect="slide" start="0,110" end="0" time="150">Visible</animation>
@@ -38,18 +40,8 @@
                         <visible>!IsEmpty(Player.Art(tvshow.poster)) | !IsEmpty(Player.Art(poster))</visible>
                     </control>
                     
-                    <!--<control type="image">
-                        <bottom>0</bottom>
-                        <width>260</width>
-                        <height>260</height>
-                        <texture>$VAR[PlayerPoster]</texture>
-                        <aspectratio aligny="center" align="center">keep</aspectratio>
-                        <visible>IsEmpty(Player.Art(tvshow.poster)) + IsEmpty(Player.Art(poster))</visible>
-                    </control>-->
-                    
                     <control type="group">
                         <include condition="!IsEmpty(Player.Art(tvshow.poster)) | !IsEmpty(Player.Art(poster))">DefPlayerPosterLeft203</include>
-                        <!--<include condition="IsEmpty(Player.Art(tvshow.poster)) + IsEmpty(Player.Art(poster))">DefPlayerPosterLeft290</include>-->
                         <include condition="IsEmpty(Player.Art(tvshow.poster)) + IsEmpty(Player.Art(poster))">DefPlayerPosterLeft0</include>
                         <right>0</right>
                         <control type="label" description="Video Info">
@@ -59,7 +51,7 @@
                             <top>0</top>
                             <height>40</height>
                             <font>Flag</font>
-                            <textcolor>PanelWhite30</textcolor>
+                            <textcolor>$VAR[OSDPanelWhite30]</textcolor>
                             <label>$INFO[VideoPlayer.AudioCodec,,  •  ]$VAR[LabelOSDAudioChannels,,  •  ]$INFO[VideoPlayer.VideoResolution,,  •  ]$INFO[VideoPlayer.VideoCodec,,]$INFO[VideoPlayer.RatingAndVotes,  •  ,]</label>
                         </control>
                         
@@ -68,7 +60,7 @@
                             <top>0</top>
                             <height>40</height>
                             <font>TinyBold</font>
-                            <textcolor>PanelWhite70</textcolor>
+                            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                             <label>$VAR[PlayerTitle]</label>
                         </control>
                         
@@ -78,7 +70,7 @@
                             <top>50</top>
                             <height>40</height>
                             <font>MediumBold</font>
-                            <textcolor>PanelWhite70</textcolor>
+                            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                             <label>$VAR[PlayerBigTitle]</label>
                         </control>
                         
@@ -88,7 +80,7 @@
                             <height>68</height>
                             <font>Tiny</font>
                             <align>justify</align>
-                            <textcolor>PanelWhite30</textcolor>
+                            <textcolor>$VAR[OSDPanelWhite30]</textcolor>
                             <label>$VAR[PlayerPlotBox]</label>
                         </control>
                         
@@ -97,7 +89,7 @@
                             <bottom>30</bottom>
                             <height>40</height>
                             <font>Tiny</font>
-                            <textcolor>PanelWhite70</textcolor>
+                            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                             <label>$VAR[PlayerStatus]</label>
                         </control>
                         <control type="label" description="Total Time">
@@ -107,8 +99,16 @@
                             <bottom>30</bottom>
                             <height>40</height>
                             <font>Tiny</font>
-                            <textcolor>PanelWhite70</textcolor>
+                            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                             <label>$INFO[Player.Time]  /  $INFO[Player.Duration]</label>
+                        </control>
+                        <control type="image">
+                            <description>Progress Back</description>
+                            <width>100%</width>
+                            <bottom>10</bottom>
+                            <height>8</height>
+                            <texture colordiffuse="Black12">common/white.png</texture>
+                            <visible>Skin.HasSetting(osd.usetheme)</visible>
                         </control>
                         <control type="progress" description="cache">
                             <description>Progress Bar</description>
@@ -152,7 +152,7 @@
                         <bottom>30</bottom>
                         <height>40</height>
                         <font>Tiny</font>
-                        <textcolor>PanelWhite70</textcolor>
+                        <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                         <label>$VAR[PlayerStatus]</label>
                     </control>
                     <control type="label" description="Duration Total Time">
@@ -162,8 +162,16 @@
                         <bottom>30</bottom>
                         <height>40</height>
                         <font>Tiny</font>
-                        <textcolor>PanelWhite70</textcolor>
+                        <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                         <label>$INFO[Player.Time]  /  $INFO[Player.Duration]</label>
+                    </control>
+                    <control type="image">
+                        <description>Progress Back</description>
+                        <width>100%</width>
+                        <bottom>10</bottom>
+                        <height>8</height>
+                        <texture colordiffuse="Black12">common/white.png</texture>
+                        <visible>Skin.HasSetting(osd.usetheme)</visible>
                     </control>
                     <control type="progress" description="cache">
                         <description>Progress Bar</description>

@@ -44,7 +44,9 @@
                 <top>110r</top>
                 <width>100%</width>
                 <height>374</height>
-                <texture colordiffuse="OSDBack">common/white.png</texture>
+                <texture>common/white.png</texture>
+                <colordiffuse>$VAR[OSDPanel]</colordiffuse>
+                <animation effect="fade" start="100" end="90" condition="Skin.HasSetting(osd.usetheme)">Conditional</animation>
                 <animation effect="slide" start="0" end="0,-190" time="150" condition="Window.IsVisible(fullscreeninfo) | Player.ShowInfo">Conditional</animation>
                 <animation effect="slide" start="0" end="0,110" time="150" condition="!Window.IsVisible(fullscreeninfo) + !Player.Seeking + !Player.DisplayAfterSeek + !Player.Paused + !Player.Forwarding + !Player.Rewinding + !Player.ShowInfo">Conditional</animation>
                 <animation effect="slide" start="0,110" end="0" time="150" condition="Window.IsVisible(musicosd) | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.ShowInfo">Conditional</animation>
@@ -87,31 +89,36 @@
                             <control type="image">
                                 <width>64</width>
                                 <height>64</height>
-                                <texture colordiffuse="PanelWhite70">flags/$VAR[OSDMusicFlagstar1].png</texture>
+                                <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                <texture>flags/$VAR[OSDMusicFlagstar1].png</texture>
                             </control>
                             <control type="image">
                                 <posx>-48</posx>
                                 <width>64</width>
                                 <height>64</height>
-                                <texture colordiffuse="PanelWhite70">flags/$VAR[OSDMusicFlagstar2].png</texture>
+                                <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                <texture>flags/$VAR[OSDMusicFlagstar2].png</texture>
                             </control>
                             <control type="image">
                                 <posx>-48</posx>
                                 <width>64</width>
                                 <height>64</height>
-                                <texture colordiffuse="PanelWhite70">flags/$VAR[OSDMusicFlagstar3].png</texture>
+                                <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                <texture>flags/$VAR[OSDMusicFlagstar3].png</texture>
                             </control>
                             <control type="image">
                                 <posx>-48</posx>
                                 <width>64</width>
                                 <height>64</height>
-                                <texture colordiffuse="PanelWhite70">flags/$VAR[OSDMusicFlagstar4].png</texture>
+                                <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                <texture>flags/$VAR[OSDMusicFlagstar4].png</texture>
                             </control>
                             <control type="image">
                                 <posx>-48</posx>
                                 <width>64</width>
                                 <height>64</height>
-                                <texture colordiffuse="PanelWhite70">flags/$VAR[OSDMusicFlagstar5].png</texture>
+                                <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                <texture>flags/$VAR[OSDMusicFlagstar5].png</texture>
                             </control>
                             
                             
@@ -123,7 +130,7 @@
                             <top>0</top>
                             <height>40</height>
                             <font>TinyBold</font>
-                            <textcolor>PanelWhite70</textcolor>
+                            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                             <label>$VAR[PlayerTitle]</label>
                         </control>
                         
@@ -133,7 +140,7 @@
                             <top>50</top>
                             <height>40</height>
                             <font>MediumBold</font>
-                            <textcolor>PanelWhite70</textcolor>
+                            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                             <label>$VAR[PlayerBigTitle]</label>
                         </control>
                         
@@ -143,7 +150,7 @@
                             <height>70</height>
                             <font>Tiny</font>
                             <align>justify</align>
-                            <textcolor>PanelWhite30</textcolor>
+                            <textcolor>$VAR[OSDPanelWhite30]</textcolor>
                             <label>$VAR[PlayerPlotBox]</label>
                         </control>
                         
@@ -152,7 +159,7 @@
                             <bottom>30</bottom>
                             <height>40</height>
                             <font>Tiny</font>
-                            <textcolor>PanelWhite70</textcolor>
+                            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                             <label>$VAR[PlayerStatus]</label>
                         </control>
                         <control type="label" description="Total Time">
@@ -162,8 +169,16 @@
                             <bottom>30</bottom>
                             <height>40</height>
                             <font>Tiny</font>
-                            <textcolor>PanelWhite70</textcolor>
+                            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                             <label>$INFO[Player.Time]  /  $INFO[Player.Duration]</label>
+                        </control>
+                        <control type="image">
+                            <description>Progress Back</description>
+                            <width>100%</width>
+                            <bottom>10</bottom>
+                            <height>8</height>
+                            <texture colordiffuse="Black12">common/white.png</texture>
+                            <visible>Skin.HasSetting(osd.usetheme)</visible>
                         </control>
                         <control type="progress" description="cache">
                             <description>Progress Bar</description>

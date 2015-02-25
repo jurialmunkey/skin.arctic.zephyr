@@ -62,24 +62,6 @@
         <value condition="IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window.Property(randommovies)]</value>
     </variable>
     
-    <include name="DefOSDButtons">
-        <aligny>center</aligny>
-        <align>center</align>
-        <height>48</height>
-        <font>Tiny</font>
-        <textcolor>PanelWhite30</textcolor>
-        <focusedcolor>Highlight</focusedcolor>
-        <texturefocus>noop</texturefocus>
-        <width>210</width>
-    </include>
-    
-    <include name="DefOSDUpDown">
-        <onup condition="IsEmpty(Window(home).Property(osdshowinfo))">SetProperty(osdshowinfo,1,home)</onup>
-        <onup condition="!IsEmpty(Window(home).Property(osdshowinfo))">ClearProperty(osdshowinfo,home)</onup>
-        <ondown condition="IsEmpty(Window(home).Property(osdshowinfo))">SetProperty(osdshowinfo,1,home)</ondown>
-        <ondown condition="!IsEmpty(Window(home).Property(osdshowinfo))">ClearProperty(osdshowinfo,home)</ondown>
-    </include>
-    
     <include name="DefWidgetSelector">
         <align>center</align>
         <aligny>center</aligny>
@@ -411,81 +393,6 @@
             <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
         </control>
     </include>
-
-    <include name="OSDVideosRight">
-        <control type="button" id="5">
-            <description>3D Mode</description>
-            <align>right</align>
-            <label>31117</label>
-            <onclick>StereoMode</onclick>
-            <include>DefOSDButtons</include>
-            <enable>VideoPlayer.IsStereoscopic</enable>
-            <disabledcolor>PanelWhite12</disabledcolor>
-        </control>
-
-        <control type="button" id="6">
-            <description>BookMarks</description>
-            <align>right</align>
-            <include>DefOSDButtons</include>
-            <label>298</label>
-            <onclick>ActivateWindow(125)</onclick>
-        </control>
-    </include>
-    <include name="OSDPVRRight">
-        <control type="button" id="4">
-            <description>CHANNELS</description>
-            <align>right</align>
-            <label>19019</label>
-            <include>DefOSDButtons</include>
-            <onclick>ActivateWindow(pvrosdchannels)</onclick>
-        </control>
-        <control type="button" id="5">
-            <description>EPG</description>
-            <align>right</align>
-            <label>$LOCALIZE[19030] / $LOCALIZE[19031]</label>
-            <onclick>ActivateWindow(pvrosdguide)</onclick>
-            <include>DefOSDButtons</include>
-        </control>
-
-        <control type="button" id="6">
-            <description>TIMELINE</description>
-            <align>right</align>
-            <include>DefOSDButtons</include>
-            <label>19032</label>
-            <onclick>ActivateWindow(tvguide,,return)</onclick>
-        </control>
-    </include>
-    <include name="OSDDVDMenu">
-        <control type="button" id="4">
-            <description>DVD Menu</description>
-            <label>$LOCALIZE[31116]</label>
-            <align>right</align>
-            <include>DefOSDButtons</include>
-            <onclick>PlayerControl(ShowVideoMenu)</onclick>
-            <enable>VideoPlayer.HasMenu</enable>
-            <disabledcolor>White12</disabledcolor>
-        </control>
-    </include>
-    <include name="OSDExtraInfoTV">
-        <control type="button" id="4">
-            <description>Info</description>
-            <label>31147</label>
-            <align>right</align>
-            <include>DefOSDButtons</include>
-            <onclick>RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[VideoPlayer.TvShowTitle])</onclick>
-            <disabledcolor>White12</disabledcolor>
-        </control>
-    </include>
-    <include name="OSDExtraInfoMOVIES">
-        <control type="button" id="4">
-            <description>Info</description>
-            <label>31147</label>
-            <align>right</align>
-            <include>DefOSDButtons</include>
-            <onclick>RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[VideoPlayer.Title])</onclick>
-            <disabledcolor>White12</disabledcolor>
-        </control>
-    </include>
     
     
     <include name="Def9000MusicSide">
@@ -559,4 +466,6 @@
         <value condition="!IsEmpty(Skin.String(MovieHubWidget))">$INFO[Skin.String(MovieHubWidget)]</value>
         <value>special://skin/extras/playlists/RandomMovies.xsp</value>
     </variable>
+    
+    
 </includes>

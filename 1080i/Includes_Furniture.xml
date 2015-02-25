@@ -34,55 +34,6 @@
         </control>
     </include>
     
-    <include name="Furniture_OSDClock">
-        <control type="group">
-            <visible>Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.ShowInfo | Window.IsVisible(fullscreeninfo)</visible>
-            <visible>!Window.IsVisible(DialogKaiToast.xml)</visible>
-            <visible>!Window.IsVisible(DialogExtendedInfo.xml)</visible>
-            <visible>!Window.IsVisible(DialogVolumeBar.xml)</visible>
-            <right>70</right>
-            <posy>70</posy>
-            <width>240</width>
-            <height>90</height>
-            <include>Animation.FadeIn.Slide</include>
-            <include>Animation.FadeOut</include>
-    
-            <control type="image">
-                <description>background image</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width>100%</width>
-                <height>100%</height>
-                <texture border="16" colordiffuse="OSDBack">common/rounded-shadow8.png</texture>
-            </control>
-
-            <control type="group">
-                
-                <control type="image">
-                    <left>20</left>
-                    <centertop>50%</centertop>
-                    <width>48</width>
-                    <height>48</height>
-                    <aspectratio aligny="center">keep</aspectratio>
-                    <texture colordiffuse="PanelWhite70">kaitoast/clock.png</texture>
-                </control>
-                
-                
-                <control type="label">
-                    <right>30</right>
-                    <left>80</left>
-                    <height>100%</height>
-                    <align>right</align>
-                    <aligny>center</aligny>
-                    <font>SmallBold</font>
-                    <textcolor>PanelWhite70</textcolor>
-                    <label>$INFO[System.Time]</label>
-                </control>
-
-            </control>
-        </control>
-        
-    </include>
     
     <include name="Furniture_ButtonBack">
         <width>64</width>

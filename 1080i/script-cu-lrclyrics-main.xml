@@ -9,7 +9,9 @@
             <control type="image">
                 <height>100%</height>
                 <width>100%</width>
-                <texture colordiffuse="OSDBack">common/white.png</texture>
+                <texture>common/white.png</texture>
+                <colordiffuse>$VAR[OSDPanel]</colordiffuse>
+                <animation effect="fade" start="100" end="90" condition="Skin.HasSetting(osd.usetheme)">Conditional</animation>
             </control>
             <control type="group">
                 <animation effect="slide" start="0" end="0,-74" time="150" condition="Window.IsVisible(musicosd)">Conditional</animation>
@@ -35,7 +37,7 @@
                                 <width>749</width>
                                 <selectedcolor>Highlight</selectedcolor>
                                 <info>ListItem.Label</info>
-                                <textcolor>PanelWhite70</textcolor>
+                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                                 <font>Small</font>
                             </control>
                         </itemlayout>
@@ -66,7 +68,7 @@
                                 <width>749</width>
                                 <selectedcolor>Highlight</selectedcolor>
                                 <info>ListItem.Label</info>
-                                <textcolor>PanelWhite70</textcolor>
+                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                                 <font>Small</font>
                             </control>
                         </itemlayout>
@@ -121,31 +123,36 @@
                                 <control type="image">
                                     <width>64</width>
                                     <height>64</height>
-                                    <texture colordiffuse="PanelWhite70">flags/$VAR[OSDMusicFlagstar1].png</texture>
+                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                    <texture>flags/$VAR[OSDMusicFlagstar1].png</texture>
                                 </control>
                                 <control type="image">
                                     <posx>-48</posx>
                                     <width>64</width>
                                     <height>64</height>
-                                    <texture colordiffuse="PanelWhite70">flags/$VAR[OSDMusicFlagstar2].png</texture>
+                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                    <texture>flags/$VAR[OSDMusicFlagstar2].png</texture>
                                 </control>
                                 <control type="image">
                                     <posx>-48</posx>
                                     <width>64</width>
                                     <height>64</height>
-                                    <texture colordiffuse="PanelWhite70">flags/$VAR[OSDMusicFlagstar3].png</texture>
+                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                    <texture>flags/$VAR[OSDMusicFlagstar3].png</texture>
                                 </control>
                                 <control type="image">
                                     <posx>-48</posx>
                                     <width>64</width>
                                     <height>64</height>
-                                    <texture colordiffuse="PanelWhite70">flags/$VAR[OSDMusicFlagstar4].png</texture>
+                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                    <texture>flags/$VAR[OSDMusicFlagstar4].png</texture>
                                 </control>
                                 <control type="image">
                                     <posx>-48</posx>
                                     <width>64</width>
                                     <height>64</height>
-                                    <texture colordiffuse="PanelWhite70">flags/$VAR[OSDMusicFlagstar5].png</texture>
+                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                    <texture>flags/$VAR[OSDMusicFlagstar5].png</texture>
                                 </control>
                                 
                                 
@@ -157,7 +164,7 @@
                                 <top>0</top>
                                 <height>40</height>
                                 <font>TinyBold</font>
-                                <textcolor>PanelWhite70</textcolor>
+                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                                 <label>$VAR[PlayerTitle]</label>
                             </control>
                             
@@ -167,7 +174,7 @@
                                 <top>50</top>
                                 <height>40</height>
                                 <font>MediumBold</font>
-                                <textcolor>PanelWhite70</textcolor>
+                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                                 <label>$VAR[PlayerBigTitle]</label>
                             </control>
                             
@@ -177,7 +184,7 @@
                                 <height>70</height>
                                 <font>Tiny</font>
                                 <align>justify</align>
-                                <textcolor>PanelWhite30</textcolor>
+                                <textcolor>$VAR[OSDPanelWhite30]</textcolor>
                                 <label>$VAR[PlayerPlotBox]</label>
                             </control>
                             
@@ -186,7 +193,7 @@
                                 <bottom>30</bottom>
                                 <height>40</height>
                                 <font>Tiny</font>
-                                <textcolor>PanelWhite70</textcolor>
+                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                                 <label>$VAR[PlayerStatus]</label>
                             </control>
                             <control type="label" description="Total Time">
@@ -196,8 +203,16 @@
                                 <bottom>30</bottom>
                                 <height>40</height>
                                 <font>Tiny</font>
-                                <textcolor>PanelWhite70</textcolor>
+                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                                 <label>$INFO[Player.Time]  /  $INFO[Player.Duration]</label>
+                            </control>
+                            <control type="image">
+                                <description>Progress Back</description>
+                                <width>100%</width>
+                                <bottom>10</bottom>
+                                <height>8</height>
+                                <texture colordiffuse="Black12">common/white.png</texture>
+                                <visible>Skin.HasSetting(osd.usetheme)</visible>
                             </control>
                             <control type="progress" description="cache">
                                 <description>Progress Bar</description>
@@ -244,7 +259,8 @@
                         <width>48</width>
                         <height>48</height>
                         <aspectratio aligny="center">keep</aspectratio>
-                        <texture colordiffuse="PanelWhite70">kaitoast/clock.png</texture>
+                        <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                        <texture>kaitoast/clock.png</texture>
                     </control>
                     
                     
@@ -255,7 +271,7 @@
                         <align>right</align>
                         <aligny>center</aligny>
                         <font>SmallBold</font>
-                        <textcolor>PanelWhite70</textcolor>
+                        <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                         <label>$INFO[System.Time]</label>
                     </control>
 

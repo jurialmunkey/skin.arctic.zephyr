@@ -16,7 +16,9 @@
                 <posy>-1</posy>
                 <width>668</width>
                 <height>1082</height>
-                <texture colordiffuse="OSDBack" border="5">common/white.png</texture>
+                <colordiffuse>$VAR[OSDPanel]</colordiffuse>
+                <texture border="5">common/white.png</texture>
+                <animation effect="fade" start="100" end="90" condition="Skin.HasSetting(osd.usetheme)">Conditional</animation>
             </control>
             <control type="image">
                 <posx>530</posx>
@@ -24,7 +26,7 @@
                 <width>128</width>
                 <height>128</height>
                 <texture>special://skin/extras/icons/livetv.png</texture>
-                <colordiffuse>PanelWhite100</colordiffuse>
+                <colordiffuse>$VAR[OSDPanelWhite100]</colordiffuse>
                 <visible>IsEmpty(Player.Art(thumb)</visible>
             </control>
             <control type="image">
@@ -40,7 +42,7 @@
                 <posy>10</posy>
                 <width>400</width>
                 <align>left</align>
-                <textcolor>PanelWhite100</textcolor>
+                <textcolor>$VAR[OSDPanelWhite100]</textcolor>
                 <font>MediumBold</font>
                 <label>$INFO[VideoPlayer.ChannelName]</label>
             </control>
@@ -49,7 +51,7 @@
                 <posy>43</posy>
                 <width>400</width>
                 <align>left</align>
-                <textcolor>PanelWhite70</textcolor>
+                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                 <font>TinyBold</font>
                 <label>$INFO[Container(11).ListItem.StartDate]</label>
             </control>
@@ -68,15 +70,15 @@
                         <aspectratio aligny="top">center</aspectratio>
                         <animation effect="fade" start="100" end="15" condition="true">Conditional</animation>
                         <visible>StringCompare(ListItem.Title,VideoPlayer.Title) + StringCompare(ListItem.ChannelNumberLabel,VideoPlayer.ChannelNumberLabel) + StringCompare(ListItem.EndTime,VideoPlayer.EndTime)</visible>
-                        <colordiffuse>PanelWhite100</colordiffuse>
+                        <colordiffuse>$VAR[OSDPanelWhite100]</colordiffuse>
                     </control>
                     <control type="label">
                         <left>33</left>
                         <right>22</right>
                         <posy>5</posy>
                         <align>left</align>
-                        <textcolor>PanelWhite70</textcolor>
-                        <PanelWhite100color>PanelWhite70</PanelWhite100color>
+                        <textcolor>$VAR[OSDPanelWhite70]</textcolor>
+                        <selectedcolor>$VAR[OSDPanelWhite70]</selectedcolor>
                         <font>SmallBold</font>
                         <label>$INFO[ListItem.Title]</label>
                     </control>
@@ -86,8 +88,8 @@
                         <right>22</right>
                         <align>left</align>
                         <font>Small</font>
-                        <textcolor>PanelWhite70</textcolor>
-                        <PanelWhite100color>PanelWhite70</PanelWhite100color>
+                        <textcolor>$VAR[OSDPanelWhite70]</textcolor>
+                        <selectedcolor>$VAR[OSDPanelWhite70]</selectedcolor>
                         <label>$INFO[ListItem.StartTime,,   ]</label>
                     </control>
                     <control type="image">
@@ -96,7 +98,7 @@
                         <width>128</width>
                         <height>128</height>
                         <texture>special://skin/extras/icons/timer.png</texture>
-                        <colordiffuse>PanelWhite100</colordiffuse>
+                        <colordiffuse>$VAR[OSDPanelWhite100]</colordiffuse>
                         <visible>ListItem.HasTimer | ListItem.IsRecording</visible>
                         <aspectratio aligny="center" align="center">keep</aspectratio>
                     </control>
