@@ -8,7 +8,7 @@
     <controls>
 
         <control type="visualisation" id="2">
-            <visible>Skin.HasSetting(OSDVisualisation.ShowFanart)</visible>
+            <visible>Skin.HasSetting(OSDVisualisation.ShowFanart) | [!Skin.HasSetting(musicvis.fanartfallback) + [!System.HasAddon(script.artistslideshow) | Skin.HasSetting(ArtistSlideShow.Disabled)]]</visible>
             <description>visualisation</description>
             <include>Dimensions_Fullscreen</include>
         </control>
