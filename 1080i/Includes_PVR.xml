@@ -622,38 +622,28 @@
             <visible>Control.IsVisible(51)</visible>
             <include>Animation.Common</include>
             <control type="group">
-                <left>SidePad</left>
-                <right>SidePad</right>
-                <top>PosterPad</top>
-                <height>640</height>
-                <control type="image">
-                    <left>-8</left>
-                    <right>-8</right>
-                    <top>-8</top>
-                    <bottom>-8</bottom>
-                    <texture colordiffuse="Panel" border="16">common/rounded-shadow8.png</texture>
-                </control>
+          
                 
                 <control type="panel" id="51" description="TV CHANNELS">     
-                    <left>10</left>
-                    <width>1750</width>
-                    <top>10</top>
-                    <bottom>0</bottom>
-                    <onup>28</onup>
-                    <ondown>60</ondown>
-                    <onleft>51</onleft>
-                    <onright>51</onright>
+                    <top>206</top>
+                    <height>660</height>
+                    <left>70</left>
+                    <right>70</right>
+                    <onleft>9000</onleft>
+                    <onright>60</onright>
+                    <onup>51</onup>
+                    <ondown>51</ondown>
+                    <orientation>vertical</orientation>
                     <pagecontrol>60</pagecontrol>
-                    <viewtype label="544">list</viewtype>
-                    <scrolltime>200</scrolltime>
-                    <orientation>horizontal</orientation>
-                    <itemlayout height="315" width="875">
+                    <viewtype label="31198">list</viewtype>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <itemlayout height="330" width="890">
                         <control type="image">
-                            <left>0</left>
-                            <top>0</top>
+                            <left>10</left>
+                            <top>10</top>
                             <right>10</right>
                             <bottom>10</bottom>
-                            <texture colordiffuse="PanelWhite12" border="5">common/box.png</texture>
+                            <texture colordiffuse="Dark4" border="5">common/box.png</texture>
                         </control>
                         <control type="image">                                
                             <left>20</left>
@@ -670,19 +660,19 @@
                             <height>50</height>
                             <align>left</align>
                             <font>SmallBold</font>
-                            <textcolor>PanelWhite70</textcolor>
-                            <selectedcolor>PanelWhite70</selectedcolor>
+                            <textcolor>Dark1</textcolor>
+                            <selectedcolor>Dark1</selectedcolor>
                             <label>$INFO[ListItem.Title]</label>
                         </control>
                         <control type="textbox">
                             <left>260</left>
                             <right>30</right>
-                            <top>60</top>
+                            <top>70</top>
                             <bottom>128</bottom>
                             <align>justify</align>
                             <font>Tiny</font>
-                            <textcolor>PanelWhite70</textcolor>
-                            <selectedcolor>PanelWhite70</selectedcolor>
+                            <textcolor>Dark1</textcolor>
+                            <selectedcolor>Dark1</selectedcolor>
                             <label>$INFO[ListItem.Plot]</label>
                         </control>
                         <control type="label">
@@ -693,8 +683,8 @@
                             <height>38</height>
                             <align>left</align>
                             <font>Tiny</font>
-                            <textcolor>PanelWhite70</textcolor>
-                            <selectedcolor>PanelWhite70</selectedcolor>
+                            <textcolor>Dark1</textcolor>
+                            <selectedcolor>Dark1</selectedcolor>
                             <label>$INFO[ListItem.NextTitle,[B]$LOCALIZE[19031]:[/B] ,]</label>
                         </control>
                         <control type="label">
@@ -704,8 +694,8 @@
                             <aligny>center</aligny>
                             <align>right</align>
                             <font>EpisodeNumber</font>
-                            <textcolor>PanelWhite70</textcolor>
-                            <selectedcolor>PanelWhite70</selectedcolor>
+                            <textcolor>Dark1</textcolor>
+                            <selectedcolor>Dark1</selectedcolor>
                             <label>$INFO[ListItem.ChannelNumber]</label>
                         </control>
                         <control type="progress">
@@ -719,7 +709,7 @@
                             <midtexture>pvr/progress-mid.png</midtexture>
                             <righttexture>pvr/progress-leftright.png</righttexture>
                             <info>ListItem.Progress</info>
-                            <colordiffuse>PanelWhite70</colordiffuse>
+                            <colordiffuse>Dark1</colordiffuse>
                         </control>
                         <control type="label">
                             <left>110</left>
@@ -729,18 +719,18 @@
                             <aligny>center</aligny>
                             <align>left</align>
                             <font>SmallBold</font>
-                            <textcolor>PanelWhite70</textcolor>
-                            <selectedcolor>PanelWhite70</selectedcolor>
+                            <textcolor>Dark1</textcolor>
+                            <selectedcolor>Dark1</selectedcolor>
                             <label>$INFO[ListItem.ChannelName]</label>
                         </control>
                     </itemlayout>
-                    <focusedlayout height="315" width="875">
+                    <focusedlayout height="330" width="890">
                         <control type="image">
-                            <left>0</left>
-                            <top>0</top>
+                            <left>10</left>
+                            <top>10</top>
                             <right>10</right>
                             <bottom>10</bottom>
-                            <texture colordiffuse="Highlight" border="5">common/box.png</texture>
+                            <texture colordiffuse="Dark1" border="5">common/box.png</texture>
                         </control>
                         <control type="image">                                
                             <left>20</left>
@@ -757,19 +747,19 @@
                             <height>50</height>
                             <align>left</align>
                             <font>SmallBold</font>
-                            <textcolor>Selected</textcolor>
-                            <selectedcolor>Selected</selectedcolor>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
                             <label>$INFO[ListItem.Title]</label>
                         </control>
                         <control type="textbox">
                             <left>260</left>
                             <right>30</right>
-                            <top>60</top>
+                            <top>70</top>
                             <bottom>128</bottom>
                             <align>justify</align>
                             <font>Tiny</font>
-                            <textcolor>Selected</textcolor>
-                            <selectedcolor>Selected</selectedcolor>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
                             <label>$INFO[ListItem.Plot]</label>
                         </control>
                         <control type="label">
@@ -780,8 +770,8 @@
                             <height>38</height>
                             <align>left</align>
                             <font>Tiny</font>
-                            <textcolor>Selected</textcolor>
-                            <selectedcolor>Selected</selectedcolor>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
                             <label>$INFO[ListItem.NextTitle,[B]$LOCALIZE[19031]:[/B] ,]</label>
                         </control>
                         <control type="label">
@@ -791,8 +781,8 @@
                             <aligny>center</aligny>
                             <align>right</align>
                             <font>EpisodeNumber</font>
-                            <textcolor>Selected</textcolor>
-                            <selectedcolor>Selected</selectedcolor>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
                             <label>$INFO[ListItem.ChannelNumber]</label>
                         </control>
                         <control type="progress">
@@ -806,7 +796,7 @@
                             <midtexture>pvr/progress-mid.png</midtexture>
                             <righttexture>pvr/progress-leftright.png</righttexture>
                             <info>ListItem.Progress</info>
-                            <colordiffuse>Selected</colordiffuse>
+                            <colordiffuse>Light1</colordiffuse>
                         </control>
                         <control type="label">
                             <left>110</left>
@@ -816,17 +806,16 @@
                             <aligny>center</aligny>
                             <align>left</align>
                             <font>SmallBold</font>
-                            <textcolor>Selected</textcolor>
-                            <selectedcolor>Selected</selectedcolor>
+                            <textcolor>Light1</textcolor>
+                            <selectedcolor>Light1</selectedcolor>
                             <label>$INFO[ListItem.ChannelName]</label>
                         </control>
-                       
                         
                     </focusedlayout>
                 </control>
                 
             </control>
-            <include>Furniture_Scrollbar_Horizontal</include>
+            <include>Furniture_Scrollbar</include>
         </control>
     </include>
 

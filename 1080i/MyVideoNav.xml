@@ -3,7 +3,7 @@
 <window id="6">
     <defaultcontrol always="true">50</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
-    <views>50,54,53,51,55,56,57,52,500</views>
+    <views>50,54,53,51,55,56,57,58,52,500</views>
     <onload condition="Skin.HasSetting(ActivateTvTunes) + System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
     <onload condition="System.HasAddon(script.tv.show.next.aired)">RunScript(script.tv.show.next.aired,backend=True)</onload>
     
@@ -27,6 +27,7 @@
         <include condition="Skin.HasSetting(56media.low)">View_56_MediaInfo3</include>
         <include condition="!Skin.HasSetting(57list.low)">View_57_ExtraInfo</include>
         <include condition="Skin.HasSetting(57list.low)">View_57_ExtraInfo_LowList</include>
+        <include>View_58_Cards</include>
         <include>View_500_Thumbnails</include>
         
         <include>Furniture_Header</include>
