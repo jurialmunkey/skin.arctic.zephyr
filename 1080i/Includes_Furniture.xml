@@ -641,6 +641,7 @@
             <visible>IsEmpty(Window(10025).Property(TvTunesIsAlive))</visible>
             <visible>!Window.IsActive(DialogKaiToast.xml)</visible>
             <visible>Player.HasMedia</visible>
+            <visible>!IsEmpty(Player.Duration)</visible>
             <animation effect="slide" start="0" end="0,-250" time="150" condition="Control.HasFocus(301)">Conditional</animation>
             <top>SidePad</top>
             <right>SidePad</right>
@@ -733,20 +734,9 @@
                     <width>100</width>
                     <height>100</height>
                     <texture>$INFO[Control.GetLabel(933),progress/circle/p,.png]</texture>
-                    <visible>!IsEmpty(Player.Duration)</visible>
                     <aspectratio align="center">keep</aspectratio>
                 </control>
-                <control type="image">
-                    <description>Loading indicator</description>
-                    <centerleft>50%</centerleft>
-                    <centertop>50%</centertop>
-                    <width>100</width>
-                    <height>100</height>
-                    <texture>progress/loading.png</texture>
-                    <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="!Player.Paused">Conditional</animation>
-                    <visible>IsEmpty(Player.Duration)</visible>
-                    <aspectratio align="center">keep</aspectratio>
-                </control>
+         
             </control>
         </control>
     </include>
