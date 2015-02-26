@@ -196,11 +196,21 @@
                     </control>
                     
                     <!-- OSD -->
+                    <control type="radiobutton" id="9235" description="Show Fanart">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9103)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31121</label>
+                        <selected>Skin.HasSetting(musicvis.fanartfallback)</selected>
+                        <enable>!System.HasAddon(script.artistslideshow) | Skin.HasSetting(ArtistSlideShow.Disabled)</enable>
+                        <onclick>Skin.ToggleSetting(musicvis.fanartfallback)</onclick>
+                    </control>
                     <control type="radiobutton" id="9231" description="Show slideshow in background">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9103)</visible>
                         <include>DefSettingsButton</include>
                         <label>31118</label>
+                        <enable>System.HasAddon(script.artistslideshow)</enable>
                         <selected>!Skin.HasSetting(ArtistSlideShow.Disabled)</selected>
                         <onclick>Skin.ToggleSetting(ArtistSlideShow.Disabled)</onclick>
                     </control>
