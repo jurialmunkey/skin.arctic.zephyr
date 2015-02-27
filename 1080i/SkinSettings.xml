@@ -260,6 +260,15 @@
                         <selected>Skin.HasSetting(home.classicwidgets)</selected>
                         <onclick>Skin.ToggleSetting(home.classicwidgets)</onclick>
                     </control>
+                    <control type="radiobutton" id="9248" description="Classic Widget Auto show">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9104)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31200</label>
+                        <enable>Skin.HasSetting(home.classicwidgets)</enable>
+                        <selected>Skin.HasSetting(home.dontautoshowwidget)</selected>
+                        <onclick>Skin.ToggleSetting(home.dontautoshowwidget)</onclick>
+                    </control>
                     <control type="radiobutton" id="9246" description="Show slideshow instead of fanart">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9104)</visible>
