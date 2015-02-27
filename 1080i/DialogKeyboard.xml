@@ -13,54 +13,48 @@
         <include>GlobalOverlay</include>
         <control type="group">
             <visible>!Window.IsVisible(numericinput)</visible>
-
-            <posy>520r</posy>
-            <animation effect="slide" start="0,700" end="0" time="200">WindowOpen</animation>
+            <include>Animation.ZoomIn</include>
             <include>Animation.FadeOut</include>
             
-            
+            <centerleft>50%</centerleft>
+            <centertop>60%</centertop>
+            <height>522</height>
+            <width>1530</width>
             <control type="image">
-                <posy>-16</posy>
-                <width>100%</width>
-                <height>16</height>
-                <texture border="16" flipy="true">common/shadow16B.png</texture>
-            </control>
-            <control type="image">
-                <width>1920</width>
-                <height>764</height>
-                <texture border="5" colordiffuse="Panel">common/white.png</texture>
-            </control>
-            
-            <control type="label" id="311">
-                <description>Heading</description>
-                <posy>16</posy>
-                <posx>10</posx>
-                <width>460</width>
-                <height>75</height>
-                <aligny>center</aligny>
-                <align>center</align>
-                <scroll>true</scroll>
-                <textcolor>PanelWhite70</textcolor>
+                <top>-8</top>
+                <bottom>-8</bottom>
+                <left>-8</left>
+                <right>-8</right>
+                <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
             </control>
 
             <control type="image">
-                <posx>480</posx>
                 <posy>11</posy>
-                <width>1430</width>
+                <left>10</left>
+                <right>10</right>
                 <height>75</height>
                 <aspectratio>stretch</aspectratio>
-                
-                <texture border="20" colordiffuse="PanelBlack30">common/box.png</texture>
+                <texture border="20" colordiffuse="Black12">common/box.png</texture>
             </control>
-
+            <control type="label" id="311">
+                <description>Heading</description>
+                <left>30</left>
+                <right>30</right>
+                <posy>-70</posy>
+                <height>75</height>
+                <align>center</align>
+                <font>SmallBold</font>
+                <textcolor>PanelWhite100</textcolor>
+            </control>
             <control type="edit" id="312">
                 <description>Edit Text</description>
-                <posx>480</posx>
+                <left>10</left>
+                <right>10</right>
                 <posy>11</posy>
-                <width>1430</width>
                 <height>75</height>
-                <align>left</align>
-                <textcolor>PanelWhite70</textcolor>
+                <align>center</align>
+                <textcolor>Black70</textcolor>
+                <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
             </control>
 
             <control type="group">
@@ -73,7 +67,8 @@
                         <description>Layout</description>
                         <onup>300</onup>
                         <ondown>302</ondown>
-                        <width>460</width>
+                        <width>370</width>
+                        <textoffsetx>20</textoffsetx>
                         <include>DefKeyboardKeys</include>
                     </control>
                     <control type="button" id="100">
@@ -155,7 +150,7 @@
                     <itemgap>10</itemgap>
                     <control type="radiobutton" id="302">
                         <description>Shift</description>
-                        <width>460</width>
+                        <width>370</width>
                         <label>20178</label>
                         <include>DefKeyboardKeys</include>
                         <onup>309</onup>
@@ -240,7 +235,7 @@
                     <itemgap>10</itemgap>
                     <control type="radiobutton" id="303">
                         <description>Caps</description>
-                        <width>460</width>
+                        <width>370</width>
                         <label>20179</label>
                         <include>DefKeyboardKeys</include>
                         <onup>302</onup>
@@ -325,7 +320,7 @@
                     <itemgap>10</itemgap>
                     <control type="button" id="307">
                         <description>IP</description>
-                        <width>225</width>
+                        <width>180</width>
                         <label>IP</label>
                         <onup>303</onup>
                         <ondown>300</ondown>
@@ -333,7 +328,7 @@
                     </control>
                     <control type="radiobutton" id="304">
                         <description>Symbols</description>
-                        <width>225</width>
+                        <width>180</width>
                         <label>@#!*</label>
                         <onup>303</onup>
                         <ondown>300</ondown>
@@ -422,7 +417,7 @@
                     <itemgap>10</itemgap>
                     <control type="button" id="300">
                         <description>Done</description>
-                        <width>460</width>
+                        <width>370</width>
                         <label>20177</label>
                         <onup>307</onup>
                         <ondown>309</ondown>
@@ -431,7 +426,7 @@
                     
                     <control type="button" id="32">
                         <description>Layout</description>
-                        <width>950</width>
+                        <width>655</width>
                         <label>20182</label>
                         <onup>160</onup>
                         <ondown>100</ondown>
@@ -439,7 +434,7 @@
                     </control>
                     <control type="button" id="8">
                         <description>Backspace</description>
-                        <width>230</width>
+                        <width>275</width>
                         <label>20181</label>
                         <onup>169</onup>
                         <ondown>109</ondown>
