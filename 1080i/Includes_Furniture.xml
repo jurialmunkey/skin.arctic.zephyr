@@ -633,6 +633,7 @@
         
     </include>
     <include name="Furniture_NowPlaying">
+        
         <control type="grouplist">
             <visible>!Skin.HasSetting(furniture.nowplaying)</visible>
             <include>Animation.FadeIn</include>
@@ -642,13 +643,15 @@
             <visible>Player.HasMedia</visible>
             <visible>!IsEmpty(Player.Duration)</visible>
             <animation effect="slide" start="0" end="0,-250" time="150" condition="Control.HasFocus(301)">Conditional</animation>
-            <top>SidePad</top>
-            <right>SidePad</right>
+            <top>70</top>
+            <right>62</right>
             <orientation>horizontal</orientation>
+            <usecontrolcoords>true</usecontrolcoords>
             <itemgap>24</itemgap>
             <align>right</align>
             <control type="group">
                 <width>700</width>
+                <posy>10</posy>
                 <visible>Player.HasVideo</visible>
                 <control type="label">
                     <centertop>24</centertop>
@@ -669,6 +672,7 @@
             </control>
             <control type="group">
                 <width>700</width>
+                <posy>10</posy>
                 <visible>!Player.HasVideo</visible>
                 <control type="label">
                     <centertop>24</centertop>
@@ -688,10 +692,11 @@
                 </control>
             </control>
             <control type="group">
-                <height>80</height>
-                <width>64</width>
+                <posx>-20</posx>
+                <height>100</height>
+                <width>100</width>
                 <control type="image" description="Back">
-                    <centerleft>50%</centerleft>
+                    <left>0</left>
                     <centertop>50%</centertop>
                     <width>100</width>
                     <height>100</height>
@@ -700,7 +705,7 @@
                     <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
                 </control>
                 <control type="image" description="Play">
-                    <centerleft>50%</centerleft>
+                    <left>0</left>
                     <centertop>50%</centertop>
                     <width>100</width>
                     <height>100</height>
@@ -710,7 +715,7 @@
                     <visible>!Player.Paused</visible>
                 </control>
                 <control type="image" description="Pause">
-                    <centerleft>50%</centerleft>
+                    <left>0</left>
                     <centertop>50%</centertop>
                     <width>100</width>
                     <height>100</height>
@@ -728,7 +733,7 @@
                     <visible>false</visible>
                 </control>
                 <control type="image">
-                    <centerleft>50%</centerleft>
+                    <left>0</left>
                     <centertop>50%</centertop>
                     <width>100</width>
                     <height>100</height>
