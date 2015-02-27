@@ -652,14 +652,13 @@
             <control type="group">
                 <width>700</width>
                 <posy>10</posy>
-                <visible>Player.HasVideo</visible>
                 <control type="label">
                     <centertop>24</centertop>
                     <width>auto</width>
                     <font>MediumBold</font>
                     <align>right</align>
                     <textcolor>Dark1</textcolor>
-                    <label>$INFO[VideoPlayer.Title]</label>
+                    <label>$INFO[Player.Title]</label>
                 </control>
                 <control type="label">
                     <centertop>58</centertop>
@@ -667,28 +666,7 @@
                     <font>Flag</font>
                     <width>auto</width>
                     <textcolor>Dark2</textcolor>
-                    <label>$INFO[VideoPlayer.Time,, / ]$INFO[VideoPlayer.Duration]</label>
-                </control>
-            </control>
-            <control type="group">
-                <width>700</width>
-                <posy>10</posy>
-                <visible>!Player.HasVideo</visible>
-                <control type="label">
-                    <centertop>24</centertop>
-                    <width>auto</width>
-                    <font>MediumBold</font>
-                    <align>right</align>
-                    <textcolor>Dark1</textcolor>
-                    <label>$INFO[MusicPlayer.Title]</label>
-                </control>
-                <control type="label">
-                    <centertop>58</centertop>
-                    <align>right</align>
-                    <font>Flag</font>
-                    <width>auto</width>
-                    <textcolor>Dark2</textcolor>
-                    <label>$INFO[MusicPlayer.Artist,,  ]$INFO[VideoPlayer.Time,, / ]$INFO[VideoPlayer.Duration]</label>
+                    <label>$INFO[VideoPlayer.TvShowTitle,,  ]$INFO[MusicPlayer.Artist,,  ]$INFO[Player.Time,, / ]$INFO[Player.Duration]</label>
                 </control>
             </control>
             <control type="group">
