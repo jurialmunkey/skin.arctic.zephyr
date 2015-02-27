@@ -15,7 +15,7 @@
                 <texture>common/white.png</texture>
                 <colordiffuse>$VAR[OSDPanel]</colordiffuse>
                 <animation effect="fade" start="100" end="95" condition="Skin.HasSetting(osd.usetheme)">Conditional</animation>
-                <animation effect="slide" start="0" end="0,-190" time="150" condition="Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !IsEmpty(Window(home).Property(osdshowinfo))">Conditional</animation>
+                <animation effect="slide" start="0" end="0,-190" time="150" condition="Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !IsEmpty(Window(home).Property(osdshowinfo)) | [Player.Paused + Skin.HasSetting(osd.showinfoonpause)]">Conditional</animation>
                 <animation effect="slide" start="0" end="0,110" time="150" condition="!Window.IsVisible(fullscreeninfo) + !Player.Seeking + !Player.DisplayAfterSeek + !Player.Paused + !Player.Forwarding + !Player.Rewinding + !Player.ShowInfo + IsEmpty(Window(home).Property(osdshowinfo))">Conditional</animation>
                 <animation effect="slide" start="0,110" end="0" time="150">Visible</animation>
                 <animation effect="slide" start="0,110" end="0" time="150">WindowOpen</animation>
@@ -25,7 +25,7 @@
                 <top>300r</top>
                 <bottom>0</bottom>
                 <width>100%</width>
-                <visible>Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !IsEmpty(Window(home).Property(osdshowinfo))</visible>
+                <visible>Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !IsEmpty(Window(home).Property(osdshowinfo)) | [Player.Paused + Skin.HasSetting(osd.showinfoonpause)]</visible>
                 <animation effect="fade" start="0" end="100" delay="150" time="150">Visible</animation>
                 <animation effect="fade" start="0" end="100" delay="150" time="150">WindowOpen</animation>
                 <control type="group">
@@ -134,6 +134,7 @@
                 </control>
             </control>
             <control type="group">
+                <visible>!Player.Paused | !Skin.HasSetting(osd.showinfoonpause)</visible>
                 <visible>!Window.IsVisible(fullscreeninfo) + !Player.ShowInfo + IsEmpty(Window(home).Property(osdshowinfo))</visible>
                 <visible>Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding</visible>
                 <animation effect="fade" start="0" end="100" delay="150" time="150">Visible</animation>
