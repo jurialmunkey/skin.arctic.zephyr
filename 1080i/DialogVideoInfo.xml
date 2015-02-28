@@ -68,6 +68,13 @@
                     <texture colordiffuse="Dark1">flags/imdb.png</texture>
                     <visible>!IsEmpty(ListItem.Top250)</visible>
                 </control>
+                <control type="label">
+                    <width>60</width>
+                    <height>64</height>            
+                    <label>$INFO[ListItem.Top250,[B]#,[/B]]</label>
+                    <font>TinyBold</font>
+                    <visible>!IsEmpty(ListItem.Top250)</visible>
+                </control>
 
                 <control type="image">
                     <width>64</width>
