@@ -656,7 +656,7 @@
             <visible>IsEmpty(Window(10025).Property(TvTunesIsAlive))</visible>
             <visible>!Window.IsActive(DialogKaiToast.xml)</visible>
             <visible>Player.HasMedia</visible>
-            <visible>!IsEmpty(Player.Duration)</visible>
+            <visible>!IsEmpty(Player.Duration) | Player.HasAudio</visible>
             <animation effect="slide" start="0" end="0,-250" time="150" condition="Control.HasFocus(301)">Conditional</animation>
             <top>70</top>
             <right>62</right>
@@ -681,7 +681,7 @@
                     <font>Flag</font>
                     <width>auto</width>
                     <textcolor>Dark2</textcolor>
-                    <label>$INFO[VideoPlayer.TvShowTitle,,  ]$INFO[MusicPlayer.Artist,,  ]$INFO[Player.Time,, / ]$INFO[Player.Duration]</label>
+                    <label>$INFO[VideoPlayer.TvShowTitle,,  ]$INFO[MusicPlayer.Artist,,  ]$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
                 </control>
             </control>
             <control type="group">
@@ -732,8 +732,9 @@
                     <height>100</height>
                     <texture>$INFO[Control.GetLabel(933),progress/circle/p,.png]</texture>
                     <aspectratio align="center">keep</aspectratio>
+                    <visible>!IsEmpty(Player.Duration)</visible>
                 </control>
-         
+              
             </control>
         </control>
     </include>
