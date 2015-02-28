@@ -308,6 +308,7 @@
                 <texture colordiffuse="Dark1">flags/3D.png</texture>
                 <visible>ListItem.IsStereoscopic</visible>
             </control>
+            
             <control type="image">
                 <width>64</width>
                 <centertop>50%</centertop>
@@ -328,6 +329,14 @@
                 <height>64</height>
                 <texture colordiffuse="Dark1">flags/dvd.png</texture>
                 <visible>substring(ListItem.FilenameAndPath,dvd) + !substring(ListItem.FilenameAndPath,hddvd)</visible>
+            </control>
+            
+            <control type="image">
+                <width>64</width>
+                <centertop>50%</centertop>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/imdb.png</texture>
+                <visible>!IsEmpty(ListItem.Top250)</visible>
             </control>
             
         </control>
@@ -463,7 +472,13 @@
                 <visible>substring(Container(9500).ListItem.FilenameAndPath,dvd) + !substring(Container(9500).ListItem.FilenameAndPath,hddvd)</visible>
             </control>
             
-            
+            <control type="image">
+                <width>64</width>
+                <centertop>50%</centertop>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/imdb.png</texture>
+                <visible>!IsEmpty(Container(9500).ListItem.Top250)</visible>
+            </control>
 
             
             
