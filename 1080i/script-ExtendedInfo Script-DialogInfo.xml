@@ -166,12 +166,36 @@
                         <visible>Control.HasFocus(250)</visible>
                         <visible>Control.IsVisible(250)</visible>
                     </control>
+                    <!-- As Crew Names -->
+                    <control type="label">
+                        <width>100%</width>
+                        <height>25</height>
+                        <font>SmallBold</font>
+                        <label>$ADDON[script.extendedinfo 32115]</label>
+                        <aligny>center</aligny>
+                        <visible>!Control.HasFocus(550)</visible>
+                        <visible>Control.IsVisible(550)</visible>
+                    </control>
+                    <control type="label">
+                        <width>100%</width>
+                        <height>25</height>
+                        <font>SmallBold</font>
+                        <label>$ADDON[script.extendedinfo 32115] - $INFO[Container(550).ListItem.Label]$INFO[Container(550).ListItem.Year, (,)]</label>
+                        <aligny>center</aligny>
+                        <visible>Control.HasFocus(550)</visible>
+                        <visible>Control.IsVisible(550)</visible>
+                    </control>
                 </control>
+                
+                <control type="list" id="350"><visible>false</visible></control>
+                <control type="list" id="450"><visible>false</visible></control>
+                <control type="list" id="650"><visible>false</visible></control>
+                <control type="list" id="750"><visible>false</visible></control>
 
 
                 <control type="button" id ="9000">
                     <description>Switch Movies/Shows</description>
-                    <label>$LOCALIZE[20342] / $LOCALIZE[20343]</label>
+                    <label>$LOCALIZE[20342] / $LOCALIZE[20343] / $ADDON[script.extendedinfo 32115]</label>
                     <left>30</left>
                     <width>450</width>
                     <height>68</height>
@@ -179,9 +203,11 @@
                     <onup>9000</onup>
                     <ondown>9000</ondown>
                     <onright condition="IsEmpty(Window.Property(Switcher))">150</onright>
-                    <onright condition="!IsEmpty(Window.Property(Switcher))">250</onright>
+                    <onright condition="stringcompare(Window.Property(Switcher),1)">250</onright>
+                    <onright condition="stringcompare(Window.Property(Switcher),2)">550</onright>
                     <onclick condition="IsEmpty(Window.Property(Switcher))">SetProperty(Switcher,1)</onclick>
-                    <onclick condition="!IsEmpty(Window.Property(Switcher))">ClearProperty(Switcher)</onclick>
+                    <onclick condition="stringcompare(Window.Property(Switcher),1)">SetProperty(Switcher,2)</onclick>
+                    <onclick condition="stringcompare(Window.Property(Switcher),2)">ClearProperty(Switcher)</onclick>
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
                     <include>DefDialogButtons</include>
@@ -254,7 +280,7 @@
                     <ondown>9000</ondown>
                     <onleft>9000</onleft>
                     <orientation>horizontal</orientation>
-                    <visible>!IsEmpty(Window.Property(Switcher))</visible>
+                    <visible>stringcompare(Window.Property(Switcher),1)</visible>
                     <scrolltime>200</scrolltime>
 
                     <itemlayout height="282" width="198">
@@ -303,7 +329,64 @@
 
                 </control>
                 
+                <control type="list" id="550" description="As Crew">
+                    <width>792</width>
+                    <right>20</right>
+                    <bottom>30</bottom>
+                    <height>282</height>
+                    <onup>9000</onup>
+                    <ondown>9000</ondown>
+                    <onleft>9000</onleft>
+                    <orientation>horizontal</orientation>
+                    <visible>stringcompare(Window.Property(Switcher),2)</visible>
+                    <scrolltime>200</scrolltime>
 
+                    <itemlayout height="282" width="198">
+                        <control type="image">
+                            <left>0</left>
+                            <right>10</right>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                            <texture border="5" colordiffuse="Black12">common/box.png</texture>
+                        </control>
+                        <control type="image">
+                            <left>8</left>
+                            <right>18</right>
+                            <top>8</top>
+                            <bottom>8</bottom>
+                            <texture diffuse="diffuse/wall.png">$INFO[ListItem.Thumb]</texture>
+                        </control>
+                
+                    </itemlayout>
+
+                    <focusedlayout height="282" width="198">
+                        <control type="image">
+                            <left>0</left>
+                            <right>10</right>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                            <texture border="5" colordiffuse="Black12">common/box.png</texture>
+                            <visible>!Control.HasFocus(550)</visible>
+                        </control>
+                        <control type="image">
+                            <left>0</left>
+                            <right>10</right>
+                            <top>0</top>
+                            <bottom>0</bottom>
+                            <texture border="5" colordiffuse="Highlight">common/box.png</texture>
+                            <visible>Control.HasFocus(550)</visible>
+                        </control>
+                        <control type="image">
+                            <left>8</left>
+                            <right>18</right>
+                            <top>8</top>
+                            <bottom>8</bottom>
+                            <texture diffuse="diffuse/wall.png">$INFO[ListItem.Thumb]</texture>
+                        </control>
+                    </focusedlayout>
+
+                </control>
+                
             </control>
         </control>
     </controls>
