@@ -514,6 +514,7 @@
     <include name="HomeRow">
         <!-- Home Row -->
         <control type="group">
+            
             <animation effect="slide" start="0" end="0,250" time="150" condition="!Skin.HasSetting(home.classicwidgets) + [Control.HasFocus(301) | ControlGroup(303).HasFocus()]">Conditional</animation>
             <animation effect="slide" start="0" end="0,250" time="150">WindowClose</animation>
             <animation effect="slide" end="0" start="0,250" time="150">WindowOpen</animation>
@@ -566,6 +567,7 @@
                 <texture colordiffuse="Dark2" flipx="false">common/arrow-small-right.png</texture>
             </control>
             <control type="list" id="300">
+                
                 <include>Animation.FadeIn.Delay</include>
                 <include>Animation.FadeOut</include>
                 <description>Home Wraplist</description>
@@ -720,6 +722,71 @@
         
     </include>
 
+    <include name="HomeSubMenu2">
+        <control type="group">
+           
+            <control type="list" id="302">
+                <visible allowhiddenfocus="true">Control.HasFocus(302)</visible>
+                <animation type="Visible" reversible="false">
+                    <effect type="fade" start="0" end="100" time="300" delay="150"/>
+                </animation>
+                <include>Animation.FadeOut</include>
+                <description>Home Wraplist</description>
+                <left>SidePad</left>
+                <include condition="!Skin.HasSetting(furniture.clock)">DefHomeRight520</include>
+                <include condition="Skin.HasSetting(furniture.clock)">DefHomeRightSidePad</include>
+                <onup>300</onup>
+                <ondown>300</ondown>
+                <onleft>302</onleft>
+                <onright>302</onright>
+                <orientation>horizontal</orientation>
+                <scrolltime>200</scrolltime>
+                <top>982</top>
+                <itemlayout width="220" height="64">
+                    <control type="label">
+                        <align>center</align>
+                        <aligny>top</aligny>
+                        <width>180</width>
+                        <top>0</top>
+                        <centerleft>50%</centerleft>
+                        <textcolor>Dark3</textcolor>
+                        <font>HomeIcon</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                </itemlayout>
+
+                <focusedlayout width="220" height="64">
+                    <control type="label">
+                        <align>center</align>
+                        <aligny>top</aligny>
+                        <width>90%</width>
+                        <top>0</top>
+                        <centerleft>50%</centerleft>
+                        <textcolor>Dark1</textcolor>
+                        <font>HomeIcon</font>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="image">
+                        <top>44</top>
+                        <centerleft>50%</centerleft>
+                        <width>90%</width>
+                        <height>4</height>
+                        <texture colordiffuse="Highlight">common/box.png</texture>
+                        <visible>Control.HasFocus(302)</visible>
+                        <include>Animation.FadeIn</include>
+                        <include>Animation.FadeOut</include>
+                    </control>
+         
+                </focusedlayout>
+                <content>
+                    <include>skinshortcuts-submenu</include>
+                </content>
+            </control>
+        
+        </control>
+        
+    </include>
+    
 
     <include name="HomeClassicWidgets">        
         <control type="group">
@@ -1003,6 +1070,7 @@
     
     <include name="HomeContentNoIcon">
         <top>948</top>
+        <animation effect="slide" start="0" end="0,-24" tween="back" time="300" condition="Control.HasFocus(302) + Skin.HasSetting(home.submenu2)">Conditional</animation>
         <itemlayout width="220" height="64">
             <control type="label">
                 <align>center</align>

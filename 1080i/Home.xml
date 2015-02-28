@@ -15,7 +15,7 @@
         <include condition="!Skin.HasSetting(home.classicwidgets)">HomeWidgetInfo</include>
         <include condition="Skin.HasSetting(home.classicwidgets)">HomeClassicWidgets</include>
         
-        <include>HomeSubMenu</include>
-        
+        <include condition="Skin.HasSetting(home.submenu2) + !Skin.HasSetting(home.showicons)">HomeSubMenu2</include>
+        <include condition="!Skin.HasSetting(home.submenu2) | Skin.HasSetting(home.showicons)">HomeSubMenu</include>
     </controls>
 </window>
