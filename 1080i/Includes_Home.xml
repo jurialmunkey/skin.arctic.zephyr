@@ -724,13 +724,26 @@
 
     <include name="HomeSubMenu2">
         <control type="group">
-           
+            <visible allowhiddenfocus="true">Control.HasFocus(302)</visible>
+            <animation type="Visible" reversible="false">
+                <effect type="slide" start="0,24" end="0" time="100" delay="200"/>
+                <effect type="fade" start="0" end="100" time="200" delay="200"/>
+            </animation>
+            <include>Animation.FadeOut</include>
+            <!--<control type="label">
+                <left>100</left>
+                <align>center</align>
+                <aligny>top</aligny>
+                <width>180</width>
+                <top>948</top>
+                <centerleft>50%</centerleft>
+                <textcolor>Highlight</textcolor>
+                <font>HomeIcon</font>
+                <label>$INFO[Container(300).ListItem.Label]</label>
+               
+            </control>-->
             <control type="list" id="302">
-                <visible allowhiddenfocus="true">Control.HasFocus(302)</visible>
-                <animation type="Visible" reversible="false">
-                    <effect type="fade" start="0" end="100" time="300" delay="150"/>
-                </animation>
-                <include>Animation.FadeOut</include>
+                
                 <description>Home Wraplist</description>
                 <left>SidePad</left>
                 <include condition="!Skin.HasSetting(furniture.clock)">DefHomeRight520</include>
@@ -741,13 +754,13 @@
                 <onright>302</onright>
                 <orientation>horizontal</orientation>
                 <scrolltime>200</scrolltime>
-                <top>982</top>
+                <top>918</top>
                 <itemlayout width="220" height="64">
                     <control type="label">
                         <align>center</align>
                         <aligny>top</aligny>
                         <width>180</width>
-                        <top>0</top>
+                        <top>30</top>
                         <centerleft>50%</centerleft>
                         <textcolor>Dark3</textcolor>
                         <font>HomeIcon</font>
@@ -760,14 +773,14 @@
                         <align>center</align>
                         <aligny>top</aligny>
                         <width>90%</width>
-                        <top>0</top>
+                        <top>30</top>
                         <centerleft>50%</centerleft>
                         <textcolor>Dark1</textcolor>
                         <font>HomeIcon</font>
                         <label>$INFO[ListItem.Label]</label>
                     </control>
                     <control type="image">
-                        <top>44</top>
+                        <top>74</top>
                         <centerleft>50%</centerleft>
                         <width>90%</width>
                         <height>4</height>
@@ -776,6 +789,14 @@
                         <include>Animation.FadeIn</include>
                         <include>Animation.FadeOut</include>
                     </control>
+                    <!--<control type="image">
+                        <top>10</top>
+                        <centerleft>50%</centerleft>
+                        <width>16</width>
+                        <height>16</height>
+                        <texture colordiffuse="Dark3" flipy="true">common/arrow-small.png</texture>
+                        <animation effect="fade" end="100" start="0" delay="300" time="400" reversible="false">Focus</animation>
+                    </control>-->
          
                 </focusedlayout>
                 <content>
@@ -1070,7 +1091,11 @@
     
     <include name="HomeContentNoIcon">
         <top>948</top>
-        <animation effect="slide" start="0" end="0,-24" tween="back" time="300" condition="Control.HasFocus(302) + Skin.HasSetting(home.submenu2)">Conditional</animation>
+        <animation effect="fade" start="100" end="0" time="150" reversible="false" condition="Control.HasFocus(302) + Skin.HasSetting(home.submenu2)">Conditional</animation>
+        <animation type="Conditional" condition="!Control.HasFocus(302) + Skin.HasSetting(home.submenu2)" reversible="false">
+            <effect type="slide" start="0,-24" end="0" time="100" delay="200"/>
+            <effect type="fade" start="0" end="100" time="200" delay="200"/>
+        </animation>
         <itemlayout width="220" height="64">
             <control type="label">
                 <align>center</align>
