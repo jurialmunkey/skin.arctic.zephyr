@@ -724,24 +724,14 @@
 
     <include name="HomeSubMenu2">
         <control type="group">
-            <visible allowhiddenfocus="true">Control.HasFocus(302)</visible>
-            <animation type="Visible" reversible="false">
+            <animation type="Conditional" condition="Control.HasFocus(302)" reversible="false">
                 <effect type="slide" start="0,24" end="0" time="100" delay="200"/>
                 <effect type="fade" start="0" end="100" time="200" delay="200"/>
             </animation>
-            <include>Animation.FadeOut</include>
-            <!--<control type="label">
-                <left>100</left>
-                <align>center</align>
-                <aligny>top</aligny>
-                <width>180</width>
-                <top>948</top>
-                <centerleft>50%</centerleft>
-                <textcolor>Highlight</textcolor>
-                <font>HomeIcon</font>
-                <label>$INFO[Container(300).ListItem.Label]</label>
-               
-            </control>-->
+            <animation type="Conditional" condition="!Control.HasFocus(302)" reversible="false">
+                <effect type="fade" start="100" end="0" time="200" delay="0"/>
+            </animation>
+            
             <control type="list" id="302">
                 
                 <description>Home Wraplist</description>
@@ -789,14 +779,14 @@
                         <include>Animation.FadeIn</include>
                         <include>Animation.FadeOut</include>
                     </control>
-                    <!--<control type="image">
+                    <control type="image">
                         <top>10</top>
                         <centerleft>50%</centerleft>
                         <width>16</width>
                         <height>16</height>
                         <texture colordiffuse="Dark3" flipy="true">common/arrow-small.png</texture>
                         <animation effect="fade" end="100" start="0" delay="300" time="400" reversible="false">Focus</animation>
-                    </control>-->
+                    </control>
          
                 </focusedlayout>
                 <content>
