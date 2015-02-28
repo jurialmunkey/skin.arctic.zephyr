@@ -8,7 +8,7 @@
         <posx>-190</posx>
         <width>2300</width>
         <onup condition="!Skin.HasSetting(global.kioskmode)">9000</onup>
-        <ondown condition="!Skin.HasSetting(global.kioskmode)">9000</ondown>
+        <ondown>60</ondown>
         <onleft>53</onleft>
         <onright>53</onright>
         <focusposition>1</focusposition>
@@ -122,6 +122,12 @@
             <visible>Control.IsVisible(53)</visible>
             <include condition="!Skin.HasSetting(53poster.nowrap)">53Wrap</include>
             <include condition="Skin.HasSetting(53poster.nowrap)">53Fixed</include>
+            
+            <control type="group">
+                <animation effect="fade" condition="!Control.HasFocus(60)" time="200" start="100" end="0">Conditional</animation>
+                <include>Furniture_Scrollbar_Horizontal</include>
+            </control>
+            
             
             <control type="grouplist">
                 <left>540</left>
