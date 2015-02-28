@@ -366,15 +366,14 @@
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
                     <include>DefDialogButtons</include>
-                    <visible>!System.HasAddon(script.artwork.downloader) | [!Container.Content(tvshows) + !Container.Content(movies) + !Container.Content(musicvideos)]</visible>
                 </control>
 
                 <control type="button" id="9001">
-                    <label>$LOCALIZE[13405]</label>
+                    <label>$LOCALIZE[31203]</label>
                     <onclick condition="Container.Content(tvshows)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
                     <onclick condition="Container.Content(movies)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
                     <onclick condition="Container.Content(musicvideos)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=musicvideo, dbid=$INFO[ListItem.DBID])</onclick>
-                    <description>Get Thumb</description>
+                    <description>Get Artwork</description>
                     <width>450</width>
                     <height>68</height>
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
