@@ -497,6 +497,7 @@
         
         <value condition="Window.IsVisible(3201)">special://skin/extras/icons/film.png</value>
         <value condition="Window.IsVisible(3202)">special://skin/extras/icons/tv.png</value>
+        <value condition="Window.IsVisible(3204) | Window.IsVisible(3205) | Window.IsVisible(3203)">special://skin/extras/icons/director.png</value>
         
         <value condition="Window.IsVisible(MyVideoNav.xml) + substring(Container.FolderPath,videodb://movies) | substring(Container.FolderPath,videodb://recentlyaddedmovies)">special://skin/extras/icons/film.png</value>
         <value condition="Window.IsVisible(MyVideoNav.xml) + [substring(Container.FolderPath,videodb://tvshows) | substring(Container.FolderPath,videodb://recentlyaddedepisodes)]">special://skin/extras/icons/tv.png</value>
@@ -532,6 +533,14 @@
         <value condition="Window.IsVisible(3203) + stringcompare(Window(3203).Property(content),1)">$INFO[Window(home).Property(ExtStudio),$LOCALIZE[31205] ,]</value>
         <value condition="Window.IsVisible(3203) + stringcompare(Window(3203).Property(content),2)">$INFO[Window(home).Property(ExtMovie),$LOCALIZE[31204] ,]</value>
         <value condition="Window.IsVisible(3203)">$INFO[Window(home).Property(ExtDirector),$LOCALIZE[31191] ,]</value>
+        <value condition="Window.IsVisible(3204) + stringcompare(Window(3204).Property(content),1)">$LOCALIZE[31211]</value>
+        <value condition="Window.IsVisible(3204) + stringcompare(Window(3204).Property(content),2)">$LOCALIZE[31210]</value>
+        <value condition="Window.IsVisible(3204) + stringcompare(Window(3204).Property(content),3)">$LOCALIZE[31209]</value>
+        <value condition="Window.IsVisible(3204)">$LOCALIZE[31208]</value>
+        <value condition="Window.IsVisible(3205) + stringcompare(Window(3205).Property(content),1)">$LOCALIZE[31211]</value>
+        <value condition="Window.IsVisible(3205) + stringcompare(Window(3205).Property(content),2)">$LOCALIZE[31210]</value>
+        <value condition="Window.IsVisible(3205) + stringcompare(Window(3205).Property(content),3)">$LOCALIZE[31212]</value>
+        <value condition="Window.IsVisible(3205)">$LOCALIZE[31213]</value>
         <value>$LOCALIZE[10000]</value>
     </variable>
     

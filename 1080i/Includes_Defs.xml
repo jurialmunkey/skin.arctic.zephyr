@@ -473,5 +473,18 @@
         <value>plugin://script.extendedinfo?info=directormovies&amp;&amp;director=$INFO[Window(home).Property(ExtDirector)]</value>
     </variable>
     
+    <variable name="DefMovieDBMoviesContent">
+        <value condition="stringcompare(Window(3204).Property(content),1)">plugin://script.extendedinfo?info=topratedmovies</value>
+        <value condition="stringcompare(Window(3204).Property(content),2)">plugin://script.extendedinfo?info=popularmovies</value>
+        <value condition="stringcompare(Window(3204).Property(content),3)">plugin://script.extendedinfo?info=upcoming</value>
+        <value>plugin://script.extendedinfo?info=incinemas</value>
+    </variable>
+    
+    <variable name="DefMovieDBEpisodesContent">
+        <value condition="stringcompare(Window(3205).Property(content),1)">plugin://script.extendedinfo?info=topratedtvshows</value>
+        <value condition="stringcompare(Window(3205).Property(content),2)">plugin://script.extendedinfo?info=populartvshows</value>
+        <value condition="stringcompare(Window(3205).Property(content),3)">plugin://script.extendedinfo?info=onairtvshows</value>
+        <value>plugin://script.extendedinfo?info=airingtodaytvshows</value>
+    </variable>
     
 </includes>
