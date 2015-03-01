@@ -731,7 +731,8 @@
             <animation type="Conditional" condition="!Control.HasFocus(302)" reversible="false">
                 <effect type="fade" start="100" end="0" time="200" delay="0"/>
             </animation>
-            
+            <animation effect="slide" start="0" end="0,250" time="150">WindowClose</animation>
+            <include>Animation.FadeOut</include>
             <control type="list" id="302">
                 
                 <description>Home Wraplist</description>
@@ -744,7 +745,7 @@
                 <onright>302</onright>
                 <orientation>horizontal</orientation>
                 <scrolltime>200</scrolltime>
-                <top>918</top>
+                <top>921</top>
                 <itemlayout width="220" height="64">
                     <control type="label">
                         <align>center</align>
@@ -787,7 +788,6 @@
                         <texture colordiffuse="Dark3" flipy="true">common/arrow-small.png</texture>
                         <animation effect="fade" end="100" start="0" delay="300" time="400" reversible="false">Focus</animation>
                     </control>
-         
                 </focusedlayout>
                 <content>
                     <include>skinshortcuts-submenu</include>

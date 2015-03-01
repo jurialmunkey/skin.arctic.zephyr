@@ -149,7 +149,7 @@
         <value condition="Player.Rewinding4x">RW 4x</value>
         <value condition="Player.Rewinding2x">RW 2x</value>
         <value condition="Player.Rewinding">RW</value>
-        <value condition="Player.Seeking">$LOCALIZE[773]</value>
+        <value condition="[Player.Seeking | Player.DisplayAfterSeek] + !IsEmpty(Player.SeekOffset)">$LOCALIZE[773]$INFO[Player.SeekOffset, ,]</value>
         <value condition="!Player.HasVideo + !IsEmpty(MusicPlayer.offset(1).Title)">[B]$LOCALIZE[209]...  [/B]$INFO[MusicPlayer.offset(1).Title]</value>
         <value>$INFO[Player.FinishTime,$LOCALIZE[31106] ,]</value>
     </variable>
