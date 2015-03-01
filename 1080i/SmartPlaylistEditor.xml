@@ -66,7 +66,7 @@
                 <align>left</align>
                 <aligny>center</aligny>
                 <textcolor>Black70</textcolor>
-                <focusedcolor>White100</focusedcolor>
+                <focusedcolor>Selected</focusedcolor>
                 <selectedcolor>Highlight2</selectedcolor>
                 <label>-</label>
                 <textoffsetx>30</textoffsetx>
@@ -127,7 +127,8 @@
                         <posy>0</posy>
                         <width>780</width>
                         <info>ListItem.Label</info>
-                        <textcolor>White100</textcolor>
+                        <textcolor>Selected</textcolor>
+                        <animation effect="fade" start="100" end="75" condition="!Control.HasFocus(10)">Conditional</animation>
                     </control>
 
                 </focusedlayout>
