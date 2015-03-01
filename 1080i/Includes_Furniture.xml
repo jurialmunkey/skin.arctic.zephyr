@@ -529,12 +529,16 @@
         <value condition="Window.IsVisible(AddonBrowser.xml)">$LOCALIZE[24001]</value>
         <value condition="Window.IsVisible(MyMusicPlaylist.xml)">$LOCALIZE[559]</value>
         <value condition="Window.IsVisible(FileManager.xml)">$LOCALIZE[744]</value>
+        <value condition="Window.IsVisible(3203) + stringcompare(Window(3203).Property(content),1)">$INFO[Window(home).Property(ExtStudio),$LOCALIZE[31205] ,]</value>
+        <value condition="Window.IsVisible(3203) + stringcompare(Window(3203).Property(content),2)">$INFO[Window(home).Property(ExtMovie),$LOCALIZE[31204] ,]</value>
+        <value condition="Window.IsVisible(3203)">$INFO[Window(home).Property(ExtDirector),$LOCALIZE[31191] ,]</value>
         <value>$LOCALIZE[10000]</value>
     </variable>
     
     <variable name="SubHeaderLabel">
         <value condition="Window.IsVisible(LoginScreen.xml)">$LOCALIZE[10029]</value>
         <value condition="!IsEmpty(Container.NumItems) + !Window.IsVisible(home)">$INFO[Container.NumItems,[COLOR=Highlight],[/COLOR] $LOCALIZE[31101]]$INFO[Control.GetLabel(3),  •  ,]</value>
+        <value condition="!IsEmpty(Container(9500).NumItems) + !Window.IsVisible(home)">$INFO[Container(9500).NumItems,[COLOR=Highlight],[/COLOR] $LOCALIZE[31101]]</value>
         <value>[COLOR=Highlight]$INFO[Window(home).Property(Movies.Count)][/COLOR] $LOCALIZE[20342]  •  [COLOR=Highlight]$INFO[Window(home).Property(Episodes.Count)][/COLOR] $LOCALIZE[20360]  •  [COLOR=Highlight]$INFO[Window(home).Property(Music.SongsCount)][/COLOR] $LOCALIZE[134]$INFO[Pvr.BackendChannels,  •  [COLOR=Highlight],[/COLOR] $LOCALIZE[19019]]</value>
     </variable>
   

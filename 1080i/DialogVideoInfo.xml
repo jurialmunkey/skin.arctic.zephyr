@@ -393,7 +393,14 @@
                 <label>$INFO[ListItem.Director,$LOCALIZE[31191] ,]</label>
                 <align>left</align>
                 <onleft>9000</onleft>
-                <onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Director])</onclick>
+                <!--<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Director])</onclick>-->
+                <onclick>SetProperty(ExtDirector,$INFO[ListItem.Director],home)</onclick>
+                <onclick>SetProperty(ExtWriter,$INFO[ListItem.Writer],home)</onclick>
+                <onclick>SetProperty(ExtMovie,$INFO[ListItem.Label],home)</onclick>
+                <onclick>SetProperty(ExtStudio,$INFO[ListItem.Studio],home)</onclick>
+                <onclick>SetProperty(ExtDBID,$INFO[ListItem.DBID],home)</onclick>
+                <onclick>ActivateWindow(3203)</onclick>
+                <onclick>Close</onclick>
                 <texturenofocus border="5" colordiffuse="Black12">common/box.png</texturenofocus>
                 <texturefocus border="5" colordiffuse="Highlight">common/box.png</texturefocus>
                 <visible>!IsEmpty(ListItem.Director)</visible>
