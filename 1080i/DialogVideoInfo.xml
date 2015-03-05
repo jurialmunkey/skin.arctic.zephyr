@@ -204,11 +204,33 @@
                     <aligny>center</aligny>
                 </control>
                 <control type="label">
-                    <width>100%</width>
+                    <width>75%</width>
                     <height>60</height>
                     <font>Tiny</font>
                     <aligny>top</aligny>
                     <label fallback="19055">$INFO[ListItem.Writer]</label>
+                </control>
+                
+                <!-- Languages -->
+                <control type="label">
+                    <posy>-95</posy>
+                    <width>100%</width>
+                    <height>25</height>
+                    <align>right</align>
+                    <font>SmallBold</font>
+                    <label>21447</label>
+                    <aligny>center</aligny>
+                    <visible>!IsEmpty(Window(movieinformation).Property(AudioLanguage.1))</visible>
+                </control>
+                <control type="label">
+                    <right>0</right>
+                    <width>35%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <align>right</align>
+                    <aligny>top</aligny>
+                    <label fallback="19055">[UPPERCASE]$INFO[Window(movieinformation).Property(AudioLanguage.1)]$INFO[Window(movieinformation).Property(AudioLanguage.2), ,]$INFO[Window(movieinformation).Property(AudioLanguage.3), ,]$INFO[Window(movieinformation).Property(AudioLanguage.4), ,]$INFO[Window(movieinformation).Property(AudioLanguage.5), ,][/UPPERCASE]</label>
+                    <visible>!IsEmpty(Window(movieinformation).Property(AudioLanguage.1))</visible>
                 </control>
                 
                 <!-- Genre -->
@@ -220,11 +242,33 @@
                     <aligny>center</aligny>
                 </control>
                 <control type="label">
-                    <width>100%</width>
+                    <width>75%</width>
                     <height>60</height>
                     <font>Tiny</font>
                     <aligny>top</aligny>
                     <label fallback="19055">$INFO[ListItem.Genre]</label>
+                </control>
+                
+                <!-- Subs -->
+                <control type="label">
+                    <posy>-95</posy>
+                    <width>100%</width>
+                    <height>25</height>
+                    <align>right</align>
+                    <font>SmallBold</font>
+                    <label>21448</label>
+                    <aligny>center</aligny>
+                    <visible>!IsEmpty(Window(movieinformation).Property(SubtitleLanguage.1))</visible>
+                </control>
+                <control type="label">
+                    <right>0</right>
+                    <width>35%</width>
+                    <height>60</height>
+                    <font>Tiny</font>
+                    <align>right</align>
+                    <aligny>top</aligny>
+                    <label fallback="19055">[UPPERCASE]$INFO[Window(movieinformation).Property(SubtitleLanguage.1)]$INFO[Window(movieinformation).Property(SubtitleLanguage.2), ,]$INFO[Window(movieinformation).Property(SubtitleLanguage.3), ,]$INFO[Window(movieinformation).Property(SubtitleLanguage.4), ,]$INFO[Window(movieinformation).Property(SubtitleLanguage.5), ,][/UPPERCASE]</label>
+                    <visible>!IsEmpty(Window(movieinformation).Property(SubtitleLanguage.1))</visible>
                 </control>
                 
                 <!-- Studio -->
