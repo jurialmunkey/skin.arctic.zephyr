@@ -24,7 +24,37 @@
                         <include>50itemlayout</include>
                     </itemlayout>
 
-                    <focusedlayout width="ListW" height="64">
+                    <focusedlayout width="ListW" height="128" condition="Skin.HasSetting(50list.showplot)">
+                        <control type="group">
+                            <visible>Control.HasFocus(50) + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+                            <include>50focuslayout</include>
+                            <control type="textbox">
+                                <height>68</height>
+                                <bottom>10</bottom>
+                                <left>30</left>
+                                <right>30</right>
+                                <align>justify</align>
+                                <label>$VAR[LabelPlotBox]</label>
+                                <textcolor>Light1</textcolor>
+                                <font>Tiny</font>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(50) | Window.IsVisible(DialogVideoInfo.xml)</visible>
+                            <include>50itemlayout</include>
+                            <control type="textbox">
+                                <height>68</height>
+                                <bottom>10</bottom>
+                                <left>30</left>
+                                <right>30</right>
+                                <align>justify</align>
+                                <label>$VAR[LabelPlotBox]</label>
+                                <textcolor>Dark2</textcolor>
+                                <font>Tiny</font>
+                            </control>
+                        </control>
+                    </focusedlayout>
+                    <focusedlayout width="ListW" height="64" condition="!Skin.HasSetting(50list.showplot)">
                         <control type="group">
                             <visible>Control.HasFocus(50) + !Window.IsVisible(DialogVideoInfo.xml)</visible>
                             <include>50focuslayout</include>
