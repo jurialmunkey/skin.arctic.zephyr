@@ -18,13 +18,30 @@
                     <include>DefDialogInfoHeader</include>
                     <label>$INFO[Window.Property(movie.title)]</label>
                 </control>
-                <control type="image">
+                <control type="group">
                     <posx>30</posx>
                     <top>100</top>
                     <width>450</width>
                     <height>629</height>
-                    <aspectratio scalediffuse="false">stretch</aspectratio>
-                    <texture diffuse="diffuse/infocast.png">$INFO[Window.Property(movie.thumb)]</texture>
+                    <control type="image">
+                        <width>100%</width>
+                        <height>100%</height>
+                        <aspectratio scalediffuse="false">stretch</aspectratio>
+                        <texture diffuse="diffuse/infocast.png">$INFO[Window.Property(movie.thumb)]</texture>
+                    </control>
+                    <control type="button" id="8">
+                        <centertop>50%</centertop>
+                        <centerleft>50%</centerleft>
+                        <width>128</width>
+                        <height>128</height>
+                        <ondown>9000</ondown>
+                        <onup>9000</onup>
+                        <onright condition="IsEmpty(Window.Property(Switcher))">1000</onright>
+                        <onright condition="!IsEmpty(Window.Property(Switcher))">350</onright>
+                        <visible>!IsEmpty(Window.Property(movie.DBID))</visible>
+                        <texturenofocus colordiffuse="88ffffff">common/playring.png</texturenofocus>
+                        <texturefocus colordiffuse="Highlight">common/playring.png</texturefocus>
+                    </control>
                 </control>
                 
                 <control type="grouplist">
@@ -178,8 +195,8 @@
                     <width>450</width>
                     <height>68</height>
                     <bottom>30</bottom>
-                    <onup>9000</onup>
-                    <ondown>9000</ondown>
+                    <onup>8</onup>
+                    <ondown>8</ondown>
                     <onright condition="IsEmpty(Window.Property(Switcher))">1000</onright>
                     <onright condition="!IsEmpty(Window.Property(Switcher))">350</onright>
                     <onclick condition="IsEmpty(Window.Property(Switcher))">SetProperty(Switcher,1)</onclick>
