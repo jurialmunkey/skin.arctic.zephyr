@@ -40,97 +40,32 @@
                         <visible>!IsEmpty(Player.Art(tvshow.poster)) | !IsEmpty(Player.Art(poster))</visible>
                     </control>
                     
-                    <control type="group">
-                        <include condition="!IsEmpty(Player.Art(tvshow.poster)) | !IsEmpty(Player.Art(poster))">DefPlayerPosterLeft203</include>
-                        <include condition="IsEmpty(Player.Art(tvshow.poster)) + IsEmpty(Player.Art(poster))">DefPlayerPosterLeft0</include>
-                        <right>0</right>
-                        <control type="label" description="Video Info">
-                            <right>0</right>
-                            <align>right</align>
-                            <width>1000</width>
-                            <top>0</top>
-                            <height>40</height>
-                            <font>Flag</font>
-                            <textcolor>$VAR[OSDPanelWhite30]</textcolor>
-                            <label>$INFO[VideoPlayer.AudioCodec,,  •  ]$VAR[LabelOSDAudioChannels,,  •  ]$INFO[VideoPlayer.VideoResolution,,  •  ]$INFO[VideoPlayer.VideoCodec,,]$INFO[VideoPlayer.RatingAndVotes,  •  ,]</label>
-                        </control>
-                        
-                        <control type="label" description="Title">
-                            <width>1000</width>
-                            <top>0</top>
-                            <height>40</height>
-                            <font>TinyBold</font>
-                            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                            <label>$VAR[PlayerTitle]</label>
-                        </control>
-                        
-                        
-                        <control type="label" description="Show">
-                            <width>100%</width>
-                            <top>50</top>
-                            <height>40</height>
-                            <font>MediumBold</font>
-                            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                            <label>$VAR[PlayerBigTitle]</label>
-                        </control>
-                        
-                        <control type="textbox" description="Plot">
-                            <width>100%</width>
-                            <top>105</top>
-                            <height>68</height>
-                            <font>Tiny</font>
-                            <align>justify</align>
-                            <textcolor>$VAR[OSDPanelWhite30]</textcolor>
-                            <label>$VAR[PlayerPlotBox]</label>
-                        </control>
-                        
-                        <control type="label" description="Elapsed Time">
-                            <width>400</width>
-                            <bottom>30</bottom>
-                            <height>40</height>
-                            <font>Tiny</font>
-                            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                            <label>$VAR[PlayerStatus]</label>
-                        </control>
-                        <control type="label" description="Total Time">
-                            <right>0</right>
-                            <align>right</align>
-                            <width>400</width>
-                            <bottom>30</bottom>
-                            <height>40</height>
-                            <font>Tiny</font>
-                            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                            <label>$INFO[Player.Time]  /  $INFO[Player.Duration]</label>
-                        </control>
-                        <control type="image">
-                            <description>Progress Back</description>
-                            <width>100%</width>
-                            <bottom>10</bottom>
-                            <height>8</height>
-                            <texture colordiffuse="Black12">common/white.png</texture>
-                            <visible>Skin.HasSetting(osd.usetheme)</visible>
-                        </control>
-                        <control type="progress" description="cache">
-                            <description>Progress Bar</description>
-                            <width>100%</width>
-                            <bottom>10</bottom>
-                            <height>8</height>
-                            <info>Player.ProgressCache</info>
-                            <visible>true</visible>
-                            <texturebg colordiffuse="00ffffff">osd/progress-bg.png</texturebg>
-                            <lefttexture colordiffuse="Highlight2">osd/progress-end.png</lefttexture>
-                            <midtexture colordiffuse="Highlight2">osd/progress-end.png</midtexture>
-                            <righttexture colordiffuse="Highlight2">osd/progress-end.png</righttexture>
-                        </control>
-                        <control type="progress" id="23">
-                            <description>Progress Bar</description>
-                            <width>100%</width>
-                            <bottom>10</bottom>
-                            <height>8</height>
-                            <info>Player.Progress</info>
-                            <visible>true</visible>
-                        </control>
+                    <control type="image">
+                        <width>260</width>
+                        <height>260</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture>$INFO[Player.Art(thumb)]</texture>
+                        <visible>VideoPlayer.Content(LiveTV) + !IsEmpty(Player.Art(thumb))</visible>
                     </control>
+                    
+                    <control type="group">
+                        <left>290</left>
+                        <visible>VideoPlayer.Content(LiveTV) + !IsEmpty(Player.Art(thumb))</visible>
+                        <include>OSDInfoContent</include>
+                    </control>
+                    
+                    <control type="group">
+                        <left>203</left>
+                        <visible>!IsEmpty(Player.Art(tvshow.poster)) | !IsEmpty(Player.Art(poster))</visible>
+                        <include>OSDInfoContent</include>
+                    </control>
+                    
+                    <control type="group">
+                        <left>0</left>
+                        <visible>IsEmpty(Player.Art(tvshow.poster)) + IsEmpty(Player.Art(poster)) + [!VideoPlayer.Content(LiveTV) | IsEmpty(Player.Art(thumb))]</visible>
+                        <include>OSDInfoContent</include>
+                    </control>
+                
                 </control>
             </control>
             <control type="group">
