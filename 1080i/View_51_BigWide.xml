@@ -20,38 +20,38 @@
                 </control>
                 <control type="wraplist" id="51">
                     <visible>Container.Content(musicvideos) | Container.Content(artists) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(sets)</visible>
-                    <width>1102</width>
-                    <right>10</right>
-                    <top>10</top>
-                    <bottom>10</bottom>
+                    <width>1112</width>
+                    <right>0</right>
+                    <top>0</top>
+                    <bottom>0</bottom>
                     <onup condition="!Skin.HasSetting(global.kioskmode)">9000</onup>
                     <ondown>60</ondown>
                     <onleft>51</onleft>
                     <onright>51</onright>
-                    <preloaditems>2</preloaditems>
+                    <preloaditems>0</preloaditems>
                     <pagecontrol>60</pagecontrol>
                     <orientation>horizontal</orientation>
                     <viewtype label="540">list</viewtype>
                     <scrolltime tween="quadratic">400</scrolltime>
-                    <itemlayout height="620" width="1102">
+                    <itemlayout height="640" width="1112">
                         <control type="image">
                             <top>0</top>
                             <right>0</right>
                             <width>100%</width>
                             <height>100%</height>
-                            <aspectratio>scale</aspectratio>
-                            <texture background="true">$VAR[FanartImage]</texture>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture background="true" diffuse="diffuse/lovefilmthumb.png">$VAR[FanartImage]</texture>
                         </control>
                     </itemlayout>
 
-                    <focusedlayout height="620" width="1102">
+                    <focusedlayout height="640" width="1112">
                         <control type="image">
                             <top>0</top>
                             <right>0</right>
                             <width>100%</width>
                             <height>100%</height>
-                            <aspectratio>scale</aspectratio>
-                            <texture background="true">$VAR[FanartImage]</texture>
+                            <aspectratio scalediffuse="false">scale</aspectratio>
+                            <texture background="true" diffuse="diffuse/lovefilmthumb.png">$VAR[FanartImage]</texture>
                         </control>
                     </focusedlayout>
                 </control>
@@ -95,7 +95,19 @@
                         <font>Tiny</font>
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
+                        <label>$VAR[LabelDuration]$INFO[ListItem.Rating,  •  ]</label>
+                        <visible>!Container.Content(movies) + !Container.Content(episodes)</visible>
+                    </control>
+                    <control type="label">
+                        <bottom>0</bottom>
+                        <height>30</height>
+                        <aligny>center</aligny>
+                        <align>right</align>
+                        <font>Tiny</font>
+                        <textcolor>PanelWhite70</textcolor>
+                        <selectedcolor>PanelWhite70</selectedcolor>
                         <label>$VAR[LabelYear,,  •  ]$VAR[LabelDuration]$INFO[ListItem.Rating,  •  ]</label>
+                        <visible>Container.Content(movies) | Container.Content(episodes)</visible>
                     </control>
                 </control>
             </control>
@@ -108,54 +120,7 @@
             <include>Animation.Common</include>
             <visible>Control.IsVisible(51)</visible>
             <control type="group">
-                <top>PosterPad</top>
-                <left>SidePad</left>
-                <right>SidePad</right>
-                <height>640</height>
-                <control type="image">
-                    <left>-8</left>
-                    <right>-8</right>
-                    <top>-8</top>
-                    <bottom>-8</bottom>
-                    <texture border="15" colordiffuse="Panel">common/rounded-shadow8.png</texture>
-                </control>
-                <control type="wraplist" id="51">
-                    <visible>Container.Content(musicvideos) | Container.Content(artists) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(sets)</visible>
-                    <left>10</left>
-                    <right>10</right>
-                    <top>10</top>
-                    <bottom>10</bottom>
-                    <onup condition="!Skin.HasSetting(global.kioskmode)">9000</onup>
-                    <ondown>60</ondown>
-                    <onleft>51</onleft>
-                    <onright>51</onright>
-                    <preloaditems>2</preloaditems>
-                    <pagecontrol>60</pagecontrol>
-                    <orientation>horizontal</orientation>
-                    <viewtype label="540">list</viewtype>
-                    <scrolltime tween="quadratic">400</scrolltime>
-                    <itemlayout height="620" width="1740">
-                        <control type="image">
-                            <centerleft>50%</centerleft>
-                            <centertop>50%</centertop>
-                            <width>1920</width>
-                            <height>1080</height>
-                            <aspectratio>scale</aspectratio>
-                            <texture background="true">$VAR[FanartImage]</texture>
-                        </control>
-                    </itemlayout>
-                   
-                    <focusedlayout height="620" width="1740">
-                        <control type="image">
-                            <centerleft>50%</centerleft>
-                            <centertop>50%</centertop>
-                            <width>1920</width>
-                            <height>1080</height>
-                            <aspectratio>scale</aspectratio>
-                            <texture background="true">$VAR[FanartImage]</texture>
-                        </control>
-                    </focusedlayout>
-                </control>
+                <include>BigWideContent</include>
                 <control type="group">
                     <left>10</left>
                     <right>10</right>
@@ -166,7 +131,7 @@
                         <right>0</right>
                         <bottom>0</bottom>
                         <height>70</height>
-                        <texture border="15" colordiffuse="df000000">common/white.png</texture>
+                        <texture border="15" colordiffuse="df000000">common/box.png</texture>
                     </control>
                     <control type="label">
                         <posx>30</posx>
@@ -177,7 +142,7 @@
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
                         <label>$VAR[LabelYear]</label>
-                        <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
+                        <visible>Container.Content(movies) | Container.Content(episodes)</visible>
                     </control>
                     <control type="label">
                         <posx>120</posx>
@@ -188,7 +153,7 @@
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
                         <label>$INFO[ListItem.Label]</label>
-                        <animation effect="slide" start="0" end="-90" time="0" condition="![Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]">Conditional</animation>
+                        <animation effect="slide" start="0" end="-90" time="0" condition="![Container.Content(movies) | Container.Content(episodes)]">Conditional</animation>
                         <animation effect="slide" start="0" end="70" time="0" condition="Container.Content(episodes)">Conditional</animation>
                     </control>
                     <control type="label">
@@ -230,5 +195,55 @@
             <include>Furniture_Scrollbar_Horizontal</include>
         </control>
     </include>
-
+    <include name="BigWideContent">
+        <top>PosterPad</top>
+        <left>SidePad</left>
+        <right>SidePad</right>
+        <height>640</height>
+        <control type="image">
+            <left>-8</left>
+            <right>-8</right>
+            <top>-8</top>
+            <bottom>-8</bottom>
+            <texture border="15" colordiffuse="Panel">common/rounded-shadow8.png</texture>
+        </control>
+        <control type="wraplist" id="51">
+            <visible>Container.Content(musicvideos) | Container.Content(artists) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(sets)</visible>
+            <left>0</left>
+            <right>0</right>
+            <top>0</top>
+            <bottom>0</bottom>
+            <onup condition="!Skin.HasSetting(global.kioskmode)">9000</onup>
+            <ondown>60</ondown>
+            <onleft>51</onleft>
+            <onright>51</onright>
+            <preloaditems>0</preloaditems>
+            <pagecontrol>60</pagecontrol>
+            <orientation>horizontal</orientation>
+            <viewtype label="540">list</viewtype>
+            <scrolltime tween="quadratic">400</scrolltime>
+            <itemlayout height="640" width="1760">
+                <control type="image">
+                    <centerleft>50%</centerleft>
+                    <centertop>50%</centertop>
+                    <width>1920</width>
+                    <height>1080</height>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <texture background="true" diffuse="diffuse/lovefilm.png">$VAR[FanartImage]</texture>
+                </control>
+            </itemlayout>
+           
+            <focusedlayout height="640" width="1760">
+                <control type="image">
+                    <centerleft>50%</centerleft>
+                    <centertop>50%</centertop>
+                    <width>1920</width>
+                    <height>1080</height>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <texture background="true" diffuse="diffuse/lovefilm.png">$VAR[FanartImage]</texture>
+                </control>
+            </focusedlayout>
+        </control>
+    </include>
+    
 </includes>
