@@ -220,7 +220,7 @@
                     </itemlayout>
 
                     
-                    <focusedlayout width="1288" height="330" condition="!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + [Skin.HasSetting(54banner.showinfo) | Container.Content(seasons)]">
+                    <focusedlayout width="1288" height="330" condition="!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + Skin.HasSetting(54banner.showinfo)">
                         <control type="image">
                             <left>110</left>
                             <top>10</top>
@@ -294,7 +294,7 @@
                             <label fallback="19055">$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[31215]]</label>
                         </control>
                     </focusedlayout>
-                    <focusedlayout width="1288" height="322" condition="!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + !Skin.HasSetting(54banner.showinfo) + !Container.Content(seasons)">
+                    <focusedlayout width="1288" height="322" condition="!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + !Skin.HasSetting(54banner.showinfo)">
                         <control type="image">
                             <left>0</left>
                             <top>0</top>
@@ -364,7 +364,9 @@
                             <font>Flag</font>
                             <textcolor>Light1</textcolor>
                             <selectedcolor>Light1</selectedcolor>
+                            <visible>!Container.Content(seasons)</visible>
                         </control>
+                        
                     </focusedlayout>
                     <focusedlayout width="1560" height="322" condition="Container.Content(episodes)">
                         <control type="group">
