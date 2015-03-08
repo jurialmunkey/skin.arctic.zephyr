@@ -348,7 +348,8 @@
                     <include>DefDialogButtons</include>
                 </control>
 
-                <control type="button" id ="9">
+                
+                <!--<control type="button" id ="9">
                     <description>Resume</description>
                     <label>13404</label>
                     <width>450</width>
@@ -356,6 +357,24 @@
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
                     <include>DefDialogButtons</include>>
+                </control>-->
+                
+                <control type="button" id="53">
+                    <width>450</width>
+                    <height>68</height>
+                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <include>DefDialogButtons</include>
+                    <label>$LOCALIZE[31206]</label>
+                    <onclick>SetProperty(ExtDirector,$INFO[ListItem.Director],home)</onclick>
+                    <onclick>SetProperty(ExtWriter,$INFO[ListItem.Writer],home)</onclick>
+                    <onclick>SetProperty(ExtMovie,$INFO[ListItem.Label],home)</onclick>
+                    <onclick>SetProperty(ExtStudio,$INFO[ListItem.Studio],home)</onclick>
+                    <onclick>SetProperty(ExtDBID,$INFO[ListItem.DBID],home)</onclick>
+                    <onclick>ActivateWindow(3203)</onclick>
+                    <onclick>Close</onclick>
+                    <onclick>Dialog.Close(DialogVideoInfo.xml)</onclick>
+                    <visible>!IsEmpty(ListItem.Director)</visible>
                 </control>
                 
                 <control type="button" id="11">
@@ -440,14 +459,14 @@
                 <align>left</align>
                 <onleft condition="Control.IsVisible(50)">SendClick(2003,5)</onleft>
                 <onleft>9000</onleft>
-                <onclick>SetProperty(ExtDirector,$INFO[ListItem.Director],home)</onclick>
+                <!--<onclick>SetProperty(ExtDirector,$INFO[ListItem.Director],home)</onclick>
                 <onclick>SetProperty(ExtWriter,$INFO[ListItem.Writer],home)</onclick>
                 <onclick>SetProperty(ExtMovie,$INFO[ListItem.Label],home)</onclick>
                 <onclick>SetProperty(ExtStudio,$INFO[ListItem.Studio],home)</onclick>
                 <onclick>SetProperty(ExtDBID,$INFO[ListItem.DBID],home)</onclick>
-                <onclick>ActivateWindow(3203)</onclick>
-                <onclick>Close</onclick>
-                <onclick>Dialog.Close(DialogVideoInfo.xml)</onclick>
+                <onclick>ActivateWindow(3203)</onclick>-->
+                <onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Director])</onclick>
+                <onclick>Dialog.Close(2003)</onclick>
                 <texturenofocus border="5" colordiffuse="Black12">common/box.png</texturenofocus>
                 <texturefocus border="5" colordiffuse="Highlight">common/box.png</texturefocus>
                 <visible>!IsEmpty(ListItem.Director)</visible>
