@@ -11,18 +11,44 @@
     <controls>
         <control type="group">
             <animation effect="slide" start="0" end="0,-74" time="150" condition="Window.IsVisible(videoosd)">Conditional</animation>
-            <control type="image">
-                <top>110r</top>
-                <width>100%</width>
-                <height>374</height>
-                <texture>common/white.png</texture>
-                <colordiffuse>$VAR[OSDPanel]</colordiffuse>
-                <animation effect="fade" start="100" end="95" condition="Skin.HasSetting(osd.usetheme)">Conditional</animation>
+            <control type="group">
                 <animation effect="slide" start="0" end="0,-190" time="150" condition="Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !IsEmpty(Window(home).Property(osdshowinfo)) | [Player.Paused + Skin.HasSetting(osd.showinfoonpause)]">Conditional</animation>
                 <animation effect="slide" start="0" end="0,110" time="150" condition="!Window.IsVisible(fullscreeninfo) + !Player.Seeking + !Player.DisplayAfterSeek + !Player.Paused + !Player.Forwarding + !Player.Rewinding + !Player.ShowInfo + IsEmpty(Window(home).Property(osdshowinfo))">Conditional</animation>
                 <animation effect="slide" start="0,110" end="0" time="150">Visible</animation>
                 <animation effect="slide" start="0,110" end="0" time="150">WindowOpen</animation>
-                <include>Animation.FadeOut</include>
+                <control type="image">
+                    <right>0</right>
+                    <bottom>110</bottom>
+                    <width>500</width>
+                    <height>281</height>
+                    <texture>$INFO[Player.Art(clearart)]</texture>
+                    <aspectratio align="right" aligny="bottom">keep</aspectratio>
+                    <include>Animation.FadeIn</include>
+                    <include>Animation.FadeOut</include>
+                    <visible>Skin.HasSetting(ShowClearArtOSD)</visible>
+                    <visible>!IsEmpty(Player.Art(clearart)) + IsEmpty(Player.Art(tvshow.clearart))</visible>
+                </control>
+                <control type="image">
+                    <right>0</right>
+                    <bottom>110</bottom>
+                    <width>500</width>
+                    <height>281</height>
+                    <texture>$INFO[Player.Art(tvshow.clearart)]</texture>
+                    <aspectratio align="right" aligny="bottom">keep</aspectratio>
+                    <include>Animation.FadeIn</include>
+                    <include>Animation.FadeOut</include>
+                    <visible>Skin.HasSetting(ShowClearArtOSD)</visible>
+                    <visible>!IsEmpty(Player.Art(tvshow.clearart))</visible>
+                </control>
+                <control type="image">
+                    <top>110r</top>
+                    <width>100%</width>
+                    <height>374</height>
+                    <texture>common/white.png</texture>
+                    <colordiffuse>$VAR[OSDPanel]</colordiffuse>
+                    <animation effect="fade" start="100" end="95" condition="Skin.HasSetting(osd.usetheme)">Conditional</animation>
+                    <include>Animation.FadeOut</include>
+                </control>
             </control>
             <control type="group">
                 <top>300r</top>
