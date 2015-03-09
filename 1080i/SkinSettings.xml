@@ -383,6 +383,15 @@
                         <selected>!Skin.HasSetting(furniture.clock)</selected>
                         <onclick>Skin.ToggleSetting(furniture.clock)</onclick>
                     </control>
+                    <control type="radiobutton" id="9265" description="Weather">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31197</label>
+                        <selected>Skin.HasSetting(furniture.weather)</selected>
+                        <onclick>Skin.ToggleSetting(furniture.weather)</onclick>
+                        <enable>!Skin.HasSetting(furniture.clock)</enable>
+                    </control>
                     <control type="radiobutton" id="9263" description="Flags">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9106)</visible>
@@ -390,6 +399,15 @@
                         <label>31154</label>
                         <selected>!Skin.HasSetting(furniture.flags)</selected>
                         <onclick>Skin.ToggleSetting(furniture.flags)</onclick>
+                    </control>
+                    <control type="radiobutton" id="9266" description="Numeric Rating">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31218</label>
+                        <selected>Skin.HasSetting(furniture.numericrating)</selected>
+                        <onclick>Skin.ToggleSetting(furniture.numericrating)</onclick>
+                        <enable>!Skin.HasSetting(furniture.flags)</enable>
                     </control>
                     <control type="radiobutton" id="9264" description="Now Playing">
                         <width>1310</width>
@@ -399,14 +417,8 @@
                         <selected>!Skin.HasSetting(furniture.nowplaying)</selected>
                         <onclick>Skin.ToggleSetting(furniture.nowplaying)</onclick>
                     </control>
-                    <control type="radiobutton" id="9265" description="Weather">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31197</label>
-                        <selected>Skin.HasSetting(furniture.weather)</selected>
-                        <onclick>Skin.ToggleSetting(furniture.weather)</onclick>
-                    </control>
+                    
+                    
                     
                     <!-- Extras -->
                     <control type="button" id="9271" description="Startup Video">
