@@ -26,7 +26,7 @@
                 <posy>30</posy>
                 <width>48</width>
                 <height>48</height>
-                <texture colordiffuse="Highlight">buttons/busy.gif</texture>
+                <texture colordiffuse="Highlight" fallback="buttons/busy.gif">$INFO[Skin.String(busyloader)]</texture>
                 <aspectratio>keep</aspectratio>
                 <!--<animation effect="rotate" start="0" end="360" center="54,54" time="1200" loop="true" condition="true">conditional</animation>-->
             </control>
