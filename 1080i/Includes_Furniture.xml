@@ -169,6 +169,7 @@
         <control type="grouplist">
             <visible>!Skin.HasSetting(furniture.flags)</visible>
             <visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+            <visible>!stringcompare(ListItem.Label,..)</visible>
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
             <left>SidePad</left>

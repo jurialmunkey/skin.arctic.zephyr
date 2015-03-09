@@ -253,26 +253,9 @@
                 <font>Button</font>
                 <textcolor>Black70</textcolor>
                 <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
-                <visible>Control.IsVisible(6)</visible>
+                <animation effect="slide" start="0" end="22,-100" condition="!Control.IsVisible(6)">Conditional</animation>
             </control>
-            <control type="button" id="5">
-                <description>Manual</description>
-                <right>18</right>
-                <posy>18</posy>
-                <width>100</width>
-                <height>70</height>
-                <align>center</align>
-                <label>368</label>
-                <onleft>3</onleft>
-                <onright>3</onright>
-                <onup>3</onup>
-                <ondown>3</ondown>
-                <font>Button</font>
-                <textcolor>Black70</textcolor>
-                <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
-                <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                <visible>!Control.IsVisible(6)</visible>
-            </control>
+            
 
             <control type="image">
                 <description>Large Icon Image</description>
