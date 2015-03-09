@@ -18,27 +18,18 @@
                 <height>640</height>
                 <control type="group">
                     <control type="image">
-                        <left>0</left>
-                        <width>1120</width>
-                        <top>0</top>
-                        <height>640</height>
-                        <texture border="15" colordiffuse="Dark4">common/box.png</texture>
-                        <visible>!Control.HasFocus(9500)</visible>
-                    </control>
-                    <control type="image">
-                        <left>0</left>
-                        <width>1120</width>
-                        <top>0</top>
-                        <height>640</height>
-                        <texture border="15" colordiffuse="Dark1">common/box.png</texture>
-                        <visible>Control.HasFocus(9500)</visible>
+                        <left>-8</left>
+                        <width>1138</width>
+                        <top>-8</top>
+                        <bottom>-8</bottom>
+                        <texture border="15" colordiffuse="Panel">common/rounded-shadow8.png</texture>
                     </control>
                     <control type="wraplist" id="9500">
                         <description>Widget</description>
-                        <left>10</left>
-                        <width>1102</width>
-                        <top>10</top>
-                        <bottom>10</bottom>
+                        <left>0</left>
+                        <width>1122</width>
+                        <top>0</top>
+                        <bottom>0</bottom>
                         <onright>9501</onright>
                         <onup>9500</onup>
                         <ondown>9500</ondown>
@@ -48,26 +39,26 @@
                         <scrolltime tween="quadratic">400</scrolltime>
                         <include>Animation.FadeIn</include>
                         <include>Animation.FadeOut</include>
-                        <itemlayout width="1102" height="620">
+                        <itemlayout width="1122" height="640">
                             <control type="image">
                                 <width>100%</width>
                                 <height>100%</height>
-                                <texture background="true">$VAR[FanartImage]</texture>
+                                <texture background="true" diffuse="diffuse/home-fanart.png">$VAR[FanartImage]</texture>
                             </control>
                         </itemlayout>
-                        <focusedlayout width="1102" height="620">
+                        <focusedlayout width="1122" height="640">
                             <control type="image">
                                 <width>100%</width>
                                 <height>100%</height>
-                                <texture background="true">$VAR[FanartImage]</texture>
+                                <texture background="true" diffuse="diffuse/home-fanart.png">$VAR[FanartImage]</texture>
                             </control>
                         </focusedlayout>
                         <content target="video">$VAR[DefMovieHubWidget]</content>
                     </control>
                     <control type="group">
-                        <left>10</left>
-                        <width>1102</width>
-                        <bottom>10</bottom>
+                        <left>0</left>
+                        <width>1122</width>
+                        <bottom>0</bottom>
                         <height>70</height>
                         <control type="image">
                             <left>0</left>
@@ -127,7 +118,14 @@
                             <label>$INFO[Container(9500).ListItem.Rating]</label>
                         </control>
                     </control>
-                    
+                    <control type="image">
+                        <left>-2</left>
+                        <width>1126</width>
+                        <top>-2</top>
+                        <height>644</height>
+                        <texture colordiffuse="Dark1" border="20">common/selectbox.png</texture>
+                        <visible>Control.HasFocus(9500)</visible>
+                    </control>
                 </control>
                 
                 <control type="group">

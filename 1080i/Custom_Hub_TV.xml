@@ -6,8 +6,8 @@
     <controls>
         <include>GlobalBackground</include>
         <include>Furniture_Header</include>
-        <include>Furniture_Clock</include>
         <include>Furniture_NowPlaying</include>
+        <include>Furniture_Clock</include>
         <include>Furniture_Hub_Flags</include>
         <control type="group">
             <include>Animation.Common</include>
@@ -18,27 +18,18 @@
                 <height>640</height>
                 <control type="group">
                     <control type="image">
-                        <left>0</left>
-                        <width>1120</width>
-                        <top>0</top>
-                        <height>640</height>
-                        <texture border="15" colordiffuse="Dark4">common/box.png</texture>
-                        <visible>!Control.HasFocus(9500)</visible>
-                    </control>
-                    <control type="image">
-                        <left>0</left>
-                        <width>1120</width>
-                        <top>0</top>
-                        <height>640</height>
-                        <texture border="15" colordiffuse="Dark1">common/box.png</texture>
-                        <visible>Control.HasFocus(9500)</visible>
+                        <left>-8</left>
+                        <width>1138</width>
+                        <top>-8</top>
+                        <bottom>-8</bottom>
+                        <texture border="15" colordiffuse="Panel">common/rounded-shadow8.png</texture>
                     </control>
                     <control type="wraplist" id="9500">
                         <description>Widget</description>
-                        <left>10</left>
-                        <width>1102</width>
-                        <top>10</top>
-                        <bottom>10</bottom>
+                        <left>0</left>
+                        <width>1122</width>
+                        <top>0</top>
+                        <bottom>0</bottom>
                         <onright>9501</onright>
                         <onup>9500</onup>
                         <ondown>9500</ondown>
@@ -48,26 +39,26 @@
                         <scrolltime tween="quadratic">400</scrolltime>
                         <include>Animation.FadeIn</include>
                         <include>Animation.FadeOut</include>
-                        <itemlayout width="1102" height="620">
+                        <itemlayout width="1122" height="640">
                             <control type="image">
                                 <width>100%</width>
                                 <height>100%</height>
-                                <texture background="true">$VAR[FanartImage]</texture>
+                                <texture background="true" diffuse="diffuse/home-fanart.png">$VAR[FanartImage]</texture>
                             </control>
                         </itemlayout>
-                        <focusedlayout width="1102" height="620">
+                        <focusedlayout width="1122" height="640">
                             <control type="image">
                                 <width>100%</width>
                                 <height>100%</height>
-                                <texture background="true">$VAR[FanartImage]</texture>
+                                <texture background="true" diffuse="diffuse/home-fanart.png">$VAR[FanartImage]</texture>
                             </control>
                         </focusedlayout>
                         <content target="video">$VAR[DefTVHubWidget]</content>
                     </control>
                     <control type="group">
-                        <left>10</left>
-                        <width>1102</width>
-                        <bottom>10</bottom>
+                        <left>0</left>
+                        <width>1122</width>
+                        <bottom>0</bottom>
                         <height>70</height>
                         <control type="image">
                             <left>0</left>
@@ -78,6 +69,16 @@
                         </control>
                         <control type="label">
                             <posx>30</posx>
+                            <width>200</width>
+                            <font>Small</font>
+                            <aligny>center</aligny>
+                            <height>64</height>
+                            <textcolor>PanelWhite70</textcolor>
+                            <selectedcolor>PanelWhite70</selectedcolor>
+                            <label>$INFO[Container(9500).ListItem.Year]</label>
+                        </control>
+                        <control type="label">
+                            <posx>120</posx>
                             <width>auto</width>
                             <aligny>center</aligny>
                             <height>64</height>
@@ -95,7 +96,7 @@
                             <font>Small</font>
                             <textcolor>PanelWhite70</textcolor>
                             <selectedcolor>PanelWhite70</selectedcolor>
-                            <label>$INFO[Container(9500).ListItem.TvShowTitle]</label>
+                            <label>$INFO[Container(9500).ListItem.Duration,, $LOCALIZE[31102]]</label>
                         </control>
                         <control type="image">
                             <centerright>110</centerright>
@@ -117,12 +118,19 @@
                             <label>$INFO[Container(9500).ListItem.Rating]</label>
                         </control>
                     </control>
-                    
+                    <control type="image">
+                        <left>-2</left>
+                        <width>1126</width>
+                        <top>-2</top>
+                        <height>644</height>
+                        <texture colordiffuse="Dark1" border="20">common/selectbox.png</texture>
+                        <visible>Control.HasFocus(9500)</visible>
+                    </control>
                 </control>
                 
                 <control type="group">
                     <control type="list" id="9501">
-                        <description>list</description>
+                        <description>Widget</description>
                         <left>1140</left>
                         <right>0</right>
                         <top>0</top>
@@ -143,8 +151,8 @@
                                 <top>0</top>
                                 <bottom>0</bottom>
                                 <width>80</width>
-                                <visible>substring(ListItem.Icon,special://skin/extras/icons/)</visible>
                                 <texture colordiffuse="Dark2">$INFO[ListItem.Icon]</texture>
+                                <visible>substring(ListItem.Icon,special://skin/extras/icons/)</visible>
                             </control>
                             <control type="label">
                                 <left>30</left>
