@@ -321,9 +321,10 @@
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
                     <include>DefDialogButtons</include>
+                    <visible>!Skin.HasSetting(global.kioskmode)</visible>
                 </control>
 
-                <control type="button" id="11">
+                <!--<control type="button" id="11">
                     <description>Trailer button</description>
                     <label>15200</label>
                     <width>450</width>
@@ -332,7 +333,7 @@
                     <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
                     <include>DefDialogButtons</include>
                     <visible>!Container.Content(artists)</visible>
-                </control>
+                </control>-->
 
                 <control type="button" id ="10">
                     <description>Get Thumb</description>
@@ -342,6 +343,7 @@
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
                     <include>DefDialogButtons</include>
+                    <visible>!Skin.HasSetting(global.kioskmode)</visible>
                 </control>
                 
                 <control type="button" id ="12">
@@ -352,6 +354,7 @@
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
                     <include>DefDialogButtons</include>
+                    <visible>!Skin.HasSetting(global.kioskmode)</visible>
                 </control>
 
             </control>
