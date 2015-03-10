@@ -74,6 +74,13 @@
                     <visible>System.Loggedon + System.HasLoginScreen</visible>
                 </control>
 
+                <control type="button" id="3116">
+                    <description>Shutdown</description>
+                    <include>DefContextButton</include>
+                    <label>13005</label>
+                    <onclick>ShutDown()</onclick>
+                </control>
+                
                 <control type="button" id="3114">
                     <description>Custom Shutdown Timer button</description>
                     <include>DefContextButton</include>
@@ -90,11 +97,12 @@
                     <visible>!System.HasAlarm(shutdowntimer)</visible>
                 </control>
 
-                <control type="button" id="3116">
-                    <description>Shutdown</description>
+                <control type="label" id="3119">
+                    <description>Alarm Time</description>
                     <include>DefContextButton</include>
-                    <label>13005</label>
-                    <onclick>ShutDown()</onclick>
+                    <align>center</align>
+                    <label>$LOCALIZE[20145] [B]$INFO[System.Alarmpos][/B]</label>
+                    <visible>System.HasAlarm(shutdowntimer)</visible>
                 </control>
 
                 <control type="button" id="3117">
@@ -110,14 +118,8 @@
                     <label>13013</label>
                     <onclick>XBMC.Reset()</onclick>
                 </control>
-
-                <control type="label" id="3119">
-                    <description>Alarm Time</description>
-                    <include>DefContextButton</include>
-                    <align>center</align>
-                    <label>$LOCALIZE[20145] [B]$INFO[System.Alarmpos][/B]</label>
-                    <visible>System.HasAlarm(shutdowntimer)</visible>
-                </control>
+                
+                
 
                 <control type="button" id="3120">
                     <include>DefContextButton</include>
