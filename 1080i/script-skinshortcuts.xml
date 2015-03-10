@@ -34,13 +34,13 @@
                 <description>Rules List Control</description>
                 <left>15</left>
                 <bottom>15</bottom>
-                <width>700</width>
+                <width>600</width>
                 <height>759</height>
                 <onup>211</onup>
                 <onleft>211</onleft>
                 <onright>9100</onright>
                 <ondown>211</ondown>
-                <itemlayout width="700" height="69">
+                <itemlayout width="600" height="69">
                     <control type="image">
                         <posx>0</posx>
                         <posy>0</posy>
@@ -60,10 +60,10 @@
                         <height>66</height>
                         <texture colordiffuse="Black30">$INFO[ListItem.Icon]</texture>
                         <visible>substring(ListItem.Icon,special://skin/extras/icons)</visible>
-                        <visible>Skin.HasSetting(home.showicons)</visible>
+                        <visible>Skin.HasSetting(home.showicons) | stringcompare(Window.Property(groupname),movieshub) | stringcompare(Window.Property(groupname),episodeshub)</visible>
                     </control>
                 </itemlayout>
-                <focusedlayout width="700" height="69">
+                <focusedlayout width="600" height="69">
                     <control type="image">
                         <posx>0</posx>
                         <posy>0</posy>
@@ -93,7 +93,7 @@
                         <height>66</height>
                         <texture colordiffuse="Selected">$INFO[ListItem.Icon]</texture>
                         <visible>substring(ListItem.Icon,special://skin/extras/icons)</visible>
-                        <visible>Skin.HasSetting(home.showicons)</visible>
+                        <visible>Skin.HasSetting(home.showicons) | stringcompare(Window.Property(groupname),movieshub) | stringcompare(Window.Property(groupname),episodeshub)</visible>
                     </control>
                 </focusedlayout>
             </control>
@@ -106,7 +106,7 @@
                 <ondown>9100</ondown>
                 <right>15</right>
                 <bottom>15</bottom>
-                <width>320</width>
+                <width>420</width>
                 <height>759</height>
                 <orientation>vertical</orientation>
                 <itemgap>3</itemgap>
