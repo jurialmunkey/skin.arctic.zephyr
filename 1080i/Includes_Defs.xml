@@ -256,12 +256,12 @@
                 <texture colordiffuse="White70" flipy="false">common/arrow-small.png</texture>
             </control>
             <control type="grouplist" id="9000">
-                <onleft>3</onleft>
-                <onleft>9101</onleft>
-                <onright>5</onright>
-                <onright>9101</onright>
-                <onback>3</onback>
-                <onback>9101</onback>
+                <onleft condition="Window.IsVisible(SettingsCategory.xml)">3</onleft>
+                <onleft condition="!Window.IsVisible(SettingsCategory.xml)">9101</onleft>
+                <onright condition="Window.IsVisible(SettingsCategory.xml)">5</onright>
+                <onright condition="!Window.IsVisible(SettingsCategory.xml)">9101</onright>
+                <onback condition="Window.IsVisible(SettingsCategory.xml)">3</onback>
+                <onback condition="!Window.IsVisible(SettingsCategory.xml)">9101</onback>
                 <height>700</height>
                 <include>Def9000GroupList</include>
 
@@ -321,12 +321,12 @@
                     <label>13000</label>
                 </control>
                 
-                <control type="button" id="9009">
+                <!--<control type="button" id="9009">
                     <onclick>ReplaceWindow(Profiles)</onclick>
                     <onclick>SetFocus(3)</onclick>
                     <include>DefContextButton</include>
                     <label>13200</label>
-                </control>
+                </control>-->
                 
                 <control type="button" id="9010">
                     <onclick>ReplaceWindow(PVRSettings)</onclick>
