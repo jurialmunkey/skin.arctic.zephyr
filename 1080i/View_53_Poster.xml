@@ -24,6 +24,15 @@
                     <effect type="zoom" end="60" time="0" center="213,452" />
                 </animation>
                 <control type="image">
+                    <top>PosterH</top>
+                    <width>PosterW</width>
+                    <height>PosterH</height>
+                    <fadetime>100</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$VAR[PosterImage]</texture>
+                    <visible>Skin.HasSetting(show.reflections)</visible>
+                </control>
+                <control type="image">
                     <centertop>PosterH</centertop>
                     <width>PosterW</width>
                     <height>48</height>
@@ -70,6 +79,15 @@
                 <posy>120</posy>
                 <animation condition="Container(53).OnNext | Container(53).OnPrevious" effect="zoom" start="60" end="100" delay="0" time="350" tween="sine" easing="out" center="213,276">Focus</animation>
                 <animation condition="Container(53).OnNext | Container(53).OnPrevious" effect="zoom" start="100" end="60" delay="0" time="250" tween="sine" easing="out" center="213,276">UnFocus</animation>
+                <control type="image">
+                    <top>PosterH</top>
+                    <width>PosterW</width>
+                    <height>PosterH</height>
+                    <fadetime>100</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$VAR[PosterImage]</texture>
+                    <visible>Skin.HasSetting(show.reflections)</visible>
+                </control>
                 <control type="image">
                     <centertop>PosterH</centertop>
                     <width>PosterW</width>
