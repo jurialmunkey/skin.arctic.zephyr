@@ -25,7 +25,7 @@
                 <control type="image">
                     <description>arrow image</description>
                     <centerleft>50%</centerleft>
-                    <posy>366</posy>
+                    <posy>576</posy>
                     <width>16</width>
                     <height>16</height>
                     <texture colordiffuse="White70" flipy="false">common/arrow-small.png</texture>
@@ -36,7 +36,7 @@
                 <posx>0</posx>
                 <posy>-16</posy>
                 <width>466</width>
-                <height>382</height>
+                <height>592</height>
                 <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
             </control>
 
@@ -45,7 +45,7 @@
                 <posx>8</posx>
                 <posy>0</posy>
                 <width>510</width>
-                <height>350</height>
+                <height>560</height>
                 <itemgap>0</itemgap>
 
                 <control type="button" id="3111">
@@ -119,8 +119,24 @@
                     <onclick>XBMC.Reset()</onclick>
                 </control>
                 
+                <control type="button" id="3121">
+                    <include>DefContextButton</include>
+                    <label>5</label>
+                    <onclick>ActivateWindow(settings)</onclick>
+                </control>
                 
-
+                <control type="button" id="3122">
+                    <include>DefContextButton</include>
+                    <label>130</label>
+                    <onclick>ActivateWindow(systeminfo)</onclick>
+                </control>
+                
+                <control type="button" id="3123">
+                    <include>DefContextButton</include>
+                    <label>10003</label>
+                    <onclick>ActivateWindow(filemanager)</onclick>
+                </control>
+                
                 <control type="button" id="3120">
                     <include>DefContextButton</include>
                     <label>31195</label>
