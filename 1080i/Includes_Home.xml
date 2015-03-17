@@ -1065,7 +1065,8 @@
                 <left>SidePad</left>
                 <include condition="!Skin.HasSetting(furniture.clock)">DefHomeRight520</include>
                 <include condition="Skin.HasSetting(furniture.clock)">DefHomeRightSidePad</include>
-                <onup condition="!StringCompare(Container(300).ListItem.Property(widget),Weather) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + [IsEmpty(Skin.String(home.slideshowpath))]]]]">301</onup>
+                <onup condition="!Skin.HasSetting(home.dontshowfanart) + !StringCompare(Container(300).ListItem.Property(widget),Weather) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + [IsEmpty(Skin.String(home.slideshowpath))]]]]">301</onup>
+                <onup condition="Skin.HasSetting(home.dontshowfanart) + !StringCompare(Container(300).ListItem.Property(widget),Weather) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + [IsEmpty(Skin.String(home.slideshowpath))]]]]">SetFocus(301,0)</onup>
                 <ondown condition="IntegerGreaterThan(Container(302).NumItems,0)">SetFocus(302,0)</ondown>
                 <onleft>300</onleft>
                 <onright>300</onright>
