@@ -299,6 +299,7 @@
             </animation>
             <control type="wraplist" id="301">
                 <description>Widget</description>
+                <visible>!StringCompare(Container(300).ListItem.Property(widget),NextAired)</visible>
                 <width>1</width>
                 <height>1</height>
                 <onup condition="IsEmpty(Container(300).ListItem.Property(widget))">303</onup>
@@ -318,6 +319,29 @@
                 <focusedlayout width="1" height="1">
                 </focusedlayout>
                 <content target="video">$VAR[DefWidgetContent]</content>
+            </control>
+            <control type="wraplist" id="301">
+                <description>Widget</description>
+                <visible>StringCompare(Container(300).ListItem.Property(widget),NextAired)</visible>
+                <width>1</width>
+                <height>1</height>
+                <onup condition="IsEmpty(Container(300).ListItem.Property(widget))">303</onup>
+                <onup condition="!IsEmpty(Container(300).ListItem.Property(widget))">300</onup>
+                <ondown>300</ondown>
+                <onback>300</onback>
+                <onleft>301</onleft>
+                <onright>301</onright>
+                <preloaditems>2</preloaditems>
+                <orientation>horizontal</orientation>
+                <autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
+                <scrolltime tween="quadratic">0</scrolltime>
+                <include>Animation.FadeIn</include>
+                <include>Animation.FadeOut</include>
+                <itemlayout width="1" height="1">
+                </itemlayout>
+                <focusedlayout width="1" height="1">
+                </focusedlayout>
+                <content target="video"><include>DefNextAiredWidget</include></content>
             </control>
             <!-- Normal Widget -->
             <control type="group">
@@ -842,7 +866,8 @@
                     <height>297</height>
                  
                     <control type="list" id="301">
-                        <description>Widget</description>
+                        <description>Plugin Content Widget</description>
+                        <visible>!StringCompare(Container(300).ListItem.Property(widget),NextAired)</visible>
                         <visible allowhiddenfocus="true">Control.HasFocus(301) | ControlGroup(303).HasFocus() | !Skin.HasSetting(home.dontautoshowwidget)</visible>
                         <include>Animation.FadeIn</include>
                         <animation effect="fade" start="100" end="0" time="0" delay="0" reversible="false" condition="Container(301).IsUpdating | Container(300).OnNext | Container(300).OnPrevious">Conditional</animation>
@@ -937,6 +962,103 @@
                         <content target="video" limit="10">$VAR[DefWidgetContent]</content>
                     </control>
                    
+                    <control type="list" id="301">
+                        <description>Fixed Content Widget</description>
+                        <visible>StringCompare(Container(300).ListItem.Property(widget),NextAired)</visible>
+                        <visible allowhiddenfocus="true">Control.HasFocus(301) | ControlGroup(303).HasFocus() | !Skin.HasSetting(home.dontautoshowwidget)</visible>
+                        <include>Animation.FadeIn</include>
+                        <animation effect="fade" start="100" end="0" time="0" delay="0" reversible="false" condition="Container(301).IsUpdating | Container(300).OnNext | Container(300).OnPrevious">Conditional</animation>
+                        <animation effect="fade" start="0" end="100" time="200" delay="200" reversible="false" condition="!Container(301).IsUpdating + !Container(300).OnNext + !Container(300).OnPrevious">Conditional</animation>
+                        <left>70</left>
+                        <right>70</right>
+                        <top>20</top>
+                        <bottom>20</bottom>
+                        <onup condition="IsEmpty(Container(300).ListItem.Property(widget))">303</onup>
+                        <onup condition="!IsEmpty(Container(300).ListItem.Property(widget))">300</onup>
+                        <ondown>300</ondown>
+                        <onback>300</onback>
+                        <onleft>301</onleft>
+                        <onright>301</onright>
+                        <preloaditems>2</preloaditems>
+                        <orientation>horizontal</orientation>
+                        <autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
+                        <scrolltime tween="quadratic">400</scrolltime>
+                        <animation effect="fade" start="100" end="0" time="200" condition="Container(301).IsUpdating">Conditional</animation>
+                        <itemlayout width="178" height="257" condition="!substring(Container(300).ListItem.Property(widget),Albums)">
+                            <control type="image">
+                                <left>10</left>
+                                <right>10</right>
+                                <bottom>10</bottom>
+                                <top>10</top>
+                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                            </control>
+                        </itemlayout>
+                        <itemlayout width="254" height="257" condition="substring(Container(300).ListItem.Property(widget),Albums)">
+                            <control type="image">
+                                <centerleft>50%</centerleft>
+                                <width>237</width>
+                                <bottom>10</bottom>
+                                <top>10</top>
+                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                            </control>
+                        </itemlayout>
+                        <focusedlayout width="254" height="257" condition="substring(Container(300).ListItem.Property(widget),Albums)">
+                            <control type="image">
+                                <centerleft>50%</centerleft>
+                                <width>237</width>
+                                <bottom>10</bottom>
+                                <top>10</top>
+                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                            </control>
+                            <control type="image">
+                                <visible>Control.HasFocus(301)</visible>
+                                <left>3</left>
+                                <top>3</top>
+                                <right>3</right>
+                                <bottom>3</bottom>
+                                <texture colordiffuse="Highlight" border="20">common/selectbox.png</texture>
+                                <animation type="Focus">
+                                    <effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+                                    <effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+                                </animation>
+                                <animation type="Unfocus">
+                                    <effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+                                    <effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+                                </animation>
+                            </control>
+                        </focusedlayout>
+                        <focusedlayout width="178" height="257" condition="!substring(Container(300).ListItem.Property(widget),Albums)">
+                            <control type="image">
+                                <left>10</left>
+                                <right>10</right>
+                                <bottom>10</bottom>
+                                <top>10</top>
+                                <aspectratio scalediffuse="false">scale</aspectratio>
+                                <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                            </control>
+                            <control type="image">
+                                <visible>Control.HasFocus(301)</visible>
+                                <left>3</left>
+                                <top>3</top>
+                                <right>3</right>
+                                <bottom>3</bottom>
+                                <texture colordiffuse="Highlight" border="20">common/selectbox.png</texture>
+                                <animation type="Focus">
+                                    <effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+                                    <effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+                                </animation>
+                                <animation type="Unfocus">
+                                    <effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+                                    <effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+                                </animation>
+                            </control>
+                        </focusedlayout>
+                        <content target="video" limit="10"><include>DefNextAiredWidget</include></content>
+                    </control>
+                    
                     <!-- Container Updating -->
                     <control type="group">
                         <centerleft>50%</centerleft>
