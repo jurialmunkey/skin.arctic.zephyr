@@ -372,7 +372,7 @@
                     <onclick>SetProperty(ExtMovie,$INFO[ListItem.Label],home)</onclick>
                     <onclick>SetProperty(ExtStudio,$INFO[ListItem.Studio],home)</onclick>
                     <onclick>SetProperty(ExtDBID,$INFO[ListItem.DBID],home)</onclick>
-                    <onclick>ActivateWindow(3203)</onclick>
+                    <onclick>ActivateWindow(1103)</onclick>
                     <onclick>Close</onclick>
                     <onclick>Dialog.Close(DialogVideoInfo.xml)</onclick>
                     <visible>!IsEmpty(ListItem.Director)</visible>
@@ -463,12 +463,6 @@
                 <align>left</align>
                 <onleft condition="Control.IsVisible(50)">SendClick(2003,5)</onleft>
                 <onleft>9000</onleft>
-                <!--<onclick>SetProperty(ExtDirector,$INFO[ListItem.Director],home)</onclick>
-                <onclick>SetProperty(ExtWriter,$INFO[ListItem.Writer],home)</onclick>
-                <onclick>SetProperty(ExtMovie,$INFO[ListItem.Label],home)</onclick>
-                <onclick>SetProperty(ExtStudio,$INFO[ListItem.Studio],home)</onclick>
-                <onclick>SetProperty(ExtDBID,$INFO[ListItem.DBID],home)</onclick>
-                <onclick>ActivateWindow(3203)</onclick>-->
                 <onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Director])</onclick>
                 <onclick>Dialog.Close(2003)</onclick>
                 <texturenofocus border="5" colordiffuse="Black12">common/box.png</texturenofocus>
