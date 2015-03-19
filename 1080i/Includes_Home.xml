@@ -346,6 +346,7 @@
             <!-- Normal Widget -->
             <control type="group">
                 <visible>!Container(301).IsUpdating</visible>
+                <visible>IntegerGreaterThan(Container(301).NumItems,0)</visible>
                 <visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
                 <visible>!substring(Container(300).ListItem.Property(widget),Albums)</visible>
                 <visible>![Window.IsVisible(home) + !IsEmpty(Skin.String(home.slideshowpath)) + IsEmpty(Container(300).ListItem.Property(widget))] + [IsEmpty(Container(300).ListItem.Property(Background)) | !IsEmpty(Container(300).ListItem.Property(widget))]</visible>
@@ -868,6 +869,7 @@
                     <control type="list" id="301">
                         <description>Plugin Content Widget</description>
                         <visible>!StringCompare(Container(300).ListItem.Property(widget),NextAired)</visible>
+                        <visible>IntegerGreaterThan(Container(301).NumItems,0) | Container(301).IsUpdating</visible>
                         <visible allowhiddenfocus="true">Control.HasFocus(301) | ControlGroup(303).HasFocus() | !Skin.HasSetting(home.dontautoshowwidget)</visible>
                         <include>Animation.FadeIn</include>
                         <animation effect="fade" start="100" end="0" time="0" delay="0" reversible="false" condition="Container(301).IsUpdating | Container(300).OnNext | Container(300).OnPrevious">Conditional</animation>
@@ -964,6 +966,7 @@
                    
                     <control type="list" id="301">
                         <description>Fixed Content Widget</description>
+                        <visible>IntegerGreaterThan(Container(301).NumItems,0) | Container(301).IsUpdating</visible>
                         <visible>StringCompare(Container(300).ListItem.Property(widget),NextAired)</visible>
                         <visible allowhiddenfocus="true">Control.HasFocus(301) | ControlGroup(303).HasFocus() | !Skin.HasSetting(home.dontautoshowwidget)</visible>
                         <include>Animation.FadeIn</include>
