@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window type="dialog" id="3206">
+    <defaultcontrol always="true">9501</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+    <zorder>10</zorder>
+    <controls>
+
+        <include>GlobalOverlay</include>
+
+        <control type="group">
+            <centerleft>50%</centerleft>
+            <posy>360</posy>
+            <width>900</width>
+            <include>Animation.FadeIn.Slide</include>
+            <control type="image">
+                <posx>-30</posx>
+                <posy>-30</posy>
+                <width>960</width>
+                <height>444</height>
+                <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
+            </control>
+
+            <control type="label">
+                <description>Heading</description>
+                <centerleft>50%</centerleft>
+                <width>885</width>
+                <font>MediumBold</font>
+                <align>center</align>
+                <label>31222</label>
+            </control>
+
+            <control type="textbox">
+                <description>Line 1</description>
+                <left>15</left>
+                <right>15</right>
+                <posy>108</posy>
+                <height>300</height>
+                <label>$INFO[Container.FolderPath,$LOCALIZE[31221][CR][I],[/I]]</label>
+            </control>
+            <control type="button" id="9501">
+                <description>Custom 1</description>
+                <centerleft>29%</centerleft>
+                <posy>285</posy>
+                <width>320</width>
+                <label>31128</label>
+                <onleft>9502</onleft>
+                <onright>9502</onright>
+                <font>Button</font>
+                <onclick>Skin.SetString(CustomWidget1,$INFO[Container.FolderPath])</onclick>
+                <onclick>Close</onclick>
+                <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+            </control>
+            <control type="button" id="9502">
+                <description>Custom 2</description>
+                <centerright>29%</centerright>
+                <posy>285</posy>
+                <width>320</width>
+                <label>31129</label>
+                <onleft>9501</onleft>
+                <onright>9501</onright>
+                <font>Button</font>
+                <onclick>Skin.SetString(CustomWidget2,$INFO[Container.FolderPath])</onclick>
+                <onclick>Close</onclick>
+                <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+            </control>
+            
+
+        </control>
+
+    </controls>
+
+</window>
