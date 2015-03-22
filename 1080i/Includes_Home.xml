@@ -348,7 +348,7 @@
                 <visible>!Container(301).IsUpdating</visible>
                 <visible>IntegerGreaterThan(Container(301).NumItems,0)</visible>
                 <visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
-                <visible>!substring(Container(300).ListItem.Property(widget),Albums)</visible>
+                <visible>!substring(Container(300).ListItem.Property(widget),Albums) + !substring(Container(300).ListItem.Property(widget),Favourites)</visible>
                 <visible>![Window.IsVisible(home) + !IsEmpty(Skin.String(home.slideshowpath)) + IsEmpty(Container(300).ListItem.Property(widget))] + [IsEmpty(Container(300).ListItem.Property(Background)) | !IsEmpty(Container(300).ListItem.Property(widget))]</visible>
                 <visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
                 <include>Animation.FadeIn</include>
@@ -380,7 +380,7 @@
                     <height>324</height>
                     <fadetime>350</fadetime>
                     <aspectratio scalediffuse="false">scale</aspectratio>
-                    <texture diffuse="diffuse/widgetposter.png">$VAR[WidgetImage]</texture>
+                    <texture diffuse="diffuse/widgetposter.png" fallback="DefaultAddonNone.png">$VAR[WidgetImage]</texture>
                     <visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
                 </control>
                 <control type="image">
@@ -394,9 +394,9 @@
                     <visible>StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
                 </control>
                 <control type="label">
-                    <left>241</left>
+                    <left>251</left>
                     <top>5</top>
-                    <right>30</right>
+                    <right>40</right>
                     <aligny>center</aligny>
                     <height>80</height>
                     <font>TinyBold</font>
@@ -405,9 +405,9 @@
                     <label>$VAR[WidgetLabel]</label>
                 </control>
                 <control type="label">
-                    <left>241</left>
+                    <left>251</left>
                     <top>55</top>
-                    <right>30</right>
+                    <right>40</right>
                     <aligny>center</aligny>
                     <height>80</height>
                     <font>MediumBold</font>
@@ -416,8 +416,8 @@
                     <label>$VAR[WidgetTitle]</label>
                 </control>
                 <control type="textbox">
-                    <left>241</left>
-                    <right>30</right>
+                    <left>251</left>
+                    <right>40</right>
                     <top>132</top>
                     <height>127</height>
                     <font>Tiny</font>
@@ -429,8 +429,8 @@
                     <label>$VAR[WidgetPlot]</label>
                 </control>
                 <control type="label">
-                    <left>241</left>
-                    <right>30</right>
+                    <left>251</left>
+                    <right>40</right>
                     <top>265</top>
                     <bottom>324</bottom>
                     <align>right</align>
@@ -446,7 +446,7 @@
             <control type="group">
                 <visible>!Container(301).IsUpdating</visible>
                 <visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
-                <visible>substring(Container(300).ListItem.Property(widget),Albums)</visible>
+                <visible>substring(Container(300).ListItem.Property(widget),Albums) | substring(Container(300).ListItem.Property(widget),Favourites)</visible>
                 <visible>![Window.IsVisible(home) + !IsEmpty(Skin.String(home.slideshowpath)) + IsEmpty(Container(300).ListItem.Property(widget))] + [IsEmpty(Container(300).ListItem.Property(Background)) | !IsEmpty(Container(300).ListItem.Property(widget))]</visible>
                 <visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
                 <include>Animation.FadeIn</include>
@@ -478,13 +478,13 @@
                     <height>324</height>
                     <fadetime>350</fadetime>
                     <aspectratio scalediffuse="false">scale</aspectratio>
-                    <texture diffuse="diffuse/widgetposter.png">$VAR[WidgetImage]</texture>
+                    <texture diffuse="diffuse/widgetposter.png" fallback="DefaultAddonNone.png">$VAR[WidgetImage]</texture>
                 </control>
       
                 <control type="label">
-                    <left>349</left>
+                    <left>359</left>
                     <top>5</top>
-                    <right>30</right>
+                    <right>40</right>
                     <aligny>center</aligny>
                     <height>80</height>
                     <font>TinyBold</font>
@@ -493,9 +493,9 @@
                     <label>$VAR[WidgetLabel]</label>
                 </control>
                 <control type="label">
-                    <left>349</left>
+                    <left>359</left>
                     <top>55</top>
-                    <right>30</right>
+                    <right>40</right>
                     <aligny>center</aligny>
                     <height>80</height>
                     <font>MediumBold</font>
@@ -504,8 +504,8 @@
                     <label>$VAR[WidgetTitle]</label>
                 </control>
                 <control type="textbox">
-                    <left>349</left>
-                    <right>30</right>
+                    <left>359</left>
+                    <right>40</right>
                     <top>132</top>
                     <height>127</height>
                     <font>Tiny</font>
@@ -517,8 +517,8 @@
                     <label>$VAR[WidgetPlot]</label>
                 </control>
                 <control type="label">
-                    <left>349</left>
-                    <right>30</right>
+                    <left>359</left>
+                    <right>40</right>
                     <top>265</top>
                     <bottom>324</bottom>
                     <align>right</align>
@@ -889,34 +889,34 @@
                         <autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
                         <scrolltime tween="quadratic">400</scrolltime>
                         <animation effect="fade" start="100" end="0" time="200" condition="Container(301).IsUpdating">Conditional</animation>
-                        <itemlayout width="178" height="257" condition="!substring(Container(300).ListItem.Property(widget),Albums)">
+                        <itemlayout width="178" height="257" condition="![substring(Container(300).ListItem.Property(widget),Albums) | substring(Container(300).ListItem.Property(widget),Favourites)]">
                             <control type="image">
                                 <left>10</left>
                                 <right>10</right>
                                 <bottom>10</bottom>
                                 <top>10</top>
                                 <aspectratio scalediffuse="false">scale</aspectratio>
-                                <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                                <texture diffuse="diffuse/wall.png" fallback="DefaultAddonNone.png" background="true">$VAR[PosterImage]</texture>
                             </control>
                         </itemlayout>
-                        <itemlayout width="254" height="257" condition="substring(Container(300).ListItem.Property(widget),Albums)">
+                        <itemlayout width="254" height="257" condition="[substring(Container(300).ListItem.Property(widget),Albums) | substring(Container(300).ListItem.Property(widget),Favourites)]">
                             <control type="image">
                                 <centerleft>50%</centerleft>
                                 <width>237</width>
                                 <bottom>10</bottom>
                                 <top>10</top>
                                 <aspectratio scalediffuse="false">scale</aspectratio>
-                                <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                                <texture diffuse="diffuse/wall.png" fallback="DefaultAddonNone.png" background="true">$VAR[PosterImage]</texture>
                             </control>
                         </itemlayout>
-                        <focusedlayout width="254" height="257" condition="substring(Container(300).ListItem.Property(widget),Albums)">
+                        <focusedlayout width="254" height="257" condition="[substring(Container(300).ListItem.Property(widget),Albums) | substring(Container(300).ListItem.Property(widget),Favourites)]">
                             <control type="image">
                                 <centerleft>50%</centerleft>
                                 <width>237</width>
                                 <bottom>10</bottom>
                                 <top>10</top>
                                 <aspectratio scalediffuse="false">scale</aspectratio>
-                                <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                                <texture diffuse="diffuse/wall.png" fallback="DefaultAddonNone.png" background="true">$VAR[PosterImage]</texture>
                             </control>
                             <control type="image">
                                 <visible>Control.HasFocus(301)</visible>
@@ -935,14 +935,14 @@
                                 </animation>
                             </control>
                         </focusedlayout>
-                        <focusedlayout width="178" height="257" condition="!substring(Container(300).ListItem.Property(widget),Albums)">
+                        <focusedlayout width="178" height="257" condition="![substring(Container(300).ListItem.Property(widget),Albums) | substring(Container(300).ListItem.Property(widget),Favourites)]">
                             <control type="image">
                                 <left>10</left>
                                 <right>10</right>
                                 <bottom>10</bottom>
                                 <top>10</top>
                                 <aspectratio scalediffuse="false">scale</aspectratio>
-                                <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+                                <texture diffuse="diffuse/wall.png" fallback="DefaultAddonNone.png" background="true">$VAR[PosterImage]</texture>
                             </control>
                             <control type="image">
                                 <visible>Control.HasFocus(301)</visible>
@@ -987,7 +987,7 @@
                         <autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
                         <scrolltime tween="quadratic">400</scrolltime>
                         <animation effect="fade" start="100" end="0" time="200" condition="Container(301).IsUpdating">Conditional</animation>
-                        <itemlayout width="178" height="257" condition="!substring(Container(300).ListItem.Property(widget),Albums)">
+                        <itemlayout width="178" height="257">
                             <control type="image">
                                 <left>10</left>
                                 <right>10</right>
@@ -997,43 +997,7 @@
                                 <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
                             </control>
                         </itemlayout>
-                        <itemlayout width="254" height="257" condition="substring(Container(300).ListItem.Property(widget),Albums)">
-                            <control type="image">
-                                <centerleft>50%</centerleft>
-                                <width>237</width>
-                                <bottom>10</bottom>
-                                <top>10</top>
-                                <aspectratio scalediffuse="false">scale</aspectratio>
-                                <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
-                            </control>
-                        </itemlayout>
-                        <focusedlayout width="254" height="257" condition="substring(Container(300).ListItem.Property(widget),Albums)">
-                            <control type="image">
-                                <centerleft>50%</centerleft>
-                                <width>237</width>
-                                <bottom>10</bottom>
-                                <top>10</top>
-                                <aspectratio scalediffuse="false">scale</aspectratio>
-                                <texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
-                            </control>
-                            <control type="image">
-                                <visible>Control.HasFocus(301)</visible>
-                                <left>3</left>
-                                <top>3</top>
-                                <right>3</right>
-                                <bottom>3</bottom>
-                                <texture colordiffuse="Highlight" border="20">common/selectbox.png</texture>
-                                <animation type="Focus">
-                                    <effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
-                                    <effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
-                                </animation>
-                                <animation type="Unfocus">
-                                    <effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
-                                    <effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
-                                </animation>
-                            </control>
-                        </focusedlayout>
-                        <focusedlayout width="178" height="257" condition="!substring(Container(300).ListItem.Property(widget),Albums)">
+                        <focusedlayout width="178" height="257">
                             <control type="image">
                                 <left>10</left>
                                 <right>10</right>

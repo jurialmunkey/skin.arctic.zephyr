@@ -44,6 +44,7 @@
         <value condition="StringCompare(Container(300).ListItem.Property(widget),RandomAlbums)">plugin://service.library.data.provider?type=randomalbums&amp;reload=$INFO[Window.Property(randomalbums)]</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),RecentlyPlayedAlbums)">musicdb://recentlyplayedalbums/</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),Top100Albums)">musicdb://top100/albums/</value>
+        <value condition="StringCompare(Container(300).ListItem.Property(widget),Favourites)">favourites://</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),Weather) + !IsEmpty(Skin.String(weather.fanart))">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Current.FanartCode)]/</value>
         
         <!-- Background -->
