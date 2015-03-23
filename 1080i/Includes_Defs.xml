@@ -44,7 +44,6 @@
         <value condition="StringCompare(Container(300).ListItem.Property(widget),RandomAlbums)">plugin://service.library.data.provider?type=randomalbums&amp;reload=$INFO[Window.Property(randomalbums)]</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),RecentlyPlayedAlbums)">musicdb://recentlyplayedalbums/</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),Top100Albums)">musicdb://top100/albums/</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),Favourites)">favourites://</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),Weather) + !IsEmpty(Skin.String(weather.fanart))">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Current.FanartCode)]/</value>
         
         <!-- Background -->
@@ -163,6 +162,57 @@
             <label>$INFO[Window.Property(NextAired.10.Label)]</label>
             <label2>$INFO[Window.Property(NextAired.10.NextNumber)]$INFO[Window.Property(NextAired.10.NextTitle), ,]$INFO[Window.Property(NextAired.10.NextDate), • ,]</label2>
             <visible>StringCompare(Container(300).ListItem.Property(widget),NextAired) + !IsEmpty(Window.Property(NextAired.10.Label))</visible>
+        </item>
+    </include>
+    <include name="DefFavouritesWidget">
+        <item id="11" description="AutoFavourite">
+            <visible>StringCompare(Container(300).ListItem.Property(widget),Favourites) + !IsEmpty(Window(Home).Property(favourite.1.path))</visible>
+            <label>$INFO[Window(Home).Property(favourite.1.name)]</label>
+            <icon>$INFO[Window(Home).Property(favourite.1.thumb)]</icon>
+            <property name="ItemType">$LOCALIZE[1036]</property>
+            <onclick>$INFO[Window(Home).Property(favourite.1.path)]</onclick>
+        </item>
+        <item id="12" description="AutoFavourite">
+            <visible>StringCompare(Container(300).ListItem.Property(widget),Favourites) + !IsEmpty(Window(Home).Property(favourite.2.path))</visible>
+            <label>$INFO[Window(Home).Property(favourite.2.name)]</label>
+            <icon>$INFO[Window(Home).Property(favourite.2.thumb)]</icon>
+            <property name="ItemType">$LOCALIZE[1036]</property>
+            <onclick>$INFO[Window(Home).Property(favourite.2.path)]</onclick>
+        </item>
+        <item id="13" description="AutoFavourite">
+            <visible>StringCompare(Container(300).ListItem.Property(widget),Favourites) + !IsEmpty(Window(Home).Property(favourite.3.path))</visible>
+            <label>$INFO[Window(Home).Property(favourite.3.name)]</label>
+            <icon>$INFO[Window(Home).Property(favourite.3.thumb)]</icon>
+            <property name="ItemType">$LOCALIZE[1036]</property>
+            <onclick>$INFO[Window(Home).Property(favourite.3.path)]</onclick>
+        </item>
+        <item id="14" description="AutoFavourite">
+            <visible>StringCompare(Container(300).ListItem.Property(widget),Favourites) + !IsEmpty(Window(Home).Property(favourite.4.path))</visible>
+            <label>$INFO[Window(Home).Property(favourite.4.name)]</label>
+            <icon>$INFO[Window(Home).Property(favourite.4.thumb)]</icon>
+            <property name="ItemType">$LOCALIZE[1036]</property>
+            <onclick>$INFO[Window(Home).Property(favourite.4.path)]</onclick>
+        </item>
+        <item id="15" description="AutoFavourite">
+            <visible>StringCompare(Container(300).ListItem.Property(widget),Favourites) + !IsEmpty(Window(Home).Property(favourite.5.path))</visible>
+            <label>$INFO[Window(Home).Property(favourite.5.name)]</label>
+            <icon>$INFO[Window(Home).Property(favourite.5.thumb)]</icon>
+            <property name="ItemType">$LOCALIZE[1036]</property>
+            <onclick>$INFO[Window(Home).Property(favourite.5.path)]</onclick>
+        </item>
+        <item id="16" description="AutoFavourite">
+            <visible>StringCompare(Container(300).ListItem.Property(widget),Favourites) + !IsEmpty(Window(Home).Property(favourite.6.path))</visible>
+            <label>$INFO[Window(Home).Property(favourite.6.name)]</label>
+            <icon>$INFO[Window(Home).Property(favourite.6.thumb)]</icon>
+            <property name="ItemType">$LOCALIZE[1036]</property>
+            <onclick>$INFO[Window(Home).Property(favourite.6.path)]</onclick>
+        </item>
+        <item id="17" description="AutoFavourite">
+            <visible>StringCompare(Container(300).ListItem.Property(widget),Favourites) + !IsEmpty(Window(Home).Property(favourite.7.path))</visible>
+            <label>$INFO[Window(Home).Property(favourite.7.name)]</label>
+            <icon>$INFO[Window(Home).Property(favourite.7.thumb)]</icon>
+            <property name="ItemType">$LOCALIZE[1036]</property>
+            <onclick>$INFO[Window(Home).Property(favourite.7.path)]</onclick>
         </item>
     </include>
     
