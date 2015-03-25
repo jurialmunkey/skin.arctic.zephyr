@@ -279,7 +279,7 @@
                     </control>
                     
                     <!-- Widgets -->
-                    <control type="radiobutton" id="9247" description="Classic Widget">
+                    <control type="radiobutton" id="9241" description="Classic Widget">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9104)</visible>
                         <include>DefSettingsButton</include>
@@ -287,7 +287,7 @@
                         <selected>Skin.HasSetting(home.classicwidgets)</selected>
                         <onclick>Skin.ToggleSetting(home.classicwidgets)</onclick>
                     </control>
-                    <control type="radiobutton" id="9248" description="Classic Widget Auto show">
+                    <control type="radiobutton" id="9242" description="Classic Widget Auto show">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9104)</visible>
                         <include>DefSettingsButton</include>
@@ -296,7 +296,7 @@
                         <selected>Skin.HasSetting(home.dontautoshowwidget)</selected>
                         <onclick>Skin.ToggleSetting(home.dontautoshowwidget)</onclick>
                     </control>
-                    <control type="radiobutton" id="9246" description="Show slideshow instead of fanart">
+                    <control type="radiobutton" id="9243" description="Show slideshow instead of fanart">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9104)</visible>
                         <include>DefSettingsButton</include>
@@ -304,24 +304,8 @@
                         <selected>Skin.HasSetting(home.dontshowfanart)</selected>
                         <onclick condition="!Skin.HasSetting(home.dontshowfanart) + IsEmpty(Skin.String(home.slideshowpath))">Skin.SetPath(home.slideshowpath)</onclick>
                         <onclick>Skin.ToggleSetting(home.dontshowfanart)</onclick>
-                    </control>  
-                    <control type="button" id="9243" description="Custom Widget 1">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9104)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31128</label>
-                        <label2>$INFO[Skin.String(CustomWidget1)]</label2>
-                        <onclick>Skin.SetString(CustomWidget1)</onclick>
                     </control>
-                    <control type="button" id="9244" description="Custom Widget 2">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9104)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31129</label>
-                        <label2>$INFO[Skin.String(CustomWidget2)]</label2>
-                        <onclick>Skin.SetString(CustomWidget2)</onclick>
-                    </control>
-                    <control type="button" id="9241" description="Select Movies Hub Widget">
+                    <control type="button" id="9244" description="Select Movies Hub Widget">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9104)</visible>
                         <include>DefSettingsButton</include>
@@ -330,7 +314,7 @@
                         <onclick condition="IsEmpty(Skin.String(MovieHubWidget))">Skin.SetFile(MovieHubWidget,.xsp|.m3u,special://profile/playlists/video/)</onclick>
                         <onclick condition="!IsEmpty(Skin.String(MovieHubWidget))">Skin.Reset(MovieHubWidget)</onclick>
                     </control>
-                    <control type="button" id="9242" description="Select TV Shows Hub Widget">
+                    <control type="button" id="9245" description="Select TV Shows Hub Widget">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9104)</visible>
                         <include>DefSettingsButton</include>
@@ -339,11 +323,38 @@
                         <onclick condition="IsEmpty(Skin.String(TVHubWidget))">Skin.SetFile(TVHubWidget,.xsp|.m3u,special://profile/playlists/video/)</onclick>
                         <onclick condition="!IsEmpty(Skin.String(TVHubWidget))">Skin.Reset(TVHubWidget)</onclick>
                     </control>
-                    
-                    
-                    
-                    
-                    
+                    <control type="button" id="9246" description="Custom Widget 1">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9104)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31128</label>
+                        <label2>$INFO[Skin.String(CustomWidget1)]</label2>
+                        <onclick>Skin.SetString(CustomWidget1)</onclick>
+                    </control>
+                    <control type="button" id="9247" description="Custom Widget 2">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9104)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31129</label>
+                        <label2>$INFO[Skin.String(CustomWidget2)]</label2>
+                        <onclick>Skin.SetString(CustomWidget2)</onclick>
+                    </control>
+                    <control type="button" id="9248" description="Custom Widget 3">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9104)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31230</label>
+                        <label2>$INFO[Skin.String(CustomWidget3)]</label2>
+                        <onclick>Skin.SetString(CustomWidget3)</onclick>
+                    </control>
+                    <control type="button" id="9249" description="Custom Widget 4">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9104)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31231</label>
+                        <label2>$INFO[Skin.String(CustomWidget4)]</label2>
+                        <onclick>Skin.SetString(CustomWidget4)</onclick>
+                    </control>
                     
                     <!-- Addons -->
                     <control type="radiobutton" id="9251" description="TV Tunes">
