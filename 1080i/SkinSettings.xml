@@ -172,6 +172,15 @@
                         <selected>!Skin.HasSetting(global.hidefanart)</selected>
                         <onclick>Skin.ToggleSetting(global.hidefanart)</onclick>
                     </control>
+                    <control type="radiobutton" id="9228" description="Show Extra fanart">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9102)</visible>
+                        <visible>!Skin.HasSetting(global.hidefanart)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31730</label>
+                        <selected>Skin.HasSetting(global.extrafanart)</selected>
+                        <onclick>Skin.ToggleSetting(global.extrafanart)</onclick>
+                    </control>
                     <control type="radiobutton" id="9224" description="Animate Fanart">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9102)</visible>
