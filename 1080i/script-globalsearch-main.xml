@@ -35,6 +35,28 @@
                     <right>30</right>
                     <itemgap>0</itemgap>
                     <orientation>vertical</orientation>
+                    <control type="group" id="219" description="Actors">
+                        <include>GlobalSearchGroup</include>
+                        <control type="label">
+                            <include>GlobalSearchLabel</include>
+                            <label>$INFO[Control.GetLabel(210),$LOCALIZE[20337] (,)]</label>
+                        </control>
+                        <control type="list" id="211">
+                            <onup>181</onup>
+                            <ondown>121</ondown>
+                            <include>GlobalSearchList</include>
+                            <focusedlayout height="220" width="428">
+                                <control type="group">
+                                    <visible>!Control.HasFocus(211)</visible>
+                                    <include>GlobalSearchListItem</include>
+                                </control>
+                                <control type="group">
+                                    <visible>Control.HasFocus(211)</visible>
+                                    <include>GlobalSearchListFocus</include>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
                     <control type="group" id="119" description="Movies">
                         <include>GlobalSearchGroup</include>
                         <control type="label">
@@ -236,6 +258,9 @@
             <visible>false</visible>
         </control>
         <control type="label" id="180">
+            <visible>false</visible>
+        </control>
+        <control type="label" id="210">
             <visible>false</visible>
         </control>
         <control type="label" id="190" description="Searching">

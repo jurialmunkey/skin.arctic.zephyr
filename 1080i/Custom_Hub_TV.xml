@@ -24,6 +24,14 @@
                         <bottom>-8</bottom>
                         <texture border="15" colordiffuse="Panel">common/rounded-shadow8.png</texture>
                     </control>
+                    <control type="image">
+                        <left>0</left>
+                        <width>1122</width>
+                        <top>0</top>
+                        <bottom>0</bottom>
+                        <texture background="true" diffuse="diffuse/home-fanart.png">pvr/background.jpg</texture>
+                        <visible>!IntegerGreaterThan(Container(9500).NumItems,0)</visible>
+                    </control>
                     <control type="wraplist" id="9500">
                         <description>Widget</description>
                         <left>0</left>
@@ -43,14 +51,14 @@
                             <control type="image">
                                 <width>100%</width>
                                 <height>100%</height>
-                                <texture background="true" diffuse="diffuse/home-fanart.png">$VAR[FanartImage]</texture>
+                                <texture background="true" diffuse="diffuse/home-fanart.png">$VAR[LandscapeImage]</texture>
                             </control>
                         </itemlayout>
                         <focusedlayout width="1122" height="640">
                             <control type="image">
                                 <width>100%</width>
                                 <height>100%</height>
-                                <texture background="true" diffuse="diffuse/home-fanart.png">$VAR[FanartImage]</texture>
+                                <texture background="true" diffuse="diffuse/home-fanart.png">$VAR[LandscapeImage]</texture>
                             </control>
                         </focusedlayout>
                         <content target="video">$VAR[DefTVHubWidget]</content>
@@ -60,6 +68,7 @@
                         <width>1122</width>
                         <bottom>0</bottom>
                         <height>70</height>
+                        <visible>IntegerGreaterThan(Container(9500).NumItems,0)</visible>
                         <control type="image">
                             <left>0</left>
                             <right>0</right>

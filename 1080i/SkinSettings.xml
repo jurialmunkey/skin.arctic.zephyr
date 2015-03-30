@@ -50,17 +50,18 @@
                         <include>DefSettingsButton</include>
                         <label>31144</label>
                     </control>
+
                     <control type="togglebutton" id="9102" description="Background">
                         <usealttexture>ControlGroup(9100).HasFocus(9102)</usealttexture>
                         <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
                         <include>DefSettingsButton</include>
                         <label>31110</label>
                     </control>
-                    <control type="togglebutton" id="9103" description="OSD">
-                        <usealttexture>ControlGroup(9100).HasFocus(9103)</usealttexture>
+                    <control type="togglebutton" id="9105" description="Hub Items">
+                        <usealttexture>ControlGroup(9100).HasFocus(9105)</usealttexture>
                         <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
                         <include>DefSettingsButton</include>
-                        <label>478</label>
+                        <label>31178</label>
                     </control>
                     <control type="togglebutton" id="9106" description="Furniture">
                         <usealttexture>ControlGroup(9100).HasFocus(9106)</usealttexture>
@@ -68,12 +69,13 @@
                         <include>DefSettingsButton</include>
                         <label>31152</label>
                     </control>
-                    <control type="togglebutton" id="9105" description="Addons">
-                        <usealttexture>ControlGroup(9100).HasFocus(9105)</usealttexture>
+                    <control type="togglebutton" id="9103" description="OSD">
+                        <usealttexture>ControlGroup(9100).HasFocus(9103)</usealttexture>
                         <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
                         <include>DefSettingsButton</include>
-                        <label>24001</label>
+                        <label>478</label>
                     </control>
+                    
                     <control type="togglebutton" id="9107" description="Extras">
                         <usealttexture>ControlGroup(9100).HasFocus(9107)</usealttexture>
                         <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
@@ -314,24 +316,7 @@
                         <onclick condition="!Skin.HasSetting(home.dontshowfanart) + IsEmpty(Skin.String(home.slideshowpath))">Skin.SetPath(home.slideshowpath)</onclick>
                         <onclick>Skin.ToggleSetting(home.dontshowfanart)</onclick>
                     </control>
-                    <control type="button" id="9244" description="Select Movies Hub Widget">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9104)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31182</label>
-                        <label2>$INFO[Skin.String(MovieHubWidget)]</label2>
-                        <onclick condition="IsEmpty(Skin.String(MovieHubWidget))">Skin.SetFile(MovieHubWidget,.xsp|.m3u,special://profile/playlists/video/)</onclick>
-                        <onclick condition="!IsEmpty(Skin.String(MovieHubWidget))">Skin.Reset(MovieHubWidget)</onclick>
-                    </control>
-                    <control type="button" id="9245" description="Select TV Shows Hub Widget">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9104)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31183</label>
-                        <label2>$INFO[Skin.String(TVHubWidget)]</label2>
-                        <onclick condition="IsEmpty(Skin.String(TVHubWidget))">Skin.SetFile(TVHubWidget,.xsp|.m3u,special://profile/playlists/video/)</onclick>
-                        <onclick condition="!IsEmpty(Skin.String(TVHubWidget))">Skin.Reset(TVHubWidget)</onclick>
-                    </control>
+                    
                     <control type="button" id="9246" description="Custom Widget 1">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9104)</visible>
@@ -365,24 +350,38 @@
                         <onclick>Skin.SetString(CustomWidget4)</onclick>
                     </control>
                     
-                    <!-- Addons -->
-                    <control type="radiobutton" id="9251" description="TV Tunes">
+                    <!-- Hubs -->
+                    <control type="button" id="9251" description="Select Movies Hub Widget">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9105)</visible>
                         <include>DefSettingsButton</include>
-                        <label>31151</label>
-                        <selected>Skin.HasSetting(ActivateTvTunes)</selected>
-                        <onclick>Skin.ToggleSetting(ActivateTvTunes)</onclick>
-                        <enable>System.HasAddon(script.tvtunes)</enable>
+                        <label>31182</label>
+                        <label2>$INFO[Skin.String(MovieHubWidget)]</label2>
+                        <onclick condition="IsEmpty(Skin.String(MovieHubWidget))">Skin.SetFile(MovieHubWidget,.xsp|.m3u,special://profile/playlists/video/)</onclick>
+                        <onclick condition="!IsEmpty(Skin.String(MovieHubWidget))">Skin.Reset(MovieHubWidget)</onclick>
                     </control>
-                    <control type="radiobutton" id="9252" description="Update Next Aired on Startup">
+                    <control type="button" id="9252" description="Select Movies Hub Items">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9105)</visible>
                         <include>DefSettingsButton</include>
-                        <label>31180</label>
-                        <selected>Skin.HasSetting(NextAired.Update)</selected>
-                        <onclick>Skin.ToggleSetting(NextAired.Update)</onclick>
-                        <enable>System.HasAddon(script.tv.show.next.aired)</enable>
+                        <label>$LOCALIZE[20342] [LOWERCASE]$LOCALIZE[31178][/LOWERCASE]</label>
+                        <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=movieshub)</onclick>
+                    </control>
+                    <control type="button" id="9253" description="Select TV Shows Hub Widget">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9105)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31183</label>
+                        <label2>$INFO[Skin.String(TVHubWidget)]</label2>
+                        <onclick condition="IsEmpty(Skin.String(TVHubWidget))">Skin.SetFile(TVHubWidget,.xsp|.m3u,special://profile/playlists/video/)</onclick>
+                        <onclick condition="!IsEmpty(Skin.String(TVHubWidget))">Skin.Reset(TVHubWidget)</onclick>
+                    </control>
+                    <control type="button" id="9254" description="Select Movies Hub Items">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9105)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>$LOCALIZE[20343] [LOWERCASE]$LOCALIZE[31178][/LOWERCASE]</label>
+                        <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=episodeshub)</onclick>
                     </control>
                     
                     
@@ -481,6 +480,24 @@
                         <label>31216</label>
                         <label2>$INFO[Skin.String(busyloader)]</label2>
                         <onclick>Skin.SetFile(busyloader,.gif,special://skin/extras/spinners)</onclick>
+                    </control>
+                    <control type="radiobutton" id="9275" description="TV Tunes">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9107)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31151</label>
+                        <selected>Skin.HasSetting(ActivateTvTunes)</selected>
+                        <onclick>Skin.ToggleSetting(ActivateTvTunes)</onclick>
+                        <enable>System.HasAddon(script.tvtunes)</enable>
+                    </control>
+                    <control type="radiobutton" id="9276" description="Update Next Aired on Startup">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9107)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31180</label>
+                        <selected>Skin.HasSetting(NextAired.Update)</selected>
+                        <onclick>Skin.ToggleSetting(NextAired.Update)</onclick>
+                        <enable>System.HasAddon(script.tv.show.next.aired)</enable>
                     </control>
                 </control>
                 
