@@ -1,960 +1,1100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-    <include name="PVRSideBlade">
-        <control type="group">
-            <include>Animation.FadeIn</include>
-            <include>Animation.FadeOut</include>
-            <visible>ControlGroup(9000).HasFocus()</visible>
-            <include>GlobalOverlay</include>
-        </control>
-        <control type="group">
-            <height>732</height>
-            <include>Def9000Background</include>
-            <control type="grouplist" id="9000">
-                <height>700</height>
-                <onback condition="Window.IsVisible(MyPVRGuide.xml) + Control.IsVisible(10)">ActivateWindow(home)</onback>
-                <include>Def9000GroupList</include>
-                <control type="button" id="9001">
-                    <description>Channels</description>
-                    <label>19019</label>
-                    <onclick>ActivateWindow(TVChannels)</onclick>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                </control>
-                <control type="button" id="9002">
-                    <description>Guide</description>
-                    <label>22020</label>
-                    <onclick>ActivateWindow(TvGuide)</onclick>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                </control>
-                <control type="button" id="9003">
-                    <description>Recordings</description>
-                    <label>19017</label>
-                    <onclick>ActivateWindow(TVRecordings)</onclick>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                </control>
-                <control type="button" id="9004">
-                    <description>Timers</description>
-                    <label>19040</label>
-                    <onclick>ActivateWindow(TVTimers)</onclick>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                </control>
-                <control type="button" id="9005">
-                    <description>Search</description>
-                    <label>137</label>
-                    <onclick>ActivateWindow(TVSearch)</onclick>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                </control>
-                
-                <!-- PVR options -->
-                <control type="label" id="9010">
-                    <description>Channels</description>
-                    <label>31194</label>
-                    <font>TinyBold</font>
-                    <textcolor>Black30</textcolor>
-                    <textoffsetx>30</textoffsetx>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                </control>
-                <control type="button" id="28">
-                    <description>Group</description>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                </control>
-                <control type="button" id="2">
-                    <description>View</description>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                </control>
-                <control type="button" id="3">
-                    <description>Sort</description>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                </control>
-                <control type="togglebutton" id="4">
-                    <description>Direction</description>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>584</label>
-                    <altlabel>585</altlabel>
-                </control>
-            </control>
-        </control>
-    </include>
-
-    <include name="PVRInfoPanel">
-        <control type="group">
-            <left>70</left>
-            <width>645</width>
-            <top>206</top>
-            <height>660</height>
-            <control type="group">
-                <height>330</height>
-                <control type="image">
-                    <width>100%</width>
-                    <height>100%</height>
-                    <texture border="10">common/nofocus-shadow10.png</texture>
-                </control>
-                <control type="image">
-                    <left>10</left>
-                    <top>10</top>
-                    <right>10</right>
-                    <bottom>10</bottom>
-                    <fadetime>200</fadetime>
-                    <texture border="10" colordiffuse="Black">diffuse/pvrinfo.png</texture>
-                    <visible>Player.HasVideo</visible>
-                </control>
-                <control type="videowindow">
-                    <left>10</left>
-                    <top>10</top>
-                    <right>10</right>
-                    <bottom>10</bottom>
-                    <visible>Player.HasVideo</visible>
-                </control>
-             
-                <control type="image">
-                    <left>10</left>
-                    <top>10</top>
-                    <right>10</right>
-                    <bottom>10</bottom>
-                    <fadetime>200</fadetime>
-                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-                    <texture diffuse="diffuse/pvrinfo.png" background="true" fallback="pvr/background.jpg">$INFO[ListItem.Thumb]</texture>
-                    <visible>!Player.HasVideo</visible>
-                    <visible>Window.IsVisible(MyPVRRecordings.xml)</visible>
-                </control>
-                <control type="image">
-                    <left>10</left>
-                    <top>10</top>
-                    <right>10</right>
-                    <bottom>10</bottom>
-                    <fadetime>200</fadetime>
-                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-                    <texture diffuse="diffuse/pvrinfo.png" background="true" fallback="pvr/background.jpg">pvr/background.jpg</texture>
-                    <visible>!Player.HasVideo</visible>
-                    <visible>!Window.IsVisible(MyPVRRecordings.xml)</visible>
-                </control>
-            </control>
-            <control type="group">
-                <left>20</left>
-                <right>20</right>
-                <posy>330</posy>
-                <height>330</height>
-                
-                <control type="label">
-                    <top>10</top>
-                    <aligny>center</aligny>
-                    <height>64</height>
-                    <font>SmallBold</font>
-                    <textcolor>Dark1</textcolor>
-                    <selectedcolor>Dark1</selectedcolor>
-                    <label>$INFO[ListItem.Title]</label>
-                </control>
-                <control type="label">
-                    <top>50</top>
-                    <height>64</height>
-                    <aligny>center</aligny>
-                    <font>Tiny</font>
-                    <textcolor>Dark1</textcolor>
-                    <selectedcolor>Dark1</selectedcolor>
-                    <label fallback="19055">$INFO[ListItem.Genre]</label>
-                </control>
-                <control type="textbox">
-                    <top>125</top>
-                    <bottom>17</bottom>
-                    <align>justify</align>
-                    <font>Tiny</font>
-                    <textcolor>Dark1</textcolor>
-                    <selectedcolor>Dark1</selectedcolor>
-                    <label fallback="19055">$INFO[ListItem.Plot]</label>
-                </control>
-            </control>
-        
-        </control>
-    </include>
-    <include name="PVRView_50">
-        <control type="group">
-            <visible>Control.IsVisible(50)</visible>
-            <include>Animation.Common</include>
-            <control type="group">
-                <right>SidePad</right>
-                <width>1100</width>
-                <top>PosterPad</top>
-                <height>640</height>
-               
-                <control type="list" id="50" description="TV CHANNELS">     
-                    <right>0</right>
-                    <width>1100</width>
-                    <top>0</top>
-                    <bottom>0</bottom>
-                    <onup>50</onup>
-                    <ondown>50</ondown>
-                    <onleft condition="!Skin.HasSetting(global.kioskmode)">28</onleft>
-                    <onright>60</onright>
-                    <pagecontrol>60</pagecontrol>
-                    <viewtype label="535">list</viewtype>
-                    <scrolltime>200</scrolltime>
-                    <orientation>vertical</orientation>
-                    <itemlayout height="128" width="1100">
-                        <control type="image">                                
-                            <left>10</left>
-                            <centertop>50%</centertop>
-                            <width>111</width>
-                            <height>111</height>
-                            <aspectratio align="left">keep</aspectratio>
-                            <texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
-                        </control>
-                        <control type="group">
-                            <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
-                            
-                            <control type="label">
-                                <left>137</left>
-                                <top>12</top>
-                                <aligny>center</aligny>
-                                <height>64</height>
-                                <width>70</width>
-                                <align>right</align>
-                                <font>SmallBold</font>
-                                <textcolor>Dark1</textcolor>
-                                <selectedcolor>Dark1</selectedcolor>
-                                <label>$INFO[ListItem.ChannelNumber]</label>
-                            </control>
-                            <control type="progress">
-                                <posx>140</posx>
-                                <posy>81</posy>
-                                <width>67</width>
-                                <height>19</height>
-                                <reveal>true</reveal>
-                                <texturebg>pvr/progress-back.png</texturebg>
-                                <lefttexture>pvr/progress-leftright.png</lefttexture>
-                                <midtexture>pvr/progress-mid.png</midtexture>
-                                <righttexture>pvr/progress-leftright.png</righttexture>
-                                <info>ListItem.Progress</info>
-                                <colordiffuse>Dark1</colordiffuse>
-                            </control>
-                            <control type="label">
-                                <posx>220</posx>
-                                <right>100</right>
-                                <top>12</top>
-                                <aligny>center</aligny>
-                                <height>64</height>
-                                <font>SmallBold</font>
-                                <textcolor>Dark1</textcolor>
-                                <selectedcolor>Dark1</selectedcolor>
-                                <label>$INFO[ListItem.ChannelName]</label>
-                            </control>
-                            <control type="label">
-                                <posx>220</posx>
-                                <bottom>8</bottom>
-                                <right>100</right>
-                                <aligny>center</aligny>
-                                <height>64</height>
-                                <font>Small</font>
-                                <textcolor>Dark2</textcolor>
-                                <selectedcolor>Dark2</selectedcolor>
-                                <label>$INFO[ListItem.Title]</label>
-                            </control>
-                            <control type="label">
-                                <right>30</right>
-                                <width>500</width>
-                                <top>12</top>
-                                <aligny>center</aligny>
-                                <height>64</height>
-                                <align>right</align>
-                                <font>Tiny</font>
-                                <textcolor>Dark1</textcolor>
-                                <selectedcolor>Dark1</selectedcolor>
-                                <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
-                                <visible>!IsEmpty(ListItem.NextTitle)</visible>
-                            </control>
-                            <control type="label">
-                                <right>30</right>
-                                <width>500</width>
-                                <aligny>center</aligny>
-                                <height>100%</height>
-                                <align>right</align>
-                                <font>Tiny</font>
-                                <textcolor>Dark1</textcolor>
-                                <selectedcolor>Dark1</selectedcolor>
-                                <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
-                                <visible>IsEmpty(ListItem.NextTitle)</visible>
-                            </control>
-                            <control type="label">
-                                <right>30</right>
-                                <width>500</width>
-                                <bottom>8</bottom>
-                                <aligny>center</aligny>
-                                <height>64</height>
-                                <align>right</align>
-                                <font>Tiny</font>
-                                <textcolor>Dark1</textcolor>
-                                <selectedcolor>Dark1</selectedcolor>
-                                <label>$INFO[ListItem.NextTitle,[B],[/B] $LOCALIZE[19031]]</label>
-                            </control>
-                        </control>
-                        <control type="group">
-                            <visible>Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml)</visible>
-
-                            <control type="label">
-                                <posx>140</posx>
-                                <right>100</right>
-                                <top>12</top>
-                                <aligny>center</aligny>
-                                <height>64</height>
-                                <font>SmallBold</font>
-                                <textcolor>Dark1</textcolor>
-                                <selectedcolor>Dark1</selectedcolor>
-                                <label>$INFO[ListItem.Label]</label>
-                            </control>
-                            <control type="label">
-                                <posx>140</posx>
-                                <bottom>8</bottom>
-                                <right>100</right>
-                                <aligny>center</aligny>
-                                <height>64</height>
-                                <font>Small</font>
-                                <textcolor>Dark2</textcolor>
-                                <selectedcolor>Dark2</selectedcolor>
-                                <label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime,$COMMA  ,]</label>
-                            </control>
-                            <control type="label">
-                                <right>30</right>
-                                <width>500</width>
-                                <aligny>center</aligny>
-                                <height>100%</height>
-                                <align>right</align>
-                                <font>Small</font>
-                                <textcolor>Dark1</textcolor>
-                                <selectedcolor>Dark1</selectedcolor>
-                                <label>$INFO[ListItem.ChannelName]</label>
-                            </control>
-                        </control>
-                    
-                    </itemlayout>
-                    
-                    
-                    <focusedlayout height="128" width="1100">
-                        <control type="group">
-                            <visible>Control.HasFocus(50)</visible>
-                            <control type="image">
-                                <width>100%</width>
-                                <height>100%</height>
-                                <texture colordiffuse="Dark1" border="5">common/box.png</texture>
-                            </control>
-                            <control type="image">                                
-                                <left>10</left>
-                                <centertop>50%</centertop>
-                                <width>111</width>
-                                <height>111</height>
-                                <aspectratio align="left">keep</aspectratio>
-                                <texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
-                            </control>
-                            
-                            <control type="group">
-                                <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
-                                <control type="label">
-                                    <left>137</left>
-                                    <top>12</top>
-                                    <aligny>center</aligny>
-                                    <height>64</height>
-                                    <width>70</width>
-                                    <align>right</align>
-                                    <font>SmallBold</font>
-                                    <textcolor>Light1</textcolor>
-                                    <selectedcolor>Light1</selectedcolor>
-                                    <label>$INFO[ListItem.ChannelNumber]</label>
-                                </control>
-                                <control type="progress">
-                                    <posx>140</posx>
-                                    <posy>81</posy>
-                                    <width>67</width>
-                                    <height>19</height>
-                                    <reveal>true</reveal>
-                                    <texturebg>pvr/progress-back.png</texturebg>
-                                    <lefttexture>pvr/progress-leftright.png</lefttexture>
-                                    <midtexture>pvr/progress-mid.png</midtexture>
-                                    <righttexture>pvr/progress-leftright.png</righttexture>
-                                    <info>ListItem.Progress</info>
-                                    <colordiffuse>Light1</colordiffuse>
-                                </control>
-                                <control type="label">
-                                    <posx>220</posx>
-                                    <right>100</right>
-                                    <top>12</top>
-                                    <aligny>center</aligny>
-                                    <height>64</height>
-                                    <font>SmallBold</font>
-                                    <textcolor>Light1</textcolor>
-                                    <selectedcolor>Light1</selectedcolor>
-                                    <label>$INFO[ListItem.ChannelName]</label>
-                                </control>
-                                <control type="label">
-                                    <posx>220</posx>
-                                    <bottom>8</bottom>
-                                    <right>100</right>
-                                    <aligny>center</aligny>
-                                    <height>64</height>
-                                    <font>Small</font>
-                                    <textcolor>Light1</textcolor>
-                                    <selectedcolor>Light1</selectedcolor>
-                                    <label>$INFO[ListItem.Title]</label>
-                                </control>
-                                <control type="label">
-                                    <right>30</right>
-                                    <width>500</width>
-                                    <top>12</top>
-                                    <aligny>center</aligny>
-                                    <height>64</height>
-                                    <align>right</align>
-                                    <font>Tiny</font>
-                                    <textcolor>Light1</textcolor>
-                                    <selectedcolor>Light1</selectedcolor>
-                                    <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
-                                    <visible>!IsEmpty(ListItem.NextTitle)</visible>
-                                </control>
-                                <control type="label">
-                                    <right>30</right>
-                                    <width>500</width>
-                                    <aligny>center</aligny>
-                                    <height>100%</height>
-                                    <align>right</align>
-                                    <font>Tiny</font>
-                                    <textcolor>Light1</textcolor>
-                                    <selectedcolor>Light1</selectedcolor>
-                                    <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
-                                    <visible>IsEmpty(ListItem.NextTitle)</visible>
-                                </control>
-                                <control type="label">
-                                    <right>30</right>
-                                    <width>500</width>
-                                    <bottom>8</bottom>
-                                    <aligny>center</aligny>
-                                    <height>64</height>
-                                    <align>right</align>
-                                    <font>Tiny</font>
-                                    <textcolor>Light1</textcolor>
-                                    <selectedcolor>Light1</selectedcolor>
-                                    <label>$INFO[ListItem.NextTitle,[B],[/B] $LOCALIZE[19031]]</label>
-                                </control>
-                            </control>
-                            <control type="group">
-                                <visible>Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml)</visible>
-                                <control type="label">
-                                    <posx>140</posx>
-                                    <right>100</right>
-                                    <top>12</top>
-                                    <aligny>center</aligny>
-                                    <height>64</height>
-                                    <font>SmallBold</font>
-                                    <textcolor>Light1</textcolor>
-                                    <selectedcolor>Light1</selectedcolor>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                                <control type="label">
-                                    <posx>140</posx>
-                                    <bottom>8</bottom>
-                                    <right>100</right>
-                                    <aligny>center</aligny>
-                                    <height>64</height>
-                                    <font>Small</font>
-                                    <textcolor>Light1</textcolor>
-                                    <selectedcolor>Light1</selectedcolor>
-                                    <label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime,$COMMA  ,]</label>
-                                </control>
-                                <control type="label">
-                                    <right>30</right>
-                                    <width>500</width>
-                                    <aligny>center</aligny>
-                                    <height>100%</height>
-                                    <align>right</align>
-                                    <font>Small</font>
-                                    <textcolor>Light1</textcolor>
-                                    <selectedcolor>Light1</selectedcolor>
-                                    <label>$INFO[ListItem.ChannelName]</label>
-                                </control>
-                            </control>
-                        </control>
-                        <control type="group">
-                            <visible>!Control.HasFocus(50)</visible>
-                            <control type="image">                                
-                                <left>10</left>
-                                <centertop>50%</centertop>
-                                <width>111</width>
-                                <height>111</height>
-                                <aspectratio align="left">keep</aspectratio>
-                                <texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
-                            </control>
-                            <control type="group">
-                                <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
-                                
-                                <control type="label">
-                                    <left>137</left>
-                                    <top>12</top>
-                                    <aligny>center</aligny>
-                                    <height>64</height>
-                                    <width>70</width>
-                                    <align>right</align>
-                                    <font>SmallBold</font>
-                                    <textcolor>Dark1</textcolor>
-                                    <selectedcolor>Dark1</selectedcolor>
-                                    <label>$INFO[ListItem.ChannelNumber]</label>
-                                </control>
-                                <control type="progress">
-                                    <posx>140</posx>
-                                    <posy>81</posy>
-                                    <width>67</width>
-                                    <height>19</height>
-                                    <reveal>true</reveal>
-                                    <texturebg>pvr/progress-back.png</texturebg>
-                                    <lefttexture>pvr/progress-leftright.png</lefttexture>
-                                    <midtexture>pvr/progress-mid.png</midtexture>
-                                    <righttexture>pvr/progress-leftright.png</righttexture>
-                                    <info>ListItem.Progress</info>
-                                    <colordiffuse>Dark1</colordiffuse>
-                                </control>
-                                <control type="label">
-                                    <posx>220</posx>
-                                    <right>100</right>
-                                    <top>12</top>
-                                    <aligny>center</aligny>
-                                    <height>64</height>
-                                    <font>SmallBold</font>
-                                    <textcolor>Dark1</textcolor>
-                                    <selectedcolor>Dark1</selectedcolor>
-                                    <label>$INFO[ListItem.ChannelName]</label>
-                                </control>
-                                <control type="label">
-                                    <posx>220</posx>
-                                    <bottom>8</bottom>
-                                    <right>100</right>
-                                    <aligny>center</aligny>
-                                    <height>64</height>
-                                    <font>Small</font>
-                                    <textcolor>Dark2</textcolor>
-                                    <selectedcolor>Dark2</selectedcolor>
-                                    <label>$INFO[ListItem.Title]</label>
-                                </control>
-                                <control type="label">
-                                    <right>30</right>
-                                    <width>500</width>
-                                    <top>12</top>
-                                    <aligny>center</aligny>
-                                    <height>64</height>
-                                    <align>right</align>
-                                    <font>Tiny</font>
-                                    <textcolor>Dark1</textcolor>
-                                    <selectedcolor>Dark1</selectedcolor>
-                                    <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
-                                    <visible>!IsEmpty(ListItem.NextTitle)</visible>
-                                </control>
-                                <control type="label">
-                                    <right>30</right>
-                                    <width>500</width>
-                                    <aligny>center</aligny>
-                                    <height>100%</height>
-                                    <align>right</align>
-                                    <font>Tiny</font>
-                                    <textcolor>Dark1</textcolor>
-                                    <selectedcolor>Dark1</selectedcolor>
-                                    <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
-                                    <visible>IsEmpty(ListItem.NextTitle)</visible>
-                                </control>
-                                <control type="label">
-                                    <right>30</right>
-                                    <width>500</width>
-                                    <bottom>8</bottom>
-                                    <aligny>center</aligny>
-                                    <height>64</height>
-                                    <align>right</align>
-                                    <font>Tiny</font>
-                                    <textcolor>Dark1</textcolor>
-                                    <selectedcolor>Dark1</selectedcolor>
-                                    <label>$INFO[ListItem.NextTitle,[B],[/B] $LOCALIZE[19031]]</label>
-                                </control>
-                            </control>
-                            <control type="group">
-                                <visible>Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml)</visible>
-
-                                <control type="label">
-                                    <posx>130</posx>
-                                    <right>100</right>
-                                    <top>12</top>
-                                    <aligny>center</aligny>
-                                    <height>64</height>
-                                    <font>SmallBold</font>
-                                    <textcolor>Dark1</textcolor>
-                                    <selectedcolor>Dark1</selectedcolor>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                                <control type="label">
-                                    <posx>130</posx>
-                                    <bottom>8</bottom>
-                                    <right>100</right>
-                                    <aligny>center</aligny>
-                                    <height>64</height>
-                                    <font>Small</font>
-                                    <textcolor>Dark2</textcolor>
-                                    <selectedcolor>Dark2</selectedcolor>
-                                    <label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime,$COMMA  ,]</label>
-                                </control>
-                                <control type="label">
-                                    <right>30</right>
-                                    <width>500</width>
-                                    <aligny>center</aligny>
-                                    <height>100%</height>
-                                    <align>right</align>
-                                    <font>Small</font>
-                                    <textcolor>Dark1</textcolor>
-                                    <selectedcolor>Dark1</selectedcolor>
-                                    <label>$INFO[ListItem.ChannelName]</label>
-                                </control>
-                            </control>
-                        
-                        
-                        </control>
-                    
-                        
-                    </focusedlayout>
-                </control>
-            </control>
-            <include>Furniture_Scrollbar</include>
-            <include>PVRInfoPanel</include>
-        </control>
-    </include>
-
-    <include name="PVRView_51">
-        <control type="group">
-            <visible>Control.IsVisible(51)</visible>
-            <include>Animation.Common</include>
-            <control type="group">
-          
-                
-                <control type="panel" id="51" description="TV CHANNELS">     
-                    <top>206</top>
-                    <height>660</height>
-                    <left>70</left>
-                    <right>70</right>
-                    <onup>51</onup>
-                    <ondown>51</ondown>
-                    <onleft condition="!Skin.HasSetting(global.kioskmode)">28</onleft>
-                    <onright>60</onright>
-                    <orientation>vertical</orientation>
-                    <pagecontrol>60</pagecontrol>
-                    <viewtype label="31198">list</viewtype>
-                    <scrolltime tween="quadratic">400</scrolltime>
-                    <itemlayout height="330" width="890">
-                        <control type="image">
-                            <left>10</left>
-                            <top>10</top>
-                            <right>10</right>
-                            <bottom>10</bottom>
-                            <texture colordiffuse="Dark4" border="5">common/box.png</texture>
-                        </control>
-                        
-                        <control type="group">
-                            <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
-                            <control type="image">                                
-                                <left>20</left>
-                                <top>20</top>
-                                <width>220</width>
-                                <height>220</height>
-                                <aspectratio align="left" aligny="top">keep</aspectratio>
-                                <texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
-                            </control>
-                            <control type="label">
-                                <left>260</left>
-                                <right>30</right>
-                                <top>14</top>
-                                <height>50</height>
-                                <align>left</align>
-                                <font>SmallBold</font>
-                                <textcolor>Dark1</textcolor>
-                                <selectedcolor>Dark1</selectedcolor>
-                                <label>$INFO[ListItem.Title]</label>
-                            </control>
-                            <control type="textbox">
-                                <left>260</left>
-                                <right>30</right>
-                                <top>70</top>
-                                <height>128</height>
-                                <align>justify</align>
-                                <font>Tiny</font>
-                                <textcolor>Dark1</textcolor>
-                                <selectedcolor>Dark1</selectedcolor>
-                                <label>$INFO[ListItem.Plot]</label>
-                                <autoscroll>false</autoscroll>
-                            </control>
-                            <control type="label">
-                                <left>260</left>
-                                <right>30</right>
-                                <bottom>80</bottom>
-                                <aligny>center</aligny>
-                                <height>38</height>
-                                <align>left</align>
-                                <font>Tiny</font>
-                                <textcolor>Dark1</textcolor>
-                                <selectedcolor>Dark1</selectedcolor>
-                                <label>$INFO[ListItem.NextTitle,[B]$LOCALIZE[19031]:[/B] ,]</label>
-                            </control>
-                            <control type="label">
-                                <right>30</right>
-                                <width>300</width>
-                                <bottom>32</bottom>
-                                <aligny>center</aligny>
-                                <align>right</align>
-                                <font>EpisodeNumber</font>
-                                <textcolor>Dark1</textcolor>
-                                <selectedcolor>Dark1</selectedcolor>
-                                <label>$INFO[ListItem.ChannelNumber]</label>
-                            </control>
-                            <control type="progress">
-                                <posx>20</posx>
-                                <bottom>30</bottom>
-                                <width>67</width>
-                                <height>19</height>
-                                <reveal>true</reveal>
-                                <texturebg>pvr/progress-back.png</texturebg>
-                                <lefttexture>pvr/progress-leftright.png</lefttexture>
-                                <midtexture>pvr/progress-mid.png</midtexture>
-                                <righttexture>pvr/progress-leftright.png</righttexture>
-                                <info>ListItem.Progress</info>
-                                <colordiffuse>Dark1</colordiffuse>
-                            </control>
-                            <control type="label">
-                                <left>110</left>
-                                <right>30</right>
-                                <bottom>30</bottom>
-                                <height>24</height>
-                                <aligny>center</aligny>
-                                <align>left</align>
-                                <font>SmallBold</font>
-                                <textcolor>Dark1</textcolor>
-                                <selectedcolor>Dark1</selectedcolor>
-                                <label>$INFO[ListItem.ChannelName]</label>
-                            </control>
-                        </control>
-                        <control type="group">
-                            <visible>!Window.IsVisible(MyPVRChannels.xml)</visible>
-                            <control type="image">                                
-                                <left>20</left>
-                                <top>20</top>
-                                <width>290</width>
-                                <height>290</height>
-                                <aspectratio>scale</aspectratio>
-                                <texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
-                            </control>
-                            <control type="label">
-                                <left>330</left>
-                                <right>30</right>
-                                <top>20</top>
-                                <height>50</height>
-                                <align>left</align>
-                                <font>SmallBold</font>
-                                <textcolor>Dark1</textcolor>
-                                <selectedcolor>Dark1</selectedcolor>
-                                <label>$INFO[ListItem.Label]</label>
-                            </control>
-                            <control type="label">
-                                <left>330</left>
-                                <right>30</right>
-                                <top>75</top>
-                                <height>24</height>
-                                <aligny>center</aligny>
-                                <align>left</align>
-                                <font>TinyBold</font>
-                                <textcolor>Dark2</textcolor>
-                                <selectedcolor>Dark2</selectedcolor>
-                                <label>$INFO[ListItem.ChannelName]</label>
-                            </control>
-                            <control type="textbox">
-                                <left>330</left>
-                                <right>30</right>
-                                <top>120</top>
-                                <height>128</height>
-                                <align>justify</align>
-                                <font>Tiny</font>
-                                <textcolor>Dark1</textcolor>
-                                <selectedcolor>Dark1</selectedcolor>
-                                <autoscroll>false</autoscroll>
-                                <label>$INFO[ListItem.Plot]</label>
-                            </control>
-                            <control type="label">
-                                <left>330</left>
-                                <right>30</right>
-                                <bottom>25</bottom>
-                                <aligny>center</aligny>
-                                <height>38</height>
-                                <align>left</align>
-                                <font>Tiny</font>
-                                <textcolor>Dark1</textcolor>
-                                <selectedcolor>Dark1</selectedcolor>
-                                <label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime,$COMMA  ,]</label>
-                            </control>
-                            
-                        
-                        </control>
-                        
-                        
-                    </itemlayout>
-                    <focusedlayout height="330" width="890">
-                        <control type="image">
-                            <left>10</left>
-                            <top>10</top>
-                            <right>10</right>
-                            <bottom>10</bottom>
-                            <texture colordiffuse="Dark1" border="5">common/box.png</texture>
-                        </control>
-                        <control type="group">
-                            <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
-                            <control type="image">                                
-                                <left>20</left>
-                                <top>20</top>
-                                <width>220</width>
-                                <height>220</height>
-                                <aspectratio align="left" aligny="top">keep</aspectratio>
-                                <texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
-                            </control>
-                            <control type="label">
-                                <left>260</left>
-                                <right>30</right>
-                                <top>14</top>
-                                <height>50</height>
-                                <align>left</align>
-                                <font>SmallBold</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
-                                <label>$INFO[ListItem.Title]</label>
-                            </control>
-                            <control type="textbox">
-                                <left>260</left>
-                                <right>30</right>
-                                <top>70</top>
-                                <height>128</height>
-                                <align>justify</align>
-                                <font>Tiny</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
-                                <label>$INFO[ListItem.Plot]</label>
-                            </control>
-                            <control type="label">
-                                <left>260</left>
-                                <right>30</right>
-                                <bottom>80</bottom>
-                                <aligny>center</aligny>
-                                <height>38</height>
-                                <align>left</align>
-                                <font>Tiny</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
-                                <label>$INFO[ListItem.NextTitle,[B]$LOCALIZE[19031]:[/B] ,]</label>
-                            </control>
-                            <control type="label">
-                                <right>30</right>
-                                <width>300</width>
-                                <bottom>32</bottom>
-                                <aligny>center</aligny>
-                                <align>right</align>
-                                <font>EpisodeNumber</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
-                                <label>$INFO[ListItem.ChannelNumber]</label>
-                            </control>
-                            <control type="progress">
-                                <posx>20</posx>
-                                <bottom>30</bottom>
-                                <width>67</width>
-                                <height>19</height>
-                                <reveal>true</reveal>
-                                <texturebg>pvr/progress-back.png</texturebg>
-                                <lefttexture>pvr/progress-leftright.png</lefttexture>
-                                <midtexture>pvr/progress-mid.png</midtexture>
-                                <righttexture>pvr/progress-leftright.png</righttexture>
-                                <info>ListItem.Progress</info>
-                                <colordiffuse>Light1</colordiffuse>
-                            </control>
-                            <control type="label">
-                                <left>110</left>
-                                <right>30</right>
-                                <bottom>30</bottom>
-                                <height>24</height>
-                                <aligny>center</aligny>
-                                <align>left</align>
-                                <font>SmallBold</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
-                                <label>$INFO[ListItem.ChannelName]</label>
-                            </control>
-                        </control>
-                        <control type="group">
-                            <visible>!Window.IsVisible(MyPVRChannels.xml)</visible>
-                            <control type="image">                                
-                                <left>20</left>
-                                <top>20</top>
-                                <width>290</width>
-                                <height>290</height>
-                                <aspectratio>scale</aspectratio>
-                                <texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
-                            </control>
-                            <control type="label">
-                                <left>330</left>
-                                <right>30</right>
-                                <top>20</top>
-                                <height>50</height>
-                                <align>left</align>
-                                <font>SmallBold</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
-                                <label>$INFO[ListItem.Label]</label>
-                            </control>
-                            <control type="label">
-                                <left>330</left>
-                                <right>30</right>
-                                <top>75</top>
-                                <height>24</height>
-                                <aligny>center</aligny>
-                                <align>left</align>
-                                <font>TinyBold</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
-                                <label>$INFO[ListItem.ChannelName]</label>
-                            </control>
-                            <control type="textbox">
-                                <left>330</left>
-                                <right>30</right>
-                                <top>120</top>
-                                <height>128</height>
-                                <align>justify</align>
-                                <font>Tiny</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
-                                <label>$INFO[ListItem.Plot]</label>
-                            </control>
-                            <control type="label">
-                                <left>330</left>
-                                <right>30</right>
-                                <bottom>25</bottom>
-                                <aligny>center</aligny>
-                                <height>38</height>
-                                <align>left</align>
-                                <font>Tiny</font>
-                                <textcolor>Light1</textcolor>
-                                <selectedcolor>Light1</selectedcolor>
-                                <label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime,$COMMA  ,]</label>
-                            </control>
-                            
-                        
-                        </control>
-                        
-                    </focusedlayout>
-                </control>
-                
-            </control>
-            <include>Furniture_Scrollbar</include>
-        </control>
-    </include>
-
+	<include name="PVRSideBlade">
+		<control type="group">
+			<include>Animation.FadeIn</include>
+			<include>Animation.FadeOut</include>
+			<visible>ControlGroup(9000).HasFocus()</visible>
+			<include>GlobalOverlay</include>
+		</control>
+		<control type="group">
+			<height>732</height>
+			<include>Def9000Background</include>
+			<control type="grouplist" id="9000">
+				<height>700</height>
+				<onback condition="Window.IsVisible(MyPVRGuide.xml) + Control.IsVisible(10)">ActivateWindow(home)</onback>
+				<include>Def9000GroupList</include>
+				<control type="button" id="9001">
+					<description>Channels</description>
+					<label>19019</label>
+					<onclick>ActivateWindow(TVChannels)</onclick>
+					<include>DefContextButton</include>
+					<align>left</align>
+				</control>
+				<control type="button" id="9002">
+					<description>Guide</description>
+					<label>22020</label>
+					<onclick>ActivateWindow(TvGuide)</onclick>
+					<include>DefContextButton</include>
+					<align>left</align>
+				</control>
+				<control type="button" id="9003">
+					<description>Recordings</description>
+					<label>19017</label>
+					<onclick>ActivateWindow(TVRecordings)</onclick>
+					<include>DefContextButton</include>
+					<align>left</align>
+				</control>
+				<control type="button" id="9004">
+					<description>Timers</description>
+					<label>19040</label>
+					<onclick>ActivateWindow(TVTimers)</onclick>
+					<include>DefContextButton</include>
+					<align>left</align>
+				</control>
+				<control type="button" id="9005">
+					<description>Search</description>
+					<label>137</label>
+					<onclick>ActivateWindow(TVSearch)</onclick>
+					<include>DefContextButton</include>
+					<align>left</align>
+				</control>
+				<!-- PVR options -->
+				<control type="label" id="9010">
+					<description>Channels</description>
+					<label>31194</label>
+					<font>TinyBold</font>
+					<textcolor>Black30</textcolor>
+					<textoffsetx>30</textoffsetx>
+					<include>DefContextButton</include>
+					<align>left</align>
+				</control>
+				<control type="button" id="28">
+					<description>Group</description>
+					<include>DefContextButton</include>
+					<align>left</align>
+				</control>
+				<control type="button" id="2">
+					<description>View</description>
+					<include>DefContextButton</include>
+					<align>left</align>
+				</control>
+				<control type="radiobutton" id="123">
+					<include>DefContextButton</include>
+					<label>31739</label>
+					<selected>Skin.HasSetting(ShowIconViewEpg)</selected>
+					<onclick>Skin.ToggleSetting(ShowIconViewEpg)</onclick>
+					<onclick>ReloadSkin()</onclick>
+					<align>left</align>
+					<visible>Control.IsVisible(10)</visible>
+				</control>
+				<control type="radiobutton" id="124">
+					<include>DefContextButton</include>
+					<label>31740</label>
+					<selected>Skin.HasSetting(EPGGenreColors.Enabled)</selected>
+					<onclick>Skin.ToggleSetting(EPGGenreColors.Enabled)</onclick>
+					<align>left</align>
+					<visible>Control.IsVisible(10)</visible>
+				</control>
+				
+				
+				<control type="button" id="3">
+					<description>Sort</description>
+					<include>DefContextButton</include>
+					<align>left</align>
+				</control>
+				<control type="togglebutton" id="4">
+					<description>Direction</description>
+					<include>DefContextButton</include>
+					<align>left</align>
+					<label>584</label>
+					<altlabel>585</altlabel>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="PVRInfoPanel">
+		<control type="group">
+			<left>70</left>
+			<width>645</width>
+			<top>206</top>
+			<height>660</height>
+			<control type="group">
+				<height>330</height>
+				<control type="image">
+					<width>100%</width>
+					<height>100%</height>
+					<texture border="10">common/nofocus-shadow10.png</texture>
+				</control>
+				<control type="image">
+					<left>10</left>
+					<top>10</top>
+					<right>10</right>
+					<bottom>10</bottom>
+					<fadetime>200</fadetime>
+					<texture border="10" colordiffuse="Black">diffuse/pvrinfo.png</texture>
+					<visible>Player.HasVideo</visible>
+				</control>
+				<control type="videowindow">
+					<left>10</left>
+					<top>10</top>
+					<right>10</right>
+					<bottom>10</bottom>
+					<visible>Player.HasVideo</visible>
+				</control>
+				<control type="image">
+					<left>10</left>
+					<top>10</top>
+					<right>10</right>
+					<bottom>10</bottom>
+					<fadetime>200</fadetime>
+					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<texture diffuse="diffuse/pvrinfo.png" background="true" fallback="pvr/background.jpg">$INFO[ListItem.Thumb]</texture>
+					<visible>!Player.HasVideo</visible>
+					<visible>Window.IsVisible(MyPVRRecordings.xml)</visible>
+				</control>
+				<control type="image">
+					<left>10</left>
+					<top>10</top>
+					<right>10</right>
+					<bottom>10</bottom>
+					<fadetime>200</fadetime>
+					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<texture diffuse="diffuse/pvrinfo.png" background="true" fallback="pvr/background.jpg">pvr/background.jpg</texture>
+					<visible>!Player.HasVideo</visible>
+					<visible>!Window.IsVisible(MyPVRRecordings.xml)</visible>
+				</control>
+			</control>
+			<control type="group">
+				<left>20</left>
+				<right>20</right>
+				<posy>330</posy>
+				<height>330</height>
+				<control type="label">
+					<top>10</top>
+					<aligny>center</aligny>
+					<height>64</height>
+					<font>SmallBold</font>
+					<textcolor>Dark1</textcolor>
+					<selectedcolor>Dark1</selectedcolor>
+					<label>$INFO[ListItem.Title]</label>
+				</control>
+				<control type="label">
+					<top>50</top>
+					<height>64</height>
+					<aligny>center</aligny>
+					<font>Tiny</font>
+					<textcolor>Dark1</textcolor>
+					<selectedcolor>Dark1</selectedcolor>
+					<label fallback="19055">$INFO[ListItem.Genre]</label>
+				</control>
+				<control type="textbox">
+					<top>125</top>
+					<bottom>17</bottom>
+					<align>justify</align>
+					<font>Tiny</font>
+					<textcolor>Dark1</textcolor>
+					<selectedcolor>Dark1</selectedcolor>
+					<label fallback="19055">$INFO[ListItem.Plot]</label>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="PVRView_50">
+		<control type="group">
+			<visible>Control.IsVisible(50)</visible>
+			<include>Animation.Common</include>
+			<control type="group">
+				<right>SidePad</right>
+				<width>1100</width>
+				<top>PosterPad</top>
+				<height>640</height>
+				<control type="list" id="50" description="TV CHANNELS">
+					<right>0</right>
+					<width>1100</width>
+					<top>0</top>
+					<bottom>0</bottom>
+					<onup>50</onup>
+					<ondown>50</ondown>
+					<onleft condition="!Skin.HasSetting(global.kioskmode)">28</onleft>
+					<onright>60</onright>
+					<pagecontrol>60</pagecontrol>
+					<viewtype label="535">list</viewtype>
+					<scrolltime>200</scrolltime>
+					<orientation>vertical</orientation>
+					<itemlayout height="128" width="1100">
+						<control type="image">
+							<left>10</left>
+							<centertop>50%</centertop>
+							<width>111</width>
+							<height>111</height>
+							<aspectratio align="left">keep</aspectratio>
+							<texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
+						</control>
+						<control type="group">
+							<visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+							<control type="label">
+								<left>137</left>
+								<top>12</top>
+								<aligny>center</aligny>
+								<height>64</height>
+								<width>70</width>
+								<align>right</align>
+								<font>SmallBold</font>
+								<textcolor>Dark1</textcolor>
+								<selectedcolor>Dark1</selectedcolor>
+								<label>$INFO[ListItem.ChannelNumber]</label>
+							</control>
+							<control type="progress">
+								<posx>140</posx>
+								<posy>81</posy>
+								<width>67</width>
+								<height>19</height>
+								<reveal>true</reveal>
+								<texturebg>pvr/progress-back.png</texturebg>
+								<lefttexture>pvr/progress-leftright.png</lefttexture>
+								<midtexture>pvr/progress-mid.png</midtexture>
+								<righttexture>pvr/progress-leftright.png</righttexture>
+								<info>ListItem.Progress</info>
+								<colordiffuse>Dark1</colordiffuse>
+							</control>
+							<control type="label">
+								<posx>220</posx>
+								<right>100</right>
+								<top>12</top>
+								<aligny>center</aligny>
+								<height>64</height>
+								<font>SmallBold</font>
+								<textcolor>Dark1</textcolor>
+								<selectedcolor>Dark1</selectedcolor>
+								<label>$INFO[ListItem.ChannelName]</label>
+							</control>
+							<control type="label">
+								<posx>220</posx>
+								<bottom>8</bottom>
+								<right>100</right>
+								<aligny>center</aligny>
+								<height>64</height>
+								<font>Small</font>
+								<textcolor>Dark2</textcolor>
+								<selectedcolor>Dark2</selectedcolor>
+								<label>$INFO[ListItem.Title]</label>
+							</control>
+							<control type="label">
+								<right>30</right>
+								<width>500</width>
+								<top>12</top>
+								<aligny>center</aligny>
+								<height>64</height>
+								<align>right</align>
+								<font>Tiny</font>
+								<textcolor>Dark1</textcolor>
+								<selectedcolor>Dark1</selectedcolor>
+								<label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
+								<visible>!IsEmpty(ListItem.NextTitle)</visible>
+							</control>
+							<control type="label">
+								<right>30</right>
+								<width>500</width>
+								<aligny>center</aligny>
+								<height>100%</height>
+								<align>right</align>
+								<font>Tiny</font>
+								<textcolor>Dark1</textcolor>
+								<selectedcolor>Dark1</selectedcolor>
+								<label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
+								<visible>IsEmpty(ListItem.NextTitle)</visible>
+							</control>
+							<control type="label">
+								<right>30</right>
+								<width>500</width>
+								<bottom>8</bottom>
+								<aligny>center</aligny>
+								<height>64</height>
+								<align>right</align>
+								<font>Tiny</font>
+								<textcolor>Dark1</textcolor>
+								<selectedcolor>Dark1</selectedcolor>
+								<label>$INFO[ListItem.NextTitle,[B],[/B] $LOCALIZE[19031]]</label>
+							</control>
+						</control>
+						<control type="group">
+							<visible>Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml)</visible>
+							<control type="label">
+								<posx>140</posx>
+								<right>100</right>
+								<top>12</top>
+								<aligny>center</aligny>
+								<height>64</height>
+								<font>SmallBold</font>
+								<textcolor>Dark1</textcolor>
+								<selectedcolor>Dark1</selectedcolor>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+							<control type="label">
+								<posx>140</posx>
+								<bottom>8</bottom>
+								<right>100</right>
+								<aligny>center</aligny>
+								<height>64</height>
+								<font>Small</font>
+								<textcolor>Dark2</textcolor>
+								<selectedcolor>Dark2</selectedcolor>
+								<label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime,$COMMA ,]</label>
+							</control>
+							<control type="label">
+								<right>30</right>
+								<width>500</width>
+								<aligny>center</aligny>
+								<height>100%</height>
+								<align>right</align>
+								<font>Small</font>
+								<textcolor>Dark1</textcolor>
+								<selectedcolor>Dark1</selectedcolor>
+								<label>$INFO[ListItem.ChannelName]</label>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="128" width="1100">
+						<control type="group">
+							<visible>Control.HasFocus(50)</visible>
+							<control type="image">
+								<width>100%</width>
+								<height>100%</height>
+								<texture colordiffuse="Dark1" border="5">common/box.png</texture>
+							</control>
+							<control type="image">
+								<left>10</left>
+								<centertop>50%</centertop>
+								<width>111</width>
+								<height>111</height>
+								<aspectratio align="left">keep</aspectratio>
+								<texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
+							</control>
+							<control type="group">
+								<visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+								<control type="label">
+									<left>137</left>
+									<top>12</top>
+									<aligny>center</aligny>
+									<height>64</height>
+									<width>70</width>
+									<align>right</align>
+									<font>SmallBold</font>
+									<textcolor>Light1</textcolor>
+									<selectedcolor>Light1</selectedcolor>
+									<label>$INFO[ListItem.ChannelNumber]</label>
+								</control>
+								<control type="progress">
+									<posx>140</posx>
+									<posy>81</posy>
+									<width>67</width>
+									<height>19</height>
+									<reveal>true</reveal>
+									<texturebg>pvr/progress-back.png</texturebg>
+									<lefttexture>pvr/progress-leftright.png</lefttexture>
+									<midtexture>pvr/progress-mid.png</midtexture>
+									<righttexture>pvr/progress-leftright.png</righttexture>
+									<info>ListItem.Progress</info>
+									<colordiffuse>Light1</colordiffuse>
+								</control>
+								<control type="label">
+									<posx>220</posx>
+									<right>100</right>
+									<top>12</top>
+									<aligny>center</aligny>
+									<height>64</height>
+									<font>SmallBold</font>
+									<textcolor>Light1</textcolor>
+									<selectedcolor>Light1</selectedcolor>
+									<label>$INFO[ListItem.ChannelName]</label>
+								</control>
+								<control type="label">
+									<posx>220</posx>
+									<bottom>8</bottom>
+									<right>100</right>
+									<aligny>center</aligny>
+									<height>64</height>
+									<font>Small</font>
+									<textcolor>Light1</textcolor>
+									<selectedcolor>Light1</selectedcolor>
+									<label>$INFO[ListItem.Title]</label>
+								</control>
+								<control type="label">
+									<right>30</right>
+									<width>500</width>
+									<top>12</top>
+									<aligny>center</aligny>
+									<height>64</height>
+									<align>right</align>
+									<font>Tiny</font>
+									<textcolor>Light1</textcolor>
+									<selectedcolor>Light1</selectedcolor>
+									<label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
+									<visible>!IsEmpty(ListItem.NextTitle)</visible>
+								</control>
+								<control type="label">
+									<right>30</right>
+									<width>500</width>
+									<aligny>center</aligny>
+									<height>100%</height>
+									<align>right</align>
+									<font>Tiny</font>
+									<textcolor>Light1</textcolor>
+									<selectedcolor>Light1</selectedcolor>
+									<label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
+									<visible>IsEmpty(ListItem.NextTitle)</visible>
+								</control>
+								<control type="label">
+									<right>30</right>
+									<width>500</width>
+									<bottom>8</bottom>
+									<aligny>center</aligny>
+									<height>64</height>
+									<align>right</align>
+									<font>Tiny</font>
+									<textcolor>Light1</textcolor>
+									<selectedcolor>Light1</selectedcolor>
+									<label>$INFO[ListItem.NextTitle,[B],[/B] $LOCALIZE[19031]]</label>
+								</control>
+							</control>
+							<control type="group">
+								<visible>Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml)</visible>
+								<control type="label">
+									<posx>140</posx>
+									<right>100</right>
+									<top>12</top>
+									<aligny>center</aligny>
+									<height>64</height>
+									<font>SmallBold</font>
+									<textcolor>Light1</textcolor>
+									<selectedcolor>Light1</selectedcolor>
+									<label>$INFO[ListItem.Label]</label>
+								</control>
+								<control type="label">
+									<posx>140</posx>
+									<bottom>8</bottom>
+									<right>100</right>
+									<aligny>center</aligny>
+									<height>64</height>
+									<font>Small</font>
+									<textcolor>Light1</textcolor>
+									<selectedcolor>Light1</selectedcolor>
+									<label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime,$COMMA ,]</label>
+								</control>
+								<control type="label">
+									<right>30</right>
+									<width>500</width>
+									<aligny>center</aligny>
+									<height>100%</height>
+									<align>right</align>
+									<font>Small</font>
+									<textcolor>Light1</textcolor>
+									<selectedcolor>Light1</selectedcolor>
+									<label>$INFO[ListItem.ChannelName]</label>
+								</control>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!Control.HasFocus(50)</visible>
+							<control type="image">
+								<left>10</left>
+								<centertop>50%</centertop>
+								<width>111</width>
+								<height>111</height>
+								<aspectratio align="left">keep</aspectratio>
+								<texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
+							</control>
+							<control type="group">
+								<visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+								<control type="label">
+									<left>137</left>
+									<top>12</top>
+									<aligny>center</aligny>
+									<height>64</height>
+									<width>70</width>
+									<align>right</align>
+									<font>SmallBold</font>
+									<textcolor>Dark1</textcolor>
+									<selectedcolor>Dark1</selectedcolor>
+									<label>$INFO[ListItem.ChannelNumber]</label>
+								</control>
+								<control type="progress">
+									<posx>140</posx>
+									<posy>81</posy>
+									<width>67</width>
+									<height>19</height>
+									<reveal>true</reveal>
+									<texturebg>pvr/progress-back.png</texturebg>
+									<lefttexture>pvr/progress-leftright.png</lefttexture>
+									<midtexture>pvr/progress-mid.png</midtexture>
+									<righttexture>pvr/progress-leftright.png</righttexture>
+									<info>ListItem.Progress</info>
+									<colordiffuse>Dark1</colordiffuse>
+								</control>
+								<control type="label">
+									<posx>220</posx>
+									<right>100</right>
+									<top>12</top>
+									<aligny>center</aligny>
+									<height>64</height>
+									<font>SmallBold</font>
+									<textcolor>Dark1</textcolor>
+									<selectedcolor>Dark1</selectedcolor>
+									<label>$INFO[ListItem.ChannelName]</label>
+								</control>
+								<control type="label">
+									<posx>220</posx>
+									<bottom>8</bottom>
+									<right>100</right>
+									<aligny>center</aligny>
+									<height>64</height>
+									<font>Small</font>
+									<textcolor>Dark2</textcolor>
+									<selectedcolor>Dark2</selectedcolor>
+									<label>$INFO[ListItem.Title]</label>
+								</control>
+								<control type="label">
+									<right>30</right>
+									<width>500</width>
+									<top>12</top>
+									<aligny>center</aligny>
+									<height>64</height>
+									<align>right</align>
+									<font>Tiny</font>
+									<textcolor>Dark1</textcolor>
+									<selectedcolor>Dark1</selectedcolor>
+									<label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
+									<visible>!IsEmpty(ListItem.NextTitle)</visible>
+								</control>
+								<control type="label">
+									<right>30</right>
+									<width>500</width>
+									<aligny>center</aligny>
+									<height>100%</height>
+									<align>right</align>
+									<font>Tiny</font>
+									<textcolor>Dark1</textcolor>
+									<selectedcolor>Dark1</selectedcolor>
+									<label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
+									<visible>IsEmpty(ListItem.NextTitle)</visible>
+								</control>
+								<control type="label">
+									<right>30</right>
+									<width>500</width>
+									<bottom>8</bottom>
+									<aligny>center</aligny>
+									<height>64</height>
+									<align>right</align>
+									<font>Tiny</font>
+									<textcolor>Dark1</textcolor>
+									<selectedcolor>Dark1</selectedcolor>
+									<label>$INFO[ListItem.NextTitle,[B],[/B] $LOCALIZE[19031]]</label>
+								</control>
+							</control>
+							<control type="group">
+								<visible>Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml)</visible>
+								<control type="label">
+									<posx>130</posx>
+									<right>100</right>
+									<top>12</top>
+									<aligny>center</aligny>
+									<height>64</height>
+									<font>SmallBold</font>
+									<textcolor>Dark1</textcolor>
+									<selectedcolor>Dark1</selectedcolor>
+									<label>$INFO[ListItem.Label]</label>
+								</control>
+								<control type="label">
+									<posx>130</posx>
+									<bottom>8</bottom>
+									<right>100</right>
+									<aligny>center</aligny>
+									<height>64</height>
+									<font>Small</font>
+									<textcolor>Dark2</textcolor>
+									<selectedcolor>Dark2</selectedcolor>
+									<label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime,$COMMA ,]</label>
+								</control>
+								<control type="label">
+									<right>30</right>
+									<width>500</width>
+									<aligny>center</aligny>
+									<height>100%</height>
+									<align>right</align>
+									<font>Small</font>
+									<textcolor>Dark1</textcolor>
+									<selectedcolor>Dark1</selectedcolor>
+									<label>$INFO[ListItem.ChannelName]</label>
+								</control>
+							</control>
+						</control>
+					</focusedlayout>
+				</control>
+			</control>
+			<include>Furniture_Scrollbar</include>
+			<include>PVRInfoPanel</include>
+		</control>
+	</include>
+	<include name="PVRView_51">
+		<control type="group">
+			<visible>Control.IsVisible(51)</visible>
+			<include>Animation.Common</include>
+			<control type="group">
+				<control type="panel" id="51" description="TV CHANNELS">
+					<top>206</top>
+					<height>660</height>
+					<left>70</left>
+					<right>70</right>
+					<onup>51</onup>
+					<ondown>51</ondown>
+					<onleft condition="!Skin.HasSetting(global.kioskmode)">28</onleft>
+					<onright>60</onright>
+					<orientation>vertical</orientation>
+					<pagecontrol>60</pagecontrol>
+					<viewtype label="31198">list</viewtype>
+					<scrolltime tween="quadratic">400</scrolltime>
+					<itemlayout height="330" width="890">
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<right>10</right>
+							<bottom>10</bottom>
+							<texture colordiffuse="Dark4" border="5">common/box.png</texture>
+						</control>
+						<control type="group">
+							<visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+							<control type="image">
+								<left>20</left>
+								<top>20</top>
+								<width>220</width>
+								<height>220</height>
+								<aspectratio align="left" aligny="top">keep</aspectratio>
+								<texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
+							</control>
+							<control type="label">
+								<left>260</left>
+								<right>30</right>
+								<top>14</top>
+								<height>50</height>
+								<align>left</align>
+								<font>SmallBold</font>
+								<textcolor>Dark1</textcolor>
+								<selectedcolor>Dark1</selectedcolor>
+								<label>$INFO[ListItem.Title]</label>
+							</control>
+							<control type="textbox">
+								<left>260</left>
+								<right>30</right>
+								<top>70</top>
+								<height>128</height>
+								<align>justify</align>
+								<font>Tiny</font>
+								<textcolor>Dark1</textcolor>
+								<selectedcolor>Dark1</selectedcolor>
+								<label>$INFO[ListItem.Plot]</label>
+								<autoscroll>false</autoscroll>
+							</control>
+							<control type="label">
+								<left>260</left>
+								<right>30</right>
+								<bottom>80</bottom>
+								<aligny>center</aligny>
+								<height>38</height>
+								<align>left</align>
+								<font>Tiny</font>
+								<textcolor>Dark1</textcolor>
+								<selectedcolor>Dark1</selectedcolor>
+								<label>$INFO[ListItem.NextTitle,[B]$LOCALIZE[19031]:[/B] ,]</label>
+							</control>
+							<control type="label">
+								<right>30</right>
+								<width>300</width>
+								<bottom>32</bottom>
+								<aligny>center</aligny>
+								<align>right</align>
+								<font>EpisodeNumber</font>
+								<textcolor>Dark1</textcolor>
+								<selectedcolor>Dark1</selectedcolor>
+								<label>$INFO[ListItem.ChannelNumber]</label>
+							</control>
+							<control type="progress">
+								<posx>20</posx>
+								<bottom>30</bottom>
+								<width>67</width>
+								<height>19</height>
+								<reveal>true</reveal>
+								<texturebg>pvr/progress-back.png</texturebg>
+								<lefttexture>pvr/progress-leftright.png</lefttexture>
+								<midtexture>pvr/progress-mid.png</midtexture>
+								<righttexture>pvr/progress-leftright.png</righttexture>
+								<info>ListItem.Progress</info>
+								<colordiffuse>Dark1</colordiffuse>
+							</control>
+							<control type="label">
+								<left>110</left>
+								<right>30</right>
+								<bottom>30</bottom>
+								<height>24</height>
+								<aligny>center</aligny>
+								<align>left</align>
+								<font>SmallBold</font>
+								<textcolor>Dark1</textcolor>
+								<selectedcolor>Dark1</selectedcolor>
+								<label>$INFO[ListItem.ChannelName]</label>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!Window.IsVisible(MyPVRChannels.xml)</visible>
+							<control type="image">
+								<left>20</left>
+								<top>20</top>
+								<width>290</width>
+								<height>290</height>
+								<aspectratio>scale</aspectratio>
+								<texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
+							</control>
+							<control type="label">
+								<left>330</left>
+								<right>30</right>
+								<top>20</top>
+								<height>50</height>
+								<align>left</align>
+								<font>SmallBold</font>
+								<textcolor>Dark1</textcolor>
+								<selectedcolor>Dark1</selectedcolor>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+							<control type="label">
+								<left>330</left>
+								<right>30</right>
+								<top>75</top>
+								<height>24</height>
+								<aligny>center</aligny>
+								<align>left</align>
+								<font>TinyBold</font>
+								<textcolor>Dark2</textcolor>
+								<selectedcolor>Dark2</selectedcolor>
+								<label>$INFO[ListItem.ChannelName]</label>
+							</control>
+							<control type="textbox">
+								<left>330</left>
+								<right>30</right>
+								<top>120</top>
+								<height>128</height>
+								<align>justify</align>
+								<font>Tiny</font>
+								<textcolor>Dark1</textcolor>
+								<selectedcolor>Dark1</selectedcolor>
+								<autoscroll>false</autoscroll>
+								<label>$INFO[ListItem.Plot]</label>
+							</control>
+							<control type="label">
+								<left>330</left>
+								<right>30</right>
+								<bottom>25</bottom>
+								<aligny>center</aligny>
+								<height>38</height>
+								<align>left</align>
+								<font>Tiny</font>
+								<textcolor>Dark1</textcolor>
+								<selectedcolor>Dark1</selectedcolor>
+								<label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime,$COMMA ,]</label>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout height="330" width="890">
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<right>10</right>
+							<bottom>10</bottom>
+							<texture colordiffuse="Dark1" border="5">common/box.png</texture>
+						</control>
+						<control type="group">
+							<visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+							<control type="image">
+								<left>20</left>
+								<top>20</top>
+								<width>220</width>
+								<height>220</height>
+								<aspectratio align="left" aligny="top">keep</aspectratio>
+								<texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
+							</control>
+							<control type="label">
+								<left>260</left>
+								<right>30</right>
+								<top>14</top>
+								<height>50</height>
+								<align>left</align>
+								<font>SmallBold</font>
+								<textcolor>Light1</textcolor>
+								<selectedcolor>Light1</selectedcolor>
+								<label>$INFO[ListItem.Title]</label>
+							</control>
+							<control type="textbox">
+								<left>260</left>
+								<right>30</right>
+								<top>70</top>
+								<height>128</height>
+								<align>justify</align>
+								<font>Tiny</font>
+								<textcolor>Light1</textcolor>
+								<selectedcolor>Light1</selectedcolor>
+								<label>$INFO[ListItem.Plot]</label>
+							</control>
+							<control type="label">
+								<left>260</left>
+								<right>30</right>
+								<bottom>80</bottom>
+								<aligny>center</aligny>
+								<height>38</height>
+								<align>left</align>
+								<font>Tiny</font>
+								<textcolor>Light1</textcolor>
+								<selectedcolor>Light1</selectedcolor>
+								<label>$INFO[ListItem.NextTitle,[B]$LOCALIZE[19031]:[/B] ,]</label>
+							</control>
+							<control type="label">
+								<right>30</right>
+								<width>300</width>
+								<bottom>32</bottom>
+								<aligny>center</aligny>
+								<align>right</align>
+								<font>EpisodeNumber</font>
+								<textcolor>Light1</textcolor>
+								<selectedcolor>Light1</selectedcolor>
+								<label>$INFO[ListItem.ChannelNumber]</label>
+							</control>
+							<control type="progress">
+								<posx>20</posx>
+								<bottom>30</bottom>
+								<width>67</width>
+								<height>19</height>
+								<reveal>true</reveal>
+								<texturebg>pvr/progress-back.png</texturebg>
+								<lefttexture>pvr/progress-leftright.png</lefttexture>
+								<midtexture>pvr/progress-mid.png</midtexture>
+								<righttexture>pvr/progress-leftright.png</righttexture>
+								<info>ListItem.Progress</info>
+								<colordiffuse>Light1</colordiffuse>
+							</control>
+							<control type="label">
+								<left>110</left>
+								<right>30</right>
+								<bottom>30</bottom>
+								<height>24</height>
+								<aligny>center</aligny>
+								<align>left</align>
+								<font>SmallBold</font>
+								<textcolor>Light1</textcolor>
+								<selectedcolor>Light1</selectedcolor>
+								<label>$INFO[ListItem.ChannelName]</label>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!Window.IsVisible(MyPVRChannels.xml)</visible>
+							<control type="image">
+								<left>20</left>
+								<top>20</top>
+								<width>290</width>
+								<height>290</height>
+								<aspectratio>scale</aspectratio>
+								<texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
+							</control>
+							<control type="label">
+								<left>330</left>
+								<right>30</right>
+								<top>20</top>
+								<height>50</height>
+								<align>left</align>
+								<font>SmallBold</font>
+								<textcolor>Light1</textcolor>
+								<selectedcolor>Light1</selectedcolor>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+							<control type="label">
+								<left>330</left>
+								<right>30</right>
+								<top>75</top>
+								<height>24</height>
+								<aligny>center</aligny>
+								<align>left</align>
+								<font>TinyBold</font>
+								<textcolor>Light1</textcolor>
+								<selectedcolor>Light1</selectedcolor>
+								<label>$INFO[ListItem.ChannelName]</label>
+							</control>
+							<control type="textbox">
+								<left>330</left>
+								<right>30</right>
+								<top>120</top>
+								<height>128</height>
+								<align>justify</align>
+								<font>Tiny</font>
+								<textcolor>Light1</textcolor>
+								<selectedcolor>Light1</selectedcolor>
+								<label>$INFO[ListItem.Plot]</label>
+							</control>
+							<control type="label">
+								<left>330</left>
+								<right>30</right>
+								<bottom>25</bottom>
+								<aligny>center</aligny>
+								<height>38</height>
+								<align>left</align>
+								<font>Tiny</font>
+								<textcolor>Light1</textcolor>
+								<selectedcolor>Light1</selectedcolor>
+								<label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime,$COMMA ,]</label>
+							</control>
+						</control>
+					</focusedlayout>
+				</control>
+			</control>
+			<include>Furniture_Scrollbar</include>
+		</control>
+	</include>
+	<include name="EpgWideWidthVar">
+		<channellayout height="70" width="505">
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>500</width>
+				<height>71</height>
+				<texture border="90,3,90,3">views/list/other/separator.png</texture>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>1</posy>
+				<width>500</width>
+				<height>69</height>
+				<texture>common/selected.png</texture>
+				<aspectratio aligny="top">center</aspectratio>
+				<animation effect="fade" start="100" end="10" condition="true">Conditional</animation>
+				<visible>ListItem.IsPlaying</visible>
+			</control>
+			<control type="image">
+				<left>425</left>
+				<top>5</top>
+				<width>70</width>
+				<height>60</height>
+				<texture background="true" fallback="windows/pvr/defaultchannel.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio>keep</aspectratio>
+			</control>
+			<control type="label">
+				<description>Label</description>
+				<left>100</left>
+				<width>315</width>
+				<height>70</height>
+				<align>left</align>
+				<label>$INFO[ListItem.ChannelName]</label>
+				<textcolor>PanelWhite100</textcolor>
+				<scroll>false</scroll>
+			</control>
+			<control type="label">
+				<description>ChannelNumber</description>
+				<left>7</left>
+				<width>88</width>
+				<height>70</height>
+				<label>$INFO[ListItem.ChannelNumberLabel]</label>
+				<textcolor>PanelWhite100</textcolor>
+				<scroll>false</scroll>
+			</control>
+		</channellayout>
+		<focusedchannellayout height="70" width="505">
+			<control type="image">
+				<posx>0</posx>
+				<posy>1</posy>
+				<width>500</width>
+				<height>69</height>
+				<texture>common/selected.png</texture>
+				<aspectratio aligny="top">center</aspectratio>
+				<animation effect="fade" start="100" end="20" condition="true">Conditional</animation>
+				<visible>ListItem.IsPlaying</visible>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>500</width>
+				<height>69</height>
+				<texture border="12" colordiffuse="Highlight">common/white.png</texture>
+				<visible>Control.HasFocus(10)</visible>
+			</control>
+			<control type="image">
+				<left>425</left>
+				<top>5</top>
+				<width>70</width>
+				<height>60</height>
+				<texture background="true" fallback="windows/pvr/defaultchannel.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio>keep</aspectratio>
+			</control>
+			<control type="label">
+				<description>Label</description>
+				<left>100</left>
+				<width>315</width>
+				<height>70</height>
+				<align>left</align>
+				<label>$INFO[ListItem.ChannelName]</label>
+				<textcolor>Selected</textcolor>
+				<scroll>false</scroll>
+				<animation effect="fade" start="100" end="64" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(10) + ![ListItem.IsSelected | ListItem.IsPlaying]">Conditional</animation>
+			</control>
+			<control type="label">
+				<description>ChannelNumber</description>
+				<left>7</left>
+				<width>88</width>
+				<height>70</height>
+				<label>$INFO[ListItem.ChannelNumberLabel]</label>
+				<textcolor>Selected</textcolor>
+				<scroll>false</scroll>
+				<animation effect="fade" start="100" end="64" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(10) + ![ListItem.IsSelected | ListItem.IsPlaying]">Conditional</animation>
+			</control>
+		</focusedchannellayout>
+	</include>
+	<include name="EpgSmallWidthVar">
+		<channellayout height="70" width="150">
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>150</width>
+				<height>71</height>
+				<texture border="90,3,90,3">views/list/other/separator.png</texture>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>1</posy>
+				<width>150</width>
+				<height>69</height>
+				<texture>common/selected.png</texture>
+				<aspectratio aligny="top">center</aspectratio>
+				<animation effect="fade" start="100" end="10" condition="true">Conditional</animation>
+				<visible>ListItem.IsPlaying</visible>
+			</control>
+			<control type="image">
+				<left>5</left>
+				<width>145</width>
+				<height>70</height>
+				<texture background="true" fallback="windows/pvr/defaultchannel.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio>keep</aspectratio>
+			</control>
+		</channellayout>
+		<focusedchannellayout height="70" width="150">
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>150</width>
+				<height>71</height>
+				<texture border="90,3,90,3">views/list/other/separator.png</texture>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>1</posy>
+				<width>150</width>
+				<height>69</height>
+				<texture>common/selected.png</texture>
+				<aspectratio aligny="top">center</aspectratio>
+				<animation effect="fade" start="100" end="20" condition="true">Conditional</animation>
+				<visible>ListItem.IsPlaying</visible>
+			</control>
+			
+			<control type="image">
+				<left>5</left>
+				<width>145</width>
+				<height>70</height>
+				<texture background="true" fallback="windows/pvr/defaultchannel.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio>keep</aspectratio>
+			</control>
+		</focusedchannellayout>
+	</include>
 </includes>
