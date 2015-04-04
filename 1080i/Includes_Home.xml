@@ -131,6 +131,17 @@
                 <fadetime>350</fadetime>
                 <aspectratio aligny="center" align="center">keep</aspectratio>
                 <texture>$INFO[Weather.FanartCode,weather/small/,.png]</texture>
+                <visible>Skin.HasSetting(weather.useflaticons)</visible>
+            </control>
+            <control type="image">
+                <centertop>52</centertop>
+                <centerleft>52</centerleft>
+                <width>70</width>
+                <height>70</height>
+                <fadetime>350</fadetime>
+                <aspectratio aligny="center" align="center">keep</aspectratio>
+                <texture>$INFO[Window(weather).Property(Current.ConditionIcon)]</texture>
+                <visible>!Skin.HasSetting(weather.useflaticons)</visible>
             </control>
             <control type="label">
                 <left>104</left>

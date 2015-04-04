@@ -22,6 +22,19 @@
                         <height>320</height>
                         <texture border="5" colordiffuse="Panel">common/box.png</texture>
                     </control>
+                    <control type="multiimage" description="Fanart">
+                        <visible>!Skin.HasSetting(weather.hidefanart)</visible>
+                        <right>0</right>
+                        <top>0</top>
+                        <height>320</height>
+                        <left>0</left>
+                        <fadetime>600</fadetime>
+                        <timeperimage>12000</timeperimage>
+                        <randomize>true</randomize>
+                        <aspectratio>scale</aspectratio>
+                        <animation effect="fade" start="100" end="10" condition="true">Conditional</animation>
+                        <imagepath background="true">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Current.FanartCode)]/</imagepath>
+                    </control>
                     <control type="image">
                         <posx>10</posx>
                         <posy>10</posy>
@@ -29,6 +42,16 @@
                         <height>300</height>
                         <aspectratio align="center" aligny="center">keep</aspectratio>
                         <texture>$INFO[Window(weather).Property(Current.FanartCode),weather/,.png]</texture>
+                        <visible>Skin.HasSetting(weather.useflaticons)</visible>
+                    </control>
+                    <control type="image">
+                        <posx>20</posx>
+                        <posy>20</posy>
+                        <width>280</width>
+                        <height>280</height>
+                        <aspectratio align="center" aligny="center">keep</aspectratio>
+                        <texture>$INFO[Window(weather).Property(Current.ConditionIcon)]</texture>
+                        <visible>!Skin.HasSetting(weather.useflaticons)</visible>
                     </control>
                     <control type="group">
                         <posy>75</posy>
@@ -152,17 +175,123 @@
                         </control>
                         
                     </control>
+
+                    <control type="grouplist">
+                        <posy>330</posy>
+                        <height>340</height>
+                        <width>100%</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="image">
+                            <width>285</width>
+                            <height>320</height>
+                            <texture border="5" colordiffuse="Panel">common/box.png</texture>
+                        </control><control type="image">
+                            <width>285</width>
+                            <height>320</height>
+                            <texture border="5" colordiffuse="Panel">common/box.png</texture>
+                        </control>
+                        <control type="image">
+                            <width>285</width>
+                            <height>320</height>
+                            <texture border="5" colordiffuse="Panel">common/box.png</texture>
+                        </control>
+                        <control type="image">
+                            <width>285</width>
+                            <height>320</height>
+                            <texture border="5" colordiffuse="Panel">common/box.png</texture>
+                        </control>
+                        <control type="image">
+                            <width>285</width>
+                            <height>320</height>
+                            <texture border="5" colordiffuse="Panel">common/box.png</texture>
+                        </control>
+                        <control type="image">
+                            <width>285</width>
+                            <height>320</height>
+                            <texture border="5" colordiffuse="Panel">common/box.png</texture>
+                        </control>
+                    </control>
+
+                    <control type="grouplist" description="fanarts overlay">
+                        <visible>!Skin.HasSetting(weather.hidefanart)</visible>
+                        <posy>330</posy>
+                        <height>320</height>
+                        <width>100%</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="multiimage" description="Fanart">
+                            <height>320</height>
+                            <width>285</width>
+                            <fadetime>600</fadetime>
+                            <timeperimage>12000</timeperimage>
+                            <randomize>true</randomize>
+                            <aspectratio>scale</aspectratio>
+                            <animation effect="fade" start="100" end="10" condition="true">Conditional</animation>
+                            <imagepath background="true">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Day0.FanartCode)]/</imagepath>
+                        </control>
+                        <control type="multiimage" description="Fanart">
+                            <height>320</height>
+                            <width>285</width>
+                            <fadetime>600</fadetime>
+                            <timeperimage>12000</timeperimage>
+                            <randomize>true</randomize>
+                            <aspectratio>scale</aspectratio>
+                            <animation effect="fade" start="100" end="10" condition="true">Conditional</animation>
+                            <imagepath background="true">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Day1.FanartCode)]/</imagepath>
+                        </control>
+                        <control type="multiimage" description="Fanart">
+                            <height>320</height>
+                            <width>285</width>
+                            <fadetime>600</fadetime>
+                            <timeperimage>12000</timeperimage>
+                            <randomize>true</randomize>
+                            <aspectratio>scale</aspectratio>
+                            <animation effect="fade" start="100" end="10" condition="true">Conditional</animation>
+                            <imagepath background="true">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Day2.FanartCode)]/</imagepath>
+                        </control>
+                        <control type="multiimage" description="Fanart">
+                            <height>320</height>
+                            <width>285</width>
+                            <fadetime>600</fadetime>
+                            <timeperimage>12000</timeperimage>
+                            <randomize>true</randomize>
+                            <aspectratio>scale</aspectratio>
+                            <animation effect="fade" start="100" end="10" condition="true">Conditional</animation>
+                            <imagepath background="true">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Day3.FanartCode)]/</imagepath>
+                        </control>
+                        <control type="multiimage" description="Fanart">
+                            <height>320</height>
+                            <width>285</width>
+                            <fadetime>600</fadetime>
+                            <timeperimage>12000</timeperimage>
+                            <randomize>true</randomize>
+                            <aspectratio>scale</aspectratio>
+                            <animation effect="fade" start="100" end="10" condition="true">Conditional</animation>
+                            <imagepath background="true">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Day4.FanartCode)]/</imagepath>
+                        </control>
+                        <control type="multiimage" description="Fanart">
+                            <height>320</height>
+                            <width>285</width>
+                            <fadetime>600</fadetime>
+                            <timeperimage>12000</timeperimage>
+                            <randomize>true</randomize>
+                            <aspectratio>scale</aspectratio>
+                            <animation effect="fade" start="100" end="10" condition="true">Conditional</animation>
+                            <imagepath background="true">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Day5.FanartCode)]/</imagepath>
+                        </control>
+                    </control>
                     <control type="list">
                         <posy>330</posy>
                         <height>320</height>
                         <width>100%</width>
                         <orientation>horizontal</orientation>
                         <itemlayout width="295" height="320">
-                            <control type="image">
+                            <!-- <control type="image">
                                 <width>285</width>
                                 <height>320</height>
                                 <texture border="5" colordiffuse="Panel">common/box.png</texture>
-                            </control>
+                            </control> -->
                             <control type="group">
                                 <visible>!IsEmpty(ListItem.Property(LongDay))</visible>
                   
@@ -172,6 +301,15 @@
                                     <width>153</width>
                                     <aspectratio align="center" aligny="center">keep</aspectratio>
                                     <texture>$INFO[ListItem.Property(FanartCode),weather/,.png]</texture>
+                                    <visible>Skin.HasSetting(weather.useflaticons)</visible>
+                                </control>
+                                <control type="image">
+                                    <centerleft>143</centerleft>
+                                    <height>295</height>
+                                    <width>153</width>
+                                    <aspectratio align="center" aligny="center">keep</aspectratio>
+                                    <texture>$INFO[ListItem.ActualIcon]</texture>
+                                    <visible>!Skin.HasSetting(weather.useflaticons)</visible>
                                 </control>
                                 <control type="label">
                                     <centerleft>143</centerleft>
@@ -209,11 +347,11 @@
                             </control>
                         </itemlayout>
                         <focusedlayout width="295" height="320">
-                            <control type="image">
+                            <!-- <control type="image">
                                 <width>285</width>
                                 <height>340</height>
                                 <texture border="5" colordiffuse="Panel">common/box.png</texture>
-                            </control>
+                            </control> -->
                             <control type="group">
                                 <visible>!IsEmpty(ListItem.Property(LongDay))</visible>
                   
@@ -223,6 +361,15 @@
                                     <width>153</width>
                                     <aspectratio align="center" aligny="center">keep</aspectratio>
                                     <texture>$INFO[ListItem.Property(FanartCode),weather/,.png]</texture>
+                                    <visible>Skin.HasSetting(weather.useflaticons)</visible>
+                                </control>
+                                <control type="image">
+                                    <centerleft>143</centerleft>
+                                    <height>295</height>
+                                    <width>153</width>
+                                    <aspectratio align="center" aligny="center">keep</aspectratio>
+                                    <texture>$INFO[ListItem.ActualIcon]</texture>
+                                    <visible>!Skin.HasSetting(weather.useflaticons)</visible>
                                 </control>
                                 <control type="label">
                                     <centerleft>143</centerleft>
@@ -329,6 +476,8 @@
             </control>
             
             <control type="spincontrolex" id="3">
+                <onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+                <onright condition="!Skin.HasSetting(global.kioskmode)">9000</onright>
                 <include>Animation.FadeIn</include>
                 <top>150</top>
                 <textoffsetx>30</textoffsetx>
@@ -341,6 +490,59 @@
                 <focusedcolor>Dark2</focusedcolor>
                 <textureupfocus flipy="true" colordiffuse="Highlight">buttons/spin-down.png</textureupfocus>
                 <texturedownfocus colordiffuse="Highlight">buttons/spin-down.png</texturedownfocus>
+            </control>
+        </control>
+        <control type="group">
+            <include>Animation.FadeIn</include>
+            <include>Animation.FadeOut</include>
+            <visible>ControlGroup(9000).HasFocus()</visible>
+            <include>GlobalOverlay</include>
+        </control>
+        <control type="group">
+            <include>Def9000Background</include>
+            <control type="grouplist" id="9000">
+                <onright>3</onright>
+                <onleft>3</onleft>
+                <onback>3</onback>
+                <usecontrolcoords>true</usecontrolcoords>
+                <include>Def9000GroupList</include>
+                
+                <!-- Weather Options -->
+                <control type="radiobutton" id="9001" description="Use flat icons">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31233</label>
+                    <selected>Skin.HasSetting(weather.useflaticons)</selected>
+                    <onclick>Skin.ToggleSetting(weather.useflaticons)</onclick>
+                </control>
+                <control type="radiobutton" id="9002" description="Show weather overlay">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31234</label>
+                    <enable>!IsEmpty(Skin.String(weather.fanart))</enable>
+                    <selected>!Skin.HasSetting(weather.hidefanart)</selected>
+                    <onclick>Skin.ToggleSetting(weather.hidefanart)</onclick>
+                </control>
+                <control type="button" id="9004" description="Set Weather Fanart">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31143</label>
+                    <onclick>Skin.SetPath(weather.fanart)</onclick>
+                </control>
+                <control type="button" id="9005" description="Set Weather Fanart">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31232</label>
+                    <onclick>Skin.Reset(weather.fanart)</onclick>
+                    <onclick>SetFocus(9004)</onclick>
+                    <enable>!IsEmpty(Skin.String(weather.fanart))</enable>
+                </control>
+                <control type="button" id="9003" description="Weather Settings">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>$LOCALIZE[5]</label>
+                    <onclick>activatewindow(WeatherSettings)</onclick>
+                </control>
             </control>
         </control>
     </controls>
