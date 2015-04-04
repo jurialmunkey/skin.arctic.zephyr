@@ -15,7 +15,8 @@
         <include condition="Skin.HasSetting(50list.low)">View_50_LowList</include>
         <include condition="!Skin.HasSetting(51bigwide.showinfo)">View_51_BigWide</include>
         <include condition="Skin.HasSetting(51bigwide.showinfo)">View_51_BigWide_Info</include>
-        <include>View_52_BigList</include>
+        <include condition="Skin.HasSetting(52biglist.singlepane)">View_52_BigList_SinglePane</include>
+        <include condition="!Skin.HasSetting(52biglist.singlepane)">View_52_BigList_DoublePane</include>
         <include>View_53_Poster</include>
         <include>View_54_Banner</include>
         <include condition="!Skin.HasSetting(55wall.hideinfo)">View_55_Wall_Info</include>
@@ -191,8 +192,17 @@
                     <onclick>Skin.ToggleSetting(54banner.showinfo)</onclick>
                     <visible>Control.IsVisible(54) + !Container.Content(seasons)</visible>
                 </control>
-                
-                
+
+                <control type="radiobutton" id="9012" description="Big List Double Pane (52)">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31235</label>
+                    <selected>!Skin.HasSetting(52biglist.singlepane)</selected>
+                    <onclick>Skin.ToggleSetting(52biglist.singlepane)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Control.IsVisible(52)</visible>
+                </control>
+
                 <!-- Other Options -->
                 <control type="radiobutton" id="14">
                     <description>Hide watched</description>
