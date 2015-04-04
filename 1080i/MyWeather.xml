@@ -23,7 +23,7 @@
                         <texture border="5" colordiffuse="Panel">common/box.png</texture>
                     </control>
                     <control type="multiimage" description="Fanart">
-                        <visible>Skin.HasSetting(weather.showfanart)</visible>
+                        <visible>!Skin.HasSetting(weather.hidefanart)</visible>
                         <right>0</right>
                         <top>0</top>
                         <height>320</height>
@@ -214,7 +214,7 @@
                     </control>
 
                     <control type="grouplist" description="fanarts overlay">
-                        <visible>Skin.HasSetting(weather.showfanart)</visible>
+                        <visible>!Skin.HasSetting(weather.hidefanart)</visible>
                         <posy>330</posy>
                         <height>320</height>
                         <width>100%</width>
@@ -520,8 +520,8 @@
                     <align>left</align>
                     <label>31234</label>
                     <enable>!IsEmpty(Skin.String(weather.fanart))</enable>
-                    <selected>Skin.HasSetting(weather.showfanart)</selected>
-                    <onclick>Skin.ToggleSetting(weather.showfanart)</onclick>
+                    <selected>!Skin.HasSetting(weather.hidefanart)</selected>
+                    <onclick>Skin.ToggleSetting(weather.hidefanart)</onclick>
                 </control>
                 <control type="button" id="9004" description="Set Weather Fanart">
                     <include>DefContextButton</include>
