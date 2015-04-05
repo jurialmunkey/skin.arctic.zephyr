@@ -4,6 +4,8 @@
     <defaultcontrol always="true">300</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <onload>RunScript(script.favourites)</onload>
+    <onload condition="IsEmpty(Skin.String(focuscolor.name))">Skin.SetString(focuscolor.name,FF0fd39e)</onload>
+	
     <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;group=mainmenu|movieshub|episodeshub)</onload>
     <controls>
         <include>GlobalBackground</include>

@@ -51,8 +51,8 @@
 						<aligny>center</aligny>
 						<height>64</height>
 						<font>SmallBold</font>
-						<textcolor>Highlight</textcolor>
-						<selectedcolor>Highlight</selectedcolor>
+						<textcolor>$VAR[ColourHighlight]</textcolor>
+						<selectedcolor>$VAR[ColourHighlight]</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
@@ -62,8 +62,8 @@
 						<aligny>center</aligny>
 						<height>64</height>
 						<font>TinyBold</font>
-						<textcolor>Highlight</textcolor>
-						<selectedcolor>Highlight</selectedcolor>
+						<textcolor>$VAR[ColourHighlight]</textcolor>
+						<selectedcolor>$VAR[ColourHighlight]</selectedcolor>
 						<label>$INFO[ListItem.Genre,, • ]$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
 					</control>
 					<control type="textbox">
@@ -165,7 +165,7 @@
 							<left>4</left>
 							<top>4</top>
 							<height>62</height>
-							<texture border="1" colordiffuse="Highlight">common/white.png</texture>
+							<texture border="1" colordiffuse="$VAR[ColourHighlight]">common/white.png</texture>
 							<visible>!Skin.HasSetting(EPGGenreColors.Enabled)</visible>
 						</control>
 						<control type="image" id="2">
@@ -173,7 +173,7 @@
 							<left>2</left>
 							<top>2</top>
 							<height>66</height>
-							<texture border="1" colordiffuse="Highlight">common/white.png</texture>
+							<texture border="1" colordiffuse="$VAR[ColourHighlight]">common/white.png</texture>
 							<visible>Skin.HasSetting(EPGGenreColors.Enabled)</visible>
 						</control>
 						<control type="label" id="1">

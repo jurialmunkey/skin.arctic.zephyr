@@ -3,7 +3,7 @@
 <window id="6">
     <defaultcontrol always="true">50</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
-    <views>50,54,53,51,55,56,57,58,52,500</views>
+    <views>50,54,53,51,55,56,57,58,59,52,500,520</views>
     <onload condition="Skin.HasSetting(ActivateTvTunes) + System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
     <onload condition="System.HasAddon(script.tv.show.next.aired)">RunScript(script.tv.show.next.aired,backend=True)</onload>
     
@@ -15,7 +15,8 @@
         <include condition="Skin.HasSetting(50list.low)">View_50_LowList</include>
         <include condition="!Skin.HasSetting(51bigwide.showinfo)">View_51_BigWide</include>
         <include condition="Skin.HasSetting(51bigwide.showinfo)">View_51_BigWide_Info</include>
-        <include>View_52_BigList</include>
+        <include condition="Skin.HasSetting(52biglist.singlepane)">View_52_BigList_SinglePane</include>
+        <include condition="!Skin.HasSetting(52biglist.singlepane)">View_52_BigList_DoublePane</include>
         <include>View_53_Poster</include>
         <include>View_54_Banner</include>
         <include condition="!Skin.HasSetting(55wall.hideinfo)">View_55_Wall_Info</include>
@@ -28,13 +29,15 @@
         <include condition="!Skin.HasSetting(57list.low)">View_57_ExtraInfo</include>
         <include condition="Skin.HasSetting(57list.low)">View_57_ExtraInfo_LowList</include>
         <include>View_58_Cards</include>
+        <include>View_59_BannerPlex</include>
         <include>View_500_Thumbnails</include>
+        <include>View_520_Gallery</include>
         
         <include>Furniture_Header</include>
         <include>Furniture_NowPlaying</include>
         <include>Furniture_Clock</include>
         <include>Furniture_Flags</include>
-        
+        <include>Furniture_Logo</include>
         
         <control type="group">
             <include>Animation.FadeIn</include>
@@ -191,8 +194,17 @@
                     <onclick>Skin.ToggleSetting(54banner.showinfo)</onclick>
                     <visible>Control.IsVisible(54) + !Container.Content(seasons)</visible>
                 </control>
-                
-                
+
+                <control type="radiobutton" id="9012" description="Big List Double Pane (52)">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31235</label>
+                    <selected>!Skin.HasSetting(52biglist.singlepane)</selected>
+                    <onclick>Skin.ToggleSetting(52biglist.singlepane)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Control.IsVisible(52)</visible>
+                </control>
+
                 <!-- Other Options -->
                 <control type="radiobutton" id="14">
                     <description>Hide watched</description>

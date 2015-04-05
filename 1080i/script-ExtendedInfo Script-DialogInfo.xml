@@ -209,7 +209,7 @@
                     <onclick condition="stringcompare(Window.Property(Switcher),1)">SetProperty(Switcher,2)</onclick>
                     <onclick condition="stringcompare(Window.Property(Switcher),2)">ClearProperty(Switcher)</onclick>
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <texturefocus colordiffuse="Highlight" border="5">common/box.png</texturefocus>
+                    <texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
                     <include>DefDialogButtons</include>
                 </control>
 
@@ -257,7 +257,7 @@
                             <right>10</right>
                             <top>0</top>
                             <bottom>0</bottom>
-                            <texture border="5" colordiffuse="Highlight">common/box.png</texture>
+                            <texture border="5" colordiffuse="$VAR[ColourHighlight]">common/box.png</texture>
                             <visible>Control.HasFocus(150)</visible>
                         </control>
                         <control type="image">
@@ -315,7 +315,7 @@
                             <right>10</right>
                             <top>0</top>
                             <bottom>0</bottom>
-                            <texture border="5" colordiffuse="Highlight">common/box.png</texture>
+                            <texture border="5" colordiffuse="$VAR[ColourHighlight]">common/box.png</texture>
                             <visible>Control.HasFocus(250)</visible>
                         </control>
                         <control type="image">
@@ -373,7 +373,7 @@
                             <right>10</right>
                             <top>0</top>
                             <bottom>0</bottom>
-                            <texture border="5" colordiffuse="Highlight">common/box.png</texture>
+                            <texture border="5" colordiffuse="$VAR[ColourHighlight]">common/box.png</texture>
                             <visible>Control.HasFocus(550)</visible>
                         </control>
                         <control type="image">

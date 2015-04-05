@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<includes>
+	<include name="View_59_BannerPlex">
+		<!--Panel -->
+		<control type="group">
+			<visible>Control.IsVisible(59)</visible>
+			<include>Animation.Common</include>
+			<!-- ID="59" -->
+			<control type="panel" id="59">
+				<posx>15</posx>
+				<posy>240</posy>
+				<width>1860</width>
+				<height>570</height>
+				<onup>59</onup>
+				<ondown>59</ondown>
+				<onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+				<onright>60</onright>
+				<pagecontrol>60</pagecontrol>
+				<viewtype label="31741">bigwide</viewtype>
+				<scrolltime tween="Cubic" easing="inout">500</scrolltime>
+				<focusposition>0</focusposition>
+				<orientation>vertical</orientation>
+				<preloaditems>2</preloaditems>
+				<visible>container.content(MusicVideos) | Container.Content(tvshows) | Container.Content(Movies) | container.content(seasons)</visible>
+				<itemlayout height="145" width="610" condition="container.content(MusicVideos) | Container.Content(tvshows) | Container.Content(Movies) | container.content(seasons)">
+					<control type="group">
+						<posy>10</posy>
+						<posx>10</posx>
+						<control type="image">
+							<width>604</width>
+							<height>126</height>
+							<texture>home/home_shadow.png</texture>
+						</control>
+						<include>BannerPlexlayout</include>
+					</control>
+				</itemlayout>
+				<focusedlayout height="145" width="610" condition="container.content(MusicVideos) | Container.Content(tvshows) | Container.Content(Movies) | container.content(seasons)">
+					<control type="group">
+						<posy>10</posy>
+						<posx>10</posx>
+						<animation type="focus">
+							<effect type="zoom" start="100" end="105" center="auto" time="150" />
+						</animation>
+						<animation type="unfocus">
+							<effect type="zoom" start="105" end="100" center="auto" time="150" />
+						</animation>
+						<control type="image">
+							<width>590</width>
+							<height>120</height>
+							<bordersize>-5</bordersize>
+							<texture>common/white.png</texture>
+							<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							<aspectratio scalediffuse="false" align="left">stretch</aspectratio>
+						</control>
+						<include>BannerPlexlayout</include>
+					</control>
+				</focusedlayout>
+			</control>
+			<!--vertical Scollbar -->
+			<include>Furniture_Scrollbar</include>
+		</control>
+	</include>
+	<include name="BannerPlexlayout">
+		<control type="image">
+			<width>590</width>
+			<height>120</height>
+			<texture background="true">$VAR[BannerImage]</texture>
+			<aspectratio scalediffuse="false" align="left">stretch</aspectratio>
+		</control>
+	</include>
+</includes>
