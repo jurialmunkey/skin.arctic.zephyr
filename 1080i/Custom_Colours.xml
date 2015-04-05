@@ -36,11 +36,14 @@
 						<texture>$INFO[ListItem.Thumb]</texture>
 					</control>
 					<control type="image"> <!--watched icon -->
-						<left>-10</left>
-						<top>-9</top>
+						<centerright>18</centerright>
+						<centertop>25</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
 						<include>WatchedOverlay</include>
-						<texture>overlaywatched.png</texture>
-						<visible>StringCompare(ListItem.Label,selected)</visible>
+						<texture>indicator/checkmark.png</texture>
+						<visible>StringCompare(ListItem.Label2,selected)</visible>
 					</control>
 				</itemlayout>
 				<focusedlayout height="155" width="155">
@@ -53,11 +56,14 @@
 						<bordersize>7</bordersize>
 					</control>
 					<control type="image"> <!--watched icon -->
-						<left>-10</left>
-						<top>-9</top>
+						<centerright>18</centerright>
+						<centertop>25</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
 						<include>WatchedOverlay</include>
-						<texture>overlaywatched.png</texture>
-						<visible>StringCompare(ListItem.Label,selected)</visible>
+						<visible>StringCompare(ListItem.Label2,selected) | [StringCompare(ListItem.Label,Skin.String(focuscolor.name)) + !StringCompare(ListItem.Label2,selected)]</visible>
+						<texture>indicator/checkmark.png</texture>
 					</control>
 				</focusedlayout>
 				<content>
@@ -65,6 +71,7 @@
 						<onclick>Close</onclick>
 						<thumb>special://skin/extras/colours/$INFO[Skin.String(focuscolor.name)].png</thumb>
 						<label>$INFO[Skin.String(focuscolor.name)]</label>
+						<label2>selected</label2>
 					</item>
 					<item id="2"> <!--green 1 -->
 						<onclick>Skin.SetString(focuscolor.name,FF93ce5f)</onclick>
