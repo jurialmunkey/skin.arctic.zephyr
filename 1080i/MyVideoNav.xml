@@ -223,19 +223,20 @@
                     <visible>system.haslocks</visible>
                 </control>
 
-                <control type="radiobutton" id="16">
+             <!--     <control type="radiobutton" id="16">
                     <description>PartyMode</description>
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>589</label>
-                    <visible>Container.Content(MusicVideo)</visible>
-                </control>
+                    <visible>Container.Content(MusicVideos)</visible>
+                </control> -->
                 
                 <control type="edit" id="19">
                     <label>587</label>
                     <description>Filter (hidden)</description>
                     <include>DefContextButton</include>
                     <visible>!Container.CanFilterAdvanced</visible>
+                    <onup condition="!Control.IsVisible(16)">11</onup>
                 </control>
 
                 <control type="radiobutton" id="98">
