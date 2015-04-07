@@ -48,6 +48,10 @@
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Title,[B],[/B][CR],]$INFO[ListItem.Plot]</value>
 		<value>$INFO[ListItem.Plot]</value>
 	</variable>
+	<variable name="LabelVideoFlag">
+        <value condition="Control.IsVisible(500) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(55) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]">$INFO[ListItem.Duration,, $LOCALIZE[31102]  •  ]</value>
+        <value>$INFO[ListItem.VideoCodec,,  •  ]</value>
+    </variable>
 	<variable name="LabelAudioChannels">
 		<value condition="stringcompare(ListItem.AudioChannels,8)">7.1</value>
 		<value condition="stringcompare(ListItem.AudioChannels,6)">5.1</value>

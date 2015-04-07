@@ -272,7 +272,7 @@
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">flags/video.png</texture>
 				<aspectratio align="left">scale</aspectratio>
-				<visible>!IsEmpty(ListItem.VideoCodec)</visible>
+				<visible>!IsEmpty(ListItem.VideoResolution)</visible>
 			</control>
 			<control type="label">
 				<width min="128">auto</width>
@@ -280,10 +280,10 @@
 				<height>64</height>
 				<align>left</align>
 				<aligny>center</aligny>
-				<label>$INFO[ListItem.VideoCodec,, • ]$INFO[ListItem.VideoResolution]</label>
+				<label>$VAR[LabelVideoFlag]$INFO[ListItem.VideoResolution]$INFO[ListItem.VideoAspect, • ,]</label>
 				<font>Flag</font>
 				<textcolor>Dark1</textcolor>
-				<visible>!IsEmpty(ListItem.VideoCodec)</visible>
+				<visible>!IsEmpty(ListItem.VideoResolution)</visible>
 			</control>
 			<control type="image">
 				<width>48</width>
@@ -461,17 +461,17 @@
 				<height>64</height>
 				<texture colordiffuse="Dark1">flags/video.png</texture>
 				<aspectratio align="left">scale</aspectratio>
-				<visible>!IsEmpty(Container(9500).ListItem.VideoCodec)</visible>
+				<visible>!IsEmpty(Container(9500).ListItem.VideoResolution)</visible>
 			</control>
 			<control type="label">
 				<width min="128">auto</width>
 				<height>64</height>
 				<align>left</align>
 				<aligny>center</aligny>
-				<label>$INFO[Container(9500).ListItem.VideoCodec,, • ]$INFO[Container(9500).ListItem.VideoResolution]</label>
+				<label>$INFO[Container(9500).ListItem.VideoResolution]$INFO[Container(9500).ListItem.VideoAspect, • ,]</label>
 				<font>Flag</font>
 				<textcolor>Dark1</textcolor>
-				<visible>!IsEmpty(Container(9500).ListItem.VideoCodec)</visible>
+				<visible>!IsEmpty(Container(9500).ListItem.VideoResolution)</visible>
 			</control>
 			<control type="image">
 				<width>48</width>
@@ -592,7 +592,7 @@
 		<value condition="!IsEmpty(Container.NumItems) + !Window.IsVisible(home)">[COLOR=$VAR[ColourHighlight]]$INFO[Container.NumItems][/COLOR] $LOCALIZE[31101] $INFO[Control.GetLabel(3), • ,]</value>
 		<value condition="!IsEmpty(Container(9500).NumItems) + !Window.IsVisible(home)">[COLOR=$VAR[ColourHighlight]]$INFO[Container(9500).NumItems][/COLOR] $LOCALIZE[31101]</value>
 		<value condition="Window.IsVisible(MyWeather.xml) + !IsEmpty(Window(Weather).Property(Location))">[COLOR=$VAR[ColourHighlight]]$INFO[Weather.Temperature][/COLOR] $INFO[Window(Weather).Property(Location)]</value>
-		<value>[COLOR=$VAR[ColourHighlight]]$INFO[Window(home).Property(Movies.Count)][/COLOR] $LOCALIZE[20342] • [COLOR=$VAR[ColourHighlight]]$INFO[Window(home).Property(Episodes.Count)][/COLOR] $LOCALIZE[20360] • [COLOR=$VAR[ColourHighlight]]$INFO[Window(home).Property(Music.SongsCount)][/COLOR] $LOCALIZE[134] •  [COLOR=$VAR[ColourHighlight]]$INFO[Pvr.BackendChannels][/COLOR] $LOCALIZE[19019]</value>
+		<value>[COLOR=$VAR[ColourHighlight]]$INFO[Window(home).Property(Movies.Count)][/COLOR] $LOCALIZE[20342] • [COLOR=$VAR[ColourHighlight]]$INFO[Window(home).Property(Episodes.Count)][/COLOR] $LOCALIZE[20360] • [COLOR=$VAR[ColourHighlight]]$INFO[Window(home).Property(Music.SongsCount)][/COLOR] $LOCALIZE[134] • [COLOR=$VAR[ColourHighlight]]$INFO[Pvr.BackendChannels][/COLOR] $LOCALIZE[19019]</value>
 	</variable>
 	<include name="Furniture_Header">
 		<control type="grouplist">
