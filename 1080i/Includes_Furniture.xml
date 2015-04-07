@@ -285,7 +285,7 @@
                 <centertop>50%</centertop>
                 <texture colordiffuse="Dark1">flags/video.png</texture>
                 <aspectratio align="left">scale</aspectratio>
-                <visible>!IsEmpty(ListItem.VideoCodec)</visible>
+                <visible>!IsEmpty(ListItem.VideoResolution)</visible>
             </control>
             <control type="label">
                 <width min="128">auto</width>
@@ -293,10 +293,10 @@
                 <height>64</height>
                 <align>left</align>
                 <aligny>center</aligny>
-                <label>$INFO[ListItem.VideoCodec,,  •  ]$INFO[ListItem.VideoResolution]</label>
+                <label>$VAR[LabelVideoFlag]$INFO[ListItem.VideoResolution]$INFO[ListItem.VideoAspect,  •  ,]</label>
                 <font>Flag</font>
                 <textcolor>Dark1</textcolor>
-                <visible>!IsEmpty(ListItem.VideoCodec)</visible>
+                <visible>!IsEmpty(ListItem.VideoResolution)</visible>
             </control>
             <control type="image">
                 <width>48</width>
@@ -453,17 +453,17 @@
                 <height>64</height>
                 <texture colordiffuse="Dark1">flags/video.png</texture>
                 <aspectratio align="left">scale</aspectratio>
-                <visible>!IsEmpty(Container(9500).ListItem.VideoCodec)</visible>
+                <visible>!IsEmpty(Container(9500).ListItem.VideoResolution)</visible>
             </control>
             <control type="label">
                 <width min="128">auto</width>
                 <height>64</height>
                 <align>left</align>
                 <aligny>center</aligny>
-                <label>$INFO[Container(9500).ListItem.VideoCodec,,  •  ]$INFO[Container(9500).ListItem.VideoResolution]</label>
+                <label>$INFO[Container(9500).ListItem.VideoResolution]$INFO[Container(9500).ListItem.VideoAspect,  •  ,]</label>
                 <font>Flag</font>
                 <textcolor>Dark1</textcolor>
-                <visible>!IsEmpty(Container(9500).ListItem.VideoCodec)</visible>
+                <visible>!IsEmpty(Container(9500).ListItem.VideoResolution)</visible>
             </control>
             <control type="image">
                 <width>48</width>
