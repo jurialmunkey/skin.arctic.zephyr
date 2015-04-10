@@ -282,8 +282,6 @@
                 <textcolor>Dark2</textcolor>
                 <visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
             </control>
-   
-            
             <control type="image">
                 <width>48</width>
                 <height>64</height>
@@ -298,7 +296,7 @@
                 <height>64</height>
                 <align>left</align>
                 <aligny>center</aligny>
-                <label>$VAR[LabelVideoFlag]$INFO[ListItem.VideoResolution]$INFO[ListItem.VideoAspect,  •  ,]</label>
+                <label>$INFO[ListItem.VideoCodec,,  •  ]$INFO[ListItem.VideoResolution]$INFO[ListItem.VideoAspect,  •  ,]</label>
                 <font>Flag</font>
                 <textcolor>Dark1</textcolor>
                 <visible>!IsEmpty(ListItem.VideoResolution)</visible>
@@ -312,7 +310,7 @@
                 <visible>!IsEmpty(ListItem.AudioCodec)</visible>
             </control>
             <control type="label">
-                <width min="128">auto</width>
+                <width>auto</width>
                 <centertop>50%</centertop>
                 <height>64</height>
                 <align>left</align>
@@ -322,7 +320,25 @@
                 <textcolor>Dark1</textcolor>
                 <visible>!IsEmpty(ListItem.AudioCodec)</visible>
             </control>
-            
+            <control type="image">
+                <width>48</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1">flags/time.png</texture>
+                <aspectratio align="left">scale</aspectratio>
+                <visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(55) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
+            </control>
+            <control type="label">
+                <width>auto</width>
+                <centertop>50%</centertop>
+                <height>64</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$INFO[ListItem.Duration,, $LOCALIZE[31102]  ]</label>
+                <font>Flag</font>
+                <textcolor>Dark1</textcolor>
+                <visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(55) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
+            </control>
             <control type="image">
                 <width>64</width>
                 <centertop>50%</centertop>
@@ -465,7 +481,7 @@
                 <height>64</height>
                 <align>left</align>
                 <aligny>center</aligny>
-                <label>$INFO[Container(9500).ListItem.VideoResolution]$INFO[Container(9500).ListItem.VideoAspect,  •  ,]</label>
+                <label>$INFO[Container(9500).ListItem.VideoCodec,,  •  ]$INFO[Container(9500).ListItem.VideoResolution]$INFO[Container(9500).ListItem.VideoAspect,  •  ,]</label>
                 <font>Flag</font>
                 <textcolor>Dark1</textcolor>
                 <visible>!IsEmpty(Container(9500).ListItem.VideoResolution)</visible>
