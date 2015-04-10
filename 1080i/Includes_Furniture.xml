@@ -164,7 +164,12 @@
         <value condition="StringCompare(Player.StarRating,rating1.png)">star10</value>
         <value>star0</value>
     </variable>
-    
+    <variable name="ClearLogoTopVar">
+        <value condition="!IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
+        <value condition="!IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
+        <value condition="!IsEmpty(Container(9500).ListItem.Art(clearlogo))">$INFO[Container(9500).ListItem.Art(clearlogo)]</value>
+        <value condition="!IsEmpty(Container(9500).ListItem.Art(tvshow.clearlogo))">$INFO[Container(9500).ListItem.Art(tvshow.clearlogo)]</value>
+    </variable>
     <include name="Furniture_Flags">
         <control type="grouplist">
             <visible>!Skin.HasSetting(furniture.flags)</visible>
@@ -598,6 +603,17 @@
     </variable>
   
     <include name="Furniture_Header">
+        <control type="image" description="button back">
+            <include>Animation.FadeIn</include>
+            <include>Animation.FadeOut</include>
+            <visible>Skin.HasSetting(furniture.logo)</visible>
+            <centertop>120</centertop>
+            <centerleft>50%</centerleft>
+            <width>400</width>
+            <height>100</height>
+            <aspectratio align="center">keep</aspectratio>
+            <texture>$VAR[ClearLogoTopVar]</texture>
+        </control>
         <control type="grouplist">
             <top>SidePad</top>
             <left>SidePad</left>
@@ -640,6 +656,7 @@
             <control type="group">
                 <control type="label">
                     <centertop>24</centertop>
+                    <include condition="Skin.HasSetting(furniture.logo)">HeaderLabelWidthLogo</include>
                     <width>auto</width>
                     <font>MediumBold</font>
                     <textcolor>Dark1</textcolor>
@@ -648,15 +665,15 @@
                 <control type="label">
                     <centertop>58</centertop>
                     <font>Flag</font>
+                    <include condition="Skin.HasSetting(furniture.logo)">HeaderLabelWidthLogo</include>
                     <width>auto</width>
                     <textcolor>Dark2</textcolor>
                     <label>$VAR[SubHeaderLabel]</label>
                 </control>
             </control>
-      
         </control>
-        
     </include>
+    <include name="HeaderLabelWidthLogo"><width>560</width></include>
     <include name="Furniture_Clock">
         <control type="group">
             <include>Animation.FadeIn</include>
@@ -725,6 +742,7 @@
             <itemgap>24</itemgap>
             <align>right</align>
             <control type="group">
+                <include condition="Skin.HasSetting(furniture.logo)">HeaderLabelWidthLogo</include>
                 <width>700</width>
                 <posy>10</posy>
                 <control type="label">

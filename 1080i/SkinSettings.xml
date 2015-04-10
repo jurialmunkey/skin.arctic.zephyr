@@ -427,6 +427,14 @@
                         <selected>!Skin.HasSetting(furniture.nowplaying)</selected>
                         <onclick>Skin.ToggleSetting(furniture.nowplaying)</onclick>
                     </control>
+                    <control type="radiobutton" id="9268" description="Clearlogo">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31179</label>
+                        <selected>Skin.HasSetting(furniture.logo)</selected>
+                        <onclick>Skin.ToggleSetting(furniture.logo)</onclick>
+                    </control>
                     <control type="radiobutton" id="9267" description="Reflections">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9106)</visible>
