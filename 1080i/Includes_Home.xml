@@ -62,7 +62,8 @@
                 <posy>0</posy>
                 <width>660</width>
                 <height>100</height>
-                <texture border="16" colordiffuse="OSDBack">common/rounded-shadow8.png</texture>
+                <texture border="16" colordiffuse="Background">common/rounded-shadow8.png</texture>
+                <animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
             </control>
 
             <control type="group">
@@ -73,7 +74,7 @@
                     <width>64</width>
                     <height>64</height>
                     <aspectratio>keep</aspectratio>
-                    <texture colordiffuse="PanelWhite70">kaitoast/info.png</texture>
+                    <texture colordiffuse="Dark1">kaitoast/info.png</texture>
                 </control>
                 
                 <control type="label">
@@ -82,7 +83,7 @@
                     <height>24</height>
                     <aligny>center</aligny>
                     <font>TinyBold</font>
-                    <textcolor>PanelWhite70</textcolor>
+                    <textcolor>Dark1</textcolor>
                     <label>$VAR[LabelNextRecordingHeader]</label>
                 </control>
                 <control type="label">
@@ -91,7 +92,7 @@
                     <height>24</height>
                     <aligny>center</aligny>
                     <font>Tiny</font>
-                    <textcolor>PanelWhite70</textcolor>
+                    <textcolor>Dark1</textcolor>
                     <label>$VAR[LabelNextRecording]</label>
                 </control>
 
@@ -121,7 +122,8 @@
                 <top>0</top>
                 <bottom>0</bottom>
                 <width>660</width>
-                <texture border="16" colordiffuse="OSDBack">common/rounded-shadow8.png</texture>
+                <texture border="16" colordiffuse="Background">common/rounded-shadow8.png</texture>
+                <animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
             </control>
             <control type="image">
                 <centertop>52</centertop>
@@ -150,7 +152,7 @@
                 <aligny>center</aligny>
                 <height>24</height>
                 <font>TinyBold</font>
-                <textcolor>PanelWhite70</textcolor>
+                <textcolor>Dark2</textcolor>
                 <label>$INFO[Weather.Conditions]</label>
             </control>
             <control type="label">
@@ -160,7 +162,7 @@
                 <aligny>center</aligny>
                 <height>24</height>
                 <font>SmallBold</font>
-                <textcolor>PanelWhite100</textcolor>
+                <textcolor>Dark1</textcolor>
                 <label>$INFO[Weather.Temperature]</label>
             </control>
             <control type="label">
@@ -172,7 +174,7 @@
                 <align>right</align>
                 <font>Flag</font>
                 <autoscroll>false</autoscroll>
-                <textcolor>PanelWhite30</textcolor>
+                <textcolor>Dark3</textcolor>
                 <label>$INFO[Weather.Location]</label>
             </control>
         </control>
@@ -275,6 +277,7 @@
                 <posy>0</posy>
                 <width>450</width>
                 <height>117</height>
+                <animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
                 <texture border="16" colordiffuse="Background">common/rounded-shadow8.png</texture>
             </control>
 

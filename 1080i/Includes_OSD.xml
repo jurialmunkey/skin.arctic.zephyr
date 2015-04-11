@@ -188,23 +188,23 @@
     </include>
     
     <variable name="OSDPanel">
-        <value condition="Skin.HasSetting(osd.usetheme) + stringcompare(Skin.CurrentColourTheme,SKINDEFAULT)">Background</value>
+        <value condition="[Skin.HasSetting(osd.usetheme) + stringcompare(Skin.CurrentColourTheme,SKINDEFAULT)] | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(musicvisualisation)]">Background</value>
         <value>OSDBack</value>
     </variable>
     <variable name="OSDPanelWhite12">
-        <value condition="Skin.HasSetting(osd.usetheme) + stringcompare(Skin.CurrentColourTheme,SKINDEFAULT)">Dark3</value>
+        <value condition="[Skin.HasSetting(osd.usetheme) + stringcompare(Skin.CurrentColourTheme,SKINDEFAULT)] | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(musicvisualisation)]">Dark3</value>
         <value>PanelWhite12</value>
     </variable>
     <variable name="OSDPanelWhite30">
-        <value condition="Skin.HasSetting(osd.usetheme) + stringcompare(Skin.CurrentColourTheme,SKINDEFAULT)">Dark2</value>
+        <value condition="[Skin.HasSetting(osd.usetheme) + stringcompare(Skin.CurrentColourTheme,SKINDEFAULT)] | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(musicvisualisation)]">Dark2</value>
         <value>PanelWhite30</value>
     </variable>
     <variable name="OSDPanelWhite70">
-        <value condition="Skin.HasSetting(osd.usetheme) + stringcompare(Skin.CurrentColourTheme,SKINDEFAULT)">Dark1</value>
+        <value condition="[Skin.HasSetting(osd.usetheme) + stringcompare(Skin.CurrentColourTheme,SKINDEFAULT)] | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(musicvisualisation)]">Dark1</value>
         <value>PanelWhite70</value>
     </variable>
     <variable name="OSDPanelWhite100">
-        <value condition="Skin.HasSetting(osd.usetheme) + stringcompare(Skin.CurrentColourTheme,SKINDEFAULT)">Dark1</value>
+        <value condition="[Skin.HasSetting(osd.usetheme) + stringcompare(Skin.CurrentColourTheme,SKINDEFAULT)] | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(musicvisualisation)]">Dark1</value>
         <value>PanelWhite100</value>
     </variable>
     
@@ -452,7 +452,7 @@
                 <width>100%</width>
                 <height>100%</height>
                 <colordiffuse>$VAR[OSDPanel]</colordiffuse>
-                <animation effect="fade" start="100" end="95" condition="Skin.HasSetting(osd.usetheme)">Conditional</animation>
+                <animation effect="fade" start="100" end="90" condition="Skin.HasSetting(osd.usetheme)">Conditional</animation>
                 <texture border="16">common/rounded-shadow8.png</texture>
             </control>
 

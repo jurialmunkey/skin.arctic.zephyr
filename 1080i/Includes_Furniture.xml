@@ -574,6 +574,7 @@
     </variable>
     
     <variable name="MainHeaderLabel">
+        <value condition="Skin.HasSetting(hide.busydialog) + Window.IsVisible(DialogBusy.xml)">$LOCALIZE[20186]...</value>
         <value condition="Window.IsVisible(MyMusicPlaylistEditor.xml)">$LOCALIZE[20011]</value>
         <value condition="Window.IsVisible(DialogButtonMenu.xml)">$LOCALIZE[33060]</value>
         <value condition="Window.IsVisible(DialogFavourites.xml)">$LOCALIZE[1036]</value>
@@ -653,6 +654,7 @@
                     <height>108</height>
                     <texture colordiffuse="PanelWhite100" border="8">$VAR[HeaderIcon]</texture>
                     <visible>!Container.Scrolling</visible>
+                    <visible>!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)</visible>
                     <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
                 </control>
                 <control type="label">
@@ -666,6 +668,16 @@
                     <label>$INFO[ListItem.SortLetter]</label>
                     <textcolor>PanelWhite100</textcolor>
                     <visible>Container.Scrolling</visible>
+                    <visible>!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)</visible>
+                    <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+                </control>
+                <control type="image">
+                    <centertop>40</centertop>
+                    <centerleft>40</centerleft>
+                    <width>48</width>
+                    <height>48</height>
+                    <texture colordiffuse="PanelWhite100" fallback="special://skin/extras/spinners/flower.gif">$INFO[Skin.String(busyloader)]</texture>
+                    <visible>Skin.HasSetting(hide.busydialog) + Window.IsVisible(DialogBusy.xml)</visible>
                     <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
                 </control>
             </control>
