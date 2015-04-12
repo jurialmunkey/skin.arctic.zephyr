@@ -132,10 +132,9 @@
                 <height>80</height>
                 <fadetime>350</fadetime>
                 <aspectratio aligny="center" align="center">keep</aspectratio>
-                <texture>$INFO[Weather.FanartCode,weather/small/,.png]</texture>
-                <visible>Skin.HasSetting(weather.useflaticons)</visible>
+                <texture colordiffuse="Dark1">$INFO[Weather.FanartCode,weather/small/,.png]</texture>
             </control>
-            <control type="image">
+            <!-- <control type="image">
                 <centertop>52</centertop>
                 <centerleft>52</centerleft>
                 <width>70</width>
@@ -144,7 +143,7 @@
                 <aspectratio aligny="center" align="center">keep</aspectratio>
                 <texture>$INFO[Window(weather).Property(Current.ConditionIcon)]</texture>
                 <visible>!Skin.HasSetting(weather.useflaticons)</visible>
-            </control>
+            </control> -->
             <control type="label">
                 <left>104</left>
                 <top>22</top>
