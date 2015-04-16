@@ -188,23 +188,23 @@
     </include>
     
     <variable name="OSDPanel">
-        <value condition="[Skin.HasSetting(osd.usetheme) + stringcompare(Skin.CurrentColourTheme,SKINDEFAULT)] | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(musicvisualisation)]">Background</value>
+        <value condition="Skin.HasSetting(osd.usetheme) | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)]">Background</value>
         <value>OSDBack</value>
     </variable>
     <variable name="OSDPanelWhite12">
-        <value condition="[Skin.HasSetting(osd.usetheme) + stringcompare(Skin.CurrentColourTheme,SKINDEFAULT)] | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(musicvisualisation)]">Dark3</value>
+        <value condition="Skin.HasSetting(osd.usetheme) | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)]">Dark3</value>
         <value>PanelWhite12</value>
     </variable>
     <variable name="OSDPanelWhite30">
-        <value condition="[Skin.HasSetting(osd.usetheme) + stringcompare(Skin.CurrentColourTheme,SKINDEFAULT)] | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(musicvisualisation)]">Dark2</value>
+        <value condition="Skin.HasSetting(osd.usetheme) | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)]">Dark2</value>
         <value>PanelWhite30</value>
     </variable>
     <variable name="OSDPanelWhite70">
-        <value condition="[Skin.HasSetting(osd.usetheme) + stringcompare(Skin.CurrentColourTheme,SKINDEFAULT)] | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(musicvisualisation)]">Dark1</value>
+        <value condition="Skin.HasSetting(osd.usetheme) | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)]">Dark1</value>
         <value>PanelWhite70</value>
     </variable>
     <variable name="OSDPanelWhite100">
-        <value condition="[Skin.HasSetting(osd.usetheme) + stringcompare(Skin.CurrentColourTheme,SKINDEFAULT)] | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(musicvisualisation)]">Dark1</value>
+        <value condition="Skin.HasSetting(osd.usetheme) | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)]">Dark1</value>
         <value>PanelWhite100</value>
     </variable>
     

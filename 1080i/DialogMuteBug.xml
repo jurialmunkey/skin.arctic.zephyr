@@ -8,7 +8,7 @@
 
         <control type="group">
             <visible>VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)</visible>
-            <visible>!Skin.HasSetting(osd.usetheme) | !stringcompare(Skin.CurrentColourTheme,SKINDEFAULT)</visible>
+            <visible>!Skin.HasSetting(osd.usetheme)</visible>
             <left>SidePad</left>
             <top>SidePad</top>
             <width>100</width>
@@ -36,7 +36,7 @@
         </control>
         <control type="group">
             <visible>VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)</visible>
-            <visible>Skin.HasSetting(osd.usetheme) + stringcompare(Skin.CurrentColourTheme,SKINDEFAULT)</visible>
+            <visible>Skin.HasSetting(osd.usetheme)</visible>
             <left>SidePad</left>
             <top>SidePad</top>
             <width>100</width>
