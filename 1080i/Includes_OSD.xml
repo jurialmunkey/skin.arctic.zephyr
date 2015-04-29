@@ -64,14 +64,6 @@
             <textcolor>$VAR[OSDPanelWhite70]</textcolor>
             <label>$INFO[Player.Time]  /  $INFO[Player.Duration]</label>
         </control>
-        <control type="image">
-            <description>Progress Back</description>
-            <width>100%</width>
-            <bottom>10</bottom>
-            <height>8</height>
-            <texture colordiffuse="Black12">common/white.png</texture>
-            <visible>Skin.HasSetting(osd.usetheme)</visible>
-        </control>
         <control type="progress" description="cache">
             <description>Progress Bar</description>
             <width>100%</width>
@@ -91,6 +83,7 @@
             <height>8</height>
             <info>Player.Progress</info>
             <visible>true</visible>
+            <righttexture colordiffuse="ffcccccc">osd/progress-end.png</righttexture>
         </control>
     </include>
     <include name="DefOSDButtons">
