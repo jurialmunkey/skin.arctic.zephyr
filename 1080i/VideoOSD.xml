@@ -65,9 +65,9 @@
                         <height>60</height>
                         <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                         <include>DefContextButton</include>
-                        <label>305</label>
+                        <label>$INFO[VideoPlayer.SubtitlesLanguage,$LOCALIZE[305] [UPPERCASE],[/UPPERCASE]]</label>
                         <altlabel>13106</altlabel>
-                        <onclick>Action(ShowSubtitles)</onclick>
+                        <onclick>NextSubtitle</onclick>
                         <usealttexture>!VideoPlayer.SubtitlesEnabled</usealttexture>
                     </control>
                 </control>
@@ -111,7 +111,8 @@
                     <description>Subs</description>
                     <align>left</align>
                     <label>$LOCALIZE[287]</label>
-                    <onclick>Action(ShowSubtitles)</onclick>
+                    <onclick condition="VideoPlayer.Content(LiveTV)">Action(ShowSubtitles)</onclick>
+                    <onclick condition="!VideoPlayer.Content(LiveTV)">NextSubtitle</onclick>
                     <include>DefOSDButtons</include>
                 </control>
             </control>
