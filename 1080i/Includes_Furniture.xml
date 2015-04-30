@@ -756,6 +756,9 @@
         
         <control type="grouplist">
             <visible>!Skin.HasSetting(furniture.nowplaying)</visible>
+            <visible>!Window.IsVisible(DialogVolumeBar.xml)</visible>
+            <visible>!Window.IsVisible(DialogKaiToast.xml)</visible>
+            <visible>!Window.IsVisible(DialogExtendedProgressBar.xml)</visible>
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
             <visible>IsEmpty(Window(10025).Property(TvTunesIsAlive))</visible>
