@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">3010</defaultcontrol>
+	<zorder>2</zorder>
+	<coordinates>
+		<system>1</system>
+		<left>120</left>
+		<top>50</top>
+	</coordinates>
+	<controls>
+		<control type="image">
+			<left>20</left>
+			<top>20</top>
+			<width>1640</width>
+			<height>860</height>
+			<texture colordiffuse="FF444444">$INFO[Container(3010).ListItem.Art(fanart)]</texture>
+		</control>
+		<!-- <control type="label" id="1"> <description>header label</description> <left>20</left> <top>30</top> <width>1640</width> <height>70</height> <font>Font-Condensed-S72</font> <label>Person Info</label> <align>center</align> <aligny>center</aligny> <textcolor>white</textcolor> <shadowcolor>black</shadowcolor> </control> -->
+		<!-- <control type="button" id="8"> <description>Close Window button</description> <left>960</left> <top>15</top> <width>64</width> <height>32</height> <label>-</label> <font>-</font> <onclick>PreviousMenu</onclick> <texturefocus>DialogCloseButton-focus.png</texturefocus> <texturenofocus>DialogCloseButton.png</texturenofocus> <onleft>-</onleft> <onright>-</onright> <onup>-</onup> <ondown>3005</ondown> </control> -->
+		<control type="label" id="3000">
+			<description>person name</description>
+			<left>20</left>
+			<top>30</top>
+			<width>1640</width>
+			<height>80</height>
+			<align>center</align>
+			<label>-</label>
+			<font>EpisodeNumber</font>
+			<textcolor>Highlight</textcolor>
+		</control>
+		<!-- Actor Image -->
+		<control type="image" id="3009">
+			<left>35</left>
+			<top>105</top>
+			<width>310</width>
+			<height>445</height>
+			<aspectratio>stretch</aspectratio>
+		</control>
+		<control type="textbox" id="3001">
+			<description>text</description>
+			<left>360</left>
+			<top>110</top>
+			<width>1295</width>
+			<height>440</height>
+			<align>justify</align>
+			<label>-</label>
+			<font>Small</font>
+			<textcolor>White</textcolor>
+			<autoscroll delay="8000" time="3000" repeat="13000">!Skin.HasSetting(AutoScroll.Disable)</autoscroll>
+		</control>
+		<control type="list" id="3010">
+			<left>35</left>
+			<top>560</top>
+			<width>1600</width>
+			<height>360</height>
+			<onleft>-</onleft>
+			<onright>-</onright>
+			<onup>-</onup>
+			<ondown>3011</ondown>
+			<pagecontrol>3011</pagecontrol>
+			<scrolltime>200</scrolltime>
+			<orientation>horizontal</orientation>
+			<itemlayout width="200">
+				<control type="image">
+					<left>0</left>
+					<top>10</top>
+					<width>190</width>
+					<height>270</height>
+					<texture>$INFO[Listitem.Icon]</texture>
+					<bordersize>5</bordersize>
+				</control>
+				<control type="label">
+					<left>0</left>
+					<top>286</top>
+					<width>190</width>
+					<height>20</height>
+					<align>left</align>
+					<font>Tiny</font>
+					<textcolor>FFFFFFFFFF</textcolor>
+					<label>$INFO[Listitem.Label2]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout width="200">
+				<control type="image">
+					<left>0</left>
+					<top>10</top>
+					<width>190</width>
+					<height>270</height>
+					<texture>$INFO[Listitem.Icon]</texture>
+				</control>
+				<control type="image"> <!--focused background left edge -->
+					<posx>0</posx>
+					<posy>280</posy>
+					<width>190</width>
+					<height>5</height>
+					<visible>Control.HasFocus(3010)</visible>
+					<texture condition="Control.HasFocus(3010)" colordiffuse="Highlight">common/white.png</texture>
+				</control>
+				<control type="label">
+					<left>0</left>
+					<top>286</top>
+					<width>190</width>
+					<height>20</height>
+					<align>left</align>
+					<font>Tiny</font>
+					<textcolor>Highlight</textcolor>
+					<visible>Control.HasFocus(3010)</visible>
+					<label>$INFO[Listitem.Label2]</label>
+				</control>
+				<control type="label">
+					<left>0</left>
+					<top>286</top>
+					<width>190</width>
+					<height>20</height>
+					<align>left</align>
+					<font>Tiny</font>
+					<textcolor>FFFFFFFF</textcolor>
+					<visible>!Control.HasFocus(3010)</visible>
+					<label>$INFO[Listitem.Label2]</label>
+				</control>
+			</focusedlayout>
+		</control>
+		<control type="scrollbar" id="3011">
+			<left>20</left>
+			<top>870</top>
+			<width>1640</width>
+			<height>10</height>
+			<texturesliderbackground border="4" colordiffuse="Dark4">scrollbar/scrollv.png</texturesliderbackground>
+			<texturesliderbar border="4" colordiffuse="Dark3">scrollbar/scrollv.png</texturesliderbar>
+			<texturesliderbarfocus border="4" colordiffuse="Dark2">scrollbar/scrollv.png</texturesliderbarfocus>
+			<onup>3010</onup>
+			<showonepage>false</showonepage>
+			<orientation>horizontal</orientation>
+		</control>
+	</controls>
+</window>

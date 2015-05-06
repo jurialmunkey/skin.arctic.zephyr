@@ -109,6 +109,7 @@
                     <width>100%</width>
                     <height>100%</height>
                     <texture border="10">common/nofocus-shadow10.png</texture>
+                     <visible>!Container.Content(episodes)</visible>
                 </control>
              
                 <control type="image">
@@ -119,6 +120,12 @@
                     <fadetime>200</fadetime>
                     <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
                     <texture diffuse="diffuse/pvrinfo.png" background="true">$VAR[FanartImage]</texture>
+                    <visible>!Container.Content(episodes)</visible>
+                </control>
+                <control type="image">
+                    <aspectratio align="left" aligny="center" scalediffuse="false">keep</aspectratio>
+                    <texture diffuse="diffuse/pvrinfo.png" background="true">$VAR[FanartImage]</texture>
+                    <visible>Container.Content(episodes)</visible>
                 </control>
             </control>
             <control type="group">

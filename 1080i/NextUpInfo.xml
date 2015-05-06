@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">3012</defaultcontrol>
+	<zorder>0</zorder>
+	<controls>
+		<control type="group">
+			<control type="group">
+				<animation effect="slide" start="0" end="0,-190" time="150" condition="Window.IsVisible(NextUpInfo.xml)">Conditional</animation>
+				<animation effect="slide" start="0,110" end="0" time="150">Visible</animation>
+				<animation effect="slide" start="0,110" end="0" time="150">WindowOpen</animation>
+				<control type="image" id="3006">
+					<right>0</right>
+					<bottom>110</bottom>
+					<width>500</width>
+					<height>281</height>
+					<aspectratio align="right" aligny="bottom">keep</aspectratio>
+					<include>Animation.FadeIn</include>
+					<include>Animation.FadeOut</include>
+					<visible>Skin.HasSetting(ShowClearArtOSD)</visible>
+				</control>
+				<control type="image">
+					<top>110r</top>
+					<width>100%</width>
+					<height>374</height>
+					<texture>common/white.png</texture>
+					<colordiffuse>$VAR[OSDPanel]</colordiffuse>
+					<animation effect="fade" start="100" end="95" condition="Skin.HasSetting(osd.usetheme)">Conditional</animation>
+					<include>Animation.FadeOut</include>
+				</control>
+				<!-- buttons -->
+				<control type="button" id="3012">
+					<description>Watch Now</description>
+					<right>0</right>
+					<bottom>40</bottom>
+					<width>200</width>
+					<onup>3013</onup>
+					<ondown>3013</ondown>
+					<font>Button</font>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<label>Watch Now</label>
+					<focusedcolor>Selected</focusedcolor>
+					<disabledcolor>$VAR[OSDPanelWhite70]</disabledcolor>
+					<selectedcolor>Highlight2</selectedcolor>
+					<height>68</height>
+					<texturenofocus colordiffuse="Black70" border="5">common/box.png</texturenofocus>
+					<textcolor>Light1</textcolor>
+				</control>
+				<control type="button" id="3013">
+					<description>Cancel</description>
+					<right>0</right>
+					<bottom>-30</bottom>
+					<width>200</width>
+					<onup>3012</onup>
+					<ondown>3012</ondown>
+					<font>Button</font>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<label>222</label>
+					<focusedcolor>Selected</focusedcolor>
+					<disabledcolor>$VAR[OSDPanelWhite70]</disabledcolor>
+					<selectedcolor>Highlight2</selectedcolor>
+					<height>68</height>
+					<texturenofocus colordiffuse="Black70" border="5">common/box.png</texturenofocus>
+					<textcolor>Light1</textcolor>
+				</control>
+			</control>
+			<control type="group">
+				<top>300r</top>
+				<bottom>0</bottom>
+				<width>100%</width>
+				<animation effect="fade" start="0" end="100" delay="150" time="150">Visible</animation>
+				<animation effect="fade" start="0" end="100" delay="150" time="150">WindowOpen</animation>
+				<control type="group">
+					<left>SidePad</left>
+					<right>SidePad</right>
+					<top>20</top>
+					<bottom>20</bottom>
+					<control type="image" id="3009">
+						<left>-70</left>
+						<top>-226</top>
+						<width>334</width>
+						<height>486</height>
+					</control>
+					<control type="group">
+						<left>294</left>
+						<right>0</right>
+						<control type="label">
+							<width>100%</width>
+							<top>0</top>
+							<height>40</height>
+							<font>MediumBold</font>
+							<textcolor>$VAR[OSDPanelWhite70]</textcolor>
+							<label>$INFO[Control.GetLabel(3002),Up Next... ,][COLOR=$VAR[ColourHighlight]]$INFO[Control.GetLabel(3000), ,][/COLOR]</label>
+						</control>
+						<control type="label" description="episode/season info" id="3002">
+							<width>100%</width>
+							<top>0</top>
+							<left>175</left>
+							<height>40</height>
+							<font>MediumBold</font>
+							<textcolor>$VAR[OSDPanelWhite70]</textcolor>
+							<visible>false</visible>
+						</control>
+						<control type="label" description="Title" id="3000">
+							<width>100%</width>
+							<left>267</left>
+							<top>0</top>
+							<height>40</height>
+							<font>MediumBold</font>
+							<textcolor>$VAR[ColourHighlight]</textcolor>
+							<visible>false</visible>
+						</control>
+						<control type="image">
+							<top>57</top>
+							<width>26</width>
+							<height>26</height>
+							<aspect>keep</aspect>
+							<texture>special://skin/extras/icons/imdb.png</texture>
+							<visible>Control.IsVisible(3003)</visible>
+						</control>
+						<control type="label" id="3003" description="rating">
+							<left>35</left>
+							<width>100%</width>
+							<top>50</top>
+							<height>40</height>
+							<font>TinyBold</font>
+							<textcolor>$VAR[OSDPanelWhite70]</textcolor>
+						</control>
+						<control type="label" id="3004" description="year/runtime">
+							<left>90</left>
+							<width>100%</width>
+							<top>50</top>
+							<height>40</height>
+							<font>TinyBold</font>
+							<textcolor>$VAR[OSDPanelWhite70]</textcolor>
+							<scroll>false</scroll>
+							<visible>Control.IsVisible(3003)</visible>
+						</control>
+						<control type="label" id="3004" description="year/runtime">
+							<width>100%</width>
+							<top>50</top>
+							<height>40</height>
+							<font>TinyBold</font>
+							<textcolor>$VAR[OSDPanelWhite70]</textcolor>
+							<scroll>false</scroll>
+							<visible>!Control.IsVisible(3003)</visible>
+						</control>
+						<control type="textbox" description="Plot" id="3001">
+							<width>85%</width>
+							<top>105</top>
+							<height>68</height>
+							<font>Tiny</font>
+							<align>justify</align>
+							<textcolor>$VAR[OSDPanelWhite30]</textcolor>
+						</control>
+						<control type="label" description="Next up">
+							<width>400</width>
+							<bottom>30</bottom>
+							<height>40</height>
+							<font>Tiny</font>
+							<textcolor>$VAR[OSDPanelWhite70]</textcolor>
+							<label>Press cancel to stop automatic play of next episode...</label>
+						</control>
+						<control type="label" description="Total Time">
+							<right>-30</right>
+							<align>right</align>
+							<width>400</width>
+							<bottom>30</bottom>
+							<height>80</height>
+							<font>EpisodeNumber</font>
+							<textcolor>$VAR[OSDPanelWhite70]</textcolor>
+							<label>$INFO[Player.TimeRemaining(ss)]</label>
+						</control>
+						<control type="image">
+							<description>Progress Back</description>
+							<width>100%</width>
+							<bottom>10</bottom>
+							<height>8</height>
+							<texture colordiffuse="Black12">common/white.png</texture>
+							<visible>Skin.HasSetting(osd.usetheme)</visible>
+						</control>
+						<control type="progress" description="cache">
+							<description>Progress Bar</description>
+							<width>100%</width>
+							<bottom>10</bottom>
+							<height>8</height>
+							<info>Player.ProgressCache</info>
+							<visible>true</visible>
+							<texturebg colordiffuse="00ffffff">osd/progress-bg.png</texturebg>
+							<lefttexture colordiffuse="Highlight2">osd/progress-end.png</lefttexture>
+							<midtexture colordiffuse="Highlight2">osd/progress-end.png</midtexture>
+							<righttexture colordiffuse="Highlight2">osd/progress-end.png</righttexture>
+						</control>
+						<control type="progress" id="23">
+							<description>Progress Bar</description>
+							<width>100%</width>
+							<bottom>10</bottom>
+							<height>8</height>
+							<info>Player.Progress</info>
+							<visible>true</visible>
+						</control>
+					</control>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>
