@@ -40,7 +40,108 @@
         
     </include>
     
-    
+    <include name="HomeNowPlaying">
+        <!-- Next Recording -->
+        <control type="group">
+            <right>72</right>
+            <posy>70</posy>
+            <width>660</width>
+            <height>100</height>
+            <include>Animation.FadeIn.Slide</include>
+            <include>Animation.FadeOut</include>
+            <visible>!Skin.HasSetting(home.showheader)</visible>
+            <visible>Player.HasMedia</visible>
+            <visible>!Control.HasFocus(301) + !ControlGroup(303).HasFocus()</visible>
+            <animation effect="slide" end="0,100" time="150" condition="[[!Skin.HasSetting(home.showheader) + [Window.IsVisible(DialogKaiToast.xml) | Window.IsVisible(DialogExtendedProgressBar.xml) | Window.IsVisible(DialogVolumeBar.xml)]]]">Conditional</animation>
+            <control type="image">
+                <description>background image</description>
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>660</width>
+                <height>100</height>
+                <texture border="16" colordiffuse="Background">common/rounded-shadow8.png</texture>
+                <animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+            </control>
+            
+            <control type="group">
+                <centertop>50%</centertop>
+                <centerleft>52</centerleft>
+                <height>100</height>
+                <width>100</width>
+                <control type="image" description="Back">
+                    <left>0</left>
+                    <centertop>50%</centertop>
+                    <width>100</width>
+                    <height>100</height>
+                    <aspectratio align="center" aligny="center">keep</aspectratio>
+                    <texture>progress/back.png</texture>
+                    <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+                </control>
+                <control type="image" description="Play">
+                    <left>0</left>
+                    <centertop>50%</centertop>
+                    <width>100</width>
+                    <height>100</height>
+                    <aspectratio align="center" aligny="center">keep</aspectratio>
+                    <texture colordiffuse="Dark1">progress/play.png</texture>
+                    <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+                    <visible>!Player.Paused</visible>
+                </control>
+                <control type="image" description="Pause">
+                    <left>0</left>
+                    <centertop>50%</centertop>
+                    <width>100</width>
+                    <height>100</height>
+                    <aspectratio align="center" aligny="center">keep</aspectratio>
+                    <texture colordiffuse="Dark1">progress/pause.png</texture>
+                    <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+                    <visible>Player.Paused</visible>
+                </control>
+                <control type="progress" id="933">
+                    <texturebg>-</texturebg>
+                    <lefttexture>-</lefttexture>
+                    <midtexture>-</midtexture>
+                    <righttexture>-</righttexture>
+                    <info>Player.Progress</info>
+                    <visible>false</visible>
+                </control>
+                <control type="image">
+                    <left>0</left>
+                    <centertop>50%</centertop>
+                    <width>100</width>
+                    <height>100</height>
+                    <texture>$INFO[Control.GetLabel(933),progress/circle/p,.png]</texture>
+                    <aspectratio align="center">keep</aspectratio>
+                    <visible>!IsEmpty(Player.Duration)</visible>
+                </control>
+              
+            </control>
+
+            <control type="group">
+                <left>104</left>
+                <width>550</width>
+                <posy>10</posy>
+                <control type="label">
+                    <centertop>24</centertop>
+                    <width>auto</width>
+                    <font>SmallBold</font>
+                    <align>left</align>
+                    <textcolor>Dark1</textcolor>
+                    <label>$INFO[Player.Title]</label>
+                </control>
+                <control type="label">
+                    <centertop>58</centertop>
+                    <align>left</align>
+                    <font>Flag</font>
+                    <width>auto</width>
+                    <textcolor>Dark2</textcolor>
+                    <label>$INFO[VideoPlayer.TvShowTitle,,  ]$INFO[MusicPlayer.Artist,,  ]$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
+                </control>
+            </control>
+        </control>
+        
+    </include>
+
     <include name="HomeNextRecording">
         <!-- Next Recording -->
         <control type="group">
@@ -54,6 +155,7 @@
             <visible>Skin.HasSetting(home.showheader) | !Window.IsVisible(DialogKaiToast.xml)</visible>
             <visible>Skin.HasSetting(home.showheader) | !Window.IsVisible(DialogExtendedProgress.xml)</visible>
             <visible>Skin.HasSetting(home.showheader) | !Window.IsVisible(DialogVolumeBar.xml)</visible>
+            <animation effect="slide" end="0,100" time="150" condition="!Skin.HasSetting(home.showheader) + Player.HasMedia">Conditional</animation>
             <animation effect="slide" start="0" end="0,190" time="150" condition="Skin.HasSetting(home.showheader)">Conditional</animation>
             <visible>Pvr.IsRecording | Pvr.HasTimer</visible>
             <control type="image">
@@ -105,7 +207,8 @@
         <!-- Weather Widget -->
         <control type="group">
             <animation effect="slide" start="0" end="0,200" time="150" condition="Skin.HasSetting(home.showheader)">Conditional</animation>
-            <animation effect="slide" start="0" end="0,100" time="150" condition="[Pvr.IsRecording | Pvr.HasTimer | [!Skin.HasSetting(home.showheader) + [Window.IsVisible(DialogKaiToast.xml) | Window.IsVisible(DialogExtendedProgressBar.xml) | Window.IsVisible(DialogVolumeBar.xml)]]]">Conditional</animation>
+            <animation effect="slide" end="0,100" time="150" condition="[Pvr.IsRecording | Pvr.HasTimer | [!Skin.HasSetting(home.showheader) + [Window.IsVisible(DialogKaiToast.xml) | Window.IsVisible(DialogExtendedProgressBar.xml) | Window.IsVisible(DialogVolumeBar.xml)]]]">Conditional</animation>
+            <animation effect="slide" end="0,100" time="150" condition="!Skin.HasSetting(home.showheader) + Player.HasMedia">Conditional</animation>
             <visible>StringCompare(Container(300).ListItem.Property(widget),Weather) | Skin.HasSetting(home.showweatherfanart)</visible>
             <visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
             <visible>!Control.HasFocus(301) + !ControlGroup(303).HasFocus()</visible>
@@ -134,16 +237,6 @@
                 <aspectratio aligny="center" align="center">keep</aspectratio>
                 <texture colordiffuse="Dark1">$INFO[Weather.FanartCode,weather/small/,.png]</texture>
             </control>
-            <!-- <control type="image">
-                <centertop>52</centertop>
-                <centerleft>52</centerleft>
-                <width>70</width>
-                <height>70</height>
-                <fadetime>350</fadetime>
-                <aspectratio aligny="center" align="center">keep</aspectratio>
-                <texture>$INFO[Window(weather).Property(Current.ConditionIcon)]</texture>
-                <visible>!Skin.HasSetting(weather.useflaticons)</visible>
-            </control> -->
             <control type="label">
                 <left>104</left>
                 <top>22</top>
