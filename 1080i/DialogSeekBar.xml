@@ -51,8 +51,11 @@
                     <top>20</top>
                     <bottom>20</bottom>
                     <control type="image">
-                        <width>173</width>
-                        <height>260</height>
+                       
+                        <left>-70</left>
+						<top>-226</top>
+						<width>334</width>
+						<height>486</height>
                         <texture>$VAR[PlayerPoster]</texture>
                         <visible>!IsEmpty(Player.Art(tvshow.poster)) | !IsEmpty(Player.Art(poster))</visible>
                     </control>
@@ -72,7 +75,7 @@
                     </control>
                     
                     <control type="group">
-                        <left>203</left>
+                        <left>290</left>
                         <visible>!IsEmpty(Player.Art(tvshow.poster)) | !IsEmpty(Player.Art(poster))</visible>
                         <include>OSDInfoContent</include>
                     </control>

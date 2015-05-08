@@ -173,27 +173,28 @@
 			<usecontrolcoords>true</usecontrolcoords>
 			<control type="group">
 				<centertop>50%</centertop>
-				<width>64</width>
-				<height>64</height>
+				<width>73</width>
+				<height>50</height>
 				<control type="image" description="button back">
-					<width>64</width>
-					<height>64</height>
-					<texture border="32" colordiffuse="Dark1">common/circle.png</texture>
+					<width>73</width>
+					<height>50</height>
+					<texture colordiffuse="Dark1">common/cadre.png</texture>
 				</control>
 				<control type="label">
-					<width>64</width>
-					<height>64</height>
+					<width>73</width>
+					<height>46</height>
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$VAR[HDSD]</label>
-					<font>SmallBold</font>
-					<textcolor>Light1</textcolor>
+					<font>FlagHD</font>
+					<textcolor>Dark1</textcolor>
 					<visible>!substring(ListItem.Path,videodb://movies/sets,left)</visible>
 				</control>
 				<control type="image">
-					<width>64</width>
-					<height>64</height>
-					<texture colordiffuse="Light1">flags/sets.png</texture>
+					<width>73</width>
+					<height>50</height>
+					<centertop>50%</centertop>
+					<texture colordiffuse="Dark1">flags/sets.png</texture>
 					<visible>substring(ListItem.Path,videodb://movies/sets,left)</visible>
 				</control>
 			</control>
@@ -255,8 +256,8 @@
 				<aspectratio align="left">scale</aspectratio>
 				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
 			</control>
-			<control type="label" id="16">
-				<width>auto</width>
+			<control type="label">
+				<width min="128">auto</width>
 				<centertop>50%</centertop>
 				<height>64</height>
 				<align>left</align>
@@ -267,75 +268,266 @@
 				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
 			</control>
 			<control type="image">
-				<width>48</width>
-				<height>64</height>
+				<width>108</width>
+				<height>50</height>
 				<centertop>50%</centertop>
-				<texture colordiffuse="Dark1">flags/video.png</texture>
+				<texture colordiffuse="Dark1">$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+				<aspectratio align="left">scale</aspectratio>
+				<visible>!IsEmpty(ListItem.VideoAspect)</visible>
+			</control>
+			<control type="image">
+				<width>130</width>
+				<height>50</height>
+				<centertop>50%</centertop>
+				<texture colordiffuse="Dark1">$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
 				<aspectratio align="left">scale</aspectratio>
 				<visible>!IsEmpty(ListItem.VideoResolution)</visible>
 			</control>
-			<control type="label">
-				<width min="128">auto</width>
+			<control type="image">
+				<width>130</width>
+				<height>50</height>
 				<centertop>50%</centertop>
-				<height>64</height>
-				<align>left</align>
-				<aligny>center</aligny>
-				<label>$VAR[LabelVideoFlag]$INFO[ListItem.VideoResolution]$INFO[ListItem.VideoAspect, • ,]</label>
-				<font>Flag</font>
-				<textcolor>Dark1</textcolor>
-				<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+				<texture colordiffuse="Dark1">$INFO[ListItem.VideoCodec,flags/video/,.png]</texture>
+				<aspectratio align="left">scale</aspectratio>
+				<visible>!IsEmpty(ListItem.VideoCodec)</visible>
 			</control>
 			<control type="image">
-				<width>48</width>
+				<width>130</width>
+				<height>50</height>
 				<centertop>50%</centertop>
-				<height>64</height>
-				<texture colordiffuse="Dark1">flags/audio.png</texture>
+				<texture colordiffuse="Dark1">$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
 				<aspectratio align="left">scale</aspectratio>
 				<visible>!IsEmpty(ListItem.AudioCodec)</visible>
 			</control>
-			<control type="label">
-				<width min="128">auto</width>
+			<control type="image">
+				<width>130</width>
+				<height>50</height>
 				<centertop>50%</centertop>
-				<height>64</height>
-				<align>left</align>
-				<aligny>center</aligny>
-				<label>$INFO[ListItem.AudioCodec]$VAR[LabelAudioChannels, • ,]</label>
-				<font>Flag</font>
-				<textcolor>Dark1</textcolor>
-				<visible>!IsEmpty(ListItem.AudioCodec)</visible>
+				<texture colordiffuse="Dark1">$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
+				<aspectratio align="left">scale</aspectratio>
+				<visible>!IsEmpty(ListItem.AudioChannels)</visible>
+			</control>
+			<control type="group">
+				<centertop>50%</centertop>
+				<width>220</width>
+				<height>50</height>
+				<control type="image">
+					<width>220</width>
+					<height>50</height>
+					<centertop>50%</centertop>
+					<texture colordiffuse="Dark1">flags/time.png</texture>
+					<aspectratio align="left">scale</aspectratio>
+					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
+				</control>
+				<control type="label">
+					<left>55</left>
+					<width>165</width>
+					<centertop>50%</centertop>
+					<height>50</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Duration,, $LOCALIZE[31102] ]</label>
+					<font>FlagHD</font>
+					<textcolor>Dark1</textcolor>
+					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
+				</control>
 			</control>
 			<control type="image">
-				<width>64</width>
+				<width>73</width>
 				<centertop>50%</centertop>
-				<height>64</height>
+				<height>50</height>
 				<texture colordiffuse="Dark1">flags/3D.png</texture>
 				<visible>ListItem.IsStereoscopic</visible>
 			</control>
 			<control type="image">
-				<width>64</width>
+				<width>73</width>
 				<centertop>50%</centertop>
-				<height>64</height>
+				<height>50</height>
 				<texture colordiffuse="Dark1">flags/bluray.png</texture>
 				<visible>[substring(ListItem.FilenameAndPath,bluray) | substring(ListItem.FilenameAndPath,bdrip) | substring(ListItem.FilenameAndPath,bd25) | substring(ListItem.FilenameAndPath,bd50)]</visible>
 			</control>
 			<control type="image">
-				<width>95</width>
+				<width>73</width>
 				<centertop>50%</centertop>
-				<height>64</height>
+				<height>50</height>
 				<texture colordiffuse="Dark1">flags/hddvd.png</texture>
 				<visible>substring(ListItem.FilenameAndPath,hddvd)</visible>
 			</control>
 			<control type="image">
-				<width>64</width>
+				<width>73</width>
 				<centertop>50%</centertop>
-				<height>64</height>
+				<height>50</height>
 				<texture colordiffuse="Dark1">flags/dvd.png</texture>
 				<visible>substring(ListItem.FilenameAndPath,dvd) + !substring(ListItem.FilenameAndPath,hddvd)</visible>
 			</control>
 			<control type="image">
-				<width>64</width>
+				<width>73</width>
+				<centertop>50%</centertop>
+				<height>50</height>
+				<texture colordiffuse="Dark1">flags/imdb.png</texture>
+				<visible>!IsEmpty(ListItem.Top250)</visible>
+			</control>
+		</control>
+	</include>
+	
+	<include name="Furniture_Hub_Flags">
+		<control type="grouplist">
+			<visible>!Skin.HasSetting(furniture.flags)</visible>
+			<visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+			<visible>!stringcompare(ListItem.Label,..)</visible>
+			<include>Animation.FadeIn</include>
+			<include>Animation.FadeOut</include>
+			<left>SidePad</left>
+			<centerbottom>NavBarPad</centerbottom>
+			<width>1400</width>
+			<height>120</height>
+			<orientation>horizontal</orientation>
+			<align>left</align>
+			<itemgap>24</itemgap>
+			<usecontrolcoords>true</usecontrolcoords>
+			<control type="group">
+				<centertop>50%</centertop>
+				<width>73</width>
+				<height>50</height>
+				<control type="image" description="button back">
+					<width>73</width>
+					<height>50</height>
+					<texture colordiffuse="Dark1">common/cadre.png</texture>
+				</control>
+				<control type="label">
+					<width>73</width>
+					<height>46</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$VAR[HDSD]</label>
+					<font>FlagHD</font>
+					<textcolor>Dark1</textcolor>
+					<visible>!substring(ListItem.Path,videodb://movies/sets,left)</visible>
+				</control>
+				<control type="image">
+					<width>73</width>
+					<height>50</height>
+					<centertop>50%</centertop>
+					<texture colordiffuse="Dark1">flags/sets.png</texture>
+					<visible>substring(ListItem.Path,videodb://movies/sets,left)</visible>
+				</control>
+			</control>
+			<control type="image">
+				<width>48</width>
+				<height>64</height>
+				<centertop>50%</centertop>
+				<texture colordiffuse="Dark1">flags/airing.png</texture>
+				<aspectratio align="left">scale</aspectratio>
+				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
+			</control>
+			<control type="label">
+				<width min="128">auto</width>
 				<centertop>50%</centertop>
 				<height>64</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$VAR[LabelNextAiredDetails]</label>
+				<font>Flag</font>
+				<textcolor>Dark2</textcolor>
+				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
+			</control>
+			<control type="image">
+				<width>108</width>
+				<height>50</height>
+				<centertop>50%</centertop>
+				<texture colordiffuse="Dark1">$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+				<aspectratio align="left">scale</aspectratio>
+				<visible>!IsEmpty(ListItem.VideoAspect)</visible>
+			</control>
+			<control type="image">
+				<width>130</width>
+				<height>50</height>
+				<centertop>50%</centertop>
+				<texture colordiffuse="Dark1">$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+				<aspectratio align="left">scale</aspectratio>
+				<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+			</control>
+			<control type="image">
+				<width>130</width>
+				<height>50</height>
+				<centertop>50%</centertop>
+				<texture colordiffuse="Dark1">$INFO[ListItem.VideoCodec,flags/video/,.png]</texture>
+				<aspectratio align="left">scale</aspectratio>
+				<visible>!IsEmpty(ListItem.VideoCodec)</visible>
+			</control>
+			<control type="image">
+				<width>130</width>
+				<height>50</height>
+				<centertop>50%</centertop>
+				<texture colordiffuse="Dark1">$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+				<aspectratio align="left">scale</aspectratio>
+				<visible>!IsEmpty(ListItem.AudioCodec)</visible>
+			</control>
+			<control type="image">
+				<width>130</width>
+				<height>50</height>
+				<centertop>50%</centertop>
+				<texture colordiffuse="Dark1">$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
+				<aspectratio align="left">scale</aspectratio>
+				<visible>!IsEmpty(ListItem.AudioChannels)</visible>
+			</control>
+			<control type="group">
+				<centertop>50%</centertop>
+				<width>220</width>
+				<height>50</height>
+				<control type="image">
+					<width>220</width>
+					<height>50</height>
+					<centertop>50%</centertop>
+					<texture colordiffuse="Dark1">flags/time.png</texture>
+					<aspectratio align="left">scale</aspectratio>
+					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
+				</control>
+				<control type="label">
+					<left>55</left>
+					<width>165</width>
+					<centertop>50%</centertop>
+					<height>50</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Duration,, $LOCALIZE[31102] ]</label>
+					<font>FlagHD</font>
+					<textcolor>Dark1</textcolor>
+					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
+				</control>
+			</control>
+			<control type="image">
+				<width>73</width>
+				<centertop>50%</centertop>
+				<height>50</height>
+				<texture colordiffuse="Dark1">flags/3D.png</texture>
+				<visible>ListItem.IsStereoscopic</visible>
+			</control>
+			<control type="image">
+				<width>73</width>
+				<centertop>50%</centertop>
+				<height>50</height>
+				<texture colordiffuse="Dark1">flags/bluray.png</texture>
+				<visible>[substring(ListItem.FilenameAndPath,bluray) | substring(ListItem.FilenameAndPath,bdrip) | substring(ListItem.FilenameAndPath,bd25) | substring(ListItem.FilenameAndPath,bd50)]</visible>
+			</control>
+			<control type="image">
+				<width>73</width>
+				<centertop>50%</centertop>
+				<height>50</height>
+				<texture colordiffuse="Dark1">flags/hddvd.png</texture>
+				<visible>substring(ListItem.FilenameAndPath,hddvd)</visible>
+			</control>
+			<control type="image">
+				<width>73</width>
+				<centertop>50%</centertop>
+				<height>50</height>
+				<texture colordiffuse="Dark1">flags/dvd.png</texture>
+				<visible>substring(ListItem.FilenameAndPath,dvd) + !substring(ListItem.FilenameAndPath,hddvd)</visible>
+			</control>
+			<control type="image">
+				<width>73</width>
+				<centertop>50%</centertop>
+				<height>50</height>
 				<texture colordiffuse="Dark1">flags/imdb.png</texture>
 				<visible>!IsEmpty(ListItem.Top250)</visible>
 			</control>
