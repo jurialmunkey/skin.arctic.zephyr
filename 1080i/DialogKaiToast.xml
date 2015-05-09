@@ -7,7 +7,7 @@
 
         <control type="group">
             <visible>!Window.IsVisible(DialogVolumeBar.xml)</visible>
-            <posx>680r</posx>
+            <right>72</right>
             <posy>70</posy>
             <width>660</width>
             <height>100</height>
@@ -20,7 +20,9 @@
                 <posy>0</posy>
                 <width>660</width>
                 <height>100</height>
-                <texture border="16" colordiffuse="OSDBack">common/rounded-shadow8.png</texture>
+                <colordiffuse>$VAR[OSDPanel]</colordiffuse>
+                <animation effect="fade" start="100" end="90" condition="Skin.HasSetting(osd.usetheme) | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(musicvisualisation)]">Conditional</animation>
+                <texture border="16">common/rounded-shadow8.png</texture>
             </control>
 
             <control type="group">
@@ -31,7 +33,8 @@
                     <width>64</width>
                     <height>64</height>
                     <aspectratio>keep</aspectratio>
-                    <texture colordiffuse="PanelWhite70">kaitoast/info.png</texture>
+                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                    <texture>kaitoast/info.png</texture>
                 </control>
                 <control type="image" id="403">
                     <left>20</left>
@@ -39,7 +42,8 @@
                     <width>64</width>
                     <height>64</height>
                     <aspectratio>keep</aspectratio>
-                    <texture colordiffuse="PanelWhite70">kaitoast/info.png</texture>
+                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                    <texture>kaitoast/info.png</texture>
                     <visible>false</visible>
                 </control>
                 <control type="image" id="404">
@@ -48,7 +52,8 @@
                     <width>64</width>
                     <height>64</height>
                     <aspectratio>keep</aspectratio>
-                    <texture colordiffuse="PanelWhite70">kaitoast/warning.png</texture>
+                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                    <texture>kaitoast/warning.png</texture>
                     <visible>false</visible>
                 </control>
                 <control type="image" id="405">
@@ -57,7 +62,8 @@
                     <width>64</width>
                     <height>64</height>
                     <aspectratio>keep</aspectratio>
-                    <texture colordiffuse="PanelWhite70">kaitoast/error.png</texture>
+                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                    <texture>kaitoast/error.png</texture>
                     <visible>false</visible>
                 </control>
                 
@@ -68,7 +74,7 @@
                     <height>24</height>
                     <aligny>center</aligny>
                     <font>TinyBold</font>
-                    <textcolor>PanelWhite70</textcolor>
+                    <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                 </control>
                 <control type="label" id="402">
                     <left>104</left>
@@ -77,7 +83,7 @@
                     <height>24</height>
                     <aligny>center</aligny>
                     <font>Tiny</font>
-                    <textcolor>PanelWhite70</textcolor>
+                    <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                 </control>
 
             </control>

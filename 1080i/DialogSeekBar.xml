@@ -34,7 +34,7 @@
                     <height>374</height>
                     <texture>common/white.png</texture>
                     <colordiffuse>$VAR[OSDPanel]</colordiffuse>
-                    <animation effect="fade" start="100" end="95" condition="Skin.HasSetting(osd.usetheme)">Conditional</animation>
+                    <animation effect="fade" start="100" end="90" condition="Skin.HasSetting(osd.usetheme)">Conditional</animation>
                     <include>Animation.FadeOut</include>
                 </control>
             </control>
@@ -121,14 +121,7 @@
                         <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                         <label>$INFO[Player.Time]$INFO[Player.Duration,  /  ,]</label>
                     </control>
-                    <control type="image">
-                        <description>Progress Back</description>
-                        <width>100%</width>
-                        <bottom>10</bottom>
-                        <height>8</height>
-                        <texture colordiffuse="Black12">common/white.png</texture>
-                        <visible>Skin.HasSetting(osd.usetheme)</visible>
-                    </control>
+          
                     <control type="progress" description="cache">
                         <description>Progress Bar</description>
                         <width>100%</width>

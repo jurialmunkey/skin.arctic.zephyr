@@ -68,7 +68,11 @@
         <value condition="!IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
         <value condition="!IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
     </variable>
-    
+   <variable name="CDArt">
+		<value condition="!IsEmpty(ListItem.Art(discart))">$INFO[ListItem.Art(discart)]</value>
+		<value condition="IntegerGreaterThan(ListItem.VideoResolution,719)">cdart/bd.png</value>
+		<value condition="!IsEmpty(ListItem.VideoResolution)">cdart/default.png</value>
+	</variable>
     <variable name="ExtendedOverlayInfo">
 		<value condition="StringCompare(Container(3226).ListItem(6).Label,PlayedCount:) + !IntegerGreaterThan(Container(3226).ListItem(6).Label2,0)">indicator/checkmark.png</value>
 		<value condition="StringCompare(Container(3226).ListItem(7).Label,PlayedCount:) + !IntegerGreaterThan(Container(3226).ListItem(7).Label2,0)">indicator/checkmark.png</value>
