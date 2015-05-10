@@ -19,7 +19,7 @@
 				<posy>18</posy>
 				<font>SmallBold</font>
 				<align>left</align>
-				<textcolor>Black70</textcolor>
+				<textcolor>B3dddddd</textcolor>
 				<label>$INFO[ListItem.Title]$INFO[ListItem.Year, (,)]</label>
 			</control>
 			<control type="image">
@@ -62,31 +62,31 @@
 				<control type="image">
 					<width>64</width>
 					<height>64</height>
-					<texture colordiffuse="Black70">flags/3D.png</texture>
+					<texture colordiffuse="B3dddddd">flags/3D.png</texture>
 					<visible>ListItem.IsStereoscopic</visible>
 				</control>
 				<control type="image">
 					<width>64</width>
 					<height>64</height>
-					<texture colordiffuse="Black70">flags/bluray.png</texture>
+					<texture colordiffuse="B3dddddd">flags/bluray.png</texture>
 					<visible>[substring(ListItem.FilenameAndPath,bluray) | substring(ListItem.FilenameAndPath,bdrip) | substring(ListItem.FilenameAndPath,bd25) | substring(ListItem.FilenameAndPath,bd50)]</visible>
 				</control>
 				<control type="image">
 					<width>95</width>
 					<height>64</height>
-					<texture colordiffuse="Black70">flags/hddvd.png</texture>
+					<texture colordiffuse="B3dddddd">flags/hddvd.png</texture>
 					<visible>substring(ListItem.FilenameAndPath,hddvd)</visible>
 				</control>
 				<control type="image">
 					<width>64</width>
 					<height>64</height>
-					<texture colordiffuse="Black70">flags/dvd.png</texture>
+					<texture colordiffuse="B3dddddd">flags/dvd.png</texture>
 					<visible>substring(ListItem.FilenameAndPath,dvd) + !substring(ListItem.FilenameAndPath,hddvd)</visible>
 				</control>
 				<control type="image">
 					<width>64</width>
 					<height>64</height>
-					<texture colordiffuse="Black70">flags/imdb.png</texture>
+					<texture colordiffuse="B3dddddd">flags/imdb.png</texture>
 					<visible>!IsEmpty(ListItem.Top250)</visible>
 				</control>
 				<control type="label">
@@ -99,31 +99,31 @@
 				<control type="image">
 					<width>64</width>
 					<height>64</height>
-					<texture colordiffuse="Black70">flags/$VAR[Flagstar1].png</texture>
+					<texture colordiffuse="B3dddddd">flags/$VAR[Flagstar1].png</texture>
 				</control>
 				<control type="image">
 					<posx>-48</posx>
 					<width>64</width>
 					<height>64</height>
-					<texture colordiffuse="Black70">flags/$VAR[Flagstar2].png</texture>
+					<texture colordiffuse="B3dddddd">flags/$VAR[Flagstar2].png</texture>
 				</control>
 				<control type="image">
 					<posx>-48</posx>
 					<width>64</width>
 					<height>64</height>
-					<texture colordiffuse="Black70">flags/$VAR[Flagstar3].png</texture>
+					<texture colordiffuse="B3dddddd">flags/$VAR[Flagstar3].png</texture>
 				</control>
 				<control type="image">
 					<posx>-48</posx>
 					<width>64</width>
 					<height>64</height>
-					<texture colordiffuse="Black70">flags/$VAR[Flagstar4].png</texture>
+					<texture colordiffuse="B3dddddd">flags/$VAR[Flagstar4].png</texture>
 				</control>
 				<control type="image">
 					<posx>-48</posx>
 					<width>64</width>
 					<height>64</height>
-					<texture colordiffuse="Black70">flags/$VAR[Flagstar5].png</texture>
+					<texture colordiffuse="B3dddddd">flags/$VAR[Flagstar5].png</texture>
 				</control>
 			</control>
 			<control type="grouplist">
@@ -148,6 +148,8 @@
 					<font>Tiny</font>
 					<aligny>top</aligny>
 					<label fallback="19055">$INFO[ListItem.MPAA]</label>
+					<textcolor>B3dddddd</textcolor>
+					<focusedcolor>B3dddddd</focusedcolor>
 				</control>
 				<!-- Run Time -->
 				<control type="label">
@@ -168,6 +170,8 @@
 					<align>right</align>
 					<aligny>top</aligny>
 					<label fallback="19055">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
+					<textcolor>B3dddddd</textcolor>
+					<focusedcolor>B3dddddd</focusedcolor>
 				</control>
 				<!-- Director -->
 				<control type="label">
@@ -184,6 +188,8 @@
 					<font>Tiny</font>
 					<aligny>top</aligny>
 					<label fallback="19055">$INFO[ListItem.Director]</label>
+					<textcolor>B3dddddd</textcolor>
+					<focusedcolor>B3dddddd</focusedcolor>
 				</control>
 				<!-- Last Played -->
 				<control type="label">
@@ -204,6 +210,8 @@
 					<align>right</align>
 					<aligny>top</aligny>
 					<label fallback="19055">$INFO[ListItem.LastPlayed]</label>
+					<textcolor>B3dddddd</textcolor>
+					<focusedcolor>B3dddddd</focusedcolor>
 				</control>
 				<!-- Writer -->
 				<control type="label">
@@ -220,6 +228,8 @@
 					<font>Tiny</font>
 					<aligny>top</aligny>
 					<label fallback="19055">$INFO[ListItem.Writer]</label>
+					<textcolor>B3dddddd</textcolor>
+					<focusedcolor>B3dddddd</focusedcolor>
 				</control>
 				<!-- Languages -->
 				<control type="label">
@@ -259,6 +269,8 @@
 					<font>Tiny</font>
 					<aligny>top</aligny>
 					<label fallback="19055">$INFO[ListItem.Genre]</label>
+					<textcolor>B3dddddd</textcolor>
+					<focusedcolor>B3dddddd</focusedcolor>
 				</control>
 				<!-- Subs -->
 				<control type="label">
@@ -298,6 +310,8 @@
 					<font>Tiny</font>
 					<aligny>top</aligny>
 					<label fallback="19055">$INFO[ListItem.Studio]</label>
+					<textcolor>B3dddddd</textcolor>
+					<focusedcolor>B3dddddd</focusedcolor>
 				</control>
 				<!-- Plot -->
 				<control type="label">
@@ -313,6 +327,8 @@
 					<height>158</height>
 					<font>Tiny</font>
 					<align>justify</align>
+					<textcolor>B3dddddd</textcolor>
+					<focusedcolor>B3dddddd</focusedcolor>
 				</control>
 				<!-- Path -->
 				<control type="group">
@@ -320,7 +336,7 @@
 					<control type="image">
 						<width>108</width>
 						<height>50</height>
-						<texture colordiffuse="Black70">$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+						<texture colordiffuse="B3dddddd">$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
 						<aspectratio align="left">scale</aspectratio>
 						<visible>!IsEmpty(ListItem.VideoAspect)</visible>
 					</control>
@@ -328,7 +344,7 @@
 						<left>148</left>
 						<width>130</width>
 						<height>50</height>
-						<texture colordiffuse="Black70">$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+						<texture colordiffuse="B3dddddd">$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
 						<aspectratio align="left">scale</aspectratio>
 						<visible>!IsEmpty(ListItem.VideoResolution)</visible>
 					</control>
@@ -336,7 +352,7 @@
 						<left>318</left>
 						<width>130</width>
 						<height>50</height>
-						<texture colordiffuse="Black70">$INFO[ListItem.VideoCodec,flags/video/,.png]</texture>
+						<texture colordiffuse="B3dddddd">$INFO[ListItem.VideoCodec,flags/video/,.png]</texture>
 						<aspectratio align="left">scale</aspectratio>
 						<visible>!IsEmpty(ListItem.VideoCodec)</visible>
 					</control>
@@ -344,7 +360,7 @@
 						<left>488</left>
 						<width>130</width>
 						<height>50</height>
-						<texture colordiffuse="Black70">$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+						<texture colordiffuse="B3dddddd">$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
 						<aspectratio align="left">scale</aspectratio>
 						<visible>!IsEmpty(ListItem.AudioCodec)</visible>
 					</control>
@@ -352,7 +368,7 @@
 						<left>648</left>
 						<width>130</width>
 						<height>50</height>
-						<texture colordiffuse="Black70">$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
+						<texture colordiffuse="B3dddddd">$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
 						<aspectratio align="left">scale</aspectratio>
 						<visible>!IsEmpty(ListItem.AudioChannels)</visible>
 					</control>
@@ -375,26 +391,30 @@
 					<label>206</label>
 					<width>450</width>
 					<height>68</height>
-					<texturenofocus colordiffuse="Light2" border="5">common/box.png</texturenofocus>
+					<texturenofocus colordiffuse="b3333333" border="5">common/box.png</texturenofocus>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<include>DefDialogButtons</include>
+					<include>DefDialogInfoButtons</include>
+					<onfocus condition="!Control.IsVisible(50)">SendClick(2003,5)</onfocus>
+					<onfocus condition="!IsEmpty(ListItem.Director)">52</onfocus>
+					<onfocus condition="IsEmpty(ListItem.Director)">51</onfocus>
 				</control>
 				<control type="button" id="8">
 					<description>Play</description>
 					<label>208</label>
 					<width>450</width>
 					<height>68</height>
-					<texturenofocus colordiffuse="Light2" border="5">common/box.png</texturenofocus>
+					<texturenofocus colordiffuse="b3333333" border="5">common/box.png</texturenofocus>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<include>DefDialogButtons</include>
+					<include>DefDialogInfoButtons</include>
+					<onfocus condition="Control.IsVisible(50)">SendClick(2003,5)</onfocus>
 				</control>
-				<!--<control type="button" id ="9"> <description>Resume</description> <label>13404</label> <width>450</width> <height>68</height> <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus> <texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus> <include>DefDialogButtons</include>> </control> -->
+				<!--<control type="button" id ="9"> <description>Resume</description> <label>13404</label> <width>450</width> <height>68</height> <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus> <texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus> <include>DefDialogInfoButtons</include>> </control> -->
 				<control type="button" id="53">
 					<width>450</width>
 					<height>68</height>
-					<texturenofocus colordiffuse="Light2" border="5">common/box.png</texturenofocus>
+					<texturenofocus colordiffuse="b3333333" border="5">common/box.png</texturenofocus>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<include>DefDialogButtons</include>
+					<include>DefDialogInfoButtons</include>
 					<label>$LOCALIZE[31206]</label>
 					<onclick>SetProperty(ExtDirector,$INFO[ListItem.Director],home)</onclick>
 					<onclick>SetProperty(ExtWriter,$INFO[ListItem.Writer],home)</onclick>
@@ -411,9 +431,9 @@
 					<label>20410</label>
 					<width>450</width>
 					<height>68</height>
-					<texturenofocus colordiffuse="Light2" border="5">common/box.png</texturenofocus>
+					<texturenofocus colordiffuse="b3333333" border="5">common/box.png</texturenofocus>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<include>DefDialogButtons</include>
+					<include>DefDialogInfoButtons</include>
 					<visible>!IsEmpty(ListItem.Trailer)</visible>
 				</control>
 				<control type="button" id="49">
@@ -421,9 +441,9 @@
 					<label>31170</label>
 					<width>450</width>
 					<height>68</height>
-					<texturenofocus colordiffuse="Light2" border="5">common/box.png</texturenofocus>
+					<texturenofocus colordiffuse="b3333333" border="5">common/box.png</texturenofocus>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<include>DefDialogButtons</include>
+					<include>DefDialogInfoButtons</include>
 					<onclick>Dialog.Close(MovieInformation)</onclick>
 					<onclick>XBMC.RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
 					<visible>system.hasaddon(script.cinema.experience) + Container.Content(movies)</visible>
@@ -432,9 +452,9 @@
 					<description>Extras</description>
 					<width>450</width>
 					<height>68</height>
-					<texturenofocus colordiffuse="Light2" border="5">common/box.png</texturenofocus>
+					<texturenofocus colordiffuse="b3333333" border="5">common/box.png</texturenofocus>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<include>DefDialogButtons</include>
+					<include>DefDialogInfoButtons</include>
 					<label>31171</label>
 					<onclick>RunScript(script.videoextras,display,"$INFO[ListItem.FilenameAndPath]")</onclick>
 					<visible>System.HasAddon(script.videoextras) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(TVShows) | Container.Content(musicvideos)] + IsEmpty(Window(movieinformation).Property("HideVideoExtrasButton"))</visible>
@@ -444,9 +464,9 @@
 					<label>184</label>
 					<width>450</width>
 					<height>68</height>
-					<texturenofocus colordiffuse="Light2" border="5">common/box.png</texturenofocus>
+					<texturenofocus colordiffuse="b3333333" border="5">common/box.png</texturenofocus>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<include>DefDialogButtons</include>
+					<include>DefDialogInfoButtons</include>
 					<visible>!Skin.HasSetting(global.kioskmode)</visible>
 				</control>
 				<control type="button" id="10">
@@ -454,9 +474,9 @@
 					<label>13405</label>
 					<width>450</width>
 					<height>68</height>
-					<texturenofocus colordiffuse="Light2" border="5">common/box.png</texturenofocus>
+					<texturenofocus colordiffuse="b3333333" border="5">common/box.png</texturenofocus>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<include>DefDialogButtons</include>
+					<include>DefDialogInfoButtons</include>
 					<visible>!Skin.HasSetting(global.kioskmode)</visible>
 				</control>
 				<control type="button" id="9001">
@@ -467,9 +487,9 @@
 					<description>Get Artwork</description>
 					<width>450</width>
 					<height>68</height>
-					<texturenofocus colordiffuse="Light2" border="5">common/box.png</texturenofocus>
+					<texturenofocus colordiffuse="b3333333" border="5">common/box.png</texturenofocus>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<include>DefDialogButtons</include>
+					<include>DefDialogInfoButtons</include>
 					<visible>!Skin.HasSetting(global.kioskmode)</visible>
 					<visible>[Container.Content(tvshows) | Container.Content(movies) | Container.Content(musicvideos)] + system.hasaddon(script.artwork.downloader)</visible>
 				</control>
@@ -481,16 +501,26 @@
 				<left>510</left>
 				<right>30</right>
 				<ondown>51</ondown>
-				<label>$INFO[ListItem.Director,$LOCALIZE[31191] ,]</label>
+				<label>$INFO[ListItem.Director,$LOCALIZE[31191] [COLOR=B3dddddd],[/COLOR]]</label>
 				<align>left</align>
 				<onleft condition="Control.IsVisible(50)">SendClick(2003,5)</onleft>
 				<onleft>9000</onleft>
 				<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Director])</onclick>
 				<onclick>Dialog.Close(2003)</onclick>
-				<texturenofocus border="5" colordiffuse="Light2">common/box.png</texturenofocus>
+				<texturenofocus border="5" colordiffuse="b3333333">common/box.png</texturenofocus>
 				<texturefocus border="5" colordiffuse="$VAR[ColourHighlight]">common/box.png</texturefocus>
 				<visible>!IsEmpty(ListItem.Director)</visible>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
 			</control>
+			<!--  <control type="image">
+			<top>100</top>
+						<posx>30</posx>
+						<width>45</width>
+						<height>70</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture diffuse="diffuse/infocast.png">$INFO[ListItem.Director]</texture>
+						<visible>!IsEmpty(ListItem.Director)</visible>
+					</control> -->
 			<control type="list" id="50">
 				<description>Cast</description>
 				<left>510</left>
@@ -507,12 +537,22 @@
 					<control type="image">
 						<width>100%</width>
 						<height>68</height>
-						<texture border="5" colordiffuse="Black12">common/box.png</texture>
+						<texture border="5" colordiffuse="1F000000">common/box.png</texture>
 					</control>
 					<control type="label">
+						<posx>90</posx>
+						<width>750</width>
+						<label>[COLOR=B3dddddd]$INFO[ListItem.Label][/COLOR]$INFO[ListItem.Label2, $LOCALIZE[20347][COLOR=B3dddddd] ,[/COLOR]]</label>
+						<textcolor>$VAR[ColourHighlight]</textcolor>
+						<focusedcolor>B3dddddd</focusedcolor>
+						<disabledcolor>4Ddddddd</disabledcolor>
+					</control>
+					<control type="image">
 						<posx>30</posx>
-						<width>810</width>
-						<info>ListItem.Label</info>
+						<width>45</width>
+						<height>70</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture diffuse="diffuse/infocast.png">$INFO[ListItem.Thumb]</texture>
 					</control>
 				</itemlayout>
 				<focusedlayout height="71" width="780">
@@ -524,10 +564,18 @@
 							<texture border="5" colordiffuse="$VAR[ColourHighlight]">common/box.png</texture>
 						</control>
 						<control type="label">
+							<posx>90</posx>
+							<width>750</width>
+							<label>[COLOR=Selected]$INFO[ListItem.Label][/COLOR]$INFO[ListItem.Label2, $LOCALIZE[20347][COLOR=Selected] ,[/COLOR]]</label>
+						<textcolor>ff000000</textcolor>
+						<disabledcolor>4Ddddddd</disabledcolor>
+						</control>
+						<control type="image">
 							<posx>30</posx>
-							<width>810</width>
-							<info>ListItem.Label</info>
-							<textcolor>Selected</textcolor>
+							<width>45</width>
+							<height>70</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture diffuse="diffuse/infocast.png">$INFO[ListItem.Thumb]</texture>
 						</control>
 					</control>
 					<control type="group">
@@ -535,12 +583,22 @@
 						<control type="image">
 							<width>100%</width>
 							<height>68</height>
-							<texture border="5" colordiffuse="Black12">common/box.png</texture>
+							<texture border="5" colordiffuse="1F000000">common/box.png</texture>
 						</control>
 						<control type="label">
+							<posx>90</posx>
+							<width>750</width>
+							<label>[COLOR=B3dddddd]$INFO[ListItem.Label][/COLOR]$INFO[ListItem.Label2, $LOCALIZE[20347][COLOR=B3dddddd] ,[/COLOR]]</label>
+						<textcolor>$VAR[ColourHighlight]</textcolor>
+						<focusedcolor>B3dddddd</focusedcolor>
+							<disabledcolor>4Ddddddd</disabledcolor>
+						</control>
+						<control type="image">
 							<posx>30</posx>
-							<width>810</width>
-							<info>ListItem.Label</info>
+							<width>45</width>
+							<height>70</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture diffuse="diffuse/infocast.png">$INFO[ListItem.Thumb]</texture>
 						</control>
 					</control>
 				</focusedlayout>
@@ -555,9 +613,9 @@
 			</control>
 			<control type="image">
 				<posx>30</posx>
-				<top>100</top>
+				<top>95</top>
 				<width>450</width>
-				<height>707</height>
+				<height>732</height>
 				<aspectratio scalediffuse="false">scale</aspectratio>
 				<texture diffuse="diffuse/infocast.png">$INFO[Container(50).ListItem.Thumb]</texture>
 				<visible>Control.HasFocus(51) | Control.HasFocus(50)</visible>
