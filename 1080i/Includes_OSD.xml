@@ -446,10 +446,23 @@
                 <colordiffuse>$VAR[OSDPanel]</colordiffuse>
                 <animation effect="fade" start="100" end="90" condition="Skin.HasSetting(osd.usetheme)">Conditional</animation>
                 <texture border="16">common/rounded-shadow8.png</texture>
+                <visible>Player.HasVideo</visible>
+            </control>
+
+            <control type="image">
+                <description>background image</description>
+                <right>0</right>
+                <posy>0</posy>
+                <width>50%</width>
+                <height>100%</height>
+                <colordiffuse>$VAR[OSDPanel]</colordiffuse>
+                <animation effect="fade" start="100" end="90" condition="Skin.HasSetting(osd.usetheme)">Conditional</animation>
+                <texture border="16">common/rounded-shadow8.png</texture>
+                <visible>!Player.HasVideo</visible>
             </control>
 
             <control type="group">
-                
+                <animation effect="slide" start="0" end="240" condition="!Player.HasVideo">Conditional</animation>
                 <control type="image">
                     <left>20</left>
                     <centertop>50%</centertop>
@@ -477,6 +490,7 @@
                     <aspectratio aligny="center">keep</aspectratio>
                     <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
                     <texture>kaitoast/finishtime.png</texture>
+                    <visible>Player.HasVideo</visible>
                 </control>
                 <control type="label">
                     <right>30</right>
@@ -487,6 +501,7 @@
                     <font>Small</font>
                     <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                     <label>$INFO[Player.FinishTime]</label>
+                    <visible>Player.HasVideo</visible>
                 </control>
 
             </control>
