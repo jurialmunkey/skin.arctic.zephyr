@@ -40,45 +40,45 @@
                     <orientation>vertical</orientation>
                     <control type="togglebutton" id="9101" description="Home">
                         <usealttexture>ControlGroup(9100).HasFocus(9101)</usealttexture>
-                        <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
+                        <alttexturenofocus colordiffuse="$VAR[ColorHighlight]">common/white.png</alttexturenofocus>
                         <include>DefSettingsButton</include>
                         <label>10000</label>
                     </control>
                     <control type="togglebutton" id="9104" description="Widgets">
                         <usealttexture>ControlGroup(9100).HasFocus(9104)</usealttexture>
-                        <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
+                        <alttexturenofocus colordiffuse="$VAR[ColorHighlight]">common/white.png</alttexturenofocus>
                         <include>DefSettingsButton</include>
                         <label>31144</label>
                     </control>
 
                     <control type="togglebutton" id="9102" description="Background">
                         <usealttexture>ControlGroup(9100).HasFocus(9102)</usealttexture>
-                        <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
+                        <alttexturenofocus colordiffuse="$VAR[ColorHighlight]">common/white.png</alttexturenofocus>
                         <include>DefSettingsButton</include>
                         <label>31110</label>
                     </control>
                     <control type="togglebutton" id="9105" description="Hub Items">
                         <usealttexture>ControlGroup(9100).HasFocus(9105)</usealttexture>
-                        <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
+                        <alttexturenofocus colordiffuse="$VAR[ColorHighlight]">common/white.png</alttexturenofocus>
                         <include>DefSettingsButton</include>
                         <label>31178</label>
                     </control>
                     <control type="togglebutton" id="9106" description="Furniture">
                         <usealttexture>ControlGroup(9100).HasFocus(9106)</usealttexture>
-                        <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
+                        <alttexturenofocus colordiffuse="$VAR[ColorHighlight]">common/white.png</alttexturenofocus>
                         <include>DefSettingsButton</include>
                         <label>31152</label>
                     </control>
                     <control type="togglebutton" id="9103" description="OSD">
                         <usealttexture>ControlGroup(9100).HasFocus(9103)</usealttexture>
-                        <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
+                        <alttexturenofocus colordiffuse="$VAR[ColorHighlight]">common/white.png</alttexturenofocus>
                         <include>DefSettingsButton</include>
                         <label>478</label>
                     </control>
                     
                     <control type="togglebutton" id="9107" description="Extras">
                         <usealttexture>ControlGroup(9100).HasFocus(9107)</usealttexture>
-                        <alttexturenofocus colordiffuse="Highlight">common/white.png</alttexturenofocus>
+                        <alttexturenofocus colordiffuse="$VAR[ColorHighlight]">common/white.png</alttexturenofocus>
                         <include>DefSettingsButton</include>
                         <label>31169</label>
                     </control>
@@ -456,6 +456,14 @@
                         <onclick condition="IsEmpty(Skin.String(StartupPlaylist))">Skin.SetFile(StartupPlaylist,.mp4|.avi|.mkv|.xvid|.wmv|.mov)</onclick>
                         <onclick condition="!IsEmpty(Skin.String(StartupPlaylist))">Skin.Reset(StartupPlaylist)</onclick>
                     </control>
+                    <control type="button" id="9279" description="Set Custom Colour">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9107)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>$LOCALIZE[31238]</label>
+                        <label2>$INFO[Skin.String(focuscolor.name)]</label2>
+                        <onclick>ActivateWindow(1107)</onclick>
+                    </control>
                     <control type="radiobutton" id="9272" description="Kiosk Mode">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9107)</visible>
@@ -472,22 +480,7 @@
                         <selected>!Skin.HasSetting(global.hidecirles)</selected>
                         <onclick>Skin.ToggleSetting(global.hidecirles)</onclick>
                     </control>
-                    <control type="button" id="9274" description="Busy Loader Image">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9107)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31216</label>
-                        <label2>$INFO[Skin.String(busyloader)]</label2>
-                        <onclick>Skin.SetFile(busyloader,.gif,special://skin/extras/spinners)</onclick>
-                    </control>
-                    <control type="radiobutton" id="9277" description="Busy Loader Minimal">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9107)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31237</label>
-                        <selected>Skin.HasSetting(hide.busydialog)</selected>
-                        <onclick>Skin.ToggleSetting(hide.busydialog)</onclick>
-                    </control>
+                    
                     <control type="radiobutton" id="9275" description="TV Tunes">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9107)</visible>
@@ -505,6 +498,22 @@
                         <selected>Skin.HasSetting(NextAired.Update)</selected>
                         <onclick>Skin.ToggleSetting(NextAired.Update)</onclick>
                         <enable>System.HasAddon(script.tv.show.next.aired)</enable>
+                    </control>
+                    <control type="button" id="9274" description="Busy Loader Image">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9107)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31216</label>
+                        <label2>$INFO[Skin.String(busyloader)]</label2>
+                        <onclick>Skin.SetFile(busyloader,.gif,special://skin/extras/spinners)</onclick>
+                    </control>
+                    <control type="radiobutton" id="9277" description="Busy Loader Minimal">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9107)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31237</label>
+                        <selected>Skin.HasSetting(hide.busydialog)</selected>
+                        <onclick>Skin.ToggleSetting(hide.busydialog)</onclick>
                     </control>
                 </control>
                 

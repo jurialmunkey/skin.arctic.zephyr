@@ -557,7 +557,7 @@
         <value condition="Window.IsVisible(1101)">special://skin/extras/icons/film.png</value>
         <value condition="Window.IsVisible(1102)">special://skin/extras/icons/tv.png</value>
         <value condition="Window.IsVisible(1104) | Window.IsVisible(1105) | Window.IsVisible(1103)">special://skin/extras/icons/director.png</value>
-        
+        <value condition="Window.IsVisible(Custom_SetCustomColor.xml)">special://skin/extras/icons/wand.png</value>
         <value condition="Window.IsVisible(MyVideoNav.xml) + substring(Container.FolderPath,videodb://movies) | substring(Container.FolderPath,videodb://recentlyaddedmovies)">special://skin/extras/icons/film.png</value>
         <value condition="Window.IsVisible(MyVideoNav.xml) + [substring(Container.FolderPath,videodb://tvshows) | substring(Container.FolderPath,videodb://recentlyaddedepisodes)]">special://skin/extras/icons/tv.png</value>
         <value condition="Window.IsVisible(MyVideoNav.xml)">special://skin/extras/icons/video-addons.png</value>
@@ -575,6 +575,7 @@
     
     <variable name="MainHeaderLabel">
         <value condition="Skin.HasSetting(hide.busydialog) + Window.IsVisible(DialogBusy.xml)">$LOCALIZE[20186]...</value>
+        <value condition="Window.IsVisible(Custom_SetCustomColor.xml)">$LOCALIZE[31238]</value>
         <value condition="Window.IsVisible(MyMusicPlaylistEditor.xml)">$LOCALIZE[20011]</value>
         <value condition="Window.IsVisible(DialogButtonMenu.xml)">$LOCALIZE[33060]</value>
         <value condition="Window.IsVisible(DialogFavourites.xml)">$LOCALIZE[1036]</value>
@@ -612,11 +613,13 @@
     
     <variable name="SubHeaderLabel">
         <value condition="Window.IsVisible(LoginScreen.xml)">$LOCALIZE[10029]</value>
-        <value condition="[Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml)]">$INFO[Container.NumItems,[COLOR=Highlight],[/COLOR] $LOCALIZE[31101]]$INFO[Control.GetLabel(3),  •  ,]$INFO[Control.GetLabel(28),  •  ,]</value>
-        <value condition="!IsEmpty(Container.NumItems) + !Window.IsVisible(home)">$INFO[Container.NumItems,[COLOR=Highlight],[/COLOR] $LOCALIZE[31101]]$INFO[Control.GetLabel(3),  •  ,]</value>
-        <value condition="!IsEmpty(Container(9500).NumItems) + !Window.IsVisible(home)">$INFO[Container(9500).NumItems,[COLOR=Highlight],[/COLOR] $LOCALIZE[31101]]</value>
-        <value condition="Window.IsVisible(MyWeather.xml) + !IsEmpty(Window(Weather).Property(Location))">$INFO[Weather.Temperature,[COLOR=Highlight],[/COLOR]  ]$INFO[Window(Weather).Property(Location)]</value>
-        <value>[COLOR=Highlight]$INFO[Window(home).Property(Movies.Count)][/COLOR] $LOCALIZE[20342]  •  [COLOR=Highlight]$INFO[Window(home).Property(Episodes.Count)][/COLOR] $LOCALIZE[20360]  •  [COLOR=Highlight]$INFO[Window(home).Property(Music.SongsCount)][/COLOR] $LOCALIZE[134]$INFO[Pvr.BackendChannels,  •  [COLOR=Highlight],[/COLOR] $LOCALIZE[19019]]</value>
+        <value condition="Window.IsVisible(Custom_SetCustomColor.xml)">$LOCALIZE[31239] [COLOR=$VAR[ColorHighlight]]$VAR[ColorHighlight][/COLOR]  •  $LOCALIZE[31240] [COLOR=$INFO[Control.GetLabel(9500)]]$INFO[Control.GetLabel(9500)][/COLOR]</value>
+        <value condition="[Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml)]">[COLOR=$VAR[ColorHighlight]]$INFO[Container.NumItems,,[/COLOR] $LOCALIZE[31101]]$INFO[Control.GetLabel(3),  •  ,]$INFO[Control.GetLabel(28),  •  ,]</value>
+        <value condition="!IsEmpty(Container.NumItems) + !Window.IsVisible(home)">[COLOR=$VAR[ColorHighlight]]$INFO[Container.NumItems,,[/COLOR] $LOCALIZE[31101]]$INFO[Control.GetLabel(3),  •  ,]</value>
+        <value condition="!IsEmpty(Container(9500).NumItems) + !Window.IsVisible(home)">[COLOR=$VAR[ColorHighlight]]$INFO[Container(9500).NumItems,,[/COLOR] $LOCALIZE[31101]]</value>
+        <value condition="Window.IsVisible(MyWeather.xml) + !IsEmpty(Window(Weather).Property(Location))">[COLOR=$VAR[ColorHighlight]]$INFO[Weather.Temperature,,[/COLOR]  ]$INFO[Window(Weather).Property(Location)]</value>
+        <value condition="IsEmpty(Pvr.BackendChannels)">[COLOR=$VAR[ColorHighlight]]$INFO[Window(home).Property(Movies.Count)][/COLOR] $LOCALIZE[20342]  •  [COLOR=$VAR[ColorHighlight]]$INFO[Window(home).Property(Episodes.Count)][/COLOR] $LOCALIZE[20360]  •  [COLOR=$VAR[ColorHighlight]]$INFO[Window(home).Property(Music.SongsCount)][/COLOR] $LOCALIZE[134]</value>
+        <value>[COLOR=$VAR[ColorHighlight]]$INFO[Window(home).Property(Movies.Count)][/COLOR] $LOCALIZE[20342]  •  [COLOR=$VAR[ColorHighlight]]$INFO[Window(home).Property(Episodes.Count)][/COLOR] $LOCALIZE[20360]  •  [COLOR=$VAR[ColorHighlight]]$INFO[Window(home).Property(Music.SongsCount)][/COLOR] $LOCALIZE[134]  •  [COLOR=$VAR[ColorHighlight]]$INFO[Pvr.BackendChannels][/COLOR] $LOCALIZE[19019]</value>
     </variable>
   
     <include name="Furniture_Header">
@@ -746,7 +749,7 @@
                 <align>right</align>
                 <width>50%</width>
                 <visible>Skin.HasSetting(furniture.weather)</visible>
-                <label>$INFO[Weather.Temperature,[COLOR=Highlight],[/COLOR]  ]$INFO[Weather.Conditions]</label>
+                <label>[COLOR=$VAR[ColorHighlight]]$INFO[Weather.Temperature][/COLOR]  $INFO[Weather.Conditions]</label>
             </control>
       
         </control>

@@ -179,8 +179,8 @@
         <value condition="Pvr.HasTimer">$LOCALIZE[19157]...</value>
     </variable>
     <variable name="LabelNextRecording">
-        <value condition="Pvr.IsRecording">$INFO[Pvr.NowRecordingTitle,[COLOR=Highlight],[/COLOR]]$INFO[Pvr.NowRecordingChannel,  ,]</value>
-        <value condition="Pvr.HasTimer">$INFO[Pvr.NextRecordingTitle,[COLOR=Highlight],[/COLOR]]$INFO[Pvr.NextRecordingDateTime,  ,]$INFO[Pvr.NextRecordingChannel,  ,]</value>
+        <value condition="Pvr.IsRecording">[COLOR=$VAR[ColorHighlight]]$INFO[Pvr.NowRecordingTitle,,][/COLOR]$INFO[Pvr.NowRecordingChannel,  ,]</value>
+        <value condition="Pvr.HasTimer">[COLOR=$VAR[ColorHighlight]]$INFO[Pvr.NextRecordingTitle,,][/COLOR]$INFO[Pvr.NextRecordingDateTime,  ,]$INFO[Pvr.NextRecordingChannel,  ,]</value>
     </variable>
     <variable name="HDSD">
         <value condition="Container.Content(tvshows) | Container.Content(seasons)">$INFO[ListItem.Property(UnWatchedEpisodes)]</value>
