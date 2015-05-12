@@ -248,6 +248,31 @@
         <texturefocus>noop</texturefocus>
     </include>
     
+    <include name="DefNetflixWidgetSelector">
+        <align>center</align>
+        <aligny>center</aligny>
+        <width>293</width>
+        <onclick>SetFocus(775)</onclick>
+        <top>0</top>
+        <height>64</height>
+        <centerleft>50%</centerleft>
+        <textcolor>Dark3</textcolor>
+        <focusedcolor>Dark1</focusedcolor>
+        <font>WidgetSelector</font>
+        <texturefocus>noop</texturefocus>
+    </include>
+    
+    <variable name="DefNetflixWidgetContent">
+        <!-- Individual Widget Paths -->
+        <value condition="StringCompare(Window(home).Property(netflixwidget),TrendingMovies)">plugin://script.extendedinfo?info=trendingmovies</value>
+        <value condition="StringCompare(Window(home).Property(netflixwidget),TrendingShows)">plugin://script.extendedinfo?info=trendingshows</value>
+        <value condition="StringCompare(Window(home).Property(netflixwidget),PopularMovies)">plugin://script.extendedinfo?info=popularmovies</value>
+        <value condition="StringCompare(Window(home).Property(netflixwidget),TopRatedMovies)">plugin://script.extendedinfo?info=topratedmovies</value>
+        <value condition="StringCompare(Window(home).Property(netflixwidget),TopRatedTvShows)">plugin://script.extendedinfo?info=topratedtvshows</value>
+        <value condition="StringCompare(Window(home).Property(netflixwidget),AiringTodayTvShows)">plugin://script.extendedinfo?info=airingtodaytvshows</value>
+        <value>plugin://script.extendedinfo?info=airingtodaytvshows</value>
+     </variable>
+    
     <include name="DefDialogButtons">
         <width>300</width>
         <font>Button</font>
@@ -281,6 +306,7 @@
      <include name="DefDialogInfoPanelFanart">
         <include>Animation.FadeIn.Slide</include>
         <include>Animation.FadeOut</include>
+       	
         <centerleft>50%</centerleft>
         <posy>120</posy>
         <width>1320</width>
@@ -290,7 +316,7 @@
             <right>-8</right>
             <top>-8</top>
             <bottom>-8</bottom>
-            <colordiffuse>FF444444</colordiffuse>
+            <colordiffuse>FF333333</colordiffuse>
 			<texture>$INFO[ListItem.Art(fanart)]</texture>
         </control>
     </include>

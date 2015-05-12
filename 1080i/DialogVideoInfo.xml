@@ -145,7 +145,7 @@
 				<control type="label">
 					<width>65%</width>
 					<height>60</height>
-					<font>Tiny</font>
+					<font>TinyBold</font>
 					<aligny>top</aligny>
 					<label fallback="19055">$INFO[ListItem.MPAA]</label>
 					<textcolor>B3dddddd</textcolor>
@@ -166,7 +166,7 @@
 					<right>0</right>
 					<width>35%</width>
 					<height>60</height>
-					<font>Tiny</font>
+					<font>TinyBold</font>
 					<align>right</align>
 					<aligny>top</aligny>
 					<label fallback="19055">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
@@ -185,7 +185,7 @@
 				<control type="label">
 					<width>65%</width>
 					<height>60</height>
-					<font>Tiny</font>
+					<font>TinyBold</font>
 					<aligny>top</aligny>
 					<label fallback="19055">$INFO[ListItem.Director]</label>
 					<textcolor>B3dddddd</textcolor>
@@ -206,7 +206,7 @@
 					<right>0</right>
 					<width>35%</width>
 					<height>60</height>
-					<font>Tiny</font>
+					<font>TinyBold</font>
 					<align>right</align>
 					<aligny>top</aligny>
 					<label fallback="19055">$INFO[ListItem.LastPlayed]</label>
@@ -225,7 +225,7 @@
 				<control type="label">
 					<width>75%</width>
 					<height>60</height>
-					<font>Tiny</font>
+					<font>TinyBold</font>
 					<aligny>top</aligny>
 					<label fallback="19055">$INFO[ListItem.Writer]</label>
 					<textcolor>B3dddddd</textcolor>
@@ -247,7 +247,7 @@
 					<right>0</right>
 					<width>35%</width>
 					<height>60</height>
-					<font>Tiny</font>
+					<font>TinyBold</font>
 					<align>right</align>
 					<textcolor>$VAR[ColourHighlight]</textcolor>
 					<aligny>top</aligny>
@@ -266,7 +266,7 @@
 				<control type="label">
 					<width>75%</width>
 					<height>60</height>
-					<font>Tiny</font>
+					<font>TinyBold</font>
 					<aligny>top</aligny>
 					<label fallback="19055">$INFO[ListItem.Genre]</label>
 					<textcolor>B3dddddd</textcolor>
@@ -288,7 +288,7 @@
 					<right>0</right>
 					<width>35%</width>
 					<height>60</height>
-					<font>Tiny</font>
+					<font>TinyBold</font>
 					<textcolor>$VAR[ColourHighlight]</textcolor>
 					<align>right</align>
 					<aligny>top</aligny>
@@ -307,7 +307,7 @@
 				<control type="label">
 					<width>100%</width>
 					<height>60</height>
-					<font>Tiny</font>
+					<font>TinyBold</font>
 					<aligny>top</aligny>
 					<label fallback="19055">$INFO[ListItem.Studio]</label>
 					<textcolor>B3dddddd</textcolor>
@@ -325,18 +325,18 @@
 				<control type="textbox" id="4">
 					<width>100%</width>
 					<height>158</height>
-					<font>Tiny</font>
+					<font>TinyBold</font>
 					<align>justify</align>
 					<textcolor>B3dddddd</textcolor>
 					<focusedcolor>B3dddddd</focusedcolor>
 				</control>
-				<!-- Path -->
+				<!-- Flags -->
 				<control type="group">
 					<top>5</top>
 					<control type="image">
 						<width>108</width>
 						<height>50</height>
-						<texture colordiffuse="B3dddddd">$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+						<texture colordiffuse="FFdddddd">$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
 						<aspectratio align="left">scale</aspectratio>
 						<visible>!IsEmpty(ListItem.VideoAspect)</visible>
 					</control>
@@ -344,7 +344,7 @@
 						<left>148</left>
 						<width>130</width>
 						<height>50</height>
-						<texture colordiffuse="B3dddddd">$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+						<texture colordiffuse="FFdddddd">$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
 						<aspectratio align="left">scale</aspectratio>
 						<visible>!IsEmpty(ListItem.VideoResolution)</visible>
 					</control>
@@ -352,7 +352,7 @@
 						<left>318</left>
 						<width>130</width>
 						<height>50</height>
-						<texture colordiffuse="B3dddddd">$INFO[ListItem.VideoCodec,flags/video/,.png]</texture>
+						<texture colordiffuse="FFdddddd">$INFO[ListItem.VideoCodec,flags/video/,.png]</texture>
 						<aspectratio align="left">scale</aspectratio>
 						<visible>!IsEmpty(ListItem.VideoCodec)</visible>
 					</control>
@@ -360,7 +360,7 @@
 						<left>488</left>
 						<width>130</width>
 						<height>50</height>
-						<texture colordiffuse="B3dddddd">$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+						<texture colordiffuse="FFdddddd">$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
 						<aspectratio align="left">scale</aspectratio>
 						<visible>!IsEmpty(ListItem.AudioCodec)</visible>
 					</control>
@@ -368,7 +368,7 @@
 						<left>648</left>
 						<width>130</width>
 						<height>50</height>
-						<texture colordiffuse="B3dddddd">$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
+						<texture colordiffuse="FFdddddd">$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
 						<aspectratio align="left">scale</aspectratio>
 						<visible>!IsEmpty(ListItem.AudioChannels)</visible>
 					</control>
@@ -397,6 +397,7 @@
 					<onfocus condition="!Control.IsVisible(50)">SendClick(2003,5)</onfocus>
 					<onfocus condition="!IsEmpty(ListItem.Director)">52</onfocus>
 					<onfocus condition="IsEmpty(ListItem.Director)">51</onfocus>
+					<font>SmallBold</font>
 				</control>
 				<control type="button" id="8">
 					<description>Play</description>
@@ -407,6 +408,7 @@
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<include>DefDialogInfoButtons</include>
 					<onfocus condition="Control.IsVisible(50)">SendClick(2003,5)</onfocus>
+					<font>SmallBold</font>
 				</control>
 				<!--<control type="button" id ="9"> <description>Resume</description> <label>13404</label> <width>450</width> <height>68</height> <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus> <texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus> <include>DefDialogInfoButtons</include>> </control> -->
 				<control type="button" id="53">
@@ -425,6 +427,7 @@
 					<onclick>Close</onclick>
 					<onclick>Dialog.Close(DialogVideoInfo.xml)</onclick>
 					<visible>!IsEmpty(ListItem.Director)</visible>
+					<font>SmallBold</font>
 				</control>
 				<control type="button" id="11">
 					<description>Trailer button</description>
@@ -435,6 +438,19 @@
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<include>DefDialogInfoButtons</include>
 					<visible>!IsEmpty(ListItem.Trailer)</visible>
+					<font>SmallBold</font>
+				</control>
+				<control type="button" id="11">
+					<description>Youtube Search</description>
+					<label>31752</label>
+					<width>450</width>
+					<height>68</height>
+					<texturenofocus colordiffuse="b3333333" border="5">common/box.png</texturenofocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<include>DefDialogInfoButtons</include>
+					<visible>IsEmpty(ListItem.Trailer)</visible>
+					<onclick>ActivateWindow(videos,$INFO[ListItem.Label,plugin://plugin.video.youtube/kodion/search/query/?q=, trailer],return)</onclick>
+				    <font>SmallBold</font>
 				</control>
 				<control type="button" id="49">
 					<description>Home Theatre</description>
@@ -447,6 +463,7 @@
 					<onclick>Dialog.Close(MovieInformation)</onclick>
 					<onclick>XBMC.RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
 					<visible>system.hasaddon(script.cinema.experience) + Container.Content(movies)</visible>
+					<font>SmallBold</font>
 				</control>
 				<control type="button" id="105">
 					<description>Extras</description>
@@ -456,6 +473,7 @@
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<include>DefDialogInfoButtons</include>
 					<label>31171</label>
+					<font>SmallBold</font>
 					<onclick>RunScript(script.videoextras,display,"$INFO[ListItem.FilenameAndPath]")</onclick>
 					<visible>System.HasAddon(script.videoextras) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(TVShows) | Container.Content(musicvideos)] + IsEmpty(Window(movieinformation).Property("HideVideoExtrasButton"))</visible>
 				</control>
@@ -468,6 +486,7 @@
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<include>DefDialogInfoButtons</include>
 					<visible>!Skin.HasSetting(global.kioskmode)</visible>
+					<font>SmallBold</font>
 				</control>
 				<control type="button" id="10">
 					<description>Get Thumb</description>
@@ -478,6 +497,7 @@
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<include>DefDialogInfoButtons</include>
 					<visible>!Skin.HasSetting(global.kioskmode)</visible>
+					<font>SmallBold</font>
 				</control>
 				<control type="button" id="9001">
 					<label>$LOCALIZE[31203]</label>
@@ -491,6 +511,7 @@
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<include>DefDialogInfoButtons</include>
 					<visible>!Skin.HasSetting(global.kioskmode)</visible>
+					<font>SmallBold</font>
 					<visible>[Container.Content(tvshows) | Container.Content(movies) | Container.Content(musicvideos)] + system.hasaddon(script.artwork.downloader)</visible>
 				</control>
 			</control>
@@ -511,16 +532,9 @@
 				<texturefocus border="5" colordiffuse="$VAR[ColourHighlight]">common/box.png</texturefocus>
 				<visible>!IsEmpty(ListItem.Director)</visible>
 				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<font>SmallBold</font>
 			</control>
-			<!--  <control type="image">
-			<top>100</top>
-						<posx>30</posx>
-						<width>45</width>
-						<height>70</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture diffuse="diffuse/infocast.png">$INFO[ListItem.Director]</texture>
-						<visible>!IsEmpty(ListItem.Director)</visible>
-					</control> -->
+			<!-- <control type="image"> <top>100</top> <posx>30</posx> <width>45</width> <height>70</height> <aspectratio scalediffuse="false">scale</aspectratio> <texture diffuse="diffuse/infocast.png">$INFO[ListItem.Director]</texture> <visible>!IsEmpty(ListItem.Director)</visible> </control> -->
 			<control type="list" id="50">
 				<description>Cast</description>
 				<left>510</left>
@@ -542,9 +556,9 @@
 					<control type="label">
 						<posx>90</posx>
 						<width>750</width>
-						<label>[COLOR=B3dddddd]$INFO[ListItem.Label][/COLOR]$INFO[ListItem.Label2, $LOCALIZE[20347][COLOR=B3dddddd] ,[/COLOR]]</label>
+						<label>[COLOR=FFdddddd]$INFO[ListItem.Label][/COLOR]$INFO[ListItem.Label2, $LOCALIZE[20347][COLOR=FFdddddd] ,[/COLOR]]</label>
 						<textcolor>$VAR[ColourHighlight]</textcolor>
-						<focusedcolor>B3dddddd</focusedcolor>
+						<focusedcolor>FFdddddd</focusedcolor>
 						<disabledcolor>4Ddddddd</disabledcolor>
 					</control>
 					<control type="image">
@@ -567,8 +581,8 @@
 							<posx>90</posx>
 							<width>750</width>
 							<label>[COLOR=Selected]$INFO[ListItem.Label][/COLOR]$INFO[ListItem.Label2, $LOCALIZE[20347][COLOR=Selected] ,[/COLOR]]</label>
-						<textcolor>ff000000</textcolor>
-						<disabledcolor>4Ddddddd</disabledcolor>
+							<textcolor>ff000000</textcolor>
+							<disabledcolor>4Ddddddd</disabledcolor>
 						</control>
 						<control type="image">
 							<posx>30</posx>
@@ -588,9 +602,9 @@
 						<control type="label">
 							<posx>90</posx>
 							<width>750</width>
-							<label>[COLOR=B3dddddd]$INFO[ListItem.Label][/COLOR]$INFO[ListItem.Label2, $LOCALIZE[20347][COLOR=B3dddddd] ,[/COLOR]]</label>
-						<textcolor>$VAR[ColourHighlight]</textcolor>
-						<focusedcolor>B3dddddd</focusedcolor>
+							<label>[COLOR=FFdddddd]$INFO[ListItem.Label][/COLOR]$INFO[ListItem.Label2, $LOCALIZE[20347][COLOR=FFdddddd] ,[/COLOR]]</label>
+							<textcolor>$VAR[ColourHighlight]</textcolor>
+							<focusedcolor>FFdddddd</focusedcolor>
 							<disabledcolor>4Ddddddd</disabledcolor>
 						</control>
 						<control type="image">

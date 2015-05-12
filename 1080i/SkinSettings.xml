@@ -98,6 +98,14 @@
 					<ondown>9200</ondown>
 					<orientation>vertical</orientation>
 					<!-- Home -->
+					<control type="radiobutton" id="9215" description="Netflix Home">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9101)</visible>
+						<include>DefSettingsButton</include>
+						<label>31751</label>
+						<selected>Skin.HasSetting(home.netflix)</selected>
+						<onclick>Skin.ToggleSetting(home.netflix)</onclick>
+					</control>
 					<control type="button" id="9211" description="Customise Home">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9101)</visible>
@@ -199,6 +207,14 @@
 						<label2>$INFO[Skin.String(weather.fanart)]</label2>
 						<onclick condition="IsEmpty(Skin.String(weather.fanart))">Skin.SetPath(weather.fanart)</onclick>
 						<onclick condition="!IsEmpty(Skin.String(weather.fanart))">Skin.Reset(weather.fanart)</onclick>
+					</control>
+					<control type="button" id="9227" description="Set Music Dir">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9102)</visible>
+						<include>DefSettingsButton</include>
+						<label>Path to Music Directory</label>
+						<label2>$INFO[Skin.String(cdartlocation)]</label2>
+						<onclick>Skin.SetPath(cdartlocation)</onclick>
 					</control>
 					<control type="radiobutton" id="9221" description="Show video in background">
 						<width>1310</width>
