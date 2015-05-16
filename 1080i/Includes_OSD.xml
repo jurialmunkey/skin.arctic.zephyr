@@ -13,7 +13,7 @@
 			<align>right</align>
 			<width>91</width>
 			<height>35</height>
-			<texture colordiffuse="Dark1">$INFO[VideoPlayer.AudioChannels,flags/channels/,.png]</texture>
+			<texture colordiffuse="$VAR[OSDPanelWhite70]">$INFO[VideoPlayer.AudioChannels,flags/channels/,.png]</texture>
 			<visible>!IsEmpty(VideoPlayer.AudioChannels)</visible>
 		</control>
 		<control type="image">
@@ -21,7 +21,7 @@
 			<align>right</align>
 			<width>91</width>
 			<height>35</height>
-			<texture colordiffuse="Dark1">$INFO[VideoPlayer.AudioCodec,flags/audio/,.png]</texture>
+			<texture colordiffuse="$VAR[OSDPanelWhite70]">$INFO[VideoPlayer.AudioCodec,flags/audio/,.png]</texture>
 			<visible>!IsEmpty(VideoPlayer.VideoCodec)</visible>
 		</control>
 		<control type="image">
@@ -29,7 +29,7 @@
 			<align>right</align>
 			<width>91</width>
 			<height>35</height>
-			<texture colordiffuse="Dark1">$INFO[VideoPlayer.VideoCodec,flags/video/,.png]</texture>
+			<texture colordiffuse="$VAR[OSDPanelWhite70]">$INFO[VideoPlayer.VideoCodec,flags/video/,.png]</texture>
 			<visible>!IsEmpty(VideoPlayer.VideoCodec)</visible>
 		</control>
 		<control type="image">
@@ -37,7 +37,7 @@
 			<align>right</align>
 			<width>91</width>
 			<height>35</height>
-			<texture colordiffuse="Dark1">$INFO[VideoPlayer.VideoResolution,flags/resolution/,.png]</texture>
+			<texture colordiffuse="$VAR[OSDPanelWhite70]">$INFO[VideoPlayer.VideoResolution,flags/resolution/,.png]</texture>
 			<visible>!IsEmpty(VideoPlayer.VideoResolution)</visible>
 		</control>
 		<control type="image">
@@ -45,7 +45,7 @@
 			<align>right</align>
 			<width>91</width>
 			<height>35</height>
-			<texture colordiffuse="Dark1">$INFO[VideoPlayer.VideoAspect,flags/aspectratio/,.png]</texture>
+			<texture colordiffuse="$VAR[OSDPanelWhite70]">$INFO[VideoPlayer.VideoAspect,flags/aspectratio/,.png]</texture>
 			<visible>!IsEmpty(VideoPlayer.VideoAspect)</visible>
 		</control>
 		<control type="label" description="Title">
@@ -249,6 +249,7 @@
 		<value condition="Skin.HasSetting(osd.usetheme) | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)]">Dark1</value>
 		<value>PanelWhite100</value>
 	</variable>
+	
 	<include name="OSDVideoControls">
 		<control type="togglebutton" id="9003">
 			<description>Record</description>
