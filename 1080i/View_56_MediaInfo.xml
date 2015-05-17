@@ -5,7 +5,8 @@
         <description>List View (id=56)</description>
         <control type="group">
             <include>Animation.Common</include>
-            <visible>Control.IsVisible(56)</visible>
+            <visible>Control.IsVisible(56)</visible>\
+            <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
             <control type="group">
                 <control type="fixedlist" id="56">
                     <visible>Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)] | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
@@ -119,6 +120,7 @@
         <control type="group">
             <include>Animation.Common</include>
             <visible>Control.IsVisible(56)</visible>
+            <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
             <control type="group">
                 <control type="list" id="56">
                     <visible>Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)] | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
@@ -271,6 +273,7 @@
         <control type="group">
             <include>Animation.Common</include>
             <visible>Control.IsVisible(56)</visible>
+            <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
             <control type="group">
                 <posy>320</posy>
                 <control type="fixedlist" id="56">

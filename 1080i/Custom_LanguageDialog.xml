@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="3006">
+	<defaultcontrol always="true">3</defaultcontrol>
+	<controls>
+		<include>GlobalOverlay</include>
+		<control type="group">
+			<control type="group">
+				<control type="label">
+					<description>Heading</description>
+					<posx>473</posx>
+					<posy>218</posy>
+					<width>974</width>
+					<include>DialogHeaderMod</include>
+					<label>$LOCALIZE[31754]</label>
+					<align>center</align>
+				</control>
+				<control type="image">
+					<posx>604</posx>
+					<posy>266</posy>
+					<width>712</width>
+					<height>348</height>
+					<texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
+				</control>
+				<control type="list" id="3">
+					<posx>638</posx>
+					<posy>300</posy>
+					<width>644</width>
+					<height>480</height>
+					<onleft>7</onleft>
+					<onright>7</onright>
+					<onup>3</onup>
+					<ondown>3</ondown>
+					<pagecontrol>61</pagecontrol>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<itemlayout height="60">
+						<control type="image">
+							<posx>0</posx>
+							<posy>1</posy>
+							<width>644</width>
+							<height>60</height>
+							<texture>dialogs/default/separator.png</texture>
+						</control>
+						<control type="label">
+							<posx>20</posx>
+							<posy>0</posy>
+							<width>604</width>
+							<height>60</height>
+							<info>ListItem.Label</info>
+							<font>Small</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>Dark1</textcolor>
+							<selectedcolor>Dark1</selectedcolor>
+							<scroll>false</scroll>
+						</control>
+						<control type="image">
+							<posx>584</posx>
+							<posy>0</posy>
+							<width>60</width>
+							<height>60</height>
+							<texture>dialogs/select/selected.png</texture>
+							<visible>StringCompare(ListItem.Label2,Skin.String(RatingCountry))</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout height="60">
+						<control type="group">
+							<visible>!Control.HasFocus(3)</visible>
+							<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(3).Scrolling | Container(3).OnScrollNext | Container(3).OnScrollPrevious]">Visible</animation>
+							<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(3).Scrolling | Container(3).OnScrollNext | Container(3).OnScrollPrevious]">Hidden</animation>
+							<control type="image">
+								<posx>0</posx>
+								<posy>1</posy>
+								<width>644</width>
+								<height>60</height>
+								<texture>dialogs/default/separator.png</texture>
+							</control>
+							<control type="label">
+								<posx>20</posx>
+								<posy>0</posy>
+								<width>604</width>
+								<height>60</height>
+								<info>ListItem.Label</info>
+								<font>Small</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textcolor>Dark1</textcolor>
+								<selectedcolor>Dark1</selectedcolor>
+								<scroll>false</scroll>
+							</control>
+						</control>
+						<control type="group">
+							<visible>Control.HasFocus(3)</visible>
+							<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(3).Scrolling | Container(3).OnScrollNext | Container(3).OnScrollPrevious]">Visible</animation>
+							<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(3).Scrolling | Container(3).OnScrollNext | Container(3).OnScrollPrevious]">Hidden</animation>
+							<control type="image">
+								<width>644</width>
+								<height>60</height>
+								<texture border="8" colordiffuse="$VAR[ColourHighlight]">common/box.png</texture>
+							</control>
+							<control type="label">
+								<posx>20</posx>
+								<posy>0</posy>
+								<width>604</width>
+								<height>60</height>
+								<textcolor>Light1</textcolor>
+								<info>ListItem.Label</info>
+								<font>SmallBold</font>
+								<align>left</align>
+								<aligny>center</aligny>
+							</control>
+						</control>
+						<control type="image">
+							<posx>584</posx>
+							<posy>0</posy>
+							<width>60</width>
+							<height>60</height>
+							<texture>dialogs/select/selected.png</texture>
+							<visible>StringCompare(ListItem.Label2,Skin.String(RatingCountry))</visible>
+						</control>
+					</focusedlayout>
+					<content>
+						<item id="39">
+							<description>UK</description>
+							<label>United Kingdom</label>
+							<label2>UK</label2>
+							<onclick>Skin.SetString(RatingCountry,UK)</onclick>
+							<onclick>PreviousMenu</onclick>
+						</item>
+						<item id="40">
+							<description>US</description>
+							<label>United States</label>
+							<label2></label2>
+							<onclick>Skin.SetString(RatingCountry,US)</onclick>
+							<onclick>PreviousMenu</onclick>
+						</item>
+						<item id="41">
+							<description>DE</description>
+							<label>Deutschland</label>
+							<label2>DE</label2>
+							<onclick>Skin.SetString(RatingCountry,Germany)</onclick>
+							<onclick>PreviousMenu</onclick>
+						</item>
+					</content>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

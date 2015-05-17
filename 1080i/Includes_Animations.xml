@@ -73,4 +73,9 @@
         <animation effect="fade" end="0" start="100" time="150">Hidden</animation>
         <animation effect="fade" end="0" start="100" time="150">WindowClose</animation>
     </include>
+    
+    <!-- Dialog video info animation -->
+	<include name="DialogVideoInfoAnimation">
+		<animation condition="Control.HasFocus(50) | Control.HasFocus(1500) | Control.HasFocus(2500) | Control.HasFocus(5000)" effect="fade" end="6" start="100" time="200">Conditional</animation>
+	</include>
 </includes>

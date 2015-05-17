@@ -3,6 +3,7 @@
 <includes>
     <include name="53Content">
         <height>1080</height>
+        <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
         <visible>Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons)</visible>
         <posy>96</posy>
         <posx>-190</posx>
@@ -138,6 +139,7 @@
         <control type="group">
             <include>Animation.Common</include>
             <visible>Control.IsVisible(53)</visible>
+            <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
             <include condition="!Skin.HasSetting(53poster.nowrap)">53Wrap</include>
             <include condition="Skin.HasSetting(53poster.nowrap)">53Fixed</include>
             

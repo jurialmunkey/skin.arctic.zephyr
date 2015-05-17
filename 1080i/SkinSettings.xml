@@ -420,6 +420,14 @@
 						<selected>!Skin.HasSetting(furniture.flags)</selected>
 						<onclick>Skin.ToggleSetting(furniture.flags)</onclick>
 					</control>
+					<control type="button" id="9269" description="Country Rating">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<label>$LOCALIZE[31753]</label>
+						<label2 fallback="UK">$VAR[MovieMPAALangLabel]</label2>
+						<onclick>ActivateWindow(3006)</onclick>
+						<visible>ControlGroup(9100).HasFocus(9106)</visible>
+					</control>
 					<control type="radiobutton" id="9266" description="Numeric Rating">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9106)</visible>

@@ -113,4 +113,30 @@
 		<value condition="StringCompare(Container(3226).ListItem(9).Label,ID:)">$INFO[Container(3226).ListItem(9).Label2]</value>
 		<value condition="StringCompare(Container(3226).ListItem(10).Label,ID:)">$INFO[Container(3226).ListItem(10).Label2]</value>
 	</variable>
+	<variable name="StarRating">
+		<value condition="IntegerGreaterThan(ListItem.Rating,9)">rating/rating10.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Rating,8)">rating/rating9.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Rating,7)">rating/rating8.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Rating,6)">rating/rating7.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Rating,5)">rating/rating6.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Rating,4)">rating/rating5.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Rating,3)">rating/rating4.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Rating,2)">rating/rating3.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Rating,1)">rating/rating2.png</value>
+		<value condition="IntegerGreaterThan(ListItem.Rating,0)">rating/rating1.png</value>
+		<value>rating/rating0.png</value>
+	</variable>
+	<variable name="SeasonStarRating">
+		<value condition="IntegerGreaterThan(Window(home).Property(TVShowRating),9)">rating/rating10.png</value>
+		<value condition="IntegerGreaterThan(Window(home).Property(TVShowRating),8)">rating/rating9.png</value>
+		<value condition="IntegerGreaterThan(Window(home).Property(TVShowRating),7)">rating/rating8.png</value>
+		<value condition="IntegerGreaterThan(Window(home).Property(TVShowRating),6)">rating/rating7.png</value>
+		<value condition="IntegerGreaterThan(Window(home).Property(TVShowRating),5)">rating/rating6.png</value>
+		<value condition="IntegerGreaterThan(Window(home).Property(TVShowRating),4)">rating/rating5.png</value>
+		<value condition="IntegerGreaterThan(Window(home).Property(TVShowRating),3)">rating/rating4.png</value>
+		<value condition="IntegerGreaterThan(Window(home).Property(TVShowRating),2)">rating/rating3.png</value>
+		<value condition="IntegerGreaterThan(Window(home).Property(TVShowRating),1)">rating/rating2.png</value>
+		<value condition="IntegerGreaterThan(Window(home).Property(TVShowRating),0)">rating/rating1.png</value>
+		<value>rating/rating0.png</value>
+	</variable>
 </includes>

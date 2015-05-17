@@ -151,12 +151,14 @@
 			<include>Animation.FadeFromHome</include>
 			<texture colordiffuse="Background">common/bg.jpg</texture>
 			<visible>!Window.IsVisible(home)</visible>
+			 <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
 			<animation effect="fade" start="100" end="75" time="200" condition="Player.HasVideo + Skin.HasSetting(global.showvideo) | Player.HasAudio + Skin.HasSetting(global.showvisualisation)">Conditional</animation>
 		</control>
 		<control type="multiimage" description="Fanart">
 			<include condition="!Window.IsVisible(home)">GlobalBackgroundFade</include>
 			<visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio]</visible>
 			<visible>!Skin.HasSetting(global.hidefanart) | Window.IsVisible(home)</visible>
+			 <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
 			<include>Dimensions_Fullscreen</include>
 			<include>Animation.FadeFromHome</include>
 			<animation effect="fade" end="0" start="100" time="350" tween="cubic" easing="inout" condition="Window.IsVisible(home)">WindowClose</animation>
@@ -173,7 +175,10 @@
 			<visible>!Window.IsVisible(home)</visible>
 			<include>Animation.FadeFromHome</include>
 			<texture colordiffuse="FloorFade">common/floor.png</texture>
+			 <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
 		</control>
+		
+		
 	</include>
 	<include name="NetflixBackground">
 		<include>GlobalVideoWindow</include>
@@ -202,6 +207,268 @@
 			<aspectratio>stretch</aspectratio>
 			<include>Animation_FanartFade</include>
 			<texture>special://skin/extras/backgrounds/black_content2.png</texture>
+		</control>
+	</include>
+	<!-- No textures -->
+	<include name="NoTextures">
+		<texturefocus>-</texturefocus>
+		<texturenofocus>-</texturenofocus>
+		<alttexturenofocus>-</alttexturenofocus>
+		<alttexturefocus>-</alttexturefocus>
+		<textureradioonfocus>-</textureradioonfocus>
+		<textureradioonnofocus>-</textureradioonnofocus>
+		<textureradioofffocus>-</textureradioofffocus>
+		<textureradiooffnofocus>-</textureradiooffnofocus>
+		<textureup>-</textureup>
+		<texturedown>-</texturedown>
+		<textureupfocus>-</textureupfocus>
+		<texturedownfocus>-</texturedownfocus>
+	</include>
+	<!-- BBFC Ratings -->
+	<include name="Rating_BBFC">
+		<control type="image">
+			<top>3</top>
+			<width>33</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/bbfc/pg.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>29</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/bbfc/12.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,12)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>29</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/bbfc/15.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,15)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>29</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/bbfc/18.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,18)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>23</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/bbfc/u.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,u)</visible>
+		</control>
+	</include>
+	<!-- FSK Ratings -->
+	<include name="Rating_FSK">
+		<control type="image">
+			<top>3</top>
+			<width>25</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/fsk/0.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,0)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>25</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/fsk/6.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,6)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>25</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/fsk/12.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,12)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>25</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/fsk/16.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,16)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>25</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/fsk/18.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,18)</visible>
+		</control>
+	</include>
+	<!-- MPAA Ratings -->
+	<include name="Rating_MPAA">
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/mpaa/nc17.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nc)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/mpaa/pg13.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,13)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>35</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/mpaa/nr.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nr)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>35</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/mpaa/pg.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg,right)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>25</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/mpaa/g.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,g) + !SubString(ListItem.Mpaa,pg)</visible>
+		</control>
+	</include>
+	<!-- TV Ratings -->
+	<include name="Rating_TV">
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/tv/14.png</texture>
+			<visible>Container.Content(tvshows) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,14)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/tv/g.png</texture>
+			<visible>Container.Content(tvshows) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,g) + !SubString(ListItem.Mpaa,pg)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/tv/pg.png</texture>
+			<visible>Container.Content(tvshows) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/tv/ma.png</texture>
+			<visible>Container.Content(tvshows) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,ma)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/tv/nr.png</texture>
+			<visible>Container.Content(tvshows) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nr)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/tv/y.png</texture>
+			<visible>Container.Content(tvshows) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,y) + !SubString(ListItem.Mpaa,y7)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/tv/y7.png</texture>
+			<visible>Container.Content(tvshows) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,y7)</visible>
+		</control>
+	</include>
+	<!-- TV Episode Ratings -->
+	<include name="Rating_TV_Episodes">
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/tv/14.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,14)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/tv/g.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,g) + !SubString(ListItem.Mpaa,pg)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/tv/pg.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/tv/ma.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,ma)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/tv/nr.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nr)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/tv/y.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,y) + !SubString(ListItem.Mpaa,y7)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>ffdadada</colordiffuse>
+			<texture>rating/tv/y7.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,y7)</visible>
 		</control>
 	</include>
 </includes>
