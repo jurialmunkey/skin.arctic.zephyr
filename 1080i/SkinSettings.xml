@@ -294,6 +294,14 @@
 						<onclick>Skin.ToggleSetting(osd.usetheme)</onclick>
 						<onclick>ReloadSkin()</onclick>
 					</control>
+					<control type="radiobutton" id="9240" description="Hide spoilers">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9103)</visible>
+						<include>DefSettingsButton</include>
+						<label>Hide Spoilers for unwatched TV Shows</label>
+						<selected>Skin.HasSetting(osd.hidespoilers)</selected>
+						<onclick>Skin.ToggleSetting(osd.hidespoilers)</onclick>
+					</control>
 					<!-- Widgets -->
 					<control type="radiobutton" id="9241" description="Classic Widget">
 						<width>1310</width>
