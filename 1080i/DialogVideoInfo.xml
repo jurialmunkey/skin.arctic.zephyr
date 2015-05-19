@@ -78,16 +78,18 @@
 				<texture>$VAR[PosterImage]</texture>
 				<aspectratio aligny="center">scale</aspectratio>
 			</control>
-			<control type="image">
+			<!--  <control type="image">
 				<width>90</width>
 				<height>90</height>
 				<texture>views/OverlayHD.png</texture>
 				<visible>IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
-			</control>
+			</control> -->
 			<control type="image">
-				<width>90</width>
-				<height>90</height>
-				<texture>views/OverlayWatched.png</texture>
+			    <top>3</top>
+			    <left>287</left>
+			    <width>32</width>
+				<height>32</height>
+				<texture>$VAR[PercentWatched]</texture>
 				<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
 			</control>
 			<control type="label">
@@ -96,7 +98,7 @@
 				<width>604</width>
 				<height>28</height>
 				<font>Mini</font>
-				<textcolor>Black70</textcolor>
+				<textcolor>Black700</textcolor>
 				<label>$INFO[Window(home).Property(PercentRemaining)]</label>
 				<visible>ListItem.IsResumable</visible>
 			</control>
@@ -128,7 +130,7 @@
 				<label>Overview</label>
 				<include>NoTextures</include>
 				<font>MediumSmall</font>
-				<textcolor>Black70</textcolor>
+				<textcolor>Black700</textcolor>
 				<animation condition="!IsEmpty(Window(home).Property(Similar))" effect="fade" end="50" start="100" time="0">Conditional</animation>
 			</control>
 			<control id="7001" type="button">
@@ -142,7 +144,7 @@
 				<onright condition="IsEmpty(Container(5000).ListItem.Label)">9009</onright>
 				<onfocus>SetProperty(Similar,1,home)</onfocus>
 				<font>MediumSmall</font>
-				<textcolor>Black70</textcolor>
+				<textcolor>Black700</textcolor>
 				<focusedcolor>$VAR[ColourHighlight]</focusedcolor>
 				<label>Similar Titles</label>
 				<include>NoTextures</include>
@@ -160,7 +162,7 @@
 				<height>48</height>
 				<font>Large</font>
 				<scroll>true</scroll>
-				<textcolor>Black70</textcolor>
+				<textcolor>Black700</textcolor>
 				<scrollspeed>100</scrollspeed>
 				<label>$VAR[VideoInfoLabel]</label>
 				<include>DialogVideoInfoAnimation</include>
@@ -181,7 +183,7 @@
 					<height>32</height>
 					<font>Small</font>
 					<aligny>bottom</aligny>
-					<textcolor>Black70</textcolor>
+					<textcolor>Black700</textcolor>
 					<label>$INFO[ListItem.Year]</label>
 					<visible>!IsEmpty(ListItem.Year)</visible>
 				</control>
@@ -191,7 +193,7 @@
 					<height>32</height>
 					<font>Small</font>
 					<aligny>bottom</aligny>
-					<textcolor>Black70</textcolor>
+					<textcolor>Black700</textcolor>
 					<label>$VAR[Duration]</label>
 					<visible>!IsEmpty(ListItem.Duration)</visible>
 				</control>
@@ -199,7 +201,7 @@
 					<top>3</top>
 					<width>35</width>
 					<height>23</height>
-					<colordiffuse>Black70</colordiffuse>
+					<colordiffuse>Black700</colordiffuse>
 					<texture>rating/cc.png</texture>
 					<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
 				</control>
@@ -239,7 +241,7 @@
 					<height>24</height>
 					<font>Small</font>
 					<aligny>bottom</aligny>
-					<textcolor>Black70</textcolor>
+					<textcolor>Black700</textcolor>
 					<label>$INFO[ListItem.Votes,(,) ]</label>
 					<visible>!IsEmpty(ListItem.Votes) + IntegerGreaterThan(ListItem.Votes,0)</visible>
 				</control>
@@ -263,7 +265,7 @@
 					<height>34</height>
 					<font>TinyBold</font>
 					<aligny>bottom</aligny>
-					<textcolor>Black70</textcolor>
+					<textcolor>Black700</textcolor>
 					<label>$INFO[ListItem.Rating]</label>
 					<visible>!IsEmpty(ListItem.Rating)</visible>
 				</control>
@@ -284,7 +286,7 @@
 					<align>left</align>
 					<font>Small</font>
 					<autoscroll>false</autoscroll>
-					<textcolor>Black70</textcolor>
+					<textcolor>Black700</textcolor>
 					<label>$VAR[Plot]</label>
 					<include>DialogVideoInfoAnimation</include>
 					<visible>!IsEmpty(ListItem.Plot) | !IsEmpty(ListItem.PlotOutline)</visible>
@@ -324,7 +326,7 @@
 					<height>24</height>
 					<font>Small</font>
 					<aligny>bottom</aligny>
-					<textcolor>Black30</textcolor>
+					<textcolor>Black300</textcolor>
 					<label>Starring:</label>
 				</control>
 				<control type="label">
@@ -333,7 +335,7 @@
 					<height>24</height>
 					<font>Small</font>
 					<aligny>bottom</aligny>
-					<textcolor>Black70</textcolor>
+					<textcolor>Black700</textcolor>
 					<label>$VAR[CastList]</label>
 				</control>
 			</control>
@@ -354,7 +356,7 @@
 					<height>24</height>
 					<font>Small</font>
 					<aligny>bottom</aligny>
-					<textcolor>Black30</textcolor>
+					<textcolor>Black300</textcolor>
 					<label>Directed by:</label>
 				</control>
 				<control type="label">
@@ -363,7 +365,7 @@
 					<height>24</height>
 					<font>Small</font>
 					<aligny>bottom</aligny>
-					<textcolor>Black70</textcolor>
+					<textcolor>Black700</textcolor>
 					<label>$INFO[ListItem.Director]</label>
 				</control>
 			</control>
@@ -402,7 +404,7 @@
 					<altlabel>Browse[CR]TV Show</altlabel>
 					<usealttexture>Container.Content(TVShows)</usealttexture>
 					<textoffsetx>20</textoffsetx>
-					<textcolor>Black70</textcolor>
+					<textcolor>Black700</textcolor>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
 					<alttexturefocus border="3,5,6,8">views/button_fo.png</alttexturefocus>
@@ -420,7 +422,7 @@
 					<font>Small</font>
 					<label>Watch[CR]Trailer</label>
 					<textoffsetx>20</textoffsetx>
-					<textcolor>Black70</textcolor>
+					<textcolor>Black700</textcolor>
 					<visible>!IsEmpty(ListItem.Trailer)</visible>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
@@ -437,7 +439,7 @@
 					<font>Small</font>
 					<label>Search[CR]Youtube</label>
 					<textoffsetx>20</textoffsetx>
-					<textcolor>Black70</textcolor>
+					<textcolor>Black700</textcolor>
 					<visible>IsEmpty(ListItem.Trailer)</visible>
 					<visible>false</visible>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
@@ -454,7 +456,7 @@
 					<font>Small</font>
 					<label>184</label>
 					<textoffsetx>20</textoffsetx>
-					<textcolor>Black70</textcolor>
+					<textcolor>Black700</textcolor>
 					<visible>Control.IsEnabled(6)</visible>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
@@ -470,7 +472,7 @@
 					<font>Small</font>
 					<label>13405</label>
 					<textoffsetx>20</textoffsetx>
-					<textcolor>Black70</textcolor>
+					<textcolor>Black700</textcolor>
 					<visible>Control.IsEnabled(10)</visible>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
@@ -488,7 +490,7 @@
 					<font>Small</font>
 					<label>13511</label>
 					<textoffsetx>20</textoffsetx>
-					<textcolor>Black70</textcolor>
+					<textcolor>Black700</textcolor>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
 					<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
@@ -506,7 +508,7 @@
 					<font>Small</font>
 					<label>31104</label>
 					<textoffsetx>20</textoffsetx>
-					<textcolor>Black70</textcolor>
+					<textcolor>Black700</textcolor>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
 					<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies)</visible>
@@ -523,7 +525,7 @@
 				<width>1000</width>
 				<height>32</height>
 				<font>MediumSmall</font>
-				<textcolor>Black30</textcolor>
+				<textcolor>Black3000</textcolor>
 				<label>Cast and Role</label>
 				<visible>IsEmpty(Window(home).Property(Similar)) + !IsEmpty(Container(50).ListItem.Label) + !Control.HasFocus(50)</visible>
 				<animation delay="400" effect="fade" end="100" start="0" time="200">Visible</animation>
@@ -587,7 +589,7 @@
 							<width>290</width>
 							<height>42</height>
 							<font>MediumBold</font>
-							<textcolor>Black70</textcolor>
+							<textcolor>Black700</textcolor>
 							<shadowcolor>80000000</shadowcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
@@ -598,7 +600,7 @@
 							<height>28</height>
 							<font>Small</font>
 							<scroll>false</scroll>
-							<textcolor>Black70</textcolor>
+							<textcolor>Black700</textcolor>
 							<shadowcolor>80000000</shadowcolor>
 							<label>$INFO[ListItem.Label2,$LOCALIZE[20347] ,]</label>
 						</control>
@@ -659,7 +661,7 @@
 							<height>42</height>
 							<font>MediumBold</font>
 							<scroll>false</scroll>
-							<textcolor>Black70</textcolor>
+							<textcolor>Black700</textcolor>
 							<shadowcolor>80000000</shadowcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -672,7 +674,7 @@
 							<height>28</height>
 							<font>Small</font>
 							<scroll>false</scroll>
-							<textcolor>Black70</textcolor>
+							<textcolor>Black700</textcolor>
 							<shadowcolor>80000000</shadowcolor>
 							<label>$INFO[ListItem.Label2,$LOCALIZE[20347] ,]</label>
 							<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
@@ -726,7 +728,7 @@
 						<width>290</width>
 						<height>42</height>
 						<font>MediumBold</font>
-						<textcolor>Black70</textcolor>
+						<textcolor>Black700</textcolor>
 						<shadowcolor>80000000</shadowcolor>
 						<label>$INFO[Container(50).ListItemNoWrap(1).Label]</label>
 					</control>
@@ -737,7 +739,7 @@
 						<height>28</height>
 						<font>Small</font>
 						<scroll>false</scroll>
-						<textcolor>Black70</textcolor>
+						<textcolor>Black700</textcolor>
 						<shadowcolor>80000000</shadowcolor>
 						<label>$INFO[Container(50).ListItemNoWrap(1).Label2,$LOCALIZE[20347] ,]</label>
 					</control>
@@ -773,7 +775,7 @@
 						<width>290</width>
 						<height>42</height>
 						<font>MediumBold</font>
-						<textcolor>Black70</textcolor>
+						<textcolor>Black700</textcolor>
 						<shadowcolor>80000000</shadowcolor>
 						<label>$INFO[Container(50).ListItemNoWrap(2).Label]</label>
 					</control>
@@ -784,7 +786,7 @@
 						<height>28</height>
 						<font>Small</font>
 						<scroll>false</scroll>
-						<textcolor>Black70</textcolor>
+						<textcolor>Black700</textcolor>
 						<shadowcolor>80000000</shadowcolor>
 						<label>$INFO[Container(50).ListItemNoWrap(2).Label2,$LOCALIZE[20347] ,]</label>
 					</control>
@@ -820,7 +822,7 @@
 						<width>290</width>
 						<height>42</height>
 						<font>MediumBold</font>
-						<textcolor>Black70</textcolor>
+						<textcolor>Black700</textcolor>
 						<shadowcolor>80000000</shadowcolor>
 						<label>$INFO[Container(50).ListItemNoWrap(3).Label]</label>
 					</control>
@@ -831,7 +833,7 @@
 						<height>28</height>
 						<font>Small</font>
 						<scroll>false</scroll>
-						<textcolor>Black70</textcolor>
+						<textcolor>Black700</textcolor>
 						<shadowcolor>80000000</shadowcolor>
 						<label>$INFO[Container(50).ListItemNoWrap(3).Label2,$LOCALIZE[20347] ,]</label>
 					</control>
@@ -867,7 +869,7 @@
 						<width>290</width>
 						<height>42</height>
 						<font>MediumBold</font>
-						<textcolor>Black70</textcolor>
+						<textcolor>Black700</textcolor>
 						<shadowcolor>80000000</shadowcolor>
 						<label>$INFO[Container(50).ListItemNoWrap(4).Label]</label>
 					</control>
@@ -878,7 +880,7 @@
 						<height>28</height>
 						<font>Small</font>
 						<scroll>false</scroll>
-						<textcolor>Black70</textcolor>
+						<textcolor>Black700</textcolor>
 						<shadowcolor>80000000</shadowcolor>
 						<label>$INFO[Container(50).ListItemNoWrap(4).Label2,$LOCALIZE[20347] ,]</label>
 					</control>
@@ -914,7 +916,7 @@
 						<width>290</width>
 						<height>42</height>
 						<font>MediumBold</font>
-						<textcolor>Black70</textcolor>
+						<textcolor>Black700</textcolor>
 						<shadowcolor>80000000</shadowcolor>
 						<label>$INFO[Container(50).ListItemNoWrap(5).Label]</label>
 					</control>
@@ -925,7 +927,7 @@
 						<height>28</height>
 						<font>Small</font>
 						<scroll>false</scroll>
-						<textcolor>Black70</textcolor>
+						<textcolor>Black700</textcolor>
 						<shadowcolor>80000000</shadowcolor>
 						<label>$INFO[Container(50).ListItemNoWrap(5).Label2,$LOCALIZE[20347] ,]</label>
 					</control>
@@ -937,7 +939,7 @@
 				<width>1000</width>
 				<height>32</height>
 				<font>MediumSmall</font>
-				<textcolor>Black30</textcolor>
+				<textcolor>Black300</textcolor>
 				<label>Customers Also Watched</label>
 				<visible>!IsEmpty(Window(home).Property(Similar)) + !IsEmpty(Container(5000).ListItem.Label) + !Control.HasFocus(5000)</visible>
 				<animation delay="400" effect="fade" end="100" start="0" time="200">Visible</animation>
@@ -950,7 +952,7 @@
 				<width>1000</width>
 				<height>32</height>
 				<font>Large</font>
-				<textcolor>Black70</textcolor>
+				<textcolor>Black700</textcolor>
 				<label>Sorry, we have no items for this title.</label>
 				<visible>!IsEmpty(Window(home).Property(Similar)) + IsEmpty(Container(5000).ListItem.Label)</visible>
 				<animation delay="400" effect="fade" end="100" start="0" time="200">Visible</animation>
@@ -1007,7 +1009,7 @@
 							<width>290</width>
 							<height>42</height>
 							<font>MediumBold</font>
-							<textcolor>Black70</textcolor>
+							<textcolor>Black700</textcolor>
 							<shadowcolor>80000000</shadowcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<visible>IsEmpty(ListItem.Art(poster))</visible>
@@ -1058,7 +1060,7 @@
 							<width>290</width>
 							<height>42</height>
 							<font>MediumBold</font>
-							<textcolor>Black70</textcolor>
+							<textcolor>Black700</textcolor>
 							<shadowcolor>80000000</shadowcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<visible>IsEmpty(ListItem.Art(poster))</visible>
@@ -1104,7 +1106,7 @@
 						<width>290</width>
 						<height>42</height>
 						<font>MediumBold</font>
-						<textcolor>Black70</textcolor>
+						<textcolor>Black700</textcolor>
 						<label>$INFO[Container(5000).ListItemNoWrap(1).Label]</label>
 						<visible>IsEmpty(Container(5000).ListItemNoWrap(1).Art(poster))</visible>
 					</control>
@@ -1132,7 +1134,7 @@
 						<width>290</width>
 						<height>42</height>
 						<font>MediumBold</font>
-						<textcolor>Black70</textcolor>
+						<textcolor>Black700</textcolor>
 						<label>$INFO[Container(5000).ListItemNoWrap(2).Label]</label>
 						<visible>IsEmpty(Container(5000).ListItemNoWrap(2).Art(poster))</visible>
 					</control>
@@ -1160,7 +1162,7 @@
 						<width>290</width>
 						<height>42</height>
 						<font>MediumBold</font>
-						<textcolor>Black70</textcolor>
+						<textcolor>Black700</textcolor>
 						<label>$INFO[Container(5000).ListItemNoWrap(3).Label]</label>
 						<visible>IsEmpty(Container(5000).ListItemNoWrap(3).Art(poster))</visible>
 					</control>
@@ -1188,7 +1190,7 @@
 						<width>290</width>
 						<height>42</height>
 						<font>MediumBold</font>
-						<textcolor>Black70</textcolor>
+						<textcolor>Black700</textcolor>
 						<label>$INFO[Container(5000).ListItemNoWrap(4).Label]</label>
 						<visible>IsEmpty(Container(5000).ListItemNoWrap(4).Art(poster))</visible>
 					</control>
@@ -1216,7 +1218,7 @@
 						<width>290</width>
 						<height>42</height>
 						<font>MediumBold</font>
-						<textcolor>Black70</textcolor>
+						<textcolor>Black700</textcolor>
 						<label>$INFO[Container(5000).ListItemNoWrap(5).Label]</label>
 						<visible>IsEmpty(Container(5000).ListItemNoWrap(5).Art(poster))</visible>
 					</control>
@@ -1241,7 +1243,7 @@
 					<align>left</align>
 					<aligny>top</aligny>
 					<font>SmallBold</font>
-					<textcolor>Black70</textcolor>
+					<textcolor>Black700</textcolor>
 					<label>$INFO[Container(50).ListItem.Label]</label>
 					<visible>Control.HasFocus(50)</visible>
 				</control>
@@ -1252,7 +1254,7 @@
 					<align>left</align>
 					<aligny>top</aligny>
 					<font>SmallBold</font>
-					<textcolor>Black70</textcolor>
+					<textcolor>Black700</textcolor>
 					<label>$INFO[Container(5000).ListItem.Property(Title)]</label>
 					<visible>Control.HasFocus(5000)</visible>
 				</control>
@@ -1263,7 +1265,7 @@
 					<align>left</align>
 					<aligny>top</aligny>
 					<font>Mini</font>
-					<textcolor>Black70</textcolor>
+					<textcolor>Black700</textcolor>
 					<label>$INFO[Container(50).ListItem.Label2,$LOCALIZE[20347] ,]</label>
 					<visible>Control.HasFocus(50)</visible>
 				</control>
@@ -1316,7 +1318,7 @@
 				<font>Medium</font>
 				<pagecontrol>4000</pagecontrol>
 				<autoscroll>false</autoscroll>
-				<textcolor>Black70</textcolor>
+				<textcolor>Black700</textcolor>
 				<label>$VAR[Plot]</label>
 			</control>
 			<!-- Arrow down -->
