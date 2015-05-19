@@ -158,6 +158,7 @@
 		<value condition="StringCompare(Container(300).ListItem.Property(widget),NextAired)">$INFO[Container(301).ListItem.Label2,,[CR]]$INFO[Container(301).ListItem.Property(Plot)]</value>
 		<value condition="substring(Container(300).ListItem.Property(widget),Album)">$INFO[Container(301).ListItem.Property(Album_Description)]</value>
 		<value condition="StringCompare(Container(300).ListItem.Property(widget),Weather)">$INFO[Weather.Conditions]</value>
+		<value condition="!IsEmpty(Container(301).ListItem.Plot) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(301).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
 		<value condition="!IsEmpty(Container(301).ListItem.Plot)">$INFO[Container(301).ListItem.Plot]</value>
 		<value condition="!IsEmpty(Container(301).ListItem.Property(Addon.Description))">$INFO[Container(301).ListItem.Property(Addon.Description)]</value>
 		<value>$LOCALIZE[19055]</value>
