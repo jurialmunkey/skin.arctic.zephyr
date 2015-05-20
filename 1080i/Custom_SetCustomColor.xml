@@ -43,6 +43,14 @@
                         <right>0</right>
                         <texture>$INFO[ListItem.Thumb]</texture>
                     </control>
+                    <control type="image">
+                        <left>0</left>
+                        <top>0</top>
+                        <bottom>0</bottom>
+                        <right>0</right>
+                        <texture colordiffuse="Highlight">common/white.png</texture>
+                        <visible>StringCompare(ListItem.Thumb,special://skin/extras/icons/error.png)</visible>
+                    </control>
                     <control type="image"> <!--watched icon -->
                         <centerright>24</centerright>
                         <centertop>24</centertop>
@@ -51,7 +59,18 @@
                         <aspectratio aligny="top">keep</aspectratio>
                         <include>WatchedOverlay</include>
                         <visible>[StringCompare(ListItem.Label,Skin.String(focuscolor.name)) + !StringCompare(ListItem.Label2,selected)]</visible>
+                        <visible>!StringCompare(ListItem.Thumb,special://skin/extras/icons/error.png) | IsEmpty(Skin.String(focuscolor.name))</visible>
                         <texture colordiffuse="Black">indicator/checkmark.png</texture>
+                    </control>
+                    <control type="image"> <!--watched icon -->
+                        <centerright>24</centerright>
+                        <centertop>24</centertop>
+                        <width>32</width>
+                        <height>32</height>
+                        <aspectratio aligny="top">keep</aspectratio>
+                        <include>WatchedOverlay</include>
+                        <visible>StringCompare(ListItem.Thumb,special://skin/extras/icons/error.png)</visible>
+                        <texture colordiffuse="Black">indicator/new.png</texture>
                     </control>
                 </itemlayout>
                 <focusedlayout height="160" width="160">
@@ -65,6 +84,16 @@
                         <bordertexture>common/white.png</bordertexture>
                         <bordersize>7</bordersize>
                     </control>
+                    <control type="image">
+                        <left>0</left>
+                        <top>0</top>
+                        <bottom>0</bottom>
+                        <right>0</right>
+                        <texture colordiffuse="Highlight">common/white.png</texture>
+                        <visible>StringCompare(ListItem.Thumb,special://skin/extras/icons/error.png)</visible>
+                        <bordertexture>common/white.png</bordertexture>
+                        <bordersize>7</bordersize>
+                    </control>
                     <control type="image"> <!--watched icon -->
                         <centerright>24</centerright>
                         <centertop>24</centertop>
@@ -73,11 +102,34 @@
                         <aspectratio aligny="top">keep</aspectratio>
                         <include>WatchedOverlay</include>
                         <visible>[StringCompare(ListItem.Label,Skin.String(focuscolor.name)) + !StringCompare(ListItem.Label2,selected)]</visible>
+                        <visible>!StringCompare(ListItem.Thumb,special://skin/extras/icons/error.png) | IsEmpty(Skin.String(focuscolor.name))</visible>
                         <texture colordiffuse="Black">indicator/checkmark.png</texture>
+                    </control>
+                    <control type="image"> <!--watched icon -->
+                        <centerright>24</centerright>
+                        <centertop>24</centertop>
+                        <width>32</width>
+                        <height>32</height>
+                        <aspectratio aligny="top">keep</aspectratio>
+                        <include>WatchedOverlay</include>
+                        <visible>StringCompare(ListItem.Thumb,special://skin/extras/icons/error.png)</visible>
+                        <texture colordiffuse="Black">indicator/new.png</texture>
                     </control>
                 </focusedlayout>
                 <content>
-             
+                    <item id="0"> <!-- default -->
+                        <onclick>Skin.Reset(focuscolor.name)</onclick>
+                        <onclick>Close</onclick>
+                        <thumb>special://skin/extras/icons/error.png</thumb>
+                        <label>571</label>
+                    </item>
+                    <!-- <item id="1">
+                        <onclick>Close</onclick>
+                        <thumb>$INFO[Skin.String(focuscolor.name),special://skin/extras/colours/,.png]</thumb>
+                        <label>$INFO[Skin.String(focuscolor.name)]</label>
+                        <visible>!IsEmpty(Skin.String(focuscolor.name))</visible>
+                    </item> -->
+                    
                     <item id="2"> <!--green 1 -->
                         <onclick>Skin.SetString(focuscolor.name,FF93ce5f)</onclick>
                         <onclick>Close</onclick>
@@ -88,7 +140,7 @@
                         <onclick>Skin.SetString(focuscolor.name,FF80d535)</onclick>
                         <onclick>Close</onclick>
                         <thumb>special://skin/extras/colours/FF80d535.png</thumb>
-                        <label>FF93ce5f</label>
+                        <label>FF80d535 </label>
                     </item>
                     <item id="4"> <!--green 3 -->
                         <onclick>Skin.SetString(focuscolor.name,FF6dbd25)</onclick>
@@ -486,7 +538,18 @@
                         <thumb>special://skin/extras/colours/FF3ee672.png</thumb>
                         <label>FF3ee672</label>
                     </item>
-                  
+                    <item id="69"> <!--aqua 10 -->
+                        <onclick>Skin.SetString(focuscolor.name,FF5aec72)</onclick>
+                        <onclick>Close</onclick>
+                        <thumb>special://skin/extras/colours/FF5aec72.png</thumb>
+                        <label>FF5aec72</label>
+                    </item>
+                    <item id="70"> <!--aqua 11 -->
+                        <onclick>Skin.SetString(focuscolor.name,FF67e964)</onclick>
+                        <onclick>Close</onclick>
+                        <thumb>special://skin/extras/colours/FF67e964.png</thumb>
+                        <label>FF67e964</label>
+                    </item>
                 </content>
             </control>
         </control>
