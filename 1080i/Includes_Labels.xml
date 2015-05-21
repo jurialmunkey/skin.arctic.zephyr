@@ -225,6 +225,7 @@
 	</variable>
 	<variable name="PlayerPlotBox">
 		<value condition="!Player.HasVideo">$INFO[MusicPlayer.Album,, ]$INFO[MusicPlayer.Year,(,)]</value>
+		<value condition="Player.HasVideo + Skin.HasSetting(osd.hidespoilers) + VideoPlayer.Content(episodes)">* Hidden to prevent spoilers *</value>
 		<value>$INFO[VideoPlayer.Plot]</value>
 	</variable>
 	<variable name="LabelNextAiredDetails">
@@ -266,7 +267,6 @@
 		<value condition="!IsEmpty(Skin.String(RatingCountry))">$INFO[Skin.String(RatingCountry)]</value>
 		<value>UK</value>
 	</variable>
-	
 	<variable name="Duration">
 		<value condition="StringCompare(ListItem.Duration,1)">1 minute</value>
 		<value condition="StringCompare(ListItem.Duration,2)">2 minutes</value>
