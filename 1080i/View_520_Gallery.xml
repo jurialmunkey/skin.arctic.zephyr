@@ -100,6 +100,12 @@
 							<effect type="slide" start="-39,0" end="0,0" time="150" tween="Cubic" easing="out" />
 							<effect type="fade" start="20" end="100" time="750" delay="0" tween="sine" easing="out" />
 						</animation>
+						<control type="button">
+							<texturefocus>-</texturefocus>
+							<texturenofocus>-</texturenofocus>
+							<onfocus condition="Container.Content(movies)">ClearProperty(TVShowID,home)</onfocus>
+							<onfocus condition="Container.Content(tvshows)">SetProperty(TVShowID,$INFO[ListItem.DBID],home)</onfocus>
+						</control>
 						<control type="image">
 							<description>Black Border</description>
 							<width>1012</width>

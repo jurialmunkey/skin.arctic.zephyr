@@ -12,7 +12,6 @@
 	<onload condition="!IsEmpty(Container(50).ListItemNoWrap(2).Label)">SetProperty(Actor3,$INFO[Container(50).ListItemNoWrap(2).Label])</onload>
 	<onload condition="System.HasAddon(script.tvtunes)">RunScript(script.tvtunes,backend=True)</onload>
 	<onunload>ClearProperty(Similar,home)</onunload>
-	<onunload>SetFocus(50)</onunload>
 	<controls>
 		<!-- alternate video info -->
 		<!-- Hidden Plot -->
@@ -78,16 +77,11 @@
 				<texture>$VAR[PosterImage]</texture>
 				<aspectratio aligny="center">scale</aspectratio>
 			</control>
-			<!--  <control type="image">
-				<width>90</width>
-				<height>90</height>
-				<texture>views/OverlayHD.png</texture>
-				<visible>IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
-			</control> -->
+			<!-- <control type="image"> <width>90</width> <height>90</height> <texture>views/OverlayHD.png</texture> <visible>IntegerGreaterThan(ListItem.VideoResolution,719)</visible> </control> -->
 			<control type="image">
-			    <top>3</top>
-			    <left>287</left>
-			    <width>32</width>
+				<top>3</top>
+				<left>287</left>
+				<width>32</width>
 				<height>32</height>
 				<texture>$VAR[PercentWatched]</texture>
 				<visible>StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>

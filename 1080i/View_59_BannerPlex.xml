@@ -75,6 +75,12 @@
 						<animation type="unfocus">
 							<effect type="zoom" start="105" end="100" center="auto" time="150" />
 						</animation>
+						<control type="button">
+							<texturefocus>-</texturefocus>
+							<texturenofocus>-</texturenofocus>
+							<onfocus condition="Container.Content(movies)">ClearProperty(TVShowID,home)</onfocus>
+							<onfocus condition="Container.Content(tvshows)">SetProperty(TVShowID,$INFO[ListItem.DBID],home)</onfocus>
+						</control>
 						<control type="image">
 							<width>590</width>
 							<height>120</height>

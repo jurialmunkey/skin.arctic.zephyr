@@ -216,6 +216,12 @@
 						</control>
 					</itemlayout>
 					<focusedlayout width="1288" height="330" condition="!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + Skin.HasSetting(54banner.showinfo)">
+						<control type="button">
+							<texturefocus>-</texturefocus>
+							<texturenofocus>-</texturenofocus>
+							<onfocus condition="Container.Content(movies)">ClearProperty(TVShowID,home)</onfocus>
+							<onfocus condition="Container.Content(tvshows)">SetProperty(TVShowID,$INFO[ListItem.DBID],home)</onfocus>
+						</control>
 						<control type="image">
 							<left>110</left>
 							<top>10</top>
@@ -290,6 +296,12 @@
 						</control>
 					</focusedlayout>
 					<focusedlayout width="1288" height="322" condition="!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + !Skin.HasSetting(54banner.showinfo)">
+						<control type="button">
+							<texturefocus>-</texturefocus>
+							<texturenofocus>-</texturenofocus>
+							<onfocus condition="Container.Content(movies)">ClearProperty(TVShowID,home)</onfocus>
+							<onfocus condition="Container.Content(tvshows)">SetProperty(TVShowID,$INFO[ListItem.DBID],home)</onfocus>
+						</control>
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
@@ -449,7 +461,7 @@
 								<bottom>54</bottom>
 								<align>justify</align>
 								<aligny>top</aligny>
-							    <label>$VAR[LabelPlotBoxLong]</label>
+								<label>$VAR[LabelPlotBoxLong]</label>
 								<font>Tiny</font>
 								<textcolor>Light1</textcolor>
 								<selectedcolor>Light1</selectedcolor>
