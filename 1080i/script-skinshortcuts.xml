@@ -59,7 +59,7 @@
                         <width>66</width>
                         <height>66</height>
                         <texture colordiffuse="Black30">$INFO[ListItem.Icon]</texture>
-                        <visible>substring(ListItem.Icon,special://skin/extras/icons)</visible>
+                        <visible>substring(ListItem.Icon,icons)</visible>
                         <visible>Skin.HasSetting(home.showicons) | stringcompare(Window.Property(groupname),movieshub) | stringcompare(Window.Property(groupname),episodeshub)</visible>
                     </control>
                 </itemlayout>
@@ -92,7 +92,7 @@
                         <width>66</width>
                         <height>66</height>
                         <texture colordiffuse="Selected">$INFO[ListItem.Icon]</texture>
-                        <visible>substring(ListItem.Icon,special://skin/extras/icons)</visible>
+                        <visible>substring(ListItem.Icon,icons)</visible>
                         <visible>Skin.HasSetting(home.showicons) | stringcompare(Window.Property(groupname),movieshub) | stringcompare(Window.Property(groupname),episodeshub)</visible>
                     </control>
                 </focusedlayout>

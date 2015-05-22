@@ -83,7 +83,7 @@
 					<height>140</height>
 					<width>140</width>
 					<aspectratio>keep</aspectratio>
-					<texture background="true" fallback="special://skin/extras/stars/rating0.png">special://skin/extras/stars/$VAR[NetflixRating].png</texture>
+					<texture background="true" fallback="stars/rating0.png">stars/$VAR[NetflixRating].png</texture>
 					<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 					<fadetime>800</fadetime>
 					<visible>!Control.HasFocus(776) + !Control.HasFocus(785) + !Control.HasFocus(786) + !Control.HasFocus(789) + !Control.HasFocus(790) + !Control.HasFocus(791) + !Control.HasFocus(792) + !Control.HasFocus(793) + !Control.HasFocus(794) + !ControlGroup(80).HasFocus() + !ControlGroup(770).HasFocus()</visible>
@@ -95,7 +95,7 @@
 					<height>140</height>
 					<width>140</width>
 					<aspectratio>keep</aspectratio>
-					<texture background="true" fallback="special://skin/extras/stars/rating0.png">special://skin/extras/stars/$VAR[NetflixRating]</texture>
+					<texture background="true" fallback="stars/rating0.png">stars/$VAR[NetflixRating]</texture>
 					<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 					<fadetime>800</fadetime>
 					<visible>Control.HasFocus(792) | Control.HasFocus(793)</visible>
@@ -897,7 +897,7 @@
 							<posy>5</posy>
 							<width>330</width>
 							<height>185</height>
-							<texture fallback="special://skin/extras/genrethumb/default.jpg">$INFO[Listitem.Label,special://skin/extras/genrethumb/,.jpg]</texture>
+							<texture fallback="genrethumb/default.jpg">$INFO[Listitem.Label,genrethumb/,.jpg]</texture>
 							<aspectratio scalediffuse="false">stretch</aspectratio>
 						</control>
 					</itemlayout>
@@ -909,7 +909,7 @@
 								<posy>5</posy>
 								<width>330</width>
 								<height>185</height>
-								<texture fallback="special://skin/extras/genrethumb/default.jpg">$INFO[Listitem.Label,special://skin/extras/genrethumb/,.jpg]</texture>
+								<texture fallback="genrethumb/default.jpg">$INFO[Listitem.Label,genrethumb/,.jpg]</texture>
 								<aspectratio scalediffuse="false">stretch</aspectratio>
 							</control>
 							<control type="image">
@@ -952,7 +952,7 @@
 							<posy>5</posy>
 							<width>330</width>
 							<height>185</height>
-							<texture fallback="special://skin/extras/flagging/studios/studios.png">$INFO[Listitem.Label,special://skin/extras/flagging/studios/,.png]</texture>
+							<texture fallback="flagging/studios/studios.png">$INFO[Listitem.Label,flagging/studios/,.png]</texture>
 							<aspectratio scalediffuse="false">stretch</aspectratio>
 						</control>
 					</itemlayout>
@@ -972,7 +972,7 @@
 								<posy>5</posy>
 								<width>330</width>
 								<height>185</height>
-								<texture fallback="special://skin/extras/flagging/studios/studios.png">$INFO[Listitem.Label,special://skin/extras/flagging/studios/,.png]</texture>
+								<texture fallback="flagging/studios/studios.png">$INFO[Listitem.Label,flagging/studios/,.png]</texture>
 								<aspectratio scalediffuse="false">stretch</aspectratio>
 							</control>
 							<control type="image">
@@ -1147,7 +1147,7 @@
 							<posy>5</posy>
 							<width>330</width>
 							<height>185</height>
-							<texture fallback="special://skin/extras/genrethumb/default.jpg">$INFO[Listitem.Label,special://skin/extras/genrethumb/,.jpg]</texture>
+							<texture fallback="genrethumb/default.jpg">$INFO[Listitem.Label,genrethumb/,.jpg]</texture>
 							<aspectratio scalediffuse="false">stretch</aspectratio>
 						</control>
 					</itemlayout>
@@ -1159,7 +1159,7 @@
 								<posy>5</posy>
 								<width>330</width>
 								<height>185</height>
-								<texture fallback="special://skin/extras/genrethumb/default.jpg">$INFO[Listitem.Label,special://skin/extras/genrethumb/,.jpg]</texture>
+								<texture fallback="genrethumb/default.jpg">$INFO[Listitem.Label,genrethumb/,.jpg]</texture>
 								<aspectratio scalediffuse="false">stretch</aspectratio>
 							</control>
 							<control type="image">
@@ -1202,7 +1202,7 @@
 							<posy>5</posy>
 							<width>330</width>
 							<height>185</height>
-							<texture fallback="special://skin/extras/flagging/studios/studios.png">$INFO[Listitem.Label,special://skin/extras/flagging/studios/,.png]</texture>
+							<texture fallback="flagging/studios/studios.png">$INFO[Listitem.Label,flagging/studios/,.png]</texture>
 							<aspectratio scalediffuse="false">stretch</aspectratio>
 						</control>
 					</itemlayout>
@@ -1222,7 +1222,7 @@
 								<posy>5</posy>
 								<width>330</width>
 								<height>185</height>
-								<texture fallback="special://skin/extras/flagging/studios/studios.png">$INFO[Listitem.Label,special://skin/extras/flagging/studios/,.png]</texture>
+								<texture fallback="flagging/studios/studios.png">$INFO[Listitem.Label,flagging/studios/,.png]</texture>
 								<aspectratio scalediffuse="false">stretch</aspectratio>
 							</control>
 							<control type="image">
@@ -1400,7 +1400,7 @@
 							<posy>5</posy>
 							<width>330</width>
 							<height>185</height>
-							<texture fallback="special://skin/extras/genrethumb/headphones.jpg">$INFO[ListItem.Label,special://skin/extras/musicgenres/[LOWERCASE],[/LOWERCASE].jpg]</texture>
+							<texture fallback="genrethumb/headphones.jpg">$INFO[ListItem.Label,musicgenres/[LOWERCASE],[/LOWERCASE].jpg]</texture>
 							<aspectratio scalediffuse="false">stretch</aspectratio>
 						</control>
 					</itemlayout>
@@ -1412,7 +1412,7 @@
 								<posy>5</posy>
 								<width>330</width>
 								<height>185</height>
-								<texture fallback="special://skin/extras/genrethumb/headphones.jpg">$INFO[ListItem.Label,special://skin/extras/musicgenres/[LOWERCASE],[/LOWERCASE].jpg]</texture>
+								<texture fallback="genrethumb/headphones.jpg">$INFO[ListItem.Label,musicgenres/[LOWERCASE],[/LOWERCASE].jpg]</texture>
 								<aspectratio scalediffuse="false">stretch</aspectratio>
 							</control>
 							<control type="image">
@@ -1605,16 +1605,16 @@
 		<value condition="Control.HasFocus(782)">$INFO[Container(782).ListItem.Art(fanart)]</value>
 		<value condition="Control.HasFocus(783)">$INFO[Container(783).ListItem.Art(fanart)]</value>
 		<value condition="Control.HasFocus(784)">$INFO[Container(784).ListItem.Art(fanart)]</value>
-		<value condition="Control.HasFocus(785)">special://skin/extras/genrethumb/default.jpg</value>
-		<value condition="Control.HasFocus(786)">special://skin/extras/genrethumb/Disney.jpg</value>
+		<value condition="Control.HasFocus(785)">genrethumb/default.jpg</value>
+		<value condition="Control.HasFocus(786)">genrethumb/Disney.jpg</value>
 		<value condition="Control.HasFocus(787)">$INFO[Container(787).ListItem.Art(fanart)]</value>
 		<value condition="Control.HasFocus(788)">$INFO[Container(788).ListItem.Art(fanart)]</value>
-		<value condition="Control.HasFocus(789)">special://skin/extras/genrethumb/default.jpg</value>
-		<value condition="Control.HasFocus(790)">special://skin/extras/genrethumb/Disney.jpg</value>
-		<value condition="Control.HasFocus(791)">special://skin/extras/genrethumb/Kodi.jpg</value>
+		<value condition="Control.HasFocus(789)">genrethumb/default.jpg</value>
+		<value condition="Control.HasFocus(790)">genrethumb/Disney.jpg</value>
+		<value condition="Control.HasFocus(791)">genrethumb/Kodi.jpg</value>
 		<value condition="Control.HasFocus(792)">$INFO[Container(792).ListItem.Property(fanart_image)]</value>
 		<value condition="Control.HasFocus(793)">$INFO[Container(793).ListItem.Art(fanart)]</value>
-		<value condition="Control.HasFocus(794)">special://skin/extras/genrethumb/headphones.jpg</value>
+		<value condition="Control.HasFocus(794)">genrethumb/headphones.jpg</value>
 		<value condition="Control.HasFocus(776)">$INFO[Window(Home).Property(script.grab.fanart.Global.FanArt)]</value>
 		<value condition="Control.HasFocus(775)">$INFO[Container(775).ListItem.Art(fanart)]</value>
 		<value condition="ControlGroup(770).HasFocus()">$INFO[Window(Home).Property(script.grab.fanart.Global.FanArt)]</value>
@@ -1629,17 +1629,17 @@
 		<value condition="Control.HasFocus(782)">$INFO[Container(782).ListItem.Art(clearlogo)]</value>
 		<value condition="Control.HasFocus(783)">$INFO[Container(783).ListItem.Art(clearlogo)]</value>
 		<value condition="Control.HasFocus(784)">$INFO[Container(784).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(785)">$INFO[Container(785).ListItem.Label,special://skin/extras/moviegenres/,.jpg]</value>
-		<value condition="Control.HasFocus(786)">$INFO[Container(786).ListItem.Label,special://skin/extras/flagging/studios/,.png]</value>
+		<value condition="Control.HasFocus(785)">$INFO[Container(785).ListItem.Label,moviegenres/,.jpg]</value>
+		<value condition="Control.HasFocus(786)">$INFO[Container(786).ListItem.Label,flagging/studios/,.png]</value>
 		<value condition="Control.HasFocus(787)">$INFO[Container(787).ListItem.Art(tvshow.clearlogo)]</value>
 		<value condition="Control.HasFocus(788)">$INFO[Container(788).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(789)">$INFO[Container(789).ListItem.Label,special://skin/extras/moviegenres/,.jpg]</value>
+		<value condition="Control.HasFocus(789)">$INFO[Container(789).ListItem.Label,moviegenres/,.jpg]</value>
 		
-		<value condition="Control.HasFocus(790)">$INFO[Container(790).ListItem.Label,special://skin/extras/flagging/studios/,.png]</value>
+		<value condition="Control.HasFocus(790)">$INFO[Container(790).ListItem.Label,flagging/studios/,.png]</value>
 		<value condition="Control.HasFocus(791)">$INFO[Container(791).ListItem.Icon]</value>
 		<value condition="Control.HasFocus(792)">$INFO[Skin.String(cdartlocation)]$INFO[Container(792).ListItem.Artist]/logo.png</value>
 		<value condition="Control.HasFocus(793)">$INFO[Skin.String(cdartlocation)]$INFO[Container(793).ListItem.Artist]/logo.png</value>
-		<value condition="Control.HasFocus(794)">$INFO[Container(794).ListItem.Label,special://skin/extras/musicgenres/[LOWERCASE],[/LOWERCASE].jpg]</value>
+		<value condition="Control.HasFocus(794)">$INFO[Container(794).ListItem.Label,musicgenres/[LOWERCASE],[/LOWERCASE].jpg]</value>
 	</variable>
 	<variable name="NetflixGuiId">
 		<value condition="Control.HasFocus(777)">$INFO[Container(777).ListItem.Property(guiid)]</value>
