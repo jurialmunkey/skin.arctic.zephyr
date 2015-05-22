@@ -92,6 +92,17 @@
 				<animation type="WindowClose" reversible="false">
 					<effect type="slide" start="20,0" end="-400,0" time="320" tween="quadratic" easing="out" />
 				</animation>
+				<visible>Container.Content(movies)</visible>
+			</control>
+			<!-- Studio -->
+			<control type="image">
+			    <top>743</top>
+				<width>320</width>
+				<height>217</height>
+				<texture>$VAR[Studio]</texture>
+				<aspectratio aligny="center">scale</aspectratio>
+				<visible>Container.Content(tvshows) | Container.Content(episodes)</visible>
+				<visible>!IsEmpty(ListItem.Studio)</visible>
 			</control>
 			<!-- <control type="image"> <width>90</width> <height>90</height> <texture>views/OverlayHD.png</texture> <visible>IntegerGreaterThan(ListItem.VideoResolution,719)</visible> </control> -->
 			<control type="image">
@@ -415,7 +426,8 @@
 					<font>symbol</font>
 					<label>$VAR[VideoInfoButton8]</label>
 					<altlabel>Browse[CR]TV Show</altlabel>
-					<usealttexture>Container.Content(TVShows)</usealttexture>
+					<!-- Commented out as needs icon for above altlabel -->
+					<!--  <usealttexture>Container.Content(TVShows)</usealttexture> -->
 					<textoffsetx>20</textoffsetx>
 					<textcolor>Black700</textcolor>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
