@@ -91,12 +91,6 @@
 		<value condition="StringCompare(Container(3226).ListItem(7).Label,PlayedCount:) + !IntegerGreaterThan(Container(3226).ListItem(7).Label2,0)">indicator/checkmark.png</value>
 		<value condition="StringCompare(Container(3226).ListItem(8).Label,PlayedCount:) + !IntegerGreaterThan(Container(3226).ListItem(8).Label2,0)">indicator/checkmark.png</value>
 	</variable>
-	<variable name="AeonFlagStudio">
-		<value condition="!IsEmpty(ListItem.Studio)">$INFO[ListItem.Studio,special://skin/extras/studioflags/,.png]</value>
-		<value condition="StringCompare(Container(3226).ListItem(6).Label,Studio:)">$INFO[Container(3226).ListItem(6).Label2,special://skin/extras/studioflags/,.png]</value>
-		<value condition="StringCompare(Container(3226).ListItem(7).Label,Studio:)">$INFO[Container(3226).ListItem(7).Label2,special://skin/extras/studioflags/,.png]</value>
-		<value>special://skin/extras/studioflags/default-studio.png</value>
-	</variable>
 	<variable name="RottenTomatoesInfo">
 		<value condition="StringCompare(Container(3226).ListItem(6).Label,CriticRating:) + IntegerGreaterThan(Container(3226).ListItem(6).Label2,59)">special://skin/extras/icons/rottentomatoes.png</value>
 		<value condition="StringCompare(Container(3226).ListItem(6).Label,CriticRating:) + !IntegerGreaterThan(Container(3226).ListItem(6).Label2,59)">special://skin/extras/icons/rottentomatoesrotten.png</value>

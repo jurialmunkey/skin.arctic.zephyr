@@ -4,9 +4,9 @@
 	<defaultcontrol always="true">8</defaultcontrol>
 	<onload condition="System.HasAddon(script.videoextras)">RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
 	<onload>Control.Move(5000,$INFO[Container(5000).CurrentItem,-])</onload>
-	<onload>Control.Move(5000,0)</onload>
+	<onload>Control.Move(5000,1)</onload>
 	<onload>Control.Move(50,$INFO[Container(50).CurrentItem,-])</onload>
-	<onload>Control.Move(50,0)</onload>
+	<onload>Control.Move(50,1)</onload>
 	<onload condition="!IsEmpty(Container(50).ListItemNoWrap(0).Label)">SetProperty(Actor1,$INFO[Container(50).ListItemNoWrap(0).Label])</onload>
 	<onload condition="!IsEmpty(Container(50).ListItemNoWrap(1).Label)">SetProperty(Actor2,$INFO[Container(50).ListItemNoWrap(1).Label])</onload>
 	<onload condition="!IsEmpty(Container(50).ListItemNoWrap(2).Label)">SetProperty(Actor3,$INFO[Container(50).ListItemNoWrap(2).Label])</onload>
