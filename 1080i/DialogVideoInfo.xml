@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
-<window>
+<window id="2003">
 	<defaultcontrol always="true">8</defaultcontrol>
 	<onload condition="System.HasAddon(script.videoextras)">RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
 	<onload>Control.Move(5000,$INFO[Container(5000).CurrentItem,-])</onload>
@@ -13,6 +13,8 @@
 	<onload condition="System.HasAddon(script.tvtunes)">RunScript(script.tvtunes,backend=True)</onload>
 	<onunload>ClearProperty(Similar,home)</onunload>
 	<controls>
+		<visible>!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
+		<visible>!Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
 		<!-- alternate video info -->
 		<!-- Hidden Plot -->
 		<control type="textbox">
@@ -60,8 +62,8 @@
 			<top>99</top>
 			<right>40</right>
 			<width>258</width>
-			<height>100</height>
-			<texture>$VAR[ClearLogo]</texture>
+			<height>130</height>
+			<texture>$VAR[ClearArt]</texture>
 			<aspectratio align="center" aligny="top">keep</aspectratio>
 			<visible>Skin.HasSetting(furniture.logo)</visible>
 		</control>
@@ -76,6 +78,22 @@
 				<height>480</height>
 				<texture>$VAR[PosterImage]</texture>
 				<aspectratio aligny="center">scale</aspectratio>
+			</control>
+			<!-- DiscArt -->
+			<control type="image">
+			    <top>640</top>
+				<width>320</width>
+				<height>320</height>
+				<texture>$VAR[CDArt]</texture>
+				<aspectratio aligny="center">scale</aspectratio>
+				<visible>Skin.HasSetting(furniture.discart)</visible>
+				<animation type="WindowOpen" reversible="false">
+					<effect type="slide" start="-200,20" end="0,0" delay="600" time="800" tween="quadratic" easing="out" />
+					<effect type="rotate" start="0" center="auto" end="-720" delay="400" time="800" tween="quadratic" easing="out" />
+				</animation>
+				<animation type="WindowClose" reversible="false">
+					<effect type="slide" start="20,0" end="-400,0" time="320" tween="quadratic" easing="out" />
+				</animation>
 			</control>
 			<!-- <control type="image"> <width>90</width> <height>90</height> <texture>views/OverlayHD.png</texture> <visible>IntegerGreaterThan(ListItem.VideoResolution,719)</visible> </control> -->
 			<control type="image">
@@ -401,11 +419,11 @@
 					<textcolor>Black700</textcolor>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
-					<alttexturefocus border="3,5,6,8">views/button_fo.png</alttexturefocus>
+					<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</alttexturefocus>
 					<alttexturenofocus border="3,3,6,6">views/button_nf.png</alttexturenofocus>
 				</control>
 				<control id="1003" type="button">
-					<width>134</width>
+					<width>174</width>
 					<height>116</height>
 					<onup condition="!Control.IsVisible(96)">Close</onup>
 					<onup condition="Control.IsVisible(96)">3002</onup>
@@ -422,7 +440,7 @@
 					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
 				</control>
 				<control id="1006" type="button">
-					<width>144</width>
+					<width>174</width>
 					<height>116</height>
 					<onup condition="!Control.IsVisible(96)">Close</onup>
 					<onup condition="Control.IsVisible(96)">3002</onup>
@@ -439,9 +457,25 @@
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
 				</control>
+				<control type="button" id="1007">
+					<width>174</width>
+					<height>116</height>
+					<onup condition="!Control.IsVisible(96)">Close</onup>
+					<onup condition="Control.IsVisible(96)">3002</onup>
+					<ondown condition="Control.IsVisible(5000)">5000</ondown>
+					<ondown condition="Control.IsVisible(50)">50</ondown>
+					<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Director])</onclick>
+					<font>Small</font>
+					<label>Director</label>
+					<textoffsetx>20</textoffsetx>
+					<textcolor>Black700</textcolor>
+					<visible>!IsEmpty(ListItem.Director)</visible>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
+				</control>
 				<!-- Refresh Button -->
 				<control id="6" type="button">
-					<width>134</width>
+					<width>174</width>
 					<height>116</height>
 					<onup condition="!Control.IsVisible(96)">Close</onup>
 					<onup condition="Control.IsVisible(96)">3002</onup>
@@ -473,7 +507,7 @@
 				</control>
 				<!-- Artwork Downloader Button -->
 				<control id="20" type="button">
-					<width>184</width>
+					<width>174</width>
 					<height>116</height>
 					<onup condition="!Control.IsVisible(96)">Close</onup>
 					<onup condition="Control.IsVisible(96)">3002</onup>
