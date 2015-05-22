@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
-<window id="2003">
+<window>
 	<defaultcontrol always="true">8</defaultcontrol>
 	<onload condition="System.HasAddon(script.videoextras)">RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
 	<onload>Control.Move(5000,$INFO[Container(5000).CurrentItem,-])</onload>
-	<onload>Control.Move(5000,1)</onload>
+	<onload>Control.Move(5000,0)</onload>
 	<onload>Control.Move(50,$INFO[Container(50).CurrentItem,-])</onload>
-	<onload>Control.Move(50,1)</onload>
+	<onload>Control.Move(50,0)</onload>
 	<onload condition="!IsEmpty(Container(50).ListItemNoWrap(0).Label)">SetProperty(Actor1,$INFO[Container(50).ListItemNoWrap(0).Label])</onload>
 	<onload condition="!IsEmpty(Container(50).ListItemNoWrap(1).Label)">SetProperty(Actor2,$INFO[Container(50).ListItemNoWrap(1).Label])</onload>
 	<onload condition="!IsEmpty(Container(50).ListItemNoWrap(2).Label)">SetProperty(Actor3,$INFO[Container(50).ListItemNoWrap(2).Label])</onload>
 	<onload condition="System.HasAddon(script.tvtunes)">RunScript(script.tvtunes,backend=True)</onload>
 	<onunload>ClearProperty(Similar,home)</onunload>
 	<controls>
-		<visible>!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
-		<visible>!Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
 		<!-- alternate video info -->
 		<!-- Hidden Plot -->
 		<control type="textbox">
@@ -66,7 +64,6 @@
 			<texture>$VAR[ClearArt]</texture>
 			<aspectratio align="center" aligny="top">keep</aspectratio>
 			<visible>Skin.HasSetting(furniture.logo)</visible>
-			<include>DialogVideoInfoAnimation</include>
 		</control>
 		<control type="group">
 			<left>90</left>
@@ -82,10 +79,9 @@
 			</control>
 			<!-- DiscArt -->
 			<control type="image">
-			    <left>3</left>
-				<top>668</top>
-				<width>300</width>
-				<height>300</height>
+			    <top>640</top>
+				<width>320</width>
+				<height>320</height>
 				<texture>$VAR[CDArt]</texture>
 				<aspectratio aligny="center">scale</aspectratio>
 				<visible>Skin.HasSetting(furniture.discart)</visible>
@@ -132,11 +128,11 @@
 				<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) + !ListItem.IsResumable</visible>
 			</control>
 			<control id="7000" type="button">
-				<top>518</top>
-				<width>320</width>
-				<height>68</height>
-				<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
-				<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+				<top>500</top>
+					<width>320</width>
+					<height>50</height>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 				<onup>9000</onup>
 				<ondown>7001</ondown>
 				<onleft>Close</onleft>
@@ -146,15 +142,15 @@
 				<include>NoTextures</include>
 				<font>SmallBold</font>
 				<textcolor>Black700</textcolor>
-				<include>DefDialogInfoButtons</include>
+					<include>DefDialogInfoButtons</include>
 				<animation condition="!IsEmpty(Window(home).Property(Similar))" effect="fade" end="50" start="100" time="0">Conditional</animation>
 			</control>
 			<control id="7001" type="button">
-				<top>586</top>
-				<width>320</width>
-				<height>68</height>
-				<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
-				<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+				<top>550</top>
+					<width>320</width>
+					<height>50</height>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 				<onup>7000</onup>
 				<ondown condition="!IsEmpty(Container(5000).ListItem.Label)">5000</ondown>
 				<onleft>Close</onleft>
@@ -164,7 +160,7 @@
 				<font>SmallBold</font>
 				<textcolor>Black700</textcolor>
 				<label>Similar Titles</label>
-				<include>DefDialogInfoButtons</include>
+					<include>DefDialogInfoButtons</include>
 				<animation condition="IsEmpty(Window(home).Property(Similar))" effect="fade" end="50" start="100" time="0">Conditional</animation>
 			</control>
 		</control>
@@ -474,7 +470,7 @@
 					<ondown condition="Control.IsVisible(50)">50</ondown>
 					<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Director])</onclick>
 					<font>symbol</font>
-					<label></label>
+					<label></label>
 					<textoffsetx>20</textoffsetx>
 					<textcolor>Black700</textcolor>
 					<visible>!IsEmpty(ListItem.Director)</visible>
@@ -550,52 +546,52 @@
 					<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies)</visible>
 				</control>
 			</control>
-			<!-- Flags -->
-			<control type="group">
-			    <visible>!Control.HasFocus(7001)</visible>
+				<!-- Flags -->
+				<control type="group">
 				<animation condition="Control.HasFocus(50) | Control.HasFocus(5000)" effect="fade" end="0" start="100" time="0">Conditional</animation>
 				<animation condition="!Control.HasFocus(50) + !Control.HasFocus(5000)" delay="200" effect="fade" end="100" start="0" time="80">Conditional</animation>
-				<top>551</top>
-				<control type="image">
-					<width>108</width>
-					<height>50</height>
-					<texture colordiffuse="Black100">$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
-					<aspectratio align="left">scale</aspectratio>
-					<visible>!IsEmpty(ListItem.VideoAspect)</visible>
+					<top>551</top>
+					<control type="image">
+						<width>108</width>
+						<height>50</height>
+						<texture colordiffuse="Black100">$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+						<aspectratio align="left">scale</aspectratio>
+						<visible>!IsEmpty(ListItem.VideoAspect)</visible>
+					</control>
+					<control type="image">
+						<left>148</left>
+						<width>130</width>
+						<height>50</height>
+						<texture colordiffuse="Black100">$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+						<aspectratio align="left">scale</aspectratio>
+						<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+					</control>
+					<control type="image">
+						<left>318</left>
+						<width>130</width>
+						<height>50</height>
+						<texture colordiffuse="Black100">$INFO[ListItem.VideoCodec,flags/video/,.png]</texture>
+						<aspectratio align="left">scale</aspectratio>
+						<visible>!IsEmpty(ListItem.VideoCodec)</visible>
+					</control>
+					<control type="image">
+						<left>488</left>
+						<width>130</width>
+						<height>50</height>
+						<texture colordiffuse="Black100">$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+						<aspectratio align="left">scale</aspectratio>
+						<visible>!IsEmpty(ListItem.AudioCodec)</visible>
+					</control>
+					<control type="image">
+						<left>648</left>
+						<width>130</width>
+						<height>50</height>
+						<texture colordiffuse="Black100">$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
+						<aspectratio align="left">scale</aspectratio>
+						<visible>!IsEmpty(ListItem.AudioChannels)</visible>
+					</control>
 				</control>
-				<control type="image">
-					<left>148</left>
-					<width>130</width>
-					<height>50</height>
-					<texture colordiffuse="Black100">$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
-					<aspectratio align="left">scale</aspectratio>
-					<visible>!IsEmpty(ListItem.VideoResolution)</visible>
-				</control>
-				<control type="image">
-					<left>318</left>
-					<width>130</width>
-					<height>50</height>
-					<texture colordiffuse="Black100">$INFO[ListItem.VideoCodec,flags/video/,.png]</texture>
-					<aspectratio align="left">scale</aspectratio>
-					<visible>!IsEmpty(ListItem.VideoCodec)</visible>
-				</control>
-				<control type="image">
-					<left>488</left>
-					<width>130</width>
-					<height>50</height>
-					<texture colordiffuse="Black100">$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
-					<aspectratio align="left">scale</aspectratio>
-					<visible>!IsEmpty(ListItem.AudioCodec)</visible>
-				</control>
-				<control type="image">
-					<left>648</left>
-					<width>130</width>
-					<height>50</height>
-					<texture colordiffuse="Black100">$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
-					<aspectratio align="left">scale</aspectratio>
-					<visible>!IsEmpty(ListItem.AudioChannels)</visible>
-				</control>
-			</control>
+		
 		</control>
 		<control type="group">
 			<left>-67</left>
@@ -1015,7 +1011,7 @@
 					</control>
 				</control>
 			</control>
-			<!-- Similar videos -->
+			<!-- Similar videos
 			<control type="label">
 				<left>575</left>
 				<width>1000</width>
@@ -1026,7 +1022,7 @@
 				<visible>!IsEmpty(Window(home).Property(Similar)) + !IsEmpty(Container(5000).ListItem.Label) + !Control.HasFocus(5000)</visible>
 				<animation delay="400" effect="fade" end="100" start="0" time="200">Visible</animation>
 				<animation effect="fade" end="0" start="100" time="0">Hidden</animation>
-			</control>
+			</control> -->
 			<!-- No similar videos -->
 			<control type="label">
 				<top>120</top>
