@@ -8,6 +8,7 @@
 	<onload condition="Skin.HasSetting(ActivateTvTunes) + System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
 	<onload condition="System.HasAddon(script.tv.show.next.aired)">RunScript(script.tv.show.next.aired,backend=True)</onload>
 	<controls>
+
 		<include>GlobalBackground</include>
 		<include condition="!Skin.HasSetting(50list.low)">View_50_List</include>
 		<include condition="Skin.HasSetting(50list.low)">View_50_LowList</include>
@@ -249,6 +250,42 @@
 					<include>DefContextButton</include>
 				</control>
 			</control>
+		</control>
+		<control type="group">
+            <visible>!Window.IsVisible(DialogProgress.xml)</visible>
+            <visible>!Window.IsVisible(DialogBusy.xml)</visible>
+			<posx>735</posx>
+			<posy>486</posy>
+			<include>Animation.FadeIn</include>
+			<include>Animation.FadeOut</include>
+			<control type="image">
+				<description>background image</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>450</width>
+				<height>108</height>
+				<texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
+			</control>
+			<control type="image">
+				<description>Busy animation</description>
+				<posx>30</posx>
+				<posy>30</posy>
+				<width>48</width>
+				<height>48</height>
+				<texture colordiffuse="$VAR[ColourHighlight]" fallback="spinners/flower.gif">$INFO[Skin.String(busyloader)]</texture>
+				<aspectratio>keep</aspectratio>
+			</control>
+			<control type="label">
+				<description>Busy label</description>
+				<posx>105</posx>
+				<width>720</width>
+				<height>108</height>
+				<aligny>center</aligny>
+				<align>left</align>
+				<label>$LOCALIZE[20186]...</label>
+				<textcolor>Black70</textcolor>
+			</control>
+			<visible>stringcompare(Container.NumItems,0)</visible>
 		</control>
 	</controls>
 </window>

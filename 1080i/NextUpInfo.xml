@@ -34,9 +34,9 @@
 					<width>200</width>
 					<onup>3013</onup>
 					<ondown>3013</ondown>
-					<font>Button</font>
+					<font>symbol</font>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<label>Watch Now</label>
+					<label></label>
 					<focusedcolor>Selected</focusedcolor>
 					<disabledcolor>$VAR[OSDPanelWhite70]</disabledcolor>
 					<selectedcolor>Highlight2</selectedcolor>
@@ -51,9 +51,9 @@
 					<width>200</width>
 					<onup>3012</onup>
 					<ondown>3012</ondown>
-					<font>Button</font>
+					<font>symbol</font>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<label>222</label>
+					<label></label>
 					<focusedcolor>Selected</focusedcolor>
 					<disabledcolor>$VAR[OSDPanelWhite70]</disabledcolor>
 					<selectedcolor>Highlight2</selectedcolor>
@@ -145,11 +145,31 @@
 						</control>
 						<control type="textbox" description="Plot" id="3001">
 							<width>85%</width>
+							<top>1005</top>
+							<height>68</height>
+							<font>Tiny</font>
+							<align>justify</align>
+							<textcolor>$VAR[OSDPanelWhite30]</textcolor>
+							<visible>skin.hassetting(osd.hidespoilers)</visible>
+						</control>
+						<control type="textbox" description="Plot" id="3001">
+							<width>85%</width>
 							<top>105</top>
 							<height>68</height>
 							<font>Tiny</font>
 							<align>justify</align>
 							<textcolor>$VAR[OSDPanelWhite30]</textcolor>
+							<visible>!skin.hassetting(osd.hidespoilers)</visible>
+						</control>
+						<control type="label" description="Plot hidden">
+							<width>85%</width>
+							<top>105</top>
+							<height>68</height>
+							<font>Tiny</font>
+							<align>justify</align>
+							<textcolor>$VAR[OSDPanelWhite30]</textcolor>
+							<visible>skin.hassetting(osd.hidespoilers)</visible>
+							<label>* Hidden to prevent spoilers *</label>
 						</control>
 						<control type="label" description="Next up">
 							<width>400</width>
