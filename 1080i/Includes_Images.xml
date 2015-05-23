@@ -82,6 +82,7 @@
 		<value condition="!IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
 	</variable>
 	<variable name="CDArt">
+		<value condition="!container.content(movies)">$INFO[ListItem.Studio,flagging/studios/,.png]</value>
 		<value condition="!IsEmpty(ListItem.Art(discart))">$INFO[ListItem.Art(discart)]</value>
 		<value condition="IntegerGreaterThan(ListItem.VideoResolution,719)">cdart/bd.png</value>
 		<value condition="!IsEmpty(ListItem.VideoResolution)">cdart/default.png</value>

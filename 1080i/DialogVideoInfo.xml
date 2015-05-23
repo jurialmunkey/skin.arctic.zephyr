@@ -4,9 +4,9 @@
 	<defaultcontrol always="true">8</defaultcontrol>
 	<onload condition="System.HasAddon(script.videoextras)">RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
 	<onload>Control.Move(5000,$INFO[Container(5000).CurrentItem,-])</onload>
-	<onload>Control.Move(5000,1)</onload>
+	<onload>Control.Move(5000,0)</onload>
 	<onload>Control.Move(50,$INFO[Container(50).CurrentItem,-])</onload>
-	<onload>Control.Move(50,1)</onload>
+	<onload>Control.Move(50,0)</onload>
 	<onload condition="!IsEmpty(Container(50).ListItemNoWrap(0).Label)">SetProperty(Actor1,$INFO[Container(50).ListItemNoWrap(0).Label])</onload>
 	<onload condition="!IsEmpty(Container(50).ListItemNoWrap(1).Label)">SetProperty(Actor2,$INFO[Container(50).ListItemNoWrap(1).Label])</onload>
 	<onload condition="!IsEmpty(Container(50).ListItemNoWrap(2).Label)">SetProperty(Actor3,$INFO[Container(50).ListItemNoWrap(2).Label])</onload>
@@ -83,27 +83,37 @@
 				<width>320</width>
 				<height>320</height>
 				<texture>$VAR[CDArt]</texture>
-				<aspectratio aligny="center">scale</aspectratio>
+				<aspectratio aligny="center">keep</aspectratio>
 				<visible>Skin.HasSetting(furniture.discart)</visible>
-				<animation type="WindowOpen" reversible="false">
+				<animation type="WindowOpen" reversible="false" condition="container.content(movies)">
 					<effect type="slide" start="-200,20" end="0,0" delay="600" time="800" tween="quadratic" easing="out" />
 					<effect type="rotate" start="0" center="auto" end="-720" delay="400" time="800" tween="quadratic" easing="out" />
 				</animation>
-				<animation type="WindowClose" reversible="false">
+				<animation type="WindowClose" reversible="false" condition="container.content(movies)">
 					<effect type="slide" start="20,0" end="-400,0" time="320" tween="quadratic" easing="out" />
 				</animation>
-				<visible>Container.Content(movies)</visible>
+				<visible>container.content(movies)</visible>
 			</control>
-			<!-- Studio -->
+			<!-- DiscArt -->
+			<control type="image">
+			    <top>640</top>
+				<width>320</width>
+				<height>320</height>
+				<texture colordiffuse="Black100">$VAR[CDArt]</texture>
+				<aspectratio aligny="center">keep</aspectratio>
+				<visible>Skin.HasSetting(furniture.discart)</visible>
+				<visible>!container.content(movies)</visible>
+			</control>
+			<!-- Studio 
 			<control type="image">
 			    <top>743</top>
 				<width>320</width>
 				<height>217</height>
-				<texture colordiffuse="Black100">$VAR[Studio]</texture>
-				<aspectratio aligny="center">scale</aspectratio>
+				<texture>$VAR[Studio]</texture>
+				<aspectratio aligny="center">keep</aspectratio>
 				<visible>Container.Content(tvshows) | Container.Content(episodes)</visible>
 				<visible>!IsEmpty(ListItem.Studio)</visible>
-			</control>
+			</control> -->
 			<!-- <control type="image"> <width>90</width> <height>90</height> <texture>views/OverlayHD.png</texture> <visible>IntegerGreaterThan(ListItem.VideoResolution,719)</visible> </control> -->
 			<control type="image">
 				<top>3</top>
@@ -425,14 +435,13 @@
 					<ondown condition="Control.IsVisible(50)">50</ondown>
 					<font>symbol</font>
 					<label>$VAR[VideoInfoButton8]</label>
-					<altlabel>Browse[CR]TV Show</altlabel>
-					<!-- Commented out as needs icon for above altlabel -->
-					<!--  <usealttexture>Container.Content(TVShows)</usealttexture> -->
+					<altlabel></altlabel>
+					<usealttexture>Container.Content(TVShows)</usealttexture>
 					<textoffsetx>20</textoffsetx>
 					<textcolor>Black700</textcolor>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
-					<alttexturefocus border="3,5,6,8">views/button_fo.png</alttexturefocus>
+					<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</alttexturefocus>
 					<alttexturenofocus border="3,3,6,6">views/button_nf.png</alttexturenofocus>
 				</control>
 				<control id="1003" type="button">
@@ -462,7 +471,7 @@
 					<onclick condition="Player.HasMedia">PlayerControl(stop)</onclick>
 					<onclick>back</onclick>
 					<onclick>AlarmClock(ytsearch,ActivateWindow(busydialog),00:00,silent)</onclick>
-					<onclick>AlarmClock(cxytsearch,Dialog.Close(busydialog,force),00:01,silent)</onclick>
+					<onclick>AlarmClock(cxytsearch,Dialog.Close(busydialog,force),00:02,silent)</onclick>
 					<onclick>ActivateWindow(videos,$INFO[ListItem.Title,plugin://plugin.video.youtube/kodion/search/query/?q=, trailer],return)</onclick>
 					<font>symbol</font>
 					<label></label>
