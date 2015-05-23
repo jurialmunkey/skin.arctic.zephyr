@@ -20,9 +20,9 @@
 		<control type="textbox">
 			<left>-1200</left>
 			<width>1192</width>
-			<height>122</height>
+			<height>114</height>
 			<align>left</align>
-			<font>Light30Spaced</font>
+			<font>Small</font>
 			<pagecontrol>96</pagecontrol>
 			<autoscroll>false</autoscroll>
 			<textcolor>ffbbbbbb</textcolor>
@@ -32,7 +32,7 @@
 		<control id="96" type="scrollbar">
 			<left>-1200</left>
 			<width>1192</width>
-			<height>122</height>
+			<height>114</height>
 			<showonepage>false</showonepage>
 			<orientation>vertical</orientation>
 		</control>
@@ -154,14 +154,12 @@
 				<onright>50</onright>
 				<onfocus>ClearProperty(Similar,home)</onfocus>
 				<label>Overview</label>
-				<include>NoTextures</include>
 				<font>SmallBold</font>
 				<textcolor>Black700</textcolor>
 				<include>DefDialogInfoButtons</include>
-				<animation condition="!IsEmpty(Window(home).Property(Similar))" effect="fade" end="50" start="100" time="0">Conditional</animation>
 			</control>
 			<control id="7001" type="button">
-				<top>550</top>
+				<top>560</top>
 				<width>320</width>
 				<height>50</height>
 				<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
@@ -176,7 +174,6 @@
 				<textcolor>Black700</textcolor>
 				<label>Similar Titles</label>
 				<include>DefDialogInfoButtons</include>
-				<animation condition="IsEmpty(Window(home).Property(Similar))" effect="fade" end="50" start="100" time="0">Conditional</animation>
 			</control>
 		</control>
 		<control type="group">
@@ -252,8 +249,9 @@
 				<control type="image">
 					<top>2</top>
 					<width>137</width>
-					<height>24</height>
-					<texture>$VAR[StarRating]</texture>
+					<height>31</height>
+					<texture background="true" fallback="stars/rating0.png">stars/$INFO[ListItem.Rating].png</texture>
+					<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 					<visible>!IsEmpty(ListItem.Rating)</visible>
 				</control>
 				<control type="image">
@@ -310,7 +308,7 @@
 				<!-- Plot -->
 				<control type="textbox">
 					<width>1192</width>
-					<height max="122">auto</height>
+					<height max="114">auto</height>
 					<align>left</align>
 					<font>Small</font>
 					<autoscroll>false</autoscroll>
@@ -333,7 +331,7 @@
 					<onright>8</onright>
 					<onclick>SetFocus(4000)</onclick>
 					<include>DialogVideoInfoAnimation</include>
-					<texturefocus>views/more_fo.png</texturefocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]">views/more_fo.png</texturefocus>
 					<texturenofocus>views/more_nf.png</texturenofocus>
 					<visible>Control.IsVisible(96)</visible>
 				</control>
@@ -434,9 +432,9 @@
 					<textoffsetx>20</textoffsetx>
 					<textcolor>Black700</textcolor>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 					<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</alttexturefocus>
-					<alttexturenofocus border="3,3,6,6">views/button_nf.png</alttexturenofocus>
+					<alttexturenofocus colordiffuse="White70" border="5">common/box.png</alttexturenofocus>
 				</control>
 				<control id="1003" type="button">
 					<width>134</width>
@@ -453,7 +451,7 @@
 					<textcolor>Black700</textcolor>
 					<visible>!IsEmpty(ListItem.Trailer)</visible>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 				</control>
 				<control id="1006" type="button">
 					<width>134</width>
@@ -472,7 +470,7 @@
 					<visible>IsEmpty(ListItem.Trailer)</visible>
 					<visible>true</visible>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 				</control>
 				<control type="button" id="1007">
 					<width>134</width>
@@ -488,7 +486,7 @@
 					<textcolor>Black700</textcolor>
 					<visible>!IsEmpty(ListItem.Director)</visible>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 				</control>
 				<!-- Refresh Button -->
 				<control id="6" type="button">
@@ -504,7 +502,7 @@
 					<textcolor>Black700</textcolor>
 					<visible>Control.IsEnabled(6)</visible>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 				</control>
 				<!-- Get Thumb Button -->
 				<control id="10" type="button">
@@ -520,7 +518,7 @@
 					<textcolor>Black700</textcolor>
 					<visible>Control.IsEnabled(10)</visible>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 				</control>
 				<!-- Artwork Downloader Button -->
 				<control id="20" type="button">
@@ -537,7 +535,7 @@
 					<textoffsetx>20</textoffsetx>
 					<textcolor>Black700</textcolor>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 					<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 				</control>
 				<!-- Cinema Experience Button -->
@@ -555,7 +553,7 @@
 					<textoffsetx>20</textoffsetx>
 					<textcolor>Black700</textcolor>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 					<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies)</visible>
 				</control>
 			</control>
@@ -1364,7 +1362,8 @@
 		<!-- Background -->
 		<control type="image">
 			<include>Dimensions_Fullscreen</include>
-			<texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
+			<colordiffuse>DialogFanartFade</colordiffuse>
+			<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
 			<visible>Control.HasFocus(4000)</visible>
 			<animation effect="fade" end="100" start="0" time="200">Visible</animation>
 			<animation delay="100" effect="fade" end="0" start="100" time="200">Hidden</animation>
