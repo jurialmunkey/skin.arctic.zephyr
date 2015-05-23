@@ -92,6 +92,17 @@
 				<animation type="WindowClose" reversible="false" condition="container.content(movies)">
 					<effect type="slide" start="20,0" end="-400,0" time="320" tween="quadratic" easing="out" />
 				</animation>
+				<visible>container.content(movies)</visible>
+			</control>
+			<!-- DiscArt -->
+			<control type="image">
+			    <top>640</top>
+				<width>320</width>
+				<height>320</height>
+				<texture colordiffuse="Black100">$VAR[CDArt]</texture>
+				<aspectratio aligny="center">keep</aspectratio>
+				<visible>Skin.HasSetting(furniture.discart)</visible>
+				<visible>!container.content(movies)</visible>
 			</control>
 			<!-- Studio 
 			<control type="image">
@@ -430,7 +441,7 @@
 					<textcolor>Black700</textcolor>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<texturenofocus border="3,3,6,6">views/button_nf.png</texturenofocus>
-					<alttexturefocus border="3,5,6,8">views/button_fo.png</alttexturefocus>
+					<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</alttexturefocus>
 					<alttexturenofocus border="3,3,6,6">views/button_nf.png</alttexturenofocus>
 				</control>
 				<control id="1003" type="button">
@@ -460,7 +471,7 @@
 					<onclick condition="Player.HasMedia">PlayerControl(stop)</onclick>
 					<onclick>back</onclick>
 					<onclick>AlarmClock(ytsearch,ActivateWindow(busydialog),00:00,silent)</onclick>
-					<onclick>AlarmClock(cxytsearch,Dialog.Close(busydialog,force),00:01,silent)</onclick>
+					<onclick>AlarmClock(cxytsearch,Dialog.Close(busydialog,force),00:02,silent)</onclick>
 					<onclick>ActivateWindow(videos,$INFO[ListItem.Title,plugin://plugin.video.youtube/kodion/search/query/?q=, trailer],return)</onclick>
 					<font>symbol</font>
 					<label></label>
