@@ -249,6 +249,7 @@
 	</variable>
 	<variable name="VideoInfoLabel">
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Title]$INFO[ListItem.TVShowTitle, / ]</value>
+		<value condition="Container.Content(movies) + !IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>
 		<value>$INFO[ListItem.Title]</value>
 	</variable>
 	<variable name="CastList">
