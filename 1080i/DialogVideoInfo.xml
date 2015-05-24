@@ -161,8 +161,8 @@
 				<height>50</height>
 				<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 				<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-				<onup>9000</onup>
-				<onup>9001</onup>
+				<onup condition="!Skin.HasSetting(furniture.info.showtext)">9000</onup>
+				<onup condition="Skin.HasSetting(furniture.info.showtext)">9001</onup>
 				<ondown>7001</ondown>
 				<onleft>Close</onleft>
 				<onright>50</onright>
