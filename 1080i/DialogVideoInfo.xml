@@ -68,6 +68,19 @@
 			<visible>Skin.HasSetting(furniture.logo)</visible>
 			<include>DialogVideoInfoAnimation</include>
 		</control>
+		<control type="label">
+			<top>45</top>
+			<right>298</right>
+			<width>auto</width>
+			<height>32</height>
+			<font>EndTime</font>
+			<align>center</align>
+			<aligny>bottom</aligny>
+			<textcolor>Black700</textcolor>
+			<label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
+			<visible>!IsEmpty(ListItem.EndTime)</visible>
+			<visible>Container.Content(movies) | Container.Content(episodes)</visible>
+		</control>
 		<control type="group">
 			<left>90</left>
 			<top>99</top>
@@ -222,17 +235,6 @@
 					<label>$VAR[Duration]</label>
 					<visible>!IsEmpty(ListItem.Duration)</visible>
 				</control>
-				<control type="label">
-					<top>-6</top>
-					<width>auto</width>
-					<height>32</height>
-					<font>Small</font>
-					<aligny>bottom</aligny>
-					<textcolor>Black700</textcolor>
-					<label>($INFO[ListItem.EndTime,$LOCALIZE[31106] ,])</label>
-					<visible>!IsEmpty(ListItem.EndTime)</visible>
-					<visible>Container.Content(movies) | Container.Content(episodes)</visible>
-				</control>
 				<control type="image">
 					<top>3</top>
 					<width>35</width>
@@ -241,12 +243,11 @@
 					<texture>rating/cc.png</texture>
 					<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
 				</control>
-				<!--
 				<include>Rating_TV</include>
 				<include condition="IsEmpty(Skin.String(RatingCountry))">Rating_BBFC</include>
 				<include condition="Stringcompare(Skin.String(RatingCountry),US)">Rating_MPAA</include>
 				<include condition="Stringcompare(Skin.String(RatingCountry),UK)">Rating_BBFC</include>
-				<include condition="Stringcompare(Skin.String(RatingCountry),Germany)">Rating_FSK</include> -->
+				<include condition="Stringcompare(Skin.String(RatingCountry),Germany)">Rating_FSK</include>
 			</control>
 			<!-- Star rating / Votes / Rating -->
 			<control type="grouplist">
