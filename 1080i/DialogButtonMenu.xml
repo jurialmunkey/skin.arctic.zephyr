@@ -78,7 +78,8 @@
                     <description>Shutdown</description>
                     <include>DefContextButton</include>
                     <label>13005</label>
-                    <onclick>ShutDown()</onclick>
+                    <onclick>Powerdown()</onclick>
+                    <visible>System.CanPowerDown</visible>
                 </control>
                 
                 <control type="button" id="3114">
@@ -95,6 +96,7 @@
                     <label>20150</label>
                     <onclick>XBMC.AlarmClock(shutdowntimer,XBMC.Shutdown())</onclick>
                     <visible>!System.HasAlarm(shutdowntimer)</visible>
+                    <visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>
                 </control>
 
                 <control type="label" id="3119">
@@ -110,6 +112,7 @@
                     <include>DefContextButton</include>
                     <label>13011</label>
                     <onclick>XBMC.Suspend()</onclick>
+                    <visible>System.CanSuspend</visible>
                 </control>
 
                 <control type="button" id="3118">
@@ -117,6 +120,7 @@
                     <include>DefContextButton</include>
                     <label>13013</label>
                     <onclick>XBMC.Reset()</onclick>
+                    <visible>System.CanReboot</visible>
                 </control>
                 
                 <control type="button" id="3121">
