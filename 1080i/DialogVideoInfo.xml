@@ -448,6 +448,26 @@
 					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 					<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</alttexturefocus>
 					<alttexturenofocus colordiffuse="White70" border="5">common/box.png</alttexturenofocus>
+					<visible>!Skin.HasSetting(furniture.info.showtext)</visible>
+				</control>
+				<control id="8" type="togglebutton">
+					<width>134</width>
+					<height>116</height>
+					<onup condition="!Control.IsVisible(96)">Close</onup>
+					<onup condition="Control.IsVisible(96)">3002</onup>
+					<ondown condition="Control.IsVisible(5000)">5000</ondown>
+					<ondown condition="Control.IsVisible(50)">50</ondown>
+					<usealttexture>Container.Content(TVShows)</usealttexture>
+					<textcolor>Black700</textcolor>
+					<textoffsetx>0</textoffsetx>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</alttexturefocus>
+					<alttexturenofocus colordiffuse="White70" border="5">common/box.png</alttexturenofocus>
+					<font>Button</font>
+					<label>$VAR[VideoInfoButton8]</label>
+					<altlabel>Browse[CR]TV Show</altlabel>
+					<visible>Skin.HasSetting(furniture.info.showtext)</visible>
 				</control>
 				<control id="1003" type="button">
 					<width>134</width>
@@ -460,11 +480,29 @@
 					<onclick>PlayMedia($INFO[ListItem.Trailer])</onclick>
 					<font>symbol</font>
 					<label></label>
-					<textoffsetx>20</textoffsetx>
 					<textcolor>Black700</textcolor>
 					<visible>!IsEmpty(ListItem.Trailer)</visible>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<visible>!Skin.HasSetting(furniture.info.showtext)</visible>
+				</control>
+				<control id="1003" type="button">
+					<width>134</width>
+					<height>116</height>
+					<onup condition="!Control.IsVisible(96)">Close</onup>
+					<onup condition="Control.IsVisible(96)">3002</onup>
+					<ondown condition="Control.IsVisible(5000)">5000</ondown>
+					<ondown condition="Control.IsVisible(50)">50</ondown>
+					<onclick condition="Player.HasMedia">PlayerControl(stop)</onclick>
+					<onclick>PlayMedia($INFO[ListItem.Trailer])</onclick>
+					<textcolor>Black700</textcolor>
+					<textoffsetx>0</textoffsetx>
+					<visible>!IsEmpty(ListItem.Trailer)</visible>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<label>Watch[CR]Trailer</label>
+					<font>Button</font>
+					<visible>Skin.HasSetting(furniture.info.showtext)</visible>
 				</control>
 				<control id="1006" type="button">
 					<width>134</width>
@@ -478,12 +516,32 @@
 					<onclick>ActivateWindow(videos,$INFO[ListItem.Title,plugin://plugin.video.youtube/kodion/search/query/?q=, trailer],return)</onclick>
 					<font>symbol</font>
 					<label></label>
-					<textoffsetx>20</textoffsetx>
 					<textcolor>Black700</textcolor>
 					<visible>IsEmpty(ListItem.Trailer)</visible>
 					<visible>true</visible>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<visible>!Skin.HasSetting(furniture.info.showtext)</visible>
+				</control>
+				<control id="1006" type="button">
+					<width>134</width>
+					<height>116</height>
+					<onup condition="!Control.IsVisible(96)">Close</onup>
+					<onup condition="Control.IsVisible(96)">3002</onup>
+					<ondown condition="Control.IsVisible(5000)">5000</ondown>
+					<ondown condition="Control.IsVisible(50)">50</ondown>
+					<onclick condition="Player.HasMedia">PlayerControl(stop)</onclick>
+					<onclick>back</onclick>
+					<onclick>ActivateWindow(videos,$INFO[ListItem.Title,plugin://plugin.video.youtube/kodion/search/query/?q=, trailer],return)</onclick>
+					<textcolor>Black700</textcolor>
+					<textoffsetx>0</textoffsetx>
+					<visible>IsEmpty(ListItem.Trailer)</visible>
+					<visible>true</visible>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<font>Button</font>
+					<label>Search[CR]Youtube</label>
+					<visible>Skin.HasSetting(furniture.info.showtext)</visible>
 				</control>
 				<control type="button" id="1007">
 					<width>134</width>
@@ -495,11 +553,28 @@
 					<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Director])</onclick>
 					<font>symbol</font>
 					<label></label>
-					<textoffsetx>20</textoffsetx>
 					<textcolor>Black700</textcolor>
 					<visible>!IsEmpty(ListItem.Director)</visible>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<visible>!Skin.HasSetting(furniture.info.showtext)</visible>
+				</control>
+				<control type="button" id="1007">
+					<width>134</width>
+					<height>116</height>
+					<onup condition="!Control.IsVisible(96)">Close</onup>
+					<onup condition="Control.IsVisible(96)">3002</onup>
+					<ondown condition="Control.IsVisible(5000)">5000</ondown>
+					<ondown condition="Control.IsVisible(50)">50</ondown>
+					<onclick>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[ListItem.Director])</onclick>
+					<textcolor>Black700</textcolor>
+					<textoffsetx>0</textoffsetx>
+					<visible>!IsEmpty(ListItem.Director)</visible>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<font>Button</font>
+					<label>Director</label>
+					<visible>Skin.HasSetting(furniture.info.showtext)</visible>
 				</control>
 				<!-- Refresh Button -->
 				<control id="6" type="button">
@@ -511,11 +586,27 @@
 					<ondown condition="Control.IsVisible(50)">50</ondown>
 					<font>symbol</font>
 					<label></label>
-					<textoffsetx>20</textoffsetx>
 					<textcolor>Black700</textcolor>
 					<visible>Control.IsEnabled(6)</visible>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<visible>!Skin.HasSetting(furniture.info.showtext)</visible>
+				</control>
+				<control id="6" type="button">
+					<width>134</width>
+					<height>116</height>
+					<onup condition="!Control.IsVisible(96)">Close</onup>
+					<onup condition="Control.IsVisible(96)">3002</onup>
+					<ondown condition="Control.IsVisible(5000)">5000</ondown>
+					<ondown condition="Control.IsVisible(50)">50</ondown>
+					<textcolor>Black700</textcolor>
+					<textoffsetx>0</textoffsetx>
+					<visible>Control.IsEnabled(6)</visible>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<font>Button</font>
+					<label>184</label>
+					<visible>Skin.HasSetting(furniture.info.showtext)</visible>
 				</control>
 				<!-- Get Thumb Button -->
 				<control id="10" type="button">
@@ -527,11 +618,27 @@
 					<ondown condition="Control.IsVisible(50)">50</ondown>
 					<font>symbol</font>
 					<label></label>
-					<textoffsetx>20</textoffsetx>
 					<textcolor>Black700</textcolor>
 					<visible>Control.IsEnabled(10)</visible>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<visible>!Skin.HasSetting(furniture.info.showtext)</visible>
+				</control>
+				<control id="10" type="button">
+					<width>134</width>
+					<height>116</height>
+					<onup condition="!Control.IsVisible(96)">Close</onup>
+					<onup condition="Control.IsVisible(96)">3002</onup>
+					<ondown condition="Control.IsVisible(5000)">5000</ondown>
+					<ondown condition="Control.IsVisible(50)">50</ondown>
+					<textoffsetx>0</textoffsetx>
+					<textcolor>Black700</textcolor>
+					<visible>Control.IsEnabled(10)</visible>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<font>Button</font>
+					<label>13405</label>
+					<visible>Skin.HasSetting(furniture.info.showtext)</visible>
 				</control>
 				<!-- Artwork Downloader Button -->
 				<control id="20" type="button">
@@ -550,6 +657,25 @@
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 					<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+					<visible>!Skin.HasSetting(furniture.info.showtext)</visible>
+				</control>
+				<control id="20" type="button">
+					<width>134</width>
+					<height>116</height>
+					<onup condition="!Control.IsVisible(96)">Close</onup>
+					<onup condition="Control.IsVisible(96)">3002</onup>
+					<ondown condition="Control.IsVisible(5000)">5000</ondown>
+					<ondown condition="Control.IsVisible(50)">50</ondown>
+					<onclick condition="Container.Content(tvshows)">RunScript(script.artwork.downloader, mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
+					<onclick condition="Container.Content(movies)">RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
+					<textoffsetx>0</textoffsetx>
+					<textcolor>Black700</textcolor>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+					<font>Button</font>
+					<label>13511</label>
+					<visible>Skin.HasSetting(furniture.info.showtext)</visible>
 				</control>
 				<!-- Cinema Experience Button -->
 				<control id="21" type="button">
@@ -563,11 +689,29 @@
 					<onclick>RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
 					<font>symbol</font>
 					<label></label>
-					<textoffsetx>20</textoffsetx>
 					<textcolor>Black700</textcolor>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 					<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies)</visible>
+					<visible>!Skin.HasSetting(furniture.info.showtext)</visible>
+				</control>
+				<control id="21" type="button">
+					<width>134</width>
+					<height>116</height>
+					<onup condition="!Control.IsVisible(96)">Close</onup>
+					<onup condition="Control.IsVisible(96)">3002</onup>
+					<ondown condition="Control.IsVisible(5000)">5000</ondown>
+					<ondown condition="Control.IsVisible(50)">50</ondown>
+					<onclick>Dialog.Close(MovieInformation)</onclick>
+					<onclick>RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
+					<textcolor>Black700</textcolor>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies)</visible>
+					<font>Button</font>
+					<label>31104</label>
+					<textoffsetx>0</textoffsetx>
+					<visible>Skin.HasSetting(furniture.info.showtext)</visible>
 				</control>
 			</control>
 			<!-- Flags -->
