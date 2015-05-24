@@ -8,7 +8,7 @@
             <visible>Control.IsVisible(50)</visible>
             <control type="group">
                 <control type="list" id="50">
-                    <visible>Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left)] | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)]</visible>
+                    <visible>Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left) + !stringcompare(Container.FolderPath,library://video/movies/) + !stringcompare(Container.FolderPath,library://video/tvshows/) + !stringcompare(Container.FolderPath,special://videoplaylists/)] | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)]</visible>
                     <top>PosterPad</top>
                     <height>PosterH</height>
                     <left>ListX</left>
@@ -78,7 +78,7 @@
             <control type="group">
                 <posy>320</posy>
                 <control type="fixedlist" id="50">
-                    <visible>Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left)] | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)]</visible>
+                    <visible>Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left) + !stringcompare(Container.FolderPath,library://video/movies/) + !stringcompare(Container.FolderPath,library://video/tvshows/) + !stringcompare(Container.FolderPath,special://videoplaylists/)] | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)]</visible>
                     <top>PosterPad</top>
                     <height>320</height>
                     <left>ListX</left>
@@ -245,7 +245,85 @@
             </control>
         </control>
     </include>
-    
+    <include name="View_550_List">
+        <description>List View (id=550)</description>
+        <control type="group">
+            <include>Animation.Common</include>
+            <visible>Control.IsVisible(550)</visible>
+            <control type="group">
+                <control type="list" id="550">
+                    <visible>![Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left) + !stringcompare(Container.FolderPath,library://video/movies/) + !stringcompare(Container.FolderPath,library://video/tvshows/) + !stringcompare(Container.FolderPath,special://videoplaylists/)] | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)]]</visible>
+                    <top>PosterPad</top>
+                    <height>PosterH</height>
+                    <left>ListSquareX</left>
+                    <right>SidePad</right>
+                    <onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+                    <onright>60</onright>
+                    <onup>50</onup>
+                    <ondown>50</ondown>
+                    <pagecontrol>60</pagecontrol>
+                    <viewtype label="535">list</viewtype>
+                    <scrolltime>200</scrolltime>
+                    <itemlayout width="ListSquareW" height="64">
+                        <include>50itemlayout_square</include>
+                    </itemlayout>
+
+                    <focusedlayout width="ListSquareW" height="64">
+                        <control type="group">
+                            <visible>Control.HasFocus(550)</visible>
+                            <include>50focuslayout_square</include>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(550)</visible>
+                            <include>50itemlayout_square</include>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <include>Furniture_Scrollbar</include>
+            </control>
+            <control type="group" description="Poster">
+                
+                <left>SidePad</left>
+                <top>PosterPad</top>
+                <control type="image">
+                    <top>PosterH</top>
+                    <width>PosterH</width>
+                    <height>PosterH</height>
+                    <fadetime>100</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$VAR[PosterImage]</texture>
+                    <visible>Skin.HasSetting(show.reflections)</visible>
+                </control>
+                <control type="image">
+                    <centertop>PosterH</centertop>
+                    <width>PosterH</width>
+                    <height>48</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture>diffuse/shadowspot.png</texture>
+                    
+                </control>
+                <control type="image">
+                    <width>PosterH</width>
+                    <height>PosterH</height>
+                    <texture border="5" colordiffuse="FF181818">common/box.png</texture>
+                </control>
+                <control type="image">
+                    <width>PosterH</width>
+                    <height>PosterH</height>
+                    <fadetime>100</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
+                </control>
+                <control type="image">
+                    <left>-24</left>
+                    <top>-24</top>
+                    <width>PosterShadowH</width>
+                    <height>PosterShadowH</height>
+                    <texture border="32">common/shadow-24.png</texture>
+                </control>
+            </control>
+        </control>
+    </include>
     <include name="50focuslayout">
         <control type="image">                                
             <width>100%</width>
