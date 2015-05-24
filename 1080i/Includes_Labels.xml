@@ -258,12 +258,12 @@
 		<value condition="!IsEmpty(Window(movieinformation).Property(Actor1))">$INFO[Window(movieinformation).Property(Actor1)]</value>
 	</variable>
 	<variable name="VideoInfoButton8">
-		<value condition="ListItem.IsResumable"></value>
-		<!--<value condition="ListItem.IsResumable + Skin.HasSetting(furniture.info.showtext)">Resume</value>-->
-		<value condition="IntegerGreaterThan(ListItem.PlayCount,0)"></value>
-		<!--<value condition="IntegerGreaterThan(ListItem.PlayCount,0) + Skin.HasSetting(furniture.info.showtext)">Watch[CR]Again</value>-->
+		<value condition="ListItem.IsResumable + !Skin.HasSetting(furniture.info.showtext)"></value>
+		<value condition="ListItem.IsResumable + Skin.HasSetting(furniture.info.showtext)">Resume</value>
+		<value condition="IntegerGreaterThan(ListItem.PlayCount,0) + !Skin.HasSetting(furniture.info.showtext)"></value>
+		<value condition="IntegerGreaterThan(ListItem.PlayCount,0) + Skin.HasSetting(furniture.info.showtext)">Watch[CR]Again</value>
 		<value condition="!Skin.HasSetting(furniture.info.showtext)"></value>
-		<!--<value condition="Skin.HasSetting(furniture.info.showtext)">Watch[CR]Now</value>-->
+		<value condition="Skin.HasSetting(furniture.info.showtext)">Watch[CR]Now</value>
 	</variable>
 	<variable name="SimilarVideos">
 		<value condition="Container.Content(movies)">plugin://script.extendedinfo?info=similarmovies&amp;&amp;dbid=$INFO[ListItem.DBID]</value>
