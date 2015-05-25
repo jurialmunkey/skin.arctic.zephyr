@@ -394,7 +394,8 @@
             <font>Small</font>
             <textcolor>Light1</textcolor>
             <selectedcolor>Light1</selectedcolor>
-            <label>$INFO[ListItem.Rating]</label>
+            <label fallback="0.0">$INFO[ListItem.Rating]</label>
+            <visible>!stringcompare(ListItem.Label,..)</visible>
             <visible>!Container.Content(seasons)</visible>
         </control>
     </include>
@@ -464,8 +465,8 @@
             <font>Small</font>
             <textcolor>Dark1</textcolor>
             <selectedcolor>Dark1</selectedcolor>
-            <label>$INFO[ListItem.Rating]</label>
-            
+            <label fallback="0.0">$INFO[ListItem.Rating]</label>
+            <visible>!stringcompare(ListItem.Label,..)</visible>
             <visible>!Container.Content(seasons)</visible>
         </control>
     </include>

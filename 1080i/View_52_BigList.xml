@@ -105,13 +105,22 @@
         <control type="label">
             <left>130</left>
             <top>10</top>
-            <right>40</right>
+            <right>100</right>
             <align>right</align>
             <height>100</height>
             <aligny>center</aligny>
             <font>Small</font>
             <textcolor>Dark1</textcolor>
             <label>$INFO[ListItem.Label2]</label>
+        </control>
+        <control type="image">
+            <centerright>58</centerright>
+            <centertop>60</centertop>
+            <width>32</width>
+            <height>32</height>
+            <aspectratio aligny="top">keep</aspectratio>
+            <texture>$VAR[PercentWatched]</texture>
+            <visible>!stringcompare(ListItem.Label,..)</visible>
         </control>
     </include>
 
@@ -153,13 +162,22 @@
         <control type="label">
             <left>130</left>
             <top>10</top>
-            <right>40</right>
+            <right>100</right>
             <align>right</align>
             <height>100</height>
             <aligny>center</aligny>
             <font>Small</font>
             <textcolor>Light1</textcolor>
             <label>$INFO[ListItem.Label2]</label>
+        </control>
+        <control type="image">
+            <centerright>58</centerright>
+            <centertop>60</centertop>
+            <width>32</width>
+            <height>32</height>
+            <aspectratio aligny="top">keep</aspectratio>
+            <texture>$VAR[PercentWatched]</texture>
+            <visible>!stringcompare(ListItem.Label,..)</visible>
         </control>
     </include>
 
