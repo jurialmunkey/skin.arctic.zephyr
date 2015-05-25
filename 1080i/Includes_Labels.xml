@@ -575,4 +575,12 @@
 		<value condition="StringCompare(ListItem.Duration,299)">4 hours 59 minutes</value>
 		<value condition="StringCompare(ListItem.Duration,300)">5 hours</value>
 	</variable>
+	<variable name="MusicInfoLabel">
+		<value condition="Container.Content(albums)">$INFO[ListItem.Album]</value>
+		<value>$INFO[ListItem.Artist]</value>
+	</variable>
+	<variable name="MusicInfoDescription">
+		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Description)]</value>
+		<value>$INFO[ListItem.Property(Artist_Description)]</value>
+	</variable>
 </includes>
