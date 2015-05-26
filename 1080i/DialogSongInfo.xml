@@ -51,6 +51,135 @@
 			</control>
 			<!-- Button grouplist -->
 			<control id="9000" type="grouplist">
+				<visible>!Skin.HasSetting(furniture.info.showtext)</visible>
+				<left>444</left>
+				<bottom>33</bottom>
+				<width>311</width>
+				<height>400</height>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+				<itemgap>10</itemgap>
+				<align>right</align>
+				<!-- Get Thumb Button -->
+				<control type="button" id="13">
+					<width>311</width>
+					<height>76</height>
+					<aligny>center</aligny>
+					<align>center</align>
+					<font>symbol</font>
+					<label></label>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+				</control>
+				<control type="group" id="16">
+					<width>311</width>
+					<height>76</height>
+					<!-- Rate Down Button -->
+					<control type="button" id="100">
+						<width>311</width>
+						<height>76</height>
+						<font>-</font>
+						<onup>13</onup>
+						<ondown>10</ondown>
+						<onright>101</onright>
+						<onclick>DecreaseRating</onclick>
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+					</control>
+					<!-- Rate Up Button -->
+					<control type="button" id="101">
+						<width>311</width>
+						<height>76</height>
+						<font>-</font>
+						<onup>13</onup>
+						<ondown>10</ondown>
+						<onleft>100</onleft>
+						<onclick>IncreaseRating</onclick>
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+					</control>
+					<control type="image">
+						<width>311</width>
+						<height>76</height>
+						<texture colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texture>
+						<visible>Control.HasFocus(100) | Control.HasFocus(101)</visible>
+					</control>
+					<control type="image">
+						<width>311</width>
+						<height>76</height>
+						<texture colordiffuse="White70" border="5">common/box.png</texture>
+						<visible>Control.HasFocus(10) | Control.HasFocus(13)</visible>
+					</control>
+					<control type="label">
+						<width>311</width>
+						<height>76</height>
+						<aligny>center</aligny>
+						<align>center</align>
+						<font>symbol</font>
+						<textcolor>ffeeeeee</textcolor>
+						<label></label>
+						<visible>Control.HasFocus(100) | Control.HasFocus(101)</visible>
+					</control>
+					<control type="label">
+						<width>311</width>
+						<height>76</height>
+						<aligny>center</aligny>
+						<align>center</align>
+						<font>symbol</font>
+						<textcolor>ffd8d8d8</textcolor>
+						<label></label>
+						<visible>Control.HasFocus(10) | Control.HasFocus(13)</visible>
+					</control>
+					<control type="image">
+						<left>227</left>
+						<top>27</top>
+						<width>32</width>
+						<height>21</height>
+						<texture border="8">dialog/SpinDownNF.png</texture>
+						<visible>!Control.HasFocus(100)</visible>
+					</control>
+					<control type="image">
+						<left>227</left>
+						<top>27</top>
+						<width>32</width>
+						<height>21</height>
+						<texture border="8">dialog/SpinDownFODark.png</texture>
+						<visible>Control.HasFocus(100)</visible>
+					</control>
+					<control type="image">
+						<left>259</left>
+						<top>27</top>
+						<width>32</width>
+						<height>21</height>
+						<texture border="8">dialog/SpinUpNF.png</texture>
+						<visible>!Control.HasFocus(101)</visible>
+					</control>
+					<control type="image">
+						<left>259</left>
+						<top>27</top>
+						<width>32</width>
+						<height>21</height>
+						<texture border="8">dialog/SpinUpFODark.png</texture>
+						<visible>Control.HasFocus(101)</visible>
+					</control>
+				</control>
+				<!-- OK Button -->
+				<control id="10" type="button">
+					<width>311</width>
+					<height>76</height>
+					<aligny>center</aligny>
+					<align>center</align>
+					<font>symbol</font>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<label></label>
+				</control>
+			</control>
+			<!-- Button grouplist -->
+			<control id="9001" type="grouplist">
+				<visible>Skin.HasSetting(furniture.info.showtext)</visible>
 				<left>444</left>
 				<bottom>33</bottom>
 				<width>311</width>

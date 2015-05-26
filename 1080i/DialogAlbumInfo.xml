@@ -81,7 +81,7 @@
 			</control>
 			<control id="7000" type="button">
 				<top>374</top>
-				<width>320</width>
+				<width>336</width>
 				<height>50</height>
 				<onup>Close</onup>
 				<ondown>7001</ondown>
@@ -101,7 +101,7 @@
 			</control>
 			<control id="7001" type="button">
 				<top>434</top>
-				<width>320</width>
+				<width>336</width>
 				<height>50</height>
 				<onup>7000</onup>
 				<ondown condition="Container.Content(artists)">7002</ondown>
@@ -121,7 +121,7 @@
 			</control>
 			<control id="7002" type="button">
 				<top>494</top>
-				<width>320</width>
+				<width>336</width>
 				<height>50</height>
 				<onup>7001</onup>
 				<ondown>7003</ondown>
@@ -141,7 +141,7 @@
 			</control>
 			<control id="7003" type="button">
 				<top>554</top>
-				<width>320</width>
+				<width>336</width>
 				<height>50</height>
 				<onup>7002</onup>
 				<ondown>7004</ondown>
@@ -161,7 +161,7 @@
 			</control>
 			<control id="7004" type="button">
 				<top>614</top>
-				<width>320</width>
+				<width>336</width>
 				<height>50</height>
 				<onup>7003</onup>
 				<ondown>noop</ondown>
@@ -391,6 +391,7 @@
 						<font>symbol</font>
 						<label></label>
 						<textcolor>Black700</textcolor>
+						<onclick>back</onclick>
 						<onclick condition="Container.Content(artists)">ActivateWindow(videos,plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[ListItem.Artist],return)</onclick>
 						<onclick condition="Container.Content(albums)">ActivateWindow(videos,plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[ListItem.Artist] $INFO[ListItem.Album],return)</onclick>
 						<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
@@ -463,6 +464,7 @@
 						<font>Button</font>
 						<label>Search[CR]Youtube</label>
 						<textcolor>Black700</textcolor>
+						<onclick>back</onclick>
 						<onclick condition="Container.Content(artists)">ActivateWindow(videos,plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[ListItem.Artist],return)</onclick>
 						<onclick condition="Container.Content(albums)">ActivateWindow(videos,plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[ListItem.Artist] $INFO[ListItem.Album],return)</onclick>
 						<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
