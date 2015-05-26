@@ -22,6 +22,12 @@
 			<control type="image">
 				<include>Dimensions_Fullscreen</include>
 				<colordiffuse>DialogFanartFade</colordiffuse>
+				<texture background="true">genrethumb/headphones.jpg</texture>
+				<visible>IsEmpty(Container.Art(artist.fanart)) + IsEmpty(ListItem.Art(fanart))</visible>
+			</control>
+			<control type="image">
+				<include>Dimensions_Fullscreen</include>
+				<colordiffuse>DialogFanartFade</colordiffuse>
 				<texture background="true">$VAR[MusicFanart]</texture>
 			</control>
 		</control>
