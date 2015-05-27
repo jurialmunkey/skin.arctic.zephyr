@@ -4,11 +4,11 @@
 	<defaultcontrol always="true">7000</defaultcontrol>
 	<zorder>2</zorder>
 	<onunload>ClearProperty(StarredInTV,home)</onunload>
+	<onunload>ClearProperty(Youtube,home)</onunload>
+	<onunload>ClearProperty(Images,home)</onunload>
 	<animation effect="fade" end="100" start="100" time="200">WindowClose</animation>
 	<controls>
 		<!-- Hidden Lists -->
-		<control id="350" type="list" />
-		<control id="450" type="list" />
 		<control id="550" type="list" />
 		<control id="650" type="list" />
 		<control id="750" type="list" />
@@ -63,31 +63,68 @@
 					<onright condition="!IsEmpty(Container(150).ListItemNoWrap(0).Label)">150</onright>
 					<onright condition="IsEmpty(Container(150).ListItemNoWrap(0).Label) + Control.IsVisible(96)">132</onright>
 					<onfocus>ClearProperty(StarredInTV,home)</onfocus>
+					<onfocus>ClearProperty(Youtube,home)</onfocus>
+					<onfocus>ClearProperty(Images,home)</onfocus>
 					<label>Movie Roles</label>
 					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<font>SmallBold</font>
 					<textcolor>Black700</textcolor>
 					<include>DefDialogInfoButtons</include>
-					<animation condition="!IsEmpty(Window(home).Property(StarredInTV))" effect="fade" end="50" start="100" time="0">Conditional</animation>
 				</control>
 				<control id="7001" type="button">
 					<top>573</top>
 					<width>290</width>
 					<height>50</height>
 					<onup>7000</onup>
-					<ondown>noop</ondown>
+					<ondown>7002</ondown>
 					<onleft>Close</onleft>
 					<onright condition="!IsEmpty(Container(250).ListItem.Label)">250</onright>
 					<onfocus>SetProperty(StarredInTV,1,home)</onfocus>
+					<onfocus>ClearProperty(Youtube,home)</onfocus>
+					<onfocus>ClearProperty(Images,home)</onfocus>
 					<label>TV Roles</label>
 					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<font>SmallBold</font>
 					<textcolor>Black700</textcolor>
 					<include>DefDialogInfoButtons</include>
-					<visible>!IsEmpty(Container(250).ListItem.Label)</visible>
-					<animation condition="IsEmpty(Window(home).Property(StarredInTV))" effect="fade" end="50" start="100" time="0">Conditional</animation>
+				</control>
+				<control id="7002" type="button">
+					<top>628</top>
+					<width>290</width>
+					<height>50</height>
+					<onup>7001</onup>
+					<ondown>7003</ondown>
+					<onleft>Close</onleft>
+					<onright condition="!IsEmpty(Container(350).ListItem.Label)">350</onright>
+					<onfocus>SetProperty(Youtube,1,home)</onfocus>
+					<onfocus>ClearProperty(StarredInTV,home)</onfocus>
+					<onfocus>ClearProperty(Images,home)</onfocus>
+					<label>YouTube</label>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<font>SmallBold</font>
+					<textcolor>Black700</textcolor>
+					<include>DefDialogInfoButtons</include>
+				</control>
+				<control id="7003" type="button">
+					<top>683</top>
+					<width>290</width>
+					<height>50</height>
+					<onup>7002</onup>
+					<ondown>noop</ondown>
+					<onleft>Close</onleft>
+					<onright condition="!IsEmpty(Container(450).ListItem.Label)">450</onright>
+					<onfocus>SetProperty(Images,1,home)</onfocus>
+					<onfocus>ClearProperty(Youtube,home)</onfocus>
+					<onfocus>ClearProperty(StarredInTV,home)</onfocus>
+					<label>Gallery</label>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<font>SmallBold</font>
+					<textcolor>Black700</textcolor>
+					<include>DefDialogInfoButtons</include>
 				</control>
 			</control>
 			<control type="group">
@@ -178,6 +215,7 @@
 				<textcolor>Black300</textcolor>
 				<label>$INFO[Window.Property(actor.title),Movies featuring ]</label>
 				<visible>IsEmpty(Window(home).Property(StarredInTV)) + !IsEmpty(Container(150).ListItem.Label) + !Control.HasFocus(150)</visible>
+				<visible>IsEmpty(Window(home).Property(Images)) + IsEmpty(Window(home).Property(Youtube))</visible>
 				<animation delay="400" effect="fade" end="100" start="0" time="200">Visible</animation>
 				<animation effect="fade" end="0" start="100" time="0">Hidden</animation>
 			</control>
@@ -200,6 +238,7 @@
 				<orientation>horizontal</orientation>
 				<scrolltime easing="inout" tween="sine">300</scrolltime>
 				<visible>IsEmpty(Window(home).Property(StarredInTV))</visible>
+				<visible>IsEmpty(Window(home).Property(Images)) + IsEmpty(Window(home).Property(Youtube))</visible>
 				<animation condition="Window.IsVisible(1103)" reversible="false" type="Conditional">
 					<effect easing="out" end="-20,0" start="0,0" time="60" tween="sine" type="slide" />
 					<effect delay="80" easing="out" end="20,0" start="0,0" time="120" tween="sine" type="slide" />
@@ -217,6 +256,14 @@
 							<height>480</height>
 							<aspectratio align="center">scale</aspectratio>
 							<texture background="true" fallback="views/movie_fallback.png">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<top>51</top>
+							<left>287</left>
+							<width>32</width>
+							<height>32</height>
+							<texture>indicator/inlibrary.png</texture>
+							<visible>!IsEmpty(ListItem.Property(DBID))</visible>
 						</control>
 						<control type="image">
 							<left>-48</left>
@@ -258,6 +305,14 @@
 							<height>480</height>
 							<aspectratio align="center">scale</aspectratio>
 							<texture background="true" fallback="views/movie_fallback.png">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<top>51</top>
+							<left>287</left>
+							<width>32</width>
+							<height>32</height>
+							<texture>indicator/inlibrary.png</texture>
+							<visible>!IsEmpty(ListItem.Property(DBID))</visible>
 						</control>
 						<control type="image">
 							<left>-48</left>
@@ -305,6 +360,7 @@
 				<left>1030</left>
 				<top>-319</top>
 				<visible>IsEmpty(Window(home).Property(StarredInTV)) + !Control.HasFocus(150) + !IsEmpty(Container(150).ListItem.Label)</visible>
+				<visible>IsEmpty(Window(home).Property(Images)) + IsEmpty(Window(home).Property(Youtube))</visible>
 				<animation center="480,212" condition="!Control.HasFocus(150)" easing="inout" effect="zoom" end="81" start="100" time="300" tween="sine">Conditional</animation>
 				<animation center="150,288" condition="true" effect="zoom" end="85" start="85">Conditional</animation>
 				<control type="group">
@@ -315,6 +371,14 @@
 						<height>480</height>
 						<aspectratio align="center">scale</aspectratio>
 						<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(150).ListItemNoWrap(1).Icon]</texture>
+					</control>
+					<control type="image">
+						<top>51</top>
+						<left>287</left>
+						<width>32</width>
+						<height>32</height>
+						<texture>indicator/inlibrary.png</texture>
+						<visible>!IsEmpty(Container(150).ListItemNoWrap(1).Property(DBID))</visible>
 					</control>
 					<control type="image">
 						<left>-48</left>
@@ -347,6 +411,14 @@
 						<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(150).ListItemNoWrap(2).Icon]</texture>
 					</control>
 					<control type="image">
+						<top>51</top>
+						<left>287</left>
+						<width>32</width>
+						<height>32</height>
+						<texture>indicator/inlibrary.png</texture>
+						<visible>!IsEmpty(Container(150).ListItemNoWrap(2).Property(DBID))</visible>
+					</control>
+					<control type="image">
 						<left>-48</left>
 						<centertop>288</centertop>
 						<width>416</width>
@@ -375,6 +447,14 @@
 						<height>480</height>
 						<aspectratio align="center">scale</aspectratio>
 						<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(150).ListItemNoWrap(3).Icon]</texture>
+					</control>
+					<control type="image">
+						<top>51</top>
+						<left>287</left>
+						<width>32</width>
+						<height>32</height>
+						<texture>indicator/inlibrary.png</texture>
+						<visible>!IsEmpty(Container(150).ListItemNoWrap(3).Property(DBID))</visible>
 					</control>
 					<control type="image">
 						<left>-48</left>
@@ -407,6 +487,14 @@
 						<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(150).ListItemNoWrap(4).Icon]</texture>
 					</control>
 					<control type="image">
+						<top>51</top>
+						<left>287</left>
+						<width>32</width>
+						<height>32</height>
+						<texture>indicator/inlibrary.png</texture>
+						<visible>!IsEmpty(Container(150).ListItemNoWrap(4).Property(DBID))</visible>
+					</control>
+					<control type="image">
 						<left>-48</left>
 						<centertop>288</centertop>
 						<width>416</width>
@@ -435,6 +523,14 @@
 						<height>480</height>
 						<aspectratio align="center">scale</aspectratio>
 						<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(150).ListItemNoWrap(5).Icon]</texture>
+					</control>
+					<control type="image">
+						<top>51</top>
+						<left>287</left>
+						<width>32</width>
+						<height>32</height>
+						<texture>indicator/inlibrary.png</texture>
+						<visible>!IsEmpty(Container(150).ListItemNoWrap(5).Property(DBID))</visible>
 					</control>
 					<control type="image">
 						<left>-48</left>
@@ -478,7 +574,7 @@
 				<height>32</height>
 				<font>Large</font>
 				<textcolor>Black700</textcolor>
-				<label>Sorry, we have no items for this title.</label>
+				<label>Sorry, we have no items for this actor.</label>
 				<visible>!IsEmpty(Window(home).Property(StarredInTV)) + IsEmpty(Container(250).ListItem.Label)</visible>
 				<animation delay="400" effect="fade" end="100" start="0" time="200">Visible</animation>
 				<animation condition="Control.HasFocus(250)" effect="fade" end="0" start="100" time="0">Conditional</animation>
@@ -753,6 +849,598 @@
 					</control>
 				</control>
 			</control>
+			<!-- Youtube -->
+			<control type="label">
+				<top>-86</top>
+				<left>575</left>
+				<width>1000</width>
+				<height>32</height>
+				<font>MediumSmall</font>
+				<textcolor>Black300</textcolor>
+				<label>$INFO[Window.Property(actor.title),YouTube videos featuring ]</label>
+				<visible>!IsEmpty(Window(home).Property(Youtube)) + !IsEmpty(Container(350).ListItem.Label) + !Control.HasFocus(350)</visible>
+				<animation delay="400" effect="fade" end="100" start="0" time="200">Visible</animation>
+				<animation effect="fade" end="0" start="100" time="0">Hidden</animation>
+			</control>
+			<!-- No titles -->
+			<control type="label">
+				<top>120</top>
+				<left>575</left>
+				<width>1000</width>
+				<height>32</height>
+				<font>Large</font>
+				<textcolor>Black700</textcolor>
+				<label>Sorry, we have no items for this actor.</label>
+				<visible>!IsEmpty(Window(home).Property(Youtube)) + IsEmpty(Container(350).ListItem.Label)</visible>
+				<animation delay="400" effect="fade" end="100" start="0" time="200">Visible</animation>
+				<animation condition="Control.HasFocus(350)" effect="fade" end="0" start="100" time="0">Conditional</animation>
+				<animation condition="!Control.HasFocus(350)" delay="200" effect="fade" end="100" start="0" time="80">Conditional</animation>
+			</control>
+			<!-- Youtube list -->
+			<control id="350" type="fixedlist">
+				<left>-120</left>
+				<top>-271</top>
+				<width>2600</width>
+				<height>576</height>
+				<onup condition="Control.IsVisible(96)">132</onup>
+				<onup condition="!Control.IsVisible(96)">Close</onup>
+				<ondown>noop</ondown>
+				<onleft>7002</onleft>
+				<onright>noop</onright>
+				<onright condition="!Window.IsVisible(1103)">SetProperty(BounceRight,1,Home)</onright>
+				<onback>9001</onback>
+				<preloaditems>2</preloaditems>
+				<focusposition>1</focusposition>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<scrolltime easing="inout" tween="sine">300</scrolltime>
+				<visible>!IsEmpty(Window(home).Property(Youtube))</visible>
+				<animation condition="Window.IsVisible(1103)" reversible="false" type="Conditional">
+					<effect easing="out" end="-20,0" start="0,0" time="60" tween="sine" type="slide" />
+					<effect delay="80" easing="out" end="20,0" start="0,0" time="120" tween="sine" type="slide" />
+				</animation>
+				<animation delay="300" effect="fade" end="100" start="0" time="300">Visible</animation>
+				<animation effect="fade" end="0" start="100" time="300">Hidden</animation>
+				<animation center="480,212" condition="!Control.HasFocus(350)" easing="inout" effect="zoom" end="81" start="100" time="300" tween="sine">Conditional</animation>
+				<itemlayout height="576" width="700">
+					<control type="group">
+						<visible>Control.HasFocus(350)</visible>
+						<animation center="150,288" condition="true" effect="zoom" end="85" start="85">Conditional</animation>
+						<control type="image">
+							<top>148</top>
+							<width>675</width>
+							<height>380</height>
+							<aspectratio align="center">scale</aspectratio>
+							<texture background="true" fallback="views/movie_fallback.png">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<left>-48</left>
+							<centertop>288</centertop>
+							<width>671</width>
+							<height>576</height>
+							<texture border="66,66,51,51">views/shadow_nf.png</texture>
+						</control>
+						<control type="label">
+							<left>18</left>
+							<top>455</top>
+							<width>645</width>
+							<height>42</height>
+							<font>MediumBold</font>
+							<scroll>false</scroll>
+							<textcolor>Black700</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>IsEmpty(ListItem.Icon)</visible>
+						</control>
+						<control type="image">
+							<top>148</top>
+							<width>675</width>
+							<height>380</height>
+							<texture>views/OverlayNF.png</texture>
+							<visible>Control.HasFocus(350)</visible>
+							<animation center="auto" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">VisibleChange</animation>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="576" width="700">
+					<control type="group">
+						<animation center="150,288" condition="Control.HasFocus(350) + [Container(350).OnNext | Container(350).OnPrevious]" easing="inout" effect="zoom" end="100" start="85" time="300" tween="sine">Focus</animation>
+						<animation center="150,288" condition="Control.HasFocus(350) + [Container(350).OnNext | Container(350).OnPrevious]" easing="inout" effect="zoom" end="85" start="100" time="300" tween="sine">UnFocus</animation>
+						<animation center="150,288" condition="!Control.HasFocus(350)" easing="inout" effect="zoom" end="85" start="100" time="300" tween="sine">Conditional</animation>
+						<control type="image">
+							<top>148</top>
+							<width>675</width>
+							<height>380</height>
+							<aspectratio align="center">keep</aspectratio>
+							<texture background="true" fallback="views/movie_fallback.png">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<left>-48</left>
+							<centertop>288</centertop>
+							<width>671</width>
+							<height>576</height>
+							<texture border="51">views/shadow_fo.png</texture>
+							<animation center="auto" condition="Control.HasFocus(350) | Container(350).OnNext | Container(350).OnPrevious" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Container(350).OnNext | Container(350).OnPrevious" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">UnFocus</animation>
+						</control>
+						<control type="image">
+							<left>-48</left>
+							<centertop>288</centertop>
+							<width>671</width>
+							<height>576</height>
+							<texture border="66,66,51,51">views/shadow_nf.png</texture>
+							<animation center="auto" condition="Control.HasFocus(350)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(350)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+						</control>
+						<control type="label">
+							<left>18</left>
+							<top>455</top>
+							<width>290</width>
+							<height>42</height>
+							<font>MediumBold</font>
+							<scroll>false</scroll>
+							<textcolor>Black700</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>IsEmpty(ListItem.Icon)</visible>
+						</control>
+						<control type="image">
+							<top>148</top>
+							<width>675</width>
+							<height>380</height>
+							<texture>views/OverlayNF.png</texture>
+							<visible>Control.HasFocus(350)</visible>
+							<animation center="auto" condition="Control.HasFocus(350)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(350)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="group">
+				<left>1385</left>
+				<top>-319</top>
+				<visible>!IsEmpty(Window(home).Property(Youtube)) + !Control.HasFocus(350) + !IsEmpty(Container(350).ListItem.Label)</visible>
+				<animation center="480,212" condition="!Control.HasFocus(350)" easing="inout" effect="zoom" end="81" start="100" time="300" tween="sine">Conditional</animation>
+				<animation center="150,288" condition="true" effect="zoom" end="85" start="85">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(350).ListItemNoWrap(1).Label)</visible>
+					<control type="image">
+						<top>148</top>
+						<width>675</width>
+						<height>380</height>
+						<aspectratio align="center">scale</aspectratio>
+						<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(350).ListItemNoWrap(1).Icon]</texture>
+					</control>
+					<control type="image">
+						<left>-48</left>
+						<centertop>288</centertop>
+						<width>671</width>
+						<height>576</height>
+						<texture border="66,66,51,51">views/shadow_nf.png</texture>
+					</control>
+					<control type="label">
+						<left>18</left>
+						<top>455</top>
+						<width>655</width>
+						<height>42</height>
+						<font>MediumBold</font>
+						<scroll>false</scroll>
+						<textcolor>Black700</textcolor>
+						<label>$INFO[Container(350).ListItemNoWrap(1).Label]</label>
+						<visible>IsEmpty(Container(350).ListItemNoWrap(1).Icon)</visible>
+					</control>
+				</control>
+				<control type="group">
+					<left>702</left>
+					<visible>!IsEmpty(Container(350).ListItemNoWrap(2).Label)</visible>
+					<control type="image">
+						<top>148</top>
+						<width>675</width>
+						<height>380</height>
+						<aspectratio align="center">scale</aspectratio>
+						<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(350).ListItemNoWrap(2).Icon]</texture>
+					</control>
+					<control type="image">
+						<left>-48</left>
+						<centertop>288</centertop>
+						<width>671</width>
+						<height>576</height>
+						<texture border="66,66,51,51">views/shadow_nf.png</texture>
+					</control>
+					<control type="label">
+						<left>18</left>
+						<top>455</top>
+						<width>655</width>
+						<height>42</height>
+						<font>MediumBold</font>
+						<scroll>false</scroll>
+						<textcolor>Black700</textcolor>
+						<label>$INFO[Container(350).ListItemNoWrap(2).Label]</label>
+						<visible>IsEmpty(Container(350).ListItemNoWrap(2).Icon)</visible>
+					</control>
+				</control>
+				<control type="group">
+					<left>1404</left>
+					<visible>!IsEmpty(Container(350).ListItemNoWrap(3).Label)</visible>
+					<control type="image">
+						<top>148</top>
+						<width>675</width>
+						<height>380</height>
+						<aspectratio align="center">scale</aspectratio>
+						<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(350).ListItemNoWrap(3).Icon]</texture>
+					</control>
+					<control type="image">
+						<left>-48</left>
+						<centertop>288</centertop>
+						<width>671</width>
+						<height>576</height>
+						<texture border="66,66,51,51">views/shadow_nf.png</texture>
+					</control>
+					<control type="label">
+						<left>18</left>
+						<top>455</top>
+						<width>655</width>
+						<height>42</height>
+						<font>MediumBold</font>
+						<scroll>false</scroll>
+						<textcolor>Black700</textcolor>
+						<label>$INFO[Container(350).ListItemNoWrap(3).Label]</label>
+						<visible>IsEmpty(Container(350).ListItemNoWrap(3).Icon)</visible>
+					</control>
+				</control>
+				<control type="group">
+					<left>2106</left>
+					<visible>!IsEmpty(Container(350).ListItemNoWrap(4).Label)</visible>
+					<control type="image">
+						<top>148</top>
+						<width>675</width>
+						<height>380</height>
+						<aspectratio align="center">scale</aspectratio>
+						<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(350).ListItemNoWrap(4).Icon]</texture>
+					</control>
+					<control type="image">
+						<left>-48</left>
+						<centertop>288</centertop>
+						<width>671</width>
+						<height>576</height>
+						<texture border="66,66,51,51">views/shadow_nf.png</texture>
+					</control>
+					<control type="label">
+						<left>18</left>
+						<top>455</top>
+						<width>655</width>
+						<height>42</height>
+						<font>MediumBold</font>
+						<scroll>false</scroll>
+						<textcolor>Black700</textcolor>
+						<label>$INFO[Container(350).ListItemNoWrap(4).Label]</label>
+						<visible>IsEmpty(Container(350).ListItemNoWrap(4).Icon)</visible>
+					</control>
+				</control>
+				<control type="group">
+					<left>2808</left>
+					<visible>!IsEmpty(Container(350).ListItemNoWrap(5).Label)</visible>
+					<control type="image">
+						<top>148</top>
+						<width>675</width>
+						<height>380</height>
+						<aspectratio align="center">scale</aspectratio>
+						<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(350).ListItemNoWrap(5).Icon]</texture>
+					</control>
+					<control type="image">
+						<left>-48</left>
+						<centertop>288</centertop>
+						<width>671</width>
+						<height>576</height>
+						<texture border="66,66,51,51">views/shadow_nf.png</texture>
+					</control>
+					<control type="label">
+						<left>18</left>
+						<top>455</top>
+						<width>655</width>
+						<height>42</height>
+						<font>MediumBold</font>
+						<scroll>false</scroll>
+						<textcolor>Black700</textcolor>
+						<label>$INFO[Container(350).ListItemNoWrap(5).Label]</label>
+						<visible>IsEmpty(Container(350).ListItemNoWrap(5).Icon)</visible>
+					</control>
+				</control>
+			</control>
+			<!-- Images -->
+			<control type="label">
+				<top>-157</top>
+				<left>575</left>
+				<width>1000</width>
+				<height>32</height>
+				<font>MediumSmall</font>
+				<textcolor>Black300</textcolor>
+				<label>$INFO[Window.Property(actor.title),Images gallery featuring ]</label>
+				<visible>!IsEmpty(Window(home).Property(Images)) + !IsEmpty(Container(450).ListItem.Label) + !Control.HasFocus(450)</visible>
+				<animation delay="400" effect="fade" end="100" start="0" time="200">Visible</animation>
+				<animation effect="fade" end="0" start="100" time="0">Hidden</animation>
+			</control>
+			<!-- No titles -->
+			<control type="label">
+				<top>120</top>
+				<left>575</left>
+				<width>1000</width>
+				<height>32</height>
+				<font>Large</font>
+				<textcolor>Black700</textcolor>
+				<label>Sorry, we have no items for this actor.</label>
+				<visible>!IsEmpty(Window(home).Property(Images)) + IsEmpty(Container(450).ListItem.Label)</visible>
+				<animation delay="400" effect="fade" end="100" start="0" time="200">Visible</animation>
+				<animation condition="Control.HasFocus(450)" effect="fade" end="0" start="100" time="0">Conditional</animation>
+				<animation condition="!Control.HasFocus(450)" delay="200" effect="fade" end="100" start="0" time="80">Conditional</animation>
+			</control>
+			<!-- Images list -->
+			<control id="450" type="fixedlist">
+				<left>-25</left>
+				<top>-271</top>
+				<width>2600</width>
+				<height>576</height>
+				<onup condition="Control.IsVisible(96)">132</onup>
+				<onup condition="!Control.IsVisible(96)">Close</onup>
+				<ondown>noop</ondown>
+				<onleft>7003</onleft>
+				<onright>noop</onright>
+				<onright condition="!Window.IsVisible(1103)">SetProperty(BounceRight,1,Home)</onright>
+				<onback>9001</onback>
+				<preloaditems>2</preloaditems>
+				<focusposition>2</focusposition>
+				<viewtype label="">list</viewtype>
+				<orientation>horizontal</orientation>
+				<scrolltime easing="inout" tween="sine">300</scrolltime>
+				<visible>!IsEmpty(Window(home).Property(Images))</visible>
+				<animation condition="Window.IsVisible(1103)" reversible="false" type="Conditional">
+					<effect easing="out" end="-20,0" start="0,0" time="60" tween="sine" type="slide" />
+					<effect delay="80" easing="out" end="20,0" start="0,0" time="120" tween="sine" type="slide" />
+				</animation>
+				<animation delay="300" effect="fade" end="100" start="0" time="300">Visible</animation>
+				<animation effect="fade" end="0" start="100" time="300">Hidden</animation>
+				<animation center="480,212" condition="!Control.HasFocus(450)" easing="inout" effect="zoom" end="81" start="100" time="300" tween="sine">Conditional</animation>
+				<itemlayout height="576" width="300">
+					<control type="group">
+						<visible>Control.HasFocus(450)</visible>
+						<animation center="150,288" condition="true" effect="zoom" end="85" start="85">Conditional</animation>
+						<control type="image">
+							<top>48</top>
+							<width>320</width>
+							<height>480</height>
+							<aspectratio align="center">scale</aspectratio>
+							<texture background="true" fallback="views/movie_fallback.png">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<left>-48</left>
+							<centertop>288</centertop>
+							<width>416</width>
+							<height>576</height>
+							<texture border="66,66,51,51">views/shadow_nf.png</texture>
+						</control>
+						<control type="label">
+							<left>18</left>
+							<top>455</top>
+							<width>290</width>
+							<height>42</height>
+							<font>MediumBold</font>
+							<scroll>false</scroll>
+							<textcolor>Black700</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>IsEmpty(ListItem.Icon)</visible>
+						</control>
+						<control type="image">
+							<top>48</top>
+							<width>320</width>
+							<height>480</height>
+							<texture>views/OverlayNF.png</texture>
+							<visible>Control.HasFocus(450)</visible>
+							<animation center="auto" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">VisibleChange</animation>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="576" width="300">
+					<control type="group">
+						<animation center="150,288" condition="Control.HasFocus(450) " easing="inout" effect="zoom" end="160" start="85" time="300" tween="sine">Focus</animation>
+						<animation center="150,288" condition="Control.HasFocus(450) + [Container(450).OnNext | Container(450).OnPrevious]" easing="inout" effect="zoom" end="85" start="100" time="300" tween="sine">UnFocus</animation>
+						<animation center="150,288" condition="!Control.HasFocus(450)" easing="inout" effect="zoom" end="85" start="100" time="300" tween="sine">Conditional</animation>
+						<control type="image">
+							<top>48</top>
+							<width>320</width>
+							<height>480</height>
+							<aspectratio align="center">keep</aspectratio>
+							<texture background="true" fallback="views/movie_fallback.png">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<left>-48</left>
+							<centertop>288</centertop>
+							<width>416</width>
+							<height>576</height>
+							<texture border="51">views/shadow_fo.png</texture>
+							<animation center="auto" condition="Control.HasFocus(450) | Container(450).OnNext | Container(450).OnPrevious" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Container(450).OnNext | Container(450).OnPrevious" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">UnFocus</animation>
+						</control>
+						<control type="image">
+							<left>-48</left>
+							<centertop>288</centertop>
+							<width>416</width>
+							<height>576</height>
+							<texture border="66,66,51,51">views/shadow_nf.png</texture>
+							<animation center="auto" condition="Control.HasFocus(450)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(450)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+						</control>
+						<control type="label">
+							<left>18</left>
+							<top>455</top>
+							<width>290</width>
+							<height>42</height>
+							<font>MediumBold</font>
+							<scroll>false</scroll>
+							<textcolor>Black700</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>IsEmpty(ListItem.Icon)</visible>
+						</control>
+						<control type="image">
+							<top>48</top>
+							<width>320</width>
+							<height>480</height>
+							<texture>views/OverlayNF.png</texture>
+							<visible>Control.HasFocus(450)</visible>
+							<animation center="auto" condition="Control.HasFocus(450)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
+							<animation center="auto" condition="Control.HasFocus(450)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="group">
+				<left>1030</left>
+				<top>-319</top>
+				<visible>!IsEmpty(Window(home).Property(Images)) + !Control.HasFocus(450) + !IsEmpty(Container(450).ListItem.Label)</visible>
+				<animation center="480,212" condition="!Control.HasFocus(450)" easing="inout" effect="zoom" end="81" start="100" time="300" tween="sine">Conditional</animation>
+				<animation center="150,288" condition="true" effect="zoom" end="85" start="85">Conditional</animation>
+				<control type="group">
+					<visible>!IsEmpty(Container(450).ListItemNoWrap(1).Label)</visible>
+					<control type="image">
+						<top>48</top>
+						<width>320</width>
+						<height>480</height>
+						<aspectratio align="center">scale</aspectratio>
+						<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(450).ListItemNoWrap(1).Icon]</texture>
+					</control>
+					<control type="image">
+						<left>-48</left>
+						<centertop>288</centertop>
+						<width>416</width>
+						<height>576</height>
+						<texture border="66,66,51,51">views/shadow_nf.png</texture>
+					</control>
+					<control type="label">
+						<left>18</left>
+						<top>455</top>
+						<width>290</width>
+						<height>42</height>
+						<font>MediumBold</font>
+						<scroll>false</scroll>
+						<textcolor>Black700</textcolor>
+						<label>$INFO[Container(450).ListItemNoWrap(1).Label]</label>
+						<visible>IsEmpty(Container(450).ListItemNoWrap(1).Icon)</visible>
+					</control>
+				</control>
+				<control type="group">
+					<left>352</left>
+					<visible>!IsEmpty(Container(450).ListItemNoWrap(2).Label)</visible>
+					<control type="image">
+						<top>48</top>
+						<width>320</width>
+						<height>480</height>
+						<aspectratio align="center">scale</aspectratio>
+						<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(450).ListItemNoWrap(2).Icon]</texture>
+					</control>
+					<control type="image">
+						<left>-48</left>
+						<centertop>288</centertop>
+						<width>416</width>
+						<height>576</height>
+						<texture border="66,66,51,51">views/shadow_nf.png</texture>
+					</control>
+					<control type="label">
+						<left>18</left>
+						<top>455</top>
+						<width>290</width>
+						<height>42</height>
+						<font>MediumBold</font>
+						<scroll>false</scroll>
+						<textcolor>Black700</textcolor>
+						<label>$INFO[Container(450).ListItemNoWrap(2).Label]</label>
+						<visible>IsEmpty(Container(450).ListItemNoWrap(2).Icon)</visible>
+					</control>
+				</control>
+				<control type="group">
+					<left>705</left>
+					<visible>!IsEmpty(Container(450).ListItemNoWrap(3).Label)</visible>
+					<control type="image">
+						<top>48</top>
+						<width>320</width>
+						<height>480</height>
+						<aspectratio align="center">scale</aspectratio>
+						<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(450).ListItemNoWrap(3).Icon]</texture>
+					</control>
+					<control type="image">
+						<left>-48</left>
+						<centertop>288</centertop>
+						<width>416</width>
+						<height>576</height>
+						<texture border="66,66,51,51">views/shadow_nf.png</texture>
+					</control>
+					<control type="label">
+						<left>18</left>
+						<top>455</top>
+						<width>290</width>
+						<height>42</height>
+						<font>MediumBold</font>
+						<scroll>false</scroll>
+						<textcolor>Black700</textcolor>
+						<label>$INFO[Container(450).ListItemNoWrap(3).Label]</label>
+						<visible>IsEmpty(Container(450).ListItemNoWrap(3).Icon)</visible>
+					</control>
+				</control>
+				<control type="group">
+					<left>1058</left>
+					<visible>!IsEmpty(Container(450).ListItemNoWrap(4).Label)</visible>
+					<control type="image">
+						<top>48</top>
+						<width>320</width>
+						<height>480</height>
+						<aspectratio align="center">scale</aspectratio>
+						<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(450).ListItemNoWrap(4).Icon]</texture>
+					</control>
+					<control type="image">
+						<left>-48</left>
+						<centertop>288</centertop>
+						<width>416</width>
+						<height>576</height>
+						<texture border="66,66,51,51">views/shadow_nf.png</texture>
+					</control>
+					<control type="label">
+						<left>18</left>
+						<top>455</top>
+						<width>290</width>
+						<height>42</height>
+						<font>MediumBold</font>
+						<scroll>false</scroll>
+						<textcolor>Black700</textcolor>
+						<label>$INFO[Container(450).ListItemNoWrap(4).Label]</label>
+						<visible>IsEmpty(Container(450).ListItemNoWrap(4).Icon)</visible>
+					</control>
+				</control>
+				<control type="group">
+					<left>1411</left>
+					<visible>!IsEmpty(Container(450).ListItemNoWrap(5).Label)</visible>
+					<control type="image">
+						<top>48</top>
+						<width>320</width>
+						<height>480</height>
+						<aspectratio align="center">scale</aspectratio>
+						<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(450).ListItemNoWrap(5).Icon]</texture>
+					</control>
+					<control type="image">
+						<left>-48</left>
+						<centertop>288</centertop>
+						<width>416</width>
+						<height>576</height>
+						<texture border="66,66,51,51">views/shadow_nf.png</texture>
+					</control>
+					<control type="label">
+						<left>18</left>
+						<top>455</top>
+						<width>290</width>
+						<height>42</height>
+						<font>MediumBold</font>
+						<scroll>false</scroll>
+						<textcolor>Black700</textcolor>
+						<label>$INFO[Container(450).ListItemNoWrap(5).Label]</label>
+						<visible>IsEmpty(Container(450).ListItemNoWrap(5).Icon)</visible>
+					</control>
+				</control>
+			</control>
 			<!-- Info -->
 			<control type="grouplist">
 				<left>575</left>
@@ -762,7 +1450,7 @@
 				<itemgap>8</itemgap>
 				<orientation>horizontal</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
-				<visible>Control.HasFocus(150) | Control.HasFocus(250)</visible>
+				<visible>Control.HasFocus(150) | Control.HasFocus(250) | Control.HasFocus(350) | Control.HasFocus(450)</visible>
 				<animation delay="300" easing="inout" effect="fade" end="100" start="0" time="120" tween="sine">Visible</animation>
 				<animation effect="fade" end="0" start="100" time="0">Hidden</animation>
 				<control type="label">
@@ -786,6 +1474,17 @@
 					<textcolor>Black700</textcolor>
 					<label>$INFO[Container(250).ListItem.Label]</label>
 					<visible>Control.HasFocus(250)</visible>
+				</control>
+				<control type="label">
+					<top>2</top>
+					<width>auto</width>
+					<height>50</height>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>SmallBold</font>
+					<textcolor>Black700</textcolor>
+					<label>$INFO[Container(350).ListItem.Label]</label>
+					<visible>Control.HasFocus(350)</visible>
 				</control>
 			</control>
 		</control>

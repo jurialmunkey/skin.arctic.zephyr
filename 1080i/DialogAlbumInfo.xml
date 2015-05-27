@@ -735,13 +735,13 @@
 					<animation condition="!Control.HasFocus(5012)" delay="200" effect="fade" end="100" start="0" time="80">Conditional</animation>
 				</control>
 				<control id="5012" type="fixedlist">
-					<left>-25</left>
+					<left>-120</left>
 					<top>-271</top>
 					<width>2600</width>
 					<height>576</height>
 					<onleft>7002</onleft>
 					<preloaditems>2</preloaditems>
-					<focusposition>2</focusposition>
+					<focusposition>1</focusposition>
 					<viewtype label="">list</viewtype>
 					<orientation>horizontal</orientation>
 					<defaultcontrol always="true">0</defaultcontrol>
@@ -754,26 +754,26 @@
 					<animation effect="fade" end="100" start="0" time="300">Visible</animation>
 					<animation effect="fade" end="0" start="100" time="300">Hidden</animation>
 					<animation center="480,1022" condition="!Control.HasFocus(5012)" easing="inout" effect="zoom" end="81" start="100" time="300" tween="sine">Conditional</animation>
-					<itemlayout height="576" width="300">
+					<itemlayout height="576" width="700">
 						<control type="group">
 							<animation center="150,288" condition="true" effect="zoom" end="85" start="85">Conditional</animation>
 							<control type="image">
-								<top>48</top>
-								<width>320</width>
-								<height>480</height>
+								<top>148</top>
+								<width>675</width>
+								<height>380</height>
 								<aspectratio align="center">keep</aspectratio>
 								<texture background="true">$INFO[ListItem.Icon]</texture>
 							</control>
 							<control type="image">
 								<left>-48</left>
 								<centertop>288</centertop>
-								<width>316</width>
+								<width>671</width>
 								<height>576</height>
 								<texture border="66,66,51,51">views/shadow_nf.png</texture>
 							</control>
 							<control type="image">
 								<top>412</top>
-								<width>320</width>
+								<width>675</width>
 								<height>116</height>
 								<texture>common/white.png</texture>
 								<colordiffuse>Light1</colordiffuse>
@@ -782,7 +782,7 @@
 							<control type="label">
 								<left>18</left>
 								<top>412</top>
-								<width>290</width>
+								<width>645</width>
 								<height>42</height>
 								<font>MediumBold</font>
 								<textcolor>Black700</textcolor>
@@ -792,7 +792,7 @@
 							<control type="label">
 								<left>18</left>
 								<top>463</top>
-								<width>290</width>
+								<width>645</width>
 								<height>28</height>
 								<font>Small</font>
 								<scroll>false</scroll>
@@ -802,16 +802,16 @@
 							</control>
 							<control type="image">
 								<top>48</top>
-								<width>320</width>
+								<width>675</width>
 								<height>480</height>
 								<texture>views/OverlayNF.png</texture>
 								<animation center="auto" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">VisibleChange</animation>
 							</control>
 						</control>
 					</itemlayout>
-					<focusedlayout height="576" width="600">
+					<focusedlayout height="576" width="700">
 						<control type="group">
-							<animation center="150,288" condition="Control.HasFocus(5012) + [Container(5012).OnNext | Container(5012).OnPrevious]" easing="inout" effect="zoom" end="100" start="85" time="300" tween="sine">Focus</animation>
+							<animation center="150,288" condition="Control.HasFocus(5012)" easing="inout" effect="zoom" end="120" start="85" time="300" tween="sine">Focus</animation>
 							<animation center="150,288" condition="Control.HasFocus(5012) + [Container(5012).OnNext | Container(5012).OnPrevious]" easing="inout" effect="zoom" end="85" start="100" time="300" tween="sine">UnFocus</animation>
 							<animation center="150,288" condition="!Control.HasFocus(5012)" easing="inout" effect="zoom" end="85" start="100" time="300" tween="sine">Conditional</animation>
 							<control type="image">
@@ -892,7 +892,7 @@
 							</control>
 							<control type="image">
 								<top>48</top>
-								<width>320</width>
+								<width>675</width>
 								<height>480</height>
 								<aspectratio align="center">keep</aspectratio>
 								<texture background="true">$INFO[ListItem.Icon]</texture>
@@ -901,7 +901,7 @@
 							<control type="image">
 								<left>-48</left>
 								<centertop>288</centertop>
-								<width>416</width>
+								<width>771</width>
 								<height>576</height>
 								<texture border="51">views/shadow_fo.png</texture>
 								<visible>!Control.HasFocus(5012)</visible>
@@ -911,7 +911,7 @@
 							<control type="image">
 								<left>-48</left>
 								<centertop>288</centertop>
-								<width>416</width>
+								<width>771</width>
 								<height>576</height>
 								<texture border="66,66,51,51">views/shadow_nf.png</texture>
 								<visible>!Control.HasFocus(5012)</visible>
@@ -920,7 +920,7 @@
 							</control>
 							<control type="image">
 								<top>412</top>
-								<width>320</width>
+								<width>675</width>
 								<height>116</height>
 								<texture>common/white.png</texture>
 								<colordiffuse>Light1</colordiffuse>
@@ -932,7 +932,7 @@
 							<control type="label">
 								<left>18</left>
 								<top>412</top>
-								<width>290</width>
+								<width>645</width>
 								<height>42</height>
 								<font>MediumBold</font>
 								<textcolor>Black700</textcolor>
@@ -945,7 +945,7 @@
 							<control type="label">
 								<left>18</left>
 								<top>463</top>
-								<width>290</width>
+								<width>645</width>
 								<height>28</height>
 								<font>Small</font>
 								<scroll>false</scroll>
@@ -958,7 +958,7 @@
 							</control>
 							<control type="image">
 								<top>48</top>
-								<width>320</width>
+								<width>675</width>
 								<height>480</height>
 								<texture>views/OverlayNF.png</texture>
 								<visible>!Control.HasFocus(5012)</visible>
@@ -970,7 +970,7 @@
 					<content>plugin://script.extendedinfo?info=mostlovedtracks&amp;&amp;artistname=$INFO[ListItem.Artist]</content>
 				</control>
 				<control type="group">
-					<left>1030</left>
+					<left>1385</left>
 					<top>-319</top>
 					<visible>!IsEmpty(Window(home).Property(MostLoved)) + !Control.HasFocus(5012) + !IsEmpty(Container(5012).ListItem.Label)</visible>
 					<animation center="480,1022" condition="!Control.HasFocus(5012)" easing="inout" effect="zoom" end="81" start="100" time="300" tween="sine">Conditional</animation>
@@ -979,7 +979,7 @@
 						<visible>!IsEmpty(Container(5012).ListItemNoWrap(1).Label)</visible>
 						<control type="image">
 							<top>48</top>
-							<width>320</width>
+							<width>675</width>
 							<height>480</height>
 							<aspectratio align="center">keep</aspectratio>
 							<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(5012).ListItemNoWrap(1).Icon]</texture>
@@ -987,13 +987,13 @@
 						<control type="image">
 							<left>-48</left>
 							<centertop>288</centertop>
-							<width>416</width>
+							<width>771</width>
 							<height>576</height>
 							<texture border="66,66,51,51">views/shadow_nf.png</texture>
 						</control>
 						<control type="image">
 							<top>412</top>
-							<width>320</width>
+							<width>675</width>
 							<height>116</height>
 							<texture>common/white.png</texture>
 							<colordiffuse>Light1</colordiffuse>
@@ -1002,7 +1002,7 @@
 						<control type="label">
 							<left>18</left>
 							<top>412</top>
-							<width>290</width>
+							<width>645</width>
 							<height>42</height>
 							<font>MediumBold</font>
 							<textcolor>Black700</textcolor>
@@ -1012,7 +1012,7 @@
 						<control type="label">
 							<left>18</left>
 							<top>463</top>
-							<width>290</width>
+							<width>645</width>
 							<height>28</height>
 							<font>Small</font>
 							<scroll>false</scroll>
@@ -1022,11 +1022,11 @@
 						</control>
 					</control>
 					<control type="group">
-						<left>352</left>
+						<left>702</left>
 						<visible>!IsEmpty(Container(5012).ListItemNoWrap(2).Label)</visible>
 						<control type="image">
 							<top>48</top>
-							<width>320</width>
+							<width>675</width>
 							<height>480</height>
 							<aspectratio align="center">keep</aspectratio>
 							<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(5012).ListItemNoWrap(2).Icon]</texture>
@@ -1034,13 +1034,13 @@
 						<control type="image">
 							<left>-48</left>
 							<centertop>288</centertop>
-							<width>416</width>
+							<width>771</width>
 							<height>576</height>
 							<texture border="66,66,51,51">views/shadow_nf.png</texture>
 						</control>
 						<control type="image">
 							<top>412</top>
-							<width>320</width>
+							<width>675</width>
 							<height>116</height>
 							<texture>common/white.png</texture>
 							<colordiffuse>Light1</colordiffuse>
@@ -1049,7 +1049,7 @@
 						<control type="label">
 							<left>18</left>
 							<top>412</top>
-							<width>290</width>
+							<width>645</width>
 							<height>42</height>
 							<font>MediumBold</font>
 							<textcolor>Black700</textcolor>
@@ -1059,7 +1059,7 @@
 						<control type="label">
 							<left>18</left>
 							<top>463</top>
-							<width>290</width>
+							<width>645</width>
 							<height>28</height>
 							<font>Small</font>
 							<scroll>false</scroll>
@@ -1069,11 +1069,11 @@
 						</control>
 					</control>
 					<control type="group">
-						<left>705</left>
+						<left>1404</left>
 						<visible>!IsEmpty(Container(5012).ListItemNoWrap(3).Label)</visible>
 						<control type="image">
 							<top>48</top>
-							<width>320</width>
+							<width>675</width>
 							<height>480</height>
 							<aspectratio align="center">keep</aspectratio>
 							<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(5012).ListItemNoWrap(3).Icon]</texture>
@@ -1081,13 +1081,13 @@
 						<control type="image">
 							<left>-48</left>
 							<centertop>288</centertop>
-							<width>416</width>
+							<width>771</width>
 							<height>576</height>
 							<texture border="66,66,51,51">views/shadow_nf.png</texture>
 						</control>
 						<control type="image">
 							<top>412</top>
-							<width>320</width>
+							<width>675</width>
 							<height>116</height>
 							<texture>common/white.png</texture>
 							<colordiffuse>Light1</colordiffuse>
@@ -1096,7 +1096,7 @@
 						<control type="label">
 							<left>18</left>
 							<top>412</top>
-							<width>290</width>
+							<width>645</width>
 							<height>42</height>
 							<font>MediumBold</font>
 							<textcolor>Black700</textcolor>
@@ -1106,7 +1106,7 @@
 						<control type="label">
 							<left>18</left>
 							<top>463</top>
-							<width>290</width>
+							<width>645</width>
 							<height>28</height>
 							<font>Small</font>
 							<scroll>false</scroll>
@@ -1116,11 +1116,11 @@
 						</control>
 					</control>
 					<control type="group">
-						<left>1058</left>
+						<left>2106</left>
 						<visible>!IsEmpty(Container(5012).ListItemNoWrap(4).Label)</visible>
 						<control type="image">
 							<top>48</top>
-							<width>320</width>
+							<width>675</width>
 							<height>480</height>
 							<aspectratio align="center">keep</aspectratio>
 							<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(5012).ListItemNoWrap(4).Icon]</texture>
@@ -1128,13 +1128,13 @@
 						<control type="image">
 							<left>-48</left>
 							<centertop>288</centertop>
-							<width>416</width>
+							<width>771</width>
 							<height>576</height>
 							<texture border="66,66,51,51">views/shadow_nf.png</texture>
 						</control>
 						<control type="image">
 							<top>412</top>
-							<width>320</width>
+							<width>675</width>
 							<height>116</height>
 							<texture>common/white.png</texture>
 							<colordiffuse>Light1</colordiffuse>
@@ -1143,7 +1143,7 @@
 						<control type="label">
 							<left>18</left>
 							<top>412</top>
-							<width>290</width>
+							<width>645</width>
 							<height>42</height>
 							<font>MediumBold</font>
 							<textcolor>Black700</textcolor>
@@ -1153,7 +1153,7 @@
 						<control type="label">
 							<left>18</left>
 							<top>463</top>
-							<width>290</width>
+							<width>645</width>
 							<height>28</height>
 							<font>Small</font>
 							<scroll>false</scroll>
@@ -1163,11 +1163,11 @@
 						</control>
 					</control>
 					<control type="group">
-						<left>1411</left>
+						<left>2808</left>
 						<visible>!IsEmpty(Container(5012).ListItemNoWrap(5).Label)</visible>
 						<control type="image">
 							<top>48</top>
-							<width>320</width>
+							<width>675</width>
 							<height>480</height>
 							<aspectratio align="center">keep</aspectratio>
 							<texture background="true" fallback="views/movie_fallback.png">$INFO[Container(5012).ListItemNoWrap(5).Icon]</texture>
@@ -1175,13 +1175,13 @@
 						<control type="image">
 							<left>-48</left>
 							<centertop>288</centertop>
-							<width>416</width>
+							<width>771</width>
 							<height>576</height>
 							<texture border="66,66,51,51">views/shadow_nf.png</texture>
 						</control>
 						<control type="image">
 							<top>412</top>
-							<width>320</width>
+							<width>675</width>
 							<height>116</height>
 							<texture>common/white.png</texture>
 							<colordiffuse>Light1</colordiffuse>
@@ -1190,7 +1190,7 @@
 						<control type="label">
 							<left>18</left>
 							<top>412</top>
-							<width>290</width>
+							<width>645</width>
 							<height>42</height>
 							<font>MediumBold</font>
 							<textcolor>Black700</textcolor>
@@ -1200,7 +1200,7 @@
 						<control type="label">
 							<left>18</left>
 							<top>463</top>
-							<width>290</width>
+							<width>645</width>
 							<height>28</height>
 							<font>Small</font>
 							<scroll>false</scroll>
