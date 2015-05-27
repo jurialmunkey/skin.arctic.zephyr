@@ -26,7 +26,6 @@
 				<colordiffuse>DialogFanartFade</colordiffuse>
 				<texture background="true">genrethumb/Kodi.jpg</texture>
 			</control>
-			<include>DialogVideoInfoAnimation</include>
 		</control>
 		<control type="image">
 			<include>Dimensions_Fullscreen</include>
@@ -39,6 +38,15 @@
 			<colordiffuse>DialogFanartFade</colordiffuse>
 			<texture background="true">$INFO[Container(250).ListItem.Art(fanart)]</texture>
 			<visible>Control.HasFocus(250)</visible>
+		</control>
+		<control type="image">
+			<top>99</top>
+			<right>40</right>
+			<width>258</width>
+			<height>130</height>
+			<texture>moviedb.png</texture>
+			<aspectratio align="center" aligny="top">keep</aspectratio>
+			<include>DialogVideoInfoAnimation</include>
 		</control>
 		<control type="group">
 			<control type="group">

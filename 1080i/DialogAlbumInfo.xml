@@ -11,10 +11,26 @@
 	<onload>Control.Move(5014,$INFO[Container(5014).CurrentItem,-])</onload>
 	<onload condition="SubString(System.BuildVersion,15,left)">Control.Move(5014,1)</onload>
 	<onload condition="!SubString(System.BuildVersion,15,left)">Control.Move(5014,0)</onload>
+	<onload>ClearProperty(logo,home)</onload>
+	<onload>ClearProperty(Banner,home)</onload>
+	<onload>ClearProperty(Fanart,home)</onload>
+	<onload>ClearProperty(Fanart2,home)</onload>
+	<onload>ClearProperty(Fanart3,home)</onload>
+	<onload>ClearProperty(Artist_Formed,home)</onload>
+	<onload>ClearProperty(Born,home)</onload>
+	<onload>ClearProperty(Died,home)</onload>
+	<onload>ClearProperty(Description,home)</onload>
 	<onunload>ClearProperty(AlbumDetails,home)</onunload>
 	<onunload>ClearProperty(MostLoved,home)</onunload>
 	<onunload>ClearProperty(Concerts,home)</onunload>
 	<onunload>ClearProperty(Discography,home)</onunload>
+	<onunload>ClearProperty(logo,home)</onunload>
+	<onunload>ClearProperty(Banner,home)</onunload>
+	<onunload>ClearProperty(Fanart,home)</onunload>
+	<onunload>ClearProperty(Fanart2,home)</onunload>
+	<onunload>ClearProperty(Fanart3,home)</onunload>
+	<onload condition="Container.Content(artists)">RunScript(script.extendedinfo,info=artistdetails,artistname='$ESCINFO[ListItem.Artist]',silent=False)</onload>
+	<onload condition="Container.Content(albums)">RunScript(script.extendedinfo,info=artistdetails,info=albuminfo,artistname='$ESCINFO[ListItem.Artist]',albumname='$ESCINFO[ListItem.Album]',silent=False)</onload>
 	<animation effect="fade" end="100" start="100" time="200">WindowClose</animation>
 	<controls>
 		<!-- Fanart -->
@@ -30,15 +46,30 @@
 				<colordiffuse>DialogFanartFade</colordiffuse>
 				<texture background="true">$VAR[MusicFanart]</texture>
 			</control>
+			<control type="image">
+				<include>Dimensions_Fullscreen</include>
+				<colordiffuse>DialogFanartFade</colordiffuse>
+				<texture background="true">$INFO[Container(5013).ListItem.Property(GoogleMap)]</texture>
+				<visible>!IsEmpty(Window(home).Property(Concerts)) + Control.HasFocus(5013)</visible>
+			</control>
+		</control>
+		<control id="8308" type="image">
+			<top>99</top>
+			<right>40</right>
+			<width>258</width>
+			<height>130</height>
+			<texture fallback="empty.png">$INFO[Skin.String(cdartlocation)]$INFO[ListItem.Artist]/logo.png</texture>
+			<aspectratio align="center" aligny="top">keep</aspectratio>
+			<visible>Skin.HasSetting(furniture.logo) + !IsEmpty(Skin.String(cdartlocation))</visible>
 		</control>
 		<control type="image">
 			<top>99</top>
 			<right>40</right>
 			<width>258</width>
 			<height>130</height>
-			<texture>$INFO[Skin.String(cdartlocation)]$INFO[ListItem.Artist]/logo.png</texture>
+			<texture>$INFO[Window(Home).Property(logo)]</texture>
 			<aspectratio align="center" aligny="top">keep</aspectratio>
-			<visible>Skin.HasSetting(furniture.logo)</visible>
+			<visible>Skin.HasSetting(furniture.logo) + Substring(Control.GetLabel(8308),empty.png)</visible>
 		</control>
 		<control type="image">
 			<top>280</top>
@@ -235,7 +266,7 @@
 					<font>Small</font>
 					<autoscroll>false</autoscroll>
 					<textcolor>Black700</textcolor>
-					<label>[COLOR Black300][B]Formed: [/B][/COLOR]$INFO[ListItem.Property(Artist_Formed)]</label>
+					<label>[COLOR Black300][B]Formed: [/B][/COLOR]$INFO[Window(Home).Property(Artist_Formed)]</label>
 				</control>
 			</control>
 			<!-- Year -->
@@ -275,7 +306,7 @@
 					<label>[COLOR Black300][B]Genre: [/B][/COLOR]$INFO[ListItem.Genre]</label>
 				</control>
 			</control>
-			<!-- Active -->
+			<!-- Born -->
 			<control type="group">
 				<include>DialogMusicInfoAnimation</include>
 				<top>147</top>
@@ -291,7 +322,7 @@
 					<font>Small</font>
 					<autoscroll>false</autoscroll>
 					<textcolor>Black700</textcolor>
-					<label>[COLOR Black300][B]Active: [/B][/COLOR]$INFO[ListItem.Property(Artist_YearsActive)]</label>
+					<label>[COLOR Black300][B]Born: [/B][/COLOR]$INFO[Window(Home).Property(Born))]</label>
 				</control>
 			</control>
 			<!-- Artist -->
@@ -348,7 +379,25 @@
 					<font>Small</font>
 					<autoscroll>false</autoscroll>
 					<textcolor>Black700</textcolor>
-					<label>[COLOR Black300][B]$LOCALIZE[21897] / $LOCALIZE[21896]: [/B][/COLOR]$INFO[ListItem.Property(Artist_Disbanded),, ]$INFO[ListItem.Property(Artist_Died)]</label>
+					<label>[COLOR Black300][B]$LOCALIZE[21897] / $LOCALIZE[21896]: [/B][/COLOR]$INFO[Window(Home).Property(Artist_Disbanded),, ]$INFO[Window(Home).Property(Died)]</label>
+				</control>
+			</control>
+			<control type="group">
+				<visible>!Control.HasFocus(7001)</visible>
+				<include>DialogMusicInfoAnimation</include>
+				<top>227</top>
+				<height>96</height>
+				<itemgap>20</itemgap>
+				<animation condition="Control.HasFocus(1500) | Control.HasFocus(2500)" effect="fade" end="0" start="100" time="0">Conditional</animation>
+				<animation condition="!Control.HasFocus(1500) + !Control.HasFocus(2500)" delay="200" effect="fade" end="100" start="0" time="80">Conditional</animation>
+				<control type="textbox">
+					<width>1192</width>
+					<height>96</height>
+					<align>left</align>
+					<font>Tiny</font>
+					<autoscroll>false</autoscroll>
+					<textcolor>Black700</textcolor>
+					<label>[COLOR Black300][B]Description: [/B][/COLOR]$INFO[Window(Home).Property(Description)]</label>
 				</control>
 			</control>
 			<control type="group">
@@ -505,7 +554,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>Container.Content(albums)</visible>
+				<visible>!Control.HasFocus(7002) + !Control.HasFocus(7003) + !Control.HasFocus(7004) + !Control.HasFocus(5012) + !Control.HasFocus(5013) + !Control.HasFocus(5014)</visible>
 				<animation condition="!IsEmpty(Window(home).Property(AlbumDetails))" effect="fade" end="0" start="100" time="0">Conditional</animation>
 				<animation effect="fade" end="100" start="0" time="200" delay="800">WindowOpen</animation>
 				<!-- Fanart -->
@@ -517,11 +566,29 @@
 					<texture border="66,66,51,51">views/shadow_nf.png</texture>
 					<visible>!IsEmpty(ListItem.Art(fanart))</visible>
 				</control>
+				<control type="fadelabel" id="4324">
+					<scrollspeed>3</scrollspeed>
+					<top>-300</top>
+					<width>11479</width>
+					<height>118</height>
+					<label>$INFO[Window(Home).Property(Fanart)]</label>
+					<label>$INFO[Window(Home).Property(Fanart2)]</label>
+					<label>$VAR[MusicFanart]</label>
+					<label>$INFO[Window(Home).Property(Fanart3)]</label>
+				</control>
 				<control type="image">
 					<top>504</top>
 					<width>665</width>
 					<height>374</height>
-					<texture>$INFO[ListItem.Art(fanart)]</texture>
+					<texture>$INFO[Control.GetLabel(4324)]</texture>
+					<visible>!IsEmpty(Window(Home).Property(Fanart))</visible>
+				</control>
+				<control type="image">
+					<top>504</top>
+					<width>665</width>
+					<height>374</height>
+					<texture>$VAR[MusicFanart]</texture>
+					<visible>IsEmpty(Window(Home).Property(Fanart))</visible>
 				</control>
 				<control type="multiimage">
 					<top>504</top>
@@ -533,6 +600,7 @@
 					<aspectratio>scale</aspectratio>
 					<imagepath background="true">$INFO[Skin.String(cdartlocation)]$INFO[ListItem.Artist,,/extrafanart/]</imagepath>
 					<visible>!SubString(ListItem.Artist,/)</visible>
+					<visible>IsEmpty(Control.GetLabel(4324))</visible>
 				</control>
 			</control>
 			<control type="group">
@@ -1340,8 +1408,8 @@
 					</itemlayout>
 					<focusedlayout height="576" width="600">
 						<control type="group">
-							<animation center="150,288" condition="Control.HasFocus(5013) + [Container(5013).OnNext | Container(5013).OnPrevious]" easing="inout" effect="zoom" end="100" start="85" time="300" tween="sine">Focus</animation>
-							<animation center="150,288" condition="Control.HasFocus(5013) + [Container(5013).OnNext | Container(5013).OnPrevious]" easing="inout" effect="zoom" end="85" start="100" time="300" tween="sine">UnFocus</animation>
+							<animation center="150,288" condition="Control.HasFocus(5013) " easing="inout" effect="zoom" end="20" start="85" time="300" tween="sine">Focus</animation>
+							<animation center="150,288" condition="Control.HasFocus(5013) " easing="inout" effect="zoom" end="85" start="20" time="300" tween="sine">UnFocus</animation>
 							<animation center="150,288" condition="!Control.HasFocus(5013)" easing="inout" effect="zoom" end="85" start="100" time="300" tween="sine">Conditional</animation>
 							<control type="image">
 								<top>48</top>
