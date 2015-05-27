@@ -437,6 +437,7 @@
 					<onup condition="Control.IsVisible(96)">3002</onup>
 					<ondown condition="Control.IsVisible(5000)">5000</ondown>
 					<ondown condition="Control.IsVisible(50)">50</ondown>
+                    <onclick>dialog.close(all,true)</onclick>
 					<font>symbol</font>
 					<label>$VAR[VideoInfoButton8]</label>
 					<altlabel></altlabel>
@@ -456,6 +457,7 @@
 					<ondown condition="Control.IsVisible(5000)">5000</ondown>
 					<ondown condition="Control.IsVisible(50)">50</ondown>
 					<onclick condition="Player.HasMedia">PlayerControl(stop)</onclick>
+                    <onclick>dialog.close(all,true)</onclick>
 					<onclick>PlayMedia($INFO[ListItem.Trailer])</onclick>
 					<font>symbol</font>
 					<label></label>
