@@ -293,6 +293,64 @@
 			</control>
 			<!-- Button grouplist -->
 			<control id="9000" type="grouplist">
+				<visible>!Skin.HasSetting(furniture.info.showtext)</visible>
+				<left>-2</left>
+				<top>409</top>
+				<width>1620</width>
+				<height>116</height>
+				<itemgap>10</itemgap>
+				<onleft>7000</onleft>
+				<onright>noop</onright>
+				<orientation>horizontal</orientation>
+				<include>DialogVideoInfoAnimation</include>
+				<defaultcontrol always="true">9001</defaultcontrol>
+				<animation condition="Control.HasFocus(1000) | Control.HasFocus(150)" effect="slide" end="0,-192" start="0,0" time="200">Conditional</animation>
+				<!-- Dummy to always set focus to first visible button -->
+				<control id="9001" type="button">
+					<width>-10</width>
+					<height>0</height>
+					<label>-</label>
+					<onfocus>Right</onfocus>
+					<include>NoTextures</include>
+					<visible>!Control.HasFocus(8) + !Control.HasFocus(206)</visible>
+				</control>
+				<!-- Play/Browse Button -->
+				<control id="8" type="button">
+					<width>134</width>
+					<height>116</height>
+					<onup condition="!Control.IsVisible(96)">Close</onup>
+					<onup condition="Control.IsVisible(96)">3002</onup>
+					<ondown condition="Control.IsVisible(150)">150</ondown>
+					<ondown condition="Control.IsVisible(1000)">1000</ondown>
+					<label></label>
+                    <onclick>dialog.close(all,true)</onclick>
+					<textcolor>Black700</textcolor>
+					<textoffsetx>0</textoffsetx>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<font>symbol</font>
+					<visible>!IsEmpty(Window.Property(movie.DBID))</visible>
+				</control>
+				<control id="206" type="button">
+					<width>134</width>
+					<height>116</height>
+					<onup condition="!Control.IsVisible(96)">Close</onup>
+					<onup condition="Control.IsVisible(96)">3002</onup>
+					<ondown condition="Control.IsVisible(150)">150</ondown>
+					<ondown condition="Control.IsVisible(1000)">1000</ondown>
+                    <onclick>dialog.close(all,true)</onclick>
+					<label></label>
+					<textcolor>Black700</textcolor>
+					<textoffsetx>0</textoffsetx>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<font>symbol</font>
+					<visible>IntegerGreaterThan(Container(1150).NumItems,0)</visible>
+				</control>
+			</control>
+			<!-- Button grouplist -->
+			<control id="9001" type="grouplist">
+				<visible>Skin.HasSetting(furniture.info.showtext)</visible>
 				<left>-2</left>
 				<top>409</top>
 				<width>1620</width>
