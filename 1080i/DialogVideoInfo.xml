@@ -798,7 +798,7 @@
 				<left>-25</left>
 				<top>-271</top>
 				<width>2600</width>
-				<height>576</height>
+				<height>616</height>
 				<onup>9009</onup>
 				<ondown>RunScript(script.extendedinfo,info=extendedactorinfo,name=$INFO[Container(50).ListItem.Label])</ondown>
 				<onleft>7000</onleft>
@@ -819,7 +819,7 @@
 				<animation effect="fade" end="100" start="0" time="300">Visible</animation>
 				<animation effect="fade" end="0" start="100" time="300">Hidden</animation>
 				<animation center="480,1022" condition="!Control.HasFocus(50)" easing="inout" effect="zoom" end="81" start="100" time="300" tween="sine">Conditional</animation>
-				<itemlayout height="576" width="300">
+				<itemlayout height="616" width="300">
 					<control type="group">
 						<visible>Control.HasFocus(50)</visible>
 						<animation center="150,288" condition="true" effect="zoom" end="85" start="85">Conditional</animation>
@@ -876,7 +876,7 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout height="576" width="300">
+				<focusedlayout height="616" width="300">
 					<control type="group">
 						<animation center="150,288" condition="Control.HasFocus(50) + [Container(50).OnNext | Container(50).OnPrevious]" easing="inout" effect="zoom" end="100" start="85" time="300" tween="sine">Focus</animation>
 						<animation center="150,288" condition="Control.HasFocus(50) + [Container(50).OnNext | Container(50).OnPrevious]" easing="inout" effect="zoom" end="85" start="100" time="300" tween="sine">UnFocus</animation>
@@ -950,6 +950,17 @@
 							<visible>Control.HasFocus(50)</visible>
 							<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
 							<animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
+						</control>
+						<!-- More -->
+						<control type="image">
+							<left>125</left>
+							<top>590</top>
+							<width>37</width>
+							<height>23</height>
+							<texture colordiffuse="Black300">views/more_fo.png</texture>
+							<animation condition="Control.HasFocus(50)" easing="inout" effect="rotate" end="-90" center="auto" time="0">Focus</animation>
+							<animation condition="Control.HasFocus(50)" easing="inout" effect="slide" end="-90,-300" center="auto" time="0">UnFocus</animation>
+							<animation effect="slide" end="0,200" time="30" tween="sine">UnFocus</animation>
 						</control>
 					</control>
 				</focusedlayout>
