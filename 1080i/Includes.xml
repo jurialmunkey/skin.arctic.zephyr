@@ -529,7 +529,7 @@
 			<height>50</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>rating/fsk/6.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,6)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,6) + !SubString(ListItem.Mpaa,16)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
