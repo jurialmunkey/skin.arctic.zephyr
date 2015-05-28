@@ -64,8 +64,9 @@
 					<top>518</top>
 					<width>290</width>
 					<height>50</height>
-					<onup condition="!Control.IsVisible(96)">Close</onup>
 					<onup condition="Control.IsVisible(96)">3002</onup>
+					<onup condition="!Control.IsVisible(96) + !Skin.HasSetting(furniture.info.showtext)">9000</onup>
+					<onup condition="!Control.IsVisible(96) + Skin.HasSetting(furniture.info.showtext)">9001</onup>
 					<ondown>7001</ondown>
 					<onleft>Close</onleft>
 					<onright condition="!IsEmpty(Container(150).ListItemNoWrap(0).Label)">150</onright>
