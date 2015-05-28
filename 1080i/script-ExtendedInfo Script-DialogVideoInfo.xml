@@ -13,7 +13,9 @@
 	<onload condition="System.HasAddon(script.tvtunes)">RunScript(script.tvtunes,backend=True)</onload>
 	<onunload>ClearProperty(Similar,home)</onunload>
 	<onunload>ClearProperty(ExtendedYoutube,home)</onunload>
-	<onunload>SetFocus(1000)</onunload>
+	<onunload>dialog.close(all,true)</onunload>
+	<onunload>SetFocus(50)</onunload>
+
 	<animation effect="fade" end="100" start="100" time="200">WindowClose</animation>
 	<controls>
 		<control type="button" id="999">
@@ -79,8 +81,9 @@
 				<top>518</top>
 				<width>320</width>
 				<height>50</height>
-				<onup condition="!Control.IsVisible(96)">Close</onup>
 				<onup condition="Control.IsVisible(96)">3002</onup>
+				<onup condition="!Control.IsVisible(96) + !Skin.HasSetting(furniture.info.showtext)">9000</onup>
+				<onup condition="!Control.IsVisible(96) + Skin.HasSetting(furniture.info.showtext)">9001</onup>
 				<ondown>7001</ondown>
 				<onleft>Close</onleft>
 				<onright>1000</onright>

@@ -740,6 +740,11 @@
 					<top>551</top>
 					<itemgap>14</itemgap>
 					<orientation>horizontal</orientation>
+					<include condition="Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)">lib_Rating_TV</include>
+					<include condition="IsEmpty(Skin.String(RatingCountry))">lib_Rating_BBFC</include>
+					<include condition="Stringcompare(Skin.String(RatingCountry),US)">lib_Rating_MPAA</include>
+					<include condition="Stringcompare(Skin.String(RatingCountry),UK)">lib_Rating_BBFC</include>
+					<include condition="Stringcompare(Skin.String(RatingCountry),Germany)">lib_Rating_FSK</include>
 					<control type="image">
 						<width>130</width>
 						<height>50</height>
@@ -771,15 +776,17 @@
 					<control type="image">
 						<width>130</width>
 						<height>50</height>
+						<texture colordiffuse="Black700">flags/audio/dts.png]</texture>
+						<aspectratio align="left">scale</aspectratio>
+						<visible>!IsEmpty(ListItem.AudioCodec) + SubString(ListItem.AudioCodec,dts) + !SubString(ListItem.AudioCodec,dtshd_hra) + !SubString(ListItem.AudioCodec,dtshd_ma) + !SubString(ListItem.AudioCodec,dtshdma)</visible>
+					</control>
+					<control type="image">
+						<width>130</width>
+						<height>50</height>
 						<texture colordiffuse="Black700">$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
 						<aspectratio align="left">scale</aspectratio>
 						<visible>!IsEmpty(ListItem.AudioChannels)</visible>
 					</control>
-					<include condition="Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)">lib_Rating_TV</include>
-					<include condition="IsEmpty(Skin.String(RatingCountry))">lib_Rating_BBFC</include>
-					<include condition="Stringcompare(Skin.String(RatingCountry),US)">lib_Rating_MPAA</include>
-					<include condition="Stringcompare(Skin.String(RatingCountry),UK)">lib_Rating_BBFC</include>
-					<include condition="Stringcompare(Skin.String(RatingCountry),Germany)">lib_Rating_FSK</include>
 				</control>
 			</control>
 			<control type="group">
