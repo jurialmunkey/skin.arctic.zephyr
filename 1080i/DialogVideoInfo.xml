@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Foundation -->
 <window>
 	<defaultcontrol always="true">8</defaultcontrol>
 	<onload condition="System.HasAddon(script.videoextras)">RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
@@ -28,7 +27,6 @@
 				<font>Small</font>
 				<pagecontrol>96</pagecontrol>
 				<autoscroll>false</autoscroll>
-				<textcolor>ffbbbbbb</textcolor>
 				<label>$VAR[Plot]</label>
 			</control>
 			<!-- Hidden scrollbar -->
@@ -158,6 +156,28 @@
 					<texture colordiffuse="$VAR[ColourHighlight]">osd/progress-end.png</texture>
 					<visible>StringCompare(ListItem.Overlay,OverlayWatched.png) + !ListItem.IsResumable</visible>
 				</control>
+				<control type="group">
+					<visible>IntegerGreaterThan(ListItem.Property(UnwatchedEpisodes),0)</visible>
+					<control type="image">
+						<left>276</left>
+						<top>5</top>
+						<height>40</height>
+						<width>40</width>
+						<texture colordiffuse="Dark1">common/circle.png</texture>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+					</control>
+					<control type="label">
+						<left>276</left>
+						<top>5</top>
+						<height>40</height>
+						<width>40</width>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Property(UnwatchedEpisodes)]</label>
+						<font>Flag</font>
+						<textcolor>Light1</textcolor>
+					</control>
+				</control>
 				<control id="7000" type="button">
 					<top>500</top>
 					<width>320</width>
@@ -226,7 +246,7 @@
 						<font>Small</font>
 						<aligny>bottom</aligny>
 						<textcolor>Black700</textcolor>
-						<label>$INFO[ListItem.Year]</label>
+						<label>[COLOR Black300]Year-[/COLOR]$INFO[ListItem.Year]</label>
 						<visible>!IsEmpty(ListItem.Year)</visible>
 					</control>
 					<control type="label">
@@ -236,8 +256,38 @@
 						<font>Small</font>
 						<aligny>bottom</aligny>
 						<textcolor>Black700</textcolor>
-						<label>$VAR[Duration]</label>
+						<label>[COLOR Black300]Duration-[/COLOR]$VAR[Duration]</label>
 						<visible>!IsEmpty(ListItem.Duration)</visible>
+					</control>
+					<control type="label">
+						<top>-6</top>
+						<width>auto</width>
+						<height>32</height>
+						<font>Small</font>
+						<aligny>bottom</aligny>
+						<textcolor>Black700</textcolor>
+						<label>[COLOR Black300]Status-[/COLOR]$INFO[Window(Home).Property(NextAired.Status)]</label>
+						<visible>!IsEmpty(Window(Home).Property(NextAired.Status))</visible>
+					</control>
+					<control type="label">
+						<top>-6</top>
+						<width>auto</width>
+						<height>32</height>
+						<font>Small</font>
+						<aligny>bottom</aligny>
+						<textcolor>Black700</textcolor>
+						<label>[COLOR Black300]Next Aired-[/COLOR]$INFO[Window(Home).Property(NextAired.NextNumber)]$INFO[Window(Home).Property(NextAired.NextDay), - ,]</label>
+						<visible>!IsEmpty(Window(Home).Property(NextAired.NextDay))</visible>
+					</control>
+					<control type="label">
+						<top>-6</top>
+						<width>auto</width>
+						<height>32</height>
+						<font>Small</font>
+						<aligny>bottom</aligny>
+						<textcolor>Black700</textcolor>
+						<label>[COLOR Black300]Latest Aired-[/COLOR]$INFO[Window(Home).Property(NextAired.LatestNumber)]$INFO[Window(Home).Property(NextAired.LatestDay), - ,]</label>
+						<visible>IsEmpty(Window(Home).Property(NextAired.NextDay))</visible>
 					</control>
 					<!--<control type="label"> <top>-6</top> <width>auto</width> <height>32</height> <font>Small</font> <aligny>bottom</aligny> <textcolor>Black700</textcolor> <label>($INFO[ListItem.EndTime,$LOCALIZE[31106] ,])</label> <visible>!IsEmpty(ListItem.EndTime)</visible> <visible>Container.Content(movies) | Container.Content(episodes)</visible> </control> -->
 					<control type="image">
@@ -795,11 +845,12 @@
 				<animation effect="fade" end="100" start="0" time="200" delay="800">WindowOpen</animation>
 				<!-- Cast label -->
 				<control type="label">
+				    <visible>false</visible>
 					<left>575</left>
 					<width>1000</width>
 					<height>32</height>
 					<font>MediumSmall</font>
-					<textcolor>Black3000</textcolor>
+					<textcolor>Black300</textcolor>
 					<label>Cast and Role</label>
 					<visible>IsEmpty(Window(home).Property(Similar)) + !IsEmpty(Container(50).ListItem.Label) + !Control.HasFocus(50)</visible>
 					<animation delay="400" effect="fade" end="100" start="0" time="200">Visible</animation>

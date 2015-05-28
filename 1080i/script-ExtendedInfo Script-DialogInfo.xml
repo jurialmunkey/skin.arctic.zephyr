@@ -148,7 +148,7 @@
 					<scroll>true</scroll>
 					<textcolor>Black100</textcolor>
 					<scrollspeed>100</scrollspeed>
-					<label>$INFO[Window.Property(actor.title)]</label>
+					<label>$INFO[Window.Property(actor.title)]$INFO[Window.Property(actor.Job), / ,]</label>
 					<include>DialogVideoInfoAnimation</include>
 				</control>
 				<!-- Born -->
@@ -167,7 +167,7 @@
 						<font>Small</font>
 						<autoscroll>false</autoscroll>
 						<textcolor>Black700</textcolor>
-						<label>[COLOR Black300][B]$LOCALIZE[21893]-[/B][/COLOR]$INFO[Window.Property(actor.Birthday)]</label>
+						<label>[COLOR Black300][B]Age-[/B][/COLOR]$INFO[Window.Property(actor.Age)]  [COLOR Black300][B]$LOCALIZE[21893]-[/B][/COLOR]$INFO[Window.Property(actor.Birthday)]   [COLOR Black300][B]In-[/B][/COLOR]$INFO[Window.Property(actor.Placeofbirth)]</label>
 						<include>DialogVideoInfoAnimation</include>
 					</control>
 				</control>
