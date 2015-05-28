@@ -268,11 +268,6 @@
 				<textcolor>Dark2</textcolor>
 				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
 			</control>
-			<include>lib_Rating_TV</include>
-			<include condition="IsEmpty(Skin.String(RatingCountry))">lib_Rating_BBFC</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),US)">lib_Rating_MPAA</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),UK)">lib_Rating_BBFC</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),Germany)">lib_Rating_FSK</include>
 			<control type="image">
 				<width>108</width>
 				<height>50</height>
@@ -373,6 +368,11 @@
 				<texture colordiffuse="Dark1">flags/imdb.png</texture>
 				<visible>!IsEmpty(ListItem.Top250)</visible>
 			</control>
+			<include>lib_Rating_TV</include>
+			<include condition="IsEmpty(Skin.String(RatingCountry))">lib_Rating_BBFC</include>
+			<include condition="Stringcompare(Skin.String(RatingCountry),US)">lib_Rating_MPAA</include>
+			<include condition="Stringcompare(Skin.String(RatingCountry),UK)">lib_Rating_BBFC</include>
+			<include condition="Stringcompare(Skin.String(RatingCountry),Germany)">lib_Rating_FSK</include>
 		</control>
 	</include>
 	<include name="Furniture_Hub_Flags">
@@ -557,6 +557,32 @@
 				<width>258</width>
 				<height>100</height>
 				<texture>$VAR[ClearLogo]</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+			</control>
+			<control type="label">
+				<width>auto</width>
+				<height>64</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<label>$INFO[BottomClearLogoText]</label>
+				<font>Flag</font>
+				<textcolor>Dark2</textcolor>
+				<visible>IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
+			</control>
+		</control>
+		<control type="group">
+			<visible>Skin.HasSetting(furniture.logo)</visible>
+			<visible>!Window.IsVisible(DialogAlbumInfo.xml)</visible>
+			<visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs)</visible>
+			<left>831</left>
+			<top>70</top>
+			<include>Animation.FadeIn</include>
+			<include>Animation.FadeOut</include>
+			<control type="image">
+				<width>258</width>
+				<height>100</height>
+				<texture>$VAR[MusicClearLogo]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
 			</control>

@@ -299,6 +299,11 @@
 				<orientation>horizontal</orientation>
 				<scrolltime>200</scrolltime>
 				<itemgap>0</itemgap>
+				<control type="button" id="330">
+					<label>Spotlight</label>
+					<onfocus>SetProperty(widget,Spotlight,home)</onfocus>
+					<include>DefWidgetSelector</include>
+				</control>
 				<control type="button" id="331">
 					<label>31127</label>
 					<onfocus>SetProperty(widget,RandomMovies,home)</onfocus>
@@ -309,11 +314,11 @@
 					<onfocus>SetProperty(widget,RecentMovies,home)</onfocus>
 					<include>DefWidgetSelector</include>
 				</control>
-				<control type="button" id="333">
+				<!--  <control type="button" id="333">
 					<label>31123</label>
 					<onfocus>SetProperty(widget,RecommendedMovies,home)</onfocus>
 					<include>DefWidgetSelector</include>
-				</control>
+				</control> -->
 				<control type="button" id="334">
 					<label>31126</label>
 					<onfocus>SetProperty(widget,RandomEpisodes,home)</onfocus>
@@ -332,7 +337,6 @@
 			</control>
 		</control>
 	</include>
-	
 	<include name="HomeWidgetUpdating">
 		<!-- Container Updating -->
 		<control type="group">
@@ -429,6 +433,7 @@
 					<include>DefFavouritesWidget</include>
 				</content>
 			</control>
+			
 			<!-- Normal Widget -->
 			<control type="group">
 				<visible>!Container(301).IsUpdating</visible>
