@@ -13,7 +13,9 @@
 	<onload condition="System.HasAddon(script.tvtunes)">RunScript(script.tvtunes,backend=True)</onload>
 	<onunload>ClearProperty(Similar,home)</onunload>
 	<onunload>ClearProperty(ExtendedYoutube,home)</onunload>
-	<onunload>SetFocus(1000)</onunload>
+	<onunload>dialog.close(all,true)</onunload>
+	<onunload>SetFocus(50)</onunload>
+
 	<animation effect="fade" end="100" start="100" time="200">WindowClose</animation>
 	<controls>
 		<control type="button" id="999">
