@@ -290,14 +290,14 @@
 						<width>48</width>
 						<height>23</height>
 						<texture>views/imdb.png</texture>
-						<visible>!IsEmpty(ListItem.Rating) + !Container.Content(tvshows)</visible>
+						<visible>!IsEmpty(ListItem.Rating) + !Container.Content(tvshows) + !Container.Content(episodes)</visible>
 					</control>
 					<control type="image">
 						<top>6</top>
-						<width>47</width>
+						<width>48</width>
 						<height>23</height>
 						<texture>views/tvdb.png</texture>
-						<visible>!IsEmpty(ListItem.Rating) + Container.Content(tvshows)</visible>
+						<visible>!IsEmpty(ListItem.Rating) + [Container.Content(tvshows) | Container.Content(episodes)]</visible>
 					</control>
 					<control type="label">
 						<top>-1</top>

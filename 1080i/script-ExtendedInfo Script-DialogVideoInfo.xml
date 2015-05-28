@@ -13,9 +13,6 @@
 	<onload condition="System.HasAddon(script.tvtunes)">RunScript(script.tvtunes,backend=True)</onload>
 	<onunload>ClearProperty(Similar,home)</onunload>
 	<onunload>ClearProperty(ExtendedYoutube,home)</onunload>
-	<onunload>dialog.close(all,true)</onunload>
-	<onunload>SetFocus(50)</onunload>
-
 	<animation effect="fade" end="100" start="100" time="200">WindowClose</animation>
 	<controls>
 		<control type="button" id="999">
@@ -38,7 +35,7 @@
 		<control type="group">
 			<control type="image">
 				<include>Dimensions_Fullscreen</include>
-				<colordiffuse>DialogFanartFade</colordiffuse>
+				<colordiffuse>$INFO[Window.Property(movie.ImageColor)]</colordiffuse>
 				<texture background="true">genrethumb/Kodi.jpg</texture>
 				<visible>IsEmpty(Window.Property(movie.fanart))</visible>
 			</control>
@@ -56,6 +53,17 @@
 			<texture>moviedb.png</texture>
 			<aspectratio align="center" aligny="top">keep</aspectratio>
 			<include>DialogVideoInfoAnimation</include>
+			<visible>IsEmpty(Window.Property(movie.Logo))</visible>
+		</control>
+		<control type="image">
+			<top>99</top>
+			<right>40</right>
+			<width>258</width>
+			<height>130</height>
+			<texture>$INFO[Window.Property(movie.Logo)]</texture>
+			<aspectratio align="center" aligny="top">keep</aspectratio>
+			<include>DialogVideoInfoAnimation</include>
+			<visible>!IsEmpty(Window.Property(movie.Logo))</visible>
 		</control>
 		<control type="group">
 			<left>90</left>
@@ -233,14 +241,14 @@
 					<width>48</width>
 					<height>23</height>
 					<texture>views/imdb.png</texture>
-					<visible>!IsEmpty(Window.Property(movie.rating)) + !Container.Content(tvshows)</visible>
+					<visible>!IsEmpty(Window.Property(movie.rating)) + !Container.Content(tvshows) + !Container.Content(episodes)</visible>
 				</control>
 				<control type="image">
 					<top>6</top>
 					<width>47</width>
 					<height>23</height>
 					<texture>views/tvdb.png</texture>
-					<visible>!IsEmpty(Window.Property(movie.rating)) + Container.Content(tvshows)</visible>
+					<visible>!IsEmpty(Window.Property(movie.rating)) + [Container.Content(tvshows) | Container.Content(episodes)]</visible>
 				</control>
 				<control type="label">
 					<top>-1</top>
