@@ -44,7 +44,14 @@
 			<control type="image">
 				<include>Dimensions_Fullscreen</include>
 				<colordiffuse>DialogFanartFade</colordiffuse>
-				<texture background="true">$VAR[MusicFanart]</texture>
+				<texture background="true" fallback="genrethumb/headphones.jpg">$INFO[ListItem.Art(fanart)]</texture>
+				<visible>!IsEmpty(ListItem.Art(fanart))</visible>
+			</control>
+			<control type="image">
+				<include>Dimensions_Fullscreen</include>
+				<colordiffuse>DialogFanartFade</colordiffuse>
+				<texture background="true" fallback="genrethumb/headphones.jpg">$INFO[Container.Art(artist.fanart)]</texture>
+				<visible>IsEmpty(ListItem.Art(fanart))</visible>
 			</control>
 			<control type="image">
 				<include>Dimensions_Fullscreen</include>
