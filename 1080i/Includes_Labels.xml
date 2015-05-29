@@ -257,6 +257,11 @@
 		<value condition="!IsEmpty(Window(movieinformation).Property(Actor2))">$INFO[Window(movieinformation).Property(Actor1)], $INFO[Window(movieinformation).Property(Actor2)]</value>
 		<value condition="!IsEmpty(Window(movieinformation).Property(Actor1))">$INFO[Window(movieinformation).Property(Actor1)]</value>
 	</variable>
+	<variable name="CastList2">
+		<value condition="!IsEmpty(Container(1000).ListItemNoWrap(2).Label)">$INFO[Container(1000).ListItemNoWrap(0).Label], $INFO[Container(1000).ListItemNoWrap(1).Label], $INFO[Container(1000).ListItemNoWrap(2).Label]</value>
+		<value condition="!IsEmpty(Container(1000).ListItemNoWrap(1).Label)">$INFO[Container(1000).ListItemNoWrap(0).Label], $INFO[Container(1000).ListItemNoWrap(1).Label]</value>
+		<value condition="!IsEmpty(Container(1000).ListItemNoWrap(0).Label)">$INFO[Container(1000).ListItemNoWrap(0).Label]</value>
+	</variable>
 	<variable name="VideoInfoButton8">
 		<value condition="ListItem.IsResumable + !Skin.HasSetting(furniture.info.showtext)"></value>
 		<value condition="ListItem.IsResumable + Skin.HasSetting(furniture.info.showtext)">Resume</value>
