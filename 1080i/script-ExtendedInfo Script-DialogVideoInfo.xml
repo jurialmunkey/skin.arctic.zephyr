@@ -260,6 +260,23 @@
 					<label>$INFO[Window.Property(movie.rating)]</label>
 					<visible>!IsEmpty(Window.Property(movie.rating))</visible>
 				</control>
+				<control type="image">
+					<top>4</top>
+					<width>48</width>
+					<height>27</height>
+					<texture>views/imdbtop250.png</texture>
+					<visible>!IsEmpty(Window.Property(movie.Top250))</visible>
+				</control>
+				<control type="label">
+					<top>-1</top>
+					<width>auto</width>
+					<height>34</height>
+					<font>TinyBold</font>
+					<aligny>bottom</aligny>
+					<textcolor>Black700</textcolor>
+					<label>#$INFO[Window.Property(movie.Top250)]</label>
+					<visible>!IsEmpty(Window.Property(movie.Top250))</visible>
+				</control>
 			</control>
 			<control type="grouplist">
 				<top>150</top>
@@ -621,6 +638,22 @@
 							<height>480</height>
 							<aspectratio align="center">scale</aspectratio>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<visible>Control.HasFocus(1000)</visible>
+							<top>41</top>
+							<left>-7</left>
+							<width>334</width>
+							<height>490</height>
+							<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+							<animation type="Focus">
+								<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+								<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+							</animation>
+							<animation type="Unfocus">
+								<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+								<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+							</animation>
 						</control>
 						<control type="image">
 							<left>-48</left>
@@ -1033,6 +1066,22 @@
 							<texture background="true" fallback="views/movie_fallback.png">$INFO[ListItem.Art(poster)]</texture>
 						</control>
 						<control type="image">
+							<visible>Control.HasFocus(150)</visible>
+							<top>41</top>
+							<left>-7</left>
+							<width>334</width>
+							<height>490</height>
+							<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+							<animation type="Focus">
+								<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+								<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+							</animation>
+							<animation type="Unfocus">
+								<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+								<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+							</animation>
+						</control>
+						<control type="image">
 							<left>-48</left>
 							<centertop>288</centertop>
 							<width>416</width>
@@ -1307,6 +1356,22 @@
 							<height>380</height>
 							<aspectratio align="center">scale</aspectratio>
 							<texture background="true" fallback="views/movie_fallback.png">$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="image">
+							<visible>Control.HasFocus(350)</visible>
+							<top>141</top>
+							<left>-7</left>
+							<width>689</width>
+							<height>390</height>
+							<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+							<animation type="Focus">
+								<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+								<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+							</animation>
+							<animation type="Unfocus">
+								<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+								<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+							</animation>
 						</control>
 						<control type="label">
 							<left>18</left>
