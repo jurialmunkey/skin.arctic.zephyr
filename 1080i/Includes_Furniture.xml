@@ -579,12 +579,20 @@
 			<top>70</top>
 			<include>Animation.FadeIn</include>
 			<include>Animation.FadeOut</include>
+			
+			<control id="8308" type="image">
+				<width>258</width>
+				<height>100</height>
+				<texture fallback="empty.png">$VAR[MusicClearLogo]</texture>
+				<aspectratio align="center" aligny="top">keep</aspectratio>
+				<visible>Skin.HasSetting(furniture.logo) + !IsEmpty(Skin.String(cdartlocation))</visible>
+			</control>
 			<control type="image">
 				<width>258</width>
 				<height>100</height>
-				<texture>$VAR[MusicClearLogo]</texture>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+				<texture>$INFO[Window(Home).Property(logo)]</texture>
+				<aspectratio align="center" aligny="top">keep</aspectratio>
+				<visible>Skin.HasSetting(furniture.logo) + Substring(Control.GetLabel(8308),empty.png)</visible>
 			</control>
 			<control type="label">
 				<width>auto</width>
