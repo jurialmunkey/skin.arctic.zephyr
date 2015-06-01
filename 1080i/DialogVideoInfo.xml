@@ -40,10 +40,16 @@
 			<!-- Background -->
 			<!-- Fanart -->
 			<control type="group">
+				<control id="8308" type="image">
+					<include>Dimensions_Fullscreen</include>
+					<colordiffuse>DialogFanartFade</colordiffuse>
+					<texture fallback="empty.png" background="true">$INFO[ListItem.Art(fanart)]</texture>
+				</control>
 				<control type="image">
 					<include>Dimensions_Fullscreen</include>
 					<colordiffuse>DialogFanartFade</colordiffuse>
-					<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+					<texture background="true">genrethumb/Kodi.jpg</texture>
+					<visible>Substring(Control.GetLabel(8308),empty.png)</visible>
 				</control>
 				<include>DialogVideoInfoAnimation</include>
 			</control>

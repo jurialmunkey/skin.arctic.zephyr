@@ -153,6 +153,7 @@
 			<texture colordiffuse="Background">common/bg.jpg</texture>
 			<visible>!Window.IsVisible(home)</visible>
 			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<animation effect="fade" start="100" end="75" time="200" condition="Player.HasVideo + Skin.HasSetting(global.showvideo) | Player.HasAudio + Skin.HasSetting(global.showvisualisation)">Conditional</animation>
 		</control>
 		<control type="multiimage" description="Fanart">
@@ -160,6 +161,7 @@
 			<visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio]</visible>
 			<visible>!Skin.HasSetting(global.hidefanart) | Window.IsVisible(home)</visible>
 			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<include>Dimensions_Fullscreen</include>
 			<include>Animation.FadeFromHome</include>
 			<animation effect="fade" end="0" start="100" time="350" tween="cubic" easing="inout" condition="Window.IsVisible(home)">WindowClose</animation>
@@ -177,6 +179,7 @@
 			<include>Animation.FadeFromHome</include>
 			<texture colordiffuse="FloorFade">common/floor.png</texture>
 			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogAlbumInfo.xml)</visible>
 		</control>
 	</include>
 	<include name="NetflixBackground">
