@@ -263,7 +263,7 @@
 		<value condition="!IsEmpty(Container(1000).ListItemNoWrap(0).Label)">$INFO[Container(1000).ListItemNoWrap(0).Label]</value>
 	</variable>
 	<variable name="VideoInfoButton8">
-		<value condition="ListItem.IsResumable + !Skin.HasSetting(furniture.info.showtext)"></value>
+		<value condition="ListItem.IsResumable + !Skin.HasSetting(furniture.info.showtext)"></value>
 		<value condition="ListItem.IsResumable + Skin.HasSetting(furniture.info.showtext)">Resume</value>
 		<value condition="IntegerGreaterThan(ListItem.PlayCount,0) + !Skin.HasSetting(furniture.info.showtext)"></value>
 		<value condition="IntegerGreaterThan(ListItem.PlayCount,0) + Skin.HasSetting(furniture.info.showtext)">Watch[CR]Again</value>
