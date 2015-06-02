@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">8</defaultcontrol>
+	<zorder>0</zorder>
 	<onload condition="System.HasAddon(script.videoextras)">RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
 	<onload>Control.Move(5000,$INFO[Container(5000).CurrentItem,-])</onload>
 	<onload condition="SubString(System.BuildVersion,15,left)">Control.Move(5000,1)</onload>
