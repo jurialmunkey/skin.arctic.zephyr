@@ -90,7 +90,7 @@
 				<width>320</width>
 				<height>50</height>
 				<onup condition="Control.IsVisible(96)">3002</onup>
-				<onup condition="!Control.IsVisible(96) + !Skin.HasSetting(furniture.info.showtext)">9000</onup>
+				<onup condition="!Control.IsVisible(96) + [Control.IsVisible(8) | Control.IsVisible(206)] + !Skin.HasSetting(furniture.info.showtext)">9000</onup>
 				<onup condition="!Control.IsVisible(96) + Skin.HasSetting(furniture.info.showtext)">9001</onup>
 				<ondown>7001</ondown>
 				<onleft>Close</onleft>
