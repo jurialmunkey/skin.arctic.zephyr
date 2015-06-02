@@ -76,18 +76,64 @@
 				<visible>Skin.HasSetting(furniture.logo)</visible>
 				<include>DialogVideoInfoAnimation</include>
 			</control>
-			<control type="label">
-				<top>45</top>
-				<right>298</right>
-				<width>auto</width>
-				<height>32</height>
-				<font>EndTime</font>
-				<align>center</align>
-				<aligny>bottom</aligny>
-				<textcolor>Black700</textcolor>
-				<label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label>
+			<!-- <control type="label"> <top>45</top> <right>298</right> <width>auto</width> <height>32</height> <font>EndTime</font> <align>center</align> <aligny>bottom</aligny> <textcolor>Black700</textcolor> <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label> <visible>!IsEmpty(ListItem.EndTime)</visible> <visible>Container.Content(movies) | Container.Content(episodes)</visible> </control> -->
+			<control type="group">
 				<visible>!IsEmpty(ListItem.EndTime)</visible>
 				<visible>Container.Content(movies) | Container.Content(episodes)</visible>
+				<right>1</right>
+				<posy>1</posy>
+				<width>380</width>
+				<height>90</height>
+				<control type="image">
+					<description>background image</description>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>100%</width>
+					<height>100%</height>
+					<colordiffuse>PanelBlack30</colordiffuse>
+					<texture border="16">common/rounded-shadow8.png</texture>
+					
+			</control>
+				<control type="group">
+					<control type="image">
+						<left>20</left>
+						<centertop>50%</centertop>
+						<width>48</width>
+						<height>48</height>
+						<aspectratio aligny="center">keep</aspectratio>
+						<colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+						<texture>kaitoast/clock.png</texture>
+					</control>
+					<control type="label">
+						<right>185</right>
+						<left>20</left>
+						<height>100%</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>Small</font>
+						<textcolor>$VAR[OSDPanelWhite70]</textcolor>
+						<label>$INFO[System.Time(hh:mm)]</label>
+					</control>
+					<control type="image">
+						<left>235</left>
+						<centertop>50%</centertop>
+						<width>48</width>
+						<height>48</height>
+						<aspectratio aligny="center">keep</aspectratio>
+						<colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+						<texture>kaitoast/finishtime.png</texture>
+					</control>
+					<control type="label">
+						<right>-45</right>
+						<left>220</left>
+						<height>100%</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>Small</font>
+						<textcolor>$VAR[OSDPanelWhite70]</textcolor>
+						<label>$INFO[ListItem.EndTime]</label>
+					</control>
+				</control>
 			</control>
 			<control type="group">
 				<left>90</left>

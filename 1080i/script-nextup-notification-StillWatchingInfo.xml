@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">4012</defaultcontrol>
+	<zorder>0</zorder>
+	<controls>
+		<control type="group">
+			<right>200</right>
+			<bottom>200</bottom>
+			<width>890</width>
+			<height>339</height>
+			<control type="group">
+				<control type="image">
+					<top>5</top>
+					<left>5</left>
+					<right>10</right>
+					<height>324</height>
+					<animation effect="fade" start="100" end="90" time="200" condition="true">Conditional</animation>
+					<texture border="5" colordiffuse="$VAR[Background]">common/box.png</texture>
+				</control>
+				<!-- -->
+				<control type="image" id="4001" description="poster">
+					<left>5</left>
+					<top>5</top>
+					<width>216</width>
+					<height>324</height>
+					<fadetime>350</fadetime>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+				</control>
+				<control type="label" description="still watching question">
+					<width>100%</width>
+					<top>10</top>
+					<left>230</left>
+					<height>40</height>
+					<font>MediumBold</font>
+					<textcolor>Black100</textcolor>
+					<label>$ADDON[service.nextup.notification 30012]</label>
+				</control>
+				<control type="label" description="Title" id="4000">
+					<left>230</left>
+					<width>100%</width>
+					<top>60</top>
+					<height>40</height>
+					<font>MediumBold</font>
+					<textcolor>$VAR[ColourHighlight]</textcolor>
+				</control>
+				<control type="image">
+					<left>230</left>
+					<top>256</top>
+					<width>24</width>
+					<height>24</height>
+					<aspect>keep</aspect>
+					<texture>special://skin/extras/icons/imdb.png</texture>
+					<visible>Control.IsVisible(4003)</visible>
+				</control>
+				<control type="label" id="4003" description="rating">
+					<left>265</left>
+					<width>100%</width>
+					<top>250</top>
+					<height>40</height>
+					<font>TinyBold</font>
+					<textcolor>$VAR[OSDPanelWhite70]</textcolor>
+				</control>
+				<control type="label" id="4004" description="year">
+					<left>315</left>
+					<width>100%</width>
+					<top>250</top>
+					<height>40</height>
+					<font>TinyBold</font>
+					<textcolor>$VAR[OSDPanelWhite70]</textcolor>
+					<scroll>false</scroll>
+				</control>
+				<control type="textbox" id="4006" description="plot">
+					<left>230</left>
+					<right>40</right>
+					<top>110</top>
+					<height>150</height>
+					<font>Tiny</font>
+					<align>justify</align>
+					<autoscroll>false</autoscroll>
+					<textcolor>$VAR[OSDPanelWhite30]</textcolor>
+					<visible>!skin.hassetting(osd.hidespoilers)</visible>
+				</control>
+				<control type="label" description="plot hidden">
+					<left>230</left>
+					<right>40</right>
+					<top>110</top>
+					<height>150</height>
+					<font>Tiny</font>
+					<align>justify</align>
+					<textcolor>$VAR[OSDPanelWhite30]</textcolor>
+					<visible>skin.hassetting(osd.hidespoilers)</visible>
+					<label>* Hidden to prevent spoilers *</label>
+				</control>
+				<control type="label" description="Total Time">
+					<right>30</right>
+					<align>right</align>
+					<width>300</width>
+					<top>10</top>
+					<height>80</height>
+					<font>SmallBold</font>
+					<textcolor>$VAR[OSDPanelWhite70]</textcolor>
+					<label>$INFO[Player.TimeRemaining(ss),,sec(s)]</label>
+				</control>
+				<!-- buttons -->
+				<control type="button" id="4012">
+					<description>Still watching</description>
+					<right>30</right>
+					<bottom>65</bottom>
+					<width>230</width>
+					<onup>4013</onup>
+					<ondown>4013</ondown>
+					<label>$ADDON[service.nextup.notification 30010]</label>
+					<height>40</height>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<font>SmallBold</font>
+					<textcolor>Black700</textcolor>
+					<focusedcolor>Selected</focusedcolor>
+					<disabledcolor>$VAR[OSDPanelWhite70]</disabledcolor>
+					<selectedcolor>Highlight2</selectedcolor>
+				</control>
+				<control type="button" id="4013">
+					<description>Cancel</description>
+					<right>30</right>
+					<bottom>20</bottom>
+					<width>230</width>
+					<onup>4012</onup>
+					<ondown>4012</ondown>
+					<label>222</label>
+					<height>40</height>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<font>SmallBold</font>
+					<textcolor>Black700</textcolor>
+					<focusedcolor>Selected</focusedcolor>
+					<disabledcolor>$VAR[OSDPanelWhite70]</disabledcolor>
+					<selectedcolor>Highlight2</selectedcolor>
+				</control>
+				<control type="image">
+					<left>230</left>
+					<description>Progress Back</description>
+					<width>630</width>
+					<bottom>10</bottom>
+					<height>8</height>
+					<texture colordiffuse="Black12">common/white.png</texture>
+				</control>
+				<control type="progress" description="cache">
+					<left>230</left>
+					<description>Progress Bar</description>
+					<width>630</width>
+					<bottom>10</bottom>
+					<height>8</height>
+					<info>Player.ProgressCache</info>
+					<texturebg colordiffuse="00ffffff">osd/progress-bg.png</texturebg>
+					<lefttexture colordiffuse="Highlight2">osd/progress-end.png</lefttexture>
+					<midtexture colordiffuse="Highlight2">osd/progress-end.png</midtexture>
+					<righttexture colordiffuse="Highlight2">osd/progress-end.png</righttexture>
+				</control>
+				<control type="progress" id="23">
+					<description>Progress Bar</description>
+					<left>230</left>
+					<width>630</width>
+					<bottom>10</bottom>
+					<height>8</height>
+					<info>Player.Progress</info>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>
