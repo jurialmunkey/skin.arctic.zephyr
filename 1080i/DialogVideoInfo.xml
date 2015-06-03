@@ -80,23 +80,22 @@
 			<control type="group">
 				<visible>!IsEmpty(ListItem.EndTime)</visible>
 				<visible>Container.Content(movies) | Container.Content(episodes)</visible>
-				<right>1</right>
-				<posy>1</posy>
+				<left>90</left>
+				<posy>4</posy>
 				<width>380</width>
 				<height>90</height>
 				<control type="image">
 					<description>background image</description>
-					<posx>0</posx>
+					<posx>-10</posx>
 					<posy>0</posy>
-					<width>100%</width>
+					<width>340</width>
 					<height>100%</height>
-					<colordiffuse>PanelBlack30</colordiffuse>
+					<colordiffuse>White70</colordiffuse>
 					<texture border="16">common/rounded-shadow8.png</texture>
-					
-			</control>
+				</control>
 				<control type="group">
 					<control type="image">
-						<left>20</left>
+						<left>2</left>
 						<centertop>50%</centertop>
 						<width>48</width>
 						<height>48</height>
@@ -105,8 +104,7 @@
 						<texture>kaitoast/clock.png</texture>
 					</control>
 					<control type="label">
-						<right>185</right>
-						<left>20</left>
+						<right>205</right>
 						<height>100%</height>
 						<align>center</align>
 						<aligny>center</aligny>
@@ -115,7 +113,7 @@
 						<label>$INFO[System.Time(hh:mm)]</label>
 					</control>
 					<control type="image">
-						<left>235</left>
+						<left>195</left>
 						<centertop>50%</centertop>
 						<width>48</width>
 						<height>48</height>
@@ -124,8 +122,8 @@
 						<texture>kaitoast/finishtime.png</texture>
 					</control>
 					<control type="label">
-						<right>-45</right>
-						<left>220</left>
+						<right>20</right>
+						<left>200</left>
 						<height>100%</height>
 						<align>center</align>
 						<aligny>center</aligny>
