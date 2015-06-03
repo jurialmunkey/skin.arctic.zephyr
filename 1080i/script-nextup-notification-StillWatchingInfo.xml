@@ -4,9 +4,9 @@
 	<zorder>0</zorder>
 	<controls>
 		<control type="group">
-			<right>200</right>
-			<bottom>200</bottom>
-			<width>890</width>
+			<right>300</right>
+			<bottom>400</bottom>
+			<width>1290</width>
 			<height>339</height>
 			<control type="group">
 				<control type="image">
@@ -15,7 +15,7 @@
 					<right>10</right>
 					<height>324</height>
 					<animation effect="fade" start="100" end="90" time="200" condition="true">Conditional</animation>
-					<texture border="5" colordiffuse="$VAR[Background]">common/box.png</texture>
+					<texture border="5" colordiffuse="$VAR[OSDPanel]">common/box.png</texture>
 				</control>
 				<!-- -->
 				<control type="image" id="4001" description="poster">
@@ -92,21 +92,21 @@
 					<label>* Hidden to prevent spoilers *</label>
 				</control>
 				<control type="label" description="Total Time">
-					<right>30</right>
+					<right>140</right>
 					<align>right</align>
 					<width>300</width>
-					<top>10</top>
+					<top>130</top>
 					<height>80</height>
-					<font>SmallBold</font>
+					<font>EpisodeNumber</font>
 					<textcolor>$VAR[OSDPanelWhite70]</textcolor>
-					<label>$INFO[Player.TimeRemaining(ss),,sec(s)]</label>
+					<label>$INFO[Player.TimeRemaining(ss)]</label>
 				</control>
 				<!-- buttons -->
 				<control type="button" id="4012">
 					<description>Still watching</description>
 					<right>30</right>
 					<bottom>65</bottom>
-					<width>230</width>
+					<width>320</width>
 					<onup>4013</onup>
 					<ondown>4013</ondown>
 					<label>$ADDON[service.nextup.notification 30010]</label>
@@ -123,7 +123,7 @@
 					<description>Cancel</description>
 					<right>30</right>
 					<bottom>20</bottom>
-					<width>230</width>
+					<width>320</width>
 					<onup>4012</onup>
 					<ondown>4012</ondown>
 					<label>222</label>
@@ -139,7 +139,7 @@
 				<control type="image">
 					<left>230</left>
 					<description>Progress Back</description>
-					<width>630</width>
+					<width>1030</width>
 					<bottom>10</bottom>
 					<height>8</height>
 					<texture colordiffuse="Black12">common/white.png</texture>
@@ -147,7 +147,7 @@
 				<control type="progress" description="cache">
 					<left>230</left>
 					<description>Progress Bar</description>
-					<width>630</width>
+					<width>1030</width>
 					<bottom>10</bottom>
 					<height>8</height>
 					<info>Player.ProgressCache</info>
@@ -159,7 +159,7 @@
 				<control type="progress" id="23">
 					<description>Progress Bar</description>
 					<left>230</left>
-					<width>630</width>
+					<width>1030</width>
 					<bottom>10</bottom>
 					<height>8</height>
 					<info>Player.Progress</info>
