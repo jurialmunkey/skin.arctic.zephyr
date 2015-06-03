@@ -2,7 +2,6 @@
 <window>
 	<!-- musicinformation -->
 	<defaultcontrol always="true">1</defaultcontrol>
-	<zorder>0</zorder>
 	<onload>Control.Move(5012,$INFO[Container(5012).CurrentItem,-])</onload>
 	<onload condition="SubString(System.BuildVersion,15,left)">Control.Move(5012,1)</onload>
 	<onload condition="!SubString(System.BuildVersion,15,left)">Control.Move(5012,0)</onload>
@@ -40,6 +39,12 @@
 	<controls>
 		<!-- Fanart -->
 		<control type="group">
+		        <control type="image">
+		            <include>Animation.FadeIn</include>
+		            <include condition="!Window.IsVisible(DialogButtonMenu.xml)">Animation.FadeOut</include>
+		            <include>Dimensions_Fullscreen</include>
+		            <texture border="2">common/black-back.png</texture>
+		        </control>
 			<control type="image">
 				<include>Dimensions_Fullscreen</include>
 				<colordiffuse>DialogFanartFade</colordiffuse>
