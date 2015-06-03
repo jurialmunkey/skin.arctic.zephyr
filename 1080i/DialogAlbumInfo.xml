@@ -2,6 +2,7 @@
 <window>
 	<!-- musicinformation -->
 	<defaultcontrol always="true">1</defaultcontrol>
+	<zorder>0</zorder>
 	<onload>Control.Move(5012,$INFO[Container(5012).CurrentItem,-])</onload>
 	<onload condition="SubString(System.BuildVersion,15,left)">Control.Move(5012,1)</onload>
 	<onload condition="!SubString(System.BuildVersion,15,left)">Control.Move(5012,0)</onload>
