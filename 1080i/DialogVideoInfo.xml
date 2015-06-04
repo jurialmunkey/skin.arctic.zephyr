@@ -39,15 +39,9 @@
 				<orientation>vertical</orientation>
 			</control>
 			<!-- Background -->
-			<control type="image">
-				<include>Animation.FadeIn</include>
-				<include>Dimensions_Fullscreen</include>
-				<texture border="0">common/white.png</texture>
-				<visible>Window.IsVisible(DialogVideoInfo.xml) + StringCompare(DialogFanartFade.name,2Fffffff)</visible>
-			</control>
 			<!-- Fanart -->
 			<control type="group">
-					<control id="8308" type="image">
+				<control id="8308" type="image">
 					<include>Dimensions_Fullscreen</include>
 					<colordiffuse>DialogFanartFade</colordiffuse>
 					<texture fallback="empty.png" background="true">$INFO[ListItem.Art(fanart)]</texture>
