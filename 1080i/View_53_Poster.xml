@@ -147,7 +147,7 @@
 		<control type="group">
 			<include>Animation.Common</include>
 			<visible>Control.IsVisible(53)</visible>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<include condition="!Skin.HasSetting(53poster.nowrap)">53Wrap</include>
 			<include condition="Skin.HasSetting(53poster.nowrap)">53Fixed</include>
 			<control type="group">

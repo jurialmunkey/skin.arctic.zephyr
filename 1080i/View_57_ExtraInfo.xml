@@ -6,7 +6,7 @@
         <control type="group">
             <include>Animation.Common</include>
             <visible>Control.IsVisible(57)</visible>
-            <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+            <visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
             <control type="group">
                 <control type="list" id="57">
                     <visible>Container.Content(musicvideos) | Container.Content(artists) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
@@ -48,7 +48,7 @@
         <control type="group">
             <include>Animation.Common</include>
             <visible>Control.IsVisible(57)</visible>
-            <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+            <visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
             <control type="group">
                 <posy>320</posy>
                 <control type="fixedlist" id="57">

@@ -6,7 +6,7 @@
 		<control type="group">
 			<include>Animation.Common</include>
 			<visible>Control.IsVisible(51)</visible>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<control type="group">
 				<top>PosterPad</top>
 				<left>SidePad</left>
@@ -135,7 +135,7 @@
 		<control type="group">
 			<include>Animation.Common</include>
 			<visible>Control.IsVisible(51)</visible>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<control type="group">
 				<include>BigWideContent</include>
 				<control type="group">

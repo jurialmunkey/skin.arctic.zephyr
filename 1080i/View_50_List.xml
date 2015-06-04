@@ -6,7 +6,7 @@
 		<control type="group">
 			<include>Animation.Common</include>
 			<visible>Control.IsVisible(50)</visible>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<control type="group">
 				<control type="list" id="50">
 					<visible>Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left) + !stringcompare(Container.FolderPath,library://video/movies/) + !stringcompare(Container.FolderPath,library://video/tvshows/) + !stringcompare(Container.FolderPath,special://videoplaylists/)] | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)]</visible>
@@ -75,7 +75,7 @@
 		<control type="group">
 			<include>Animation.Common</include>
 			<visible>Control.IsVisible(50)</visible>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<control type="group">
 				<posy>320</posy>
 				<control type="fixedlist" id="50">
@@ -126,7 +126,7 @@
 	</include>
 	<include name="View_50_SidePoster">
 		<control type="group" description="Poster">
-			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<left>SidePad</left>
 			<top>PosterPad</top>
 			<control type="image">
@@ -171,7 +171,7 @@
 		<control type="group">
 			<include>Animation.Common</include>
 			<visible>Control.IsVisible(50)</visible>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<control type="group">
 				<control type="list" id="50">
 					<top>PosterPad</top>
@@ -247,7 +247,7 @@
 		<control type="group">
 			<include>Animation.Common</include>
 			<visible>Control.IsVisible(550)</visible>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<control type="group">
 				<control type="list" id="550">
 					<visible>![Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left) + !stringcompare(Container.FolderPath,library://video/movies/) + !stringcompare(Container.FolderPath,library://video/tvshows/) + !stringcompare(Container.FolderPath,special://videoplaylists/)] | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)]]</visible>
