@@ -159,7 +159,7 @@
 	<include name="Furniture_Flags">
 		<control type="grouplist">
 			<visible>!Skin.HasSetting(furniture.flags)</visible>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 			<visible>!stringcompare(ListItem.Label,..)</visible>
 			<include>Animation.FadeIn</include>
@@ -547,7 +547,7 @@
 	<include name="Furniture_Logo">
 		<control type="group">
 			<visible>Skin.HasSetting(furniture.logo)</visible>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 			<left>831</left>
 			<top>70</top>
@@ -839,7 +839,7 @@
 			<top>SidePad</top>
 			<left>SidePad</left>
 			<visible>!Skin.HasSetting(furniture.header)</visible>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<include>Animation.FadeIn</include>
 			<include>Animation.FadeOut</include>
 			<orientation>horizontal</orientation>
@@ -910,7 +910,7 @@
 			<include>Animation.FadeOut</include>
 			<centerbottom>NavBarPad</centerbottom>
 			<visible>!Skin.HasSetting(furniture.clock)</visible>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<height>84</height>
 			<animation effect="slide" start="0" end="0,-10" time="150" condition="Skin.HasSetting(furniture.weather)">Conditional</animation>
 			<control type="label">
