@@ -82,7 +82,7 @@
 			<width>100</width>
 			<height>100</height>
 			<aspectratio scalediffuse="false">scale</aspectratio>
-			<texture diffuse="common/circle.png" background="true">$VAR[FanartImage]</texture>
+			<texture diffuse="common/circle.png" background="true">$INFO[ListItem.Icon]</texture>
 			<visible>!Skin.HasSetting(global.hidecirles)</visible>
 		</control>
 		<control type="image">
@@ -91,7 +91,7 @@
 			<width>100</width>
 			<height>100</height>
 			<aspectratio scalediffuse="false">keep</aspectratio>
-			<texture background="true">$VAR[FanartImage]</texture>
+			<texture background="true">$INFO[ListItem.Icon]</texture>
 			<visible>Skin.HasSetting(global.hidecirles)</visible>
 		</control>
 		<control type="label">
@@ -107,7 +107,7 @@
 		<control type="label">
 			<left>130</left>
 			<top>10</top>
-			<right>40</right>
+			<right>100</right>
 			<align>right</align>
 			<height>100</height>
 			<aligny>center</aligny>
@@ -115,14 +115,17 @@
 			<textcolor>Dark1</textcolor>
 			<label>$INFO[ListItem.Label2]</label>
 		</control>
+		<control type="image">
+			<centerright>58</centerright>
+			<centertop>60</centertop>
+			<width>32</width>
+			<height>32</height>
+			<aspectratio aligny="top">keep</aspectratio>
+			<texture>$VAR[PercentWatched]</texture>
+			<visible>!stringcompare(ListItem.Label,..)</visible>
+		</control>
 	</include>
 	<include name="View_52_BigList_FocusLayout">
-		<control type="button">
-			<texturefocus>-</texturefocus>
-			<texturenofocus>-</texturenofocus>
-			<onfocus condition="Container.Content(movies)">ClearProperty(TVShowID,home)</onfocus>
-			<onfocus condition="Container.Content(tvshows)">SetProperty(TVShowID,$INFO[ListItem.DBID],home)</onfocus>
-		</control>
 		<control type="image">
 			<left>0</left>
 			<right>10</right>
@@ -135,7 +138,7 @@
 			<width>100</width>
 			<height>100</height>
 			<aspectratio scalediffuse="false">scale</aspectratio>
-			<texture diffuse="common/circle.png" background="true">$VAR[FanartImage]</texture>
+			<texture diffuse="common/circle.png" background="true">$INFO[ListItem.Icon]</texture>
 			<visible>!Skin.HasSetting(global.hidecirles)</visible>
 		</control>
 		<control type="image">
@@ -144,7 +147,7 @@
 			<width>100</width>
 			<height>100</height>
 			<aspectratio scalediffuse="false">keep</aspectratio>
-			<texture background="true">$VAR[FanartImage]</texture>
+			<texture background="true">$INFO[ListItem.Icon]</texture>
 			<visible>Skin.HasSetting(global.hidecirles)</visible>
 		</control>
 		<control type="label">
@@ -160,13 +163,22 @@
 		<control type="label">
 			<left>130</left>
 			<top>10</top>
-			<right>40</right>
+			<right>100</right>
 			<align>right</align>
 			<height>100</height>
 			<aligny>center</aligny>
 			<font>Small</font>
 			<textcolor>Light1</textcolor>
 			<label>$INFO[ListItem.Label2]</label>
+		</control>
+		<control type="image">
+			<centerright>58</centerright>
+			<centertop>60</centertop>
+			<width>32</width>
+			<height>32</height>
+			<aspectratio aligny="top">keep</aspectratio>
+			<texture>$VAR[PercentWatched]</texture>
+			<visible>!stringcompare(ListItem.Label,..)</visible>
 		</control>
 	</include>
 </includes>
