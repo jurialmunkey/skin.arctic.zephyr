@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
 <window id="0">
-    <defaultcontrol always="true">300</defaultcontrol>
-    <allowoverlay>no</allowoverlay>
-    <onload>RunScript(script.favourites)</onload>
-    <onload condition="IsEmpty(Skin.String(focuscolor.name))">Skin.SetString(focuscolor.name,FF0fd39e)</onload>
-					
+	<defaultcontrol always="true">300</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<onload>RunScript(script.favourites)</onload>
+	<onload condition="IsEmpty(Skin.String(focuscolor.name))">Skin.SetString(focuscolor.name,FF0fd39e)</onload>
 	<onload condition="System.HasAddon(script.grab.fanart)">RunScript(script.grab.fanart,mode=random,refresh=10)</onload>
 	<onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;group=mainmenu|movieshub|episodeshub)</onload>
-    <controls>
-        <include condition="!Skin.HasSetting(home.netflix)">GlobalBackground</include>
-        <include condition="!Skin.HasSetting(home.netflix)">HomeHeader</include>
-        <include condition="!Skin.HasSetting(home.netflix)">HomeNextRecording</include>
-        <include condition="!Skin.HasSetting(home.netflix)">HomeWeatherWidget</include>
-        <include condition="!Skin.HasSetting(home.netflix)">HomeWidgetSelector</include>
-        <include condition="!Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.netflix)">HomeRow</include>
-        <include condition="!Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.netflix)">HomeWidgetInfo</include>
-        <include condition="Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.netflix)">HomeClassicWidgets</include>
-        
-        <include condition="Skin.HasSetting(home.submenu2) + !Skin.HasSetting(home.showicons) + !Skin.HasSetting(home.netflix)">HomeSubMenu2</include>
-        <include condition="!Skin.HasSetting(home.submenu2) | Skin.HasSetting(home.showicons) + !Skin.HasSetting(home.netflix)">HomeSubMenu</include>
-    
-        <include condition="Skin.HasSetting(home.netflix)">NetflixBackground</include>
-        <include condition="Skin.HasSetting(home.netflix)">HomeNetflix</include>
-        <include condition="Skin.HasSetting(home.netflix)">NetflixWidgetSelector</include>
-        
-    </controls>
+	<controls>
+		<include condition="!Skin.HasSetting(home.netflix)">GlobalBackground</include>
+		<include condition="!Skin.HasSetting(home.netflix)">HomeHeader</include>
+		<include condition="!Skin.HasSetting(home.netflix)">HomeNextRecording</include>
+		<include condition="!Skin.HasSetting(home.netflix)">HomeWeatherWidget</include>
+		<include condition="!Skin.HasSetting(home.netflix)">HomeNowPlaying</include>
+		<include condition="!Skin.HasSetting(home.netflix)">HomeWidgetSelector</include>
+		<include condition="!Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.netflix)">HomeRow</include>
+		<include condition="!Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.netflix)">HomeWidgetInfo</include>
+		<include condition="Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.netflix)">HomeClassicWidgets</include>
+		<include condition="Skin.HasSetting(home.submenu2) + !Skin.HasSetting(home.showicons) + !Skin.HasSetting(home.netflix)">HomeSubMenu2</include>
+		<include condition="!Skin.HasSetting(home.submenu2) | Skin.HasSetting(home.showicons) + !Skin.HasSetting(home.netflix)">HomeSubMenu</include>
+		<include condition="Skin.HasSetting(home.netflix)">NetflixBackground</include>
+		<include condition="Skin.HasSetting(home.netflix)">HomeNetflix</include>
+		<include condition="Skin.HasSetting(home.netflix)">NetflixWidgetSelector</include>
+	</controls>
 </window>
