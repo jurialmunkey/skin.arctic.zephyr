@@ -6,13 +6,27 @@
         <height>270</height>
     </include>
     <include name="GlobalSearchLabel">
+        <left>30</left>
         <height>40</height>
         <aligny>center</aligny>
         <font>TinyBold</font>
         <textcolor>Black70</textcolor>
         <align>left</align>
     </include>
-    
+    <include name="GlobalSearchLeftArrow">
+        <centertop>150</centertop>
+        <centerleft>15</centerleft>
+        <width>16</width>
+        <height>16</height>
+        <texture colordiffuse="Black70" flipx="true">common/arrow-small-right.png</texture>
+    </include>
+    <include name="GlobalSearchRightArrow">
+        <centertop>150</centertop>
+        <centerright>15</centerright>
+        <width>16</width>
+        <height>16</height>
+        <texture colordiffuse="Black70" flipx="false">common/arrow-small-right.png</texture>
+    </include>
     <variable name="GlobalSearchArt">
         <value condition="!IsEmpty(ListItem.Property(Fanart))">$INFO[ListItem.Property(Fanart)]</value>
         <value>$INFO[ListItem.Thumb]</value>
@@ -77,6 +91,7 @@
     </include>
     <include name="GlobalSearchList">
         <posy>50</posy>
+        <left>30</left>
         <height>220</height>
         <width>1712</width>
         <orientation>horizontal</orientation>

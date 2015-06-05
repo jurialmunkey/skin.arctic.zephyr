@@ -25,6 +25,10 @@
         <animation effect="fade" start="0" end="100" time="350" tween="cubic" easing="inout">Visible</animation>
         <animation effect="fade" start="0" end="100" time="350" tween="cubic" easing="inout">WindowOpen</animation>
     </include>
+    <include name="Animation.DelayFadeIn">
+        <animation effect="fade" start="0" end="100" time="650" delay="200" tween="cubic" easing="inout">Visible</animation>
+        <animation effect="fade" start="0" end="100" time="650" delay="200" tween="cubic" easing="inout">WindowOpen</animation>
+    </include>
     <include name="Animation.FadeFromHome">
         <animation effect="fade" start="0" end="100" time="350" tween="cubic" easing="inout" condition="Window.Previous(home)">WindowOpen</animation>
         <animation effect="fade" end="0" start="100" time="350" tween="cubic" easing="inout" condition="Window.Next(home)">WindowClose</animation>
