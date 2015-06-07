@@ -69,6 +69,31 @@
 					<include>DefContextButton</include>
 					<align>left</align>
 				</control>
+				<control type="button" id="3">
+					<description>Sort</description>
+					<include>DefContextButton</include>
+					<align>left</align>
+				</control>
+				<control type="togglebutton" id="4">
+					<description>Ascending</description>
+					<include>DefContextButton</include>
+					<align>left</align>
+					<label>584</label>
+					<altlabel>585</altlabel>
+				</control>
+				<control type="radiobutton" id="31">
+					<description>Filter</description>
+					<include>DefContextButton</include>
+					<label>587</label>
+					<selected>Container.Filtered</selected>
+					<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)</visible>
+				</control>
+				<control type="radiobutton" id="6">
+					<description>Show hidden channels</description>
+					<include>DefContextButton</include>
+					<label>19051</label>
+					<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)</visible>
+				</control>
 				<control type="radiobutton" id="123">
 					<include>DefContextButton</include>
 					<label>31739</label>
@@ -86,8 +111,6 @@
 					<align>left</align>
 					<visible>Control.IsVisible(10)</visible>
 				</control>
-				
-				
 				<control type="button" id="3">
 					<description>Sort</description>
 					<include>DefContextButton</include>
@@ -1087,7 +1110,6 @@
 				<animation effect="fade" start="100" end="20" condition="true">Conditional</animation>
 				<visible>ListItem.IsPlaying</visible>
 			</control>
-			
 			<control type="image">
 				<left>5</left>
 				<width>145</width>
