@@ -152,7 +152,7 @@
 					<height>320</height>
 					<texture>$VAR[CDArt]</texture>
 					<aspectratio aligny="center">keep</aspectratio>
-					<visible>Skin.HasSetting(furniture.discart)</visible>
+					<visible>!Skin.HasSetting(furniture.nodiscart)</visible>
 					<animation type="WindowOpen" reversible="false" condition="container.content(movies)">
 						<effect type="slide" start="-200,20" end="0,0" delay="600" time="800" tween="quadratic" easing="out" />
 						<effect type="rotate" start="0" center="auto" end="-720" delay="400" time="800" tween="quadratic" easing="out" />
@@ -169,7 +169,7 @@
 					<height>320</height>
 					<texture colordiffuse="Black100">$VAR[CDArt]</texture>
 					<aspectratio aligny="center">keep</aspectratio>
-					<visible>Skin.HasSetting(furniture.discart)</visible>
+					<visible>!Skin.HasSetting(furniture.nodiscart)</visible>
 					<visible>!container.content(movies)</visible>
 				</control>
 				<!-- Studio <control type="image"> <top>743</top> <width>320</width> <height>217</height> <texture>$VAR[Studio]</texture> <aspectratio aligny="center">keep</aspectratio> <visible>Container.Content(tvshows) | Container.Content(episodes)</visible> <visible>!IsEmpty(ListItem.Studio)</visible> </control> -->

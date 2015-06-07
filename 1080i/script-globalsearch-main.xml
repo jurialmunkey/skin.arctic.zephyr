@@ -20,6 +20,30 @@
                     <bottom>-8</bottom>
                     <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
                 </control>
+                <control type="group">
+                    <visible>Control.IsVisible(60)</visible>
+                    <control type="image">
+                        <top>-30</top>
+                        <centerleft>50%</centerleft>
+                        <width>16</width>
+                        <height>16</height>
+                        <texture colordiffuse="Light2" flipy="true">common/arrow-small.png</texture>
+                        <animation effect="fade" end="100" start="0" delay="300" time="400" reversible="false">Visible</animation>
+                    </control>
+                    <control type="image">
+                        <bottom>-30</bottom>
+                        <centerleft>50%</centerleft>
+                        <width>16</width>
+                        <height>16</height>
+                        <texture colordiffuse="Light2" flipy="false">common/arrow-small.png</texture>
+                        <animation effect="fade" end="100" start="0" delay="300" time="400" reversible="false">Visible</animation>
+                    </control>
+                </control>
+                
+                <control type="scrollbar" id="60">
+                    <left>-1000</left>
+                    <animation effect="fade" start="100" end="0" time="400" condition="true">Conditional</animation>
+                </control>
                 <control type="label" description="Searching">
                     <centerleft>50%</centerleft>
                     <posy>10</posy>
@@ -28,12 +52,13 @@
                     <label fallback="283">$INFO[Control.GetLabel(190)]$INFO[Control.GetLabel(191)]$INFO[Control.GetLabel(199)]</label>
                 </control>
                 
-                <control type="grouplist">
+                <control type="grouplist" id="9500">
                     <posy>80</posy>
                     <height>810</height>
-                    <left>30</left>
-                    <right>30</right>
+                    <left>0</left>
+                    <right>0</right>
                     <itemgap>0</itemgap>
+                    <pagecontrol>60</pagecontrol>
                     <orientation>vertical</orientation>
                     <control type="group" id="219" description="Actors">
                         <include>GlobalSearchGroup</include>
@@ -41,9 +66,10 @@
                             <include>GlobalSearchLabel</include>
                             <label>$INFO[Control.GetLabel(210),$LOCALIZE[20337] (,)]</label>
                         </control>
+                        
                         <control type="list" id="211">
                             <onup>181</onup>
-                            <ondown>121</ondown>
+                            <ondown>111</ondown>
                             <include>GlobalSearchList</include>
                             <focusedlayout height="220" width="428">
                                 <control type="group">
@@ -56,6 +82,17 @@
                                 </control>
                             </focusedlayout>
                         </control>
+                        <control type="group">
+                            <include>Animation.DelayFadeIn</include>
+                            <include>Animation.FadeOut</include>
+                            <visible>Control.HasFocus(211) + IntegerGreaterThan(Container(211).NumItems,4)</visible>
+                            <control type="image">
+                                <include>GlobalSearchLeftArrow</include>
+                            </control>
+                            <control type="image">
+                                <include>GlobalSearchRightArrow</include>
+                            </control>
+                        </control>
                     </control>
                     <control type="group" id="119" description="Movies">
                         <include>GlobalSearchGroup</include>
@@ -64,7 +101,7 @@
                             <label>$INFO[Control.GetLabel(110),$LOCALIZE[20342] (,)]</label>
                         </control>
                         <control type="list" id="111">
-                            <onup>181</onup>
+                            <onup>211</onup>
                             <ondown>121</ondown>
                             <include>GlobalSearchList</include>
                             <focusedlayout height="220" width="428">
@@ -77,6 +114,17 @@
                                     <include>GlobalSearchListFocus</include>
                                 </control>
                             </focusedlayout>
+                        </control>
+                        <control type="group">
+                            <include>Animation.DelayFadeIn</include>
+                            <include>Animation.FadeOut</include>
+                            <visible>Control.HasFocus(111) + IntegerGreaterThan(Container(111).NumItems,4)</visible>
+                            <control type="image">
+                                <include>GlobalSearchLeftArrow</include>
+                            </control>
+                            <control type="image">
+                                <include>GlobalSearchRightArrow</include>
+                            </control>
                         </control>
                     </control>
                     <control type="group" id="129" description="TV">
@@ -100,6 +148,17 @@
                                 </control>
                             </focusedlayout>
                         </control>
+                        <control type="group">
+                            <include>Animation.DelayFadeIn</include>
+                            <include>Animation.FadeOut</include>
+                            <visible>Control.HasFocus(121) + IntegerGreaterThan(Container(121).NumItems,4)</visible>
+                            <control type="image">
+                                <include>GlobalSearchLeftArrow</include>
+                            </control>
+                            <control type="image">
+                                <include>GlobalSearchRightArrow</include>
+                            </control>
+                        </control>
                     </control>
                     <control type="group" id="139" description="Seasons">
                         <include>GlobalSearchGroup</include>
@@ -121,6 +180,17 @@
                                     <include>GlobalSearchListFocus</include>
                                 </control>
                             </focusedlayout>
+                        </control>
+                        <control type="group">
+                            <include>Animation.DelayFadeIn</include>
+                            <include>Animation.FadeOut</include>
+                            <visible>Control.HasFocus(131) + IntegerGreaterThan(Container(131).NumItems,4)</visible>
+                            <control type="image">
+                                <include>GlobalSearchLeftArrow</include>
+                            </control>
+                            <control type="image">
+                                <include>GlobalSearchRightArrow</include>
+                            </control>
                         </control>
                     </control>
                     <control type="group" id="149" description="Eps">
@@ -144,6 +214,17 @@
                                 </control>
                             </focusedlayout>
                         </control>
+                        <control type="group">
+                            <include>Animation.DelayFadeIn</include>
+                            <include>Animation.FadeOut</include>
+                            <visible>Control.HasFocus(141) + IntegerGreaterThan(Container(141).NumItems,4)</visible>
+                            <control type="image">
+                                <include>GlobalSearchLeftArrow</include>
+                            </control>
+                            <control type="image">
+                                <include>GlobalSearchRightArrow</include>
+                            </control>
+                        </control>
                     </control>
                     <control type="group" id="159" description="Music Vids">
                         <include>GlobalSearchGroup</include>
@@ -165,6 +246,17 @@
                                     <include>GlobalSearchListFocus</include>
                                 </control>
                             </focusedlayout>
+                        </control>
+                        <control type="group">
+                            <include>Animation.DelayFadeIn</include>
+                            <include>Animation.FadeOut</include>
+                            <visible>Control.HasFocus(151) + IntegerGreaterThan(Container(151).NumItems,4)</visible>
+                            <control type="image">
+                                <include>GlobalSearchLeftArrow</include>
+                            </control>
+                            <control type="image">
+                                <include>GlobalSearchRightArrow</include>
+                            </control>
                         </control>
                     </control>
                     <control type="group" id="169" description="Artist">
@@ -188,6 +280,17 @@
                                 </control>
                             </focusedlayout>
                         </control>
+                        <control type="group">
+                            <include>Animation.DelayFadeIn</include>
+                            <include>Animation.FadeOut</include>
+                            <visible>Control.HasFocus(161) + IntegerGreaterThan(Container(161).NumItems,4)</visible>
+                            <control type="image">
+                                <include>GlobalSearchLeftArrow</include>
+                            </control>
+                            <control type="image">
+                                <include>GlobalSearchRightArrow</include>
+                            </control>
+                        </control>
                     </control>
                     <control type="group" id="179" description="Albums">
                         <include>GlobalSearchGroup</include>
@@ -210,6 +313,17 @@
                                 </control>
                             </focusedlayout>
                         </control>
+                        <control type="group">
+                            <include>Animation.DelayFadeIn</include>
+                            <include>Animation.FadeOut</include>
+                            <visible>Control.HasFocus(171) + IntegerGreaterThan(Container(171).NumItems,4)</visible>
+                            <control type="image">
+                                <include>GlobalSearchLeftArrow</include>
+                            </control>
+                            <control type="image">
+                                <include>GlobalSearchRightArrow</include>
+                            </control>
+                        </control>
                     </control>
                     <control type="group" id="189" description="Songs">
                         <include>GlobalSearchGroup</include>
@@ -220,7 +334,7 @@
                         <control type="list" id="181">
                             <include>GlobalSearchList</include>
                             <onup>171</onup>
-                            <ondown>111</ondown>
+                            <ondown>211</ondown>
                             <focusedlayout height="220" width="428">
                                 <control type="group">
                                     <visible>!Control.HasFocus(181)</visible>
@@ -231,6 +345,17 @@
                                     <include>GlobalSearchListFocus</include>
                                 </control>
                             </focusedlayout>
+                        </control>
+                        <control type="group">
+                            <include>Animation.DelayFadeIn</include>
+                            <include>Animation.FadeOut</include>
+                            <visible>Control.HasFocus(181) + IntegerGreaterThan(Container(181).NumItems,4)</visible>
+                            <control type="image">
+                                <include>GlobalSearchLeftArrow</include>
+                            </control>
+                            <control type="image">
+                                <include>GlobalSearchRightArrow</include>
+                            </control>
                         </control>
                     </control>
                 </control>

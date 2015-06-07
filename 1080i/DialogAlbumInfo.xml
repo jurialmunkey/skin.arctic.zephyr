@@ -110,7 +110,7 @@
 				<height>320</height>
 				<texture fallback="cdart/default.png">$INFO[ListItem.FolderPath,,cdart.png]</texture>
 				<aspectratio aligny="center">keep</aspectratio>
-				<visible>Skin.HasSetting(furniture.discart)</visible>
+				<visible>!Skin.HasSetting(furniture.nodiscart)</visible>
 				<animation type="WindowOpen" reversible="false" condition="container.content(albums)">
 					<effect type="slide" start="-200,20" end="0,0" delay="600" time="800" tween="quadratic" easing="out" />
 					<effect type="rotate" start="0" center="auto" end="-720" delay="400" time="800" tween="quadratic" easing="out" />
