@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+	<defaultcontrol always="true">500</defaultcontrol>
+	<controls>
+		<!-- Fanart -->
+		<control type="group">
+			<control type="image">
+				<include>Dimensions_Fullscreen</include>
+				<colordiffuse>DialogFanartFade</colordiffuse>
+				<texture background="true">genrethumb/Kodi.jpg</texture>
+			</control>
+			<control type="image">
+				<include>Dimensions_Fullscreen</include>
+				<colordiffuse>DialogFanartFade</colordiffuse>
+				<texture background="true">$INFO[Container(500).ListItem.Art(fanart)]</texture>
+			</control>
+		</control>
+		<control type="image">
+			<top>99</top>
+			<right>40</right>
+			<width>258</width>
+			<height>130</height>
+			<texture>moviedb.png</texture>
+			<aspectratio align="center" aligny="top">keep</aspectratio>
+			<include>DialogVideoInfoAnimation</include>
+			<visible>IsEmpty(Container(500).ListItem.Art(clearlogo))</visible>
+		</control>
+		<control type="image">
+			<top>99</top>
+			<right>40</right>
+			<width>258</width>
+			<height>130</height>
+			<texture>$INFO[Container(500).ListItem.Art(clearlogo)]</texture>
+			<aspectratio align="center" aligny="top">keep</aspectratio>
+			<include>DialogVideoInfoAnimation</include>
+			<visible>!IsEmpty(Container(500).ListItem.Art(clearlogo))</visible>
+		</control>
+		<control type="image">
+			<top>99</top>
+			<right>40</right>
+			<width>258</width>
+			<height>130</height>
+			<texture>moviedb.png</texture>
+			<aspectratio align="center" aligny="top">keep</aspectratio>
+			<include>DialogVideoInfoAnimation</include>
+			<visible>IsEmpty(Window.Property(movie.Logo))</visible>
+		</control>
+		<control type="group">
+			<top>40</top>
+			<control type="label">
+				<top>200</top>
+				<height>40</height>
+				<aligny>center</aligny>
+				<width>1920</width>
+				<align>center</align>
+				<font>MediumBoldCapital</font>
+				<textcolor>Dark3</textcolor>
+				<label>$INFO[Window.Property(Filter_Label)]</label>
+			</control>
+			<animation effect="fade" end="100" start="0" time="200" delay="800">WindowOpen</animation>
+			<control type="list" id="500">
+				<include>Animation.FadeIn</include>
+				<include>Animation.FadeOut</include>
+				<top>330</top>
+				<right>72</right>
+				<left>72</left>
+				<height>674</height>
+				<onleft>9000</onleft>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<preloaditems>2</preloaditems>
+				<orientation>horizontal</orientation>
+				<pagecontrol>60</pagecontrol>
+				<viewtype label="536">list</viewtype>
+				<scrolltime tween="quadratic">400</scrolltime>
+				<itemlayout height="337" width="222">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<right>0</right>
+						<bottom>12</bottom>
+						<texture border="10">common/nofocus-shadow10.png</texture>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<right>10</right>
+						<bottom>22</bottom>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture diffuse="diffuse/wall.png" background="true" fallback="DefaultMovies.png">$INFO[ListItem.Thumb]</texture>
+					</control>
+					<control type="image">
+						<top>11</top>
+						<right>10</right>
+						<width>32</width>
+						<height>32</height>
+						<texture>indicator/inlibrary.png</texture>
+						<visible>!IsEmpty(ListItem.Property(DBID))</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="337" width="222">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<right>0</right>
+						<bottom>12</bottom>
+						<texture border="10">common/nofocus-shadow10.png</texture>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<right>10</right>
+						<bottom>22</bottom>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture diffuse="diffuse/wall.png" background="true" fallback="DefaultMovies.png">$INFO[ListItem.Thumb]</texture>
+					</control>
+					<control type="image">
+						<top>11</top>
+						<right>10</right>
+						<width>32</width>
+						<height>32</height>
+						<texture>indicator/inlibrary.png</texture>
+						<visible>!IsEmpty(ListItem.Property(DBID))</visible>
+					</control>
+					<control type="image">
+						<left>3</left>
+						<top>3</top>
+						<right>3</right>
+						<bottom>15</bottom>
+						<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+						<animation type="Focus">
+							<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+						</animation>
+						<animation type="Unfocus">
+							<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+						</animation>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="grouplist">
+				<include>Animation.FadeIn</include>
+				<include>Animation.FadeOut</include>
+				<left>SidePad</left>
+				<right>SidePad</right>
+				<orientation>vertical</orientation>
+				<top>695</top>
+				<itemgap>-10</itemgap>
+				<control type="label">
+					<font>MediumBold</font>
+					<width>100%</width>
+					<align>center</align>
+					<textcolor>Dark1</textcolor>
+					<label>$INFO[Container(500).ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<font>Small</font>
+					<width>100%</width>
+					<align>center</align>
+					<textcolor>Dark2</textcolor>
+					<label>$INFO[Container(500).ListItem.Premiered]$INFO[Container(500).ListItem.Rating, • ,]$INFO[Container(500).ListItem.Votes, (, $LOCALIZE[20350])]</label>
+				</control>
+			</control>
+		</control>
+		<control type="group">
+			<height>1080</height>
+			<include>Def9000Background2</include>
+			<control type="group">
+				<control type="image">
+					<description>arrow image</description>
+					<centerleft>50%</centerleft>
+					<posy>20</posy>
+					<width>16</width>
+					<height>16</height>
+					<texture colordiffuse="White70" flipy="true">common/arrow-small.png</texture>
+				</control>
+				<control type="image">
+					<description>arrow image</description>
+					<centerleft>50%</centerleft>
+					<posy>1045</posy>
+					<width>16</width>
+					<height>16</height>
+					<texture colordiffuse="White70" flipy="false">common/arrow-small.png</texture>
+				</control>
+			</control>
+			<control type="button" id="6000">
+				<label>$LOCALIZE[19140]</label>
+				<posx>25</posx>
+				<posy>30</posy>
+				<width>400</width>
+				<height>80</height>
+				<textoffsetx>40</textoffsetx>
+				<textwidth>315</textwidth>
+				<align>left</align>
+				<aligny>top</aligny>
+				<font>Tiny</font>
+				<textcolor>Black70</textcolor>
+				<focusedcolor>Selected</focusedcolor>
+				<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</alttexturefocus>
+				<texturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</texturefocus>
+				<ondown>SetFocus(7000)</ondown>
+				<onright>500</onright>
+				<onleft>500</onleft>
+			</control>
+			<control type="image">
+				<posx>330</posx>
+				<posy>30</posy>
+				<width>45</width>
+				<height>45</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<aspectratio>keep</aspectratio>
+				<texture colordiffuse="Black100">special://skin/extras/icons/search.png</texture>
+			</control>
+			<control type="radiobutton" id="7000">
+				<posx>25</posx>
+				<posy>95</posy>
+				<width>400</width>
+				<height>110</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<ondown>9000</ondown>
+				<onup>6000</onup>
+				<onright>500</onright>
+				<onleft>500</onleft>
+				<textoffsetx>40</textoffsetx>
+				<textoffsety>25</textoffsety>
+				<textwidth>315</textwidth>
+				<label>$ADDON[script.extendedinfo 32024]</label>
+				<radiowidth>90</radiowidth>
+				<radioheight>60</radioheight>
+				<radioposx>288</radioposx>
+				<font>Tiny</font>
+				<textcolor>Black70</textcolor>
+				<focusedcolor>Selected</focusedcolor>
+				<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</alttexturefocus>
+				<texturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</texturefocus>
+				<textureradioonfocus>moviedb.png</textureradioonfocus>
+				<textureradioofffocus>moviedb.png</textureradioofffocus>
+				<textureradioonnofocus>moviedb.png</textureradioonnofocus>
+				<textureradiooffnofocus>moviedb.png</textureradiooffnofocus>
+			</control>
+			<control type="grouplist" id="9000">
+			    <posx>25</posx>
+				<posy>210</posy>
+				<width>400</width>
+				<height>830</height>
+				<orientation>vertical</orientation>
+				<scroll>true</scroll>
+				<itemgap>-23</itemgap>
+				<onup>7000</onup>
+				<ondown>9000</ondown>
+				<onright>500</onright>
+				<onleft>500</onleft>
+				<onback>500</onback>
+				<control type="button" id="5007">
+					<label>$LOCALIZE[467]:</label>
+					<!--564 -->
+					<label2>[COLOR Black100]$INFO[Window.Property(Type)][/COLOR]</label2>
+					<width>400</width>
+					<height>90</height>
+					<textoffsetx>40</textoffsetx>
+					<textoffsety>25</textoffsety>
+					<textwidth>315</textwidth>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>Tiny</font>
+					<textcolor>Black70</textcolor>
+					<focusedcolor>Selected</focusedcolor>
+					<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</alttexturefocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</texturefocus>
+				</control>
+				<control type="button" id="5001">
+					<onup>6000</onup>
+					<label>$ADDON[script.extendedinfo 32104]</label>
+					<label2>[COLOR Black100]$INFO[Window.Property(Sort_Label)][/COLOR]</label2>
+					<width>400</width>
+					<height>100</height>
+					<textoffsetx>40</textoffsetx>
+					<textoffsety>30</textoffsety>
+					<textwidth>315</textwidth>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>Tiny</font>
+					<textcolor>Black70</textcolor>
+					<focusedcolor>Selected</focusedcolor>
+					<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</alttexturefocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</texturefocus>
+				</control>
+				<control type="button" id="5004">
+					<label>$ADDON[script.extendedinfo 32128]</label>
+					<label2>[COLOR Black100]$INFO[Window.Property(Order_Label)][/COLOR]</label2>
+					<width>400</width>
+					<height>100</height>
+					<textoffsetx>40</textoffsetx>
+					<textoffsety>30</textoffsety>
+					<textwidth>315</textwidth>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>Tiny</font>
+					<textcolor>Black70</textcolor>
+					<focusedcolor>Selected</focusedcolor>
+					<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</alttexturefocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</texturefocus>
+				</control>
+				<control type="label" id="5333">
+					<label>$ADDON[script.extendedinfo 32023]</label>
+					<width>400</width>
+					<height>75</height>
+					<textoffsetx>25</textoffsetx>
+					<textoffsety>25</textoffsety>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>Tiny</font>
+					<textcolor>Black70</textcolor>
+				</control>
+				<control type="button" id="5002">
+					<label>$LOCALIZE[515]</label>
+					<width>400</width>
+					<height>90</height>
+					<textoffsetx>40</textoffsetx>
+					<textoffsety>25</textoffsety>
+					<textwidth>315</textwidth>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>Tiny</font>
+					<textcolor>Black70</textcolor>
+					<focusedcolor>Selected</focusedcolor>
+					<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</alttexturefocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</texturefocus>
+				</control>
+				<control type="button" id="5003">
+					<label>$LOCALIZE[172]</label>
+					<width>400</width>
+					<height>90</height>
+					<textoffsetx>40</textoffsetx>
+					<textoffsety>25</textoffsety>
+					<textwidth>315</textwidth>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>Tiny</font>
+					<textcolor>Black70</textcolor>
+					<focusedcolor>Selected</focusedcolor>
+					<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</alttexturefocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</texturefocus>
+				</control>
+				<control type="button" id="5006">
+					<label>$ADDON[script.extendedinfo 32127]</label>
+					<width>400</width>
+					<height>90</height>
+					<textoffsetx>40</textoffsetx>
+					<textoffsety>25</textoffsety>
+					<textwidth>315</textwidth>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>Tiny</font>
+					<textcolor>Black70</textcolor>
+					<focusedcolor>Selected</focusedcolor>
+					<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</alttexturefocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</texturefocus>
+				</control>
+				<control type="button" id="5008">
+					<label>$ADDON[script.extendedinfo 32126]</label>
+					<width>400</width>
+					<height>90</height>
+					<textoffsetx>40</textoffsetx>
+					<textoffsety>25</textoffsety>
+					<textwidth>315</textwidth>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>Tiny</font>
+					<textcolor>Black70</textcolor>
+					<focusedcolor>Selected</focusedcolor>
+					<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</alttexturefocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</texturefocus>
+				</control>
+				<control type="button" id="5009">
+					<label>$ADDON[script.extendedinfo 32114]</label>
+					<width>400</width>
+					<height>90</height>
+					<textoffsetx>40</textoffsetx>
+					<textoffsety>25</textoffsety>
+					<textwidth>315</textwidth>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>Tiny</font>
+					<textcolor>Black70</textcolor>
+					<focusedcolor>Selected</focusedcolor>
+					<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</alttexturefocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</texturefocus>
+				</control>
+				<control type="button" id="5010">
+					<label>$LOCALIZE[572]</label>
+					<width>400</width>
+					<height>90</height>
+					<textoffsetx>40</textoffsetx>
+					<textoffsety>25</textoffsety>
+					<textwidth>315</textwidth>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>Tiny</font>
+					<textcolor>Black70</textcolor>
+					<focusedcolor>Selected</focusedcolor>
+					<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</alttexturefocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</texturefocus>
+				</control>
+				<control type="button" id="5012">
+					<label>$ADDON[script.extendedinfo 32111]</label>
+					<width>400</width>
+					<height>90</height>
+					<textoffsetx>40</textoffsetx>
+					<textoffsety>25</textoffsety>
+					<textwidth>315</textwidth>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>Tiny</font>
+					<textcolor>Black70</textcolor>
+					<focusedcolor>Selected</focusedcolor>
+					<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</alttexturefocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</texturefocus>
+				</control>
+				<control type="button" id="5005">
+					<label>$ADDON[script.extendedinfo 32022]</label>
+					<width>400</width>
+					<height>90</height>
+					<textoffsetx>40</textoffsetx>
+					<textoffsety>25</textoffsety>
+					<textwidth>315</textwidth>
+					<align>left</align>
+					<aligny>top</aligny>
+					<font>Tiny</font>
+					<textcolor>Black70</textcolor>
+					<focusedcolor>Selected</focusedcolor>
+					<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</alttexturefocus>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/white.png</texturefocus>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

@@ -570,6 +570,23 @@
 						<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</alttexturefocus>
 						<alttexturenofocus colordiffuse="White70" border="5">common/box.png</alttexturenofocus>
 					</control>
+					<!-- Cinema Experience Button -->
+					<control id="21" type="button">
+						<width>134</width>
+						<height>116</height>
+						<onup condition="!Control.IsVisible(96)">Close</onup>
+						<onup condition="Control.IsVisible(96)">3002</onup>
+						<ondown condition="Control.IsVisible(5000)">5000</ondown>
+						<ondown condition="Control.IsVisible(50)">50</ondown>
+						<onclick>Dialog.Close(MovieInformation)</onclick>
+						<onclick>RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
+						<font>symbol</font>
+						<label></label>
+						<textcolor>Black700</textcolor>
+						<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+						<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+						<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies)</visible>
+					</control>
 					<control id="1003" type="button">
 						<width>134</width>
 						<height>116</height>
@@ -668,22 +685,23 @@
 						<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 						<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 					</control>
-					<!-- Cinema Experience Button -->
-					<control id="21" type="button">
+					<!--Extended Info Button -->
+					<control type="button" id="19">
 						<width>134</width>
 						<height>116</height>
 						<onup condition="!Control.IsVisible(96)">Close</onup>
 						<onup condition="Control.IsVisible(96)">3002</onup>
 						<ondown condition="Control.IsVisible(5000)">5000</ondown>
 						<ondown condition="Control.IsVisible(50)">50</ondown>
-						<onclick>Dialog.Close(MovieInformation)</onclick>
-						<onclick>RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
 						<font>symbol</font>
 						<label></label>
 						<textcolor>Black700</textcolor>
 						<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 						<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
-						<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies)</visible>
+						<onclick condition="!System.HasAddon(script.extendedinfo)">ActivateWindow(Videos,plugin://script.extendedinfo)</onclick>
+						<onclick condition="IsEmpty(ListItem.TvShowTitle) + !Container.Content(tvshows)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onclick>
+						<onclick condition="Container.Content(tvshows)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.TvShowTitle])</onclick>
+						<onclick condition="!IsEmpty(ListItem.TvShowTitle) + !IsEmpty(ListItem.Season)">RunScript(script.extendedinfo,info=seasoninfo,tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],silent=True)</onclick>
 					</control>
 				</control>
 				<!-- Button grouplist -->
@@ -727,6 +745,24 @@
 						<font>Button</font>
 						<label>$VAR[VideoInfoButton8]</label>
 						<altlabel>Browse[CR]TV Show</altlabel>
+					</control>
+					<!-- Cinema Experience Button -->
+					<control id="21" type="button">
+						<width>134</width>
+						<height>116</height>
+						<onup condition="!Control.IsVisible(96)">Close</onup>
+						<onup condition="Control.IsVisible(96)">3002</onup>
+						<ondown condition="Control.IsVisible(5000)">5000</ondown>
+						<ondown condition="Control.IsVisible(50)">50</ondown>
+						<onclick>Dialog.Close(MovieInformation)</onclick>
+						<onclick>RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
+						<textcolor>Black700</textcolor>
+						<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+						<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+						<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies)</visible>
+						<font>Button</font>
+						<label>31104</label>
+						<textoffsetx>0</textoffsetx>
 					</control>
 					<control id="1003" type="button">
 						<width>134</width>
@@ -831,23 +867,24 @@
 						<font>Button</font>
 						<label>13511</label>
 					</control>
-					<!-- Cinema Experience Button -->
-					<control id="21" type="button">
+					<!--Extended Info Button -->
+					<control type="button" id="19">
+						<textoffsetx>0</textoffsetx>
 						<width>134</width>
 						<height>116</height>
 						<onup condition="!Control.IsVisible(96)">Close</onup>
 						<onup condition="Control.IsVisible(96)">3002</onup>
 						<ondown condition="Control.IsVisible(5000)">5000</ondown>
 						<ondown condition="Control.IsVisible(50)">50</ondown>
-						<onclick>Dialog.Close(MovieInformation)</onclick>
-						<onclick>RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
+						<font>Button</font>
+						<label>Extended Info</label>
 						<textcolor>Black700</textcolor>
 						<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 						<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
-						<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies)</visible>
-						<font>Button</font>
-						<label>31104</label>
-						<textoffsetx>0</textoffsetx>
+						<onclick condition="!System.HasAddon(script.extendedinfo)">ActivateWindow(Videos,plugin://script.extendedinfo)</onclick>
+						<onclick condition="IsEmpty(ListItem.TvShowTitle) + !Container.Content(tvshows)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onclick>
+						<onclick condition="Container.Content(tvshows)">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.TvShowTitle])</onclick>
+						<onclick condition="!IsEmpty(ListItem.TvShowTitle) + !IsEmpty(ListItem.Season)">RunScript(script.extendedinfo,info=seasoninfo,tvshow=$INFO[ListItem.TvShowTitle],season=$INFO[ListItem.Season],silent=True)</onclick>
 					</control>
 				</control>
 				<!-- Flags -->
