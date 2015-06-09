@@ -121,34 +121,40 @@
 				</control>
 				<control type="button" id="3012">
 					<description>Watch Now</description>
-					<left>5</left>
-					<top>5</top>
-					<width>577</width>
-					<height>324</height>
-					<ondown>3013</ondown>
+					<left>227</left>
+					<centertop>170</centertop>
+					<width>128</width>
+					<height>128</height>
 					<onup>3013</onup>
-					<texturefocus>noop</texturefocus>
-					<textcolor>Light1</textcolor>
+					<ondown>3013</ondown>
+					<onleft>3013</onleft>
+					<onright>3013</onright>
+					<font>symbolbig</font>
+					<align>center</align>
+					<label></label>
+					<focusedcolor>$VAR[ColourHighlight]</focusedcolor>
+					<animation effect="fade" start="100" end="0" time="150" tween="sine" easing="in" condition="Control.HasFocus(3013)">Conditional</animation>
+				</control>
+				<control type="button" id="3013">
+					<description>Cancel</description>
+					<left>227</left>
+					<centertop>170</centertop>
+					<width>128</width>
+					<height>128</height>
+					<onup>3012</onup>
+					<ondown>3012</ondown>
+					<onleft>3012</onleft>
+					<onright>3012</onright>
+					<font>symbolbig</font>
+					<align>center</align>
+					<label></label>
+					<focusedcolor>$VAR[ColourHighlight]</focusedcolor>
+					<height>20</height>
+					<animation effect="fade" start="100" end="0" time="150" tween="sine" easing="in" condition="Control.HasFocus(3012)">Conditional</animation>
 				</control>
 				<control type="group">
 					<left>5</left>
 					<right>5</right>
-					<control type="button" id="3013">
-						<description>Cancel</description>
-						<right>-30</right>
-						<bottom>3</bottom>
-						<width>150</width>
-						<onup>3012</onup>
-						<ondown>3012</ondown>
-						<font>tinysymbol</font>
-						<align>right</align>
-						<label></label>
-						<focusedcolor>$VAR[ColourHighlight]</focusedcolor>
-						<disabledcolor>$VAR[OSDPanelWhite70]</disabledcolor>
-						<selectedcolor>$VAR[ColourHighlight]</selectedcolor>
-						<height>20</height>
-						<textcolor>Light1</textcolor>
-					</control>
 					<control type="label">
 						<width>100%</width>
 						<top>0</top>
