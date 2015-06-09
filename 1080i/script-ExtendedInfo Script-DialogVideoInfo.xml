@@ -94,8 +94,8 @@
 				<width>320</width>
 				<height>50</height>
 				<onup condition="Control.IsVisible(96)">3002</onup>
-				<onup condition="!Control.IsVisible(96) + [Control.IsVisible(8) | Control.IsVisible(206)] + !Skin.HasSetting(furniture.info.showtext)">9000</onup>
-				<onup condition="!Control.IsVisible(96) + Skin.HasSetting(furniture.info.showtext)">9001</onup>
+					<onup condition="!Control.IsVisible(96) + !Skin.HasSetting(furniture.info.showtext)">9000</onup>
+					<onup condition="!Control.IsVisible(96) + Skin.HasSetting(furniture.info.showtext)">9001</onup>
 				<ondown>7001</ondown>
 				<onleft>Close</onleft>
 				<onright>1000</onright>
@@ -469,7 +469,7 @@
 					<font>symbol</font>
 					<visible>IntegerGreaterThan(Container(1150).NumItems,0)</visible>
 				</control>
-				<control id="445" type="button" description="manange">
+				<control id="445" type="button" description="manage">
 					<width>134</width>
 					<height>116</height>
 					<onup condition="!Control.IsVisible(96)">Close</onup>
@@ -477,7 +477,7 @@
 					<ondown condition="Control.IsVisible(150)">150</ondown>
 					<ondown condition="Control.IsVisible(1000)">1000</ondown>
 					<onclick>dialog.close(all,true)</onclick>
-					<label></label>
+					<label></label>
 					<textcolor>Black700</textcolor>
 					<textoffsetx>0</textoffsetx>
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
