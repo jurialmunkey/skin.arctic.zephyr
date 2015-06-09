@@ -4,16 +4,12 @@
 	<zorder>0</zorder>
 	<controls>
 		<control type="group">
-			<right>300</right>
-			<bottom>400</bottom>
-			<width>1290</width>
+			<right>10</right>
+			<bottom>10</bottom>
+			<width>600</width>
 			<height>339</height>
 			<control type="group">
 				<control type="image">
-					<top>5</top>
-					<left>5</left>
-					<right>10</right>
-					<height>324</height>
 					<animation effect="fade" start="100" end="97" time="200" condition="true">Conditional</animation>
 					<texture border="5" colordiffuse="OSDBackSolid">common/box.png</texture>
 				</control>
@@ -24,12 +20,15 @@
 					<visible>false</visible>
 				</control>
 				<control type="image" id="3010" description="landscape">
-					<left>5</left>
-					<top>5</top>
-					<width>577</width>
-					<height>324</height>
 					<fadetime>350</fadetime>
 					<aspectratio scalediffuse="false">scale</aspectratio>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<right>0</right>
+					<top>0</top>
+					<height>90</height>
+					<texture border="5" colordiffuse="af000000">common/white.png</texture>
 				</control>
 				<control type="image">
 					<visible>!Control.HasFocus(3012)</visible>
@@ -109,39 +108,38 @@
 					<top>5</top>
 					<width>577</width>
 					<height>324</height>
-					<onleft>3013</onleft>
-					<onright>3013</onright>
+					<ondown>3013</ondown>
+					<onup>3013</onup>
 					<texturefocus>noop</texturefocus>
 					<textcolor>Light1</textcolor>
 				</control>
 				<control type="group">
-					<left>590</left>
-					<right>10</right>
+					<left>5</left>
+					<right>5</right>
 					<control type="button" id="3013">
 						<description>Cancel</description>
-						<right>10</right>
-						<bottom>30</bottom>
-						<width>200</width>
-						<onleft>3012</onleft>
-						<onright>3012</onright>
-						<font>symbol</font>
-						<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+						<right>-30</right>
+						<bottom>3</bottom>
+						<width>150</width>
+						<onup>3012</onup>
+						<ondown>3012</ondown>
+						<font>tinysymbol</font>
+						<align>right</align>
 						<label></label>
-						<focusedcolor>Selected</focusedcolor>
+						<focusedcolor>$VAR[ColourHighlight]</focusedcolor>
 						<disabledcolor>$VAR[OSDPanelWhite70]</disabledcolor>
-						<selectedcolor>Highlight2</selectedcolor>
-						<height>68</height>
-						<texturenofocus colordiffuse="Black70" border="5">common/box.png</texturenofocus>
+						<selectedcolor>$VAR[ColourHighlight]</selectedcolor>
+						<height>20</height>
 						<textcolor>Light1</textcolor>
 					</control>
 					<control type="label" description="Total Time">
-						<right>56</right>
+						<right>1</right>
 						<align>right</align>
 						<width>400</width>
-						<bottom>150</bottom>
+						<bottom>30</bottom>
 						<height>80</height>
 						<font>EpisodeNumber</font>
-						<textcolor>$VAR[OSDPanelWhite70]</textcolor>
+						<textcolor>FFCCCCCC</textcolor>
 						<label>$INFO[Player.TimeRemaining(ss)]</label>
 					</control>
 					<control type="label">
@@ -153,12 +151,6 @@
 						<label>$INFO[Control.GetLabel(3002),Up Next... ,][COLOR=$VAR[ColourHighlight]]$INFO[Control.GetLabel(3000), ,][/COLOR]</label>
 					</control>
 					<control type="label" description="episode/season info" id="3002">
-						<width>100%</width>
-						<top>0</top>
-						<left>175</left>
-						<height>40</height>
-						<font>SmallBold</font>
-						<textcolor>$VAR[OSDPanelWhite70]</textcolor>
 						<visible>false</visible>
 					</control>
 					<control type="label" description="Title" id="3000">
@@ -206,39 +198,14 @@
 						<visible>!Control.IsVisible(3003)</visible>
 					</control>
 					<control type="textbox" description="Plot" id="3001">
-						<width>65%</width>
-						<top>1005</top>
-						<height>68</height>
-						<font>Tiny</font>
-						<align>justify</align>
-						<textcolor>$VAR[OSDPanelWhite30]</textcolor>
-						<visible>skin.hassetting(osd.hidespoilers)</visible>
-					</control>
-					<control type="textbox" description="Plot" id="3001">
-						<width>65%</width>
-						<top>95</top>
-						<height>178</height>
-						<font>Tiny</font>
-						<align>justify</align>
-						<textcolor>$VAR[OSDPanelWhite30]</textcolor>
-						<visible>!skin.hassetting(osd.hidespoilers)</visible>
-					</control>
-					<control type="label" description="Plot hidden">
-						<width>85%</width>
-						<top>95</top>
-						<height>68</height>
-						<font>Tiny</font>
-						<align>justify</align>
-						<textcolor>$VAR[OSDPanelWhite30]</textcolor>
-						<visible>skin.hassetting(osd.hidespoilers)</visible>
-						<label>* Hidden to prevent spoilers *</label>
+						<visible>false</visible>
 					</control>
 					<control type="label" description="Next up">
 						<width>100%</width>
-						<bottom>30</bottom>
-						<height>20</height>
-						<font>EPGTimeline</font>
-						<textcolor>$VAR[OSDPanelWhite70]</textcolor>
+						<bottom>1</bottom>
+						<height>22</height>
+						<font>Flag</font>
+						<textcolor>cc999999</textcolor>
 						<label>Press cancel to stop automatic play of next episode</label>
 					</control>
 				</control>
