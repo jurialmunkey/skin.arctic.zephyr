@@ -33,12 +33,13 @@
 				</control>
 				<control type="image">
 					<visible>!Control.HasFocus(3012)</visible>
+					<visible>IntegerGreaterThan(Player.TimeRemaining(ss),30)</visible>
 					<left>227</left>
 					<centertop>170</centertop>
 					<width>128</width>
 					<height>128</height>
 					<aspectratio>keep</aspectratio>
-					<texture colordiffuse="88ffffff">common/playring.png</texture>
+					<texture colordiffuse="88ffffff">special://skin/extras/nextup/30.png</texture>
 					<animation type="Focus">
 						<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
 						<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
@@ -50,12 +51,49 @@
 				</control>
 				<control type="image">
 					<visible>Control.HasFocus(3012)</visible>
+					<visible>IntegerGreaterThan(Player.TimeRemaining(ss),30)</visible>
 					<left>227</left>
 					<centertop>170</centertop>
 					<width>128</width>
 					<height>128</height>
 					<aspectratio>keep</aspectratio>
-					<texture colordiffuse="$VAR[ColourHighlight]">common/playring.png</texture>
+					<texture colordiffuse="$VAR[ColourHighlight]">special://skin/extras/nextup/30.png</texture>
+					<animation type="Focus">
+						<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+						<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+					</animation>
+					<animation type="Unfocus">
+						<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+						<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+					</animation>
+				</control>
+				<control type="image">
+					<visible>!Control.HasFocus(3012)</visible>
+					<visible>!IntegerGreaterThan(Player.TimeRemaining(ss),30)</visible>
+					<left>227</left>
+					<centertop>170</centertop>
+					<width>128</width>
+					<height>128</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="88ffffff">$INFO[Player.TimeRemaining(ss),special://skin/extras/nextup/,.png]</texture>
+					<animation type="Focus">
+						<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+						<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+					</animation>
+					<animation type="Unfocus">
+						<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+						<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+					</animation>
+				</control>
+				<control type="image">
+					<visible>Control.HasFocus(3012)</visible>
+					<visible>!IntegerGreaterThan(Player.TimeRemaining(ss),30)</visible>
+					<left>227</left>
+					<centertop>170</centertop>
+					<width>128</width>
+					<height>128</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="$VAR[ColourHighlight]">$INFO[Player.TimeRemaining(ss),special://skin/extras/nextup/,.png]</texture>
 					<animation type="Focus">
 						<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
 						<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
