@@ -4,6 +4,16 @@
 	<zorder>0</zorder>
 	<controls>
 		<control type="group">
+			<right>-700</right>
+			<bottom>-700</bottom>
+			<width>1620</width>
+			<height>1359</height>
+			<control type="image">
+				<aspectratio>stretch</aspectratio>
+				<texture background="true">gallery/shine.png</texture>
+			</control>
+		</control>
+		<control type="group">
 			<right>10</right>
 			<bottom>10</bottom>
 			<width>600</width>
@@ -27,8 +37,15 @@
 					<left>0</left>
 					<right>0</right>
 					<top>0</top>
-					<height>90</height>
-					<texture border="5" colordiffuse="af000000">common/white.png</texture>
+					<height>83</height>
+					<texture border="5" colordiffuse="cf000000">common/white.png</texture>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<right>0</right>
+					<bottom>0</bottom>
+					<height>30</height>
+					<texture border="5" colordiffuse="cf000000">common/white.png</texture>
 				</control>
 				<control type="image">
 					<visible>!Control.HasFocus(3012)</visible>
@@ -38,7 +55,7 @@
 					<width>128</width>
 					<height>128</height>
 					<aspectratio>keep</aspectratio>
-					<texture colordiffuse="88ffffff">special://skin/extras/nextup/30.png</texture>
+					<texture colordiffuse="88ffffff">nextup/30.png</texture>
 					<animation type="Focus">
 						<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
 						<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
@@ -56,7 +73,7 @@
 					<width>128</width>
 					<height>128</height>
 					<aspectratio>keep</aspectratio>
-					<texture colordiffuse="$VAR[ColourHighlight]">special://skin/extras/nextup/30.png</texture>
+					<texture colordiffuse="$VAR[ColourHighlight]">nextup/30.png</texture>
 					<animation type="Focus">
 						<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
 						<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
@@ -74,7 +91,7 @@
 					<width>128</width>
 					<height>128</height>
 					<aspectratio>keep</aspectratio>
-					<texture colordiffuse="88ffffff">$INFO[Player.TimeRemaining(ss),special://skin/extras/nextup/,.png]</texture>
+					<texture colordiffuse="88ffffff">$INFO[Player.TimeRemaining(ss),nextup/,.png]</texture>
 					<animation type="Focus">
 						<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
 						<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
@@ -92,7 +109,7 @@
 					<width>128</width>
 					<height>128</height>
 					<aspectratio>keep</aspectratio>
-					<texture colordiffuse="$VAR[ColourHighlight]">$INFO[Player.TimeRemaining(ss),special://skin/extras/nextup/,.png]</texture>
+					<texture colordiffuse="$VAR[ColourHighlight]">$INFO[Player.TimeRemaining(ss),nextup/,.png]</texture>
 					<animation type="Focus">
 						<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
 						<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
@@ -132,16 +149,6 @@
 						<height>20</height>
 						<textcolor>Light1</textcolor>
 					</control>
-					<control type="label" description="Total Time">
-						<right>1</right>
-						<align>right</align>
-						<width>400</width>
-						<bottom>30</bottom>
-						<height>80</height>
-						<font>EpisodeNumber</font>
-						<textcolor>FFCCCCCC</textcolor>
-						<label>$INFO[Player.TimeRemaining(ss)]</label>
-					</control>
 					<control type="label">
 						<width>100%</width>
 						<top>0</top>
@@ -163,7 +170,7 @@
 						<visible>false</visible>
 					</control>
 					<control type="image">
-						<top>57</top>
+						<top>50</top>
 						<width>26</width>
 						<height>26</height>
 						<aspect>keep</aspect>
@@ -173,7 +180,7 @@
 					<control type="label" id="3003" description="rating">
 						<left>35</left>
 						<width>100%</width>
-						<top>50</top>
+						<top>43</top>
 						<height>40</height>
 						<font>TinyBold</font>
 						<textcolor>$VAR[OSDPanelWhite70]</textcolor>
@@ -181,7 +188,7 @@
 					<control type="label" id="3004" description="year/runtime">
 						<left>90</left>
 						<width>100%</width>
-						<top>50</top>
+						<top>43</top>
 						<height>40</height>
 						<font>TinyBold</font>
 						<textcolor>$VAR[OSDPanelWhite70]</textcolor>
@@ -190,12 +197,21 @@
 					</control>
 					<control type="label" id="3004" description="year/runtime">
 						<width>100%</width>
-						<top>50</top>
+						<top>43</top>
 						<height>40</height>
 						<font>TinyBold</font>
 						<textcolor>$VAR[OSDPanelWhite70]</textcolor>
 						<scroll>false</scroll>
 						<visible>!Control.IsVisible(3003)</visible>
+					</control>
+					<control type="label" description="Total Time">
+						<width>100%</width>
+						<top>43</top>
+						<align>right</align>
+						<height>40</height>
+						<font>TinyBold</font>
+						<textcolor>$VAR[OSDPanelWhite70]</textcolor>
+						<label>$INFO[Player.TimeRemaining(ss)]</label>
 					</control>
 					<control type="textbox" description="Plot" id="3001">
 						<visible>false</visible>
@@ -205,7 +221,7 @@
 						<bottom>1</bottom>
 						<height>22</height>
 						<font>Flag</font>
-						<textcolor>cc999999</textcolor>
+						<textcolor>ccdddddd</textcolor>
 						<label>Press cancel to stop automatic play of next episode</label>
 					</control>
 				</control>
