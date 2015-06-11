@@ -20,6 +20,7 @@
 		<value condition="Container.Content(seasons)">$INFO[ListItem.Icon]</value>
 		<value condition="!IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+		<value condition="Container.Content(genres)">$INFO[ListItem.Label,moviegenres/,.jpg]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="WidgetImage">
@@ -29,6 +30,7 @@
 	</variable>
 	<variable name="ThumbImage">
 		<value condition="Window.IsVisible(MyVideoNav.xml) + Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets)">$VAR[FanartImage]</value>
+		<value condition="Container.Content(genres)">$INFO[ListItem.Label,moviegenres/,.jpg]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="PlayerPoster">
@@ -41,6 +43,7 @@
 		<value condition="!IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
 		<value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
+		<value condition="Container.Content(genres)">$INFO[ListItem.Label,moviegenres/,.jpg]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="FanartImage">
@@ -49,6 +52,7 @@
 		<value condition="Skin.HasSetting(osd.hidespoilers) + Container.Content(episodes) + ![stringcompare(ListItem.Overlay,OverlayUnWatched.png) + ListItem.IsResumable]">$INFO[ListItem.Icon]</value>
 		<value condition="!IsEmpty(ListItem.Art(fanart)) + !Container.Content(episodes)">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="!IsEmpty(ListItem.Thumb) + !Container.Content(episodes)">$INFO[ListItem.Thumb]</value>
+		<value condition="Container.Content(genres)">$INFO[ListItem.Label,moviegenres/,.jpg]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="LandscapeImage">
@@ -59,6 +63,7 @@
 		<value condition="!IsEmpty(ListItem.Art(tvshow.landscape)) + !Container.Content(episodes)">$INFO[ListItem.Art(tvshow.landscape)]</value>
 		<value condition="!IsEmpty(ListItem.Art(fanart)) + !Container.Content(episodes)">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="!IsEmpty(ListItem.Thumb) + !Container.Content(episodes)">$INFO[ListItem.Thumb]</value>
+		<value condition="Container.Content(genres)">$INFO[ListItem.Label,moviegenres/,.jpg]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="MusicImage">

@@ -231,7 +231,17 @@
 					<fadetime>100</fadetime>
 					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
 					<texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
+				    <visible>!Container.Content(genres)</visible>
 				</control>
+				<control type="image">
+					<width>PosterH</width>
+					<height>PosterH</height>
+					<fadetime>100</fadetime>
+					<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
+					<texture diffuse="diffuse/listposter.png" background="true">$INFO[ListItem.Label,musicgenres/,.jpg]</texture>
+					<visible>Container.Content(genres)</visible>
+				</control>
+				    
 				<control type="image">
 					<left>-24</left>
 					<top>-24</top>
@@ -308,6 +318,15 @@
 					<fadetime>100</fadetime>
 					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
 					<texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
+					<visible>!Container.Content(genres)</visible>
+				</control>
+				<control type="image">
+					<width>PosterH</width>
+					<height>PosterH</height>
+					<fadetime>100</fadetime>
+					<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
+					<texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
+					<visible>Container.Content(genres)</visible>
 				</control>
 				<control type="image">
 					<left>-24</left>
