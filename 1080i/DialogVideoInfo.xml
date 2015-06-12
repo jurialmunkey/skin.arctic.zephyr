@@ -341,14 +341,7 @@
 						<visible>IsEmpty(Window(Home).Property(NextAired.NextDay)) + !IsEmpty(Window(Home).Property(NextAired.LatestNumber))</visible>
 					</control>
 					<!--<control type="label"> <top>-6</top> <width>auto</width> <height>32</height> <font>Small</font> <aligny>bottom</aligny> <textcolor>Black700</textcolor> <label>($INFO[ListItem.EndTime,$LOCALIZE[31106] ,])</label> <visible>!IsEmpty(ListItem.EndTime)</visible> <visible>Container.Content(movies) | Container.Content(episodes)</visible> </control> -->
-					<control type="image">
-						<top>3</top>
-						<width>35</width>
-						<height>23</height>
-						<colordiffuse>Black700</colordiffuse>
-						<texture>rating/cc.png</texture>
-						<visible>!IsEmpty(ListItem.SubtitleLanguage)</visible>
-					</control>
+					
 					<!-- <include>Rating_TV</include> <include condition="IsEmpty(Skin.String(RatingCountry))">Rating_BBFC</include> <include condition="Stringcompare(Skin.String(RatingCountry),US)">Rating_MPAA</include> <include condition="Stringcompare(Skin.String(RatingCountry),UK)">Rating_BBFC</include> <include condition="Stringcompare(Skin.String(RatingCountry),Germany)">Rating_FSK</include> -->
 				</control>
 				<!-- Star rating / Votes / Rating -->
@@ -426,6 +419,40 @@
 						<textcolor>Black700</textcolor>
 						<label>#$INFO[ListItem.Top250]</label>
 						<visible>!IsEmpty(ListItem.Top250)</visible>
+					</control>
+					<!-- Language flags -->
+					<control type="label">
+						<top>-4</top>
+						<width>auto</width>
+						<height>24</height>
+						<font>Small</font>
+						<aligny>bottom</aligny>
+						<textcolor>Black300</textcolor>
+						<label>292</label>
+						<visible>!IsEmpty(ListItem.AudioLanguage)</visible>
+					</control>
+					<control type="image">
+						<top>6</top>
+						<width>35</width>
+						<height>23</height>
+						<texture>$INFO[ListItem.AudioLanguage,flags/language/,.png]</texture>
+					</control>
+					<control type="label">
+						<top>-4</top>
+						<width>auto</width>
+						<height>24</height>
+						<font>Small</font>
+						<aligny>bottom</aligny>
+						<textcolor>Black300</textcolor>
+						<label>287</label>
+						<visible>!IsEmpty(ListItem.SubtileLanguage)</visible>
+					</control>
+					<control type="image">
+						<top>6</top>
+						<width>35</width>
+						<height>23</height>
+						<texture>$INFO[ListItem.SubtitleLanguage,flags/language/,.png]</texture>
+						<visible>true</visible>
 					</control>
 				</control>
 				<control type="grouplist">
