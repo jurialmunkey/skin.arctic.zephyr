@@ -1,0 +1,1007 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<includes>
+	<include file="Defaults.xml" />
+	<!-- Views -->
+	<include file="View_50_List.xml" />
+	<include file="View_51_BigWide.xml" />
+	<include file="View_52_BigList.xml" />
+	<include file="View_53_Poster.xml" />
+	<include file="View_54_Banner.xml" />
+	<include file="View_55_Wall.xml" />
+	<include file="View_56_MediaInfo.xml" />
+	<include file="View_57_ExtraInfo.xml" />
+	<include file="View_58_Cards.xml" />
+	<include file="View_59_BannerPlex.xml" />
+	<include file="View_500_Thumbnails.xml" />
+	<include file="View_503_Poster_Square.xml" />
+	<include file="View_505_Wall_Square.xml" />
+	<include file="View_520_Gallery.xml" />
+	<include file="View_514_PosterShift.xml" />
+	<include file="View_513_PosterRow.xml" />
+	<include file="Includes_Furniture.xml" />
+	<include file="Includes_Home.xml" />
+	<include file="Includes_GlobalSearch.xml" />
+	<include file="Includes_Labels.xml" />
+	<include file="Includes_Images.xml" />
+	<include file="Includes_Animations.xml" />
+	<include file="Includes_Defs.xml" />
+	<include file="Includes_PVR.xml" />
+	<include file="Includes_OSD.xml" />
+	<include file="Includes_Home_NetflixUI.xml" />
+	<!-- Skin Shortcuts -->
+	<include file="script-skinshortcuts-includes.xml" />
+	<include name="HiddenButton">
+		<posx>-20</posx>
+		<posy>-20</posy>
+		<width>1</width>
+		<height>1</height>
+		<label>-</label>
+		<texturenofocus>-</texturenofocus>
+		<texturefocus>-</texturefocus>
+	</include>
+	<include name="Dimensions_Fullscreen">
+		<posx>0</posx>
+		<posy>0</posy>
+		<width>1920</width>
+		<height>1080</height>
+	</include>
+	<include name="WindowID">
+		<width>780</width>
+		<height>21</height>
+		<textcolor>Blue</textcolor>
+		<shadowcolor>Black</shadowcolor>
+		<align>left</align>
+	</include>
+	<include name="DialogID">
+		<width>780</width>
+		<height>21</height>
+		<textcolor>Green</textcolor>
+		<shadowcolor>Black</shadowcolor>
+		<align>left</align>
+	</include>
+	<include name="PathID">
+		<posx>15r</posx>
+		<posy>15</posy>
+		<width>780</width>
+		<height>21</height>
+		<textcolor>Blue</textcolor>
+		<shadowcolor>Black</shadowcolor>
+		<align>right</align>
+	</include>
+	<include name="ControlID">
+		<posx>15r</posx>
+		<posy>48</posy>
+		<width>780</width>
+		<height>21</height>
+		<textcolor>Red</textcolor>
+		<shadowcolor>Black</shadowcolor>
+		<align>right</align>
+	</include>
+	<include name="GlobalOverlay">
+		<control type="image">
+			<include>Animation.FadeIn</include>
+			<include condition="!Window.IsVisible(DialogButtonMenu.xml)">Animation.FadeOut</include>
+			<include>Dimensions_Fullscreen</include>
+			<texture border="2">common/black-back.png</texture>
+		</control>
+	</include>
+	<variable name="GlobalFanart">
+		<value condition="Window.IsVisible(weather) + !IsEmpty(Skin.String(weather.fanart))">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Current.FanartCode)]/</value>
+		<value condition="Window.IsVisible(home) + !IsEmpty(Container(301).ListItem.Art(fanart)) + [!Skin.HasSetting(home.dontshowfanart) | Control.HasFocus(301)]">$INFO[Container(301).ListItem.Art(fanart)]</value>
+		<value condition="Window.IsVisible(home) + !IsEmpty(Container(301).ListItem.Property(fanart)) + [!Skin.HasSetting(home.dontshowfanart) | Control.HasFocus(301)]">$INFO[Container(301).ListItem.Property(fanart)]</value>
+		<value condition="Window.IsVisible(home) + !IsEmpty(Skin.String(weather.fanart)) + StringCompare(Container(300).ListItem.Property(widget),Weather) + !Skin.HasSetting(home.dontshowfanart)">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Current.FanartCode)]/</value>
+		<value condition="Window.IsVisible(home) + !IsEmpty(Container(300).ListItem.Property(Background))">$INFO[Container(300).ListItem.Property(Background)]</value>
+		<value condition="Window.IsVisible(home) + !IsEmpty(Skin.String(home.slideshowpath)) + [StringCompare(Container(300).ListItem.Property(widget),Weather) | IsEmpty(Container(300).ListItem.Property(widget)) | Container(301).IsUpdating |  Skin.HasSetting(home.dontshowfanart)]">$INFO[Skin.String(home.slideshowpath)]</value>
+		<value condition="Window.IsVisible(home) + !IsEmpty(Skin.String(weather.fanart)) + Skin.HasSetting(home.showweatherfanart) + [IsEmpty(Container(300).ListItem.Property(widget)) | Container(301).IsUpdating]">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Current.FanartCode)]/</value>
+		<value condition="Window.IsVisible(home) + [StringCompare(Container(300).ListItem.Property(widget),bbc.popular) | StringCompare(Container(300).ListItem.Property(widget),bbc.sport) | StringCompare(Container(300).ListItem.Property(widget),bbc.scifi) | StringCompare(Container(300).ListItem.Property(widget),bbc.documentaries) | StringCompare(Container(300).ListItem.Property(widget),bbc.music) | StringCompare(Container(300).ListItem.Property(widget),extendedinfo.eurogamer) | StringCompare(Container(300).ListItem.Property(widget),extendedinfo.engadget) | StringCompare(Container(300).ListItem.Property(widget),extendedinfo.mobiletechreview)]">$INFO[Container(301).ListItem.Icon]</value>
+		<value condition="Window.IsVisible(home) + !Container(301).IsUpdating + !IsEmpty(Skin.String(fanart.fallback))">$INFO[Skin.String(fanart.fallback)]</value>
+		<value condition="Window.IsVisible(home) + !Container(301).IsUpdating">pvr/background.jpg</value>
+		<value condition="!IsEmpty(ListItem.Path) + !substring(ListItem.Path,videodb://movies/sets,left) + !Container.Content(songs) + Skin.HasSetting(global.extrafanart) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] ">$INFO[ListItem.Path,,extrafanart/]</value>
+		<value condition="!IsEmpty(ListItem.Path) + !substring(ListItem.Path,videodb://movies/sets,left) + !Container.Content(songs) + Skin.HasSetting(global.extrafanart) + Container.Content(episodes)">$INFO[ListItem.Path,,../extrafanart]</value>
+		<value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="!IsEmpty(Container(9500).ListItem.Art(fanart))">$INFO[Container(9500).ListItem.Art(fanart)]</value>
+		<value condition="!IsEmpty(Container(500).ListItem.Art(fanart))">$INFO[Container(500).ListItem.Art(fanart)]</value>
+		
+		<value condition="!IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
+		<value condition="!IsEmpty(Skin.String(fanart.fallback))">$INFO[Skin.String(fanart.fallback)]</value>
+		<value>common/null.png</value>
+	</variable>
+	<include name="GlobalVideoWindow">
+		<control type="image" description="Background">
+			<include>Dimensions_Fullscreen</include>
+			<texture colordiffuse="Background">common/bg.jpg</texture>
+		</control>
+		<control type="image" description="Background">
+			<include>Dimensions_Fullscreen</include>
+			<texture colordiffuse="Black">common/white.png</texture>
+			<visible>Player.HasVideo + Skin.HasSetting(global.showvideo)</visible>
+		</control>
+		<control type="videowindow">
+			<visible>Skin.HasSetting(global.showvideo)</visible>
+			<include>Dimensions_Fullscreen</include>
+		</control>
+	</include>
+	<include name="GlobalVisualisation">
+		<control type="group">
+			<visible>Player.HasAudio + Skin.HasSetting(global.showvisualisation)</visible>
+			<control type="visualisation">
+				<visible>Skin.HasSetting(ArtistSlideShow.Disabled) | !System.HasAddon(script.artistslideshow) | Skin.HasSetting(OSDVisualisation.ShowFanart)</visible>
+				<description>visualisation</description>
+				<include>Dimensions_Fullscreen</include>
+			</control>
+			<control type="multiimage">
+				<aspectratio>scale</aspectratio>
+				<include>Dimensions_Fullscreen</include>
+				<timeperimage>10000</timeperimage>
+				<randomize>true</randomize>
+				<fadetime>600</fadetime>
+				<loop>yes</loop>
+				<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
+				<visible>System.HasAddon(script.artistslideshow) + !Skin.HasSetting(ArtistSlideShow.Disabled)</visible>
+				<animation effect="fade" start="100" end="65" time="0" condition="Skin.HasSetting(OSDVisualisation.ShowFanart)">Conditional</animation>
+				<animation effect="zoom" start="110" end="130" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
+				<animation effect="slide" start="-30,-30" end="30,30" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
+			</control>
+		</control>
+	</include>
+	<include name="GlobalBackgroundFade">
+		<colordiffuse>FanartFade</colordiffuse>
+	</include>
+	<include name="GlobalBackground">
+		<include>GlobalVideoWindow</include>
+		<include>GlobalVisualisation</include>
+		<control type="image" description="Background">
+			<include>Dimensions_Fullscreen</include>
+			<include>Animation.FadeFromHome</include>
+			<texture colordiffuse="Background">common/bg.jpg</texture>
+			<visible>!Window.IsVisible(home)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogAlbumInfo.xml)</visible>
+			<animation effect="fade" start="100" end="75" time="200" condition="Player.HasVideo + Skin.HasSetting(global.showvideo) | Player.HasAudio + Skin.HasSetting(global.showvisualisation)">Conditional</animation>
+		</control>
+		<control type="multiimage" description="Fanart">
+			<include condition="!Window.IsVisible(home)">GlobalBackgroundFade</include>
+			<visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio]</visible>
+			<visible>!Skin.HasSetting(global.hidefanart) | Window.IsVisible(home)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogAlbumInfo.xml)</visible>
+			<include>Dimensions_Fullscreen</include>
+			<include>Animation.FadeFromHome</include>
+			<animation effect="fade" end="0" start="100" time="350" tween="cubic" easing="inout" condition="Window.IsVisible(home)">WindowClose</animation>
+			<fadetime>600</fadetime>
+			<timeperimage>12000</timeperimage>
+			<randomize>true</randomize>
+			<aspectratio>scale</aspectratio>
+			<imagepath background="true">$VAR[GlobalFanart]</imagepath>
+			<animation effect="zoom" start="110" end="120" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
+			<animation effect="slide" start="-20,-20" end="20,20" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
+		</control>
+		<control type="image" description="FanartOverlay">
+			<include>Dimensions_Fullscreen</include>
+			<visible>!Window.IsVisible(home)</visible>
+			<include>Animation.FadeFromHome</include>
+			<texture colordiffuse="FloorFade">common/floor.png</texture>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogAlbumInfo.xml)</visible>
+		</control>
+	</include>
+	<include name="NetflixBackground">
+		<include>GlobalVideoWindow</include>
+		<include>GlobalVisualisation</include>
+		<control type="image">
+			<description>List Panel fanart</description>
+			<include>Dimensions_Fullscreen</include>
+			<texture background="true">$INFO[Window(Home).Property(script.grab.fanart.Global.FanArt)]</texture>
+			<fadetime>500</fadetime>
+			<include>Animation_FanartFade</include>
+			<visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio]</visible>
+		</control>
+		<control type="image">
+			<description>List Panel fanart</description>
+			<include>Dimensions_Fullscreen</include>
+			<texture background="true">$VAR[NetflixFanart]</texture>
+			<fadetime>500</fadetime>
+			<include>Animation_FanartFade</include>
+			<visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio]</visible>
+		</control>
+		<control type="image">
+			<posx>-200</posx>
+			<posy>0</posy>
+			<width>3000</width>
+			<height>1080</height>
+			<aspectratio>stretch</aspectratio>
+			<include>Animation_FanartFade</include>
+			<texture>backgrounds/black_content2.png</texture>
+		</control>
+	</include>
+	<!-- No textures -->
+	<include name="NoTextures">
+		<texturefocus>-</texturefocus>
+		<texturenofocus>-</texturenofocus>
+		<alttexturenofocus>-</alttexturenofocus>
+		<alttexturefocus>-</alttexturefocus>
+		<textureradioonfocus>-</textureradioonfocus>
+		<textureradioonnofocus>-</textureradioonnofocus>
+		<textureradioofffocus>-</textureradioofffocus>
+		<textureradiooffnofocus>-</textureradiooffnofocus>
+		<textureup>-</textureup>
+		<texturedown>-</texturedown>
+		<textureupfocus>-</textureupfocus>
+		<texturedownfocus>-</texturedownfocus>
+	</include>
+	<!-- BBFC Ratings -->
+	<include name="Rating_BBFC">
+		<control type="image">
+			<top>3</top>
+			<width>33</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/bbfc/pg.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>29</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/bbfc/12.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,12)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>29</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/bbfc/15.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,15)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>29</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/bbfc/18.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,18)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>23</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/bbfc/u.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,u)</visible>
+		</control>
+	</include>
+	<!-- FSK Ratings -->
+	<include name="Rating_FSK">
+		<control type="image">
+			<top>3</top>
+			<width>25</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/fsk/0.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,0)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>25</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/fsk/6.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,6)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>25</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/fsk/12.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,12)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>25</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/fsk/16.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,16)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>25</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/fsk/18.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,18)</visible>
+		</control>
+	</include>
+	<!-- MPAA Ratings -->
+	<include name="Rating_MPAA">
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/mpaa/nc17.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nc)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/mpaa/pg13.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,13)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>35</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/mpaa/nr.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nr)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>35</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/mpaa/pg.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg,right)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>25</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/mpaa/g.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,g) + !SubString(ListItem.Mpaa,pg)</visible>
+		</control>
+	</include>
+	<!-- TV Ratings -->
+	<include name="Rating_TV">
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/14.png</texture>
+			<visible>Container.Content(tvshows) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,14)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/g.png</texture>
+			<visible>Container.Content(tvshows) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,g) + !SubString(ListItem.Mpaa,pg)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/pg.png</texture>
+			<visible>Container.Content(tvshows) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/ma.png</texture>
+			<visible>Container.Content(tvshows) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,ma)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/nr.png</texture>
+			<visible>Container.Content(tvshows) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nr)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/y.png</texture>
+			<visible>Container.Content(tvshows) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,y) + !SubString(ListItem.Mpaa,y7)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/y7.png</texture>
+			<visible>Container.Content(tvshows) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,y7)</visible>
+		</control>
+	</include>
+	<!-- TV Episode Ratings -->
+	<include name="Rating_TV_Episodes">
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/14.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,14)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/g.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,g) + !SubString(ListItem.Mpaa,pg)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/pg.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/ma.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,ma)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/nr.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nr)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/y.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,y) + !SubString(ListItem.Mpaa,y7)</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>59</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/y7.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,y7)</visible>
+		</control>
+	</include>
+	<!-- BBFC Ratings -->
+	<include name="lib_Rating_BBFC">
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>66</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/bbfc/pg.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>125</width>
+			<height>90</height>
+			<texture>colored/rating/bbfc_pg_certificate_uk.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>58</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/bbfc/12.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,12) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>125</width>
+			<height>90</height>
+			<texture>colored/rating/bbfc_12_certificate_uk.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,12) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>58</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/bbfc/15.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,15) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>125</width>
+			<height>90</height>
+			<texture>colored/rating/bbfc_15_certificate_uk.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,15) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>58</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/bbfc/18.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,18) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>125</width>
+			<height>90</height>
+			<texture>colored/rating/bbfc_18_certificate_uk.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,18) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>56</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/bbfc/u.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,u) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>125</width>
+			<height>90</height>
+			<texture>colored/rating/bbfc_u_certificate_uk.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,u) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+	</include>
+	<include name="lib_Rating_BBFC_small">
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>66</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/bbfc/pg.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>100</width>
+			<height>65</height>
+			<texture>colored/rating/bbfc_pg_certificate_uk.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>58</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/bbfc/12.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,12) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>100</width>
+			<height>66</height>
+			<texture>colored/rating/bbfc_12_certificate_uk.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,12) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>58</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/bbfc/15.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,15) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>100</width>
+			<height>66</height>
+			<texture>colored/rating/bbfc_15_certificate_uk.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,15) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>58</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/bbfc/18.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,18) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>100</width>
+			<height>66</height>
+			<texture>colored/rating/bbfc_18_certificate_uk.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,18) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>56</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/bbfc/u.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,u) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>100</width>
+			<height>65</height>
+			<texture>colored/rating/bbfc_u_certificate_uk.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,u) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+	</include>
+	<!-- FSK Ratings -->
+	<include name="lib_Rating_FSK">
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/fsk/0.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,0) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>colored/rating/FSK-0.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,0) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/fsk/6.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,6) + !SubString(ListItem.Mpaa,16) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>colored/rating/FSK-6.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,6) + SubString(ListItem.Mpaa,16) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/fsk/12.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,12) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>colored/rating/FSK-12.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,12) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/fsk/16.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,16) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>colored/rating/FSK-16.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,16) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/fsk/18.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,18) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>colored/rating/FSK-18.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,18) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+	</include>
+	<!-- MPAA Ratings -->
+	<include name="lib_Rating_MPAA">
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/mpaa/nc17.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nc) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<texture>colored/rating/MPAA_NC-17_Certificate_US.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nc) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/mpaa/pg13.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,13) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<texture>colored/rating/MPAA_PG-13_Certificate_US.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,13) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>70</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/mpaa/nr.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nr) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>70</width>
+			<height>50</height>
+			<texture>colored/rating/MPAA_NR_Certificate_US.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nr) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>70</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/mpaa/pg.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg,right) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>70</width>
+			<height>50</height>
+			<texture>colored/rating/MPAA_PG_Certificate_US.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg,right) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/mpaa/g.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,g) + !SubString(ListItem.Mpaa,pg) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>colored/rating/MPAA_G_Certificate_US.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,g) + !SubString(ListItem.Mpaa,pg) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+	</include>
+	<!-- TV Ratings -->
+	<include name="lib_Rating_TV">
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/14.png</texture>
+			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,14) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<texture>colored/rating/Rated TV-14.png</texture>
+			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,14) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/g.png</texture>
+			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,g) + !SubString(ListItem.Mpaa,pg) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<texture>colored/rating/Rated TV-G.png</texture>
+			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,g) + !SubString(ListItem.Mpaa,pg) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/pg.png</texture>
+			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<texture>colored/rating/Rated TV-PG.png</texture>
+			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/ma.png</texture>
+			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,ma) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<texture>colored/rating/Rated TV-MA.png</texture>
+			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,ma) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/nr.png</texture>
+			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nr) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<texture>colored/rating/NR.png</texture>
+			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nr) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/y.png</texture>
+			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,y) + !SubString(ListItem.Mpaa,y7) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<texture>colored/rating/Rated tv-y.png</texture>
+			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,y) + !SubString(ListItem.Mpaa,y7) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>59</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/y7.png</texture>
+			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,y7) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>59</width>
+			<height>50</height>
+			<texture>colored/rating/Rated tv-y7.png</texture>
+			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,y7) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+	</include>
+	<!-- TV Episode Ratings -->
+	<include name="lib_Rating_TV_Episodes">
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/14.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,14) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<texture>colored/rating/Rated TV-14.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,14) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/g.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,g) + !SubString(ListItem.Mpaa,pg) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<texture>colored/rating/Rated TV-G.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,g) + !SubString(ListItem.Mpaa,pg) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/pg.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<texture>colored/rating/Rated TV-PG.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/ma.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,ma) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<texture>colored/rating/Rated TV-MA.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,ma) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/nr.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nr) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<texture>colored/rating/NR.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nr) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/y.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,y) + !SubString(ListItem.Mpaa,y7) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<texture>colored/rating/Rated tv-y.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,y) + !SubString(ListItem.Mpaa,y7) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/tv/y7.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,y7) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>118</width>
+			<height>50</height>
+			<texture>colored/rating/Rated tv-y7.png</texture>
+			<visible>!IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,y7) + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+	</include>
+</includes>
