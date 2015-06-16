@@ -66,8 +66,8 @@
                 <align>left</align>
                 <aligny>center</aligny>
                 <textcolor>Black70</textcolor>
-                <focusedcolor>Selected</focusedcolor>
-                <selectedcolor>Highlight2</selectedcolor>
+                <focusedcolor>$VAR[ColourSelected]</focusedcolor>
+                <selectedcolor>$VAR[ColourHighlight2]</selectedcolor>
                 <label>-</label>
                 <textoffsetx>30</textoffsetx>
                 <texturefocus colordiffuse="$VAR[ColourHighlight]" border="8">common/box.png</texturefocus>
@@ -127,7 +127,7 @@
                         <posy>0</posy>
                         <width>780</width>
                         <info>ListItem.Label</info>
-                        <textcolor>Selected</textcolor>
+                        <textcolor>$VAR[ColourSelected]</textcolor>
                         <animation effect="fade" start="100" end="75" condition="!Control.HasFocus(10)">Conditional</animation>
                     </control>
 

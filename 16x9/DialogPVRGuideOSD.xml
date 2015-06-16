@@ -125,7 +125,7 @@
                         <width>128</width>
                         <height>128</height>
                         <texture>special://skin/extras/icons/timer.png</texture>
-                        <colordiffuse>Selected</colordiffuse>
+                        <colordiffuse>$VAR[ColourSelected]</colordiffuse>
                         <visible>ListItem.HasTimer | ListItem.IsRecording</visible>
                         <aspectratio aligny="center" align="center">keep</aspectratio>
                     </control>
@@ -134,8 +134,8 @@
                         <right>22</right>
                         <posy>5</posy>
                         <align>left</align>
-                        <textcolor>Selected</textcolor>
-                        <Selectedcolor>Selected</Selectedcolor>
+                        <textcolor>$VAR[ColourSelected]</textcolor>
+                        <selectedcolor>$VAR[ColourSelected]</selectedcolor>
                         <font>SmallBold</font>
                         <label>$INFO[ListItem.Title]</label>
                     </control>
@@ -145,8 +145,8 @@
                         <right>22</right>
                         <align>left</align>
                         <font>Small</font>
-                        <textcolor>Selected</textcolor>
-                        <Selectedcolor>Selected</Selectedcolor>
+                        <textcolor>$VAR[ColourSelected]</textcolor>
+                        <selectedcolor>$VAR[ColourSelected]</selectedcolor>
                         <label>$INFO[ListItem.StartTime,,   ]</label>
                     </control>
                 </focusedlayout>

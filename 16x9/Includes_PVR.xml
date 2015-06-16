@@ -1049,7 +1049,7 @@
 				<height>70</height>
 				<align>left</align>
 				<label>$INFO[ListItem.ChannelName]</label>
-				<textcolor>Selected</textcolor>
+				<textcolor>$VAR[ColourSelected]</textcolor>
 				<scroll>false</scroll>
 				<animation effect="fade" start="100" end="64" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(10) + ![ListItem.IsSelected | ListItem.IsPlaying]">Conditional</animation>
 			</control>
@@ -1059,7 +1059,7 @@
 				<width>88</width>
 				<height>70</height>
 				<label>$INFO[ListItem.ChannelNumberLabel]</label>
-				<textcolor>Selected</textcolor>
+				<textcolor>$VAR[ColourSelected]</textcolor>
 				<scroll>false</scroll>
 				<animation effect="fade" start="100" end="64" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(10) + ![ListItem.IsSelected | ListItem.IsPlaying]">Conditional</animation>
 			</control>

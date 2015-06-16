@@ -560,14 +560,14 @@
 						<selected>Skin.HasSetting(ColourHighlight)</selected>
 						<onclick>Skin.ToggleSetting(ColourHighlight)</onclick>
 						<onclick>ReloadSkin()</onclick>
-						<label>Use colour focus</label>
+						<label>Change main highlight colour</label>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
 					</control>
 					<control type="button" id="9282">
 						<width>1310</width>
 						<include>DefSettingsButton</include>
-						<onclick>ActivateWindow(700)</onclick>
-						<label>$LOCALIZE[31747]</label>
+						<onclick>RunScript(script.arctic.zephyr.helper,COLORPICKER,focuscolor.name)</onclick>
+						<label>  - Set main highlight colour</label>
 						<label2>[COLOR=$VAR[ColourHighlight]]$INFO[Skin.String(focuscolor.name)][/COLOR]</label2>
 						<visible>Skin.HasSetting(ColourHighlight)</visible>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
@@ -575,9 +575,61 @@
 					<control type="button" id="9283">
 						<width>1310</width>
 						<include>DefSettingsButton</include>
-						<onclick>Skin.SetString(focuscolor.name,Green Focus)</onclick>
-						<label>$LOCALIZE[409]</label>
+						<onclick>Skin.SetString(focuscolor.name,Highlight)</onclick>
+						<label>  - $LOCALIZE[409]</label>
 						<visible>Skin.HasSetting(ColourHighlight)</visible>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<control type="radiobutton" id="9284">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<selected>Skin.HasSetting(ColourHighlight2)</selected>
+						<onclick>Skin.ToggleSetting(ColourHighlight2)</onclick>
+						<onclick>ReloadSkin()</onclick>
+						<label>Change second highlight colour</label>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<control type="button" id="9285">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<onclick>RunScript(script.arctic.zephyr.helper,COLORPICKER,focuscolor2.name)</onclick>
+						<label>  - Set second highlight colour</label>
+						<label2>[COLOR=$VAR[ColourHighlight2]]$INFO[Skin.String(focuscolor2.name)][/COLOR]</label2>
+						<visible>Skin.HasSetting(ColourHighlight2)</visible>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<control type="button" id="9286">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<onclick>Skin.SetString(focuscolor2.name,Highlight2)</onclick>
+						<label>  - $LOCALIZE[409]</label>
+						<visible>Skin.HasSetting(ColourHighlight2)</visible>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<control type="radiobutton" id="9287">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<selected>Skin.HasSetting(ColourSelected)</selected>
+						<onclick>Skin.ToggleSetting(ColourSelected)</onclick>
+						<onclick>ReloadSkin()</onclick>
+						<label>Change the selected colour</label>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<control type="button" id="9288">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<onclick>RunScript(script.arctic.zephyr.helper,COLORPICKER,selectedcolor.name)</onclick>
+						<label>  - Set selected colour</label>
+						<label2>[COLOR=$VAR[ColourSelected]]$INFO[Skin.String(selectedcolor.name)][/COLOR]</label2>
+						<visible>Skin.HasSetting(ColourSelected)</visible>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<control type="button" id="9289">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<onclick>Skin.SetString(selectedcolor.name,Selected)</onclick>
+						<label>  - $LOCALIZE[409]</label>
+						<visible>Skin.HasSetting(ColourSelected)</visible>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
 					</control>
 				</control>

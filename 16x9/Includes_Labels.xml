@@ -242,6 +242,14 @@
 		<value condition="Skin.HasSetting(ColourHighlight)">$INFO[Skin.String(focuscolor.name)]</value>
 		<value condition="!Skin.HasSetting(ColourHighlight)">Highlight</value>
 	</variable>
+	<variable name="ColourHighlight2">
+		<value condition="Skin.HasSetting(ColourHighlight2)">$INFO[Skin.String(focuscolor2.name)]</value>
+		<value condition="!Skin.HasSetting(ColourHighlight2)">Highlight2</value>
+	</variable>
+	<variable name="ColourSelected">
+		<value condition="Skin.HasSetting(ColourSelected)">$INFO[Skin.String(selectedcolor.name)]</value>
+		<value condition="!Skin.HasSetting(ColourSelected)">Selected</value>
+	</variable>
 	<variable name="Plot">
 		<value condition="[!IsEmpty(ListItem.PlotOutline) | !IsEmpty(ListItem.Plot)] + Skin.HasSetting(osd.hidespoilers) + Container.Content(episodes) + [stringcompare(ListItem.Overlay,OverlayUnWatched.png) | ListItem.IsResumable]">* Hidden to prevent spoilers *</value>
 		<value condition="!IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.PlotOutline]</value>

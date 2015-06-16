@@ -65,7 +65,7 @@
                         <height>66</height>
                         <font>SmallBold</font>
                         <aligny>center</aligny>
-                        <textcolor>Selected</textcolor>
+                        <textcolor>$VAR[ColourSelected]</textcolor>
                         <info>ListItem.Label</info>
                     </control>
 
@@ -75,7 +75,7 @@
                         <align>right</align>
                         <height>66</height>
                         <aligny>center</aligny>
-                        <textcolor>Selected</textcolor>
+                        <textcolor>$VAR[ColourSelected]</textcolor>
                         <info>ListItem.Label2</info>
                     </control>
 
@@ -216,8 +216,8 @@
                             <width>496</width>
                             <height>135</height>
                             <font>SmallBold</font>
-                            <textcolor>Selected</textcolor>
-                            <selectedcolor>Selected</selectedcolor>
+                            <textcolor>$VAR[ColourSelected]</textcolor>
+                            <selectedcolor>$VAR[ColourSelected]</selectedcolor>
                             <info>ListItem.Label</info>
                             <animation effect="slide" end="0,18" condition="IsEmpty(ListItem.Property(Addon.Summary))">Conditional</animation>
                         </control>
@@ -227,8 +227,8 @@
                             <width>496</width>
                             <height>135</height>
                             <font>Mini</font>
-                            <textcolor>Selected</textcolor>
-                            <selectedcolor>Selected</selectedcolor>
+                            <textcolor>$VAR[ColourSelected]</textcolor>
+                            <selectedcolor>$VAR[ColourSelected]</selectedcolor>
                             <label>$INFO[ListItem.Property(Addon.Summary)]</label>
                         </control>
                     </control>

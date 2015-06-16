@@ -204,6 +204,14 @@
 				<height>64</height>
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">flags/$VAR[Flagstar1].png</texture>
+				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
+			</control>
+			<control type="image">
+				<width>64</width>
+				<height>64</height>
+				<centertop>50%</centertop>
+				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[Flagstar1].png</texture>
+				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -212,6 +220,16 @@
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">flags/$VAR[Flagstar2].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
+				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
+			</control>
+			<control type="image">
+				<posx>-48</posx>
+				<width>64</width>
+				<height>64</height>
+				<centertop>50%</centertop>
+				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[Flagstar2].png</texture>
+				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
+				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -220,6 +238,16 @@
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">flags/$VAR[Flagstar3].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
+				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
+			</control>
+			<control type="image">
+				<posx>-48</posx>
+				<width>64</width>
+				<height>64</height>
+				<centertop>50%</centertop>
+				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[Flagstar3].png</texture>
+				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
+				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -228,6 +256,16 @@
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">flags/$VAR[Flagstar4].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
+				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
+			</control>
+			<control type="image">
+				<posx>-48</posx>
+				<width>64</width>
+				<height>64</height>
+				<centertop>50%</centertop>
+				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[Flagstar4].png</texture>
+				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
+				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -236,6 +274,16 @@
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">flags/$VAR[Flagstar5].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
+				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
+			</control>
+			<control type="image">
+				<posx>-48</posx>
+				<width>64</width>
+				<height>64</height>
+				<centertop>50%</centertop>
+				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[Flagstar5].png</texture>
+				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
+				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="label">
 				<left>-16</left>
@@ -268,7 +316,6 @@
 				<textcolor>Dark2</textcolor>
 				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
 			</control>
-			
 			<!-- sets -->
 			<control type="image">
 				<width>120</width>
@@ -326,7 +373,6 @@
 				<texture>$INFO[Window(home).Property(Set.Movie.8.Art(discart))]</texture>
 				<visible>!IsEmpty(Window(home).Property(Set.Movie.8.Art(discart)))</visible>
 			</control>
-			
 			<include>lib_Rating_TV</include>
 			<include condition="IsEmpty(Skin.String(RatingCountry))">lib_Rating_BBFC</include>
 			<include condition="Stringcompare(Skin.String(RatingCountry),US)">lib_Rating_MPAA</include>
@@ -902,7 +948,7 @@
 		<value condition="Container.Content(livetv)">special://skin/extras/icons/livetv.png</value>
 		<value condition="Container.Content(files)">special://skin/extras/icons/files.png</value>
 		<value condition="SubString(Container.FolderPath,videodb://musicvideos/,Left)">special://skin/extras/icons/musicvideo.png</value>
-		<value condition="Window.IsVisible(Custom_SetCustomColor.xml)">special://skin/extras/icons/wand.png</value>
+		<value condition="Window.IsVisible(ColorPicker.xml)">special://skin/extras/icons/wand.png</value>
 		<value condition="Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml)">special://skin/extras/icons/livetv.png</value>
 		<value condition="Window.IsVisible(MyMusicPlaylistEditor.xml) | Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyMusicSongs.xml)">special://skin/extras/icons/songs.png</value>
 		<value condition="Window.IsVisible(MyPics.xml)">special://skin/extras/icons/pictures.png</value>
@@ -934,6 +980,7 @@
 		<value condition="Window.IsVisible(MyPVRSearch.xml)">$LOCALIZE[137]</value>
 		<value condition="!IsEmpty(Container.FolderName) + [Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyMusicSongs.xml)]">$INFO[Container.FolderName]</value>
 		<value condition="Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyMusicSongs.xml)">$LOCALIZE[2]</value>
+		<value condition="Window.IsVisible(ColorPicker.xml)">Pick a Colour</value>
 		<value condition="Window.IsVisible(SettingsSystemInfo.xml) | Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(settings) | Window.IsVisible(SkinSettings.xml)">$LOCALIZE[5]</value>
 		<value condition="Window.IsVisible(weather)">$LOCALIZE[8]</value>
 		<value condition="!IsEmpty(Container.FolderName) + Window.IsVisible(MyPics.xml)">$INFO[Container.FolderName]</value>
