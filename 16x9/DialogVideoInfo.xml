@@ -980,9 +980,9 @@
 					<orientation>horizontal</orientation>
 					<include condition="Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)">lib_Rating_TV_Episodes</include>
 					<include condition="IsEmpty(Skin.String(RatingCountry))">lib_Rating_BBFC_small</include>
-					<include condition="Stringcompare(Skin.String(RatingCountry),US)">lib_Rating_MPAA</include>
+					<include condition="Stringcompare(Skin.String(RatingCountry),US)">lib_Rating_MPAA_small</include>
 					<include condition="Stringcompare(Skin.String(RatingCountry),UK)">lib_Rating_BBFC_small</include>
-					<include condition="Stringcompare(Skin.String(RatingCountry),Germany)">lib_Rating_FSK</include>
+					<include condition="Stringcompare(Skin.String(RatingCountry),Germany)">lib_Rating_FSK_small</include>
 					<control type="image">
 						<width>130</width>
 						<height>50</height>
