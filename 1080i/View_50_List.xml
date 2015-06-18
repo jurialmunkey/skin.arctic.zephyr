@@ -26,7 +26,7 @@
 
                     <focusedlayout width="ListW" height="128" condition="Skin.HasSetting(50list.showplot)">
                         <control type="group">
-                            <visible>Control.HasFocus(50) + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+                            <visible>!Control.HasFocus(60)</visible>
                             <include>50focuslayout</include>
                             <control type="textbox">
                                 <height>68</height>
@@ -40,7 +40,7 @@
                             </control>
                         </control>
                         <control type="group">
-                            <visible>!Control.HasFocus(50) | Window.IsVisible(DialogVideoInfo.xml)</visible>
+                            <visible>Control.HasFocus(60)</visible>
                             <include>50itemlayout</include>
                             <control type="textbox">
                                 <height>68</height>
@@ -56,11 +56,11 @@
                     </focusedlayout>
                     <focusedlayout width="ListW" height="64" condition="!Skin.HasSetting(50list.showplot)">
                         <control type="group">
-                            <visible>Control.HasFocus(50) + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+                            <visible>!Control.HasFocus(60)</visible>
                             <include>50focuslayout</include>
                         </control>
                         <control type="group">
-                            <visible>!Control.HasFocus(50) | Window.IsVisible(DialogVideoInfo.xml)</visible>
+                            <visible>Control.HasFocus(60)</visible>
                             <include>50itemlayout</include>
                         </control>
                     </focusedlayout>
@@ -98,11 +98,11 @@
 
                     <focusedlayout width="ListW" height="64">
                         <control type="group">
-                            <visible>Control.HasFocus(50) + !Window.IsVisible(DialogVideoInfo.xml)</visible>
+                            <visible>!Control.HasFocus(60)</visible>
                             <include>50focuslayout</include>
                         </control>
                         <control type="group">
-                            <visible>!Control.HasFocus(50) | Window.IsVisible(DialogVideoInfo.xml)</visible>
+                            <visible>Control.HasFocus(60)</visible>
                             <include>50itemlayout</include>
                         </control>
                     </focusedlayout>
@@ -191,11 +191,11 @@
 
                     <focusedlayout width="ListSquareW" height="64">
                         <control type="group">
-                            <visible>Control.HasFocus(50)</visible>
+                            <visible>!Control.HasFocus(60)</visible>
                             <include>50focuslayout_square</include>
                         </control>
                         <control type="group">
-                            <visible>!Control.HasFocus(50)</visible>
+                            <visible>Control.HasFocus(60)</visible>
                             <include>50itemlayout_square</include>
                         </control>
                     </focusedlayout>
@@ -252,7 +252,7 @@
             <visible>Control.IsVisible(550)</visible>
             <control type="group">
                 <control type="list" id="550">
-                    <visible>![Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left) + !stringcompare(Container.FolderPath,library://video/movies/) + !stringcompare(Container.FolderPath,library://video/tvshows/) + !stringcompare(Container.FolderPath,special://videoplaylists/)] | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)]]</visible>
+                    <visible>![Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | Container.Content(episodes) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left) + !stringcompare(Container.FolderPath,library://video/movies/) + !stringcompare(Container.FolderPath,library://video/tvshows/) + !stringcompare(Container.FolderPath,special://videoplaylists/)]]</visible>
                     <top>PosterPad</top>
                     <height>PosterH</height>
                     <left>ListSquareX</left>
@@ -325,6 +325,7 @@
         </control>
     </include>
     <include name="50focuslayout">
+
         <control type="image">                                
             <width>100%</width>
             <height>100%</height>

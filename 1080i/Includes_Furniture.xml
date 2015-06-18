@@ -173,6 +173,8 @@
     <include name="Furniture_Flags">
         <control type="grouplist">
             <visible>!Skin.HasSetting(furniture.flags)</visible>
+            <visible>!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
+            <visible>!Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
             <visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
             <visible>!stringcompare(ListItem.Label,..)</visible>
             <include>Animation.FadeIn</include>
@@ -553,12 +555,12 @@
         <value condition="Player.HasVideo + VideoPlayer.Content(movies) + [Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation) | Window.IsVisible(home)]">special://skin/extras/icons/film.png</value>
         <value condition="Player.HasVideo + VideoPlayer.Content(episodes) + [Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation) | Window.IsVisible(home)]">special://skin/extras/icons/tv.png</value>
         <value condition="Player.HasVideo + [Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation) | Window.IsVisible(home)]">special://skin/extras/icons/eye.png</value>
-        
+        <value condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">special://skin/extras/icons/info.png</value>
         <value condition="Window.IsVisible(1101)">special://skin/extras/icons/film.png</value>
         <value condition="Window.IsVisible(1102)">special://skin/extras/icons/tv.png</value>
         <value condition="Window.IsVisible(1104) | Window.IsVisible(1105) | Window.IsVisible(1103)">special://skin/extras/icons/director.png</value>
         <value condition="Window.IsVisible(Custom_SetCustomColor.xml)">special://skin/extras/icons/wand.png</value>
-        <value condition="Window.IsVisible(MyVideoNav.xml) + substring(Container.FolderPath,videodb://movies) | substring(Container.FolderPath,videodb://recentlyaddedmovies)">special://skin/extras/icons/film.png</value>
+        <value condition="Window.IsVisible(MyVideoNav.xml) + [substring(Container.FolderPath,videodb://movies) | substring(Container.FolderPath,videodb://recentlyaddedmovies)]">special://skin/extras/icons/film.png</value>
         <value condition="Window.IsVisible(MyVideoNav.xml) + [substring(Container.FolderPath,videodb://tvshows) | substring(Container.FolderPath,videodb://recentlyaddedepisodes)]">special://skin/extras/icons/tv.png</value>
         <value condition="Window.IsVisible(MyVideoNav.xml)">special://skin/extras/icons/video-addons.png</value>
         <value condition="Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml)">special://skin/extras/icons/livetv.png</value>
@@ -579,17 +581,24 @@
         <value condition="Window.IsVisible(MyMusicPlaylistEditor.xml)">$LOCALIZE[20011]</value>
         <value condition="Window.IsVisible(DialogButtonMenu.xml)">$LOCALIZE[33060]</value>
         <value condition="Window.IsVisible(DialogFavourites.xml)">$LOCALIZE[1036]</value>
-        <value condition="Window.IsVisible(MyVideoNav.xml) + substring(Container.FolderPath,videodb://movies) | substring(Container.FolderPath,videodb://recentlyaddedmovies)">$LOCALIZE[20342]</value>
-        <value condition="Window.IsVisible(MyVideoNav.xml) + [substring(Container.FolderPath,videodb://tvshows) | substring(Container.FolderPath,videodb://recentlyaddedepisodes)]">$LOCALIZE[20343]</value>
-        <value condition="Window.IsVisible(MyVideoNav.xml)">$LOCALIZE[3]</value>
+        <value condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">$LOCALIZE[31241]</value>
+        <value condition="Window.IsVisible(MyVideoNav.xml) + StringCompare(Container.FolderPath,videodb://movies/titles/)">$LOCALIZE[20342]</value>
+        <value condition="Window.IsVisible(MyVideoNav.xml) + StringCompare(Container.FolderPath,videodb://tvshows/titles/)">$LOCALIZE[20343]</value>
+        <value condition="Window.IsVisible(MyVideoNav.xml) + SubString(Container.FolderPath,videodb://movies/,Left)">$INFO[Container.FolderName]</value>
+        <value condition="Window.IsVisible(MyVideoNav.xml) + SubString(Container.FolderPath,videodb://tvshows/,Left) + Container.Content(episodes) + !IsEmpty(ListItem.TvShowTitle)">$INFO[ListItem.TvShowTitle]$INFO[Container.FolderName, - ,]</value>
+        <value condition="Window.IsVisible(MyVideoNav.xml) + SubString(Container.FolderPath,videodb://tvshows/,Left)">$INFO[Container.FolderName]</value>
+        <value condition="Window.IsVisible(MyVideoNav.xml) + !IsEmpty(Container.FolderName)">$INFO[Container.FolderName]</value>
+        <value condition="Window.IsVisible(MyVideoNav.xml)">$LOCALIZE[3]</value>                                                                          
         <value condition="Window.IsVisible(MyPVRChannels.xml)">$LOCALIZE[19019]</value>
         <value condition="Window.IsVisible(MyPVRGuide.xml)">$LOCALIZE[4]</value>
         <value condition="Window.IsVisible(MyPVRRecordings.xml)">$LOCALIZE[19017]</value>
         <value condition="Window.IsVisible(MyPVRTimers.xml)">$LOCALIZE[19040]</value>
         <value condition="Window.IsVisible(MyPVRSearch.xml)">$LOCALIZE[137]</value>
+        <value condition="!IsEmpty(Container.FolderName) + [Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyMusicSongs.xml)]">$INFO[Container.FolderName]</value>
         <value condition="Window.IsVisible(MyMusicNav.xml) | Window.IsVisible(MyMusicSongs.xml)">$LOCALIZE[2]</value>
         <value condition="Window.IsVisible(SettingsSystemInfo.xml) | Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(settings) | Window.IsVisible(SkinSettings.xml)">$LOCALIZE[5]</value>
         <value condition="Window.IsVisible(weather)">$LOCALIZE[8]</value>
+        <value condition="!IsEmpty(Container.FolderName) + Window.IsVisible(MyPics.xml)">$INFO[Container.FolderName]</value>
         <value condition="Window.IsVisible(MyPics.xml)">$LOCALIZE[1]</value>
         <value condition="Window.IsVisible(MyPrograms.xml)">$LOCALIZE[0]</value>
         <value condition="Window.IsVisible(AddonBrowser.xml)">$LOCALIZE[24001]</value>
@@ -597,21 +606,21 @@
         <value condition="Window.IsVisible(FileManager.xml)">$LOCALIZE[744]</value>
         <value condition="Window.IsVisible(1101)">$LOCALIZE[31192]</value>
         <value condition="Window.IsVisible(1102)">$LOCALIZE[31193]</value>
-        <value condition="Window.IsVisible(1103) + stringcompare(Window(1103).Property(content),1)">$INFO[Window(home).Property(ExtStudio),$LOCALIZE[31205] ,]</value>
-        <value condition="Window.IsVisible(1103) + stringcompare(Window(1103).Property(content),2)">$INFO[Window(home).Property(ExtMovie),$LOCALIZE[31204] ,]</value>
+        <value condition="Window.IsVisible(1103) + StringCompare(Window(1103).Property(content),1)">$INFO[Window(home).Property(ExtStudio),$LOCALIZE[31205] ,]</value>
+        <value condition="Window.IsVisible(1103) + StringCompare(Window(1103).Property(content),2)">$INFO[Window(home).Property(ExtMovie),$LOCALIZE[31204] ,]</value>
         <value condition="Window.IsVisible(1103)">$INFO[Window(home).Property(ExtDirector),$LOCALIZE[31191] ,]</value>
-        <value condition="Window.IsVisible(1104) + stringcompare(Window(1104).Property(content),1)">$LOCALIZE[31211]</value>
-        <value condition="Window.IsVisible(1104) + stringcompare(Window(1104).Property(content),2)">$LOCALIZE[31210]</value>
-        <value condition="Window.IsVisible(1104) + stringcompare(Window(1104).Property(content),3)">$LOCALIZE[31209]</value>
+        <value condition="Window.IsVisible(1104) + StringCompare(Window(1104).Property(content),1)">$LOCALIZE[31211]</value>
+        <value condition="Window.IsVisible(1104) + StringCompare(Window(1104).Property(content),2)">$LOCALIZE[31210]</value>
+        <value condition="Window.IsVisible(1104) + StringCompare(Window(1104).Property(content),3)">$LOCALIZE[31209]</value>
         <value condition="Window.IsVisible(1104)">$LOCALIZE[31208]</value>
-        <value condition="Window.IsVisible(1105) + stringcompare(Window(1105).Property(content),1)">$LOCALIZE[31211]</value>
-        <value condition="Window.IsVisible(1105) + stringcompare(Window(1105).Property(content),2)">$LOCALIZE[31210]</value>
-        <value condition="Window.IsVisible(1105) + stringcompare(Window(1105).Property(content),3)">$LOCALIZE[31212]</value>
+        <value condition="Window.IsVisible(1105) + StringCompare(Window(1105).Property(content),1)">$LOCALIZE[31211]</value>
+        <value condition="Window.IsVisible(1105) + StringCompare(Window(1105).Property(content),2)">$LOCALIZE[31210]</value>
+        <value condition="Window.IsVisible(1105) + StringCompare(Window(1105).Property(content),3)">$LOCALIZE[31212]</value>
         <value condition="Window.IsVisible(1105)">$LOCALIZE[31213]</value>
         <value>$LOCALIZE[10000]</value>
     </variable>
-    
     <variable name="SubHeaderLabel">
+        <value condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">$LOCALIZE[31242]</value>
         <value condition="Window.IsVisible(LoginScreen.xml)">$LOCALIZE[10029]</value>
         <value condition="Window.IsVisible(Custom_SetCustomColor.xml)">$LOCALIZE[31239] [COLOR=$VAR[ColorHighlight]]$VAR[ColorHighlight][/COLOR]  •  $LOCALIZE[31240] [COLOR=$INFO[Control.GetLabel(9500)]]$INFO[Control.GetLabel(9500)][/COLOR]</value>
         <value condition="[Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml)]">[COLOR=$VAR[ColorHighlight]]$INFO[Container.NumItems,,[/COLOR] $LOCALIZE[31101]]$INFO[Control.GetLabel(3),  •  ,]$INFO[Control.GetLabel(28),  •  ,]</value>
@@ -627,6 +636,7 @@
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
             <visible>Skin.HasSetting(furniture.logo)</visible>
+            <visible>!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
             <centertop>120</centertop>
             <centerleft>50%</centerleft>
             <width>400</width>
@@ -638,8 +648,8 @@
             <top>SidePad</top>
             <left>SidePad</left>
             <visible>!Skin.HasSetting(furniture.header)</visible>
-            <include>Animation.FadeIn</include>
-            <include>Animation.FadeOut</include>
+            <include condition="!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">Animation.FadeIn</include>
+            <include condition="!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">Animation.FadeOut</include>
             <orientation>horizontal</orientation>
             <itemgap>24</itemgap>
             <control type="group" description="iconbox">
@@ -707,8 +717,8 @@
     <include name="HeaderLabelWidthLogo"><width>560</width></include>
     <include name="Furniture_Clock">
         <control type="group">
-            <include>Animation.FadeIn</include>
-            <include>Animation.FadeOut</include>
+            <include condition="!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">Animation.FadeIn</include>
+            <include condition="!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">Animation.FadeOut</include>
             <centerbottom>NavBarPad</centerbottom>
             <visible>!Skin.HasSetting(furniture.clock)</visible>
             <height>84</height>
