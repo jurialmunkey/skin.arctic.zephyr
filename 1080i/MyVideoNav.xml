@@ -3,7 +3,7 @@
 <window id="6">
     <defaultcontrol always="true">50</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
-    <views>50,550,54,53,51,55,56,57,58,52,500</views>
+    <views>50,550,56,57,53,55,59,54,51,58,52,500</views>
     <onload condition="Skin.HasSetting(ActivateTvTunes) + System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
     <onload condition="System.HasAddon(script.tv.show.next.aired)">RunScript(script.tv.show.next.aired,backend=True)</onload>
     
@@ -14,8 +14,9 @@
         <include>View_550_List</include>
         <include condition="!Skin.HasSetting(50list.low)">View_50_List</include>
         <include condition="Skin.HasSetting(50list.low)">View_50_LowList</include>
-        <include condition="!Skin.HasSetting(51bigwide.showinfo)">View_51_BigWide</include>
+        <include condition="!Skin.HasSetting(51bigwide.showinfo) + !Skin.HasSetting(51bigwide.showclassic)">View_51_BigWide</include>
         <include condition="Skin.HasSetting(51bigwide.showinfo)">View_51_BigWide_Info</include>
+        <include condition="!Skin.HasSetting(51bigwide.showinfo) + Skin.HasSetting(51bigwide.showclassic)">View_51_BigWide_Classic</include>
         <include condition="Skin.HasSetting(52biglist.singlepane)">View_52_BigList_SinglePane</include>
         <include condition="!Skin.HasSetting(52biglist.singlepane)">View_52_BigList_DoublePane</include>
         <include>View_53_Poster</include>
@@ -23,22 +24,19 @@
         <include condition="!Skin.HasSetting(55wall.hideinfo)">View_55_Wall_Info</include>
         <include condition="Skin.HasSetting(55wall.showposter)">View_55_Wall_Poster</include>
         <include condition="Skin.HasSetting(55wall.hideinfo) + !Skin.HasSetting(55wall.showposter)">View_55_Wall</include>
-        
         <include condition="!Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)">View_56_MediaInfo</include>
         <include condition="Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)">View_56_MediaInfo2</include>
         <include condition="Skin.HasSetting(56media.low)">View_56_MediaInfo3</include>
         <include condition="!Skin.HasSetting(57list.low)">View_57_ExtraInfo</include>
         <include condition="Skin.HasSetting(57list.low)">View_57_ExtraInfo_LowList</include>
         <include>View_58_Cards</include>
+        <include>View_59_BannerWall</include>
         <include>View_500_Thumbnails</include>
         
-        <!-- <control type="group">
-            <animation effect="fade" start="100" end="0" time="0" condition="Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml)">Conditional</animation> -->
-            <include>Furniture_Header</include>
-            <include>Furniture_NowPlaying</include>
-            <include>Furniture_Clock</include>
-            <include>Furniture_Flags</include>
-        <!-- </control> -->
+        <include>Furniture_Header</include>
+        <include>Furniture_NowPlaying</include>
+        <include>Furniture_Clock</include>
+        <include>Furniture_Flags</include>
         
         <control type="group">
             <include>Animation.FadeIn</include>
@@ -183,6 +181,18 @@
                     <label>31147</label>
                     <selected>Skin.HasSetting(51bigwide.showinfo)</selected>
                     <onclick>Skin.ToggleSetting(51bigwide.showinfo)</onclick>
+                    <onclick>Skin.Reset(51bigwide.showclassic)</onclick>
+                    <onclick>ReloadSkin()</onclick>
+                    <visible>Control.IsVisible(51)</visible>
+                </control>
+
+                <control type="radiobutton" id="9014" description="Big Wide Classic (51)">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31245</label>
+                    <selected>Skin.HasSetting(51bigwide.showclassic)</selected>
+                    <onclick>Skin.ToggleSetting(51bigwide.showclassic)</onclick>
+                    <onclick>Skin.Reset(51bigwide.showinfo)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(51)</visible>
                 </control>

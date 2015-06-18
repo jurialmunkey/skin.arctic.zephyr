@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
 <window>
-    <defaultcontrol always="true">9120</defaultcontrol>
+    <defaultcontrol always="true">9000</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <onload>ClearProperty(content)</onload>
     <onload>ClearProperty(movie.Fanart,home)</onload>
@@ -100,10 +100,10 @@
                     <onup condition="Control.IsVisible(9501)">9501</onup>
                     <orientation>horizontal</orientation>
 
-                    <control type="button" id="9120">
+                    <!-- <control type="button" id="9120">
                         <visible allowhiddenfocus="true">false</visible>
                         <onfocus>AlarmClock(setfan,SetFocus(9002),00:01,silent)</onfocus>
-                    </control>
+                    </control> -->
                  
                     <control type="button" id ="9002">
                         <description>Cast</description>
@@ -111,7 +111,7 @@
                         <include>DefInfoButtons</include>
                         <onclick>SetProperty(content,1000)</onclick>
                         <onclick>SetFocus(1000)</onclick>
-                        <onfocus>SetProperty(movie.Fanart,$INFO[Window.Property(movie.Fanart)],home)</onfocus>
+                        <!-- <onfocus>SetProperty(movie.Fanart,$INFO[Window.Property(movie.Fanart)],home)</onfocus> -->
                     </control>
 
                     <control type="button" id ="9003">
