@@ -555,16 +555,16 @@
 				</control>
 			</control>
 			<control type="grouplist">
-				<visible>Control.HasFocus(7000)</visible>
-				<animation condition="Control.HasFocus(1000) | Control.HasFocus(150) | Control.HasFocus(350)" effect="fade" end="0" start="100" time="0">Conditional</animation>
+				<visible>Control.HasFocus(7000) | ControlGroup(9000).HasFocus | ControlGroup(9001).HasFocus</visible>
+				<animation condition="![ControlGroup(9000).HasFocus | ControlGroup(9001).HasFocus] + [Control.HasFocus(1000) | Control.HasFocus(150) | Control.HasFocus(350)]" effect="fade" end="0" start="100" time="0">Conditional</animation>
 				<animation condition="!Control.HasFocus(1000) + !Control.HasFocus(150) + !Control.HasFocus(350)" delay="200" effect="fade" end="100" start="0" time="80">Conditional</animation>
 				<top>551</top>
 				<itemgap>14</itemgap>
 				<orientation>horizontal</orientation>
 				<include condition="IsEmpty(Skin.String(RatingCountry))">lib_Rating_BBFC_small</include>
-				<include condition="Stringcompare(Skin.String(RatingCountry),US)">lib_Rating_MPAA</include>
+				<include condition="Stringcompare(Skin.String(RatingCountry),US)">lib_Rating_MPAA_small</include>
 				<include condition="Stringcompare(Skin.String(RatingCountry),UK)">lib_Rating_BBFC_small</include>
-				<include condition="Stringcompare(Skin.String(RatingCountry),Germany)">lib_Rating_FSK</include>
+				<include condition="Stringcompare(Skin.String(RatingCountry),Germany)">lib_Rating_FSK_small</include>
 				<control type="image">
 					<width>130</width>
 					<height>50</height>
@@ -602,9 +602,9 @@
 				</control>
 				<control type="image">
 					<width>130</width>
-					<height>50</height>
+					<height>62</height>
 					<texture>$INFO[Window.Property(movie.VideoCodec),colored/source/,.png]</texture>
-					<aspectratio align="left">scale</aspectratio>
+					<aspectratio align="left">stretch</aspectratio>
 					<visible>!IsEmpty(Window.Property(movie.VideoCodec)) + Skin.HasSetting(furniture.flags.colour)</visible>
 				</control>
 				<control type="image">
@@ -616,9 +616,9 @@
 				</control>
 				<control type="image">
 					<width>130</width>
-					<height>50</height>
+					<height>62</height>
 					<texture>$INFO[Window.Property(movie.AudioCodec),colored/audio/,.png]</texture>
-					<aspectratio align="left">scale</aspectratio>
+					<aspectratio align="left">stretch</aspectratio>
 					<visible>!IsEmpty(Window.Property(movie.AudioCodec)) + Skin.HasSetting(furniture.flags.colour)</visible>
 				</control>
 				<control type="image">
