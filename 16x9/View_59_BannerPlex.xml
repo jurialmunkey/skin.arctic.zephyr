@@ -1,140 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
 <includes>
 	<include name="View_59_BannerPlex">
-		<!--Panel -->
 		<control type="group">
+			<include>Animation.Common</include>
 			<visible>Control.IsVisible(59)</visible>
 			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
-			<include>Animation.Common</include>
-			<!-- ID="59" -->
 			<control type="panel" id="59">
-				<posx>15</posx>
-				<posy>240</posy>
-				<width>1860</width>
-				<height>580</height>
-				<onup>59</onup>
-				<ondown>59</ondown>
+				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+				<top>200</top>
+				<right>70</right>
+				<left>70</left>
+				<height>666</height>
 				<onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
 				<onright>60</onright>
-				<pagecontrol>60</pagecontrol>
-				<viewtype label="31741">bigwide</viewtype>
-				<scrolltime tween="quadratic">400</scrolltime>
+				<onup>59</onup>
+				<ondown>59</ondown>
 				<preloaditems>2</preloaditems>
-				<visible>container.content(MusicVideos) | Container.Content(tvshows) | Container.Content(Movies) | container.content(seasons)</visible>
-				<itemlayout height="145" width="610" condition="container.content(MusicVideos) | Container.Content(tvshows) | Container.Content(Movies) | container.content(seasons)">
-					<control type="group">
-						<posy>10</posy>
-						<posx>10</posx>
-						<control type="image">
-							<width>604</width>
-							<height>126</height>
-							<texture>home/home_shadow.png</texture>
-						</control>
-						<include>BannerPlexlayout</include>
-						<control type="image">
-							<right>8</right>
-							<top>1</top>
-							<width>32</width>
-							<height>32</height>
-							<aspectratio aligny="top">keep</aspectratio>
-							<texture>$VAR[PercentWatched]</texture>
-							<visible>!stringcompare(ListItem.Label,..)</visible>
-							<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
-						</control>
-						<control type="group">
-							<visible>IntegerGreaterThan(ListItem.Property(UnwatchedEpisodes),0)</visible>
-							<control type="image">
-								<right>16</right>
-								<top>2</top>
-								<height>40</height>
-								<width>40</width>
-								<texture colordiffuse="Dark1">common/circle.png</texture>
-								<aspectratio align="center" aligny="center">keep</aspectratio>
-							</control>
-							<control type="label">
-								<right>16</right>
-								<top>2</top>
-								<height>40</height>
-								<width>40</width>
-								<align>center</align>
-								<aligny>center</aligny>
-								<label>$INFO[ListItem.Property(UnwatchedEpisodes)]</label>
-								<font>Flag</font>
-								<textcolor>Light1</textcolor>
-							</control>
-						</control>
+				<pagecontrol>60</pagecontrol>
+				<viewtype label="31741">list</viewtype>
+				<scrolltime tween="quadratic">400</scrolltime>
+				<itemlayout height="133" width="593">
+					<control type="image">
+						<left>0</left>
+						<top>6</top>
+						<right>0</right>
+						<bottom>0</bottom>
+						<texture border="10">common/nofocus-shadow10.png</texture>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>16</top>
+						<right>10</right>
+						<bottom>10</bottom>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture diffuse="diffuse/wall-fanart.png" background="true">$VAR[BannerImage]</texture>
+					</control>
+					<control type="image">
+						<centerright>32</centerright>
+						<centertop>35</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
 					</control>
 				</itemlayout>
-				<focusedlayout height="145" width="610" condition="container.content(MusicVideos) | Container.Content(tvshows) | Container.Content(Movies) | container.content(seasons)">
-					<control type="group">
-						<posy>10</posy>
-						<posx>10</posx>
-						<animation type="focus">
-							<effect type="zoom" start="100" end="105" center="auto" time="150" />
+				<focusedlayout height="133" width="593">
+					<control type="button">
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+						<onfocus condition="Container.Content(movies)">ClearProperty(TVShowID,home)</onfocus>
+						<onfocus condition="Container.Content(tvshows)">SetProperty(TVShowID,$INFO[ListItem.DBID],home)</onfocus>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>6</top>
+						<right>0</right>
+						<bottom>0</bottom>
+						<texture border="10">common/nofocus-shadow10.png</texture>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>16</top>
+						<right>10</right>
+						<bottom>10</bottom>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture diffuse="diffuse/wall-fanart.png" background="true">$VAR[BannerImage]</texture>
+					</control>
+					<control type="image">
+						<centerright>32</centerright>
+						<centertop>35</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
+					</control>
+					<control type="image">
+						<left>3</left>
+						<top>9</top>
+						<right>3</right>
+						<bottom>3</bottom>
+						<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+						<animation type="Focus">
+							<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
 						</animation>
-						<animation type="unfocus">
-							<effect type="zoom" start="105" end="100" center="auto" time="150" />
+						<animation type="Unfocus">
+							<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
 						</animation>
-						<control type="button">
-							<texturefocus>-</texturefocus>
-							<texturenofocus>-</texturenofocus>
-							<onfocus condition="Container.Content(movies)">ClearProperty(TVShowID,home)</onfocus>
-							<onfocus condition="Container.Content(tvshows)">SetProperty(TVShowID,$INFO[ListItem.DBID],home)</onfocus>
-						</control>
-						<control type="image">
-							<width>590</width>
-							<height>120</height>
-							<bordersize>-5</bordersize>
-							<texture>common/white.png</texture>
-							<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
-							<aspectratio scalediffuse="false" align="left">stretch</aspectratio>
-						</control>
-						<include>BannerPlexlayout</include>
-						<control type="image">
-							<right>8</right>
-							<top>1</top>
-							<width>32</width>
-							<height>32</height>
-							<aspectratio aligny="top">keep</aspectratio>
-							<texture>$VAR[PercentWatched]</texture>
-							<visible>!stringcompare(ListItem.Label,..)</visible>
-							<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
-						</control>
-						<control type="group">
-							<visible>IntegerGreaterThan(ListItem.Property(UnwatchedEpisodes),0)</visible>
-							<control type="image">
-								<right>16</right>
-								<top>2</top>
-								<height>40</height>
-								<width>40</width>
-								<texture colordiffuse="Dark1">common/circle.png</texture>
-								<aspectratio align="center" aligny="center">keep</aspectratio>
-							</control>
-							<control type="label">
-								<right>16</right>
-								<top>2</top>
-								<height>40</height>
-								<width>40</width>
-								<align>center</align>
-								<aligny>center</aligny>
-								<label>$INFO[ListItem.Property(UnwatchedEpisodes)]</label>
-								<font>Flag</font>
-								<textcolor>Light1</textcolor>
-							</control>
-						</control>
 					</control>
 				</focusedlayout>
 			</control>
-			<!--vertical Scollbar -->
 			<include>Furniture_Scrollbar</include>
-		</control>
-	</include>
-	<include name="BannerPlexlayout">
-		<control type="image">
-			<width>590</width>
-			<height>120</height>
-			<texture background="true">$VAR[BannerImage]</texture>
-			<aspectratio scalediffuse="false" align="left">stretch</aspectratio>
 		</control>
 	</include>
 </includes>

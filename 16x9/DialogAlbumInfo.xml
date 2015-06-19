@@ -91,6 +91,38 @@
 			</animation>
 			<visible>Control.HasFocus(5014)</visible>
 		</control>
+		<!-- Twitter -->
+			<control type="group">
+			    <bottom>5</bottom>
+				<height>36</height>
+				<visible>Container.Content(Artists)</visible>
+				<width>100%</width>
+				<control type="label">
+					<width>150</width>
+					<height>36</height>
+					<font>Tiny</font>
+					<textcolor>Dark1</textcolor>
+					<label>[B]Twitter[/B]</label>
+					<aligny>center</aligny>
+				</control>
+				<control type="label">
+					<left>150</left>
+					<top>6</top>
+					<width>100%</width>
+					<height>24</height>
+					<font>Tiny</font>
+					<textcolor>Dark2</textcolor>
+					<scroll>true</scroll>
+					<wrapmultiline>false</wrapmultiline>
+					<scrollspeed>40</scrollspeed>
+					<scrollsuffix> ••</scrollsuffix>
+					<label fallback="19055">$INFO[Container(9301).ListItem.Property(author),[B],[/B]]$INFO[Container(9301).ListItem.Property(date), ,]$INFO[Container(9301).ListItem.Property(comment), - ","]$INFO[Container(9301).ListItem(1).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(1).Property(date), ,]$INFO[Container(9301).ListItem(1).Property(comment), - ","]$INFO[Container(9301).ListItem(2).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(2).Property(date), ,]$INFO[Container(9301).ListItem(2).Property(comment), - ","]$INFO[Container(9301).ListItem(3).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(3).Property(date), ,]$INFO[Container(9301).ListItem(3).Property(comment), - ","]$INFO[Container(9301).ListItem(4).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(4).Property(date), ,]$INFO[Container(9301).ListItem(4).Property(comment), - ","]$INFO[Container(9301).ListItem(5).Property(author), ••
+						[B],[/B]]$INFO[Container(9301).ListItem(5).Property(date), ,]$INFO[Container(9301).ListItem(5).Property(comment), - ","]$INFO[Container(9301).ListItem(6).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(6).Property(date), ,]$INFO[Container(9301).ListItem(6).Property(comment), - ","]$INFO[Container(9301).ListItem(7).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(7).Property(date), ,]$INFO[Container(9301).ListItem(7).Property(comment), - ","]$INFO[Container(9301).ListItem(8).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(8).Property(date), ,]$INFO[Container(9301).ListItem(8).Property(comment), - ","]$INFO[Container(9301).ListItem(9).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(9).Property(date), ,]$INFO[Container(9301).ListItem(9).Property(comment), - ","]$INFO[Container(9301).ListItem(10).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(10).Property(date), ,]$INFO[Container(9301).ListItem(10).Property(comment), -
+						","]$INFO[Container(9301).ListItem(11).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(11).Property(date), ,]$INFO[Container(9301).ListItem(11).Property(comment), - ","]$INFO[Container(9301).ListItem(12).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(12).Property(date), ,]$INFO[Container(9301).ListItem(12).Property(comment), - ","]$INFO[Container(9301).ListItem(13).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(13).Property(date), ,]$INFO[Container(9301).ListItem(13).Property(comment), - ","]$INFO[Container(9301).ListItem(14).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(14).Property(date), ,]$INFO[Container(9301).ListItem(14).Property(comment), - ","]$INFO[Container(9301).ListItem(15).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(15).Property(date), ,]$INFO[Container(9301).ListItem(15).Property(comment), - ","]$INFO[Container(9301).ListItem(16).Property(author), ••
+						[B],[/B]]$INFO[Container(9301).ListItem(16).Property(date), ,]$INFO[Container(9301).ListItem(16).Property(comment), - ","]$INFO[Container(9301).ListItem(17).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(17).Property(date), ,]$INFO[Container(9301).ListItem(17).Property(comment), - ","]$INFO[Container(9301).ListItem(18).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(18).Property(date), ,]$INFO[Container(9301).ListItem(18).Property(comment), - ","]$INFO[Container(9301).ListItem(19).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(19).Property(date), ,]$INFO[Container(9301).ListItem(19).Property(comment), - ","]</label>
+					<aligny>center</aligny>
+				</control>
+			</control>
 		<control type="group">
 			<include>DialogMusicInfoAnimation</include>
 			<left>90</left>
@@ -2999,6 +3031,15 @@
 				<texturesliderbarfocus border="3">common/Scrollbar.png</texturesliderbarfocus>
 				<animation condition="System.IdleTime(1)" effect="fade" end="0" start="100" time="200">Conditional</animation>
 			</control>
+		</control>
+		<!-- Twitter Feed Fake List -->
+		<control type="list" id="9301">
+			<height>36</height>
+			<orientation>horizontal</orientation>
+			<autoscroll time="8000">false</autoscroll>
+			<itemlayout width="1" height="1"></itemlayout>
+			<focusedlayout width="1" height="1"></focusedlayout>
+			<content>plugin://script.extendedinfo?info=artistshouts&amp;&amp;artistname=$INFO[ListItem.Artist]</content>
 		</control>
 	</controls>
 </window>

@@ -688,6 +688,11 @@
 		<value condition="stringcompare(Window(1103).Property(content),2)">plugin://script.extendedinfo?info=similarmovies&amp;&amp;dbid=$INFO[Window(home).Property(ExtDBID)]</value>
 		<value>plugin://script.extendedinfo?info=directormovies&amp;&amp;director=$INFO[Window(home).Property(ExtDirector)]</value>
 	</variable>
+	 <variable name="DefDirectorInfoWindowContent">
+        <value condition="stringcompare(Window.Property(content),1)">plugin://script.extendedinfo?info=studio&amp;&amp;studio=$INFO[ListItem.Studio]</value>
+        <value condition="stringcompare(Window.Property(content),2)">plugin://script.extendedinfo?info=similarmovies&amp;&amp;dbid=$INFO[ListItem.DBID]</value>
+        <value>plugin://script.extendedinfo?info=directormovies&amp;&amp;director=$INFO[ListItem.Director]</value>
+    </variable>
 	<variable name="DefMovieDBMoviesContent">
 		<value condition="stringcompare(Window(1104).Property(content),1)">plugin://script.extendedinfo?info=topratedmovies</value>
 		<value condition="stringcompare(Window(1104).Property(content),2)">plugin://script.extendedinfo?info=popularmovies</value>
