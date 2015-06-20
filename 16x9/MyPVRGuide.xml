@@ -30,24 +30,24 @@
 					<left>30</left>
 					<right>30</right>
 					<control type="image">
-						<top>10</top>
-						<left>5</left>
+						<top>0</top>
+						<left>100</left>
 						<width>200</width>
 						<height>170</height>
 						<texture background="true" fallback="windows/pvr/defaultchannel.png">$INFO[ListItem.Icon]</texture>
-						<aspectratio>stretch</aspectratio>
+						<aspectratio>keep</aspectratio>
 						<visible>!Player.HasVideo</visible>
 					</control>
 					<control type="videowindow">
-						<top>14</top>
-						<left>-87</left>
+						<top>5</top>
+						<left>-27</left>
 						<width>460</width>
 						<height>155</height>
 						<visible>Player.HasVideo</visible>
 					</control>
 					<control type="label">
 						<top>-10</top>
-						<left>300</left>
+						<left>425</left>
 						<aligny>center</aligny>
 						<height>64</height>
 						<font>SmallBold</font>
@@ -79,7 +79,7 @@
 					</control>
 					<control type="textbox">
 						<top>50</top>
-						<left>300</left>
+						<left>425</left>
 						<height>120</height>
 						<align>justify</align>
 						<font>Tiny</font>
@@ -89,9 +89,9 @@
 					</control>
 				</control>
 				<control type="epggrid" id="10">
-					<left>0</left>
+					<left>-50</left>
 					<top>-30</top>
-					<width>1760</width>
+					<width>1805</width>
 					<height>530</height>
 					<onback>28</onback>
 					<viewtype label="19069">list</viewtype>
@@ -101,6 +101,7 @@
 					<rulerunit>6</rulerunit>
 					<rulerlayout height="40" width="40">
 						<control type="label" id="2">
+							<left>50</left>
 							<width>35</width>
 							<height>30</height>
 							<font>EPGTimeline</font>
