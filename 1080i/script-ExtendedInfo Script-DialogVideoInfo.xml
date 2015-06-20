@@ -70,6 +70,7 @@
                 <control type="group">
                     <include>Animation.DelayFadeIn</include>
                     <visible>!IsEmpty(Window.Property(content))</visible>
+                    <visible>[Control.HasFocus(150) + !Container(150).IsUpdating] | [Control.HasFocus(250) + !Container(250).IsUpdating] | [Control.HasFocus(350) + !Container(350).IsUpdating] | [Control.HasFocus(550) + !Container(550).IsUpdating] | [Control.HasFocus(750) + !Container(750).IsUpdating] | [Control.HasFocus(1000) + !Container(1000).IsUpdating] | [Control.HasFocus(1150) + !Container(1150).IsUpdating] | [Control.HasFocus(50) + !Container(50).IsUpdating] | [Control.HasFocus(9501) + !Container(9501).IsUpdating]</visible>
                     <centerbottom>366</centerbottom>
                     <height>16</height>
                     <control type="image">
@@ -100,18 +101,12 @@
                     <onup condition="Control.IsVisible(9501)">9501</onup>
                     <orientation>horizontal</orientation>
 
-                    <!-- <control type="button" id="9120">
-                        <visible allowhiddenfocus="true">false</visible>
-                        <onfocus>AlarmClock(setfan,SetFocus(9002),00:01,silent)</onfocus>
-                    </control> -->
-                 
                     <control type="button" id ="9002">
                         <description>Cast</description>
                         <label>206</label>
                         <include>DefInfoButtons</include>
                         <onclick>SetProperty(content,1000)</onclick>
                         <onclick>SetFocus(1000)</onclick>
-                        <!-- <onfocus>SetProperty(movie.Fanart,$INFO[Window.Property(movie.Fanart)],home)</onfocus> -->
                     </control>
 
                     <control type="button" id ="9003">
@@ -141,7 +136,7 @@
                 <!-- List Headers -->
                 <control type="label">
                     <visible>stringcompare(Window.Property(content),1000)</visible>
-                    <visible>Control.IsVisible(1000)</visible>
+                    <visible>Control.HasFocus(1000)</visible>
                     <left>540</left>
                     <right>SidePad</right>
                     <top>260</top>
@@ -162,12 +157,12 @@
                     <label>$INFO[Container(1000).NumItems,, $LOCALIZE[31101]  •  ]$INFO[Container(1000).CurrentPage,, $LOCALIZE[20163] ]$INFO[Container(1000).NumPages,, $LOCALIZE[31243]]</label>
                     <aligny>center</aligny>
                     <align>right</align>
-                    <visible>Control.IsVisible(1000)</visible>
+                    <visible>Control.HasFocus(1000)</visible>
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">
                     <visible>stringcompare(Window.Property(content),150)</visible>
-                    <visible>Control.IsVisible(150)</visible>
+                    <visible>Control.HasFocus(150)</visible>
                     <left>540</left>
                     <right>SidePad</right>
                     <top>260</top>
@@ -188,12 +183,12 @@
                     <label>$INFO[Container(150).NumItems,, $LOCALIZE[31101]  •  ]$INFO[Container(150).CurrentPage,, $LOCALIZE[20163] ]$INFO[Container(150).NumPages,, $LOCALIZE[31243]]</label>
                     <aligny>center</aligny>
                     <align>right</align>
-                    <visible>Control.IsVisible(150)</visible>
+                    <visible>Control.HasFocus(150)</visible>
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">
                     <visible>stringcompare(Window.Property(content),350)</visible>
-                    <visible>Control.IsVisible(350)</visible>
+                    <visible>Control.HasFocus(350)</visible>
                     <left>540</left>
                     <right>SidePad</right>
                     <top>260</top>
@@ -214,12 +209,12 @@
                     <label>$INFO[Container(350).NumItems,, $LOCALIZE[31101]  •  ]$INFO[Container(350).CurrentPage,, $LOCALIZE[20163] ]$INFO[Container(350).NumPages,, $LOCALIZE[31243]]</label>
                     <aligny>center</aligny>
                     <align>right</align>
-                    <visible>Control.IsVisible(350)</visible>
+                    <visible>Control.HasFocus(350)</visible>
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">
                     <visible>stringcompare(Window.Property(content),750)</visible>
-                    <visible>Control.IsVisible(750)</visible>
+                    <visible>Control.HasFocus(750)</visible>
                     <left>540</left>
                     <right>SidePad</right>
                     <top>260</top>
@@ -240,7 +235,7 @@
                     <label>$INFO[Container(750).NumItems,, $LOCALIZE[31101]  •  ]$INFO[Container(750).CurrentPage,, $LOCALIZE[20163] ]$INFO[Container(750).NumPages,, $LOCALIZE[31243]]</label>
                     <aligny>center</aligny>
                     <align>right</align>
-                    <visible>Control.IsVisible(750)</visible>
+                    <visible>Control.HasFocus(750)</visible>
                     <include>Animation.DelayFadeIn</include>
                 </control>
 

@@ -179,7 +179,7 @@
                     <label>$INFO[Container(9501).NumItems,, $LOCALIZE[31101]  •  ]$INFO[Container(9501).CurrentPage,, $LOCALIZE[20163] ]$INFO[Container(9501).NumPages,, $LOCALIZE[31243]]</label>
                     <aligny>center</aligny>
                     <align>right</align>
-                    <visible>Control.IsVisible(9501)</visible>
+                    <visible>Control.HasFocus(9501)</visible>
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">
@@ -193,7 +193,7 @@
                     <label>$INFO[Container(50).NumItems,, $LOCALIZE[31101]  •  ]$INFO[Container(50).CurrentPage,, $LOCALIZE[20163] ]$INFO[Container(50).NumPages,, $LOCALIZE[31243]]</label>
                     <aligny>center</aligny>
                     <align>right</align>
-                    <visible>Control.IsVisible(50)</visible>
+                    <visible>Control.HasFocus(50) | Control.HasFocus(51)</visible>
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">

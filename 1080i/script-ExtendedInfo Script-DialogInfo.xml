@@ -70,6 +70,7 @@
                 <control type="group">
                     <include>Animation.DelayFadeIn</include>
                     <visible>!IsEmpty(Window.Property(content))</visible>
+                    <visible>[Control.HasFocus(150) + !Container(150).IsUpdating] | [Control.HasFocus(250) + !Container(250).IsUpdating] | [Control.HasFocus(350) + !Container(350).IsUpdating] | [Control.HasFocus(550) + !Container(550).IsUpdating] | [Control.HasFocus(750) + !Container(750).IsUpdating] | [Control.HasFocus(1000) + !Container(1000).IsUpdating] | [Control.HasFocus(1150) + !Container(1150).IsUpdating] | [Control.HasFocus(50) + !Container(50).IsUpdating] | [Control.HasFocus(9501) + !Container(9501).IsUpdating]</visible>
                     <centerbottom>366</centerbottom>
                     <height>16</height>
                     <control type="image">
@@ -134,6 +135,7 @@
                 <control type="label">
                     <visible>stringcompare(Window.Property(content),150)</visible>
                     <visible>Control.IsVisible(150)</visible>
+                    <visible>Control.HasFocus(150)</visible>
                     <left>540</left>
                     <right>SidePad</right>
                     <top>260</top>
@@ -155,11 +157,13 @@
                     <aligny>center</aligny>
                     <align>right</align>
                     <visible>Control.IsVisible(150)</visible>
+                    <visible>Control.HasFocus(150)</visible>
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">
                     <visible>stringcompare(Window.Property(content),250)</visible>
                     <visible>Control.IsVisible(250)</visible>
+                    <visible>Control.HasFocus(250)</visible>
                     <left>540</left>
                     <right>SidePad</right>
                     <top>260</top>
@@ -181,11 +185,13 @@
                     <aligny>center</aligny>
                     <align>right</align>
                     <visible>Control.IsVisible(250)</visible>
+                    <visible>Control.HasFocus(250)</visible>
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">
                     <visible>stringcompare(Window.Property(content),350)</visible>
                     <visible>Control.IsVisible(350)</visible>
+                    <visible>Control.HasFocus(350)</visible>
                     <left>540</left>
                     <right>SidePad</right>
                     <top>260</top>
@@ -207,11 +213,13 @@
                     <aligny>center</aligny>
                     <align>right</align>
                     <visible>Control.IsVisible(350)</visible>
+                    <visible>Control.HasFocus(350)</visible>
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">
                     <visible>stringcompare(Window.Property(content),550)</visible>
                     <visible>Control.IsVisible(550)</visible>
+                    <visible>Control.HasFocus(550)</visible>
                     <left>540</left>
                     <right>SidePad</right>
                     <top>260</top>
@@ -233,6 +241,7 @@
                     <aligny>center</aligny>
                     <align>right</align>
                     <visible>Control.IsVisible(550)</visible>
+                    <visible>Control.HasFocus(550)</visible>
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="group">
@@ -263,29 +272,6 @@
                                 <aligny>center</aligny>
                             </control>
                         </control>
-                        <!-- <control type="group">
-                            <visible>IsEmpty(Window.Property(content))</visible>
-                            <visible>!IsEmpty(Window.Property(actor.AlsoKnownAs))</visible>
-                            <height>36</height>
-                            <control type="label">
-                                <width>100%</width>
-                                <height>36</height>
-                                <font>Tiny</font>
-                                <textcolor>Dark1</textcolor>
-                                <label>[B]$ADDON[script.extendedinfo 32016][/B]</label>
-                                <aligny>center</aligny>
-                            </control>
-                            <control type="label">
-                                <left>250</left>
-                                <width>100%</width>
-                                <height>36</height>
-                                <font>Tiny</font>
-                                <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window.Property(actor.AlsoKnownAs)]</label>
-                                <aligny>center</aligny>
-                            </control>
-                        </control> -->
-
                         <control type="group">
                             <visible>IsEmpty(Window.Property(content))</visible>
                             <visible>!IsEmpty(Window.Property(actor.Birthday))</visible>
