@@ -66,6 +66,17 @@
 						<selectedcolor>$VAR[ColourHighlight]</selectedcolor>
 						<label>$INFO[ListItem.Genre,, • ]$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
 					</control>
+					<control type="label">
+						<top>125</top>
+						<right>0</right>
+						<align>right</align>
+						<aligny>center</aligny>
+						<height>64</height>
+						<font>TinyBold</font>
+						<textcolor>Black30</textcolor>
+						<label>First Aired - $INFO[ListItem.premiered]</label>
+					    <visible>Skin.HasSetting(Airdate.Enabled)</visible>
+					</control>
 					<control type="textbox">
 						<top>50</top>
 						<left>300</left>
