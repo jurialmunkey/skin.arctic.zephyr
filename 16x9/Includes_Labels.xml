@@ -198,12 +198,16 @@
 		<value>$INFO[Player.FinishTime,$LOCALIZE[31106] ,]</value>
 	</variable>
 	<variable name="LabelNextRecordingHeader">
-		<value condition="Pvr.IsRecording">$LOCALIZE[19158]...</value>
 		<value condition="Pvr.HasTimer">$LOCALIZE[19157]...</value>
 	</variable>
+	<variable name="LabelNowRecordingHeader">
+		<value condition="Pvr.IsRecording">$LOCALIZE[19158]...</value>
+	</variable>
 	<variable name="LabelNextRecording">
-		<value condition="Pvr.IsRecording">[COLOR=$VAR[ColourHighlight]]$INFO[Pvr.NowRecordingTitle][/COLOR]$INFO[Pvr.NowRecordingChannel, ,]</value>
 		<value condition="Pvr.HasTimer">[COLOR=$VAR[ColourHighlight]]$INFO[Pvr.NextRecordingTitle][/COLOR]$INFO[Pvr.NextRecordingDateTime, ,]$INFO[Pvr.NextRecordingChannel, ,]</value>
+	</variable>
+	<variable name="LabelNowRecording">
+		<value condition="Pvr.IsRecording">[COLOR=$VAR[ColourHighlight]]$INFO[Pvr.NowRecordingTitle][/COLOR]$INFO[Pvr.NowRecordingChannel, ,]</value>
 	</variable>
 	<variable name="HDSD">
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">$INFO[ListItem.Property(UnWatchedEpisodes)]</value>
