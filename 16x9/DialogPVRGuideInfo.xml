@@ -1,238 +1,200 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
 <window id="2003">
-    <defaultcontrol always="true">5</defaultcontrol>
-    <allowoverlay>no</allowoverlay>
-
-    <controls>
-
-        <include>GlobalOverlay</include>
-
-        <control type="group">
-            <include>DefDialogInfoPanel</include>
-
-            <control type="image">
-                <posx>30</posx>
-                <top>100</top>
-                <width>450</width>
-                <height>274</height>
-                <aspectratio scalediffuse="false">scale</aspectratio>
-                <texture diffuse="diffuse/pvrinfo.png">pvr/background.jpg</texture>
-                <visible>IsEmpty(ListItem.Thumb)</visible>
-            </control>
-            <control type="image">
-                <posx>30</posx>
-                <top>100</top>
-                <width>450</width>
-                <height>274</height>
-                <aspectratio scalediffuse="false">keep</aspectratio>
-                <texture diffuse="diffuse/pvrinfo.png">$INFO[ListItem.Thumb]</texture>
-                <visible>!IsEmpty(ListItem.Thumb)</visible>
-            </control>
-            
-            <control type="label">
-                <description>Header Label</description>
-                <include>DefDialogInfoHeader</include>
-                <label>$INFO[ListItem.Title]$INFO[ListItem.Year, (,)]</label>
-            </control>
-            
-            <control type="grouplist">
-                <left>510</left>
-                <right>30</right>
-                <posy>112</posy>
-                <orientation>vertical</orientation>
-                <usecontrolcoords>true</usecontrolcoords>
-                
-                <!-- Channel Name -->
-                <control type="label">
-                    <width>100%</width>
-                    <height>25</height>
-                    <font>SmallBold</font>
-                    <label>19029</label>
-                    <aligny>center</aligny>
-                </control>
-                <control type="label">
-                    <width>100%</width>
-                    <height>60</height>
-                    <font>Tiny</font>
-                    <aligny>top</aligny>
-                    <label>$INFO[ListItem.ChannelName]$INFO[ListItem.ChannelNumber, (,)]</label>
-                </control>
-                
-                <!-- Run Time -->
-                <control type="label">
-                    <posy>-95</posy>
-                    <width>100%</width>
-                    <height>25</height>
-                    <align>right</align>
-                    <font>SmallBold</font>
-                    <label>2050</label>
-                    <aligny>center</aligny>
-                </control>
-                <control type="label">
-                    <width>100%</width>
-                    <height>60</height>
-                    <font>Tiny</font>
-                    <align>right</align>
-                    <aligny>top</aligny>
-                    <label>$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
-                </control>
-                
-                <!-- Start Time -->
-                <control type="label">
-                    <width>100%</width>
-                    <height>25</height>
-                    <font>SmallBold</font>
-                    <label>19126</label>
-                    <aligny>center</aligny>
-                </control>
-                <control type="label">
-                    <width>100%</width>
-                    <height>60</height>
-                    <font>Tiny</font>
-                    <aligny>top</aligny>
-                    <label>$INFO[ListItem.StartDate] - $INFO[ListItem.StartTime]</label>
-                </control>
-                
-                <!-- End Time -->
-                <control type="label">
-                    <posy>-95</posy>
-                    <width>100%</width>
-                    <height>25</height>
-                    <align>right</align>
-                    <font>SmallBold</font>
-                    <label>19127</label>
-                    <aligny>center</aligny>
-                </control>
-                <control type="label">
-                    <width>100%</width>
-                    <height>60</height>
-                    <font>Tiny</font>
-                    <align>right</align>
-                    <aligny>top</aligny>
-                    <label>$INFO[ListItem.EndDate] - $INFO[ListItem.EndTime]</label>
-                </control>
-                
-                <!-- Channel Group -->
-                <control type="label">
-                    <width>100%</width>
-                    <height>25</height>
-                    <font>SmallBold</font>
-                    <label>126</label>
-                    <aligny>center</aligny>
-                </control>
-                <control type="label">
-                    <width>100%</width>
-                    <height>60</height>
-                    <font>Tiny</font>
-                    <aligny>top</aligny>
-                    <label>$VAR[PVRInfoStatus]</label>
-                </control>
-                
-                <!-- Genre -->
-                <control type="label">
-                    <width>100%</width>
-                    <height>25</height>
-                    <font>SmallBold</font>
-                    <label>515</label>
-                    <aligny>center</aligny>
-                </control>
-                <control type="label">
-                    <width>100%</width>
-                    <height>60</height>
-                    <font>Tiny</font>
-                    <aligny>top</aligny>
-                    <label>$INFO[ListItem.Genre]</label>
-                </control>
-                
-                <!-- Studio -->
-                <control type="label">
-                    <width>100%</width>
-                    <height>25</height>
-                    <font>SmallBold</font>
-                    <label>573</label>
-                    <aligny>center</aligny>
-                </control>
-                <control type="label">
-                    <width>100%</width>
-                    <height>60</height>
-                    <font>Tiny</font>
-                    <aligny>top</aligny>
-                    <label>$INFO[ListItem.FileNameAndPath]</label>
-                </control>
-                
-                <!-- Plot -->
-                <control type="label">
-                    <width>100%</width>
-                    <height>25</height>
-                    <font>SmallBold</font>
-                    <label>207</label>
-                    <aligny>center</aligny>
-                </control>
-                <control type="textbox">
-                    <width>100%</width>
-                    <height>190</height>
-                    <font>Tiny</font>
-                    <label>$INFO[ListItem.Plot]</label>
-                    <align>justify</align>
-                </control>
-            </control>
-
-
-            <control type="grouplist" id="9000">
-                <posx>30</posx>
-                <width>450</width>
-                <height>423</height>
-                <bottom>33</bottom>
-                <itemgap>3</itemgap>
-                <onup>9000</onup>
-                <ondown>9000</ondown>
-                <onright>50</onright>
-                <onleft>50</onleft>
-                <orientation>vertical</orientation>
-                
-                <control type="button" id ="9001">
-                    <description>Extended Info</description>
-                    <label>31147</label>
-                    <onclick>RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[ListItem.Label])</onclick>
-                    <width>450</width>
-                    <height>68</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-                    <include>DefDialogButtons</include>
-                </control>
-
-                <control type="button" id ="5">
-                    <description>Switch</description>
-                    <label>19165</label>
-                    <width>450</width>
-                    <height>68</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-                    <include>DefDialogButtons</include>
-                </control>
-
-                <control type="button" id ="6">
-                    <description>Record</description>
-                    <width>450</width>
-                    <height>68</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-                    <include>DefDialogButtons</include>
-                </control>
-
-                <control type="button" id ="7">
-                    <description>Ok</description>
-                    <label>186</label>
-                    <width>450</width>
-                    <height>68</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-                    <include>DefDialogButtons</include>>
-                </control>
-            </control>
-        </control>
-
-    </controls>
-
+	<defaultcontrol always="true">5</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<controls>
+	    <include>GlobalBackground</include>
+	   
+		<control type="group">
+			<animation type="Conditional" reversible="true" condition="Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogProgress.xml) | Window.IsVisible(DialogYesNo.xml) | Window.IsVisible(DialogOK.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml)">
+				<effect type="zoom" end="95" start="100" time="200" center="auto" tween="quadratic" easing="in" />
+			</animation>
+			<!-- Poster -->
+			<control type="group">
+				<visible>!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
+				<visible>!Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
+				<animation effect="slide" start="-1920" end="0" delay="0" time="300" tween="quadratic" easing="out">WindowOpen</animation>
+				<animation effect="slide" start="0" end="-1920" time="300" tween="quadratic" easing="in">WindowClose</animation>
+				<animation effect="slide" start="-1920" end="0" delay="0" time="300" tween="quadratic" easing="out">Visible</animation>
+				<animation effect="slide" start="0" end="-1920" time="300" tween="quadratic" easing="in">Hidden</animation>
+				<include>View_50_SidePoster_Square</include>
+			</control>
+			<!-- Main -->
+			<control type="group">
+				<visible>!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
+				<visible>!Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
+				<animation effect="slide" start="1920" end="0" delay="0" time="300" tween="quadratic" easing="out">WindowOpen</animation>
+				<animation effect="slide" start="0" end="1920" time="300" tween="quadratic" easing="in">WindowClose</animation>
+				<animation effect="slide" start="1920" end="0" delay="0" time="300" tween="quadratic" easing="out">Visible</animation>
+				<animation effect="slide" start="0" end="1920" time="300" tween="quadratic" easing="in">Hidden</animation>
+				<!-- Control Buttons -->
+				<control type="grouplist" id="9000">
+					<bottom>224</bottom>
+					<left>ListSquareX</left>
+					<right>SidePad</right>
+					<height>68</height>
+					<bottom>33</bottom>
+					<itemgap>16</itemgap>
+					<ondown>9000</ondown>
+					<onup condition="Control.IsVisible(50)">51</onup>
+					<onup condition="Control.IsVisible(9501)">9501</onup>
+					<orientation>horizontal</orientation>
+					<control type="button" id="9001">
+						<description>ExtInfo</description>
+						<label>31147</label>
+						<width>260</width>
+						<include>DefInfoButtons</include>
+						<onclick>RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[ListItem.Label])</onclick>
+					</control>
+					<control type="button" id="5">
+						<description>ExtInfo</description>
+						<label>19165</label>
+						<width>260</width>
+						<include>DefInfoButtons</include>
+					</control>
+					<control type="button" id="6">
+						<description>Rec</description>
+						<label>450</label>
+						<width>260</width>
+						<include>DefInfoButtons</include>
+					</control>
+					<control type="button" id="7">
+						<description>Ok</description>
+						<label>186</label>
+						<width>260</width>
+						<include>DefInfoButtons</include>
+					</control>
+				</control>
+				<!-- Info -->
+				<control type="group">
+					<left>ListSquareX</left>
+					<right>SidePad</right>
+					<bottom>224</bottom>
+					<top>PosterPad</top>
+					<control type="grouplist">
+						<left>30</left>
+						<right>30</right>
+						<itemgap>0</itemgap>
+						<control type="label">
+							<description>Header Label</description>
+							<textcolor>Dark1</textcolor>
+							<include>DefDialogInfoHeader</include>
+							<label>$INFO[ListItem.Title]</label>
+						</control>
+						<control type="group">
+							<height>50</height>
+							<control type="label">
+								<posy>-10</posy>
+								<width>100%</width>
+								<height>36</height>
+								<font>Tiny</font>
+								<textcolor>Dark2</textcolor>
+								<label fallback="19055">$INFO[ListItem.ChannelName]$INFO[ListItem.ChannelNumber, (,)]$VAR[PVRInfoStatus, ,]</label>
+								<aligny>center</aligny>
+							</control>
+						</control>
+						<control type="group">
+							<height>36</height>
+							<control type="label">
+								<width>150</width>
+								<height>36</height>
+								<font>Tiny</font>
+								<textcolor>Dark1</textcolor>
+								<label>[B]$LOCALIZE[2050][/B]</label>
+								<aligny>center</aligny>
+							</control>
+							<control type="label">
+								<left>150</left>
+								<width>100%</width>
+								<height>36</height>
+								<font>Tiny</font>
+								<textcolor>Dark2</textcolor>
+								<label fallback="19055">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
+								<aligny>center</aligny>
+							</control>
+						</control>
+						<control type="group">
+							<height>36</height>
+							<control type="label">
+								<width>150</width>
+								<height>36</height>
+								<font>Tiny</font>
+								<textcolor>Dark1</textcolor>
+								<label>[B]$LOCALIZE[19126][/B]</label>
+								<aligny>center</aligny>
+							</control>
+							<control type="label">
+								<left>150</left>
+								<width>100%</width>
+								<height>36</height>
+								<font>Tiny</font>
+								<textcolor>Dark2</textcolor>
+								<label fallback="19055">$INFO[ListItem.StartDate] - $INFO[ListItem.StartTime]</label>
+								<aligny>center</aligny>
+							</control>
+						</control>
+						<control type="group">
+							<height>36</height>
+							<control type="label">
+								<width>150</width>
+								<height>36</height>
+								<font>Tiny</font>
+								<textcolor>Dark1</textcolor>
+								<label>[B]$LOCALIZE[19127][/B]</label>
+								<aligny>center</aligny>
+							</control>
+							<control type="label">
+								<left>150</left>
+								<width>100%</width>
+								<height>36</height>
+								<font>Tiny</font>
+								<textcolor>Dark2</textcolor>
+								<label fallback="19055">$INFO[ListItem.EndDate] - $INFO[ListItem.EndTime]</label>
+								<aligny>center</aligny>
+							</control>
+						</control>
+						<control type="group">
+							<height>36</height>
+							<control type="label">
+								<width>150</width>
+								<height>36</height>
+								<font>Tiny</font>
+								<textcolor>Dark1</textcolor>
+								<label>[B]$LOCALIZE[515][/B]</label>
+								<aligny>center</aligny>
+							</control>
+							<control type="label">
+								<left>150</left>
+								<width>100%</width>
+								<height>36</height>
+								<font>Tiny</font>
+								<textcolor>Dark2</textcolor>
+								<label fallback="19055">$INFO[ListItem.Genre]</label>
+								<aligny>center</aligny>
+							</control>
+						</control>
+						<control type="group">
+							<height>24</height>
+						</control>
+						<control type="group">
+							<height>auto</height>
+							<width>100%</width>
+							<control type="textbox">
+								<left>0</left>
+								<right>0</right>
+								<height>240</height>
+								<font>Tiny</font>
+								<textcolor>Dark2</textcolor>
+								<scroll>false</scroll>
+								<align>justify</align>
+								<info>ListItem.Plot</info>
+								<aligny>top</aligny>
+							</control>
+						</control>
+					</control>
+				</control>
+			</control>
+		</control>
+	</controls>
 </window>

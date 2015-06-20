@@ -705,4 +705,16 @@
 		<value condition="stringcompare(Window(1105).Property(content),3)">plugin://script.extendedinfo?info=onairtvshows</value>
 		<value>plugin://script.extendedinfo?info=airingtodaytvshows</value>
 	</variable>
+	
+	<include name="DefInfoButtons">
+        <font>Button</font>
+        <textcolor>Dark2</textcolor>
+        <width>313</width>
+        <height>68</height>
+        <onfocus>ClearProperty(content)</onfocus>
+        <texturenofocus colordiffuse="Dark4" border="5">common/box.png</texturenofocus>
+        <texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+        <alttexturenofocus colordiffuse="Dark4" border="5">common/box.png</alttexturenofocus>
+        <alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</alttexturefocus>
+    </include>
 </includes>
