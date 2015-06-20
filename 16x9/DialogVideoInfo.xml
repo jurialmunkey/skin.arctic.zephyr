@@ -110,7 +110,7 @@
 						<aligny>center</aligny>
 						<font>Small</font>
 						<textcolor>$VAR[OSDPanelWhite70]</textcolor>
-						<label>$INFO[System.Time(hh:mm)]</label>
+						<label>$INFO[System.Time(h:mm)]</label>
 					</control>
 					<control type="image">
 						<left>195</left>
@@ -1059,6 +1059,13 @@
 						<texture>$INFO[ListItem.AudioChannels,colored/channels/,.png]</texture>
 						<aspectratio align="left">keep</aspectratio>
 						<visible>!IsEmpty(ListItem.AudioChannels) + Skin.HasSetting(furniture.flags.colour)</visible>
+					</control>
+					<control type="image">
+						<width>auto</width>
+						<height>52</height>
+						<texture>$VAR[Studio]</texture>
+						<aspectratio align="left">scale</aspectratio>
+						<visible>[Skin.HasSetting(furniture.nodiscart) + !container.content(movies)] | container.content(movies)</visible>
 					</control>
 				</control>
 			</control>
