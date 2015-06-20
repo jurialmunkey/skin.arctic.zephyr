@@ -3,9 +3,16 @@
     <backgroundcolor>0</backgroundcolor>
     
     <controls>
+        <control type="group">
+            <include>Animation.FadeIn</include>
+            <include>Animation.FadeOut</include>
+            <include>GlobalBackgroundExtended</include>
+            <include>Furniture_Header</include>
+            <include>Furniture_NowPlaying</include>
+            <include>Furniture_Clock</include>
+        </control>
         <control type="group" id="100">
-            <include>GlobalOverlay</include>
-            
+            <visible>!Window.IsVisible(script-globalsearch-infodialog.xml)</visible>            
             <control type="group">
                 <left>SidePad</left>
                 <right>SidePad</right>

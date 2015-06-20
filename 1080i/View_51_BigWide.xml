@@ -217,18 +217,18 @@
                 <left>SidePad</left>
                 <right>SidePad</right>
                 <height>640</height>
-                <control type="image">
+               <!--  <control type="image">
                     <left>-8</left>
                     <right>-8</right>
                     <top>-8</top>
                     <bottom>-8</bottom>
                     <texture border="15" colordiffuse="Panel">common/rounded-shadow8.png</texture>
-                </control>
-                <!-- <control type="image">
+                </control> -->
+                <control type="image">
                     <width>100%</width>
                     <height>100%</height>
                     <texture border="15" colordiffuse="Dark4">common/box.png</texture>
-                </control> -->
+                </control>
                 <!-- Item -3 -->
                 <control type="group">
                     <top>10</top>
@@ -248,16 +248,17 @@
                         <texture border="15" colordiffuse="cf000000">common/white.png</texture>
                     </control>
                     <control type="label">
-                        <posx>44</posx>
-                        <posy>565</posy>
-                        <width>520</width>
+                        <posx>30</posx>
+                        <posy>550</posy>
+                        <width>500</width>
                         <aligny>center</aligny>
                         <height>64</height>
                         <font>Small</font>
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
                         <label>$INFO[ListItem(-3).Label]</label>
-                        <angle>90</angle>
+                        <animation effect="rotate" center="60,600" start="0" end="90" condition="true">Conditional</animation>
+                        <animation effect="slide" start="0" end="30,2" condition="true">Conditional</animation>
                     </control>
                     <control type="image">
                         <centerleft>50%</centerleft>
@@ -290,16 +291,17 @@
                         <texture border="15" colordiffuse="cf000000">common/white.png</texture>
                     </control>
                     <control type="label">
-                        <posx>44</posx>
-                        <posy>565</posy>
-                        <width>520</width>
+                        <posx>30</posx>
+                        <posy>550</posy>
+                        <width>500</width>
                         <aligny>center</aligny>
                         <height>64</height>
                         <font>Small</font>
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
                         <label>$INFO[ListItem(-2).Label]</label>
-                        <angle>90</angle>
+                        <animation effect="rotate" center="60,600" start="0" end="90" condition="true">Conditional</animation>
+                        <animation effect="slide" start="0" end="30,2" condition="true">Conditional</animation>
                     </control>
                     <control type="image">
                         <centerleft>50%</centerleft>
@@ -331,16 +333,17 @@
                         <texture border="15" colordiffuse="cf000000">common/white.png</texture>
                     </control>
                     <control type="label">
-                        <posx>44</posx>
-                        <posy>565</posy>
-                        <width>520</width>
+                        <posx>30</posx>
+                        <posy>550</posy>
+                        <width>500</width>
                         <aligny>center</aligny>
                         <height>64</height>
                         <font>Small</font>
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
                         <label>$INFO[ListItem(-1).Label]</label>
-                        <angle>90</angle>
+                        <animation effect="rotate" center="60,600" start="0" end="90" condition="true">Conditional</animation>
+                        <animation effect="slide" start="0" end="30,2" condition="true">Conditional</animation>
                     </control>
                     <control type="image">
                         <centerleft>50%</centerleft>
@@ -372,19 +375,18 @@
                         <texture border="15" colordiffuse="cf000000">common/white.png</texture>
                     </control>
                     <control type="label">
-                        <posx>44</posx>
-                        <posy>565</posy>
-                        <width>520</width>
+                        <posx>30</posx>
+                        <posy>550</posy>
+                        <width>500</width>
                         <aligny>center</aligny>
                         <height>64</height>
                         <font>Small</font>
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
                         <label>$INFO[ListItem(3).Label]</label>
-                        <angle>90</angle>
-                        
+                        <animation effect="rotate" center="60,600" start="0" end="90" condition="true">Conditional</animation>
+                        <animation effect="slide" start="0" end="30,2" condition="true">Conditional</animation>
                     </control>
-                 
                     <control type="image">
                         <centerleft>50%</centerleft>
                         <centertop>32</centertop>
@@ -393,7 +395,6 @@
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture>$VAR[PercentWatchedP3]</texture>
                         <visible>!stringcompare(ListItem(3).Label,..)</visible>
-                        
                     </control>
                 </control>
 
@@ -416,17 +417,17 @@
                         <texture border="15" colordiffuse="cf000000">common/white.png</texture>
                     </control>
                     <control type="label">
-                        <posx>44</posx>
-                        <posy>565</posy>
-                        <width>520</width>
+                        <posx>30</posx>
+                        <posy>550</posy>
+                        <width>500</width>
                         <aligny>center</aligny>
                         <height>64</height>
                         <font>Small</font>
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
                         <label>$INFO[ListItem(2).Label]</label>
-                        <angle>90</angle>
-                        
+                        <animation effect="rotate" center="60,600" start="0" end="90" condition="true">Conditional</animation>
+                        <animation effect="slide" start="0" end="30,2" condition="true">Conditional</animation>
                     </control>
                     <control type="image">
                         <centerleft>50%</centerleft>
@@ -459,17 +460,17 @@
                         <texture border="15" colordiffuse="cf000000">common/white.png</texture>
                     </control>
                     <control type="label">
-                        <posx>44</posx>
-                        <posy>565</posy>
-                        <width>520</width>
+                        <posx>30</posx>
+                        <posy>550</posy>
+                        <width>500</width>
                         <aligny>center</aligny>
                         <height>64</height>
                         <font>Small</font>
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
                         <label>$INFO[ListItem(1).Label]</label>
-                        <angle>90</angle>
-                        
+                        <animation effect="rotate" center="60,600" start="0" end="90" condition="true">Conditional</animation>
+                        <animation effect="slide" start="0" end="30,2" condition="true">Conditional</animation>
                     </control>
                     <control type="image">
                         <centerleft>50%</centerleft>
@@ -489,13 +490,6 @@
                 <left>401</left>
                 <right>401</right>
                 <height>620</height>
-                <!-- <control type="image">
-                    <left>-8</left>
-                    <right>-8</right>
-                    <top>-8</top>
-                    <bottom>-8</bottom>
-                    <texture border="15" colordiffuse="Panel">common/rounded-shadow8.png</texture>
-                </control> -->
                 <control type="wraplist" id="51">
                     <visible>Container.Content(musicvideos) | Container.Content(artists) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(sets)</visible>
                     <left>0</left>
