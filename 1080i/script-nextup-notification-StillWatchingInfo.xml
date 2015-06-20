@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">4012</defaultcontrol>
+    <zorder>20</zorder>
+    <controls>
+        <include>GlobalOverlay</include>
+
+        <control type="group">
+            <centerleft>50%</centerleft>
+            <posy>360</posy>
+            <width>900</width>
+            <include>Animation.FadeIn.Slide</include>
+            <control type="image">
+                <posx>-30</posx>
+                <posy>-30</posy>
+                <width>960</width>
+                <height>444</height>
+                <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
+            </control>
+
+            <control type="label">
+                <description>Heading</description>
+                <centerleft>50%</centerleft>
+                <width>885</width>
+                <font>MediumBold</font>
+                <align>center</align>
+                <label>$ADDON[service.nextup.notification 30010]</label>
+            </control>
+
+            <control type="label">
+                <description>info</description>
+                <left>15</left>
+                <right>15</right>
+                <posy>70</posy>
+                <label>$ADDON[service.nextup.notification 30012]</label>
+            </control>
+
+            <control type="label">
+                <description>Remaining</description>
+                <posy>160</posy>
+                <centerleft>50%</centerleft>
+                <width>885</width>
+                <font>EpisodeNumber</font>
+                <align>center</align>
+                <label>$INFO[Player.TimeRemaining(ss)]</label>
+            </control>
+
+            <control type="button" id="4012">
+                <description>Yes</description>
+                <centerleft>29%</centerleft>
+                <posy>285</posy>
+                <width>320</width>
+                <label>$ADDON[service.nextup.notification 30010]</label>
+                <onleft>4013</onleft>
+                <onright>4013</onright>
+                <font>Button</font>
+                <texturefocus colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</texturefocus>
+                <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+            </control>
+
+            <control type="button" id="4013">
+                <description>Cancel</description>
+                <centerright>29%</centerright>
+                <posy>285</posy>
+                <width>320</width>
+                <label>222</label>
+                <onleft>4012</onleft>
+                <onright>4012</onright>
+                <font>Button</font>
+                <texturefocus colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</texturefocus>
+                <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+            </control>
+            
+
+        </control>
+    </controls>
+</window>

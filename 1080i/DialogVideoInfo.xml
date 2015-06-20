@@ -97,7 +97,8 @@
                         <label>206</label>
                         <onclick condition="!Control.IsVisible(50)">SendClick(2003,5)</onclick>
                         <onclick>ClearProperty(content)</onclick>
-                        <onclick>SetFocus(51)</onclick>                 
+                        <onclick>SetFocus(51)</onclick>
+                        <visible>!substring(Container.FolderPath,plugin://,left)</visible>             
                     </control>
                     
                     <control type="button" id="9011">
