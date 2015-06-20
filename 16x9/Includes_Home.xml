@@ -135,7 +135,7 @@
 		</control>
 	</include>
 	<include name="HomeNextRecording">
-		<!-- Next Recording -->
+		<!-- Currently Recording -->
 		<control type="group">
 			<right>72</right>
 			<posy>70</posy>
@@ -149,7 +149,7 @@
 			<visible>Skin.HasSetting(home.showheader) | !Window.IsVisible(DialogVolumeBar.xml)</visible>
 			<animation effect="slide" end="0,100" time="150" condition="!Skin.HasSetting(home.showheader) + Player.HasMedia">Conditional</animation>
 			<animation effect="slide" start="0" end="0,190" time="150" condition="Skin.HasSetting(home.showheader)">Conditional</animation>
-			<visible>Pvr.IsRecording | Pvr.HasTimer</visible>
+			<visible>PVR.IsRecording</visible>
 			<control type="image">
 				<description>background image</description>
 				<posx>0</posx>
@@ -166,7 +166,62 @@
 					<width>64</width>
 					<height>64</height>
 					<aspectratio>keep</aspectratio>
-					<texture colordiffuse="Dark1">kaitoast/info.png</texture>
+					<texture colordiffuse="Dark1" fallback="kaitoast/info.png">$INFO[PVR.NowRecordingChannelIcon]</texture>
+				</control>
+				<control type="label">
+					<left>104</left>
+					<top>22</top>
+					<height>24</height>
+					<aligny>center</aligny>
+					<font>TinyBold</font>
+					<textcolor>Dark1</textcolor>
+					<label>$VAR[LabelNowRecordingHeader]</label>
+				</control>
+				<control type="label">
+					<left>104</left>
+					<bottom>22</bottom>
+					<height>24</height>
+					<aligny>center</aligny>
+					<font>Tiny</font>
+					<textcolor>Dark1</textcolor>
+					<label>$VAR[LabelNowRecording]</label>
+				</control>
+			</control>
+		</control>
+<!-- Next Recording -->
+		<control type="group">
+			<right>72</right>
+			<posy>170</posy>
+			<width>660</width>
+			<height>100</height>
+			<include>Animation.FadeIn.Slide</include>
+			<include>Animation.FadeOut</include>
+			<visible>!Control.HasFocus(301) + !ControlGroup(303).HasFocus()</visible>
+			<visible>Skin.HasSetting(home.showheader) | !Window.IsVisible(DialogKaiToast.xml)</visible>
+			<visible>Skin.HasSetting(home.showheader) | !Window.IsVisible(DialogExtendedProgress.xml)</visible>
+			<visible>Skin.HasSetting(home.showheader) | !Window.IsVisible(DialogVolumeBar.xml)</visible>
+			<animation effect="slide" end="0,100" time="150" condition="!Skin.HasSetting(home.showheader) + Player.HasMedia + PVR.IsRecording">Conditional</animation>
+			<animation effect="slide" end="0,-100" time="150" condition="!Skin.HasSetting(home.showheader) + !Player.HasMedia + !PVR.IsRecording">Conditional</animation>
+			<animation effect="slide" start="0" end="0,100" time="150" condition="Skin.HasSetting(home.showheader) + !PVR.IsRecording">Conditional</animation>
+			<animation effect="slide" start="0" end="0,190" time="150" condition="Skin.HasSetting(home.showheader) + PVR.IsRecording">Conditional</animation>			
+			<visible>Pvr.HasTimer</visible>
+			<control type="image">
+				<description>background image</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>660</width>
+				<height>100</height>
+				<texture border="16" colordiffuse="Background">common/rounded-shadow8.png</texture>
+				<animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
+			</control>
+			<control type="group">
+				<control type="image">
+					<left>20</left>
+					<centertop>50%</centertop>
+					<width>64</width>
+					<height>64</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="Dark1" fallback="kaitoast/info.png">$INFO[PVR.NextRecordingChannelIcon]</texture>
 				</control>
 				<control type="label">
 					<left>104</left>
