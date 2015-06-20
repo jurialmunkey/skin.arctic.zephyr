@@ -82,6 +82,13 @@
 				<aspectratio aligny="center">scale</aspectratio>
 			</control>
 			<control type="image">
+				<width>320</width>
+				<height>480</height>
+				<visible>Stringcompare(Window.Property(type),episode)</visible>
+				<texture>$INFO[Window.Property(movie.still_original)]</texture>
+				<aspectratio aligny="center">scale</aspectratio>
+			</control>
+			<control type="image">
 				<top>3</top>
 				<left>287</left>
 				<width>32</width>
@@ -451,7 +458,23 @@
 					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 					<font>symbol</font>
-					<visible>!IsEmpty(Window.Property(movie.DBID))</visible>
+					<visible>!IsEmpty(Window.Property(movie.DBID)) + !Stringcompare(Window.Property(Type),tvshow)</visible>
+				</control>
+				<control id="120" type="button">
+					<width>134</width>
+					<height>116</height>
+					<onup condition="!Control.IsVisible(96)">Close</onup>
+					<onup condition="Control.IsVisible(96)">3002</onup>
+					<ondown condition="Control.IsVisible(150)">150</ondown>
+					<ondown condition="Control.IsVisible(1000)">1000</ondown>
+					<label></label>
+					<onclick>dialog.close(all,true)</onclick>
+					<textcolor>Black700</textcolor>
+					<textoffsetx>0</textoffsetx>
+					<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+					<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+					<font>symbol</font>
+					<visible>!IsEmpty(Window.Property(movie.DBID)) + Stringcompare(Window.Property(Type),tvshow)</visible>
 				</control>
 				<control id="206" type="button">
 					<width>134</width>
