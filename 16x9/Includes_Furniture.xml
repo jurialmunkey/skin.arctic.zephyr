@@ -379,6 +379,14 @@
 			<include condition="Stringcompare(Skin.String(RatingCountry),UK)">lib_Rating_BBFC</include>
 			<include condition="Stringcompare(Skin.String(RatingCountry),Germany)">lib_Rating_FSK</include>
 			<control type="image">
+				<centertop>50%</centertop>
+				<width>auto</width>
+				<height>52</height>
+				<texture>$VAR[Studio]</texture>
+				<aspectratio align="left">keep</aspectratio>
+				<visible>container.content(tvshows) | container.content(seasons)</visible>
+			</control>
+			<control type="image">
 				<width>108</width>
 				<height>50</height>
 				<centertop>50%</centertop>
@@ -482,6 +490,14 @@
 					<textcolor>Dark1</textcolor>
 					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | Control.IsVisible(513) | Control.IsVisible(514) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
 				</control>
+			</control>
+			<control type="image">
+				<centertop>50%</centertop>
+				<width>auto</width>
+				<height>52</height>
+				<texture>$VAR[Studio]</texture>
+				<aspectratio align="left">keep</aspectratio>
+				<visible>container.content(movies) | container.content(episodes)</visible>
 			</control>
 			<control type="image">
 				<width>73</width>
