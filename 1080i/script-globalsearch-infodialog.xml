@@ -376,40 +376,56 @@
                 <control type="group" description="Poster">
                     <left>SidePad</left>
                     <top>PosterPad</top>
-                    <control type="image">
-                        <top>PosterH</top>
-                        <width>PosterH</width>
-                        <height>320</height>
-                        <fadetime>100</fadetime>
-                        <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-                        <texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$INFO[Container(100).ListItem.Icon]</texture>
-                        <visible>Skin.HasSetting(show.reflections)</visible>
-                    </control>
-                    <control type="image">
-                        <centertop>320</centertop>
-                        <width>PosterH</width>
-                        <height>48</height>
-                        <aspectratio>stretch</aspectratio>
-                        <texture>diffuse/shadowspot.png</texture>
-                        
-                    </control>
+                    <height>315</height>
                     <control type="image">
                         <width>PosterH</width>
-                        <height>320</height>
+                        <height>100%</height>
                         <texture border="5" colordiffuse="FF181818">common/box.png</texture>
                     </control>
                     <control type="image">
                         <width>PosterH</width>
-                        <height>320</height>
+                        <height>100%</height>
                         <fadetime>100</fadetime>
                         <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-                        <texture diffuse="diffuse/listposter.png" background="true">$INFO[Container(100).ListItem.Icon]</texture>
+                        <texture diffuse="diffuse/pvrinfo.png" background="true">$INFO[Container(100).ListItem.Icon]</texture>
                     </control>
                     <control type="image">
                         <left>-24</left>
                         <top>-24</top>
                         <width>PosterShadowH</width>
-                        <height>PosterShadowH</height>
+                        <bottom>-24</bottom>
+                        <texture border="32">common/shadow-24.png</texture>
+                    </control>
+                </control>
+                <control type="group" description="Poster">
+                    <left>SidePad</left>
+                    <top>541</top>
+                    <height>315</height>
+        
+                    <control type="image">
+                        <centertop>100%</centertop>
+                        <width>PosterH</width>
+                        <height>48</height>
+                        <aspectratio>stretch</aspectratio>
+                        <texture>diffuse/shadowspot.png</texture>
+                    </control>
+                    <control type="image">
+                        <width>PosterH</width>
+                        <height>100%</height>
+                        <texture border="5" colordiffuse="FF181818">common/box.png</texture>
+                    </control>
+                    <control type="image">
+                        <width>PosterH</width>
+                        <height>100%</height>
+                        <fadetime>100</fadetime>
+                        <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/pvrinfo.png" background="true">$INFO[Container(100).ListItem.Property(Fanart)]</texture>
+                    </control>
+                    <control type="image">
+                        <left>-24</left>
+                        <top>-24</top>
+                        <width>PosterShadowH</width>
+                        <bottom>-24</bottom>
                         <texture border="32">common/shadow-24.png</texture>
                     </control>
                 </control>
@@ -487,7 +503,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label></label>
+                                <label>$INFO[Container(100).ListItem.Property(TvShowTitle)]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -498,7 +514,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark1</textcolor>
-                                <label>[B]$LOCALIZE[467][/B]</label>
+                                <label>[B]$LOCALIZE[20359][/B]</label>
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
@@ -507,7 +523,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Container(100).ListItem.Label]</label>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Season),S,]$INFO[Container(100).ListItem.Property(Episode),E,]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -518,7 +534,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark1</textcolor>
-                                <label>[B]$LOCALIZE[19114][/B]</label>
+                                <label>[B]$LOCALIZE[20416][/B]</label>
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
@@ -527,7 +543,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[ListItem.Property(Addon.Version)]</label>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Premiered)]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -538,7 +554,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark1</textcolor>
-                                <label>[B]$LOCALIZE[21863][/B]</label>
+                                <label>[B]$LOCALIZE[563][/B]</label>
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
@@ -547,7 +563,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[ListItem.Property(Addon.Creator)]</label>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Rating)]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -558,7 +574,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark1</textcolor>
-                                <label>[B]$LOCALIZE[560][/B]</label>
+                                <label>[B]$LOCALIZE[20339][/B]</label>
                                 <aligny>center</aligny>
                             </control>
                             <control type="label">
@@ -567,7 +583,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[ListItem.Property(Addon.ID)]</label>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Director)]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -586,7 +602,7 @@
                                 <textcolor>Dark2</textcolor>
                                 <scroll>false</scroll>
                                 <align>justify</align>
-                                <info>ListItem.Property(Addon.Description)</info>
+                                <info>Container(100).ListItem.Property(Plot)</info>
                                 <aligny>top</aligny>
                             </control>
                         </control>
