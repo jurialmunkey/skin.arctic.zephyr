@@ -101,6 +101,20 @@
                     <onup condition="Control.IsVisible(9501)">9501</onup>
                     <orientation>horizontal</orientation>
 
+                    <control type="button" id ="8">
+                        <description>Play</description>
+                        <label>208</label>
+                        <include>DefInfoButtons</include>
+                        <visible>!IsEmpty(Window.Property(movie.DBID)) + !Stringcompare(Window.Property(Type),tvshow)</visible>
+                    </control>
+
+                    <control type="button" id ="120">
+                        <description>Browse</description>
+                        <label>21385</label>
+                        <include>DefInfoButtons</include>
+                        <visible>!IsEmpty(Window.Property(movie.DBID)) + Stringcompare(Window.Property(Type),tvshow)</visible>
+                    </control>
+
                     <control type="button" id ="9002">
                         <description>Cast</description>
                         <label>206</label>
