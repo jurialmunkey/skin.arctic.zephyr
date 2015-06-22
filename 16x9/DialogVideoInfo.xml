@@ -12,7 +12,6 @@
 	<onload condition="!IsEmpty(Container(50).ListItemNoWrap(0).Label)">SetProperty(Actor1,$INFO[Container(50).ListItemNoWrap(0).Label])</onload>
 	<onload condition="!IsEmpty(Container(50).ListItemNoWrap(1).Label)">SetProperty(Actor2,$INFO[Container(50).ListItemNoWrap(1).Label])</onload>
 	<onload condition="!IsEmpty(Container(50).ListItemNoWrap(2).Label)">SetProperty(Actor3,$INFO[Container(50).ListItemNoWrap(2).Label])</onload>
-	<onload condition="System.HasAddon(script.tvtunes)">RunScript(script.tvtunes,backend=True)</onload>
 	<onunload>ClearProperty(Similar,home)</onunload>
 	<controls>
 		<control type="group">
@@ -65,6 +64,18 @@
 				<colordiffuse>DialogFanartFade</colordiffuse>
 				<texture background="true">$INFO[Container(5000).ListItem.Art(fanart)]</texture>
 				<visible>Control.HasFocus(5000)</visible>
+			</control>
+			<!-- video backdrops -->
+			
+			<control type="videowindow">
+				<include>Dimensions_Fullscreen</include>
+				<visible>Player.HasVideo + SubString(Window(10025).Property(PlayingBackgroundMedia),True)</visible>
+				
+			</control>
+			<control type="image" description="Background">
+				<include>Dimensions_Fullscreen</include>
+				<texture>backgrounds/black_content2.png</texture>
+				<visible>Player.HasVideo + SubString(Window(10025).Property(PlayingBackgroundMedia),True)</visible>
 			</control>
 			<control type="image">
 				<top>59</top>

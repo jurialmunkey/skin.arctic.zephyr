@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog">
-    <defaultcontrol always="true">9901</defaultcontrol>
+    <defaultcontrol always="true">9000</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <controls>
+        <include>GlobalBackground</include>
         <control type="list" id="100">
             <posx>-10</posx>
             <posy>-10</posy>
@@ -12,64 +13,633 @@
             <itemlayout width="1" height="1"/>
             <focusedlayout width="1" height="1"/>
         </control>
+
+        <!-- <control type="button" id="9401">
+            <visible allowhiddenfocus="true">false</visible>
+            <onfocus>AlarmClock(blerg,SetFocus(9402),00:01,silent)</onfocus>
+        </control>
+        <control type="button" id="9402">
+            <visible allowhiddenfocus="true">false</visible>
+            <onfocus>Action(Close)</onfocus>
+            <onfocus>RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[Container(100).ListItem.Label])</onfocus>
+        </control> -->
         
-        <include>GlobalOverlay</include>
+        <control type="group">
+            
+            <animation type="Conditional" reversible="true" condition="Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogProgress.xml) | Window.IsVisible(DialogYesNo.xml) | Window.IsVisible(DialogOK.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml)">
+                <effect type="zoom" end="95" start="100" time="200" center="auto" tween="quadratic" easing="in" />
+            </animation>
+            <control type="group">
+                <visible>!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
+                <visible>!Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
+                <animation effect="slide" start="-1920" end="0" delay="0" time="300" tween="quadratic" easing="out">WindowOpen</animation>
+                <animation effect="slide" start="0" end="-1920" time="300" tween="quadratic" easing="in">WindowClose</animation>
+                <animation effect="slide" start="-1920" end="0" delay="0" time="300" tween="quadratic" easing="out">Visible</animation>
+                <animation effect="slide" start="0" end="-1920" time="300" tween="quadratic" easing="in">Hidden</animation>
+                <control type="group" description="Poster">
+                    <left>SidePad</left>
+                    <top>PosterPad</top>
+                    <visible>!Control.IsVisible(150) + !Control.IsVisible(160) + !Control.IsVisible(170) + !Control.IsVisible(180)</visible>
+                    <control type="image">
+                        <top>PosterH</top>
+                        <width>PosterW</width>
+                        <height>PosterH</height>
+                        <fadetime>100</fadetime>
+                        <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                        <texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$VAR[GlobalSearchPoster]</texture>
+                        <visible>Skin.HasSetting(show.reflections)</visible>
+                    </control>
+                    <control type="image">
+                        <centertop>PosterH</centertop>
+                        <width>PosterW</width>
+                        <height>48</height>
+                        <aspectratio>stretch</aspectratio>
+                        <texture>diffuse/shadowspot.png</texture>
+                        
+                    </control>
+                    <control type="image">
+                        <width>PosterW</width>
+                        <height>PosterH</height>
+                        <texture border="5" colordiffuse="FF181818">common/box.png</texture>
+                    </control>
+                    <control type="image">
+                        <width>PosterW</width>
+                        <height>PosterH</height>
+                        <fadetime>100</fadetime>
+                        <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/listposter.png" background="true">$VAR[GlobalSearchPoster]</texture>
+                    </control>
+                    <control type="image">
+                        <left>-24</left>
+                        <top>-24</top>
+                        <width>PosterShadowW</width>
+                        <height>PosterShadowH</height>
+                        <texture border="32">common/shadow-24.png</texture>
+                    </control>
+                </control>
+                <control type="group" description="SquarePoster">
+                    <left>SidePad</left>
+                    <top>PosterPad</top>
+                    <visible>Control.IsVisible(150) | Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)</visible>
+                    <control type="image">
+                        <top>PosterH</top>
+                        <width>PosterH</width>
+                        <height>PosterH</height>
+                        <fadetime>100</fadetime>
+                        <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                        <texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$VAR[GlobalSearchPoster]</texture>
+                        <visible>Skin.HasSetting(show.reflections)</visible>
+                    </control>
+                    <control type="image">
+                        <centertop>PosterH</centertop>
+                        <width>PosterH</width>
+                        <height>48</height>
+                        <aspectratio>stretch</aspectratio>
+                        <texture>diffuse/shadowspot.png</texture>
+                        
+                    </control>
+                    <control type="image">
+                        <width>PosterH</width>
+                        <height>PosterH</height>
+                        <texture border="5" colordiffuse="FF181818">common/box.png</texture>
+                    </control>
+                    <control type="image">
+                        <width>PosterH</width>
+                        <height>PosterH</height>
+                        <fadetime>100</fadetime>
+                        <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="diffuse/listposter.png" background="true">$VAR[GlobalSearchPoster]</texture>
+                    </control>
+                    <control type="image">
+                        <left>-24</left>
+                        <top>-24</top>
+                        <width>PosterShadowH</width>
+                        <height>PosterShadowH</height>
+                        <texture border="32">common/shadow-24.png</texture>
+                    </control>
+                </control>
+            </control>
+            <control type="group">
+                <visible>!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
+                <visible>!Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
+                <animation effect="slide" start="1920" end="0" delay="0" time="300" tween="quadratic" easing="out">WindowOpen</animation>
+                <animation effect="slide" start="0" end="1920" time="300" tween="quadratic" easing="in">WindowClose</animation>
+                <animation effect="slide" start="1920" end="0" delay="0" time="300" tween="quadratic" easing="out">Visible</animation>
+                <animation effect="slide" start="0" end="1920" time="300" tween="quadratic" easing="in">Hidden</animation>
+                <!-- Control Buttons -->
+                <control type="grouplist" id="9000">
+                    <animation effect="slide" start="0" end="212" condition="Control.IsVisible(150) | Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)">Conditional</animation>
+                    <bottom>224</bottom>
+                    <left>540</left>
+                    <right>SidePad</right>
+                    <height>68</height>
+                    <bottom>33</bottom>
+                    <itemgap>16</itemgap>
+                    <ondown>9000</ondown>
+                    <onup condition="Control.IsVisible(50)">51</onup>
+                    <onup condition="Control.IsVisible(9501)">9501</onup>
+                    <orientation>horizontal</orientation>
+
+                    <control type="button" id ="191">
+                        <description>OK</description>
+                        <label>186</label>
+                        <include>DefInfoButtons</include>
+                    </control>
+                    <control type="button" id ="192">
+                        <description>Play</description>
+                        <include>DefInfoButtons</include>
+                    </control>
+                    <control type="button" id ="193">
+                        <description>Play</description>
+                        <include>DefInfoButtons</include>
+                    </control>
+                </control>
+
+                <!-- Movie Info -->
+                <control type="group">
+                    <visible>Control.IsVisible(110)</visible>
+                    <left>540</left>
+                    <right>SidePad</right>
+                    <bottom>224</bottom>
+                    <top>PosterPad</top>
+                    <control type="grouplist">
+                        <left>30</left>
+                        <right>30</right>
+                        <itemgap>0</itemgap>
+                        <control type="label">
+                            <description>Header Label</description>
+                            <textcolor>Dark1</textcolor>
+                            <include>DefDialogInfoHeader</include>
+                            <label>$INFO[Container(100).ListItem.Label]</label>
+                        </control>
+                        <control type="group">
+                            <height>50</height>
+                            <control type="label">
+                                <posy>-10</posy>
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Tagline)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                        <control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[345][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Year)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                        <control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[563][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Mpaa)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                        <control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[2050][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Duration),, $LOCALIZE[12391]]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                        <control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[572][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Studio)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                        <control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[515][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Genre)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                        <control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[20339][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Director)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                        <control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[20417][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Writer)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                       
+                        <control type="label">
+                            <width>100%</width>
+                            <height>36</height>
+                            <font>Tiny</font>
+                            <textcolor>Dark1</textcolor>
+                            <label></label>
+                            <aligny>center</aligny>
+                        </control>
+
+                        <control type="textbox">
+                            <width>100%</width>
+                            <height>94</height>
+                            <font>Tiny</font>
+                            <textcolor>Dark2</textcolor>
+                            <align>justify</align>
+                            <label>$INFO[Container(100).ListItem.Property(Plot)]</label>
+                        </control>
+                    </control>
+                </control>
+
+                <!-- TV Info -->
+                <control type="group">
+                    <visible>Control.IsVisible(120)</visible>
+                    <left>540</left>
+                    <right>SidePad</right>
+                    <bottom>224</bottom>
+                    <top>PosterPad</top>
+                    <control type="grouplist">
+                        <left>30</left>
+                        <right>30</right>
+                        <itemgap>0</itemgap>
+                        <control type="label">
+                            <description>Header Label</description>
+                            <textcolor>Dark1</textcolor>
+                            <include>DefDialogInfoHeader</include>
+                            <label>$INFO[Container(100).ListItem.Label]</label>
+                        </control>
+                        <control type="group">
+                            <height>36</height>
+                        </control>
+                        <control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[345][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Year)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                        <control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[563][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Mpaa)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                        <control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[20360][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Episode),, $LOCALIZE[20360]]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                        <control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[572][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Studio)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                        <control type="group">
+                    
+                            <height>36</height>
+                            <control type="label">
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[515][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Genre)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                        
+                        <control type="label">
+                            <width>100%</width>
+                            <height>36</height>
+                            <font>Tiny</font>
+                            <textcolor>Dark1</textcolor>
+                            <label></label>
+                            <aligny>center</aligny>
+                        </control>
+
+                        <control type="textbox">
+                            <width>100%</width>
+                            <height>94</height>
+                            <font>Tiny</font>
+                            <textcolor>Dark2</textcolor>
+                            <align>justify</align>
+                            <label>$INFO[Container(100).ListItem.Property(Plot)]</label>
+                        </control>
+                    </control>
+                </control>
+
+                <!-- Episode Info -->
+                <control type="group">
+                    <visible>Control.IsVisible(140)</visible>
+                    <left>540</left>
+                    <right>SidePad</right>
+                    <bottom>224</bottom>
+                    <top>PosterPad</top>
+                    <control type="grouplist">
+                        <left>30</left>
+                        <right>30</right>
+                        <itemgap>0</itemgap>
+                        <control type="label">
+                            <description>Header Label</description>
+                            <textcolor>Dark1</textcolor>
+                            <include>DefDialogInfoHeader</include>
+                            <label>$INFO[Container(100).ListItem.Label]</label>
+                        </control>
+                        <control type="group">
+                            <height>50</height>
+                            <control type="label">
+                                <posy>-10</posy>
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label>$INFO[Container(100).ListItem.Property(TvShowTitle)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <height>36</height>
+                            <control type="label">
+                                <width>150</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[20359][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Season),S,]$INFO[Container(100).ListItem.Property(Episode),E,]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <height>36</height>
+                            <control type="label">
+                                <width>150</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[20416][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Premiered)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <height>36</height>
+                            <control type="label">
+                                <width>150</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[563][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Rating)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <height>36</height>
+                            <control type="label">
+                                <width>150</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark1</textcolor>
+                                <label>[B]$LOCALIZE[20339][/B]</label>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <left>150</left>
+                                <width>100%</width>
+                                <height>36</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <label fallback="19055">$INFO[Container(100).ListItem.Property(Director)]</label>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+
+                        <control type="group">
+                            <height>24</height>
+                        </control>
+                        <control type="group">
+                            <height>auto</height>
+                            <width>100%</width>
+                            <control type="textbox">
+                                <left>0</left>
+                                <right>0</right>
+                                <height>240</height>
+                                <font>Tiny</font>
+                                <textcolor>Dark2</textcolor>
+                                <scroll>false</scroll>
+                                <align>justify</align>
+                                <info>Container(100).ListItem.Property(Plot)</info>
+                                <aligny>top</aligny>
+                            </control>
+                        </control>
+                    </control>
+                </control>
+
+            </control>
+        </control>
 
         <control type="group">
-            <visible>!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
-            <visible>!Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
-            <include>DefDialogInfoPanel</include>
-
-            <control type="label">
-                <description>Header Label</description>
-                <include>DefDialogInfoHeader</include>
-                <label>$INFO[Container(100).ListItem.Label]$INFO[Container(100).ListItem.Property(Year), (,)]</label>
-            </control>
-            <control type="image">
-                <posx>30</posx>
-                <top>100</top>
-                <width>450</width>
-                <height>274</height>
-                <aspectratio scalediffuse="false">scale</aspectratio>
-                <texture diffuse="diffuse/pvrinfo.png">$VAR[GlobalSearchArtInfo]</texture>
-            </control>
-            
-            <control type="group" id="110">
-                <control type="grouplist">
-                    <include>GlobalSearchInfoGroupList</include>
-                    <include>GlobalSearchMPAA</include>
-                    <include>GlobalSearchRuntime</include>
-                    <include>GlobalSearchDirector</include>
-                    <include>GlobalSearchWriter</include>
-                    <include>GlobalSearchGenre</include>
-                    <include>GlobalSearchStudio</include>
-                    <include>GlobalSearchPlot</include>
-                </control>                
+            <control type="group" id="110">              
             </control>
             <control type="group" id="120">
-                <control type="grouplist">
-                    <include>GlobalSearchInfoGroupList</include>
-                    <include>GlobalSearchMPAA</include>
-                    <include>GlobalSearchEpisode</include>
-                    <include>GlobalSearchPremiered</include>
-                    <include>GlobalSearchGenre</include>
-                    <include>GlobalSearchStudio</include>
-                    <include>GlobalSearchPlot</include>
-                </control> 
             </control>
             <control type="group" id="130">
             </control>
             <control type="group" id="140">
-                <control type="grouplist">
-                    <include>GlobalSearchInfoGroupList</include>
-                    <include>GlobalSearchTvShowTitle</include>
-                    <include>GlobalSearchRuntime</include>
-                    <include>GlobalSearchSeasonEpisode</include>
-                    <include>GlobalSearchPremiered</include>
-                    <include>GlobalSearchDirector</include>
-                    <include>GlobalSearchWriter</include>
-                    <include>GlobalSearchPlot</include>
-                </control> 
             </control>
             <control type="group" id="150">
             </control>
@@ -79,46 +649,9 @@
             </control>
             <control type="group" id="180">
             </control>
-
-
-            <control type="grouplist" id="9000">
-                <posx>30</posx>
-                <width>450</width>
-                <height>423</height>
-                <bottom>33</bottom>
-                <itemgap>3</itemgap>
-                <onup>9000</onup>
-                <ondown>9000</ondown>
-                <onright condition="Control.IsVisible(50)">50</onright>
-                <orientation>vertical</orientation>
-
-                <control type="button" id ="191">
-                    <description>Plot/Cast</description>
-                    <label>186</label>
-                    <width>450</width>
-                    <height>68</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-                    <include>DefDialogButtons</include>
-                </control>
-
-                <control type="button" id ="192">
-                    <description>Play</description>
-                    <width>450</width>
-                    <height>68</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-                    <include>DefDialogButtons</include>
-                </control>
-
-                <control type="button" id ="193">
-                    <description>Resume</description>
-                    <width>450</width>
-                    <height>68</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-                    <include>DefDialogButtons</include>>
-                </control>
+            <control type="group" id="210">
+            </control>
+            <control type="group" id="220">
             </control>
         </control>
     </controls>
