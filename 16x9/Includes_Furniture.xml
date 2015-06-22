@@ -483,6 +483,29 @@
 					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | Control.IsVisible(513) | Control.IsVisible(514) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
 				</control>
 			</control>
+		</control>
+		<control type="grouplist">
+			<visible>!Skin.HasSetting(furniture.flags)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
+			<visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+			<visible>!stringcompare(ListItem.Label,..)</visible>
+			<include>Animation.FadeIn</include>
+			<include>Animation.FadeOut</include>
+			<left>SidePad</left>
+			<centerbottom>60</centerbottom>
+			<width>1920</width>
+			<height>120</height>
+			<orientation>horizontal</orientation>
+			<align>left</align>
+			<itemgap>8</itemgap>
+			<usecontrolcoords>true</usecontrolcoords>
+			<control type="image">
+				<centertop>50%</centertop>
+				<width>73</width>
+				<height>52</height>
+				<texture>$VAR[Studio]</texture>
+				<aspectratio align="left">keep</aspectratio>
+			</control>
 			<control type="image">
 				<width>73</width>
 				<centertop>50%</centertop>
