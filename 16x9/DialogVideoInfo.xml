@@ -1062,13 +1062,6 @@
 					</control>
 					<control type="image">
 						<width>73</width>
-						<height>52</height>
-						<texture>$VAR[Studio]</texture>
-						<aspectratio align="left">keep</aspectratio>
-						<visible>[Skin.HasSetting(furniture.nodiscart) + !container.content(movies)] | container.content(movies)</visible>
-					</control>
-					<control type="image">
-						<width>73</width>
 						<centertop>50%</centertop>
 						<height>50</height>
 						<texture colordiffuse="Dark1">flags/3D.png</texture>
@@ -1097,10 +1090,10 @@
 					</control>
 					<control type="image">
 						<width>73</width>
-						<centertop>50%</centertop>
-						<height>50</height>
-						<texture colordiffuse="Dark1">flags/imdb.png</texture>
-						<visible>!IsEmpty(ListItem.Top250)</visible>
+						<height>52</height>
+						<texture>$VAR[Studio]</texture>
+						<aspectratio align="left">keep</aspectratio>
+						<visible>[Skin.HasSetting(furniture.nodiscart) + !container.content(movies)] | container.content(movies)</visible>
 					</control>
 				</control>
 			</control>

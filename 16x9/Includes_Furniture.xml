@@ -170,7 +170,7 @@
 			<height>120</height>
 			<orientation>horizontal</orientation>
 			<align>left</align>
-			<itemgap>20</itemgap>
+			<itemgap>10</itemgap>
 			<usecontrolcoords>true</usecontrolcoords>
 			<control type="group">
 				<centertop>50%</centertop>
@@ -462,6 +462,7 @@
 				<centertop>50%</centertop>
 				<width>220</width>
 				<height>50</height>
+				<visible>!IsEmpty(ListItem.Duration)</visible>
 				<control type="image">
 					<width>220</width>
 					<height>50</height>
@@ -483,28 +484,12 @@
 					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | Control.IsVisible(513) | Control.IsVisible(514) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
 				</control>
 			</control>
-		</control>
-		<control type="grouplist">
-			<visible>!Skin.HasSetting(furniture.flags)</visible>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
-			<visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
-			<visible>!stringcompare(ListItem.Label,..)</visible>
-			<include>Animation.FadeIn</include>
-			<include>Animation.FadeOut</include>
-			<left>SidePad</left>
-			<centerbottom>60</centerbottom>
-			<width>1920</width>
-			<height>120</height>
-			<orientation>horizontal</orientation>
-			<align>left</align>
-			<itemgap>8</itemgap>
-			<usecontrolcoords>true</usecontrolcoords>
 			<control type="image">
-				<centertop>50%</centertop>
 				<width>73</width>
-				<height>52</height>
-				<texture>$VAR[Studio]</texture>
-				<aspectratio align="left">keep</aspectratio>
+				<centertop>50%</centertop>
+				<height>50</height>
+				<texture colordiffuse="Dark1">flags/imdb.png</texture>
+				<visible>!IsEmpty(ListItem.Top250)</visible>
 			</control>
 			<control type="image">
 				<width>73</width>
@@ -535,11 +520,12 @@
 				<visible>substring(ListItem.FilenameAndPath,dvd) + !substring(ListItem.FilenameAndPath,hddvd)</visible>
 			</control>
 			<control type="image">
-				<width>73</width>
 				<centertop>50%</centertop>
-				<height>50</height>
-				<texture colordiffuse="Dark1">flags/imdb.png</texture>
-				<visible>!IsEmpty(ListItem.Top250)</visible>
+				<width>73</width>
+				<height>52</height>
+				<texture>$VAR[Studio]</texture>
+				<aspectratio align="left">keep</aspectratio>
+				<visible>!IsEmpty(ListItem.Studio)</visible>
 			</control>
 		</control>
 	</include>
@@ -1104,7 +1090,7 @@
 		<control type="group">
 			<include>Animation.FadeIn</include>
 			<include>Animation.FadeOut</include>
-			<centerbottom>94</centerbottom>
+			<centerbottom>84</centerbottom>
 			<visible>!Skin.HasSetting(furniture.clock)</visible>
 			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<height>84</height>
