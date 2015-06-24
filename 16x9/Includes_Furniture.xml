@@ -519,14 +519,64 @@
 				<texture colordiffuse="Dark1">flags/dvd.png</texture>
 				<visible>substring(ListItem.FilenameAndPath,dvd) + !substring(ListItem.FilenameAndPath,hddvd)</visible>
 			</control>
+		</control>
+		<control type="grouplist">
+			<visible>!Skin.HasSetting(furniture.flags)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
+			<visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+			<visible>!stringcompare(ListItem.Label,..)</visible>
+			<include>Animation.FadeIn</include>
+			<include>Animation.FadeOut</include>
+			<left>SidePad</left>
+			<centerbottom>60</centerbottom>
+			<width>1920</width>
+			<height>120</height>
+			<orientation>horizontal</orientation>
+			<align>left</align>
+			<itemgap>8</itemgap>
+			<usecontrolcoords>true</usecontrolcoords>
 			<control type="image">
 				<centertop>50%</centertop>
 				<width>73</width>
 				<height>52</height>
 				<texture>$VAR[Studio]</texture>
 				<aspectratio align="left">keep</aspectratio>
-				<visible>!IsEmpty(ListItem.Studio)</visible>
 			</control>
+			<!-- <control type="image">
+				<width>73</width>
+				<centertop>50%</centertop>
+				<height>50</height>
+				<texture colordiffuse="Dark1">flags/3D.png</texture>
+				<visible>ListItem.IsStereoscopic</visible>
+			</control>
+			<control type="image">
+				<width>73</width>
+				<centertop>50%</centertop>
+				<height>50</height>
+				<texture colordiffuse="Dark1">flags/bluray.png</texture>
+				<visible>[substring(ListItem.FilenameAndPath,bluray) | substring(ListItem.FilenameAndPath,bdrip) | substring(ListItem.FilenameAndPath,bd25) | substring(ListItem.FilenameAndPath,bd50)]</visible>
+			</control>
+			<control type="image">
+				<width>73</width>
+				<centertop>50%</centertop>
+				<height>50</height>
+				<texture colordiffuse="Dark1">flags/hddvd.png</texture>
+				<visible>substring(ListItem.FilenameAndPath,hddvd)</visible>
+			</control>
+			<control type="image">
+				<width>73</width>
+				<centertop>50%</centertop>
+				<height>50</height>
+				<texture colordiffuse="Dark1">flags/dvd.png</texture>
+				<visible>substring(ListItem.FilenameAndPath,dvd) + !substring(ListItem.FilenameAndPath,hddvd)</visible>
+			</control>
+			<control type="image">
+				<width>73</width>
+				<centertop>50%</centertop>
+				<height>50</height>
+				<texture colordiffuse="Dark1">flags/imdb.png</texture>
+				<visible>!IsEmpty(ListItem.Top250)</visible>
+			</control> -->
 		</control>
 	</include>
 	<include name="Furniture_Hub_Flags">
@@ -1090,7 +1140,7 @@
 		<control type="group">
 			<include>Animation.FadeIn</include>
 			<include>Animation.FadeOut</include>
-			<centerbottom>84</centerbottom>
+			<centerbottom>94</centerbottom>
 			<visible>!Skin.HasSetting(furniture.clock)</visible>
 			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<height>84</height>
