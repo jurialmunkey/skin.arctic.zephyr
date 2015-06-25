@@ -20,8 +20,12 @@
 		<include condition="Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.netflix)">HomeClassicWidgets</include>
 		<include condition="Skin.HasSetting(home.submenu2) + !Skin.HasSetting(home.showicons) + !Skin.HasSetting(home.netflix)">HomeSubMenu2</include>
 		<include condition="!Skin.HasSetting(home.submenu2) | Skin.HasSetting(home.showicons) + !Skin.HasSetting(home.netflix)">HomeSubMenu</include>
-		<include condition="Skin.HasSetting(home.netflix)">NetflixBackground</include>
-		<include condition="Skin.HasSetting(home.netflix)">HomeNetflix</include>
-		<include condition="Skin.HasSetting(home.netflix)">NetflixWidgetSelector</include>
+		<include condition="Skin.HasSetting(home.netflix) + !System.HasAddon(plugin.video.netflixbmc)">NetflixBackground</include>
+		<include condition="Skin.HasSetting(home.netflix) + !System.HasAddon(plugin.video.netflixbmc)">HomeNetflix</include>
+		<include condition="Skin.HasSetting(home.netflix) + !System.HasAddon(plugin.video.netflixbmc)">NetflixWidgetSelector</include>
+	    <include condition="Skin.HasSetting(home.netflix) + System.HasAddon(plugin.video.netflixbmc)">NetflixXbmcBackground</include>
+		<include condition="Skin.HasSetting(home.netflix) + System.HasAddon(plugin.video.netflixbmc)">HomeNetflixXbmc</include>
+	<!--  	<include condition="Skin.HasSetting(home.netflix) + System.HasAddon(plugin.video.netflixbmc)">NetflixXbmcWidgetSelector</include> -->
+	
 	</controls>
 </window>

@@ -28,6 +28,7 @@
 	<include file="Includes_PVR.xml" />
 	<include file="Includes_OSD.xml" />
 	<include file="Includes_Home_NetflixUI.xml" />
+	<include file="Includes_Home_NetflixXbmcUI.xml" />
 	<!-- Skin Shortcuts -->
 	<include file="script-skinshortcuts-includes.xml" />
 	<include name="HiddenButton">
@@ -202,6 +203,35 @@
 			<description>List Panel fanart</description>
 			<include>Dimensions_Fullscreen</include>
 			<texture background="true">$VAR[NetflixFanart]</texture>
+			<fadetime>500</fadetime>
+			<include>Animation_FanartFade</include>
+			<visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio]</visible>
+		</control>
+		<control type="image">
+			<posx>-200</posx>
+			<posy>0</posy>
+			<width>3000</width>
+			<height>1080</height>
+			<aspectratio>stretch</aspectratio>
+			<include>Animation_FanartFade</include>
+			<texture>backgrounds/black_content2.png</texture>
+		</control>
+	</include>
+	<include name="NetflixXbmcBackground">
+		<include>GlobalVideoWindow</include>
+		<include>GlobalVisualisation</include>
+		<control type="image">
+			<description>List Panel fanart</description>
+			<include>Dimensions_Fullscreen</include>
+			<texture background="true">$INFO[Window(Home).Property(script.grab.fanart.Global.FanArt)]</texture>
+			<fadetime>500</fadetime>
+			<include>Animation_FanartFade</include>
+			<visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio]</visible>
+		</control>
+		<control type="image">
+			<description>List Panel fanart</description>
+			<include>Dimensions_Fullscreen</include>
+			<texture background="true">$VAR[NetflixXbmcFanart]</texture>
 			<fadetime>500</fadetime>
 			<include>Animation_FanartFade</include>
 			<visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio]</visible>

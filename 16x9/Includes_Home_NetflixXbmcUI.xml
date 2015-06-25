@@ -1,0 +1,1652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<!-- Home Buttons -->
+	<include name="HomeNetflixXbmc">
+		<control type="group">
+			<control type="list" id="7654">
+				<width>1000</width>
+				<height>1000</height>
+				<itemlayout width="1" height="1" />
+				<focusedlayout width="1" height="1" />
+				<content target="video">plugin://plugin.video.netflixbmc/?mode=wiHome&amp;thumb&amp;type=both&amp;url></content>
+			</control>
+			<visible>!Window.IsActive(favourites)</visible>
+			<control type="button" id="300">
+				<onfocus>SetFocus(776)</onfocus>
+				<visible>true</visible>
+			</control>
+			<control type="label">
+				<description>Row Label</description>
+				<posy>70</posy>
+				<left>40</left>
+				<height>40</height>
+				<width>1200</width>
+				<align>left</align>
+				<font>Tiny</font>
+				<label>$VAR[SubHeaderLabel]</label>
+				<textcolor>white</textcolor>
+				<visible>Control.HasFocus(776)</visible>
+			</control>
+			<control type="label">
+				<description>Row Label</description>
+				<posy>626</posy>
+				<left>40</left>
+				<height>40</height>
+				<width>1200</width>
+				<align>left</align>
+				<font>Tiny</font>
+				<label>[UPPERCASE]$VAR[NetflixXbmcHeader][/UPPERCASE]</label>
+				<textcolor>white</textcolor>
+			</control>
+			<control type="image">
+				<description>Logo/ClearArt</description>
+				<posy>30</posy>
+				<right>40</right>
+				<height>100</height>
+				<width>258</width>
+				<aspectratio align="right" aligny="top">keep</aspectratio>
+				<texture>$VAR[NetflixXbmcLogo]</texture>
+				<visible>!Control.HasFocus(776)</visible>
+			</control>
+			<control type="group">
+				<posx>0</posx>
+				<posy>0</posy>
+				<control type="label">
+					<description>Title</description>
+					<posy>30</posy>
+					<left>40</left>
+					<height>40</height>
+					<width>1570</width>
+					<align>left</align>
+					<font>LargeBold</font>
+					<label>$VAR[NetflixXbmcTitle]</label>
+					<textcolor>white</textcolor>
+					<scroll>true</scroll>
+				</control>
+				<control type="image">
+					<description>rating stars</description>
+					<posy>60</posy>
+					<left>40</left>
+					<height>140</height>
+					<width>140</width>
+					<aspectratio>keep</aspectratio>
+					<texture background="true" fallback="stars/rating0.png">stars/$VAR[NetflixXbmcRating].png</texture>
+					<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+					<fadetime>800</fadetime>
+					<visible>!Control.HasFocus(776) + !ControlGroup(80).HasFocus() + !ControlGroup(770).HasFocus()</visible>
+				</control>
+				<control type="label">
+					<description>title2</description>
+					<posy>110</posy>
+					<left>190</left>
+					<height>40</height>
+					<width>1000</width>
+					<align>left</align>
+					<font>Small</font>
+					<label>$VAR[NetflixXbmcTitle2]</label>
+					<textcolor>aaffffff</textcolor>
+					<visible>!Control.HasFocus(776) + !ControlGroup(80).HasFocus()</visible>
+				</control>
+				<control type="textbox">
+					<description>Plot</description>
+					<posy>200</posy>
+					<left>40</left>
+					<width>800</width>
+					<height>200</height>
+					<label>$VAR[NetflixXbmcPlot]</label>
+					<align>justify</align>
+					<textcolor>aaffffff</textcolor>
+					<shadowcolor>33000000</shadowcolor>
+					<pagecontrol>71</pagecontrol>
+					<autoscroll delay="7000" time="3000" repeat="13000">!Control.HasFocus(71) + !Skin.HasSetting(AutoScroll.Disable)</autoscroll>
+					<font>MediumSmallBold</font>
+				</control>
+			</control>
+			<control type="group" id="80">
+				<description>Home Buttons</description>
+				<top>20</top>
+				<control type="group">
+					<visible allowhiddenfocus="true">Control.HasFocus(776) | ControlGroup(80).HasFocus() | Control.HasFocus(775)</visible>
+					<control type="label">
+						<centertop>24</centertop>
+						<right>90</right>
+						<align>right</align>
+						<font>LargeBold</font>
+						<textcolor>Dark1</textcolor>
+						<label>$INFO[System.Time(hh:mm)]</label>
+						<animation effect="slide" start="0" end="50" time="0" condition="IsEmpty(System.Time(xx))">Conditional</animation>
+					</control>
+					<control type="label">
+						<centertop>30</centertop>
+						<right>40</right>
+						<font>SmallBold</font>
+						<textcolor>Dark3</textcolor>
+						<align>right</align>
+						<width>120</width>
+						<label>$INFO[System.Time(xx)]</label>
+						<visible>!IsEmpty(System.Time(xx))</visible>
+					</control>
+					<control type="label">
+						<centertop>64</centertop>
+						<right>40</right>
+						<font>Flag</font>
+						<textcolor>Dark2</textcolor>
+						<align>right</align>
+						<width>50%</width>
+						<label>$INFO[System.Date(DDD)]$COMMA $INFO[System.Date(d MMM yyyy)]</label>
+					</control>
+					<control type="label">
+						<centertop>92</centertop>
+						<right>40</right>
+						<font>Flag</font>
+						<textcolor>Dark3</textcolor>
+						<align>right</align>
+						<width>50%</width>
+						<label>[COLOR=$VAR[ColourHighlight]]$INFO[Weather.Temperature][/COLOR] $INFO[Weather.Conditions]</label>
+					</control>
+				</control>
+			</control>
+			<control type="group" id="801">
+				<description>Home Buttons</description>
+				<top>555</top>
+				<control type="group">
+					<visible allowhiddenfocus="true">!Control.HasFocus(776) + !Control.HasFocus(775)</visible>
+					<control type="label">
+						<centertop>24</centertop>
+						<right>90</right>
+						<align>right</align>
+						<font>LargeBold</font>
+						<textcolor>Dark1</textcolor>
+						<label>$INFO[System.Time(hh:mm)]</label>
+						<animation effect="slide" start="0" end="50" time="0" condition="IsEmpty(System.Time(xx))">Conditional</animation>
+					</control>
+					<control type="label">
+						<centertop>30</centertop>
+						<right>40</right>
+						<font>SmallBold</font>
+						<textcolor>Dark3</textcolor>
+						<align>right</align>
+						<width>120</width>
+						<label>$INFO[System.Time(xx)]</label>
+						<visible>!IsEmpty(System.Time(xx))</visible>
+					</control>
+					<control type="label">
+						<centertop>64</centertop>
+						<right>40</right>
+						<font>Flag</font>
+						<textcolor>Dark2</textcolor>
+						<align>right</align>
+						<width>50%</width>
+						<label>$INFO[System.Date(DDD)]$COMMA $INFO[System.Date(d MMM yyyy)]</label>
+					</control>
+					<control type="label">
+						<centertop>92</centertop>
+						<right>40</right>
+						<font>Flag</font>
+						<textcolor>Dark3</textcolor>
+						<align>right</align>
+						<width>50%</width>
+						<label>[COLOR=$VAR[ColourHighlight]]$INFO[Weather.Temperature][/COLOR] $INFO[Weather.Conditions]</label>
+					</control>
+				</control>
+			</control>
+			<control type="image" description="TopBG">
+				<width>100%</width>
+				<top>0</top>
+				<height>100</height>
+				<aspectratio aligny="top">scale</aspectratio>
+				<texture colordiffuse="Background">common/bg.jpg</texture>
+				<animation effect="fade" start="100" end="75" time="200" condition="true">Conditional</animation>
+				<visible>ControlGroup(770).HasFocus()</visible>
+			</control>
+			<control type="image" description="FanartOverlay">
+				<width>100%</width>
+				<height>100</height>
+				<top>0</top>
+				<aspectratio aligny="bottom">scale</aspectratio>
+				<texture colordiffuse="FloorFade">common/floor.png</texture>
+				<visible>ControlGroup(770).HasFocus()</visible>
+			</control>
+			<control type="image" description="Shadow">
+				<width>100%</width>
+				<height>16</height>
+				<top>100</top>
+				<texture flipy="false">common/shadow16B.png</texture>
+				<visible>ControlGroup(770).HasFocus()</visible>
+			</control>
+			<control type="grouplist" id="770">
+				<visible allowhiddenfocus="true">ControlGroup(770).HasFocus()</visible>
+				<include>Animation.FadeOut</include>
+				<description>Widget Selector</description>
+				<top>12</top>
+				<left>SidePad</left>
+				<right>SidePad</right>
+				<ondown>775</ondown>
+				<orientation>horizontal</orientation>
+				<scrolltime>200</scrolltime>
+				<itemgap>0</itemgap>
+				<control type="button" id="730">
+					<label>31229</label>
+					<onfocus>SetProperty(netflixwidget,AiringTodayTvShows,home)</onfocus>
+					<include>DefNetflixWidgetSelector</include>
+				</control>
+				<control type="button" id="731">
+					<label>31134</label>
+					<onfocus>SetProperty(netflixwidget,TrendingMovies,home)</onfocus>
+					<include>DefNetflixWidgetSelector</include>
+				</control>
+				<control type="button" id="732">
+					<label>31135</label>
+					<onfocus>SetProperty(netflixwidget,TrendingShows,home)</onfocus>
+					<include>DefNetflixWidgetSelector</include>
+				</control>
+				<control type="button" id="733">
+					<label>31224</label>
+					<onfocus>SetProperty(netflixwidget,PopularMovies,home)</onfocus>
+					<include>DefNetflixWidgetSelector</include>
+				</control>
+				<control type="button" id="734">
+					<label>31227</label>
+					<onfocus>SetProperty(netflixwidget,TopRatedTvShows,home)</onfocus>
+					<include>DefNetflixWidgetSelector</include>
+				</control>
+				<control type="button" id="735">
+					<label>31225</label>
+					<onfocus>SetProperty(netflixwidget,TopRatedMovies,home)</onfocus>
+					<include>DefNetflixWidgetSelector</include>
+				</control>
+			</control>
+			<control type="wraplist" id="775">
+				<visible allowhiddenfocus="true">Control.HasFocus(775)</visible>
+				<include>Animation.FadeIn</include>
+				<include>Animation.FadeOut</include>
+				<top>200</top>
+				<right>100</right>
+				<left>40</left>
+				<height>674</height>
+				<ondown>776</ondown>
+				<onup>770</onup>
+				<preloaditems>2</preloaditems>
+				<orientation>horizontal</orientation>
+				<pagecontrol>60</pagecontrol>
+				<viewtype label="536">list</viewtype>
+				<scrolltime tween="quadratic">400</scrolltime>
+				<focusposition>1</focusposition>
+				<itemlayout height="337" width="222">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<right>0</right>
+						<bottom>12</bottom>
+						<texture border="10">common/nofocus-shadow10.png</texture>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<right>10</right>
+						<bottom>22</bottom>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture diffuse="diffuse/wall.png" background="true" fallback="DefaultMovies.png">$VAR[PosterImage]</texture>
+					</control>
+					<control type="image">
+						<centerright>32</centerright>
+						<centertop>32</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="337" width="222">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<right>0</right>
+						<bottom>12</bottom>
+						<texture border="10">common/nofocus-shadow10.png</texture>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<right>10</right>
+						<bottom>22</bottom>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture diffuse="diffuse/wall.png" background="true" fallback="DefaultMovies.png">$VAR[PosterImage]</texture>
+					</control>
+					<control type="image">
+						<centerright>32</centerright>
+						<centertop>32</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
+					</control>
+					<control type="image">
+						<centerleft>50%</centerleft>
+						<centertop>162</centertop>
+						<width>128</width>
+						<height>128</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="88ffffff">common/playring.png</texture>
+						<animation type="Focus">
+							<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+						</animation>
+						<animation type="Unfocus">
+							<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+						</animation>
+						<visible>!substring(ListItem.Path,script.extendedinfo)</visible>
+					</control>
+					<control type="image">
+						<left>3</left>
+						<top>3</top>
+						<right>3</right>
+						<bottom>15</bottom>
+						<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+						<animation type="Focus">
+							<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+						</animation>
+						<animation type="Unfocus">
+							<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+						</animation>
+					</control>
+				</focusedlayout>
+				<content>$VAR[DefNetflixWidgetContent]</content>
+			</control>
+			<control type="wraplist" id="776">
+				<visible allowhiddenfocus="true">Control.HasFocus(776) | ControlGroup(80).HasFocus()</visible>
+				<posy>440</posy>
+				<posx>130</posx>
+				<width>1670</width>
+				<height>195</height>
+				<ondown>777</ondown>
+				<onup>775</onup>
+				<onback>SetFocus(20)</onback>
+				<viewtype label="List">Icon</viewtype>
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
+				<orientation>horizontal</orientation>
+				<focusposition>1</focusposition>
+				<itemlayout width="278" height="195">
+					<control type="image">
+						<posx>5</posx>
+						<posy>5</posy>
+						<width>268</width>
+						<height>185</height>
+						<texture border="7">windows/home/tile.png</texture>
+						<colordiffuse>ff000000</colordiffuse>
+					</control>
+					<control type="image">
+						<description>Landscape</description>
+						<posx>5</posx>
+						<posy>5</posy>
+						<width>268</width>
+						<height>185</height>
+						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+						<colordiffuse>ddffffff</colordiffuse>
+					</control>
+					<control type="label">
+						<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
+						<font>Home</font>
+						<align>center</align>
+						<posy>135</posy>
+						<width>278</width>
+						<height>50</height>
+						<textcolor>ddffffff</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout width="278" height="195">
+					<control type="group">
+						<control type="image">
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>268</width>
+							<height>185</height>
+							<texture border="7">windows/home/tile.png</texture>
+							<colordiffuse>ff000000</colordiffuse>
+						</control>
+						<control type="image">
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>268</width>
+							<height>185</height>
+							<aspectratio scalediffuse="false">keep</aspectratio>
+							<texture background="true" fallback="views/fallbacks/DefaultVideo.png/large.png">$INFO[ListItem.ActualIcon]</texture>
+							<colordiffuse>ffffffff</colordiffuse>
+						</control>
+						<control type="label">
+							<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
+							<font>Home</font>
+							<align>center</align>
+							<posy>135</posy>
+							<width>278</width>
+							<height>50</height>
+							<textcolor>ffffffff</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="image">
+							<posx>2</posx>
+							<posy>5</posy>
+							<width>270</width>
+							<height>185</height>
+							<texture border="20">common/selectbox.png</texture>
+							<visible>Control.HasFocus(776)</visible>
+							<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+						</control>
+						<control type="button">
+							<onfocus>ClearProperty(ItemGUID,Home)</onfocus>
+							<visible>true</visible>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>
+					<include>skinshortcuts-mainmenu</include>
+				</content>
+			</control>
+			<control type="grouplist" id="40">
+				<posy>660</posy>
+				<posx>-140</posx>
+				<width>2020</width>
+				<height>395</height>
+				<onup>776</onup>
+				<control type="wraplist" id="777">
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true" fallback="views/fallbacks/DefaultVideo.png/large.png">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(777)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(777).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="video">$INFO[Container(7654).ListItem.FileNameAndPath]</content>
+				</control>
+				<control type="wraplist" id="778">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,1)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(778)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(778).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content target="video">$INFO[Container(7654).ListItem(1).FileNameAndPath]</content>
+				</control>
+				<control type="wraplist" id="779">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,2)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(779)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(779).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content type="video">$INFO[Container(7654).ListItem(2).FileNameAndPath]</content>
+				</control>
+				<!-- problems with my list -->
+				<control type="wraplist" id="780">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,3)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(780)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(780).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content type="video">$INFO[Container(7654).ListItem(3).FileNameAndPath]</content>
+				</control>
+				<control type="wraplist" id="781">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,4)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(781)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(781).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content type="video">$INFO[Container(7654).ListItem(4).FileNameAndPath]</content>
+				</control>
+				<control type="wraplist" id="782">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,5)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(782)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(782).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content type="video">$INFO[Container(7654).ListItem(5).FileNameAndPath]</content>
+				</control>
+				<control type="wraplist" id="783">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,6)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(783)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(783).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content type="video">$INFO[Container(7654).ListItem(6).FileNameAndPath]</content>
+				</control>
+				<control type="wraplist" id="784">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,7)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(784)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(784).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content type="video">$INFO[Container(7654).ListItem(7).FileNameAndPath]</content>
+				</control>
+				<control type="wraplist" id="785">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,8)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(785)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(785).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content type="video">$INFO[Container(7654).ListItem(8).FileNameAndPath]</content>
+				</control>
+				<control type="wraplist" id="786">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,9)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(786)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(786).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content type="video">$INFO[Container(7654).ListItem(9).FileNameAndPath]</content>
+				</control>
+				<control type="wraplist" id="787">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,10)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(787)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(787).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content type="video">$INFO[Container(7654).ListItem(10).FileNameAndPath]</content>
+				</control>
+				<control type="wraplist" id="788">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,11)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(788)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(788).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content type="video">$INFO[Container(7654).ListItem(11).FileNameAndPath]</content>
+				</control>
+				<control type="wraplist" id="789">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,12)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(789)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(789).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content type="video">$INFO[Container(7654).ListItem(12).FileNameAndPath]</content>
+				</control>
+				<control type="wraplist" id="790">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,13)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(790)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(790).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content type="video">$INFO[Container(7654).ListItem(13).FileNameAndPath]</content>
+				</control>
+				<control type="wraplist" id="791">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,14)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(791)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(791).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content type="video">$INFO[Container(7654).ListItem(14).FileNameAndPath]</content>
+				</control>
+				<control type="wraplist" id="792">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,15)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(792)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(792).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content type="video">$INFO[Container(7654).ListItem(15).FileNameAndPath]</content>
+				</control>
+				<control type="wraplist" id="793">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,16)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(793)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(793).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content type="video">$INFO[Container(7654).ListItem(16).FileNameAndPath]</content>
+				</control>
+				<control type="wraplist" id="794">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,17)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(794)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(794).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content type="video">$INFO[Container(7654).ListItem(17).FileNameAndPath]</content>
+				</control>
+				<control type="wraplist" id="795">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,18)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(795)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(795).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content type="video">$INFO[Container(7654).ListItem(18).FileNameAndPath]</content>
+				</control>
+				<control type="wraplist" id="796">
+					<visible>IntegerGreaterThan(Container(7654).NumItems,19)</visible>
+					<posy>240</posy>
+					<height>195</height>
+					<onback>SetFocus(20)</onback>
+					<viewtype label="List">Icon</viewtype>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>horizontal</orientation>
+					<focusposition>1</focusposition>
+					<itemlayout width="340" height="195">
+						<control type="image">
+							<description>Landscape</description>
+							<posx>5</posx>
+							<posy>5</posy>
+							<width>330</width>
+							<height>185</height>
+							<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="195">
+						<control type="group">
+							<control type="image">
+								<posx>5</posx>
+								<posy>5</posy>
+								<width>330</width>
+								<height>185</height>
+								<aspectratio scalediffuse="false">stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="image">
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>340</width>
+								<height>195</height>
+								<texture border="20">common/selectbox.png</texture>
+								<visible>Control.HasFocus(796)</visible>
+								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="button">
+								<onfocus>SetProperty(id,$INFO[Container(796).ListItem.Property(id)],Home)</onfocus>
+								<visible>true</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content type="video">$INFO[Container(7654).ListItem(19).FileNameAndPath]</content>
+				</control>
+			</control>
+		</control>
+	</include>
+	<variable name="NetflixXbmcHeader">
+		<value condition="Control.HasFocus(777)">$INFO[Container(7654).ListItem.Label]</value>
+		<value condition="Control.HasFocus(778)">$INFO[Container(7654).ListItem(1).Label]</value>
+		<value condition="Control.HasFocus(779)">$INFO[Container(7654).ListItem(2).Label]</value>
+		<value condition="Control.HasFocus(780)">$INFO[Container(7654).ListItem(3).Label]</value>
+		<value condition="Control.HasFocus(781)">$INFO[Container(7654).ListItem(4).Label]</value>
+		<value condition="Control.HasFocus(782)">$INFO[Container(7654).ListItem(5).Label]</value>
+		<value condition="Control.HasFocus(783)">$INFO[Container(7654).ListItem(6).Label]</value>
+		<value condition="Control.HasFocus(784)">$INFO[Container(7654).ListItem(7).Label]</value>
+		<value condition="Control.HasFocus(785)">$INFO[Container(7654).ListItem(8).Label]</value>
+		<value condition="Control.HasFocus(786)">$INFO[Container(7654).ListItem(9).Label]</value>
+		<value condition="Control.HasFocus(787)">$INFO[Container(7654).ListItem(10).Label]</value>
+		<value condition="Control.HasFocus(788)">$INFO[Container(7654).ListItem(11).Label]</value>
+		<value condition="Control.HasFocus(789)">$INFO[Container(7654).ListItem(12).Label]</value>
+		<value condition="Control.HasFocus(790)">$INFO[Container(7654).ListItem(13).Label]</value>
+		<value condition="Control.HasFocus(791)">$INFO[Container(7654).ListItem(14).Label]</value>
+		<value condition="Control.HasFocus(792)">$INFO[Container(7654).ListItem(15).Label]</value>
+		<value condition="Control.HasFocus(793)">$INFO[Container(7654).ListItem(16).Label]</value>
+		<value condition="Control.HasFocus(794)">$INFO[Container(7654).ListItem(17).Label]</value>
+		<value condition="Control.HasFocus(795)">$INFO[Container(7654).ListItem(18).Label]</value>
+		<value condition="Control.HasFocus(796)">$INFO[Container(7654).ListItem(19).Label]</value>
+	</variable>
+	<variable name="NetflixXbmcTitle">
+		<value condition="Control.HasFocus(777) + !StringCompare(Container(777).ListItem.Title,Container(777).ListItem.TvShowTitle)">$INFO[Container(777).ListItem.Season,,x]$INFO[Container(777).ListItem.Episode,,. ]$INFO[Container(777).ListItem.Title]</value>
+		<value condition="Control.HasFocus(777) + StringCompare(Container(777).ListItem.Title,Container(777).ListItem.TvShowTitle) +!IsEmpty(Container(777).ListItem.Title)">$INFO[Container(777).ListItem.Title]</value>
+		<value condition="Control.HasFocus(778) + !StringCompare(Container(778).ListItem.Title,Container(778).ListItem.TvShowTitle)">$INFO[Container(778).ListItem.Season,,x]$INFO[Container(778).ListItem.Episode,,. ]$INFO[Container(778).ListItem.Title]</value>
+		<value condition="Control.HasFocus(778) + StringCompare(Container(778).ListItem.Title,Container(778).ListItem.TvShowTitle) +!IsEmpty(Container(778).ListItem.Title)">$INFO[Container(778).ListItem.Title]</value>
+		<value condition="Control.HasFocus(779) + !StringCompare(Container(779).ListItem.Title,Container(779).ListItem.TvShowTitle)">$INFO[Container(779).ListItem.Season,,x]$INFO[Container(779).ListItem.Episode,,. ]$INFO[Container(779).ListItem.Title]</value>
+		<value condition="Control.HasFocus(779) + StringCompare(Container(779).ListItem.Title,Container(779).ListItem.TvShowTitle) +!IsEmpty(Container(779).ListItem.Title)">$INFO[Container(779).ListItem.Title]</value>
+		<value condition="Control.HasFocus(780) + !StringCompare(Container(780).ListItem.Title,Container(780).ListItem.TvShowTitle)">$INFO[Container(780).ListItem.Season,,x]$INFO[Container(780).ListItem.Episode,,. ]$INFO[Container(780).ListItem.Title]</value>
+		<value condition="Control.HasFocus(780) + StringCompare(Container(780).ListItem.Title,Container(780).ListItem.TvShowTitle) +!IsEmpty(Container(780).ListItem.Title)">$INFO[Container(780).ListItem.Title]</value>
+		<value condition="Control.HasFocus(781) + !StringCompare(Container(781).ListItem.Title,Container(781).ListItem.TvShowTitle)">$INFO[Container(781).ListItem.Season,,x]$INFO[Container(781).ListItem.Episode,,. ]$INFO[Container(781).ListItem.Title]</value>
+		<value condition="Control.HasFocus(781) + StringCompare(Container(781).ListItem.Title,Container(781).ListItem.TvShowTitle) +!IsEmpty(Container(781).ListItem.Title)">$INFO[Container(781).ListItem.Title]</value>
+		<value condition="Control.HasFocus(782) + !StringCompare(Container(782).ListItem.Title,Container(782).ListItem.TvShowTitle)">$INFO[Container(782).ListItem.Season,,x]$INFO[Container(782).ListItem.Episode,,. ]$INFO[Container(782).ListItem.Title]</value>
+		<value condition="Control.HasFocus(782) + StringCompare(Container(782).ListItem.Title,Container(782).ListItem.TvShowTitle) +!IsEmpty(Container(782).ListItem.Title)">$INFO[Container(782).ListItem.Title]</value>
+		<value condition="Control.HasFocus(783) + !StringCompare(Container(783).ListItem.Title,Container(783).ListItem.TvShowTitle)">$INFO[Container(783).ListItem.Season,,x]$INFO[Container(783).ListItem.Episode,,. ]$INFO[Container(783).ListItem.Title]</value>
+		<value condition="Control.HasFocus(783) + StringCompare(Container(783).ListItem.Title,Container(783).ListItem.TvShowTitle) +!IsEmpty(Container(783).ListItem.Title)">$INFO[Container(783).ListItem.Title]</value>
+		<value condition="Control.HasFocus(784) + !StringCompare(Container(784).ListItem.Title,Container(784).ListItem.TvShowTitle)">$INFO[Container(784).ListItem.Season,,x]$INFO[Container(784).ListItem.Episode,,. ]$INFO[Container(784).ListItem.Title]</value>
+		<value condition="Control.HasFocus(784) + StringCompare(Container(784).ListItem.Title,Container(784).ListItem.TvShowTitle) +!IsEmpty(Container(784).ListItem.Title)">$INFO[Container(784).ListItem.Title]</value>
+		<value condition="Control.HasFocus(785) + !StringCompare(Container(785).ListItem.Title,Container(785).ListItem.TvShowTitle)">$INFO[Container(785).ListItem.Season,,x]$INFO[Container(785).ListItem.Episode,,. ]$INFO[Container(785).ListItem.Title]</value>
+		<value condition="Control.HasFocus(785) + StringCompare(Container(785).ListItem.Title,Container(785).ListItem.TvShowTitle) +!IsEmpty(Container(785).ListItem.Title)">$INFO[Container(785).ListItem.Title]</value>
+		<value condition="Control.HasFocus(786) + !StringCompare(Container(786).ListItem.Title,Container(786).ListItem.TvShowTitle)">$INFO[Container(786).ListItem.Season,,x]$INFO[Container(786).ListItem.Episode,,. ]$INFO[Container(786).ListItem.Title]</value>
+		<value condition="Control.HasFocus(786) + StringCompare(Container(786).ListItem.Title,Container(786).ListItem.TvShowTitle) +!IsEmpty(Container(786).ListItem.Title)">$INFO[Container(786).ListItem.Title]</value>
+		<value condition="Control.HasFocus(787) + !StringCompare(Container(787).ListItem.Title,Container(787).ListItem.TvShowTitle)">$INFO[Container(787).ListItem.Season,,x]$INFO[Container(787).ListItem.Episode,,. ]$INFO[Container(787).ListItem.Title]</value>
+		<value condition="Control.HasFocus(787) + StringCompare(Container(787).ListItem.Title,Container(787).ListItem.TvShowTitle) +!IsEmpty(Container(787).ListItem.Title)">$INFO[Container(787).ListItem.Title]</value>
+		<value condition="Control.HasFocus(788) + !StringCompare(Container(788).ListItem.Title,Container(788).ListItem.TvShowTitle)">$INFO[Container(788).ListItem.Season,,x]$INFO[Container(788).ListItem.Episode,,. ]$INFO[Container(788).ListItem.Title]</value>
+		<value condition="Control.HasFocus(788) + StringCompare(Container(788).ListItem.Title,Container(788).ListItem.TvShowTitle) +!IsEmpty(Container(788).ListItem.Title)">$INFO[Container(788).ListItem.Title]</value>
+		<value condition="Control.HasFocus(789) + !StringCompare(Container(789).ListItem.Title,Container(789).ListItem.TvShowTitle)">$INFO[Container(789).ListItem.Season,,x]$INFO[Container(789).ListItem.Episode,,. ]$INFO[Container(789).ListItem.Title]</value>
+		<value condition="Control.HasFocus(789) + StringCompare(Container(789).ListItem.Title,Container(789).ListItem.TvShowTitle) +!IsEmpty(Container(789).ListItem.Title)">$INFO[Container(789).ListItem.Title]</value>
+		<value condition="Control.HasFocus(790) + !StringCompare(Container(790).ListItem.Title,Container(790).ListItem.TvShowTitle)">$INFO[Container(790).ListItem.Season,,x]$INFO[Container(790).ListItem.Episode,,. ]$INFO[Container(790).ListItem.Title]</value>
+		<value condition="Control.HasFocus(790) + StringCompare(Container(790).ListItem.Title,Container(790).ListItem.TvShowTitle) +!IsEmpty(Container(790).ListItem.Title)">$INFO[Container(790).ListItem.Title]</value>
+		<value condition="Control.HasFocus(791) + !StringCompare(Container(791).ListItem.Title,Container(791).ListItem.TvShowTitle)">$INFO[Container(791).ListItem.Season,,x]$INFO[Container(791).ListItem.Episode,,. ]$INFO[Container(791).ListItem.Title]</value>
+		<value condition="Control.HasFocus(791) + StringCompare(Container(791).ListItem.Title,Container(791).ListItem.TvShowTitle) +!IsEmpty(Container(791).ListItem.Title)">$INFO[Container(791).ListItem.Title]</value>
+		<value condition="Control.HasFocus(792) + !StringCompare(Container(792).ListItem.Title,Container(792).ListItem.TvShowTitle)">$INFO[Container(792).ListItem.Season,,x]$INFO[Container(792).ListItem.Episode,,. ]$INFO[Container(792).ListItem.Title]</value>
+		<value condition="Control.HasFocus(792) + StringCompare(Container(792).ListItem.Title,Container(792).ListItem.TvShowTitle) +!IsEmpty(Container(792).ListItem.Title)">$INFO[Container(792).ListItem.Title]</value>
+		<value condition="Control.HasFocus(793) + !StringCompare(Container(793).ListItem.Title,Container(793).ListItem.TvShowTitle)">$INFO[Container(793).ListItem.Season,,x]$INFO[Container(793).ListItem.Episode,,. ]$INFO[Container(793).ListItem.Title]</value>
+		<value condition="Control.HasFocus(793) + StringCompare(Container(793).ListItem.Title,Container(793).ListItem.TvShowTitle) +!IsEmpty(Container(793).ListItem.Title)">$INFO[Container(793).ListItem.Title]</value>
+		<value condition="Control.HasFocus(794) + !StringCompare(Container(794).ListItem.Title,Container(794).ListItem.TvShowTitle)">$INFO[Container(794).ListItem.Season,,x]$INFO[Container(794).ListItem.Episode,,. ]$INFO[Container(794).ListItem.Title]</value>
+		<value condition="Control.HasFocus(794) + StringCompare(Container(794).ListItem.Title,Container(794).ListItem.TvShowTitle) +!IsEmpty(Container(794).ListItem.Title)">$INFO[Container(794).ListItem.Title]</value>
+		<value condition="Control.HasFocus(795) + !StringCompare(Container(795).ListItem.Title,Container(795).ListItem.TvShowTitle)">$INFO[Container(795).ListItem.Season,,x]$INFO[Container(795).ListItem.Episode,,. ]$INFO[Container(795).ListItem.Title]</value>
+		<value condition="Control.HasFocus(795) + StringCompare(Container(795).ListItem.Title,Container(795).ListItem.TvShowTitle) +!IsEmpty(Container(795).ListItem.Title)">$INFO[Container(795).ListItem.Title]</value>
+		<value condition="Control.HasFocus(796) + !StringCompare(Container(796).ListItem.Title,Container(796).ListItem.TvShowTitle)">$INFO[Container(796).ListItem.Season,,x]$INFO[Container(796).ListItem.Episode,,. ]$INFO[Container(796).ListItem.Title]</value>
+		<value condition="Control.HasFocus(796) + StringCompare(Container(796).ListItem.Title,Container(796).ListItem.TvShowTitle) +!IsEmpty(Container(796).ListItem.Title)">$INFO[Container(796).ListItem.Title]</value>
+		<value condition="ControlGroup(80).HasFocus(21) + !Control.HasFocus(776)">Power</value>
+		<value condition="ControlGroup(80).HasFocus(22) + !Control.HasFocus(776)">Favourites</value>
+		<value condition="Control.HasFocus(776)">$INFO[Container(776).ListItem.Label]</value>
+		<value condition="Control.HasFocus(775) + StringCompare(Window(home).Property(netflixwidget),TrendingMovies)">$LOCALIZE[31134]</value>
+		<value condition="Control.HasFocus(775) + StringCompare(Window(home).Property(netflixwidget),TrendingShows)">$LOCALIZE[31135]</value>
+		<value condition="Control.HasFocus(775) + StringCompare(Window(home).Property(netflixwidget),PopularMovies)">$LOCALIZE[31224]</value>
+		<value condition="Control.HasFocus(775) + StringCompare(Window(home).Property(netflixwidget),TopRatedMovies)">$LOCALIZE[31225]</value>
+		<value condition="Control.HasFocus(775) + StringCompare(Window(home).Property(netflixwidget),TopRatedTvShows)">$LOCALIZE[31227]</value>
+		<value condition="Control.HasFocus(775) + StringCompare(Window(home).Property(netflixwidget),AiringTodayTvShows)">$LOCALIZE[31229]</value>
+		<value condition="Control.HasFocus(775) + IsEmpty(Window(home).Property(netflixwidget))">$LOCALIZE[31229]</value>
+	</variable>
+	<variable name="NetflixXbmcTitle2">
+		<value condition="Control.HasFocus(777) + !StringCompare(Container(777).ListItem.Title,Container(777).ListItem.TvShowTitle) + !IsEmpty(Container(777).ListItem.TvShowTitle)">$INFO[Container(777).ListItem.TvShowTitle,, • ]$INFO[Container(777).ListItem.Premiered,, • ]$INFO[Container(777).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(777).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(777) + !StringCompare(Container(777).ListItem.Title,Container(777).ListItem.TvShowTitle) + IsEmpty(Container(777).ListItem.TvShowTitle)">$INFO[Container(777).ListItem.Year,, • ]$INFO[Container(777).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(777).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(777) + StringCompare(Container(777).ListItem.Title,Container(777).ListItem.TvShowTitle)">$INFO[Container(777).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(777).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(777).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(777).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(778) + !StringCompare(Container(778).ListItem.Title,Container(778).ListItem.TvShowTitle) + !IsEmpty(Container(778).ListItem.TvShowTitle)">$INFO[Container(778).ListItem.TvShowTitle,, • ]$INFO[Container(778).ListItem.Premiered,, • ]$INFO[Container(778).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(778).ListItem.Genre]</value>
+		<value condition="Control.HasFocus(778) + !StringCompare(Container(778).ListItem.Title,Container(778).ListItem.TvShowTitle) + IsEmpty(Container(778).ListItem.TvShowTitle)">$INFO[Container(778).ListItem.Year,, • ]$INFO[Container(778).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(778).ListItem.Genre]</value>
+		<value condition="Control.HasFocus(778) + StringCompare(Container(778).ListItem.Title,Container(778).ListItem.TvShowTitle)">$INFO[Container(778).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(778).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(778).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(778).ListItem.Genre]</value>
+		<value condition="Control.HasFocus(779) + !StringCompare(Container(779).ListItem.Title,Container(779).ListItem.TvShowTitle) + !IsEmpty(Container(779).ListItem.TvShowTitle)">$INFO[Container(779).ListItem.TvShowTitle,, • ]$INFO[Container(779).ListItem.Premiered,, • ]$INFO[Container(779).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(779).ListItem.Genre]</value>
+		<value condition="Control.HasFocus(779) + !StringCompare(Container(779).ListItem.Title,Container(779).ListItem.TvShowTitle) + IsEmpty(Container(779).ListItem.TvShowTitle)">$INFO[Container(779).ListItem.Year,, • ]$INFO[Container(779).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(779).ListItem.Genre]</value>
+		<value condition="Control.HasFocus(779) + StringCompare(Container(779).ListItem.Title,Container(779).ListItem.TvShowTitle)">$INFO[Container(779).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(779).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(779).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(779).ListItem.Genre]</value>
+		<value condition="Control.HasFocus(780) + !StringCompare(Container(780).ListItem.Title,Container(780).ListItem.TvShowTitle) + !IsEmpty(Container(780).ListItem.TvShowTitle)">$INFO[Container(780).ListItem.TvShowTitle,, • ]$INFO[Container(780).ListItem.Premiered,, • ]$INFO[Container(780).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(780).ListItem.Genre]</value>
+		<value condition="Control.HasFocus(780) + !StringCompare(Container(780).ListItem.Title,Container(780).ListItem.TvShowTitle) + IsEmpty(Container(780).ListItem.TvShowTitle)">$INFO[Container(780).ListItem.Year,, • ]$INFO[Container(780).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(780).ListItem.Genre]</value>
+		<value condition="Control.HasFocus(780) + StringCompare(Container(780).ListItem.Title,Container(780).ListItem.TvShowTitle)">$INFO[Container(780).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(780).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(780).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(780).ListItem.Genre]</value>
+		<value condition="Control.HasFocus(781) + !StringCompare(Container(781).ListItem.Title,Container(781).ListItem.TvShowTitle) + !IsEmpty(Container(781).ListItem.TvShowTitle)">$INFO[Container(781).ListItem.TvShowTitle,, • ]$INFO[Container(781).ListItem.Premiered,, • ]$INFO[Container(781).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(781).ListItem.Genre]</value>
+		<value condition="Control.HasFocus(781) + !StringCompare(Container(781).ListItem.Title,Container(781).ListItem.TvShowTitle) + IsEmpty(Container(781).ListItem.TvShowTitle)">$INFO[Container(781).ListItem.Year,, • ]$INFO[Container(781).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(781).ListItem.Genre]</value>
+		<value condition="Control.HasFocus(781) + StringCompare(Container(781).ListItem.Title,Container(781).ListItem.TvShowTitle)">$INFO[Container(781).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(781).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(781).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(781).ListItem.Genre]</value>
+		<value condition="Control.HasFocus(782) + !StringCompare(Container(782).ListItem.Title,Container(782).ListItem.TvShowTitle) + !IsEmpty(Container(782).ListItem.TvShowTitle)">$INFO[Container(782).ListItem.TvShowTitle,, • ]$INFO[Container(782).ListItem.Premiered,, • ]$INFO[Container(782).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(782).ListItem.Genre]</value>
+		<value condition="Control.HasFocus(782) + !StringCompare(Container(782).ListItem.Title,Container(782).ListItem.TvShowTitle) + IsEmpty(Container(782).ListItem.TvShowTitle)">$INFO[Container(782).ListItem.Year,, • ]$INFO[Container(782).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(782).ListItem.Genre]</value>
+		<value condition="Control.HasFocus(782) + StringCompare(Container(782).ListItem.Title,Container(782).ListItem.TvShowTitle)">$INFO[Container(782).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(782).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(782).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(782).ListItem.Genre]</value>
+		<value condition="Control.HasFocus(783) + !StringCompare(Container(783).ListItem.Title,Container(783).ListItem.TvShowTitle) + !IsEmpty(Container(783).ListItem.TvShowTitle)">$INFO[Container(783).ListItem.TvShowTitle,, • ]$INFO[Container(783).ListItem.Premiered,, • ]$INFO[Container(783).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(783).ListItem.Genre]</value>
+		<value condition="Control.HasFocus(783) + !StringCompare(Container(783).ListItem.Title,Container(783).ListItem.TvShowTitle) + IsEmpty(Container(783).ListItem.TvShowTitle)">$INFO[Container(783).ListItem.Year,, • ]$INFO[Container(783).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(783).ListItem.Genre]</value>
+		<value condition="Control.HasFocus(783) + StringCompare(Container(783).ListItem.Title,Container(783).ListItem.TvShowTitle)">$INFO[Container(783).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(783).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(783).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(783).ListItem.Genre]</value>
+		<value condition="Control.HasFocus(784) + !StringCompare(Container(784).ListItem.Title,Container(784).ListItem.TvShowTitle) + !IsEmpty(Container(784).ListItem.TvShowTitle)">$INFO[Container(784).ListItem.TvShowTitle,, • ]$INFO[Container(784).ListItem.Premiered,, • ]$INFO[Container(784).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(784).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(784) + !StringCompare(Container(784).ListItem.Title,Container(784).ListItem.TvShowTitle) + IsEmpty(Container(784).ListItem.TvShowTitle)">$INFO[Container(784).ListItem.Year,, • ]$INFO[Container(784).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(784).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(784) + StringCompare(Container(784).ListItem.Title,Container(784).ListItem.TvShowTitle)">$INFO[Container(784).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(784).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(784).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(784).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(785) + !StringCompare(Container(785).ListItem.Title,Container(785).ListItem.TvShowTitle) + !IsEmpty(Container(785).ListItem.TvShowTitle)">$INFO[Container(785).ListItem.TvShowTitle,, • ]$INFO[Container(785).ListItem.Premiered,, • ]$INFO[Container(785).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(785).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(785) + !StringCompare(Container(785).ListItem.Title,Container(785).ListItem.TvShowTitle) + IsEmpty(Container(785).ListItem.TvShowTitle)">$INFO[Container(785).ListItem.Year,, • ]$INFO[Container(785).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(785).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(785) + StringCompare(Container(785).ListItem.Title,Container(785).ListItem.TvShowTitle)">$INFO[Container(785).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(785).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(785).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(785).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(786) + !StringCompare(Container(786).ListItem.Title,Container(786).ListItem.TvShowTitle) + !IsEmpty(Container(786).ListItem.TvShowTitle)">$INFO[Container(786).ListItem.TvShowTitle,, • ]$INFO[Container(786).ListItem.Premiered,, • ]$INFO[Container(786).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(786).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(786) + !StringCompare(Container(786).ListItem.Title,Container(786).ListItem.TvShowTitle) + IsEmpty(Container(786).ListItem.TvShowTitle)">$INFO[Container(786).ListItem.Year,, • ]$INFO[Container(786).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(786).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(786) + StringCompare(Container(786).ListItem.Title,Container(786).ListItem.TvShowTitle)">$INFO[Container(786).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(786).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(786).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(786).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(787) + !StringCompare(Container(787).ListItem.Title,Container(787).ListItem.TvShowTitle) + !IsEmpty(Container(787).ListItem.TvShowTitle)">$INFO[Container(787).ListItem.TvShowTitle,, • ]$INFO[Container(787).ListItem.Premiered,, • ]$INFO[Container(787).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(787).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(787) + !StringCompare(Container(787).ListItem.Title,Container(787).ListItem.TvShowTitle) + IsEmpty(Container(787).ListItem.TvShowTitle)">$INFO[Container(787).ListItem.Year,, • ]$INFO[Container(787).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(787).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(787) + StringCompare(Container(787).ListItem.Title,Container(787).ListItem.TvShowTitle)">$INFO[Container(787).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(787).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(787).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(787).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(788) + !StringCompare(Container(788).ListItem.Title,Container(788).ListItem.TvShowTitle) + !IsEmpty(Container(788).ListItem.TvShowTitle)">$INFO[Container(788).ListItem.TvShowTitle,, • ]$INFO[Container(788).ListItem.Premiered,, • ]$INFO[Container(788).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(788).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(788) + !StringCompare(Container(788).ListItem.Title,Container(788).ListItem.TvShowTitle) + IsEmpty(Container(788).ListItem.TvShowTitle)">$INFO[Container(788).ListItem.Year,, • ]$INFO[Container(788).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(788).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(788) + StringCompare(Container(788).ListItem.Title,Container(788).ListItem.TvShowTitle)">$INFO[Container(788).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(788).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(788).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(788).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(789) + !StringCompare(Container(789).ListItem.Title,Container(789).ListItem.TvShowTitle) + !IsEmpty(Container(789).ListItem.TvShowTitle)">$INFO[Container(789).ListItem.TvShowTitle,, • ]$INFO[Container(789).ListItem.Premiered,, • ]$INFO[Container(789).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(789).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(789) + !StringCompare(Container(789).ListItem.Title,Container(789).ListItem.TvShowTitle) + IsEmpty(Container(789).ListItem.TvShowTitle)">$INFO[Container(789).ListItem.Year,, • ]$INFO[Container(789).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(789).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(789) + StringCompare(Container(789).ListItem.Title,Container(789).ListItem.TvShowTitle)">$INFO[Container(789).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(789).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(789).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(789).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(790) + !StringCompare(Container(790).ListItem.Title,Container(790).ListItem.TvShowTitle) + !IsEmpty(Container(790).ListItem.TvShowTitle)">$INFO[Container(790).ListItem.TvShowTitle,, • ]$INFO[Container(790).ListItem.Premiered,, • ]$INFO[Container(790).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(790).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(790) + !StringCompare(Container(790).ListItem.Title,Container(790).ListItem.TvShowTitle) + IsEmpty(Container(790).ListItem.TvShowTitle)">$INFO[Container(790).ListItem.Year,, • ]$INFO[Container(790).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(790).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(790) + StringCompare(Container(790).ListItem.Title,Container(790).ListItem.TvShowTitle)">$INFO[Container(790).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(790).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(790).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(790).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(791) + !StringCompare(Container(791).ListItem.Title,Container(791).ListItem.TvShowTitle) + !IsEmpty(Container(791).ListItem.TvShowTitle)">$INFO[Container(791).ListItem.TvShowTitle,, • ]$INFO[Container(791).ListItem.Premiered,, • ]$INFO[Container(791).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(791).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(791) + !StringCompare(Container(791).ListItem.Title,Container(791).ListItem.TvShowTitle) + IsEmpty(Container(791).ListItem.TvShowTitle)">$INFO[Container(791).ListItem.Year,, • ]$INFO[Container(791).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(791).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(791) + StringCompare(Container(791).ListItem.Title,Container(791).ListItem.TvShowTitle)">$INFO[Container(791).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(791).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(791).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(791).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(792) + !StringCompare(Container(792).ListItem.Title,Container(792).ListItem.TvShowTitle) + !IsEmpty(Container(792).ListItem.TvShowTitle)">$INFO[Container(792).ListItem.TvShowTitle,, • ]$INFO[Container(792).ListItem.Premiered,, • ]$INFO[Container(792).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(792).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(792) + !StringCompare(Container(792).ListItem.Title,Container(792).ListItem.TvShowTitle) + IsEmpty(Container(792).ListItem.TvShowTitle)">$INFO[Container(792).ListItem.Year,, • ]$INFO[Container(792).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(792).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(792) + StringCompare(Container(792).ListItem.Title,Container(792).ListItem.TvShowTitle)">$INFO[Container(792).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(792).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(792).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(792).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(793) + !StringCompare(Container(793).ListItem.Title,Container(793).ListItem.TvShowTitle) + !IsEmpty(Container(793).ListItem.TvShowTitle)">$INFO[Container(793).ListItem.TvShowTitle,, • ]$INFO[Container(793).ListItem.Premiered,, • ]$INFO[Container(793).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(793).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(793) + !StringCompare(Container(793).ListItem.Title,Container(793).ListItem.TvShowTitle) + IsEmpty(Container(793).ListItem.TvShowTitle)">$INFO[Container(793).ListItem.Year,, • ]$INFO[Container(793).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(793).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(793) + StringCompare(Container(793).ListItem.Title,Container(793).ListItem.TvShowTitle)">$INFO[Container(793).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(793).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(793).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(793).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(794) + !StringCompare(Container(794).ListItem.Title,Container(794).ListItem.TvShowTitle) + !IsEmpty(Container(794).ListItem.TvShowTitle)">$INFO[Container(794).ListItem.TvShowTitle,, • ]$INFO[Container(794).ListItem.Premiered,, • ]$INFO[Container(794).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(794).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(794) + !StringCompare(Container(794).ListItem.Title,Container(794).ListItem.TvShowTitle) + IsEmpty(Container(794).ListItem.TvShowTitle)">$INFO[Container(794).ListItem.Year,, • ]$INFO[Container(794).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(794).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(794) + StringCompare(Container(794).ListItem.Title,Container(794).ListItem.TvShowTitle)">$INFO[Container(794).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(794).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(794).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(794).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(795) + !StringCompare(Container(795).ListItem.Title,Container(795).ListItem.TvShowTitle) + !IsEmpty(Container(795).ListItem.TvShowTitle)">$INFO[Container(795).ListItem.TvShowTitle,, • ]$INFO[Container(795).ListItem.Premiered,, • ]$INFO[Container(795).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(795).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(795) + !StringCompare(Container(795).ListItem.Title,Container(795).ListItem.TvShowTitle) + IsEmpty(Container(795).ListItem.TvShowTitle)">$INFO[Container(795).ListItem.Year,, • ]$INFO[Container(795).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(795).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(795) + StringCompare(Container(795).ListItem.Title,Container(795).ListItem.TvShowTitle)">$INFO[Container(795).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(795).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(795).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(795).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(796) + !StringCompare(Container(796).ListItem.Title,Container(796).ListItem.TvShowTitle) + !IsEmpty(Container(796).ListItem.TvShowTitle)">$INFO[Container(796).ListItem.TvShowTitle,, • ]$INFO[Container(796).ListItem.Premiered,, • ]$INFO[Container(796).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(796).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(796) + !StringCompare(Container(796).ListItem.Title,Container(796).ListItem.TvShowTitle) + IsEmpty(Container(796).ListItem.TvShowTitle)">$INFO[Container(796).ListItem.Year,, • ]$INFO[Container(796).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(796).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(796) + StringCompare(Container(796).ListItem.Title,Container(796).ListItem.TvShowTitle)">$INFO[Container(796).ListItem.Episode,, $LOCALIZE[20360] • ]$INFO[Container(796).ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] • ]$INFO[Container(796).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(796).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(775)">$INFO[Container(775).ListItem.Title,, • ]$INFO[Container(775).ListItem.Premiered,, • ]$INFO[Container(775).ListItem.Duration,, $LOCALIZE[31102] • ]$INFO[Container(775).ListItem.Rating]</value>
+	</variable>
+	<variable name="NetflixXbmcRating">
+		<value condition="Control.HasFocus(775)">$INFO[Container(775).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(777)">$INFO[Container(777).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(778)">$INFO[Container(778).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(779)">$INFO[Container(779).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(780)">$INFO[Container(780).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(781)">$INFO[Container(781).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(782)">$INFO[Container(782).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(783)">$INFO[Container(783).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(784)">$INFO[Container(784).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(785)">$INFO[Container(785).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(786)">$INFO[Container(786).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(787)">$INFO[Container(787).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(788)">$INFO[Container(788).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(789)">$INFO[Container(789).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(790)">$INFO[Container(790).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(791)">$INFO[Container(791).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(792)">$INFO[Container(792).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(793)">$INFO[Container(793).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(794)">$INFO[Container(794).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(795)">$INFO[Container(795).ListItem.Rating]</value>
+		<value condition="Control.HasFocus(796)">$INFO[Container(796).ListItem.Rating]</value>
+	</variable>
+	<variable name="NetflixXbmcPlot">
+		<value condition="Control.HasFocus(777) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(777).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(778) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(778).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(779) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(779).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(780) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(780).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(781) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(781).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(782) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(782).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(783) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(783).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(784) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(784).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(785) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(785).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(786) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(786).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(787) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(787).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(788) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(788).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(789) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(789).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(790) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(790).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(791) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(791).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(792) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(792).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(793) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(793).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(794) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(794).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(795) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(795).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(796) + Skin.HasSetting(osd.hidespoilers) + !IsEmpty(Container(796).ListItem.TvShowTitle)">* Hidden to prevent spoilers *</value>
+		<value condition="Control.HasFocus(777)">$INFO[Container(777).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(778)">$INFO[Container(778).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(779)">$INFO[Container(779).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(780)">$INFO[Container(780).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(781)">$INFO[Container(781).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(782)">$INFO[Container(782).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(783)">$INFO[Container(783).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(784)">$INFO[Container(784).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(785)">$INFO[Container(785).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(786)">$INFO[Container(786).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(787)">$INFO[Container(787).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(788)">$INFO[Container(788).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(789)">$INFO[Container(789).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(790)">$INFO[Container(790).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(791)">$INFO[Container(791).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(792)">$INFO[Container(792).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(793)">$INFO[Container(793).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(794)">$INFO[Container(794).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(795)">$INFO[Container(795).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(796)">$INFO[Container(796).ListItem.Plot]</value>
+	</variable>
+	<variable name="NetflixXbmcFanart">
+		<value condition="Control.HasFocus(777)">$INFO[Container(777).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(778)">$INFO[Container(778).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(779)">$INFO[Container(779).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(780)">$INFO[Container(780).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(781)">$INFO[Container(781).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(782)">$INFO[Container(782).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(783)">$INFO[Container(783).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(784)">$INFO[Container(784).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(785)">$INFO[Container(785).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(786)">$INFO[Container(786).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(787)">$INFO[Container(787).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(788)">$INFO[Container(788).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(789)">$INFO[Container(789).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(790)">$INFO[Container(790).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(791)">$INFO[Container(791).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(792)">$INFO[Container(792).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(793)">$INFO[Container(793).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(794)">$INFO[Container(794).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(795)">$INFO[Container(795).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(796)">$INFO[Container(796).ListItem.Art(fanart)]</value>
+		<value condition="Control.HasFocus(776)">$INFO[Window(Home).Property(script.grab.fanart.Global.FanArt)]</value>
+		<value condition="Control.HasFocus(775)">$INFO[Container(775).ListItem.Art(fanart)]</value>
+		<value condition="ControlGroup(770).HasFocus()">$INFO[Window(Home).Property(script.grab.fanart.Global.FanArt)]</value>
+	</variable>
+	<variable name="NetflixXbmcLogo">
+		<value condition="Control.HasFocus(776)">$INFO[Container(776).ListItem.Icon]</value>
+		<value condition="Control.HasFocus(777)">$INFO[Container(777).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(778)">$INFO[Container(778).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(779)">$INFO[Container(779).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(780)">$INFO[Container(780).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(781)">$INFO[Container(781).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(782)">$INFO[Container(782).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(783)">$INFO[Container(783).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(784)">$INFO[Container(784).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(785)">$INFO[Container(785).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(786)">$INFO[Container(786).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(787)">$INFO[Container(787).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(788)">$INFO[Container(788).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(789)">$INFO[Container(789).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(790)">$INFO[Container(790).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(791)">$INFO[Container(791).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(792)">$INFO[Container(792).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(793)">$INFO[Container(793).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(794)">$INFO[Container(794).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(795)">$INFO[Container(795).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(796)">$INFO[Container(796).ListItem.Art(clearlogo)]</value>
+	</variable>
+</includes>
