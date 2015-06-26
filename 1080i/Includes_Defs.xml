@@ -271,11 +271,13 @@
         <width>1320</width>
         <height>840</height>
         <control type="image">
-            <left>-8</left>
-            <right>-8</right>
-            <top>-8</top>
-            <bottom>-8</bottom>
-            <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
+            <left>-24</left>
+            <right>-24</right>
+            <top>-24</top>
+            <bottom>-24</bottom>
+            <bordertexture border="32">common/shadow-24.png</bordertexture>
+            <bordersize>24</bordersize>
+            <texture colordiffuse="White100" border="16">common/box.png</texture>
         </control>
     </include>
     
@@ -326,12 +328,22 @@
             <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
         </control>
 
+        <control type="image">
+            <left>-46</left>
+            <right>-46</right>
+            <top>-46</top>
+            <height>476</height>
+            <bordertexture border="32">common/shadow-24.png</bordertexture>
+            <bordersize>24</bordersize>
+            <texture colordiffuse="White100" border="16">common/box.png</texture>
+        </control>
+
         <control type="label" id="1">
             <description>Heading</description>
-            <centerleft>50%</centerleft>
-            <width>885</width>
+            <left>15</left>
+            <right>15</right>
             <font>MediumBold</font>
-            <align>center</align>
+            <align>left</align>
         </control>
 
         <control type="textbox" id="9">

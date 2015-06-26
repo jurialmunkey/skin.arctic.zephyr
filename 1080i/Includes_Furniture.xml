@@ -188,6 +188,7 @@
             <itemgap>24</itemgap>
             <usecontrolcoords>true</usecontrolcoords>
             <control type="group">
+                <visible>substring(ListItem.Path,videodb://movies/sets,left) | !Skin.HasSetting(furniture.flagicons) | Container.Content(tvshows) | Container.Content(seasons) | IsEmpty(ListItem.VideoResolution)</visible>
                 <centertop>50%</centertop>
                 <width>64</width>
                 <height>64</height>
@@ -212,6 +213,14 @@
                     <texture colordiffuse="Light1">flags/sets.png</texture>
                     <visible>substring(ListItem.Path,videodb://movies/sets,left)</visible>
                 </control>
+            </control>
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.VideoResolution) + !substring(ListItem.Path,videodb://movies/sets,left)</visible>
             </control>
             
             <control type="image">
@@ -284,13 +293,49 @@
                 <textcolor>Dark2</textcolor>
                 <visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
             </control>
+
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[ListItem.VideoCodec,flags/source/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.VideoCodec)</visible>
+            </control>
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.VideoAspect)</visible>
+            </control>
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.AudioCodec)</visible>
+            </control>
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.AudioChannels)</visible>
+            </control>
+            
+            
+            
             <control type="image">
                 <width>48</width>
                 <height>64</height>
                 <centertop>50%</centertop>
                 <texture colordiffuse="Dark1">flags/video.png</texture>
                 <aspectratio align="left">scale</aspectratio>
-                <visible>!IsEmpty(ListItem.VideoResolution)</visible>
+                <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.VideoResolution)</visible>
             </control>
             <control type="label">
                 <width min="128">auto</width>
@@ -301,7 +346,7 @@
                 <label>$INFO[ListItem.VideoCodec,,  •  ]$INFO[ListItem.VideoResolution]$INFO[ListItem.VideoAspect,  •  ,]</label>
                 <font>Flag</font>
                 <textcolor>Dark1</textcolor>
-                <visible>!IsEmpty(ListItem.VideoResolution)</visible>
+                <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.VideoResolution)</visible>
             </control>
             <control type="image">
                 <width>48</width>
@@ -309,7 +354,7 @@
                 <height>64</height>
                 <texture colordiffuse="Dark1">flags/audio.png</texture>
                 <aspectratio align="left">scale</aspectratio>
-                <visible>!IsEmpty(ListItem.AudioCodec)</visible>
+                <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.AudioCodec)</visible>
             </control>
             <control type="label">
                 <width>auto</width>
@@ -320,7 +365,7 @@
                 <label>$INFO[ListItem.AudioCodec]$VAR[LabelAudioChannels,  •  ,]</label>
                 <font>Flag</font>
                 <textcolor>Dark1</textcolor>
-                <visible>!IsEmpty(ListItem.AudioCodec)</visible>
+                <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.AudioCodec)</visible>
             </control>
             <control type="image">
                 <width>48</width>
@@ -395,6 +440,7 @@
             <itemgap>24</itemgap>
             <usecontrolcoords>true</usecontrolcoords>
             <control type="group">
+                <visible>!Skin.HasSetting(furniture.flagicons) | IsEmpty(Container(9500).ListItem.VideoResolution)</visible>
                 <width>64</width>
                 <height>64</height>
                 <control type="image" description="button back">
@@ -418,6 +464,14 @@
                     <texture colordiffuse="Light1">flags/sets.png</texture>
                     <visible>substring(Container(9500).ListItem.Path,videodb://movies/sets,left)</visible>
                 </control>
+            </control>
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[Container(9500).ListItem.VideoResolution,flags/resolution/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(9500).ListItem.VideoResolution)</visible>
             </control>
             
             <control type="image">
@@ -470,13 +524,46 @@
                 <textcolor>Dark1</textcolor>
                 <visible>Skin.HasSetting(furniture.numericrating)</visible>
             </control>
+
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[Container(9500).ListItem.VideoCodec,flags/source/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(9500).ListItem.VideoCodec)</visible>
+            </control>
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[Container(9500).ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(9500).ListItem.VideoAspect)</visible>
+            </control>
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[Container(9500).ListItem.AudioCodec,flags/audio/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(9500).ListItem.AudioCodec)</visible>
+            </control>
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[Container(9500).ListItem.AudioChannels,flags/channels/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(9500).ListItem.AudioChannels)</visible>
+            </control>
             
             <control type="image">
                 <width>48</width>
                 <height>64</height>
                 <texture colordiffuse="Dark1">flags/video.png</texture>
                 <aspectratio align="left">scale</aspectratio>
-                <visible>!IsEmpty(Container(9500).ListItem.VideoResolution)</visible>
+                <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(9500).ListItem.VideoResolution)</visible>
             </control>
             <control type="label">
                 <width min="128">auto</width>
@@ -486,14 +573,14 @@
                 <label>$INFO[Container(9500).ListItem.VideoCodec,,  •  ]$INFO[Container(9500).ListItem.VideoResolution]$INFO[Container(9500).ListItem.VideoAspect,  •  ,]</label>
                 <font>Flag</font>
                 <textcolor>Dark1</textcolor>
-                <visible>!IsEmpty(Container(9500).ListItem.VideoResolution)</visible>
+                <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(9500).ListItem.VideoResolution)</visible>
             </control>
             <control type="image">
                 <width>48</width>
                 <height>64</height>
                 <texture colordiffuse="Dark1">flags/audio.png</texture>
                 <aspectratio align="left">scale</aspectratio>
-                <visible>!IsEmpty(Container(9500).ListItem.AudioCodec)</visible>
+                <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(9500).ListItem.AudioCodec)</visible>
             </control>
             <control type="label">
                 <width min="128">auto</width>
@@ -503,7 +590,7 @@
                 <label>$INFO[Container(9500).ListItem.AudioCodec]$VAR[LabelHubAudioChannels,  •  ,]</label>
                 <font>Flag</font>
                 <textcolor>Dark1</textcolor>
-                <visible>!IsEmpty(Container(9500).ListItem.AudioCodec)</visible>
+                <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(9500).ListItem.AudioCodec)</visible>
             </control>
             
             <control type="image">

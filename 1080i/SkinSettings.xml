@@ -410,6 +410,14 @@
                         <selected>!Skin.HasSetting(furniture.flags)</selected>
                         <onclick>Skin.ToggleSetting(furniture.flags)</onclick>
                     </control>
+                    <control type="radiobutton" id="9269" description="FlagsIcons">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9106)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31246</label>
+                        <selected>Skin.HasSetting(furniture.flagicons)</selected>
+                        <onclick>Skin.ToggleSetting(furniture.flagicons)</onclick>
+                    </control>
                     <control type="radiobutton" id="9266" description="Numeric Rating">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9106)</visible>
