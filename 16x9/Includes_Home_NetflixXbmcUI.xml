@@ -23,8 +23,8 @@
 				<width>1200</width>
 				<align>left</align>
 				<font>Tiny</font>
-				<label>$VAR[SubHeaderLabel]</label>
-				<textcolor>white</textcolor>
+				<label>$VAR[Netflix776]</label>
+				<textcolor>b3cccccc</textcolor>
 				<visible>Control.HasFocus(776)</visible>
 			</control>
 			<control type="label">
@@ -36,7 +36,7 @@
 				<align>left</align>
 				<font>Tiny</font>
 				<label>[UPPERCASE]$VAR[NetflixXbmcHeader][/UPPERCASE]</label>
-				<textcolor>white</textcolor>
+				<textcolor>ffcccccc</textcolor>
 			</control>
 			<control type="image">
 				<description>Logo/ClearArt</description>
@@ -60,7 +60,7 @@
 					<align>left</align>
 					<font>LargeBold</font>
 					<label>$VAR[NetflixXbmcTitle]</label>
-					<textcolor>white</textcolor>
+					<textcolor>ffcccccc</textcolor>
 					<scroll>true</scroll>
 				</control>
 				<control type="image">
@@ -112,7 +112,7 @@
 						<right>90</right>
 						<align>right</align>
 						<font>LargeBold</font>
-						<textcolor>Dark1</textcolor>
+						<textcolor>ffcccccc</textcolor>
 						<label>$INFO[System.Time(hh:mm)]</label>
 						<animation effect="slide" start="0" end="50" time="0" condition="IsEmpty(System.Time(xx))">Conditional</animation>
 					</control>
@@ -120,7 +120,7 @@
 						<centertop>30</centertop>
 						<right>40</right>
 						<font>SmallBold</font>
-						<textcolor>Dark3</textcolor>
+						<textcolor>4dcccccc</textcolor>
 						<align>right</align>
 						<width>120</width>
 						<label>$INFO[System.Time(xx)]</label>
@@ -130,7 +130,7 @@
 						<centertop>64</centertop>
 						<right>40</right>
 						<font>Flag</font>
-						<textcolor>Dark2</textcolor>
+						<textcolor>b3cccccc</textcolor>
 						<align>right</align>
 						<width>50%</width>
 						<label>$INFO[System.Date(DDD)]$COMMA $INFO[System.Date(d MMM yyyy)]</label>
@@ -139,7 +139,7 @@
 						<centertop>92</centertop>
 						<right>40</right>
 						<font>Flag</font>
-						<textcolor>Dark3</textcolor>
+						<textcolor>4dcccccc</textcolor>
 						<align>right</align>
 						<width>50%</width>
 						<label>[COLOR=$VAR[ColourHighlight]]$INFO[Weather.Temperature][/COLOR] $INFO[Weather.Conditions]</label>
@@ -156,7 +156,7 @@
 						<right>90</right>
 						<align>right</align>
 						<font>LargeBold</font>
-						<textcolor>Dark1</textcolor>
+						<textcolor>ffcccccc</textcolor>
 						<label>$INFO[System.Time(hh:mm)]</label>
 						<animation effect="slide" start="0" end="50" time="0" condition="IsEmpty(System.Time(xx))">Conditional</animation>
 					</control>
@@ -164,7 +164,7 @@
 						<centertop>30</centertop>
 						<right>40</right>
 						<font>SmallBold</font>
-						<textcolor>Dark3</textcolor>
+						<textcolor>4dcccccc</textcolor>
 						<align>right</align>
 						<width>120</width>
 						<label>$INFO[System.Time(xx)]</label>
@@ -174,7 +174,7 @@
 						<centertop>64</centertop>
 						<right>40</right>
 						<font>Flag</font>
-						<textcolor>Dark2</textcolor>
+						<textcolor>b3cccccc</textcolor>
 						<align>right</align>
 						<width>50%</width>
 						<label>$INFO[System.Date(DDD)]$COMMA $INFO[System.Date(d MMM yyyy)]</label>
@@ -183,7 +183,7 @@
 						<centertop>92</centertop>
 						<right>40</right>
 						<font>Flag</font>
-						<textcolor>Dark3</textcolor>
+						<textcolor>4dcccccc</textcolor>
 						<align>right</align>
 						<width>50%</width>
 						<label>[COLOR=$VAR[ColourHighlight]]$INFO[Weather.Temperature][/COLOR] $INFO[Weather.Conditions]</label>
@@ -360,12 +360,12 @@
 				</focusedlayout>
 				<content>$VAR[DefNetflixWidgetContent]</content>
 			</control>
-			<control type="wraplist" id="776">
+			<control type="panel" id="776">
 				<visible allowhiddenfocus="true">Control.HasFocus(776) | ControlGroup(80).HasFocus()</visible>
 				<posy>440</posy>
-				<posx>130</posx>
+				<posx>400</posx>
 				<width>1670</width>
-				<height>195</height>
+				<height>165</height>
 				<ondown>777</ondown>
 				<onup>775</onup>
 				<onback>SetFocus(20)</onback>
@@ -373,70 +373,52 @@
 				<scrolltime tween="cubic" easing="out">500</scrolltime>
 				<orientation>horizontal</orientation>
 				<focusposition>1</focusposition>
-				<itemlayout width="278" height="195">
+				<itemlayout width="278" height="165">
 					<control type="image">
 						<posx>5</posx>
 						<posy>5</posy>
 						<width>268</width>
-						<height>185</height>
+						<height>155</height>
 						<texture border="7">windows/home/tile.png</texture>
-						<colordiffuse>ff000000</colordiffuse>
+						<colordiffuse>88000000</colordiffuse>
 					</control>
 					<control type="image">
 						<description>Landscape</description>
 						<posx>5</posx>
 						<posy>5</posy>
 						<width>268</width>
-						<height>185</height>
+						<height>155</height>
 						<texture background="true">$INFO[ListItem.ActualIcon]</texture>
 						<aspectratio scalediffuse="false">keep</aspectratio>
 						<colordiffuse>ddffffff</colordiffuse>
 					</control>
-					<control type="label">
-						<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
-						<font>Home</font>
-						<align>center</align>
-						<posy>135</posy>
-						<width>278</width>
-						<height>50</height>
-						<textcolor>ddffffff</textcolor>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
+					
 				</itemlayout>
-				<focusedlayout width="278" height="195">
+				<focusedlayout width="278" height="165">
 					<control type="group">
 						<control type="image">
 							<posx>5</posx>
 							<posy>5</posy>
 							<width>268</width>
-							<height>185</height>
+							<height>155</height>
 							<texture border="7">windows/home/tile.png</texture>
-							<colordiffuse>ff000000</colordiffuse>
+							<colordiffuse>88000000</colordiffuse>
 						</control>
 						<control type="image">
 							<posx>5</posx>
 							<posy>5</posy>
 							<width>268</width>
-							<height>185</height>
+							<height>155</height>
 							<aspectratio scalediffuse="false">keep</aspectratio>
 							<texture background="true" fallback="views/fallbacks/DefaultVideo.png/large.png">$INFO[ListItem.ActualIcon]</texture>
 							<colordiffuse>ffffffff</colordiffuse>
 						</control>
-						<control type="label">
-							<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
-							<font>Home</font>
-							<align>center</align>
-							<posy>135</posy>
-							<width>278</width>
-							<height>50</height>
-							<textcolor>ffffffff</textcolor>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
+						
 						<control type="image">
 							<posx>2</posx>
 							<posy>5</posy>
 							<width>270</width>
-							<height>185</height>
+							<height>155</height>
 							<texture border="20">common/selectbox.png</texture>
 							<visible>Control.HasFocus(776)</visible>
 							<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
@@ -448,13 +430,33 @@
 					</control>
 				</focusedlayout>
 				<content>
-					<include>skinshortcuts-mainmenu</include>
+					<item id="0">
+						<label>$LOCALIZE[342]</label>
+						<onclick>ActivateWindow(10025,&quot;plugin://plugin.video.netflixbmc/?mode=main&amp;thumb&amp;type=movie&amp;url&quot;,return)</onclick>
+						<icon>special://skin/extras/icons/film.png</icon>
+					</item>
+					<item id="1">
+						<label>$LOCALIZE[20343]</label>
+						<onclick>ActivateWindow(10025,&quot;plugin://plugin.video.netflixbmc/?mode=main&amp;thumb&amp;type=tv&amp;url&quot;,return)</onclick>
+						<icon>special://skin/extras/icons/tv.png</icon>
+					</item>
+					<item id="2">
+						<label>Search</label>
+						<onclick>ActivateWindow(10025,&quot;plugin://plugin.video.netflixbmc/?mode=search&amp;thumb&amp;type=both&amp;url&quot;,return)</onclick>
+						<icon>special://skin/extras/icons/search.png</icon>
+					</item>
+					<item id="3">
+						<label>Kodi</label>
+						<onclick>Skin.ToggleSetting(home.netflix)</onclick>
+						<onclick>ReloadSkin()</onclick>
+						<icon>special://skin/extras/icons/kodi.png</icon>
+					</item>
 				</content>
 			</control>
 			<control type="grouplist" id="40">
 				<posy>660</posy>
 				<posx>-140</posx>
-				<width>2020</width>
+				<width>2080</width>
 				<height>395</height>
 				<onup>776</onup>
 				<control type="wraplist" id="777">
@@ -493,6 +495,23 @@
 								<texture border="20">common/selectbox.png</texture>
 								<visible>Control.HasFocus(777)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
 							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(777).ListItem.Property(id)],Home)</onfocus>
@@ -541,6 +560,23 @@
 								<visible>Control.HasFocus(778)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(778).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
@@ -588,15 +624,31 @@
 								<visible>Control.HasFocus(779)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(779).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">$INFO[Container(7654).ListItem(2).FileNameAndPath]</content>
+					<content target="video">$INFO[Container(7654).ListItem(2).FileNameAndPath]</content>
 				</control>
-				<!-- problems with my list -->
 				<control type="wraplist" id="780">
 					<visible>IntegerGreaterThan(Container(7654).NumItems,3)</visible>
 					<posy>240</posy>
@@ -636,16 +688,35 @@
 								<visible>Control.HasFocus(780)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(780).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">$INFO[Container(7654).ListItem(3).FileNameAndPath]</content>
+					<content target="video">$INFO[Container(7654).ListItem(3).FileNameAndPath]</content>
 				</control>
+				<!-- problems with my list -->
 				<control type="wraplist" id="781">
 					<visible>IntegerGreaterThan(Container(7654).NumItems,4)</visible>
+					<visible>IntegerGreaterThan(Container(781).NumItems,0)</visible>
 					<posy>240</posy>
 					<height>195</height>
 					<onback>SetFocus(20)</onback>
@@ -683,13 +754,30 @@
 								<visible>Control.HasFocus(781)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(781).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">$INFO[Container(7654).ListItem(4).FileNameAndPath]</content>
+					<content target="video">$INFO[Container(7654).ListItem(4).FileNameAndPath]</content>
 				</control>
 				<control type="wraplist" id="782">
 					<visible>IntegerGreaterThan(Container(7654).NumItems,5)</visible>
@@ -730,13 +818,30 @@
 								<visible>Control.HasFocus(782)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(782).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">$INFO[Container(7654).ListItem(5).FileNameAndPath]</content>
+					<content target="video">$INFO[Container(7654).ListItem(5).FileNameAndPath]</content>
 				</control>
 				<control type="wraplist" id="783">
 					<visible>IntegerGreaterThan(Container(7654).NumItems,6)</visible>
@@ -777,13 +882,30 @@
 								<visible>Control.HasFocus(783)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(783).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">$INFO[Container(7654).ListItem(6).FileNameAndPath]</content>
+					<content target="video">$INFO[Container(7654).ListItem(6).FileNameAndPath]</content>
 				</control>
 				<control type="wraplist" id="784">
 					<visible>IntegerGreaterThan(Container(7654).NumItems,7)</visible>
@@ -824,13 +946,30 @@
 								<visible>Control.HasFocus(784)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(784).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">$INFO[Container(7654).ListItem(7).FileNameAndPath]</content>
+					<content target="video">$INFO[Container(7654).ListItem(7).FileNameAndPath]</content>
 				</control>
 				<control type="wraplist" id="785">
 					<visible>IntegerGreaterThan(Container(7654).NumItems,8)</visible>
@@ -871,13 +1010,30 @@
 								<visible>Control.HasFocus(785)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(785).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">$INFO[Container(7654).ListItem(8).FileNameAndPath]</content>
+					<content target="video">$INFO[Container(7654).ListItem(8).FileNameAndPath]</content>
 				</control>
 				<control type="wraplist" id="786">
 					<visible>IntegerGreaterThan(Container(7654).NumItems,9)</visible>
@@ -918,13 +1074,30 @@
 								<visible>Control.HasFocus(786)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(786).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">$INFO[Container(7654).ListItem(9).FileNameAndPath]</content>
+					<content target="video">$INFO[Container(7654).ListItem(9).FileNameAndPath]</content>
 				</control>
 				<control type="wraplist" id="787">
 					<visible>IntegerGreaterThan(Container(7654).NumItems,10)</visible>
@@ -965,13 +1138,30 @@
 								<visible>Control.HasFocus(787)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(787).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">$INFO[Container(7654).ListItem(10).FileNameAndPath]</content>
+					<content target="video">$INFO[Container(7654).ListItem(10).FileNameAndPath]</content>
 				</control>
 				<control type="wraplist" id="788">
 					<visible>IntegerGreaterThan(Container(7654).NumItems,11)</visible>
@@ -1012,13 +1202,30 @@
 								<visible>Control.HasFocus(788)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(788).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">$INFO[Container(7654).ListItem(11).FileNameAndPath]</content>
+					<content target="video">$INFO[Container(7654).ListItem(11).FileNameAndPath]</content>
 				</control>
 				<control type="wraplist" id="789">
 					<visible>IntegerGreaterThan(Container(7654).NumItems,12)</visible>
@@ -1059,13 +1266,30 @@
 								<visible>Control.HasFocus(789)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(789).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">$INFO[Container(7654).ListItem(12).FileNameAndPath]</content>
+					<content target="video">$INFO[Container(7654).ListItem(12).FileNameAndPath]</content>
 				</control>
 				<control type="wraplist" id="790">
 					<visible>IntegerGreaterThan(Container(7654).NumItems,13)</visible>
@@ -1106,13 +1330,30 @@
 								<visible>Control.HasFocus(790)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(790).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">$INFO[Container(7654).ListItem(13).FileNameAndPath]</content>
+					<content target="video">$INFO[Container(7654).ListItem(13).FileNameAndPath]</content>
 				</control>
 				<control type="wraplist" id="791">
 					<visible>IntegerGreaterThan(Container(7654).NumItems,14)</visible>
@@ -1153,13 +1394,30 @@
 								<visible>Control.HasFocus(791)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(791).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">$INFO[Container(7654).ListItem(14).FileNameAndPath]</content>
+					<content target="video">$INFO[Container(7654).ListItem(14).FileNameAndPath]</content>
 				</control>
 				<control type="wraplist" id="792">
 					<visible>IntegerGreaterThan(Container(7654).NumItems,15)</visible>
@@ -1200,13 +1458,30 @@
 								<visible>Control.HasFocus(792)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(792).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">$INFO[Container(7654).ListItem(15).FileNameAndPath]</content>
+					<content target="video">$INFO[Container(7654).ListItem(15).FileNameAndPath]</content>
 				</control>
 				<control type="wraplist" id="793">
 					<visible>IntegerGreaterThan(Container(7654).NumItems,16)</visible>
@@ -1247,13 +1522,30 @@
 								<visible>Control.HasFocus(793)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(793).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">$INFO[Container(7654).ListItem(16).FileNameAndPath]</content>
+					<content target="video">$INFO[Container(7654).ListItem(16).FileNameAndPath]</content>
 				</control>
 				<control type="wraplist" id="794">
 					<visible>IntegerGreaterThan(Container(7654).NumItems,17)</visible>
@@ -1294,13 +1586,30 @@
 								<visible>Control.HasFocus(794)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(794).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">$INFO[Container(7654).ListItem(17).FileNameAndPath]</content>
+					<content target="video">$INFO[Container(7654).ListItem(17).FileNameAndPath]</content>
 				</control>
 				<control type="wraplist" id="795">
 					<visible>IntegerGreaterThan(Container(7654).NumItems,18)</visible>
@@ -1341,13 +1650,30 @@
 								<visible>Control.HasFocus(795)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(795).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">$INFO[Container(7654).ListItem(18).FileNameAndPath]</content>
+					<content target="video">$INFO[Container(7654).ListItem(18).FileNameAndPath]</content>
 				</control>
 				<control type="wraplist" id="796">
 					<visible>IntegerGreaterThan(Container(7654).NumItems,19)</visible>
@@ -1388,13 +1714,30 @@
 								<visible>Control.HasFocus(796)</visible>
 								<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
 							</control>
+							<control type="image">
+								<centerleft>50%</centerleft>
+								<centertop>100</centertop>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture colordiffuse="$VAR[ColourHighlight2]">common/playring.png</texture>
+								<animation type="Focus">
+									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+								</animation>
+								<animation type="Unfocus">
+									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+								</animation>
+								<visible>substring(ListItem.FileNameAndPath,mode=play)</visible>
+							</control>
 							<control type="button">
 								<onfocus>SetProperty(id,$INFO[Container(796).ListItem.Property(id)],Home)</onfocus>
 								<visible>true</visible>
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">$INFO[Container(7654).ListItem(19).FileNameAndPath]</content>
+					<content target="video">$INFO[Container(7654).ListItem(19).FileNameAndPath]</content>
 				</control>
 			</control>
 		</control>
@@ -1628,25 +1971,31 @@
 	</variable>
 	<variable name="NetflixXbmcLogo">
 		<value condition="Control.HasFocus(776)">$INFO[Container(776).ListItem.Icon]</value>
-		<value condition="Control.HasFocus(777)">$INFO[Container(777).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(778)">$INFO[Container(778).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(779)">$INFO[Container(779).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(780)">$INFO[Container(780).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(781)">$INFO[Container(781).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(782)">$INFO[Container(782).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(783)">$INFO[Container(783).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(784)">$INFO[Container(784).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(785)">$INFO[Container(785).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(786)">$INFO[Container(786).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(787)">$INFO[Container(787).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(788)">$INFO[Container(788).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(789)">$INFO[Container(789).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(790)">$INFO[Container(790).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(791)">$INFO[Container(791).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(792)">$INFO[Container(792).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(793)">$INFO[Container(793).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(794)">$INFO[Container(794).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(795)">$INFO[Container(795).ListItem.Art(clearlogo)]</value>
-		<value condition="Control.HasFocus(796)">$INFO[Container(796).ListItem.Art(clearlogo)]</value>
+		<value condition="Control.HasFocus(777)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(778)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(779)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(780)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(781)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(782)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(783)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(784)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(785)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(786)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(787)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(788)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(789)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(790)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(791)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(792)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(793)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(794)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(795)">NetflixLogo.png</value>
+		<value condition="Control.HasFocus(796)">NetflixLogo.png</value>
+	</variable>
+	<variable name="Netflix776">
+		<value condition="Container(776).HasFocus(0)">Browse netflix's movies</value>
+		<value condition="Container(776).HasFocus(1)">Browse netflix's tv shows</value>
+		<value condition="Container(776).HasFocus(2)">Search netflix's movies and tv shows</value>
+		<value condition="Container(776).HasFocus(3)">Return back to your kodi library view</value>
 	</variable>
 </includes>

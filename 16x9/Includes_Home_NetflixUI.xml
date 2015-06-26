@@ -17,7 +17,7 @@
 				<align>left</align>
 				<font>Tiny</font>
 				<label>$VAR[SubHeaderLabel]</label>
-				<textcolor>white</textcolor>
+				<textcolor>ffcccccc</textcolor>
 				<visible>Control.HasFocus(776)</visible>
 			</control>
 			<control type="label">
@@ -29,7 +29,7 @@
 				<align>left</align>
 				<font>Tiny</font>
 				<label>[UPPERCASE]$VAR[NetflixHeader][/UPPERCASE]</label>
-				<textcolor>white</textcolor>
+				<textcolor>ffcccccc</textcolor>
 			</control>
 			<control type="image">
 				<description>Logo/ClearArt</description>
@@ -73,7 +73,7 @@
 					<align>left</align>
 					<font>LargeBold</font>
 					<label>$VAR[NetflixTitle]</label>
-					<textcolor>white</textcolor>
+					<textcolor>ffcccccc</textcolor>
 					<scroll>true</scroll>
 				</control>
 				<control type="image">
@@ -163,7 +163,7 @@
 						<right>90</right>
 						<align>right</align>
 						<font>LargeBold</font>
-						<textcolor>Dark1</textcolor>
+						<textcolor>ffcccccc</textcolor>
 						<label>$INFO[System.Time(hh:mm)]</label>
 						<animation effect="slide" start="0" end="50" time="0" condition="IsEmpty(System.Time(xx))">Conditional</animation>
 					</control>
@@ -171,7 +171,7 @@
 						<centertop>30</centertop>
 						<right>40</right>
 						<font>SmallBold</font>
-						<textcolor>Dark3</textcolor>
+						<textcolor>4dcccccc</textcolor>
 						<align>right</align>
 						<width>120</width>
 						<label>$INFO[System.Time(xx)]</label>
@@ -181,7 +181,7 @@
 						<centertop>64</centertop>
 						<right>40</right>
 						<font>Flag</font>
-						<textcolor>Dark2</textcolor>
+						<textcolor>b3cccccc</textcolor>
 						<align>right</align>
 						<width>50%</width>
 						<label>$INFO[System.Date(DDD)]$COMMA $INFO[System.Date(d MMM yyyy)]</label>
@@ -190,7 +190,7 @@
 						<centertop>92</centertop>
 						<right>40</right>
 						<font>Flag</font>
-						<textcolor>Dark3</textcolor>
+						<textcolor>4dcccccc</textcolor>
 						<align>right</align>
 						<width>50%</width>
 						<label>[COLOR=$VAR[ColourHighlight]]$INFO[Weather.Temperature][/COLOR] $INFO[Weather.Conditions]</label>
@@ -207,7 +207,7 @@
 						<right>90</right>
 						<align>right</align>
 						<font>LargeBold</font>
-						<textcolor>Dark1</textcolor>
+						<textcolor>ffcccccc</textcolor>
 						<label>$INFO[System.Time(hh:mm)]</label>
 						<animation effect="slide" start="0" end="50" time="0" condition="IsEmpty(System.Time(xx))">Conditional</animation>
 					</control>
@@ -215,7 +215,7 @@
 						<centertop>30</centertop>
 						<right>40</right>
 						<font>SmallBold</font>
-						<textcolor>Dark3</textcolor>
+						<textcolor>4dcccccc</textcolor>
 						<align>right</align>
 						<width>120</width>
 						<label>$INFO[System.Time(xx)]</label>
@@ -225,7 +225,7 @@
 						<centertop>64</centertop>
 						<right>40</right>
 						<font>Flag</font>
-						<textcolor>Dark2</textcolor>
+						<textcolor>b3cccccc</textcolor>
 						<align>right</align>
 						<width>50%</width>
 						<label>$INFO[System.Date(DDD)]$COMMA $INFO[System.Date(d MMM yyyy)]</label>
@@ -234,7 +234,7 @@
 						<centertop>92</centertop>
 						<right>40</right>
 						<font>Flag</font>
-						<textcolor>Dark3</textcolor>
+						<textcolor>4dcccccc</textcolor>
 						<align>right</align>
 						<width>50%</width>
 						<label>[COLOR=$VAR[ColourHighlight]]$INFO[Weather.Temperature][/COLOR] $INFO[Weather.Conditions]</label>
@@ -431,7 +431,7 @@
 						<width>268</width>
 						<height>185</height>
 						<texture border="7">windows/home/tile.png</texture>
-						<colordiffuse>ff000000</colordiffuse>
+						<colordiffuse>88000000</colordiffuse>
 					</control>
 					<control type="image">
 						<description>Landscape</description>
@@ -462,7 +462,7 @@
 							<width>268</width>
 							<height>185</height>
 							<texture border="7">windows/home/tile.png</texture>
-							<colordiffuse>ff000000</colordiffuse>
+							<colordiffuse>88000000</colordiffuse>
 						</control>
 						<control type="image">
 							<posx>5</posx>
@@ -601,7 +601,7 @@
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window.Property(recommendedmovies)]</content>
+					<content target="video">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window.Property(recommendedmovies)]</content>
 				</control>
 				<control type="wraplist" id="781">
 					<visible>Library.HasContent(movies)</visible>
@@ -671,7 +671,7 @@
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window.Property(recentmovies)]</content>
+					<content target="video">plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window.Property(recentmovies)]</content>
 				</control>
 				<control type="wraplist" id="782">
 					<visible>Library.HasContent(movies)</visible>
@@ -741,7 +741,7 @@
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window.Property(randommovies)]</content>
+					<content target="video">plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window.Property(randommovies)]</content>
 				</control>
 				<control type="wraplist" id="783">
 					<visible>Library.HasContent(movies)</visible>
@@ -1060,7 +1060,7 @@
 							</control>
 						</control>
 					</focusedlayout>
-					<content type="video">plugin://service.library.data.provider?type=recentepisodes&amp;reload=$INFO[Window.Property(recentepisodes)]</content>
+					<content target="video">plugin://service.library.data.provider?type=recentepisodes&amp;reload=$INFO[Window.Property(recentepisodes)]</content>
 				</control>
 				<control type="wraplist" id="788">
 					<visible>Library.HasContent(tvshows)</visible>

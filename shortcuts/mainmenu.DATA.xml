@@ -8,6 +8,15 @@
         <action>ActivateWindow(Videos,VideoLibrary)</action>
     </shortcut>
     <shortcut>
+        <label>Netflix</label>
+        <label2>Common Shortcut</label2>
+        <defaultID>netflixmode</defaultID>
+        <icon>special://skin/extras/icons/netflix.png</icon>
+        <action>Skin.ToggleSetting(home.netflix)</action>
+        <action>ReloadSkin()</action>
+        <visible>System.HasAddon(plugin.video.netflixbmc)</visible>
+    </shortcut>
+    <shortcut>
         <label>20342</label>
         <label2>Common Shortcut</label2>
         <defaultID>movies</defaultID>
