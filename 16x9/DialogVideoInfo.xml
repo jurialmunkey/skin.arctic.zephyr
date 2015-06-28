@@ -1104,7 +1104,14 @@
 						<height>52</height>
 						<texture colordiffuse="Dark1">$VAR[Studio]</texture>
 						<aspectratio align="left">keep</aspectratio>
-						<visible>[Skin.HasSetting(furniture.nodiscart) + !container.content(movies)] | container.content(movies)</visible>
+						<visible>!Skin.HasSetting(furniture.flags.colour) + [[Skin.HasSetting(furniture.nodiscart) + !container.content(movies)] | container.content(movies)]</visible>
+					</control>
+					<control type="image">
+						<width>73</width>
+						<height>52</height>
+						<texture>$VAR[Studio]</texture>
+						<aspectratio align="left">keep</aspectratio>
+						<visible>Skin.HasSetting(furniture.flags.colour) + [[Skin.HasSetting(furniture.nodiscart) + !container.content(movies)] | container.content(movies)]</visible>
 					</control>
 				</control>
 			</control>
