@@ -551,41 +551,8 @@
 				<aspectratio align="left">keep</aspectratio>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
-			<!-- <control type="image">
-				<width>73</width>
-				<centertop>50%</centertop>
-				<height>50</height>
-				<texture colordiffuse="Dark1">flags/3D.png</texture>
-				<visible>ListItem.IsStereoscopic</visible>
-			</control>
-			<control type="image">
-				<width>73</width>
-				<centertop>50%</centertop>
-				<height>50</height>
-				<texture colordiffuse="Dark1">flags/bluray.png</texture>
-				<visible>[substring(ListItem.FilenameAndPath,bluray) | substring(ListItem.FilenameAndPath,bdrip) | substring(ListItem.FilenameAndPath,bd25) | substring(ListItem.FilenameAndPath,bd50)]</visible>
-			</control>
-			<control type="image">
-				<width>73</width>
-				<centertop>50%</centertop>
-				<height>50</height>
-				<texture colordiffuse="Dark1">flags/hddvd.png</texture>
-				<visible>substring(ListItem.FilenameAndPath,hddvd)</visible>
-			</control>
-			<control type="image">
-				<width>73</width>
-				<centertop>50%</centertop>
-				<height>50</height>
-				<texture colordiffuse="Dark1">flags/dvd.png</texture>
-				<visible>substring(ListItem.FilenameAndPath,dvd) + !substring(ListItem.FilenameAndPath,hddvd)</visible>
-			</control>
-			<control type="image">
-				<width>73</width>
-				<centertop>50%</centertop>
-				<height>50</height>
-				<texture colordiffuse="Dark1">flags/imdb.png</texture>
-				<visible>!IsEmpty(ListItem.Top250)</visible>
-			</control> -->
+			<!-- <control type="image"> <width>73</width> <centertop>50%</centertop> <height>50</height> <texture colordiffuse="Dark1">flags/3D.png</texture> <visible>ListItem.IsStereoscopic</visible> </control> <control type="image"> <width>73</width> <centertop>50%</centertop> <height>50</height> <texture colordiffuse="Dark1">flags/bluray.png</texture> <visible>[substring(ListItem.FilenameAndPath,bluray) | substring(ListItem.FilenameAndPath,bdrip) | substring(ListItem.FilenameAndPath,bd25) | substring(ListItem.FilenameAndPath,bd50)]</visible> </control> <control type="image"> <width>73</width> <centertop>50%</centertop> <height>50</height> <texture colordiffuse="Dark1">flags/hddvd.png</texture> <visible>substring(ListItem.FilenameAndPath,hddvd)</visible> </control> <control type="image"> <width>73</width> <centertop>50%</centertop> <height>50</height> <texture colordiffuse="Dark1">flags/dvd.png</texture> <visible>substring(ListItem.FilenameAndPath,dvd) + !substring(ListItem.FilenameAndPath,hddvd)</visible> 
+				</control> <control type="image"> <width>73</width> <centertop>50%</centertop> <height>50</height> <texture colordiffuse="Dark1">flags/imdb.png</texture> <visible>!IsEmpty(ListItem.Top250)</visible> </control> -->
 		</control>
 	</include>
 	<include name="Furniture_Hub_Flags">
@@ -1072,8 +1039,8 @@
 		<value condition="!IsEmpty(Container.NumItems) + !Window.IsVisible(home)">[COLOR=$VAR[ColourHighlight]]$INFO[Container.NumItems,,[/COLOR] $LOCALIZE[31101]]$INFO[Control.GetLabel(3), • ,]</value>
 		<value condition="!IsEmpty(Container(9500).NumItems) + !Window.IsVisible(home)">[COLOR=$VAR[ColourHighlight]]$INFO[Container(9500).NumItems,,[/COLOR] $LOCALIZE[31101]]</value>
 		<value condition="Window.IsVisible(MyWeather.xml) + !IsEmpty(Window(Weather).Property(Location))">[COLOR=$VAR[ColourHighlight]]$INFO[Weather.Temperature,,[/COLOR] ]$INFO[Window(Weather).Property(Location)]</value>
-		<value condition="IsEmpty(Pvr.BackendChannels)">[COLOR=$VAR[ColourHighlight]]$INFO[Window(home).Property(Movies.Count)][/COLOR] $LOCALIZE[20342] • [COLOR=$VAR[ColourHighlight]]$INFO[Window(home).Property(Episodes.Count)][/COLOR] $LOCALIZE[20360] • [COLOR=$VAR[ColourHighlight]]$INFO[Window(home).Property(Music.SongsCount)][/COLOR] $LOCALIZE[134]</value>
-		<value>[COLOR=$VAR[ColourHighlight]]$INFO[Window(home).Property(Movies.Count)][/COLOR] $LOCALIZE[20342] • [COLOR=$VAR[ColourHighlight]]$INFO[Window(home).Property(TVShows.Count)][/COLOR] $LOCALIZE[20343] • [COLOR=$VAR[ColourHighlight]]$INFO[Window(home).Property(Music.SongsCount)][/COLOR] $LOCALIZE[134] • [COLOR=$VAR[ColourHighlight]]$INFO[Pvr.BackendChannels][/COLOR] $LOCALIZE[19019]</value>
+		<value condition="IsEmpty(Pvr.BackendChannels)">[COLOR=$VAR[ColourHighlight]]$INFO[Window(home).Property(Movies.Count)][/COLOR] $LOCALIZE[20342] • [COLOR=$VAR[ColourHighlight]]$INFO[Window(home).Property(TVShows.Count)][/COLOR] $LOCALIZE[20343] • [COLOR=$VAR[ColourHighlight]]$INFO[Window(home).Property(Music.AlbumsCount)][/COLOR] $LOCALIZE[132]</value>
+		<value>[COLOR=$VAR[ColourHighlight]]$INFO[Window(home).Property(Movies.Count)][/COLOR] $LOCALIZE[20342] • [COLOR=$VAR[ColourHighlight]]$INFO[Window(home).Property(TVShows.Count)][/COLOR] $LOCALIZE[20343] • [COLOR=$VAR[ColourHighlight]]$INFO[Window(home).Property(Music.AlbumsCount)][/COLOR] $LOCALIZE[132] • [COLOR=$VAR[ColourHighlight]]$INFO[Pvr.BackendChannels][/COLOR] $LOCALIZE[19019]</value>
 	</variable>
 	<include name="Furniture_Header">
 		<control type="grouplist">
