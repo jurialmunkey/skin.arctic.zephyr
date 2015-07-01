@@ -15,8 +15,91 @@
             <font>Flag</font>
             <textcolor>$VAR[OSDPanelWhite30]</textcolor>
             <label>$INFO[VideoPlayer.AudioCodec,,  •  ]$VAR[LabelOSDAudioChannels,,  •  ]$INFO[VideoPlayer.VideoResolution,,  •  ]$INFO[VideoPlayer.VideoCodec,,]$INFO[VideoPlayer.RatingAndVotes,  •  ,]</label>
+            <visible>!Skin.HasSetting(furniture.flagicons)</visible>
         </control>
         
+        <control type="grouplist">
+            <visible>Skin.HasSetting(furniture.flagicons)</visible>
+            <include>Animation.FadeIn</include>
+            <include>Animation.FadeOut</include>
+            <right>0</right>
+            <centertop>22</centertop>
+            <width>1400</width>
+            <height>64</height>
+            <orientation>horizontal</orientation>
+            <align>right</align>
+            <itemgap>12</itemgap>
+            <usecontrolcoords>true</usecontrolcoords>
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="$VAR[OSDPanelWhite70]" fallback="flags/fallback.png">$INFO[VideoPlayer.VideoResolution,flags/resolution/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>!IsEmpty(VideoPlayer.VideoResolution)</visible>
+            </control>
+
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="$VAR[OSDPanelWhite70]" fallback="flags/fallback.png">$INFO[VideoPlayer.VideoCodec,flags/source/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>!IsEmpty(VideoPlayer.VideoCodec)</visible>
+            </control>
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="$VAR[OSDPanelWhite70]" fallback="flags/fallback.png">$INFO[VideoPlayer.VideoAspect,flags/aspectratio/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>!IsEmpty(VideoPlayer.VideoAspect)</visible>
+            </control>
+
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="$VAR[OSDPanelWhite70]" fallback="flags/fallback.png">$INFO[VideoPlayer.AudioCodec,flags/audio/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>!IsEmpty(VideoPlayer.AudioCodec)</visible>
+            </control>
+
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="$VAR[OSDPanelWhite70]" fallback="flags/fallback.png">$INFO[VideoPlayer.AudioChannels,flags/channels/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>!IsEmpty(VideoPlayer.AudioChannels)</visible>
+            </control>
+
+            <control type="image">
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="$VAR[OSDPanelWhite70]">flags/3D.png</texture>
+                <visible>VideoPlayer.IsStereoscopic</visible>
+            </control>
+            
+            <control type="image">
+                <width>64</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="$VAR[OSDPanelWhite70]">flags/star10.png</texture>
+            </control>
+            <control type="label">
+                <left>-16</left>
+                <width min="48">auto</width>
+                <centertop>50%</centertop>
+                <height>64</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$INFO[VideoPlayer.Rating]</label>
+                <font>Flag</font>
+                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
+            </control>            
+        </control>
+
         <control type="label" description="Title">
             <width>1000</width>
             <top>0</top>
@@ -24,9 +107,18 @@
             <font>TinyBold</font>
             <textcolor>$VAR[OSDPanelWhite70]</textcolor>
             <label>$VAR[PlayerTitle]</label>
+            <visible>!Skin.HasSetting(furniture.flagicons)</visible>
         </control>
-        
-        
+        <control type="label" description="Title">
+            <width>850</width>
+            <top>0</top>
+            <height>40</height>
+            <font>TinyBold</font>
+            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
+            <label>$VAR[PlayerTitle]</label>
+            <visible>Skin.HasSetting(furniture.flagicons)</visible>
+        </control>
+
         <control type="label" description="Show">
             <width>100%</width>
             <top>50</top>
