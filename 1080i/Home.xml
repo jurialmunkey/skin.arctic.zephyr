@@ -8,27 +8,31 @@
     
     <controls>
         <include>GlobalBackground</include>
-        <include>HomeHeader</include>
-        <include>HomeNextRecording</include>
-        <include>HomeWeatherWidget</include>
-        <include>HomeNowPlaying</include>
-        <include>HomeWidgetSelector</include>
-        <include>HomeBackgroundPlaylist</include>
-        <include condition="!Skin.HasSetting(home.classicwidgets)">HomeRow</include>
-        <include condition="!Skin.HasSetting(home.classicwidgets)">HomeWidgetInfo</include>
-        <include condition="Skin.HasSetting(home.classicwidgets)">HomeClassicWidgets</include>
         
-        <include condition="Skin.HasSetting(home.submenu2) + !Skin.HasSetting(home.showicons)">HomeSubMenu2</include>
-        <include condition="!Skin.HasSetting(home.submenu2) | Skin.HasSetting(home.showicons)">HomeSubMenu</include>
+        <include condition="Skin.HasSetting(home.vertical)">HomeVerticalMenu</include>
+        
+        <include condition="!Skin.HasSetting(home.vertical)">HomeHeader</include>
+        <include condition="!Skin.HasSetting(home.vertical)">HomeNextRecording</include>
+        <include condition="!Skin.HasSetting(home.vertical)">HomeWeatherWidget</include>
+        <include condition="!Skin.HasSetting(home.vertical)">HomeNowPlaying</include>
+        <include condition="!Skin.HasSetting(home.vertical)">HomeWidgetSelector</include>
+        <include condition="!Skin.HasSetting(home.vertical)">HomeBackgroundPlaylist</include>
+
+        <include condition="!Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.classicwidgets)">HomeRow</include>
+        <include condition="!Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.classicwidgets)">HomeWidgetInfo</include>
+        <include condition="!Skin.HasSetting(home.vertical) + Skin.HasSetting(home.classicwidgets)">HomeClassicWidgets</include>
+        
+        <include condition="!Skin.HasSetting(home.vertical) + Skin.HasSetting(home.submenu2) + !Skin.HasSetting(home.showicons)">HomeSubMenu2</include>
+        <include condition="!Skin.HasSetting(home.vertical) + [!Skin.HasSetting(home.submenu2) | Skin.HasSetting(home.showicons)]">HomeSubMenu</include>
 
         <control type="group">
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
             <visible>Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
-            <include>GlobalBackgroundExtended</include>
-            <include>Furniture_Header</include>
-            <include>Furniture_NowPlaying</include>
-            <include>Furniture_Clock</include>
+            <include condition="!Skin.HasSetting(home.vertical)">GlobalBackgroundExtended</include>
+            <include condition="!Skin.HasSetting(home.vertical)">Furniture_Header</include>
+            <include condition="!Skin.HasSetting(home.vertical)">Furniture_NowPlaying</include>
+            <include condition="!Skin.HasSetting(home.vertical)">Furniture_Clock</include>
         </control>
     </controls>
 </window>

@@ -23,7 +23,7 @@
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
             <right>0</right>
-            <centertop>22</centertop>
+            <centertop>45</centertop>
             <width>1400</width>
             <height>64</height>
             <orientation>horizontal</orientation>
@@ -126,6 +126,16 @@
             <font>MediumBold</font>
             <textcolor>$VAR[OSDPanelWhite70]</textcolor>
             <label>$VAR[PlayerBigTitle]</label>
+            <visible>!Skin.HasSetting(furniture.flagicons)</visible>
+        </control>
+        <control type="label" description="Show">
+            <width>850</width>
+            <top>50</top>
+            <height>40</height>
+            <font>MediumBold</font>
+            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
+            <label>$VAR[PlayerBigTitle]</label>
+            <visible>Skin.HasSetting(furniture.flagicons)</visible>
         </control>
         
         <control type="textbox" description="Plot">

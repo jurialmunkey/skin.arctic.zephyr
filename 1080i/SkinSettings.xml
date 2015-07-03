@@ -113,6 +113,20 @@
                         <label>31132</label>
                         <onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
                     </control>
+
+                    <control type="button" id="9214" description="Home Style">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31247</label>
+                        <label2>$VAR[LabelHomeWidgetStyle]</label2>
+                        <onclick condition="Skin.HasSetting(home.classicwidgets)">Skin.SetBool(home.vertical)</onclick>
+                        <onclick condition="Skin.HasSetting(home.classicwidgets)">Skin.Reset(home.classicwidgets)</onclick>
+                        <onclick condition="Skin.HasSetting(home.vertical)">Skin.Reset(home.classicwidgets)</onclick>
+                        <onclick condition="Skin.HasSetting(home.vertical)">Skin.Reset(home.vertical)</onclick>
+                        <onclick condition="!Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.classicwidgets)">Skin.Reset(home.vertical)</onclick>
+                        <onclick condition="!Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.classicwidgets)">Skin.SetBool(home.classicwidgets)</onclick>
+                    </control>
                     
                     <control type="radiobutton" id="9213" description="Show Header">
                         <width>1310</width>
@@ -121,6 +135,7 @@
                         <label>31115</label>
                         <selected>Skin.HasSetting(home.showheader)</selected>
                         <onclick>Skin.ToggleSetting(home.showheader)</onclick>
+                        <enable>!Skin.HasSetting(home.vertical)</enable>
                     </control>
                 
                     <control type="radiobutton" id="9217" description="Always Show Weather Widget">
@@ -147,21 +162,12 @@
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
                         <label>31202</label>
-                        <enable>!Skin.HasSetting(home.showicons)</enable>
+                        <enable>!Skin.HasSetting(home.showicons) + !Skin.HasSetting(home.vertical)</enable>
                         <selected>Skin.HasSetting(home.submenu2)</selected>
                         <onclick>Skin.ToggleSetting(home.submenu2)</onclick>
                     </control>
                         
-                    <control type="button" id="9214" description="Set Slideshow Path">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31131</label>
-                        <label2>$INFO[Skin.String(home.slideshowpath)]</label2>
-                        <onclick condition="IsEmpty(Skin.String(home.slideshowpath))">Skin.SetPath(home.slideshowpath)</onclick>
-                        <onclick condition="!IsEmpty(Skin.String(home.slideshowpath))">Skin.Reset(home.dontshowfanart)</onclick>
-                        <onclick condition="!IsEmpty(Skin.String(home.slideshowpath))">Skin.Reset(home.slideshowpath)</onclick>
-                    </control>
+                    
                     
                             
                     
@@ -281,14 +287,7 @@
                     </control>
                     
                     <!-- Widgets -->
-                    <control type="radiobutton" id="9241" description="Classic Widget">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9104)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31184</label>
-                        <selected>Skin.HasSetting(home.classicwidgets)</selected>
-                        <onclick>Skin.ToggleSetting(home.classicwidgets)</onclick>
-                    </control>
+                    
                     <control type="radiobutton" id="9242" description="Classic Widget Auto show">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9104)</visible>
@@ -306,6 +305,16 @@
                         <selected>Skin.HasSetting(home.dontshowfanart)</selected>
                         <onclick condition="!Skin.HasSetting(home.dontshowfanart) + IsEmpty(Skin.String(home.slideshowpath))">Skin.SetPath(home.slideshowpath)</onclick>
                         <onclick>Skin.ToggleSetting(home.dontshowfanart)</onclick>
+                    </control>
+                    <control type="button" id="9241" description="Set Slideshow Path">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9104)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31131</label>
+                        <label2>$INFO[Skin.String(home.slideshowpath)]</label2>
+                        <onclick condition="IsEmpty(Skin.String(home.slideshowpath))">Skin.SetPath(home.slideshowpath)</onclick>
+                        <onclick condition="!IsEmpty(Skin.String(home.slideshowpath))">Skin.Reset(home.dontshowfanart)</onclick>
+                        <onclick condition="!IsEmpty(Skin.String(home.slideshowpath))">Skin.Reset(home.slideshowpath)</onclick>
                     </control>
                     
                     <control type="button" id="9246" description="Custom Widget 1">

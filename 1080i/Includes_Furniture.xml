@@ -101,6 +101,7 @@
         <value>star0</value>
     </variable>
     
+    
     <!-- MusicFlags -->
     <variable name="MusicFlagstar5">
         <value condition="StringCompare(ListItem.StarRating,rating5.png)">star10</value>
@@ -632,7 +633,7 @@
             
         </control>
     </include>
-    
+
     <variable name="HeaderIcon">
           <value condition="Window.IsVisible(DialogMuteBug.xml)">special://skin/extras/icons/mute.png</value>
           <value condition="Window.IsVisible(DialogButtonMenu.xml)">special://skin/extras/icons/power.png</value>
@@ -753,8 +754,7 @@
             <top>SidePad</top>
             <left>SidePad</left>
             <visible>!Skin.HasSetting(furniture.header)</visible>
-            <include condition="!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">Animation.FadeIn</include>
-            <include condition="!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">Animation.FadeOut</include>
+            <include>Animation.FurnitureFadeInOut</include>
             <orientation>horizontal</orientation>
             <itemgap>24</itemgap>
             <control type="group" description="iconbox">
@@ -822,8 +822,7 @@
     <include name="HeaderLabelWidthLogo"><width>560</width></include>
     <include name="Furniture_Clock">
         <control type="group">
-            <include condition="!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">Animation.FadeIn</include>
-            <include condition="!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">Animation.FadeOut</include>
+            <include>Animation.FurnitureFadeInOut</include>
             <centerbottom>NavBarPad</centerbottom>
             <visible>!Skin.HasSetting(furniture.clock)</visible>
             <height>84</height>
@@ -877,8 +876,7 @@
             <visible>!Window.IsVisible(DialogVolumeBar.xml)</visible>
             <visible>!Window.IsVisible(DialogKaiToast.xml)</visible>
             <visible>!Window.IsVisible(DialogExtendedProgressBar.xml)</visible>
-            <include>Animation.FadeIn</include>
-            <include>Animation.FadeOut</include>
+            <include>Animation.FurnitureFadeInOut</include>
             <visible>IsEmpty(Window(10025).Property(TvTunesIsAlive))</visible>
             <visible>!Window.IsActive(DialogKaiToast.xml)</visible>
             <visible>Player.HasMedia</visible>

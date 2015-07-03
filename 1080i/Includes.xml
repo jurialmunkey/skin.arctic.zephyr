@@ -163,13 +163,13 @@
         <include>GlobalVisualisation</include>
         <control type="image" description="Background">
             <include>Dimensions_Fullscreen</include>
-            <include>Animation.FadeFromHome</include>
+            <include condition="!Skin.HasSetting(home.vertical)">Animation.FadeFromHome</include>
             <texture colordiffuse="Background">common/bg.jpg</texture>
-            <visible>!Window.IsVisible(home)</visible>
+            <visible>!Window.IsVisible(home) | Skin.HasSetting(home.vertical)</visible>
             <animation effect="fade" start="100" end="75" time="200" condition="Player.HasVideo + Skin.HasSetting(global.showvideo) | Player.HasAudio + Skin.HasSetting(global.showvisualisation)">Conditional</animation>
         </control>
         <control type="multiimage" description="Fanart">
-            <include condition="!Window.IsVisible(home)">GlobalBackgroundFade</include>
+            <include condition="!Window.IsVisible(home) | Skin.HasSetting(home.vertical)">GlobalBackgroundFade</include>
             <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio]</visible>
             <visible>!Skin.HasSetting(global.hidefanart) | Window.IsVisible(home)</visible>
             <include>Dimensions_Fullscreen</include>
@@ -185,8 +185,8 @@
         </control>
         <control type="image" description="FanartOverlay">
             <include>Dimensions_Fullscreen</include>
-            <visible>!Window.IsVisible(home)</visible>
-            <include>Animation.FadeFromHome</include>
+            <visible>!Window.IsVisible(home) | Skin.HasSetting(home.vertical)</visible>
+            <include condition="!Skin.HasSetting(home.vertical)">Animation.FadeFromHome</include>
             <texture colordiffuse="FloorFade">common/floor.png</texture>
         </control>
         
@@ -194,14 +194,14 @@
     <include name="GlobalBackgroundExtended">
         <control type="image" description="Background">
             <include>Dimensions_Fullscreen</include>
-            <include>Animation.FadeFromHome</include>
+            <include condition="!Skin.HasSetting(home.vertical)">Animation.FadeFromHome</include>
             <texture colordiffuse="Background">common/bg.jpg</texture>
         </control>
         <control type="multiimage" description="Fanart">
             <include>GlobalBackgroundFade</include>
             <visible>!Skin.HasSetting(global.hidefanart)</visible>
             <include>Dimensions_Fullscreen</include>
-            <include>Animation.FadeFromHome</include>
+            <include condition="!Skin.HasSetting(home.vertical)">Animation.FadeFromHome</include>
             <fadetime>600</fadetime>
             <timeperimage>12000</timeperimage>
             <randomize>true</randomize>
@@ -212,7 +212,7 @@
         </control>
         <control type="image" description="FanartOverlay">
             <include>Dimensions_Fullscreen</include>
-            <include>Animation.FadeFromHome</include>
+            <include condition="!Skin.HasSetting(home.vertical)">Animation.FadeFromHome</include>
             <texture colordiffuse="FloorFade">common/floor.png</texture>
         </control>
         
