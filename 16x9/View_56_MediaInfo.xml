@@ -57,11 +57,13 @@
 					<height>48</height>
 					<aspectratio>stretch</aspectratio>
 					<texture>diffuse/shadowspot.png</texture>
+					<visible>!Skin.Hassetting(views.cases)</visible>
 				</control>
 				<control type="image">
 					<width>PosterW</width>
 					<height>PosterH</height>
 					<texture border="5" colordiffuse="FF181818">common/box.png</texture>
+					<visible>!Skin.Hassetting(views.cases)</visible>
 				</control>
 				<control type="image">
 					<width>PosterW</width>
@@ -69,6 +71,46 @@
 					<fadetime>100</fadetime>
 					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
 					<texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
+					<visible>!Skin.Hassetting(views.cases)</visible>
+				</control>
+				<control type="image">
+					<left>11</left>
+					<top>11</top>
+					<width>411</width>
+					<height>627</height>
+					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<texture background="true" diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
+					<visible>Skin.Hassetting(views.cases) + !Skin.Hassetting(views.clearcases)</visible>
+				</control>
+				<control type="image">
+					<width>PosterW</width>
+					<height>PosterH</height>
+					<fadetime>100</fadetime>
+					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<texture background="true" diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
+					<visible>Skin.Hassetting(views.cases) + Skin.Hassetting(views.clearcases)</visible>
+				</control>
+				<control type="image">
+					<posx>-75</posx>
+					<posy>-50</posy>
+					<width>527</width>
+					<height>730</height>
+					<fadetime>100</fadetime>
+					<texture background="true">boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+					<bordersize>2</bordersize>
+					<visible>Skin.Hassetting(views.cases) + Skin.Hassetting(views.clearcases)</visible>
+				</control>
+				<control type="image">
+					<posx>-70</posx>
+					<posy>0</posy>
+					<width>527</width>
+					<height>680</height>
+					<fadetime>100</fadetime>
+					<texture background="true">boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+					<bordersize>2</bordersize>
+					<visible>Skin.Hassetting(views.cases) + !Skin.Hassetting(views.clearcases)</visible>
 				</control>
 				<control type="image">
 					<left>-24</left>
@@ -76,6 +118,7 @@
 					<width>PosterShadowW</width>
 					<height>PosterShadowH</height>
 					<texture border="32">common/shadow-24.png</texture>
+					<visible>!Skin.Hassetting(views.cases)</visible>
 				</control>
 			</control>
 			<control type="group" description="Plot et al">
@@ -168,11 +211,13 @@
 					<height>48</height>
 					<aspectratio>stretch</aspectratio>
 					<texture>diffuse/shadowspot.png</texture>
+					<visible>!Skin.Hassetting(views.cases)</visible>
 				</control>
 				<control type="image">
 					<width>PosterW</width>
 					<height>PosterH</height>
 					<texture border="5" colordiffuse="FF181818">common/box.png</texture>
+					<visible>!Skin.Hassetting(views.cases)</visible>
 				</control>
 				<control type="image">
 					<width>PosterW</width>
@@ -180,6 +225,46 @@
 					<fadetime>200</fadetime>
 					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
 					<texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
+					<visible>!Skin.Hassetting(views.cases)</visible>
+				</control>
+				<control type="image">
+					<left>11</left>
+					<top>11</top>
+					<width>411</width>
+					<height>627</height>
+					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<texture background="true" diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
+					<visible>Skin.Hassetting(views.cases) + !Skin.Hassetting(views.clearcases)</visible>
+				</control>
+				<control type="image">
+					<width>PosterW</width>
+					<height>PosterH</height>
+					<fadetime>200</fadetime>
+					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<texture background="true" diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
+					<visible>Skin.Hassetting(views.cases) + Skin.Hassetting(views.clearcases)</visible>
+				</control>
+				<control type="image">
+					<posx>-75</posx>
+					<posy>-50</posy>
+					<width>527</width>
+					<height>730</height>
+					<fadetime>200</fadetime>
+					<texture background="true">boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+					<bordersize>2</bordersize>
+					<visible>Skin.Hassetting(views.cases) + Skin.Hassetting(views.clearcases)</visible>
+				</control>
+				<control type="image">
+					<posx>-70</posx>
+					<posy>0</posy>
+					<width>527</width>
+					<height>680</height>
+					<fadetime>200</fadetime>
+					<texture background="true">boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+					<bordersize>2</bordersize>
+					<visible>Skin.Hassetting(views.cases) + !Skin.Hassetting(views.clearcases)</visible>
 				</control>
 				<control type="image">
 					<left>-24</left>
@@ -187,6 +272,7 @@
 					<width>PosterShadowW</width>
 					<height>PosterShadowH</height>
 					<texture border="32">common/shadow-24.png</texture>
+					<visible>!Skin.Hassetting(views.cases)</visible>
 				</control>
 			</control>
 			<control type="group">
@@ -327,11 +413,13 @@
 					<height>48</height>
 					<aspectratio>stretch</aspectratio>
 					<texture>diffuse/shadowspot.png</texture>
+					<visible>!Skin.Hassetting(views.cases)</visible>
 				</control>
 				<control type="image">
 					<width>PosterW</width>
 					<height>PosterH</height>
 					<texture border="5" colordiffuse="FF181818">common/box.png</texture>
+					<visible>!Skin.Hassetting(views.cases)</visible>
 				</control>
 				<control type="image">
 					<width>PosterW</width>
@@ -339,6 +427,46 @@
 					<fadetime>200</fadetime>
 					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
 					<texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
+					<visible>!Skin.Hassetting(views.cases)</visible>
+				</control>
+				<control type="image">
+					<left>11</left>
+					<top>11</top>
+					<width>411</width>
+					<height>627</height>
+					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<texture background="true" diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
+					<visible>Skin.Hassetting(views.cases) + !Skin.Hassetting(views.clearcases)</visible>
+				</control>
+				<control type="image">
+					<width>PosterW</width>
+					<height>PosterH</height>
+					<fadetime>200</fadetime>
+					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<texture background="true" diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
+					<visible>Skin.Hassetting(views.cases) + Skin.Hassetting(views.clearcases)</visible>
+				</control>
+				<control type="image">
+					<posx>-75</posx>
+					<posy>-50</posy>
+					<width>527</width>
+					<height>730</height>
+					<fadetime>200</fadetime>
+					<texture background="true">boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+					<bordersize>2</bordersize>
+					<visible>Skin.Hassetting(views.cases) + Skin.Hassetting(views.clearcases)</visible>
+				</control>
+				<control type="image">
+					<posx>-70</posx>
+					<posy>0</posy>
+					<width>527</width>
+					<height>680</height>
+					<fadetime>200</fadetime>
+					<texture background="true">boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+					<bordersize>2</bordersize>
+					<visible>Skin.Hassetting(views.cases) + !Skin.Hassetting(views.clearcases)</visible>
 				</control>
 				<control type="image">
 					<left>-24</left>
@@ -346,6 +474,7 @@
 					<width>PosterShadowW</width>
 					<height>PosterShadowH</height>
 					<texture border="32">common/shadow-24.png</texture>
+					<visible>!Skin.Hassetting(views.cases)</visible>
 				</control>
 			</control>
 			<control type="group">

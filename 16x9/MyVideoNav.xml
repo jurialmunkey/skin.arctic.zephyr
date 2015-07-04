@@ -214,6 +214,47 @@
 					<visible>Control.IsVisible(513) | Control.IsVisible(514)</visible>
 					<visible>Skin.HasSetting(views.discart)</visible>
 				</control>
+				<control type="radiobutton" id="9018" description="Cases (513,514,50,53,56)">
+					<include>DefContextButton</include>
+					<align>left</align>
+					<label>Use Cases</label>
+					<selected>Skin.HasSetting(views.cases)</selected>
+					<onclick>Skin.ToggleSetting(views.cases)</onclick>
+					<visible>Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(50) | Control.IsVisible(53) | Control.IsVisible(56)</visible>
+				</control>
+				<control type="radiobutton" id="9019" description="Clear Cases (513,514,50,53,56)">
+					<include>DefContextButton</include>
+					<align>left</align>
+					<label> - Clear Cases</label>
+					<selected>Skin.HasSetting(views.clearcases)</selected>
+					<onclick>Skin.Reset(views.bddvdcases)</onclick>
+					<onclick>Skin.Reset(views.colourcases)</onclick>
+					<onclick>Skin.ToggleSetting(views.clearcases)</onclick>
+					<visible>Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(50) | Control.IsVisible(53) | Control.IsVisible(56)</visible>
+					<visible>Skin.HasSetting(views.cases)</visible>
+				</control>
+				<control type="radiobutton" id="9020" description="Colour Cases (513,514,50,53,56)">
+					<include>DefContextButton</include>
+					<align>left</align>
+					<label> - Colour Cases</label>
+					<selected>Skin.HasSetting(views.colourcases)</selected>
+					<onclick>Skin.Reset(views.bddvdcases)</onclick>
+					<onclick>Skin.Reset(views.clearcases)</onclick>
+					<onclick>Skin.ToggleSetting(views.colourcases)</onclick>
+					<visible>Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(50) | Control.IsVisible(53) | Control.IsVisible(56)</visible>
+					<visible>Skin.HasSetting(views.cases)</visible>
+				</control>
+				<control type="radiobutton" id="9021" description="BD/DVD Cases (513,514,50,53,56)">
+					<include>DefContextButton</include>
+					<align>left</align>
+					<label> - BD/DVD Cases</label>
+					<selected>Skin.HasSetting(views.bddvdcases)</selected>
+					<onclick>Skin.Reset(views.colourcases)</onclick>
+					<onclick>Skin.Reset(views.clearcases)</onclick>
+					<onclick>Skin.ToggleSetting(views.bddvdcases)</onclick>
+					<visible>Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(50) | Control.IsVisible(53) | Control.IsVisible(56)</visible>
+					<visible>Skin.HasSetting(views.cases)</visible>
+				</control>
 				<!-- Other Options -->
 				<control type="radiobutton" id="14">
 					<description>Hide watched</description>

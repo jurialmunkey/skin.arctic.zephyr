@@ -383,6 +383,39 @@
 									<texture background="true" diffuse="diffuse/listposter.png" fallback="DefaultVideo.png">$VAR[ShowcaseItem0Var]</texture>
 									<bordersize>20</bordersize>
 									<fadetime>0</fadetime>
+									<visible>!Skin.Hassetting(views.cases)</visible>
+								</control>
+								<control type="image">
+									<posx>65</posx>
+									<posy>54</posy>
+									<width>450</width>
+									<height>663</height>
+									<aspectratio scalediffuse="false">scale</aspectratio>
+									<texture background="true">$VAR[ShowcaseItem0Var]</texture>
+									<bordersize>20</bordersize>
+									<fadetime>0</fadetime>
+									<visible>Skin.Hassetting(views.cases) + !Skin.Hassetting(views.clearcases)</visible>
+								</control>
+								<control type="image">
+									<posx>54</posx>
+									<posy>42</posy>
+									<width>466</width>
+									<height>676</height>
+									<aspectratio scalediffuse="false">scale</aspectratio>
+									<texture background="true" diffuse="diffuse/listposter.png" fallback="DefaultVideo.png">$VAR[ShowcaseItem0Var]</texture>
+									<bordersize>20</bordersize>
+									<fadetime>0</fadetime>
+									<visible>Skin.Hassetting(views.cases) + Skin.Hassetting(views.clearcases)</visible>
+								</control>
+								<control type="image">
+									<posx>4</posx>
+									<posy>12</posy>
+									<width>516</width>
+									<height>726</height>
+									<texture background="true">boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+									<aspectratio align="center" aligny="top">keep</aspectratio>
+									<bordersize>2</bordersize>
+									<visible>Skin.Hassetting(views.cases)</visible>
 								</control>
 								<control type="image">
 									<posx>74</posx>
@@ -733,6 +766,39 @@
 									<texture background="true" diffuse="diffuse/listposter.png" fallback="DefaultVideo.png">$VAR[ShowcaseItem0Var]</texture>
 									<bordersize>20</bordersize>
 									<fadetime>0</fadetime>
+									<visible>!Skin.Hassetting(views.cases)</visible>
+								</control>
+								<control type="image">
+									<posx>59</posx>
+									<posy>48</posy>
+									<width>416</width>
+									<height>613</height>
+									<aspectratio scalediffuse="false">scale</aspectratio>
+									<texture background="true">$VAR[ShowcaseItem0Var]</texture>
+									<bordersize>20</bordersize>
+									<fadetime>0</fadetime>
+									<visible>Skin.Hassetting(views.cases) + !Skin.Hassetting(views.clearcases)</visible>
+								</control>
+								<control type="image">
+									<posx>48</posx>
+									<posy>37</posy>
+									<width>432</width>
+									<height>626</height>
+									<aspectratio scalediffuse="false">scale</aspectratio>
+									<texture background="true" diffuse="diffuse/listposter.png" fallback="DefaultVideo.png">$VAR[ShowcaseItem0Var]</texture>
+									<bordersize>20</bordersize>
+									<fadetime>0</fadetime>
+									<visible>Skin.Hassetting(views.cases) + Skin.Hassetting(views.clearcases)</visible>
+								</control>
+								<control type="image">
+									<posx>-2</posx>
+									<posy>7</posy>
+									<width>482</width>
+									<height>676</height>
+									<texture background="true">boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+									<aspectratio align="center" aligny="top">keep</aspectratio>
+									<bordersize>2</bordersize>
+									<visible>Skin.Hassetting(views.cases)</visible>
 								</control>
 								<control type="image">
 									<posx>68</posx>
@@ -748,7 +814,6 @@
 									<posy>59</posy>
 									<width>40</width>
 									<height>40</height>
-									>
 									<texture>$VAR[IconOverlay0Var]</texture>
 								</control>
 							</control>
@@ -1103,9 +1168,66 @@
 									<texture background="true">$INFO[ListItem.Art(discart)]</texture>
 									<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
 									<animation effect="slide" start="0,200" end="0" tween="cubic" easing="inout" time="1200" delay="1800" condition="!IsEmpty(ListItem.Art(discart))">Conditional</animation>
-									<animation effect="rotate" end="-360" center="auto" time="20000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
+									<animation effect="rotate" end="-360" center="auto" time="12000" loop="true" reversible="false" condition="Skin.HasSetting(AnimateDiscArt)">Conditional</animation>
 									<visible>!IsEmpty(ListItem.Art(discart))</visible>
 									<visible>Skin.HasSetting(views.discart)</visible>
+								</control>
+								<control type="image">
+									<width>420</width>
+									<height>420</height>
+									<posx>80</posx>
+									<posy>-100</posy>
+									<texture diffuse="cdart/cdart-mask.png">$INFO[ListItem.Art(poster)]</texture>
+									<aspectratio aligny="center">keep</aspectratio>
+									<visible>Skin.HasSetting(views.discart)</visible>
+									<visible>container.content(movies) + IsEmpty(ListItem.Art(discart))</visible>
+								</control>
+								<control type="image">
+									<width>420</width>
+									<height>420</height>
+									<posx>80</posx>
+									<posy>-100</posy>
+									<texture>$VAR[FakeDiscArtOverlay]</texture>
+									<aspectratio aligny="center">keep</aspectratio>
+									<visible>Skin.HasSetting(views.discart)</visible>
+									<visible>container.content(movies) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster))</visible>
+								</control>
+								<control type="image">
+									<width>420</width>
+									<height>420</height>
+									<posx>80</posx>
+									<posy>-100</posy>
+									<texture>$VAR[FakeDischandcolor]</texture>
+									<aspectratio aligny="center">keep</aspectratio>
+									<visible>Skin.HasSetting(views.discart)</visible>
+									<visible>container.content(movies) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster))</visible>
+								</control>
+								<control type="textbox">
+									<posx>130</posx>
+									<posy>-10</posy>
+									<width>320</width>
+									<height>320</height>
+									<font>Hand_32</font>
+									<align>center</align>
+									<aligny>top</aligny>
+									<visible>Skin.HasSetting(views.discart)</visible>
+									<visible>container.content(movies) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Art(clearlogo))</visible>
+									<label> $INFO[ListItem.Label]</label>
+									<textcolor>Black</textcolor>
+								</control>
+								<control type="group">
+									<visible>Skin.HasSetting(views.discart)</visible>
+									<visible>container.content(movies) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + !IsEmpty(ListItem.Art(clearlogo))</visible>
+									<control type="image">
+										<posx>150</posx>
+										<posy>-40</posy>
+										<width>266</width>
+										<height>80</height>
+										<align>center</align>
+										<aligny>center</aligny>
+										<aspectratio aligny="bottom">keep</aspectratio>
+										<texture background="true" fallback="empty.png">$INFO[ListItem.Art(clearlogo)]</texture>
+									</control>
 								</control>
 								<control type="image">
 									<posx>54</posx>
@@ -1115,6 +1237,48 @@
 									<aspectratio scalediffuse="false">scale</aspectratio>
 									<texture background="true" diffuse="diffuse/listposter.png" fallback="DefaultVideo.png">$VAR[ShowcaseItem0Var]</texture>
 									<bordersize>20</bordersize>
+									<fadetime>0</fadetime>
+									<visible>!Skin.Hassetting(views.cases)</visible>
+								</control>
+								<control type="image">
+									<posx>65</posx>
+									<posy>54</posy>
+									<width>450</width>
+									<height>663</height>
+									<aspectratio scalediffuse="false">scale</aspectratio>
+									<texture background="true">$VAR[ShowcaseItem0Var]</texture>
+									<bordersize>20</bordersize>
+									<fadetime>0</fadetime>
+									<visible>Skin.Hassetting(views.cases) + !Skin.Hassetting(views.clearcases)</visible>
+								</control>
+								<control type="image">
+									<posx>54</posx>
+									<posy>42</posy>
+									<width>466</width>
+									<height>676</height>
+									<aspectratio scalediffuse="false">scale</aspectratio>
+									<texture background="true" diffuse="diffuse/listposter.png" fallback="DefaultVideo.png">$VAR[ShowcaseItem0Var]</texture>
+									<bordersize>20</bordersize>
+									<fadetime>0</fadetime>
+									<visible>Skin.Hassetting(views.cases) + Skin.Hassetting(views.clearcases)</visible>
+								</control>
+								<control type="image">
+									<posx>4</posx>
+									<posy>12</posy>
+									<width>516</width>
+									<height>726</height>
+									<texture background="true">boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+									<aspectratio align="center" aligny="top">keep</aspectratio>
+									<bordersize>2</bordersize>
+									<visible>Skin.Hassetting(views.cases)</visible>
+								</control>
+								<control type="image">
+									<posx>74</posx>
+									<posy>698</posy>
+									<width>426</width>
+									<height>636</height>
+									<aspectratio aligny="top" align="right" scalediffuse="false">stretch</aspectratio>
+									<texture background="true" flipy="true" diffuse="diffuse/listposter-ref.png" fallback="DefaultVideo.png">$VAR[ShowcaseItem0Var]</texture>
 									<fadetime>0</fadetime>
 								</control>
 								<control type="image">

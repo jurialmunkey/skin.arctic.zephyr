@@ -66,11 +66,9 @@
 				<visible>Control.HasFocus(5000)</visible>
 			</control>
 			<!-- video backdrops -->
-			
 			<control type="videowindow">
 				<include>Dimensions_Fullscreen</include>
 				<visible>Player.HasVideo + SubString(Window(10025).Property(PlayingBackgroundMedia),True)</visible>
-				
 			</control>
 			<control type="image" description="Background">
 				<include>Dimensions_Fullscreen</include>
@@ -161,7 +159,7 @@
 					<top>640</top>
 					<width>320</width>
 					<height>320</height>
-					<texture>$VAR[CDArt]</texture>
+					<texture>$INFO[ListItem.Art(discart)]</texture>
 					<aspectratio aligny="center">keep</aspectratio>
 					<visible>!Skin.HasSetting(furniture.nodiscart)</visible>
 					<animation type="WindowOpen" reversible="false" condition="container.content(movies)">
@@ -171,7 +169,141 @@
 					<animation type="WindowClose" reversible="false" condition="container.content(movies)">
 						<effect type="slide" start="20,0" end="-400,0" time="320" tween="quadratic" easing="out" />
 					</animation>
-					<visible>container.content(movies)</visible>
+					<visible>container.content(movies) + !IsEmpty(ListItem.Art(discart))</visible>
+				</control>
+				<control type="image">
+					<top>640</top>
+					<width>320</width>
+					<height>320</height>
+					<texture diffuse="cdart/cdart-mask.png">$INFO[ListItem.Art(poster)]</texture>
+					<aspectratio aligny="center">keep</aspectratio>
+					<visible>!Skin.HasSetting(furniture.nodiscart)</visible>
+					<animation type="WindowOpen" reversible="false" condition="container.content(movies)">
+						<effect type="slide" start="-200,20" end="0,0" delay="600" time="800" tween="quadratic" easing="out" />
+						<effect type="rotate" start="0" center="auto" end="-720" delay="400" time="800" tween="quadratic" easing="out" />
+					</animation>
+					<animation type="WindowClose" reversible="false" condition="container.content(movies)">
+						<effect type="slide" start="20,0" end="-400,0" time="320" tween="quadratic" easing="out" />
+					</animation>
+					<visible>container.content(movies) + IsEmpty(ListItem.Art(discart))</visible>
+				</control>
+				<control type="image">
+					<top>640</top>
+					<width>320</width>
+					<height>320</height>
+					<texture>$VAR[FakeDiscArtOverlay]</texture>
+					<aspectratio aligny="center">keep</aspectratio>
+					<visible>!Skin.HasSetting(furniture.nodiscart)</visible>
+					<animation type="WindowOpen" reversible="false" condition="container.content(movies)">
+						<effect type="slide" start="-200,20" end="0,0" delay="600" time="800" tween="quadratic" easing="out" />
+						<effect type="rotate" start="0" center="auto" end="-720" delay="400" time="800" tween="quadratic" easing="out" />
+					</animation>
+					<animation type="WindowClose" reversible="false" condition="container.content(movies)">
+						<effect type="slide" start="20,0" end="-400,0" time="320" tween="quadratic" easing="out" />
+					</animation>
+					<visible>container.content(movies) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster))</visible>
+				</control>
+				<control type="image">
+					<top>640</top>
+					<width>320</width>
+					<height>320</height>
+					<texture>$VAR[FakeDischandcolor]</texture>
+					<aspectratio aligny="center">keep</aspectratio>
+					<visible>!Skin.HasSetting(furniture.nodiscart)</visible>
+					<animation type="WindowOpen" reversible="false" condition="container.content(movies)">
+						<effect type="slide" start="-200,20" end="0,0" delay="600" time="800" tween="quadratic" easing="out" />
+						<effect type="rotate" start="0" center="auto" end="-720" delay="400" time="800" tween="quadratic" easing="out" />
+					</animation>
+					<animation type="WindowClose" reversible="false" condition="container.content(movies)">
+						<effect type="slide" start="20,0" end="-400,0" time="320" tween="quadratic" easing="out" />
+					</animation>
+					<visible>container.content(movies) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster))</visible>
+				</control>
+				<control type="textbox">
+					<left>50</left>
+					<top>690</top>
+					<width>220</width>
+					<height>220</height>
+					<font>Hand_32</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<visible>!Skin.HasSetting(furniture.nodiscart)</visible>
+					<visible>container.content(movies) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Art(clearlogo))</visible>
+					<label> $INFO[ListItem.Label]</label>
+					<textcolor>Black</textcolor>
+					<animation type="WindowOpen" reversible="false" condition="container.content(movies)">
+						<effect type="slide" start="-200,20" end="0,0" delay="600" time="800" tween="quadratic" easing="out" />
+						<effect type="rotate" start="0" center="auto" end="-720" delay="400" time="800" tween="quadratic" easing="out" />
+					</animation>
+					<animation type="WindowClose" reversible="false" condition="container.content(movies)">
+						<effect type="slide" start="20,0" end="-400,0" time="320" tween="quadratic" easing="out" />
+					</animation>
+				</control>
+				<control type="textbox">
+					<left>50</left>
+					<top>660</top>
+					<width>220</width>
+					<height>320</height>
+					<font>Hand_28</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<visible>!Skin.HasSetting(furniture.nodiscart)</visible>
+					<visible>container.content(movies) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.Art(clearlogo))</visible>
+					<label>[CR][CR][CR][CR][CR][CR] $INFO[ListItem.Year] - $VAR[Duration]</label>
+					<textcolor>Black</textcolor>
+					<animation type="WindowOpen" reversible="false" condition="container.content(movies)">
+						<effect type="slide" start="-200,20" end="0,0" delay="600" time="800" tween="quadratic" easing="out" />
+						<effect type="rotate" start="0" center="auto" end="-720" delay="400" time="800" tween="quadratic" easing="out" />
+					</animation>
+					<animation type="WindowClose" reversible="false" condition="container.content(movies)">
+						<effect type="slide" start="20,0" end="-400,0" time="320" tween="quadratic" easing="out" />
+					</animation>
+				</control>
+				<control type="group">
+					<visible>!Skin.HasSetting(furniture.nodiscart)</visible>
+					<visible>container.content(movies) + IsEmpty(ListItem.Art(discart)) + !IsEmpty(ListItem.Art(poster)) + !IsEmpty(ListItem.Art(clearlogo))</visible>
+					<animation type="WindowOpen" reversible="false" condition="container.content(movies)">
+						<effect type="slide" start="-200,20" end="0,0" delay="600" time="800" tween="quadratic" easing="out" />
+						<effect type="rotate" start="0" center="auto" end="-720" delay="400" time="800" tween="quadratic" easing="out" />
+					</animation>
+					<animation type="WindowClose" reversible="false" condition="container.content(movies)">
+						<effect type="slide" start="20,0" end="-400,0" time="320" tween="quadratic" easing="out" />
+					</animation>
+					<control type="image">
+						<left>70</left>
+						<top>680</top>
+						<width>186</width>
+						<height>70</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<animation type="WindowOpen" reversible="false" condition="container.content(movies)">
+							<effect type="slide" start="-200,20" end="0,0" delay="600" time="800" tween="quadratic" easing="out" />
+							<effect type="rotate" start="0" center="auto" end="-720" delay="400" time="800" tween="quadratic" easing="out" />
+						</animation>
+						<animation type="WindowClose" reversible="false" condition="container.content(movies)">
+							<effect type="slide" start="20,0" end="-400,0" time="320" tween="quadratic" easing="out" />
+						</animation>
+						<texture background="true" fallback="empty.png">$INFO[ListItem.Art(clearlogo)]</texture>
+					</control>
+					<control type="textbox">
+						<left>50</left>
+						<top>660</top>
+						<width>220</width>
+						<height>320</height>
+						<font>Hand_28</font>
+						<align>center</align>
+						<aligny>top</aligny>
+						<label>[CR][CR][CR][CR][CR][CR] $INFO[ListItem.Year] - $VAR[Duration]</label>
+						<textcolor>Black</textcolor>
+						<animation type="WindowOpen" reversible="false" condition="container.content(movies)">
+							<effect type="slide" start="-200,20" end="0,0" delay="600" time="800" tween="quadratic" easing="out" />
+							<effect type="rotate" start="0" center="auto" end="-720" delay="400" time="800" tween="quadratic" easing="out" />
+						</animation>
+						<animation type="WindowClose" reversible="false" condition="container.content(movies)">
+							<effect type="slide" start="20,0" end="-400,0" time="320" tween="quadratic" easing="out" />
+						</animation>
+					</control>
 				</control>
 				<!-- Studio logo -->
 				<control type="image">

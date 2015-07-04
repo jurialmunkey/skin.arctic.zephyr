@@ -155,15 +155,15 @@
 		<include>GlobalVisualisation</include>
 		<control type="image" description="Background">
 			<include>Dimensions_Fullscreen</include>
-			<include>Animation.FadeFromHome</include>
+			<include condition="!Skin.HasSetting(home.vertical)">Animation.FadeFromHome</include>
 			<texture colordiffuse="Background">common/bg.jpg</texture>
-			<visible>!Window.IsVisible(home)</visible>
+			<visible>!Window.IsVisible(home) | Skin.HasSetting(home.vertical)</visible>
 			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
 			<visible>!Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<animation effect="fade" start="100" end="75" time="200" condition="Player.HasVideo + Skin.HasSetting(global.showvideo) | Player.HasAudio + Skin.HasSetting(global.showvisualisation)">Conditional</animation>
 		</control>
 		<control type="multiimage" description="Fanart">
-			<include condition="!Window.IsVisible(home)">GlobalBackgroundFade</include>
+			<include condition="!Window.IsVisible(home) | Skin.HasSetting(home.vertical)">GlobalBackgroundFade</include>
 			<visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio]</visible>
 			<visible>!Skin.HasSetting(global.hidefanart) | Window.IsVisible(home)</visible>
 			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
@@ -181,8 +181,8 @@
 		</control>
 		<control type="image" description="FanartOverlay">
 			<include>Dimensions_Fullscreen</include>
-			<visible>!Window.IsVisible(home)</visible>
-			<include>Animation.FadeFromHome</include>
+			<visible>!Window.IsVisible(home) | Skin.HasSetting(home.vertical)</visible>
+			<include condition="!Skin.HasSetting(home.vertical)">Animation.FadeFromHome</include>
 			<texture colordiffuse="FloorFade">common/floor.png</texture>
 			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
 			<visible>!Window.IsVisible(DialogAlbumInfo.xml)</visible>
@@ -245,7 +245,6 @@
 			<include>Animation_FanartFade</include>
 			<texture>backgrounds/black_content2.png</texture>
 		</control>
-	
 	</include>
 	<!-- No textures -->
 	<include name="NoTextures">

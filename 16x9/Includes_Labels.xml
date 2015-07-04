@@ -612,4 +612,9 @@
         <value condition="Control.IsVisible(50)">$INFO[ListItem.Title,, $LOCALIZE[206]]</value>
         <value condition="!IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>
     </variable>
+    <variable name="LabelHomeWidgetStyle">
+        <value condition="!Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.vertical)">$LOCALIZE[31248]</value>
+        <value condition="!Skin.HasSetting(home.classicwidgets) + Skin.HasSetting(home.vertical)">$LOCALIZE[31250]</value>
+        <value condition="Skin.HasSetting(home.classicwidgets)">$LOCALIZE[31249]</value>
+    </variable>
 </includes>

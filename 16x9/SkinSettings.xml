@@ -120,6 +120,19 @@
 						<label>31132</label>
 						<onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
 					</control>
+					<control type="button" id="9214" description="Home Style">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9101)</visible>
+						<include>DefSettingsButton</include>
+						<label>31247</label>
+						<label2>$VAR[LabelHomeWidgetStyle]</label2>
+						<onclick condition="Skin.HasSetting(home.classicwidgets)">Skin.SetBool(home.vertical)</onclick>
+						<onclick condition="Skin.HasSetting(home.classicwidgets)">Skin.Reset(home.classicwidgets)</onclick>
+						<onclick condition="Skin.HasSetting(home.vertical)">Skin.Reset(home.classicwidgets)</onclick>
+						<onclick condition="Skin.HasSetting(home.vertical)">Skin.Reset(home.vertical)</onclick>
+						<onclick condition="!Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.classicwidgets)">Skin.Reset(home.vertical)</onclick>
+						<onclick condition="!Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.classicwidgets)">Skin.SetBool(home.classicwidgets)</onclick>
+					</control>
 					<control type="radiobutton" id="9213" description="Show Header">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9101)</visible>
@@ -433,7 +446,14 @@
 						<include>DefSettingsButton</include>
 						<label>$LOCALIZE[31753]</label>
 						<label2 fallback="UK">$VAR[MovieMPAALangLabel]</label2>
-						<onclick>ActivateWindow(3006)</onclick>
+						<onclick>SetProperty(Dialog.NumItems,3)</onclick>
+						<onclick>SetProperty(Dialog.1.Label,Default - UK)</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(RatingCountry,UK))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,US)</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(RatingCountry,US))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,Germany)</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(RatingCountry,Germany))</onclick>
+						<onclick>RunScript(script.toolbox,info=selectdialog,header=Select Rating Country)</onclick>
 						<visible>ControlGroup(9100).HasFocus(9106)</visible>
 					</control>
 					<control type="radiobutton" id="9266" description="Numeric Rating">
@@ -553,6 +573,20 @@
 						<onclick>Skin.ToggleSetting(NextAired.Update)</onclick>
 						<enable>System.HasAddon(script.tv.show.next.aired)</enable>
 					</control>
+					<control type="button" id="9278" description="export skin settings">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9107)</visible>
+						<include>DefSettingsButton</include>
+						<label>Export skin settings</label>
+						<onclick>RunScript(script.toolbox,info=exportskinsettings)</onclick>
+					</control>
+					<control type="button" id="9279" description="import skin settings">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9107)</visible>
+						<include>DefSettingsButton</include>
+						<label>Import skin settings</label>
+						<onclick>RunScript(script.toolbox,info=importskinsettings)</onclick>
+					</control>
 					<!-- Colours -->
 					<control type="radiobutton" id="9281">
 						<width>1310</width>
@@ -567,7 +601,7 @@
 						<width>1310</width>
 						<include>DefSettingsButton</include>
 						<onclick>RunScript(script.arctic.zephyr.helper,COLORPICKER,focuscolor.name)</onclick>
-						<label>  - Set main highlight colour</label>
+						<label> - Set main highlight colour</label>
 						<label2>[COLOR=$VAR[ColourHighlight]]$INFO[Skin.String(focuscolor.name)][/COLOR]</label2>
 						<visible>Skin.HasSetting(ColourHighlight)</visible>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
@@ -576,7 +610,7 @@
 						<width>1310</width>
 						<include>DefSettingsButton</include>
 						<onclick>Skin.SetString(focuscolor.name,Highlight)</onclick>
-						<label>  - $LOCALIZE[409]</label>
+						<label> - $LOCALIZE[409]</label>
 						<visible>Skin.HasSetting(ColourHighlight)</visible>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
 					</control>
@@ -593,7 +627,7 @@
 						<width>1310</width>
 						<include>DefSettingsButton</include>
 						<onclick>RunScript(script.arctic.zephyr.helper,COLORPICKER,focuscolor2.name)</onclick>
-						<label>  - Set second highlight colour</label>
+						<label> - Set second highlight colour</label>
 						<label2>[COLOR=$VAR[ColourHighlight2]]$INFO[Skin.String(focuscolor2.name)][/COLOR]</label2>
 						<visible>Skin.HasSetting(ColourHighlight2)</visible>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
@@ -602,7 +636,7 @@
 						<width>1310</width>
 						<include>DefSettingsButton</include>
 						<onclick>Skin.SetString(focuscolor2.name,Highlight2)</onclick>
-						<label>  - $LOCALIZE[409]</label>
+						<label> - $LOCALIZE[409]</label>
 						<visible>Skin.HasSetting(ColourHighlight2)</visible>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
 					</control>
@@ -619,7 +653,7 @@
 						<width>1310</width>
 						<include>DefSettingsButton</include>
 						<onclick>RunScript(script.arctic.zephyr.helper,COLORPICKER,selectedcolor.name)</onclick>
-						<label>  - Set selected colour</label>
+						<label> - Set selected colour</label>
 						<label2>[COLOR=$VAR[ColourSelected]]$INFO[Skin.String(selectedcolor.name)][/COLOR]</label2>
 						<visible>Skin.HasSetting(ColourSelected)</visible>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
@@ -628,7 +662,7 @@
 						<width>1310</width>
 						<include>DefSettingsButton</include>
 						<onclick>Skin.SetString(selectedcolor.name,Selected)</onclick>
-						<label>  - $LOCALIZE[409]</label>
+						<label> - $LOCALIZE[409]</label>
 						<visible>Skin.HasSetting(ColourSelected)</visible>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
 					</control>

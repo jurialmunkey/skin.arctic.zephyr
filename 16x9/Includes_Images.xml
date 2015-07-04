@@ -215,4 +215,48 @@
 		<value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 		<value>genrethumb/headphones.jpg</value>
 	</variable>
+	<variable name="FakeDiscArtOverlay">
+		<value condition="SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">common/discart/3d.png</value>
+		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">common/discart/3d.png</value>
+		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">common/discart/3d.png</value>
+		<value condition="SubString(ListItem.Filename, 3DBD.) | SubString(ListItem.Filename, 3dbd.)">common/discart/3d.png</value>
+		<value condition="SubString(ListItem.Filename,.HDTV.) | SubString(ListItem.Filename,.hdtv.)">common/discart/hdtv.png</value>
+		<value condition="SubString(ListItem.Filename, HDTV.) | SubString(ListItem.Filename, hdtv.)">common/discart/hdtv.png</value>
+		<value condition="SubString(ListItem.Filename,.HDDVD.) | SubString(ListItem.Filename,.hddvd)">common/discart/hddvd.png</value>
+		<value condition="SubString(ListItem.Filename, HDDVD.) | SubString(ListItem.Filename, hddvd.)">common/discart/hddvd.png</value>
+		<value condition="SubString(ListItem.Filename,.WEBDL.) | SubString(ListItem.Filename,.webdl.)">common/discart/webdl.png</value>
+		<value condition="SubString(ListItem.Filename, WEBDL.) | SubString(ListItem.Filename, webdl.)">common/discart/webdl.png</value>
+		<value condition="SubString(ListItem.Filename,.WEB-DL.) | SubString(ListItem.Filename,web-dl.)">common/discart/webdl.png</value>
+		<value condition="SubString(ListItem.Filename, WEB-DL.) | SubString(ListItem.Filename, web-dl.)">common/discart/webdl.png</value>
+		<value condition="SubString(ListItem.Filename,.4K.) | SubString(ListItem.Filename,.4k.)">common/discart/4k.png</value>
+		<value condition="SubString(ListItem.Filename, 4K.) | SubString(ListItem.Filename, 4k.)">common/discart/4k.png</value>
+		<value>common/discart/$INFO[ListItem.VideoResolution]p.png</value>
+	</variable>
+	<variable name="FakeDischandcolor">
+		<value condition="SubString(ListItem.Filename,.3D.) | SubString(ListItem.Filename,.3d.)">common/discart/3dhandcolor.png</value>
+		<value condition="SubString(ListItem.Filename, 3D.) | SubString(ListItem.Filename, 3d.)">common/discart/3dhandcolor.png</value>
+		<value condition="SubString(ListItem.Filename,.3DBD.) | SubString(ListItem.Filename,.3dbd.)">common/discart/3dhandcolor.png</value>
+		<value condition="SubString(ListItem.Filename, 3DBD.) | SubString(ListItem.Filename, 3dbd.)">common/discart/3dhandcolor.png</value>
+		<value condition="SubString(ListItem.Filename,.HDTV.) | SubString(ListItem.Filename,.hdtv.)">common/discart/hdtvhandcolor.png</value>
+		<value condition="SubString(ListItem.Filename, HDTV.) | SubString(ListItem.Filename, hdtv.)">common/discart/hdtvhandcolor.png</value>
+		<value condition="SubString(ListItem.Filename,.HDDVD.) | SubString(ListItem.Filename,.hddvd)">common/discart/hddvdhandcolor.png</value>
+		<value condition="SubString(ListItem.Filename, HDDVD.) | SubString(ListItem.Filename, hddvd.)">common/discart/hddvdhandcolor.png</value>
+		<value condition="SubString(ListItem.Filename,.WEBDL.) | SubString(ListItem.Filename,.webdl.)">common/discart/webdlhandcolor.png</value>
+		<value condition="SubString(ListItem.Filename, WEBDL.) | SubString(ListItem.Filename, webdl.)">common/discart/webdlhandcolor.png</value>
+		<value condition="SubString(ListItem.Filename,.WEB-DL.) | SubString(ListItem.Filename,web-dl.)">common/discart/webdlhandcolor.png</value>
+		<value condition="SubString(ListItem.Filename, WEB-DL.) | SubString(ListItem.Filename, web-dl.)">common/discart/webdlhandcolor.png</value>
+		<value condition="SubString(ListItem.Filename,.4K.) | SubString(ListItem.Filename,.4k.)">common/discart/4khandcolor.png</value>
+		<value condition="SubString(ListItem.Filename, 4K.) | SubString(ListItem.Filename, 4k.)">common/discart/4khandcolor.png</value>
+		<value>common/discart/$INFO[ListItem.VideoResolution]phandcolor.png</value>
+	</variable>
+	<variable name="ShowcaseCasePathVar">
+		<value condition="Skin.HasSetting(views.bddvdcases)">tvshows</value>
+		<value condition="Skin.HasSetting(views.colourcases)">colorcases</value>
+		<value>movies</value>
+	</variable>
+	<variable name="GlobalCaseVar">
+		<value condition="SubString(ListItem.Filename,.3D.)">3d.png</value>
+		<value condition="SubString(ListItem.Filename,hdtv)">hdtv.png</value>
+		<value>$INFO[ListItem.VideoResolution]p.png</value>
+	</variable>
 </includes>

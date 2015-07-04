@@ -62,9 +62,9 @@
 		<value condition="StringCompare(Container(300).ListItem.Property(widget),extendedinfo.engadget)">plugin://script.extendedinfo?info=youtubeusersearch&amp;&amp;id=Engadget</value>
 		<value condition="StringCompare(Container(300).ListItem.Property(widget),extendedinfo.mobiletechreview)">plugin://script.extendedinfo?info=youtubeusersearch&amp;&amp;id=MobileTechReview</value>
 		<!-- Background -->
-		<value condition="!IsEmpty(Container(300).ListItem.Property(Background))">$INFO[Container(300).ListItem.Property(Background)]</value>
+		<value condition="!Skin.HasSetting(home.vertical) + !IsEmpty(Container(300).ListItem.Property(Background))">$INFO[Container(300).ListItem.Property(Background)]</value>
 		<!-- Slideshow -->
-		<value condition="!IsEmpty(Skin.String(home.slideshowpath)) + IsEmpty(Container(300).ListItem.Property(widget))">$INFO[Skin.String(home.slideshowpath)]</value>
+		<value condition="!Skin.HasSetting(home.vertical) + !IsEmpty(Skin.String(home.slideshowpath)) + IsEmpty(Container(300).ListItem.Property(widget))">$INFO[Skin.String(home.slideshowpath)]</value>
 		<!-- Global Widget -->
 		<value condition="StringCompare(Window(home).Property(widget),Spotlight) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=recommendedepisodes+recommendedmovies+randommovies&amp;reload=$INFO[Window.Property(recommendedepisodes)]$INFO[Window.Property(recommendedmovies)]$INFO[Window.Property(randommovies)]</value>
 		<value condition="StringCompare(Window(home).Property(widget),RandomMovies) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window.Property(randommovies)]</value>
@@ -73,7 +73,7 @@
 		<value condition="StringCompare(Window(home).Property(widget),RecentMovies) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window.Property(recentmovies)]</value>
 		<value condition="StringCompare(Window(home).Property(widget),RecommendedEpisodes) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window.Property(recommendedepisodes)]</value>
 		<value condition="StringCompare(Window(home).Property(widget),RecommendedMovies) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window.Property(recommendedmovies)]</value>
-		<value condition="IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=recommendedepisodes+recommendedmovies+randommovies&amp;reload=$INFO[Window.Property(recommendedepisodes)]$INFO[Window.Property(recommendedmovies)]$INFO[Window.Property(randommovies)]</value>
+		<value condition="IsEmpty(Container(300).ListItem.Property(widget)) | Skin.HasSetting(home.vertical)">plugin://service.library.data.provider?type=recommendedepisodes+recommendedmovies+randommovies&amp;reload=$INFO[Window.Property(recommendedepisodes)]$INFO[Window.Property(recommendedmovies)]$INFO[Window.Property(randommovies)]</value>
 	</variable>
 	<include name="DefNextAiredWidget">
 		<item id="1">
@@ -688,11 +688,11 @@
 		<value condition="stringcompare(Window(1103).Property(content),2)">plugin://script.extendedinfo?info=similarmovies&amp;&amp;dbid=$INFO[Window(home).Property(ExtDBID)]</value>
 		<value>plugin://script.extendedinfo?info=directormovies&amp;&amp;director=$INFO[Window(home).Property(ExtDirector)]</value>
 	</variable>
-	 <variable name="DefDirectorInfoWindowContent">
-        <value condition="stringcompare(Window.Property(content),1)">plugin://script.extendedinfo?info=studio&amp;&amp;studio=$INFO[ListItem.Studio]</value>
-        <value condition="stringcompare(Window.Property(content),2)">plugin://script.extendedinfo?info=similarmovies&amp;&amp;dbid=$INFO[ListItem.DBID]</value>
-        <value>plugin://script.extendedinfo?info=directormovies&amp;&amp;director=$INFO[ListItem.Director]</value>
-    </variable>
+	<variable name="DefDirectorInfoWindowContent">
+		<value condition="stringcompare(Window.Property(content),1)">plugin://script.extendedinfo?info=studio&amp;&amp;studio=$INFO[ListItem.Studio]</value>
+		<value condition="stringcompare(Window.Property(content),2)">plugin://script.extendedinfo?info=similarmovies&amp;&amp;dbid=$INFO[ListItem.DBID]</value>
+		<value>plugin://script.extendedinfo?info=directormovies&amp;&amp;director=$INFO[ListItem.Director]</value>
+	</variable>
 	<variable name="DefMovieDBMoviesContent">
 		<value condition="stringcompare(Window(1104).Property(content),1)">plugin://script.extendedinfo?info=topratedmovies</value>
 		<value condition="stringcompare(Window(1104).Property(content),2)">plugin://script.extendedinfo?info=popularmovies</value>
@@ -705,16 +705,15 @@
 		<value condition="stringcompare(Window(1105).Property(content),3)">plugin://script.extendedinfo?info=onairtvshows</value>
 		<value>plugin://script.extendedinfo?info=airingtodaytvshows</value>
 	</variable>
-	
 	<include name="DefInfoButtons">
-        <font>Button</font>
-        <textcolor>Dark2</textcolor>
-        <width>313</width>
-        <height>68</height>
-        <onfocus>ClearProperty(content)</onfocus>
-        <texturenofocus colordiffuse="Dark4" border="5">common/box.png</texturenofocus>
-        <texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-        <alttexturenofocus colordiffuse="Dark4" border="5">common/box.png</alttexturenofocus>
-        <alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</alttexturefocus>
-    </include>
+		<font>Button</font>
+		<textcolor>Dark2</textcolor>
+		<width>313</width>
+		<height>68</height>
+		<onfocus>ClearProperty(content)</onfocus>
+		<texturenofocus colordiffuse="Dark4" border="5">common/box.png</texturenofocus>
+		<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+		<alttexturenofocus colordiffuse="Dark4" border="5">common/box.png</alttexturenofocus>
+		<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</alttexturefocus>
+	</include>
 </includes>
