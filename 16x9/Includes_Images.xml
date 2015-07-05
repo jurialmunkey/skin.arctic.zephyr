@@ -129,6 +129,10 @@
 		<value condition="!IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
 		<value condition="!IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
 	</variable>
+	<variable name="WidgetLogo">
+		<value condition="!IsEmpty(Container(301).ListItem.Art(tvshow.clearlogo))">$INFO[Container(301).ListItem.Art(tvshow.clearlogo)]</value>
+		<value condition="!IsEmpty(Container(301).ListItem.Art(clearlogo))">$INFO[Container(301).ListItem.Art(clearlogo)]</value>
+	</variable>
 	<variable name="MusicClearLogo">
 		<value condition="!IsEmpty(ListItem.AlbumArtist)">$INFO[Skin.String(cdartlocation)]$INFO[ListItem.AlbumArtist]/logo.png</value>
 		<value>$INFO[Skin.String(cdartlocation)]$INFO[ListItem.Artist]/logo.png</value>
