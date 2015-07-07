@@ -3,7 +3,7 @@
     <defaultcontrol always="true">500</defaultcontrol>
     <controls>
         <control type="group">
-            <animation type="Conditional" reversible="true" condition="Window.IsVisible(DialogSongInfo.xml) | Window.IsVisible(DialogPictureInfo.xml) | Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogProgress.xml) | Window.IsVisible(DialogYesNo.xml) | Window.IsVisible(DialogOK.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml) | ControlGroup(9000).HasFocus()">
+            <animation type="Conditional" reversible="true" condition="Window.IsVisible(DialogSongInfo.xml) | Window.IsVisible(DialogPictureInfo.xml) | Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogProgress.xml) | Window.IsVisible(DialogYesNo.xml) | Window.IsVisible(DialogOK.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml)">
                 <effect type="zoom" end="95" start="100" time="200" center="auto" tween="quadratic" easing="in" />
             </animation>
             <animation type="WindowOpen" reversible="false">
@@ -24,7 +24,9 @@
             </animation>
             <visible>!Window.IsVisible(script-globalsearch-main.xml) + !Window.IsVisible(script-globalsearch-infodialog.xml) + !Window.IsVisible(DialogAddonInfo.xml) + !Window.IsVisible(DialogPVRRecordingInfo.xml) + !Window.IsVisible(DialogPVRGuideInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml) + !Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
             <visible>Control.IsVisible(500)</visible>
-
+            <animation type="Conditional" reversible="true" condition="ControlGroup(9000).HasFocus()">
+                <effect type="slide" end="444" start="0" time="200" tween="quadratic"/>
+            </animation>
             <control type="panel" id="500">
                 <top>206</top>
                 <right>70</right>
@@ -122,6 +124,104 @@
                 <texturesliderbarfocus border="4" colordiffuse="Dark2">scrollbar/scrollv.png</texturesliderbarfocus>
                 <animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
             </control>
+            <control type="group">
+                <left>-374</left>
+                <top>PosterPad</top>
+                <width>444</width>
+                <height>640</height>
+                <include>Animation.FadeIn</include>
+                <include>Animation.FadeOut</include>
+                <visible allowhiddenfocus="true">ControlGroup(9000).HasFocus()</visible>
+            
+                <control type="grouplist" id="9000">
+                    <top>0</top>
+                    <bottom>0</bottom>
+                    <width>424</width>
+                    <left>10</left>
+                    <right>10</right>
+
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <onleft>500</onleft>
+                    <onright>500</onright>
+                    <onback>500</onback>
+                    <itemgap>0</itemgap>
+                    <control type="button" id="6000">
+                        <include>DefSideBrowserButton</include>
+                        <align>left</align>
+                        <label>19140</label>
+                    </control>
+                    <control type="button" id="7000">
+                        <include>DefSideBrowserButton</include>
+                        <align>left</align>
+                        <label>$ADDON[script.extendedinfo 32024]</label>
+                    </control>
+                    <control type="button" id="5007">
+                        <include>DefSideBrowserButton</include>
+                        <align>left</align>
+                        <label>$LOCALIZE[467]:</label>
+                        <label2>$INFO[Window.Property(Type)]</label2>
+                    </control>
+                    <control type="button" id="5001">
+                        <include>DefSideBrowserButton</include>
+                        <align>left</align>
+                        <label>$ADDON[script.extendedinfo 32104]</label>
+                        <label2>$INFO[Window.Property(Sort_Label)]</label2>
+                    </control>
+                    <control type="button" id="5004">
+                        <include>DefSideBrowserButton</include>
+                        <align>left</align>
+                        <label>$ADDON[script.extendedinfo 32128]</label>
+                        <label2>$INFO[Window.Property(Order_Label)]</label2>
+                    </control>
+                    <control type="label" id="5333">
+                        <textoffsetx>30</textoffsetx>
+                        <font>TinyBold</font>
+                        <include>DefSideBrowserButton</include>
+                        <align>left</align>
+                        <label>$ADDON[script.extendedinfo 32023]</label>
+                    </control>
+                    <control type="button" id="5002">
+                        <include>DefSideBrowserButton</include>
+                        <align>left</align>
+                        <label>$LOCALIZE[515]</label>
+                    </control>
+                    <control type="button" id="5003">
+                        <label>$LOCALIZE[172]</label>
+                        <include>DefSideBrowserButton</include>
+                        <align>left</align>
+                    </control>
+                    <control type="button" id="5006">
+                        <label>$ADDON[script.extendedinfo 32127]</label>
+                        <include>DefSideBrowserButton</include>
+                        <align>left</align>
+                    </control>
+                    <control type="button" id="5008">
+                        <label>$ADDON[script.extendedinfo 32126]</label>
+                        <include>DefSideBrowserButton</include>
+                        <align>left</align>
+                    </control>
+                    <control type="button" id="5009">
+                        <label>$ADDON[script.extendedinfo 32114]</label>
+                        <include>DefSideBrowserButton</include>
+                        <align>left</align>
+                    </control>
+                    <control type="button" id="5010">
+                        <label>$LOCALIZE[572]</label>
+                        <include>DefSideBrowserButton</include>
+                        <align>left</align>
+                    </control>
+                    <control type="button" id="5012">
+                        <label>$ADDON[script.extendedinfo 32111]</label>
+                        <include>DefSideBrowserButton</include>
+                        <align>left</align>
+                    </control>
+                    <control type="button" id="5005">
+                        <label>$ADDON[script.extendedinfo 32022]</label>
+                        <include>DefSideBrowserButton</include>
+                        <align>left</align>
+                    </control>
+                </control>
+            </control>
             
         </control> 
         <control type="button" id="600">
@@ -136,117 +236,6 @@
             <height>1</height>
             <posx>-1000</posx>
         </control>
-        <control type="group">
-            <include>Animation.FadeIn</include>
-            <include>Animation.FadeOut</include>
-            <visible>ControlGroup(9000).HasFocus()</visible>
-            <include>GlobalOverlay</include>
-        </control>
-        <control type="group">
-            <height>732</height>
-            <include>Def9000Background</include>
-            <control type="group">
-                <control type="image">
-                    <description>arrow image</description>
-                    <centerleft>50%</centerleft>
-                    <posy>-16</posy>
-                    <width>16</width>
-                    <height>16</height>
-                    <texture colordiffuse="White70" flipy="true">common/arrow-small.png</texture>
-                </control>
-                <control type="image">
-                    <description>arrow image</description>
-                    <centerleft>50%</centerleft>
-                    <posy>732</posy>
-                    <width>16</width>
-                    <height>16</height>
-                    <texture colordiffuse="White70" flipy="false">common/arrow-small.png</texture>
-                </control>
-            </control>
-
-            <control type="grouplist" id="9000">
-                <height>700</height>
-                <usecontrolcoords>true</usecontrolcoords>
-                <onleft>500</onleft>
-                <onright>500</onright>
-                <onback>500</onback>
-                <include>Def9000GroupList</include>                
-                <control type="button" id="6000">
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>19140</label>
-                </control>
-                <control type="button" id="7000">
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>$ADDON[script.extendedinfo 32024]</label>
-                </control>
-                <control type="button" id="5007">
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>$LOCALIZE[467]:</label>
-                    <label2>$INFO[Window.Property(Type)]</label2>
-                </control>
-                <control type="button" id="5001">
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>$ADDON[script.extendedinfo 32104]</label>
-                    <label2>$INFO[Window.Property(Sort_Label)]</label2>
-                </control>
-                <control type="button" id="5004">
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>$ADDON[script.extendedinfo 32128]</label>
-                    <label2>$INFO[Window.Property(Order_Label)]</label2>
-                </control>
-                <control type="label" id="5333">
-                    <textoffsetx>30</textoffsetx>
-                    <font>TinyBold</font>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>$ADDON[script.extendedinfo 32023]</label>
-                </control>
-                <control type="button" id="5002">
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>$LOCALIZE[515]</label>
-                </control>
-                <control type="button" id="5003">
-                    <label>$LOCALIZE[172]</label>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                </control>
-                <control type="button" id="5006">
-                    <label>$ADDON[script.extendedinfo 32127]</label>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                </control>
-                <control type="button" id="5008">
-                    <label>$ADDON[script.extendedinfo 32126]</label>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                </control>
-                <control type="button" id="5009">
-                    <label>$ADDON[script.extendedinfo 32114]</label>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                </control>
-                <control type="button" id="5010">
-                    <label>$LOCALIZE[572]</label>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                </control>
-                <control type="button" id="5012">
-                    <label>$ADDON[script.extendedinfo 32111]</label>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                </control>
-                <control type="button" id="5005">
-                    <label>$ADDON[script.extendedinfo 32022]</label>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                </control>
-            </control>
-        </control>  
+       
     </controls>
 </window>
