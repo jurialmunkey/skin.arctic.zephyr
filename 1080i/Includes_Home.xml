@@ -1708,8 +1708,8 @@
                 </control>
 
                 <control type="group">
-                    <animation effect="fade" start="100" end="0" time="0" delay="0" reversible="false" condition="Container(301).IsUpdating">Conditional</animation>
-                    <animation effect="fade" start="0" end="100" time="200" delay="200" reversible="false" condition="!Container(301).IsUpdating">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="0" delay="0" reversible="false" condition="Container(301).IsUpdating | !IntegerGreaterThan(Container(301).NumItems,0)">Conditional</animation>
+                    <animation effect="fade" start="0" end="100" time="200" delay="200" reversible="false" condition="!Container(301).IsUpdating + IntegerGreaterThan(Container(301).NumItems,0)">Conditional</animation>
                     <!-- Widget Text -->
                     <control type="label">
                         <font>Small</font>
@@ -1759,7 +1759,7 @@
                     <!-- Widget -->
                     <control type="fixedlist" id="301">
                         <visible>!StringCompare(Container(300).ListItem.Property(widget),NextAired) + !StringCompare(Container(300).ListItem.Property(widget),Favourites)</visible>
-                        <visible>IntegerGreaterThan(Container(301).NumItems,0) | Container(301).IsUpdating</visible>             
+                        <visible allowhiddenfocus="true">IntegerGreaterThan(Container(301).NumItems,0) | Container(301).IsUpdating</visible>             
                         <animation effect="fade" start="100" end="66" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
                         <include>Animation.FadeIn</include>
                         <include>Animation.FadeOut</include>
@@ -1924,7 +1924,7 @@
                     </control>
                     <control type="fixedlist" id="301">
                         <visible>StringCompare(Container(300).ListItem.Property(widget),NextAired) | StringCompare(Container(300).ListItem.Property(widget),Favourites)</visible>
-                        <visible>IntegerGreaterThan(Container(301).NumItems,0) | Container(301).IsUpdating</visible>             
+                        <visible allowhiddenfocus="true">IntegerGreaterThan(Container(301).NumItems,0) | Container(301).IsUpdating</visible>             
                         <animation effect="fade" start="100" end="66" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
                         <include>Animation.FadeIn</include>
                         <include>Animation.FadeOut</include>
