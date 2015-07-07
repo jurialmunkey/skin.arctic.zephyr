@@ -805,7 +805,7 @@
             <control type="group">
                 <control type="label">
                     <centertop>24</centertop>
-                    <include condition="Skin.HasSetting(furniture.logo)">HeaderLabelWidthLogo</include>
+                    <include condition="Skin.HasSetting(furniture.logo) + !Window.IsVisible(home) + !Window.IsVisible(settings) + !Window.IsVisible(skinsettings) + !Window.IsVisible(SettingsCategory.xml)">HeaderLabelWidthLogo</include>
                     <width>auto</width>
                     <font>MediumBold</font>
                     <textcolor>Dark1</textcolor>
@@ -814,10 +814,10 @@
                 <control type="label">
                     <centertop>58</centertop>
                     <font>Flag</font>
-                    <include condition="Skin.HasSetting(furniture.logo)">HeaderLabelWidthLogo</include>
+                    <include condition="Skin.HasSetting(furniture.logo) + !Window.IsVisible(home) + !Window.IsVisible(settings) + !Window.IsVisible(skinsettings) + !Window.IsVisible(SettingsCategory.xml)">HeaderLabelWidthLogo</include>
                     <width>auto</width>
                     <textcolor>Dark2</textcolor>
-                    <label>$VAR[SubHeaderLabel]</label>
+                    <label>blahblahblah$VAR[SubHeaderLabel]</label>
                 </control>
             </control>
         </control>
