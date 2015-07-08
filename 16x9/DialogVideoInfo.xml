@@ -75,15 +75,93 @@
 				<texture>backgrounds/black_content2.png</texture>
 				<visible>Player.HasVideo + SubString(Window(10025).Property(PlayingBackgroundMedia),True)</visible>
 			</control>
-			<control type="image">
+			<control type="image" id="5688">
 				<top>59</top>
 				<right>40</right>
 				<width>258</width>
 				<height>130</height>
-				<texture>$VAR[ClearArt]</texture>
+				<texture fallback="empty.png">$VAR[ClearArt]</texture>
 				<aspectratio align="center" aligny="top">keep</aspectratio>
 				<visible>Skin.HasSetting(furniture.logo)</visible>
 				<include>DialogVideoInfoAnimation</include>
+			</control>
+			<control type="textbox">
+				<top>59</top>
+				<right>40</right>
+				<width>258</width>
+				<height>130</height>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<shadowcolor>Black</shadowcolor>
+				<font>font_SimplerE3D_bold</font>
+				<label>[B]$VAR[BottomClearLogoText][/B]</label>
+				<visible>Skin.HasSetting(furniture.logo)</visible>
+				<visible>Substring(Control.GetLabel(5688),empty.png)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,a,Left) | SubString(ListItem.Title,b,Left) | SubString(ListItem.Title,c,Left) | SubString(ListItem.Title,d,Left)]</visible>
+			</control>
+			<control type="textbox">
+				<top>59</top>
+				<right>40</right>
+				<width>258</width>
+				<height>130</height>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<shadowcolor>Black</shadowcolor>
+				<font>font_armyofdarkness</font>
+				<label>[B]$VAR[BottomClearLogoText][/B]</label>
+				<visible>Skin.HasSetting(furniture.logo)</visible>
+				<visible>Substring(Control.GetLabel(5688),empty.png)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))]+ [SubString(ListItem.Title,e,Left) | SubString(ListItem.Title,f,Left) | SubString(ListItem.Title,g,Left) | SubString(ListItem.Title,h,Left)]</visible>
+			</control>
+			<control type="textbox">
+				<top>59</top>
+				<right>40</right>
+				<width>258</width>
+				<height>130</height>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<shadowcolor>Black</shadowcolor>
+				<font>font_babylon5</font>
+				<label>[B]$VAR[BottomClearLogoText][/B]</label>
+				<visible>Skin.HasSetting(furniture.logo)</visible>
+				<visible>Substring(Control.GetLabel(5688),empty.png)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,i,Left) | SubString(ListItem.Title,j,Left) | SubString(ListItem.Title,k,Left) | SubString(ListItem.Title,l,Left)]</visible>
+			</control>
+			<control type="textbox">
+				<top>59</top>
+				<right>40</right>
+				<width>258</width>
+				<height>130</height>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<shadowcolor>Black</shadowcolor>
+				<font>font_bachelorpad</font>
+				<label>[B]$VAR[BottomClearLogoText][/B]</label>
+				<visible>Skin.HasSetting(furniture.logo)</visible>
+				<visible>Substring(Control.GetLabel(5688),empty.png)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,m,Left) | SubString(ListItem.Title,n,Left) | SubString(ListItem.Title,o,Left) | SubString(ListItem.Title,p,Left)]</visible>
+			</control>
+			<control type="textbox">
+				<top>59</top>
+				<right>40</right>
+				<width>258</width>
+				<height>130</height>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<shadowcolor>Black</shadowcolor>
+				<font>font_bullpen3d</font>
+				<label>[B]$VAR[BottomClearLogoText][/B]</label>
+				<visible>Skin.HasSetting(furniture.logo)</visible>
+				<visible>Substring(Control.GetLabel(5688),empty.png)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,q,Left) | SubString(ListItem.Title,r,Left) | SubString(ListItem.Title,s,Left) | SubString(ListItem.Title,t,Left)]</visible>
+			</control>
+			<control type="textbox">
+				<top>59</top>
+				<right>40</right>
+				<width>258</width>
+				<height>130</height>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<shadowcolor>Black</shadowcolor>
+				<font>font_terminator</font>
+				<label>[B]$VAR[BottomClearLogoText][/B]</label>
+				<visible>Skin.HasSetting(furniture.logo)</visible>
+				<visible>Substring(Control.GetLabel(5688),empty.png)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,u,Left) | SubString(ListItem.Title,v,Left) | SubString(ListItem.Title,w,Left) | SubString(ListItem.Title,x,Left) | SubString(ListItem.Title,y,Left) | SubString(ListItem.Title,z,Left)]</visible>
 			</control>
 			<!-- <control type="label"> <top>45</top> <right>298</right> <width>auto</width> <height>32</height> <font>EndTime</font> <align>center</align> <aligny>bottom</aligny> <textcolor>Black700</textcolor> <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label> <visible>!IsEmpty(ListItem.EndTime)</visible> <visible>Container.Content(movies) | Container.Content(episodes)</visible> </control> -->
 			<control type="group">

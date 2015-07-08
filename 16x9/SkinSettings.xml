@@ -140,6 +140,7 @@
 						<label>31115</label>
 						<selected>Skin.HasSetting(home.showheader)</selected>
 						<onclick>Skin.ToggleSetting(home.showheader)</onclick>
+						<enable>!Skin.HasSetting(home.vertical)</enable>
 					</control>
 					<control type="radiobutton" id="9217" description="Always Show Weather Widget">
 						<width>1310</width>
@@ -316,13 +317,49 @@
 						<onclick>Skin.ToggleSetting(osd.hidespoilers)</onclick>
 					</control>
 					<!-- Widgets -->
-					<control type="radiobutton" id="9241" description="Classic Widget">
+					<control type="radiobutton" id="9241" description="Cases on widgets">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9104)</visible>
 						<include>DefSettingsButton</include>
-						<label>31184</label>
-						<selected>Skin.HasSetting(home.classicwidgets)</selected>
-						<onclick>Skin.ToggleSetting(home.classicwidgets)</onclick>
+						<label>Show cases in widgets</label>
+						<selected>Skin.HasSetting(widgets.cases)</selected>
+						<onclick>Skin.ToggleSetting(widgets.cases)</onclick>
+					</control>
+					<control type="radiobutton" id="92411" description="Clear Cases">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9104)</visible>
+						<include>DefSettingsButton</include>
+						<label> - Clear Cases</label>
+						<selected>Skin.HasSetting(widgets.clearcases)</selected>
+						<onclick>Skin.Reset(widgets.bddvdcases)</onclick>
+						<onclick>Skin.Reset(widgets.colourcases)</onclick>
+						<onclick>Skin.ToggleSetting(widgets.clearcases)</onclick>
+						<visible>ControlGroup(9100).HasFocus(9104)</visible>
+						<visible>Skin.HasSetting(widgets.cases)</visible>
+					</control>
+					<control type="radiobutton" id="92412" description="Colour Cases">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9104)</visible>
+						<include>DefSettingsButton</include>
+						<label> - Colour Cases</label>
+						<selected>Skin.HasSetting(widgets.colourcases)</selected>
+						<onclick>Skin.Reset(widgets.bddvdcases)</onclick>
+						<onclick>Skin.Reset(widgets.clearcases)</onclick>
+						<onclick>Skin.ToggleSetting(widgets.colourcases)</onclick>
+						<visible>ControlGroup(9100).HasFocus(9104)</visible>
+						<visible>Skin.HasSetting(widgets.cases)</visible>
+					</control>
+					<control type="radiobutton" id="92413" description="BD/DVD Cases">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9104)</visible>
+						<include>DefSettingsButton</include>
+						<label> - BD/DVD Cases</label>
+						<selected>Skin.HasSetting(widgets.bddvdcases)</selected>
+						<onclick>Skin.Reset(widgets.colourcases)</onclick>
+						<onclick>Skin.Reset(widgets.clearcases)</onclick>
+						<onclick>Skin.ToggleSetting(widgets.bddvdcases)</onclick>
+						<visible>ControlGroup(9100).HasFocus(9104)</visible>
+						<visible>Skin.HasSetting(widgets.cases)</visible>
 					</control>
 					<control type="radiobutton" id="9242" description="Classic Widget Auto show">
 						<width>1310</width>
@@ -346,7 +383,7 @@
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9104)</visible>
 						<include>DefSettingsButton</include>
-						<label>31128</label>
+						<label>31759</label>
 						<label2>$INFO[Skin.String(CustomWidget1)]</label2>
 						<onclick>Skin.SetString(CustomWidget1)</onclick>
 					</control>
@@ -354,7 +391,7 @@
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9104)</visible>
 						<include>DefSettingsButton</include>
-						<label>31129</label>
+						<label>31760</label>
 						<label2>$INFO[Skin.String(CustomWidget2)]</label2>
 						<onclick>Skin.SetString(CustomWidget2)</onclick>
 					</control>
@@ -362,7 +399,7 @@
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9104)</visible>
 						<include>DefSettingsButton</include>
-						<label>31230</label>
+						<label>31761</label>
 						<label2>$INFO[Skin.String(CustomWidget3)]</label2>
 						<onclick>Skin.SetString(CustomWidget3)</onclick>
 					</control>
@@ -370,9 +407,57 @@
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9104)</visible>
 						<include>DefSettingsButton</include>
-						<label>31231</label>
+						<label>31762</label>
 						<label2>$INFO[Skin.String(CustomWidget4)]</label2>
 						<onclick>Skin.SetString(CustomWidget4)</onclick>
+					</control>
+					<control type="button" id="92491" description="Custom Widget 5">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9104)</visible>
+						<include>DefSettingsButton</include>
+						<label>31763</label>
+						<label2>$INFO[Skin.String(CustomWidget5)]</label2>
+						<onclick>Skin.SetString(CustomWidget5)</onclick>
+					</control>
+					<control type="button" id="92492" description="Custom Widget 6">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9104)</visible>
+						<include>DefSettingsButton</include>
+						<label>31764</label>
+						<label2>$INFO[Skin.String(CustomWidget6)]</label2>
+						<onclick>Skin.SetString(CustomWidget6)</onclick>
+					</control>
+					<control type="button" id="92493" description="Custom Widget 7">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9104)</visible>
+						<include>DefSettingsButton</include>
+						<label>31765</label>
+						<label2>$INFO[Skin.String(CustomWidget7)]</label2>
+						<onclick>Skin.SetString(CustomWidget7)</onclick>
+					</control>
+					<control type="button" id="92494" description="Custom Widget 8">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9104)</visible>
+						<include>DefSettingsButton</include>
+						<label>31766</label>
+						<label2>$INFO[Skin.String(CustomWidget8)]</label2>
+						<onclick>Skin.SetString(CustomWidget8)</onclick>
+					</control>
+					<control type="button" id="92495" description="Custom Widget 9">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9104)</visible>
+						<include>DefSettingsButton</include>
+						<label>31767</label>
+						<label2>$INFO[Skin.String(CustomWidget9)]</label2>
+						<onclick>Skin.SetString(CustomWidget9)</onclick>
+					</control>
+					<control type="button" id="92496" description="Custom Widget 10">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9104)</visible>
+						<include>DefSettingsButton</include>
+						<label>31768</label>
+						<label2>$INFO[Skin.String(CustomWidget10)]</label2>
+						<onclick>Skin.SetString(CustomWidget10)</onclick>
 					</control>
 					<!-- Hubs -->
 					<control type="button" id="9251" description="Select Movies Hub Widget">
@@ -554,15 +639,6 @@
 						<label>31237</label>
 						<selected>Skin.HasSetting(hide.busydialog)</selected>
 						<onclick>Skin.ToggleSetting(hide.busydialog)</onclick>
-					</control>
-					<control type="radiobutton" id="9275" description="TV Tunes">
-						<width>1310</width>
-						<visible>ControlGroup(9100).HasFocus(9107)</visible>
-						<include>DefSettingsButton</include>
-						<label>31151</label>
-						<selected>Skin.HasSetting(ActivateTvTunes)</selected>
-						<onclick>Skin.ToggleSetting(ActivateTvTunes)</onclick>
-						<enable>System.HasAddon(script.tvtunes)</enable>
 					</control>
 					<control type="radiobutton" id="9276" description="Update Next Aired on Startup">
 						<width>1310</width>

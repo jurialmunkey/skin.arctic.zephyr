@@ -35,6 +35,12 @@
 		<value condition="StringCompare(Container(300).ListItem.Property(widget),Custom2)">$INFO[Skin.String(CustomWidget2)]</value>
 		<value condition="StringCompare(Container(300).ListItem.Property(widget),Custom3)">$INFO[Skin.String(CustomWidget3)]</value>
 		<value condition="StringCompare(Container(300).ListItem.Property(widget),Custom4)">$INFO[Skin.String(CustomWidget4)]</value>
+		<value condition="StringCompare(Container(300).ListItem.Property(widget),Custom5)">$INFO[Skin.String(CustomWidget5)]</value>
+		<value condition="StringCompare(Container(300).ListItem.Property(widget),Custom6)">$INFO[Skin.String(CustomWidget6)]</value>
+		<value condition="StringCompare(Container(300).ListItem.Property(widget),Custom7)">$INFO[Skin.String(CustomWidget7)]</value>
+		<value condition="StringCompare(Container(300).ListItem.Property(widget),Custom8)">$INFO[Skin.String(CustomWidget8)]</value>
+		<value condition="StringCompare(Container(300).ListItem.Property(widget),Custom9)">$INFO[Skin.String(CustomWidget9)]</value>
+		<value condition="StringCompare(Container(300).ListItem.Property(widget),Custom10)">$INFO[Skin.String(CustomWidget10)]</value>
 		<value condition="StringCompare(Container(300).ListItem.Property(widget),TrendingMovies)">plugin://script.extendedinfo?info=trendingmovies</value>
 		<value condition="StringCompare(Container(300).ListItem.Property(widget),TrendingShows)">plugin://script.extendedinfo?info=trendingshows</value>
 		<value condition="StringCompare(Container(300).ListItem.Property(widget),AiringShows)">plugin://script.extendedinfo?info=airingshows</value>
@@ -73,8 +79,24 @@
 		<value condition="StringCompare(Window(home).Property(widget),RecentMovies) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window.Property(recentmovies)]</value>
 		<value condition="StringCompare(Window(home).Property(widget),RecommendedEpisodes) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window.Property(recommendedepisodes)]</value>
 		<value condition="StringCompare(Window(home).Property(widget),RecommendedMovies) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window.Property(recommendedmovies)]</value>
+		<value condition="StringCompare(Window(home).Property(widget),TrendingMovies) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://script.extendedinfo?info=trendingmovies</value>
+		<value condition="StringCompare(Window(home).Property(widget),TrendingShows) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://script.extendedinfo?info=trendingshows</value>
+		<value condition="StringCompare(Window(home).Property(widget),PopularMovies) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://script.extendedinfo?info=popularmovies</value>
+		<value condition="StringCompare(Window(home).Property(widget),TopRatedMovies) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://script.extendedinfo?info=topratedmovies</value>
+		<value condition="StringCompare(Window(home).Property(widget),TopRatedTvShows) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://script.extendedinfo?info=topratedtvshows</value>
+		<value condition="StringCompare(Window(home).Property(widget),AiringTodayTvShows) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://script.extendedinfo?info=airingtodaytvshows</value>
 		<value condition="IsEmpty(Container(300).ListItem.Property(widget)) | Skin.HasSetting(home.vertical)">plugin://service.library.data.provider?type=recommendedepisodes+recommendedmovies+randommovies&amp;reload=$INFO[Window.Property(recommendedepisodes)]$INFO[Window.Property(recommendedmovies)]$INFO[Window.Property(randommovies)]</value>
 	</variable>
+	<include name="DefSideBrowserButton">
+		<radioposx>400</radioposx>
+		<width>100%</width>
+		<height>64</height>
+		<font>Tiny</font>
+		<textcolor>Dark2</textcolor>
+		<focusedcolor>Light1</focusedcolor>
+		<alttexturefocus colordiffuse="Dark1" border="16">common/box.png</alttexturefocus>
+		<texturefocus colordiffuse="Dark1" border="16">common/box.png</texturefocus>
+	</include>
 	<include name="DefNextAiredWidget">
 		<item id="1">
 			<onclick>ActivateWindow(Videos,$INFO[Window.Property(NextAired.1.Library)],return)</onclick>
@@ -715,5 +737,15 @@
 		<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
 		<alttexturenofocus colordiffuse="Dark4" border="5">common/box.png</alttexturenofocus>
 		<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</alttexturefocus>
+	</include>
+	<include name="KodiFlixButtonsValues">
+		<height>35</height>
+		<width>901</width>
+		<textoffsetx>15</textoffsetx>
+		<aligny>top</aligny>
+		<font>Netflix</font>
+		<textcolor>Dark2</textcolor>
+		<focusedcolor>Dark2</focusedcolor>
+		<onclick>noop</onclick>
 	</include>
 </includes>

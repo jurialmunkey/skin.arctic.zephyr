@@ -133,6 +133,10 @@
 		<value condition="!IsEmpty(Container(301).ListItem.Art(tvshow.clearlogo))">$INFO[Container(301).ListItem.Art(tvshow.clearlogo)]</value>
 		<value condition="!IsEmpty(Container(301).ListItem.Art(clearlogo))">$INFO[Container(301).ListItem.Art(clearlogo)]</value>
 	</variable>
+	<variable name="Container515Logo">
+		<value condition="!IsEmpty(Container(515).ListItem.Art(tvshow.clearlogo))">$INFO[Container(515).ListItem.Art(tvshow.clearlogo)]</value>
+		<value condition="!IsEmpty(Container(515).ListItem.Art(clearlogo))">$INFO[Container(515).ListItem.Art(clearlogo)]</value>
+	</variable>
 	<variable name="MusicClearLogo">
 		<value condition="!IsEmpty(ListItem.AlbumArtist)">$INFO[Skin.String(cdartlocation)]$INFO[ListItem.AlbumArtist]/logo.png</value>
 		<value>$INFO[Skin.String(cdartlocation)]$INFO[ListItem.Artist]/logo.png</value>
@@ -256,6 +260,11 @@
 	<variable name="ShowcaseCasePathVar">
 		<value condition="Skin.HasSetting(views.bddvdcases)">tvshows</value>
 		<value condition="Skin.HasSetting(views.colourcases)">colorcases</value>
+		<value>movies</value>
+	</variable>
+	<variable name="WidgetsCasePathVar">
+		<value condition="Skin.HasSetting(widgets.bddvdcases)">tvshows</value>
+		<value condition="Skin.HasSetting(widgets.colourcases)">colorcases</value>
 		<value>movies</value>
 	</variable>
 	<variable name="GlobalCaseVar">

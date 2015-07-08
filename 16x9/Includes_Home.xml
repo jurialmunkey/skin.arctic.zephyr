@@ -385,6 +385,36 @@
 					<onfocus>SetProperty(widget,RecommendedEpisodes,home)</onfocus>
 					<include>DefWidgetSelector</include>
 				</control>
+				<control type="button" id="337">
+					<label>31229</label>
+					<onfocus>SetProperty(widget,AiringTodayTvShows,home)</onfocus>
+					<include>DefWidgetSelector</include>
+				</control>
+				<control type="button" id="338">
+					<label>31134</label>
+					<onfocus>SetProperty(widget,TrendingMovies,home)</onfocus>
+					<include>DefWidgetSelector</include>
+				</control>
+				<control type="button" id="339">
+					<label>31135</label>
+					<onfocus>SetProperty(widget,TrendingShows,home)</onfocus>
+					<include>DefWidgetSelector</include>
+				</control>
+				<control type="button" id="340">
+					<label>31224</label>
+					<onfocus>SetProperty(widget,PopularMovies,home)</onfocus>
+					<include>DefWidgetSelector</include>
+				</control>
+				<control type="button" id="341">
+					<label>31227</label>
+					<onfocus>SetProperty(widget,TopRatedTvShows,home)</onfocus>
+					<include>DefWidgetSelector</include>
+				</control>
+				<control type="button" id="342">
+					<label>31225</label>
+					<onfocus>SetProperty(widget,TopRatedMovies,home)</onfocus>
+					<include>DefWidgetSelector</include>
+				</control>
 			</control>
 		</control>
 	</include>
@@ -1469,7 +1499,7 @@
 	</include>
 	<include name="HomeVerticalMenu">
 		<!-- Furniture -->
-		<include>Furniture_Header</include>
+		<include condition="Skin.HasSetting(home.showheader)">Furniture_Header</include>
 		<include>Furniture_NowPlaying</include>
 		<include>Furniture_Clock</include>
 		<!-- Weather Widget -->
@@ -1530,7 +1560,6 @@
 					<animation effect="fade" start="100" end="33" time="400" condition="Control.HasFocus(301)">Conditional</animation>
 					<animation effect="slide" start="0" end="-140" time="200" delay="100" tween="quadratic" easing="out" condition="Control.HasFocus(301)">Conditional</animation>
 					<animation effect="slide" start="-140" end="0" time="200" delay="100" tween="quadratic" easing="out" condition="!Control.HasFocus(301)">Conditional</animation>
-					
 					<animation effect="slide" start="-500" end="0" time="200" delay="100" tween="quadratic" easing="out">Visible</animation>
 					<visible allowhiddenfocus="true">!Control.HasFocus(302)</visible>
 					<include>Animation.FadeIn</include>
@@ -1583,8 +1612,8 @@
 							<align>right</align>
 							<aligny>center</aligny>
 							<height>100%</height>
-							<textcolor>Dark1</textcolor>
-							<font>Large</font>
+							<textcolor>$VAR[ColourHighlight]</textcolor>
+							<font>LargeBoldReg</font>
 							<label>$INFO[ListItem.Label]</label>
 							<visible>!Skin.HasSetting(home.showicons)</visible>
 						</control>
@@ -1595,7 +1624,7 @@
 							<aligny>center</aligny>
 							<height>100%</height>
 							<textcolor>Dark1</textcolor>
-							<font>Large</font>
+							<font>LargeBoldReg</font>
 							<label>$INFO[ListItem.Label]</label>
 							<visible>Skin.HasSetting(home.showicons)</visible>
 						</control>
@@ -1649,8 +1678,8 @@
 							<align>right</align>
 							<aligny>center</aligny>
 							<height>100%</height>
-							<textcolor>Dark1</textcolor>
-							<font>Medium</font>
+							<textcolor>$VAR[ColourHighlight]</textcolor>
+							<font>MediumBold</font>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 					</focusedlayout>
@@ -1691,13 +1720,10 @@
 					</control>
 				</control>
 				<control type="group">
-					<animation effect="fade" start="100" end="0" time="0" delay="0" reversible="false" condition="Container(301).IsUpdating">Conditional</animation>
-					<animation effect="fade" start="0" end="100" time="200" delay="200" reversible="false" condition="!Container(301).IsUpdating">Conditional</animation>
-					
+					<animation effect="fade" start="100" end="0" time="0" delay="0" reversible="false" condition="Container(301).IsUpdating | !IntegerGreaterThan(Container(301).NumItems,0)">Conditional</animation>
+					<animation effect="fade" start="0" end="100" time="200" delay="200" reversible="false" condition="!Container(301).IsUpdating + IntegerGreaterThan(Container(301).NumItems,0)">Conditional</animation>
 					<animation effect="slide" start="0" end="-290" time="200" delay="100" tween="quadratic" easing="out">Focus</animation>
 					<animation effect="slide" start="-290" end="0" time="200" delay="100" tween="quadratic" easing="out">UnFocus</animation>
-					
-					
 					<!-- Widget Text -->
 					<control type="label">
 						<font>Small</font>
@@ -1741,7 +1767,7 @@
 						<visible>!Player.HasMedia</visible>
 					</control>
 					<control type="grouplist">
-					    <visible>Control.HasFocus(301)</visible>
+						<visible>Control.HasFocus(301)</visible>
 						<animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
 						<include>Animation.FadeIn</include>
 						<include>Animation.FadeOut</include>
@@ -1774,7 +1800,7 @@
 						</control>
 					</control>
 					<control type="grouplist">
-					    <visible>!Control.HasFocus(301)</visible>
+						<visible>!Control.HasFocus(301)</visible>
 						<animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
 						<include>Animation.FadeIn</include>
 						<include>Animation.FadeOut</include>
@@ -1809,7 +1835,7 @@
 					<!-- Widget -->
 					<control type="fixedlist" id="301">
 						<visible>!StringCompare(Container(300).ListItem.Property(widget),NextAired) + !StringCompare(Container(300).ListItem.Property(widget),Favourites)</visible>
-						<visible>IntegerGreaterThan(Container(301).NumItems,0) | Container(301).IsUpdating</visible>
+						<visible allowhiddenfocus="true">IntegerGreaterThan(Container(301).NumItems,0) | Container(301).IsUpdating</visible>
 						<animation effect="fade" start="100" end="66" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
 						<include>Animation.FadeIn</include>
 						<include>Animation.FadeOut</include>
@@ -1836,7 +1862,7 @@
 								<right>0</right>
 								<bottom>0</bottom>
 								<texture border="10">common/nofocus-shadow10.png</texture>
-								<visible>!Skin.Hassetting(views.cases)</visible>
+								<visible>!Skin.Hassetting(widgets.cases)</visible>
 							</control>
 							<control type="image">
 								<left>10</left>
@@ -1845,7 +1871,7 @@
 								<bottom>10</bottom>
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<texture diffuse="diffuse/wall.png" background="true" fallback="DefaultMovies.png">$VAR[PosterImage]</texture>
-								<visible>!Skin.Hassetting(views.cases)</visible>
+								<visible>!Skin.Hassetting(widgets.cases)</visible>
 							</control>
 							<control type="image">
 								<left>21</left>
@@ -1854,7 +1880,7 @@
 								<bottom>21</bottom>
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<texture diffuse="diffuse/wall.png" background="true" fallback="DefaultMovies.png">$VAR[PosterImage]</texture>
-								<visible>Skin.Hassetting(views.cases) + !Skin.Hassetting(views.clearcases)</visible>
+								<visible>Skin.Hassetting(widgets.cases) + !Skin.Hassetting(widgets.clearcases)</visible>
 							</control>
 							<control type="image">
 								<left>10</left>
@@ -1863,27 +1889,27 @@
 								<bottom>10</bottom>
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<texture diffuse="diffuse/wall.png" background="true" fallback="DefaultMovies.png">$VAR[PosterImage]</texture>
-								<visible>Skin.Hassetting(views.cases) + Skin.Hassetting(views.clearcases)</visible>
+								<visible>Skin.Hassetting(widgets.cases) + Skin.Hassetting(widgets.clearcases)</visible>
 							</control>
 							<control type="image">
 								<left>-40</left>
 								<top>-40</top>
 								<right>-5</right>
 								<bottom>-5</bottom>
-								<texture background="true">boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+								<texture background="true">boxes/$VAR[WidgetsCasePathVar]/$VAR[GlobalCaseVar]</texture>
 								<aspectratio align="center" aligny="top">stretch</aspectratio>
 								<bordersize>2</bordersize>
-								<visible>Skin.Hassetting(views.cases) + Skin.Hassetting(views.clearcases)</visible>
+								<visible>Skin.Hassetting(widgets.cases) + Skin.Hassetting(widgets.clearcases)</visible>
 							</control>
 							<control type="image">
 								<left>-20</left>
 								<top>0</top>
 								<right>0</right>
 								<bottom>0</bottom>
-								<texture background="true">boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+								<texture background="true">boxes/$VAR[WidgetsCasePathVar]/$VAR[GlobalCaseVar]</texture>
 								<aspectratio align="center" aligny="top">stretch</aspectratio>
 								<bordersize>2</bordersize>
-								<visible>Skin.Hassetting(views.cases) + !Skin.Hassetting(views.clearcases)</visible>
+								<visible>Skin.Hassetting(widgets.cases) + !Skin.Hassetting(widgets.clearcases)</visible>
 							</control>
 							<control type="image">
 								<centerright>32</centerright>
@@ -1930,7 +1956,7 @@
 								<right>0</right>
 								<bottom>0</bottom>
 								<texture border="10">common/nofocus-shadow10.png</texture>
-								<visible>!Skin.Hassetting(views.cases)</visible>
+								<visible>!Skin.Hassetting(widgets.cases)</visible>
 							</control>
 							<control type="image">
 								<left>10</left>
@@ -1939,7 +1965,7 @@
 								<bottom>10</bottom>
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<texture diffuse="diffuse/wall.png" background="true" fallback="DefaultMovies.png">$VAR[PosterImage]</texture>
-								<visible>!Skin.Hassetting(views.cases)</visible>
+								<visible>!Skin.Hassetting(widgets.cases)</visible>
 							</control>
 							<control type="image">
 								<left>21</left>
@@ -1948,7 +1974,7 @@
 								<bottom>21</bottom>
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<texture diffuse="diffuse/wall.png" background="true" fallback="DefaultMovies.png">$VAR[PosterImage]</texture>
-								<visible>Skin.Hassetting(views.cases) + !Skin.Hassetting(views.clearcases)</visible>
+								<visible>Skin.Hassetting(widgets.cases) + !Skin.Hassetting(widgets.clearcases)</visible>
 							</control>
 							<control type="image">
 								<left>10</left>
@@ -1957,27 +1983,27 @@
 								<bottom>10</bottom>
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<texture diffuse="diffuse/wall.png" background="true" fallback="DefaultMovies.png">$VAR[PosterImage]</texture>
-								<visible>Skin.Hassetting(views.cases) + Skin.Hassetting(views.clearcases)</visible>
+								<visible>Skin.Hassetting(widgets.cases) + Skin.Hassetting(widgets.clearcases)</visible>
 							</control>
 							<control type="image">
 								<left>-40</left>
 								<top>-40</top>
 								<right>-5</right>
 								<bottom>-5</bottom>
-								<texture background="true">boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+								<texture background="true">boxes/$VAR[WidgetsCasePathVar]/$VAR[GlobalCaseVar]</texture>
 								<aspectratio align="center" aligny="top">stretch</aspectratio>
 								<bordersize>2</bordersize>
-								<visible>Skin.Hassetting(views.cases) + Skin.Hassetting(views.clearcases)</visible>
+								<visible>Skin.Hassetting(widgets.cases) + Skin.Hassetting(widgets.clearcases)</visible>
 							</control>
 							<control type="image">
 								<left>-20</left>
 								<top>0</top>
 								<right>0</right>
 								<bottom>0</bottom>
-								<texture background="true">boxes/$VAR[ShowcaseCasePathVar]/$VAR[GlobalCaseVar]</texture>
+								<texture background="true">boxes/$VAR[WidgetsCasePathVar]/$VAR[GlobalCaseVar]</texture>
 								<aspectratio align="center" aligny="top">stretch</aspectratio>
 								<bordersize>2</bordersize>
-								<visible>Skin.Hassetting(views.cases) + !Skin.Hassetting(views.clearcases)</visible>
+								<visible>Skin.Hassetting(widgets.cases) + !Skin.Hassetting(widgets.clearcases)</visible>
 							</control>
 							<control type="image">
 								<centerright>32</centerright>
@@ -2004,7 +2030,7 @@
 									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
 									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
 								</animation>
-								<visible>!Skin.Hassetting(views.cases)</visible>
+								<visible>!Skin.Hassetting(widgets.cases)</visible>
 							</control>
 							<control type="image">
 								<left>-3</left>
@@ -2021,7 +2047,7 @@
 									<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
 									<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
 								</animation>
-								<visible>Skin.Hassetting(views.cases)</visible>
+								<visible>Skin.Hassetting(widgets.cases)</visible>
 							</control>
 						</focusedlayout>
 						<focusedlayout height="325" width="325" condition="substring(Container(300).ListItem.Property(widget),Albums)">
@@ -2071,7 +2097,7 @@
 					</control>
 					<control type="fixedlist" id="301">
 						<visible>StringCompare(Container(300).ListItem.Property(widget),NextAired) | StringCompare(Container(300).ListItem.Property(widget),Favourites)</visible>
-						<visible>IntegerGreaterThan(Container(301).NumItems,0) | Container(301).IsUpdating</visible>
+						<visible allowhiddenfocus="true">IntegerGreaterThan(Container(301).NumItems,0) | Container(301).IsUpdating</visible>
 						<animation effect="fade" start="100" end="66" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
 						<include>Animation.FadeIn</include>
 						<include>Animation.FadeOut</include>

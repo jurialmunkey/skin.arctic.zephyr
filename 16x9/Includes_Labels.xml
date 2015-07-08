@@ -48,6 +48,7 @@
 		<value condition="Container.Content(episodes) + !Skin.HasSetting(osd.hidespoilers)">$INFO[ListItem.Title,[B],[/B][CR],]$INFO[ListItem.Plot]</value>
 		<value condition="!IsEmpty(ListItem.Plot) + Skin.HasSetting(osd.hidespoilers) + Container.Content(episodes) + [stringcompare(ListItem.Overlay,OverlayUnWatched.png) | ListItem.IsResumable]">$INFO[ListItem.Title,[B],[/B][CR],]* Hidden to prevent spoilers *</value>
 		<value condition="!IsEmpty(ListItem.Plot) + Skin.HasSetting(osd.hidespoilers) + Container.Content(episodes) + ![stringcompare(ListItem.Overlay,OverlayUnWatched.png) + ListItem.IsResumable]">$INFO[ListItem.Title,[B],[/B][CR],]$INFO[ListItem.Plot]</value>
+		<value condition="!IsEmpty(Container(515).ListItem.Plot)">$INFO[Container(515).ListItem.Plot]</value>
 		<value>$INFO[ListItem.Plot]</value>
 	</variable>
 	<variable name="LabelPlotBoxLong">
@@ -145,6 +146,12 @@
 		<value condition="StringCompare(Window(home).Property(widget),RecentMovies) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31124]</value>
 		<value condition="StringCompare(Window(home).Property(widget),RandomEpisodes) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31126]</value>
 		<value condition="StringCompare(Window(home).Property(widget),RandomMovies) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31127]</value>
+		<value condition="StringCompare(Window(home).Property(widget),AiringTodayTvShows) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31229]</value>
+		<value condition="StringCompare(Window(home).Property(widget),TrendingMovies) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31134]</value>
+		<value condition="StringCompare(Window(home).Property(widget),TrendingShows) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31135]</value>
+		<value condition="StringCompare(Window(home).Property(widget),PopularMovies) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31224]</value>
+		<value condition="StringCompare(Window(home).Property(widget),TopRatedTvShows) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31227]</value>
+		<value condition="StringCompare(Window(home).Property(widget),TopRatedMovies) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31225]</value>
 		<value>$LOCALIZE[31105]</value>
 	</variable>
 	<variable name="WidgetTitle">
@@ -605,16 +612,20 @@
 		<value condition="!IsEmpty(Container(150).ListItemNoWrap(1).Label)">$INFO[Container(150).ListItemNoWrap(0).Label], $INFO[Container(150).ListItemNoWrap(1).Label]</value>
 		<value condition="!IsEmpty(Container(150).ListItemNoWrap(0).Label)">$INFO[Container(150).ListItemNoWrap(0).Label]</value>
 	</variable>
-	 <variable name="LabelVideoInfoCastDirector">
-        <value condition="StringCompare(Window.Property(content),1)">$INFO[ListItem.Studio,$LOCALIZE[31205] ,]</value>
-        <value condition="StringCompare(Window.Property(content),2)">$INFO[ListItem.Title,$LOCALIZE[31204] ,]</value>
-        <value condition="StringCompare(Window.Property(content),3) + !Control.IsVisible(50)">$INFO[ListItem.Director,$LOCALIZE[31191] ,]</value>
-        <value condition="Control.IsVisible(50)">$INFO[ListItem.Title,, $LOCALIZE[206]]</value>
-        <value condition="!IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>
-    </variable>
-    <variable name="LabelHomeWidgetStyle">
-        <value condition="!Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.vertical)">$LOCALIZE[31248]</value>
-        <value condition="!Skin.HasSetting(home.classicwidgets) + Skin.HasSetting(home.vertical)">$LOCALIZE[31250]</value>
-        <value condition="Skin.HasSetting(home.classicwidgets)">$LOCALIZE[31249]</value>
-    </variable>
+	<variable name="LabelVideoInfoCastDirector">
+		<value condition="StringCompare(Window.Property(content),1)">$INFO[ListItem.Studio,$LOCALIZE[31205] ,]</value>
+		<value condition="StringCompare(Window.Property(content),2)">$INFO[ListItem.Title,$LOCALIZE[31204] ,]</value>
+		<value condition="StringCompare(Window.Property(content),3) + !Control.IsVisible(50)">$INFO[ListItem.Director,$LOCALIZE[31191] ,]</value>
+		<value condition="Control.IsVisible(50)">$INFO[ListItem.Title,, $LOCALIZE[206]]</value>
+		<value condition="!IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>
+	</variable>
+	<variable name="LabelHomeWidgetStyle">
+		<value condition="!Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.vertical)">$LOCALIZE[31248]</value>
+		<value condition="!Skin.HasSetting(home.classicwidgets) + Skin.HasSetting(home.vertical)">$LOCALIZE[31250]</value>
+		<value condition="Skin.HasSetting(home.classicwidgets)">$LOCALIZE[31249]</value>
+	</variable>
+	<variable name="KodiFlix.Label">
+		<value condition="ListItem.IsPlaying">[COLOR=$VAR[ColourHighlight]]$INFO[ListItem.Label][/COLOR]</value>
+		<value>$INFO[ListItem.Label]</value>
+	</variable>
 </includes>
