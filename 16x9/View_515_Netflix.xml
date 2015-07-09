@@ -255,6 +255,26 @@
 						<visible>!stringcompare(ListItem.Label,..)</visible>
 						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
 					</control>
+					<control type="image">
+						<posx>5</posx>
+						<posy>150</posy>
+						<width>330</width>
+						<height>40</height>
+						<texture border="15" colordiffuse="bf000000">common/white.png</texture>
+						<visible>Skin.HasSetting(views.titleoverlay)</visible>
+					</control>
+					<control type="label">
+						<posx>5</posx>
+						<posy>150</posy>
+						<width>330</width>
+						<width>auto</width>
+						<align>center</align>
+						<height>34</height>
+						<font>NetflixSmall</font>
+						<textcolor>PanelWhite70</textcolor>
+						<selectedcolor>PanelWhite70</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
 				</itemlayout>
 				<focusedlayout width="340" height="195">
 					<control type="group">
@@ -275,6 +295,26 @@
 							<texture>$VAR[PercentWatched]</texture>
 							<visible>!stringcompare(ListItem.Label,..)</visible>
 							<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
+						</control>
+						<control type="image">
+							<posx>5</posx>
+							<posy>150</posy>
+							<width>330</width>
+							<height>40</height>
+							<texture border="15" colordiffuse="bf000000">common/white.png</texture>
+							<visible>Skin.HasSetting(views.titleoverlay)</visible>
+						</control>
+						<control type="label">
+							<posx>5</posx>
+							<posy>150</posy>
+							<width>330</width>
+							<width>auto</width>
+							<align>center</align>
+							<height>34</height>
+							<font>NetflixSmall</font>
+							<textcolor>PanelWhite70</textcolor>
+							<selectedcolor>PanelWhite70</selectedcolor>
+							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="image">
 							<posx>0</posx>

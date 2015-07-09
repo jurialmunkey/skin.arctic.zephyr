@@ -258,6 +258,14 @@
 					<visible>Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(50) | Control.IsVisible(53) | Control.IsVisible(56)</visible>
 					<visible>Skin.HasSetting(views.cases)</visible>
 				</control>
+				<control type="radiobutton" id="9022" description="Title Overlay (515)">
+					<include>DefContextButton</include>
+					<align>left</align>
+					<label>Show title overlay</label>
+					<selected>Skin.HasSetting(views.titleoverlay)</selected>
+					<onclick>Skin.ToggleSetting(views.titleoverlay)</onclick>
+					<visible>Control.IsVisible(515)</visible>
+				</control>
 				<!-- Other Options -->
 				<control type="radiobutton" id="14">
 					<description>Hide watched</description>

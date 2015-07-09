@@ -98,13 +98,22 @@
 					<ondown>9200</ondown>
 					<orientation>vertical</orientation>
 					<!-- Home -->
-					<control type="radiobutton" id="9215" description="Netflix Home">
+					<control type="button" id="9214" description="Home Style">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9101)</visible>
 						<include>DefSettingsButton</include>
-						<label>31751</label>
-						<selected>Skin.HasSetting(home.netflix)</selected>
-						<onclick>Skin.ToggleSetting(home.netflix)</onclick>
+						<label>31247</label>
+						<label2>$VAR[LabelHomeWidgetStyle]</label2>
+						<onclick>SetProperty(Dialog.NumItems,4)</onclick>
+						<onclick>SetProperty(Dialog.1.Label,Default - Horizontal)</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(home.vertical) || Skin.Reset(home.classicwidgets) || Skin.Reset(home.netflix) )</onclick>
+						<onclick>SetProperty(Dialog.2.Label,Vertical)</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetBool(home.vertical) || Skin.Reset(home.classicwidgets) || Skin.Reset(home.netflix) )</onclick>
+						<onclick>SetProperty(Dialog.3.Label,Classic)</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetBool(home.classicwidgets) || Skin.Reset(home.vertical) || Skin.Reset(home.netflix))</onclick>
+						<onclick>SetProperty(Dialog.4.Label,Netflix)</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetBool(home.netflix) || Skin.Reset(home.vertical) || Skin.Reset(home.classicwidgets))</onclick>
+						<onclick>RunScript(script.toolbox,info=selectdialog,header=Select Home Layout)</onclick>
 					</control>
 					<control type="button" id="9211" description="Customise Home">
 						<width>1310</width>
@@ -120,19 +129,6 @@
 						<label>31132</label>
 						<onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
 					</control>
-					<control type="button" id="9214" description="Home Style">
-						<width>1310</width>
-						<visible>ControlGroup(9100).HasFocus(9101)</visible>
-						<include>DefSettingsButton</include>
-						<label>31247</label>
-						<label2>$VAR[LabelHomeWidgetStyle]</label2>
-						<onclick condition="Skin.HasSetting(home.classicwidgets)">Skin.SetBool(home.vertical)</onclick>
-						<onclick condition="Skin.HasSetting(home.classicwidgets)">Skin.Reset(home.classicwidgets)</onclick>
-						<onclick condition="Skin.HasSetting(home.vertical)">Skin.Reset(home.classicwidgets)</onclick>
-						<onclick condition="Skin.HasSetting(home.vertical)">Skin.Reset(home.vertical)</onclick>
-						<onclick condition="!Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.classicwidgets)">Skin.Reset(home.vertical)</onclick>
-						<onclick condition="!Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.classicwidgets)">Skin.SetBool(home.classicwidgets)</onclick>
-					</control>
 					<control type="radiobutton" id="9213" description="Show Header">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9101)</visible>
@@ -140,7 +136,6 @@
 						<label>31115</label>
 						<selected>Skin.HasSetting(home.showheader)</selected>
 						<onclick>Skin.ToggleSetting(home.showheader)</onclick>
-						<enable>!Skin.HasSetting(home.vertical)</enable>
 					</control>
 					<control type="radiobutton" id="9217" description="Always Show Weather Widget">
 						<width>1310</width>
@@ -164,7 +159,7 @@
 						<visible>ControlGroup(9100).HasFocus(9101)</visible>
 						<include>DefSettingsButton</include>
 						<label>31202</label>
-						<enable>!Skin.HasSetting(home.showicons)</enable>
+						<enable>!Skin.HasSetting(home.showicons) + !Skin.HasSetting(home.vertical)</enable>
 						<selected>Skin.HasSetting(home.submenu2)</selected>
 						<onclick>Skin.ToggleSetting(home.submenu2)</onclick>
 					</control>
@@ -573,6 +568,15 @@
 						<label>31744</label>
 						<selected>Skin.HasSetting(furniture.logo)</selected>
 						<onclick>Skin.ToggleSetting(furniture.logo)</onclick>
+					</control>
+					<control type="radiobutton" id="92681" description="Fake Logo">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9106)</visible>
+						<include>DefSettingsButton</include>
+						<label>  - Use Fake Logo</label>
+						<visible>Skin.HasSetting(furniture.logo)</visible>
+						<selected>Skin.HasSetting(furniture.logo.fake)</selected>
+						<onclick>Skin.ToggleSetting(furniture.logo.fake)</onclick>
 					</control>
 					<control type="radiobutton" id="9270" description="DiscArt">
 						<width>1310</width>

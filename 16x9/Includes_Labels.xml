@@ -620,9 +620,12 @@
 		<value condition="!IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>
 	</variable>
 	<variable name="LabelHomeWidgetStyle">
-		<value condition="!Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.vertical)">$LOCALIZE[31248]</value>
-		<value condition="!Skin.HasSetting(home.classicwidgets) + Skin.HasSetting(home.vertical)">$LOCALIZE[31250]</value>
-		<value condition="Skin.HasSetting(home.classicwidgets)">$LOCALIZE[31249]</value>
+		<value condition="!Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.netflix)">$LOCALIZE[31248]</value>
+		<value condition="!Skin.HasSetting(home.classicwidgets) + Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.netflix)">$LOCALIZE[31250]</value>
+		<value condition="Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.netflix)">$LOCALIZE[31249]</value>
+		<value condition="Skin.HasSetting(home.netflix)">$LOCALIZE[31751]</value>
+		
+		
 	</variable>
 	<variable name="KodiFlix.Label">
 		<value condition="ListItem.IsPlaying">[COLOR=$VAR[ColourHighlight]]$INFO[ListItem.Label][/COLOR]</value>
