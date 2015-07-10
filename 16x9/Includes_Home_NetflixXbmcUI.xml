@@ -3,6 +3,10 @@
 	<!-- Home Buttons -->
 	<include name="HomeNetflixXbmc">
 		<control type="group">
+			<control type="button" id="300">
+				<onfocus>SetFocus(776)</onfocus>
+				<visible>true</visible>
+			</control>
 			<control type="list" id="7654">
 				<width>1000</width>
 				<height>1000</height>
@@ -11,10 +15,7 @@
 				<content target="video">plugin://plugin.video.netflixbmc/?mode=wiHome&amp;thumb&amp;type=both&amp;url></content>
 			</control>
 			<visible>!Window.IsActive(favourites)</visible>
-			<control type="button" id="300">
-				<onfocus>SetFocus(776)</onfocus>
-				<visible>true</visible>
-			</control>
+
 			<control type="label">
 				<description>Row Label</description>
 				<posy>70</posy>
