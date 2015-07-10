@@ -8,17 +8,46 @@
         <include>GlobalOverlay</include>
 
         <control type="group">
-            <posx>240</posx>
-            <posy>83</posy>
-            <width>1500</width>
-            <height>950</height>
-            
-            <include>DefDialogInfoPanel</include>
+
+
+                <include>Animation.FadeIn.Slide</include>
+                <include>Animation.FadeOut</include>
+                <posy>0</posy>
+                <width>1920</width>
+                <height>1080</height>
+                <control type="image">
+                    <left>-8</left>
+                    <right>-8</right>
+                    <top>-8</top>
+                    <bottom>-8</bottom>
+                    <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
+                </control>
+            <control type="image">
+                <left>-8</left>
+                <right>-8</right>
+                <top>-8</top>
+                <bottom>-8</bottom>
+                <aspectratio align="center">scale</aspectratio>
+                <texture fallback="common/black.png" background="true">$INFO[Window(home).Property(VideoInfo.ImageFilter)]</texture>
+                <visible>!Skin.HasSetting(furniture.info.fanart)</visible>
+            </control>
+              <control type="image">
+                  <left>-8</left>
+                  <right>-8</right>
+                  <top>-8</top>
+                  <bottom>-8</bottom>
+                <animation effect="fade" start="100" end="75" time="0" condition="true">Conditional</animation>
+                <aspectratio align="center">scale</aspectratio>
+                <texture colordiffuse="$INFO[Window(home).Property(VideoInfo.ImageColor)]">diffuseoverlay.png</texture>
+                <visible>!Skin.HasSetting(furniture.info.fanart)</visible>
+            </control>
+
             
             <control type="label" id="1">
                 <description>header label</description>
                 <left>30</left>
                 <right>30</right>
+                <align>center</align>
                 <posy>48</posy>
                 <font>MediumBold</font>
                 <textcolor>Black70</textcolor>
