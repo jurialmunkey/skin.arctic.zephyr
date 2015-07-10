@@ -74,7 +74,7 @@
                 <visible>Player.HasVideo + SubString(Window(10025).Property(PlayingBackgroundMedia),True)</visible>
             </control>
             <control type="image" id="5688">
-                <top>59</top>
+                <top>12</top>
                 <right>40</right>
                 <width>258</width>
                 <height>130</height>
@@ -84,7 +84,7 @@
                 <include>DialogVideoInfoAnimation</include>
             </control>
             <control type="textbox">
-                <top>59</top>
+                <top>12</top>
                 <right>40</right>
                 <width>258</width>
                 <height>130</height>
@@ -97,7 +97,7 @@
                 <visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,a,Left) | SubString(ListItem.Title,b,Left) | SubString(ListItem.Title,c,Left) | SubString(ListItem.Title,d,Left)]</visible>
             </control>
             <control type="textbox">
-                <top>59</top>
+                <top>12</top>
                 <right>40</right>
                 <width>258</width>
                 <height>130</height>
@@ -110,7 +110,7 @@
                 <visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))]+ [SubString(ListItem.Title,e,Left) | SubString(ListItem.Title,f,Left) | SubString(ListItem.Title,g,Left) | SubString(ListItem.Title,h,Left)]</visible>
             </control>
             <control type="textbox">
-                <top>59</top>
+                <top>12</top>
                 <right>40</right>
                 <width>258</width>
                 <height>130</height>
@@ -123,7 +123,7 @@
                 <visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,i,Left) | SubString(ListItem.Title,j,Left) | SubString(ListItem.Title,k,Left) | SubString(ListItem.Title,l,Left)]</visible>
             </control>
             <control type="textbox">
-                <top>59</top>
+                <top>12</top>
                 <right>40</right>
                 <width>258</width>
                 <height>130</height>
@@ -136,7 +136,7 @@
                 <visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,m,Left) | SubString(ListItem.Title,n,Left) | SubString(ListItem.Title,o,Left) | SubString(ListItem.Title,p,Left)]</visible>
             </control>
             <control type="textbox">
-                <top>59</top>
+                <top>12</top>
                 <right>40</right>
                 <width>258</width>
                 <height>130</height>
@@ -149,7 +149,7 @@
                 <visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,q,Left) | SubString(ListItem.Title,r,Left) | SubString(ListItem.Title,s,Left) | SubString(ListItem.Title,t,Left)]</visible>
             </control>
             <control type="textbox">
-                <top>59</top>
+                <top>12</top>
                 <right>40</right>
                 <width>258</width>
                 <height>130</height>
@@ -731,7 +731,7 @@
                     </control>
                 </control>
                 <control type="group" id="3443">
-                    <visible>!IsEmpty(ListItem.colour) | !IsEmpty(ListItem.PlotOutline)</visible>
+                    <visible>!IsEmpty(ListItem.Plot) | !IsEmpty(ListItem.PlotOutline)</visible>
                     <top>156</top>
                     <width>1192</width>
                     <height>114</height>
