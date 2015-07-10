@@ -14,9 +14,11 @@
         <include>View_550_List</include>
         <include condition="!Skin.HasSetting(50list.low)">View_50_List</include>
         <include condition="Skin.HasSetting(50list.low)">View_50_LowList</include>
-        <include condition="!Skin.HasSetting(51bigwide.showinfo) + !Skin.HasSetting(51bigwide.showclassic)">View_51_BigWide</include>
+        <!-- <include condition="!Skin.HasSetting(51bigwide.showinfo) + !Skin.HasSetting(51bigwide.showclassic)">View_51_BigWide</include>
         <include condition="Skin.HasSetting(51bigwide.showinfo)">View_51_BigWide_Info</include>
-        <include condition="!Skin.HasSetting(51bigwide.showinfo) + Skin.HasSetting(51bigwide.showclassic)">View_51_BigWide_Classic</include>
+        <include condition="!Skin.HasSetting(51bigwide.showinfo) + Skin.HasSetting(51bigwide.showclassic)">View_51_BigWide_Classic</include> -->
+        <include condition="Skin.HasSetting(51bigwide.showinfo)">View_51_BigWide_Info</include>
+        <include condition="!Skin.HasSetting(51bigwide.showinfo)">View_51_BigWide_Classic</include>
         <include condition="Skin.HasSetting(52biglist.singlepane)">View_52_BigList_SinglePane</include>
         <include condition="!Skin.HasSetting(52biglist.singlepane)">View_52_BigList_DoublePane</include>
         <include>View_53_Poster</include>
@@ -186,7 +188,7 @@
                     <visible>Control.IsVisible(51)</visible>
                 </control>
 
-                <control type="radiobutton" id="9014" description="Big Wide Classic (51)">
+                <!-- <control type="radiobutton" id="9014" description="Big Wide Classic (51)">
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31245</label>
@@ -195,7 +197,7 @@
                     <onclick>Skin.Reset(51bigwide.showinfo)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(51)</visible>
-                </control>
+                </control> -->
                 
                 <control type="radiobutton" id="9011" description="Banner show poster (54)">
                     <include>DefContextButton</include>
