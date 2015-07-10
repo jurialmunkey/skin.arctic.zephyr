@@ -624,11 +624,14 @@
 		<value condition="!Skin.HasSetting(home.classicwidgets) + Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.netflix)">$LOCALIZE[31250]</value>
 		<value condition="Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.netflix)">$LOCALIZE[31249]</value>
 		<value condition="Skin.HasSetting(home.netflix)">$LOCALIZE[31751]</value>
-		
-		
 	</variable>
 	<variable name="KodiFlix.Label">
 		<value condition="ListItem.IsPlaying">[COLOR=$VAR[ColourHighlight]]$INFO[ListItem.Label][/COLOR]</value>
 		<value>$INFO[ListItem.Label]</value>
+	</variable>
+	<variable name="VideoInfoButton8T">
+		<value condition="ListItem.IsResumable">Resume</value>
+		<value condition="IntegerGreaterThan(ListItem.PlayCount,0)">Watch Again</value>
+		<value>Watch Now</value>
 	</variable>
 </includes>
