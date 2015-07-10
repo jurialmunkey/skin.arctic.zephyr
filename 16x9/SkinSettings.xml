@@ -602,6 +602,14 @@
 						<selected>Skin.HasSetting(furniture.flags.colour)</selected>
 						<onclick>Skin.ToggleSetting(furniture.flags.colour)</onclick>
 					</control>
+					<control type="radiobutton" id="92703" description="Fanart Dialog Info">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9106)</visible>
+						<include>DefSettingsButton</include>
+						<label>Show fanart on video info screen</label>
+						<selected>Skin.HasSetting(furniture.info.fanart)</selected>
+						<onclick>Skin.ToggleSetting(furniture.info.fanart)</onclick>
+					</control>
 					<!-- Extras -->
 					<control type="button" id="9271" description="Startup Video">
 						<width>1310</width>
