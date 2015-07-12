@@ -282,12 +282,9 @@
 		<value condition="!IsEmpty(Container(1000).ListItemNoWrap(0).Label)">$INFO[Container(1000).ListItemNoWrap(0).Label]</value>
 	</variable>
 	<variable name="VideoInfoButton8">
-		<value condition="ListItem.IsResumable + !Skin.HasSetting(furniture.info.showtext)"></value>
-		<value condition="ListItem.IsResumable + Skin.HasSetting(furniture.info.showtext)">Resume</value>
-		<value condition="IntegerGreaterThan(ListItem.PlayCount,0) + !Skin.HasSetting(furniture.info.showtext)"></value>
-		<value condition="IntegerGreaterThan(ListItem.PlayCount,0) + Skin.HasSetting(furniture.info.showtext)">Watch[CR]Again</value>
-		<value condition="!Skin.HasSetting(furniture.info.showtext)"></value>
-		<value condition="Skin.HasSetting(furniture.info.showtext)">Watch[CR]Now</value>
+		<value condition="ListItem.IsResumable"></value>
+		<value condition="IntegerGreaterThan(ListItem.PlayCount,0)"></value>
+		<value></value>
 	</variable>
 	<variable name="SimilarVideos">
 		<value condition="Container.Content(movies)">plugin://script.extendedinfo?info=similarmovies&amp;&amp;dbid=$INFO[ListItem.DBID]</value>
@@ -633,5 +630,17 @@
 		<value condition="ListItem.IsResumable">Resume</value>
 		<value condition="IntegerGreaterThan(ListItem.PlayCount,0)">Watch Again</value>
 		<value>Watch Now</value>
+	</variable>
+	<variable name="ListItemSeasonVar">
+		<value condition="!IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Season,0]</value>
+		<value>$INFO[ListItem.Season]</value>
+	</variable>
+	<variable name="ListItemEpisodeVar">
+		<value condition="!IntegerGreaterThan(ListItem.Episode,9)">$INFO[ListItem.Episode,0]</value>
+		<value>$INFO[ListItem.Episode]</value>
+	</variable>
+	<variable name="SourceFlagVar">
+		<value condition="StringCompare(ListItem.FileExtension,iso) | StringCompare(ListItem.FileExtension,ifo)">dvd</value>
+		<value>$INFO[ListItem.VideoCodec]</value>
 	</variable>
 </includes>

@@ -111,6 +111,12 @@
 					</itemlayout>
 					<focusedlayout width="315" height="750">
 						<control type="group">
+							<control type="button">
+								<texturefocus>-</texturefocus>
+								<texturenofocus>-</texturenofocus>
+								<onfocus condition="Container.Content(movies)">ClearProperty(TVShowID,home)</onfocus>
+								<onfocus condition="Container.Content(tvshows)">SetProperty(TVShowID,$INFO[ListItem.DBID],home)</onfocus>
+							</control>
 							<animation effect="zoom" center="auto" start="100" end="130" time="160" tween="quadratic">Focus</animation>
 							<animation effect="zoom" center="auto" start="130" end="100" time="160" tween="quadratic">Unfocus</animation>
 							<control type="image">

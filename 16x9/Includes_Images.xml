@@ -272,4 +272,114 @@
 		<value condition="SubString(ListItem.Filename,hdtv)">hdtv.png</value>
 		<value>$INFO[ListItem.VideoResolution]p.png</value>
 	</variable>
+	<include name="Furniture_FlagUpright">
+		<width>2</width>
+		<height>71</height>
+		<texture>info/tripanel/upright.png</texture>
+	</include>
+	<variable name="RatingFlagVar">
+		<value condition="substring(ListItem.mpaa,TV-G)">TV-G_Certificate_US</value>
+		<value condition="substring(ListItem.mpaa,TV-PG)">TV-PG_Certificate_US</value>
+		<value condition="substring(ListItem.mpaa,TV-14)">TV-14_Certificate_US</value>
+		<value condition="substring(ListItem.mpaa,TV-MA)">TV-MA_Certificate_US</value>
+		<value condition="substring(ListItem.mpaa,TV-Y7)">tv-y7</value>
+		<value condition="substring(ListItem.mpaa,TV-Y)">tv-y</value>
+		<value condition="SubString(ListItem.mpaa,US:G) | SubString(ListItem.mpaa,USA:G) | SubString(ListItem.mpaa,Rated G)">MPAA_G_Certificate_US</value>
+		<value condition="SubString(ListItem.mpaa,PG-13)">MPAA_PG-13_Certificate_US</value>
+		<value condition="Substring(ListItem.mpaa,Rated PG) | StringCompare(ListItem.Mpaa,PG)">MPAA_PG_Certificate_US</value>
+		<value condition="SubString(ListItem.mpaa,US:R) | SubString(ListItem.mpaa,USA:R) | SubString(ListItem.mpaa,Rated R) | [StringCompare(ListItem.mpaa,R) + !Stringcompare(Skin.String(RatingCountry),UK)]">MPAA_R_Certificate_US</value>
+		<value condition="SubString(ListItem.mpaa,NC-17)">MPAA_NC-17_Certificate_US</value>
+		<value condition="SubString(ListItem.mpaa,U)">BBFC_U_Certificate_UK</value>
+		<value condition="SubString(ListItem.mpaa,PG)">BBFC_PG_Certificate_UK</value>
+		<value condition="SubString(ListItem.mpaa,12A)">BBFC_12A_Certificate_UK</value>
+		<value condition="SubString(ListItem.mpaa,12)">BBFC_12_Certificate_UK</value>
+		<value condition="SubString(ListItem.mpaa,15)">BBFC_15_Certificate_UK</value>
+		<value condition="SubString(ListItem.mpaa,18) | [SubString(ListItem.mpaa,R) + Stringcompare(Skin.String(RatingCountry),UK)]">BBFC_18_Certificate_UK</value>
+		<value condition="SubString(ListItem.mpaa,besorolás alatt)">HU_BA</value>
+		<value condition="SubString(ListItem.mpaa,korhatárra való tekintett nélkül megtekintetheto)">HU_KN</value>
+		<value condition="SubString(ListItem.mpaa,12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">HU_12</value>
+		<value condition="SubString(ListItem.mpaa,16 éven aluliak számára nem ajánlott)">HU_16</value>
+		<value condition="SubString(ListItem.mpaa,18 éven aluliak számára nem ajánlott)">HU_18</value>
+		<value condition="substring(ListItem.mpaa,France:U) | Substring(ListItem.mpaa,partir de)">csaU</value>
+		<value condition="substring(ListItem.mpaa,France:-10) | Substring(ListItem.mpaa,Interdit aux moins de 10 ans) | Substring(ListItem.mpaa,des propos ou des images peuvent heurter)">csa10</value>
+		<value condition="substring(ListItem.mpaa,France:-12) | Substring(ListItem.mpaa,Interdit aux moins de 12 ans)">csa12</value>
+		<value condition="substring(ListItem.mpaa,France:-16) | Substring(ListItem.mpaa,Interdit aux moins de 16 ans)">csa16</value>
+		<value condition="substring(ListItem.mpaa,France:-18) | Substring(ListItem.mpaa,Interdit aux moins de 18 ans)">csa18</value>
+		<value condition="substring(ListItem.mpaa,전체)">KR_Certificate_All</value>
+		<value condition="substring(ListItem.mpaa,12세)">KR_Certificate_12</value>
+		<value condition="substring(ListItem.mpaa,15세)">KR_Certificate_15</value>
+		<value condition="substring(ListItem.mpaa,불가)">KR_Certificate_18</value>
+		<value condition="substring(ListItem.mpaa,제한)">KR_Certificate_R</value>
+		<value condition="Substring(ListItem.mpaa,Livre)">MPAA_Brazil_Livre</value>
+		<value condition="substring(ListItem.mpaa,Brazil:10) | substring(ListItem.mpaa,10 anos)">MPAA_Brazil_10</value>
+		<value condition="substring(ListItem.mpaa,Brazil:12) | substring(ListItem.mpaa,12 anos)">MPAA_Brazil_12</value>
+		<value condition="substring(ListItem.mpaa,Brazil:14) | substring(ListItem.mpaa,14 anos)">MPAA_Brazil_14</value>
+		<value condition="substring(ListItem.mpaa,Brazil:16) | substring(ListItem.mpaa,16 anos)">MPAA_Brazil_16</value>
+		<value condition="substring(ListItem.mpaa,Brazil:18) | substring(ListItem.mpaa,18 anos)">MPAA_Brazil_18</value>
+		<value condition="SubString(ListItem.mpaa,6)">FSK-6</value>
+		<value condition="SubString(ListItem.mpaa,12)">FSK-12</value>
+		<value condition="SubString(ListItem.mpaa,16)">FSK-16</value>
+		<value condition="SubString(ListItem.mpaa,18)">FSK-18</value>
+		<value condition="SubString(ListItem.mpaa,Germany) | SubString(ListItem.mpaa,FSK) | SubString(ListItem.mpaa,o.A) | SubString(ListItem.mpaa,Rated 0)">FSK-0</value>
+		<value condition="SubString(ListItem.mpaa,Nl:6)">rated_nl_6</value>
+		<value condition="SubString(ListItem.mpaa,Nl:9)">rated_nl_9</value>
+		<value condition="SubString(ListItem.mpaa,Nl:12)">rated_nl_12</value>
+		<value condition="SubString(ListItem.mpaa,Nl:16)">rated_nl_16</value>
+		<value condition="SubString(ListItem.mpaa,Nl:18)">rated_nl_18+</value>
+		<value condition="SubString(ListItem.mpaa,Nl:AL)">rated_nl_AL</value>
+		<value condition="SubString(ListItem.mpaa,Nl:mg6)">rated_nl_mg6</value>
+	</variable>
+
+	<variable name="ExtendedRatingFlagVar">
+		<value condition="substring(Window.Property(movie.mpaa),TV-G)">TV-G_Certificate_US</value>
+		<value condition="substring(Window.Property(movie.mpaa),TV-PG)">TV-PG_Certificate_US</value>
+		<value condition="substring(Window.Property(movie.mpaa),TV-14)">TV-14_Certificate_US</value>
+		<value condition="substring(Window.Property(movie.mpaa),TV-MA)">TV-MA_Certificate_US</value>
+		<value condition="substring(Window.Property(movie.mpaa),TV-Y7)">tv-y7</value>
+		<value condition="substring(Window.Property(movie.mpaa),TV-Y)">tv-y</value>
+		<value condition="SubString(Window.Property(movie.mpaa),US:G) | SubString(Window.Property(movie.mpaa),USA:G) | SubString(Window.Property(movie.mpaa),Rated G)">MPAA_G_Certificate_US</value>
+		<value condition="SubString(Window.Property(movie.mpaa),PG-13)">MPAA_PG-13_Certificate_US</value>
+		<value condition="Substring(Window.Property(movie.mpaa),Rated PG) | StringCompare(Window.Property(movie.mpaa),PG)">MPAA_PG_Certificate_US</value>
+		<value condition="SubString(Window.Property(movie.mpaa),US:R) | SubString(Window.Property(movie.mpaa),USA:R) | SubString(Window.Property(movie.mpaa),Rated R) | [StringCompare(Window.Property(movie.mpaa),R) + !Stringcompare(Skin.String(RatingCountry),UK)]">MPAA_R_Certificate_US</value>
+		<value condition="SubString(Window.Property(movie.mpaa),NC-17)">MPAA_NC-17_Certificate_US</value>
+		<value condition="SubString(Window.Property(movie.mpaa),U)">BBFC_U_Certificate_UK</value>
+		<value condition="SubString(Window.Property(movie.mpaa),PG)">BBFC_PG_Certificate_UK</value>
+		<value condition="SubString(Window.Property(movie.mpaa),12A)">BBFC_12A_Certificate_UK</value>
+		<value condition="SubString(Window.Property(movie.mpaa),12)">BBFC_12_Certificate_UK</value>
+		<value condition="SubString(Window.Property(movie.mpaa),15)">BBFC_15_Certificate_UK</value>
+		<value condition="SubString(Window.Property(movie.mpaa),18) | [SubString(Window.Property(movie.mpaa),R) + Stringcompare(Skin.String(RatingCountry),UK)]">BBFC_18_Certificate_UK</value>
+		<value condition="SubString(Window.Property(movie.mpaa),besorolás alatt)">HU_BA</value>
+		<value condition="SubString(Window.Property(movie.mpaa),korhatárra való tekintett nélkül megtekintetheto)">HU_KN</value>
+		<value condition="SubString(Window.Property(movie.mpaa),12 éven aluliak számára a megtekintése nagykorú felügyelete mellett ajánlott)">HU_12</value>
+		<value condition="SubString(Window.Property(movie.mpaa),16 éven aluliak számára nem ajánlott)">HU_16</value>
+		<value condition="SubString(Window.Property(movie.mpaa),18 éven aluliak számára nem ajánlott)">HU_18</value>
+		<value condition="substring(Window.Property(movie.mpaa),France:U) | Substring(Window.Property(movie.mpaa),partir de)">csaU</value>
+		<value condition="substring(Window.Property(movie.mpaa),France:-10) | Substring(Window.Property(movie.mpaa),Interdit aux moins de 10 ans) | Substring(Window.Property(movie.mpaa),des propos ou des images peuvent heurter)">csa10</value>
+		<value condition="substring(Window.Property(movie.mpaa),France:-12) | Substring(Window.Property(movie.mpaa),Interdit aux moins de 12 ans)">csa12</value>
+		<value condition="substring(Window.Property(movie.mpaa),France:-16) | Substring(Window.Property(movie.mpaa),Interdit aux moins de 16 ans)">csa16</value>
+		<value condition="substring(Window.Property(movie.mpaa),France:-18) | Substring(Window.Property(movie.mpaa),Interdit aux moins de 18 ans)">csa18</value>
+		<value condition="substring(Window.Property(movie.mpaa),전체)">KR_Certificate_All</value>
+		<value condition="substring(Window.Property(movie.mpaa),12세)">KR_Certificate_12</value>
+		<value condition="substring(Window.Property(movie.mpaa),15세)">KR_Certificate_15</value>
+		<value condition="substring(Window.Property(movie.mpaa),불가)">KR_Certificate_18</value>
+		<value condition="substring(Window.Property(movie.mpaa),제한)">KR_Certificate_R</value>
+		<value condition="Substring(Window.Property(movie.mpaa),Livre)">MPAA_Brazil_Livre</value>
+		<value condition="substring(Window.Property(movie.mpaa),Brazil:10) | substring(Window.Property(movie.mpaa),10 anos)">MPAA_Brazil_10</value>
+		<value condition="substring(Window.Property(movie.mpaa),Brazil:12) | substring(Window.Property(movie.mpaa),12 anos)">MPAA_Brazil_12</value>
+		<value condition="substring(Window.Property(movie.mpaa),Brazil:14) | substring(Window.Property(movie.mpaa),14 anos)">MPAA_Brazil_14</value>
+		<value condition="substring(Window.Property(movie.mpaa),Brazil:16) | substring(Window.Property(movie.mpaa),16 anos)">MPAA_Brazil_16</value>
+		<value condition="substring(Window.Property(movie.mpaa),Brazil:18) | substring(Window.Property(movie.mpaa),18 anos)">MPAA_Brazil_18</value>
+		<value condition="SubString(Window.Property(movie.mpaa),6)">FSK-6</value>
+		<value condition="SubString(Window.Property(movie.mpaa),12)">FSK-12</value>
+		<value condition="SubString(Window.Property(movie.mpaa),16)">FSK-16</value>
+		<value condition="SubString(Window.Property(movie.mpaa),18)">FSK-18</value>
+		<value condition="SubString(Window.Property(movie.mpaa),Germany) | SubString(Window.Property(movie.mpaa),FSK) | SubString(Window.Property(movie.mpaa),o.A) | SubString(Window.Property(movie.mpaa),Rated 0)">FSK-0</value>
+		<value condition="SubString(Window.Property(movie.mpaa),Nl:6)">rated_nl_6</value>
+		<value condition="SubString(Window.Property(movie.mpaa),Nl:9)">rated_nl_9</value>
+		<value condition="SubString(Window.Property(movie.mpaa),Nl:12)">rated_nl_12</value>
+		<value condition="SubString(Window.Property(movie.mpaa),Nl:16)">rated_nl_16</value>
+		<value condition="SubString(Window.Property(movie.mpaa),Nl:18)">rated_nl_18+</value>
+		<value condition="SubString(Window.Property(movie.mpaa),Nl:AL)">rated_nl_AL</value>
+		<value condition="SubString(Window.Property(movie.mpaa),Nl:mg6)">rated_nl_mg6</value>
+	</variable>
 </includes>

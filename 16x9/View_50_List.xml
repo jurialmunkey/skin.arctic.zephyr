@@ -368,6 +368,12 @@
 		</control>
 	</include>
 	<include name="50focuslayout">
+		<control type="button">
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onfocus condition="Container.Content(movies)">ClearProperty(TVShowID,home)</onfocus>
+			<onfocus condition="Container.Content(tvshows)">SetProperty(TVShowID,$INFO[ListItem.DBID],home)</onfocus>
+		</control>
 		<control type="image">
 			<width>100%</width>
 			<height>100%</height>

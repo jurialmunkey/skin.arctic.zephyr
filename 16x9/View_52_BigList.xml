@@ -126,6 +126,12 @@
 		</control>
 	</include>
 	<include name="View_52_BigList_FocusLayout">
+		<control type="button">
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onfocus condition="Container.Content(movies)">ClearProperty(TVShowID,home)</onfocus>
+			<onfocus condition="Container.Content(tvshows)">SetProperty(TVShowID,$INFO[ListItem.DBID],home)</onfocus>
+		</control>
 		<control type="image">
 			<left>0</left>
 			<right>10</right>

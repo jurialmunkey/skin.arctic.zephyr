@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window type="dialog" id="1168">
+    <defaultcontrol always="true">500</defaultcontrol>
+    <onload>RunScript(script.toolbox,info=blur,id='"$INFO[ListItem.Art(fanart)]"',radius=10,prefix=YouTubeInfo)</onload>
+    <onunload>ClearProperty(YouTubeInfo.ImageColor,home)</onunload>
+    <onunload>ClearProperty(YouTubeInfo.ImageFilter,home)</onunload>
+    <controls>
+        <control type="image">
+            <include>Dimensions_Fullscreen</include>
+            <aspectratio align="center">scale</aspectratio>
+            <texture fallback="common/black.png" background="true">$INFO[Window(home).Property(YouTubeInfo.ImageFilter)]</texture>
+        </control>
+        <control type="image">
+            <include>Dimensions_Fullscreen</include>
+            <animation effect="fade" start="100" end="75" time="0" condition="true">Conditional</animation>
+            <aspectratio align="center">scale</aspectratio>
+            <texture colordiffuse="$INFO[Window(home).Property(YouTubeInfo.ImageColor)]">diffuseoverlay.png</texture>
+        </control>
+        <control type="group">
+            <include>Animation.FadeIn</include>
+            <include>Animation.FadeOut</include>
+            <centerbottom>94</centerbottom>
+            <visible>!Skin.HasSetting(furniture.clock)</visible>
+            <include>Animation.FurnitureFadeInOut</include>
+            <height>84</height>
+            <right>20</right>
+            <animation effect="slide" start="0" end="0,-10" time="150" condition="Skin.HasSetting(furniture.weather)">Conditional</animation>
+            <control type="label">
+                <centertop>24</centertop>
+                <right>130</right>
+                <align>right</align>
+                <font>LargeBold</font>
+                <textcolor>Dark1</textcolor>
+                <label>$INFO[System.Time(hh:mm)]</label>
+                <animation effect="slide" start="0" end="50" time="0" condition="IsEmpty(System.Time(xx))">Conditional</animation>
+            </control>
+            <control type="label">
+                <centertop>30</centertop>
+                <right>SidePad</right>
+                <font>SmallBold</font>
+                <textcolor>Dark3</textcolor>
+                <align>right</align>
+                <width>120</width>
+                <label>$INFO[System.Time(xx)]</label>
+                <visible>!IsEmpty(System.Time(xx))</visible>
+            </control>
+            <control type="label">
+                <centertop>64</centertop>
+                <right>SidePad</right>
+                <font>Flag</font>
+                <textcolor>Dark2</textcolor>
+                <align>right</align>
+                <width>50%</width>
+                <label>$INFO[System.Date(DDD)]$COMMA $INFO[System.Date(d MMM yyyy)]</label>
+            </control>
+            <control type="label">
+                <centertop>92</centertop>
+                <right>SidePad</right>
+                <font>Flag</font>
+                <textcolor>Dark3</textcolor>
+                <align>right</align>
+                <width>50%</width>
+                <visible>Skin.HasSetting(furniture.weather)</visible>
+                <label>[COLOR=$VAR[ColourHighlight]]$INFO[Weather.Temperature][/COLOR] $INFO[Weather.Conditions]</label>
+            </control>
+        </control>
+        <control type="group">
+            <posy>0</posy>
+            <visible>!Window.IsActive(busydialog)</visible>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="zoom" start="80" end="100" center="960,540" delay="500" tween="back" time="240" />
+                <effect type="fade" delay="500" end="100" time="240" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="zoom" start="100" end="80" center="960,540" easing="in" tween="back" time="240" />
+                <effect type="fade" start="100" end="0" time="240" />
+            </animation>
+            <animation type="Visible" reversible="false">
+                <effect type="zoom" start="80" end="100" center="960,540" delay="500" tween="back" time="240" />
+                <effect type="fade" delay="500" end="100" time="240" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="zoom" start="100" end="80" center="960,540" easing="in" tween="back" time="240" />
+                <effect type="fade" start="100" end="0" time="240" />
+            </animation>
+            <control type="image">
+                <posx>75</posx>
+                <posy>135</posy>
+                <width>440</width>
+                <height>410</height>
+                <animation effect="fade" time="320" delay="300">Visible</animation>
+                <texture colordiffuse="$VAR[ColourHighlight]" border="40">buttons/roundedbutton-focus.png</texture>
+                <animation effect="slide" end="0,390" time="300" tween="cubic" easing="inout" condition="Container(500).Row(1)">Conditional</animation>
+                <animation effect="slide" end="440,0" time="300" tween="cubic" easing="inout" condition="Container(500).Column(3)">Conditional</animation>
+                <animation effect="slide" end="440,0" time="300" tween="cubic" easing="inout" condition="Container(500).Column(3) | Container(500).Column(2)">Conditional</animation>
+                <animation effect="slide" end="440,0" time="300" tween="cubic" easing="inout" condition="Container(500).Column(3) | Container(500).Column(2) | Container(500).Column(1)">Conditional</animation>
+            </control>
+            <control type="panel" id="500">
+                <posx>0</posx>
+                <posy>150</posy>
+                <width>1920</width>
+                <height>820</height>
+                <viewtype label="Wall">icon</viewtype>
+                <pagecontrol>72</pagecontrol>
+                <preloaditems>2</preloaditems>
+                <scrolltime tween="quadratic">300</scrolltime>
+                <onleft>9000</onleft>
+                <onright>72</onright>
+                <onup>500</onup>
+                <ondown>500</ondown>
+                <orientation>vertical</orientation>
+                <itemlayout height="410" width="440">
+                    <include>YoutubeItemLayout</include>
+                </itemlayout>
+                <focusedlayout height="410" width="440">
+                    <include>YoutubeFocusedLayout</include>
+                </focusedlayout>
+                <content>plugin://script.extendedinfo?info=youtubesearch&amp;&amp;id=$INFO[Window(Home).Property(listcontent)]</content>
+            </control>
+
+            <control type="image">
+                <posx>10</posx>
+                <posy>18</posy>
+                <width>360</width>
+                <height>138</height>
+                <aspectratio>keep</aspectratio>
+                <texture>info/youtube.png</texture>
+            </control>
+        </control>
+    </controls>
+</window>

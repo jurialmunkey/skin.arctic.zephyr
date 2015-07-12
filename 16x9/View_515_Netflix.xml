@@ -279,6 +279,12 @@
 				</itemlayout>
 				<focusedlayout width="340" height="195">
 					<control type="group">
+						<control type="button">
+							<texturefocus>-</texturefocus>
+							<texturenofocus>-</texturenofocus>
+							<onfocus condition="Container.Content(movies)">ClearProperty(TVShowID,home)</onfocus>
+							<onfocus condition="Container.Content(tvshows)">SetProperty(TVShowID,$INFO[ListItem.DBID],home)</onfocus>
+						</control>
 						<control type="image">
 							<posx>5</posx>
 							<posy>5</posy>
