@@ -188,7 +188,6 @@
                 <visible>!Control.HasFocus(50) + !Control.HasFocus(5000)</visible>
                 <animation effect="fade" end="0" start="100" time="0">Hidden</animation>
                 <animation delay="200" effect="fade" end="100" start="0" time="80">Visible</animation>
-
                 <left>90</left>
                 <posy>5</posy>
                 <width>380</width>
@@ -525,13 +524,12 @@
                     <visible>!Control.HasFocus(50) + !Control.HasFocus(5000)</visible>
                     <animation effect="fade" end="0" start="100" time="0">Hidden</animation>
                     <animation delay="200" effect="fade" end="100" start="0" time="80">Visible</animation>
-
                     <control type="label">
                         <height>50</height>
                         <label>$INFO[ListItem.Title]</label>
                         <font>Large</font>
                         <textcolor>Black100</textcolor>
-                        <animation effect="slide" start="0,0" end="0,30" time="0" condition="[Container.Content(musicvideos) + IsEmpty(ListItem.Artist)]">Conditional</animation>
+                        <animation effect="slide" start="0,0" end="0,30" time="0" condition="[Container.Content(musicvideos) + IsEmpty(ListItem.Artist)] | Container.Content(movies)">Conditional</animation>
                         <scroll>true</scroll>
                     </control>
                     <control type="label">
@@ -558,17 +556,18 @@
                     <visible>!Control.HasFocus(50) + !Control.HasFocus(5000)</visible>
                     <animation effect="fade" end="0" start="100" time="0">Hidden</animation>
                     <animation delay="200" effect="fade" end="100" start="0" time="80">Visible</animation>
-
                     <control type="image">
                         <width>1042</width>
                         <height>1</height>
                         <texture>info/infopanel_line.png</texture>
+                        <visible>!Skin.HasSetting(furniture.info.dividers)</visible>
                     </control>
                     <control type="image">
                         <top>80</top>
                         <width>1042</width>
                         <height>1</height>
                         <texture>info/infopanel_line.png</texture>
+                        <visible>!Skin.HasSetting(furniture.info.dividers)</visible>
                     </control>
                     <control type="grouplist">
                         <top>1</top>
@@ -604,6 +603,7 @@
                             <height>79</height>
                             <include>Furniture_FlagUpright</include>
                             <visible>Container.Content(episodes)</visible>
+                            <visible>!Skin.HasSetting(furniture.info.dividers)</visible>
                         </control>
                         <control type="image">
                             <posy>5</posy>
@@ -615,6 +615,7 @@
                         <control type="image">
                             <height>79</height>
                             <include>Furniture_FlagUpright</include>
+                            <visible>!Skin.HasSetting(furniture.info.dividers)</visible>
                         </control>
                         <control type="group">
                             <width>155</width>
@@ -641,6 +642,7 @@
                             <height>79</height>
                             <include>Furniture_FlagUpright</include>
                             <visible>!IsEmpty(ListItem.Rating)</visible>
+                            <visible>!Skin.HasSetting(furniture.info.dividers)</visible>
                         </control>
                         <control type="group">
                             <width>155</width>
@@ -667,6 +669,7 @@
                             <height>79</height>
                             <include>Furniture_FlagUpright</include>
                             <visible>!IsEmpty(ListItem.Duration)</visible>
+                            <visible>!Skin.HasSetting(furniture.info.dividers)</visible>
                         </control>
                         <control type="group">
                             <visible>!IsEmpty(ListItem.Year)</visible>
@@ -693,6 +696,7 @@
                             <height>79</height>
                             <include>Furniture_FlagUpright</include>
                             <visible>!IsEmpty(ListItem.Year)</visible>
+                            <visible>!Skin.HasSetting(furniture.info.dividers)</visible>
                         </control>
                         <control type="group">
                             <visible>!IsEmpty(ListItem.Top250)</visible>
@@ -719,6 +723,7 @@
                             <height>79</height>
                             <include>Furniture_FlagUpright</include>
                             <visible>!IsEmpty(ListItem.Top250)</visible>
+                            <visible>!Skin.HasSetting(furniture.info.dividers)</visible>
                         </control>
 
                         <control type="group" id="3300">
@@ -751,11 +756,11 @@
                     <visible>!IsEmpty(ListItem.Plot) | !IsEmpty(ListItem.PlotOutline)</visible>
                     <visible>!Control.HasFocus(50) + !Control.HasFocus(5000)</visible>
                     <top>206</top>
-                    <width>1192</width>
+                    <width>1172</width>
                     <height>148</height>
                     <control type="radiobutton"  id="132">
                         <top>-8</top>
-                        <width>1210</width>
+                        <width>1190</width>
                         <height>164</height>
                         <radioposx>1</radioposx>
                         <radioposy>12</radioposy>
@@ -860,7 +865,7 @@
                     <top>579</top>
                     <width>1220</width>
                     <height>116</height>
-                    <itemgap>10</itemgap>
+                    <itemgap>21</itemgap>
                     <onleft>7000</onleft>
                     <onright>9000</onright>
                     <orientation>horizontal</orientation>
@@ -870,7 +875,7 @@
 
                     <!-- Play/Browse Button -->
                     <control id="8" type="togglebutton">
-                        <width>234</width>
+                        <width>222</width>
                         <height>116</height>
                         <onup condition="Control.IsVisible(3443)">3443</onup>
                         <ondown condition="Control.IsVisible(5000)">5000</ondown>
@@ -889,7 +894,7 @@
                     </control>
                     <!-- Cinema Experience Button -->
                     <control id="21" type="button">
-                        <width>234</width>
+                        <width>222</width>
                         <height>116</height>
                         <onup condition="Control.IsVisible(3443)">3443</onup>
                         <ondown condition="Control.IsVisible(5000)">5000</ondown>
@@ -905,7 +910,7 @@
                         <visible>false</visible>
                     </control>
                     <control id="1003" type="button">
-                        <width>234</width>
+                        <width>222</width>
                         <height>116</height>
                         <onup condition="Control.IsVisible(3443)">3443</onup>
                         <ondown condition="Control.IsVisible(5000)">5000</ondown>
@@ -921,7 +926,7 @@
                         <texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
                     </control>
                     <control id="1006" type="button">
-                        <width>234</width>
+                        <width>222</width>
                         <height>116</height>
                         <onup condition="Control.IsVisible(3443)">3443</onup>
                         <ondown condition="Control.IsVisible(5000)">5000</ondown>
@@ -938,7 +943,7 @@
                         <texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
                     </control>
                     <control id="6" type="button">
-                        <width>234</width>
+                        <width>222</width>
                         <height>116</height>
                         <onup condition="Control.IsVisible(3443)">3443</onup>
                         <ondown condition="Control.IsVisible(5000)">5000</ondown>
@@ -953,7 +958,7 @@
                     </control>
                     <!-- Get Thumb Button -->
                     <control id="10" type="button">
-                        <width>234</width>
+                        <width>222</width>
                         <height>116</height>
                         <onup condition="Control.IsVisible(3443)">3443</onup>
                         <ondown condition="Control.IsVisible(5000)">5000</ondown>
@@ -967,7 +972,7 @@
                     </control>
                     <!-- Artwork Downloader Button -->
                     <control id="20" type="button">
-                        <width>234</width>
+                        <width>222</width>
                         <height>116</height>
                         <onup condition="Control.IsVisible(3443)">3443</onup>
                         <ondown condition="Control.IsVisible(5000)">5000</ondown>
@@ -984,7 +989,7 @@
                     </control>
                     <!--Extended Info Button -->
                     <control type="button" id="19">
-                        <width>234</width>
+                        <width>222</width>
                         <height>116</height>
                         <onup condition="Control.IsVisible(3443)">3443</onup>
                         <ondown condition="Control.IsVisible(5000)">5000</ondown>
@@ -1004,9 +1009,9 @@
                 <control id="9002" type="grouplist">
                     <left>-2</left>
                     <top>614</top>
-                    <width>1220</width>
+                    <width>1222</width>
                     <height>116</height>
-                    <itemgap>10</itemgap>
+                    <itemgap>21</itemgap>
                     <onleft>7000</onleft>
                     <onright>9002</onright>
                     <orientation>horizontal</orientation>
@@ -1016,7 +1021,7 @@
 
                     <!-- Play/Browse Button -->
                     <control id="8" type="togglebutton">
-                        <width>234</width>
+                        <width>222</width>
                         <height>116</height>
                         <usealttexture>Container.Content(TVShows)</usealttexture>
                         <textcolor>White70</textcolor>
@@ -1029,7 +1034,7 @@
                     </control>
                     <!-- Cinema Experience Button -->
                     <control id="21" type="button">
-                        <width>234</width>
+                        <width>222</width>
                         <height>116</height>
                         <visible>System.HasAddon(script.cinema.experience) + Container.Content(movies)</visible>
                         <visible>false</visible>
@@ -1042,7 +1047,7 @@
                         <animation condition="!Control.HasFocus(21)" effect="fade" end="0" start="100" time="10">Conditional</animation>
                     </control>
                     <control id="1003" type="button">
-                        <width>234</width>
+                        <width>222</width>
                         <height>116</height>
                         <textcolor>White70</textcolor>
                         <textoffsetx>0</textoffsetx>
@@ -1053,7 +1058,7 @@
                         <animation condition="!Control.HasFocus(1003)" effect="fade" end="0" start="100" time="10">Conditional</animation>
                     </control>
                     <control id="1006" type="button">
-                        <width>234</width>
+                        <width>222</width>
                         <height>116</height>
                         <textcolor>White70</textcolor>
                         <textoffsetx>0</textoffsetx>
@@ -1067,7 +1072,7 @@
 
                     <!-- Refresh Button -->
                     <control id="6" type="button">
-                        <width>234</width>
+                        <width>222</width>
                         <height>116</height>
                         <textcolor>White70</textcolor>
                         <textoffsetx>0</textoffsetx>
@@ -1080,7 +1085,7 @@
                     </control>
                     <!-- Get Thumb Button -->
                     <control id="10" type="button">
-                        <width>234</width>
+                        <width>222</width>
                         <height>116</height>
                         <textoffsetx>0</textoffsetx>
                         <textcolor>White70</textcolor>
@@ -1092,7 +1097,7 @@
                     </control>
                     <!-- Artwork Downloader Button -->
                     <control id="20" type="button">
-                        <width>234</width>
+                        <width>222</width>
                         <height>116</height>
                         <textoffsetx>0</textoffsetx>
                         <textcolor>White70</textcolor>
@@ -1105,7 +1110,7 @@
                     <!--Extended Info Button -->
                     <control type="button" id="19">
                         <textoffsetx>0</textoffsetx>
-                        <width>234</width>
+                        <width>222</width>
                         <height>116</height>
                         <font>EPGTimeline</font>
                         <label>Extended Info</label>
@@ -1121,6 +1126,7 @@
                     <width>1042</width>
                     <height>1</height>
                     <texture>info/infopanel_line.png</texture>
+                    <visible>!Skin.HasSetting(furniture.info.dividers)</visible>
                     <visible>Container.Content(movies) | Container.Content(episodes)</visible>
                 </control>
                 <control type="grouplist">
@@ -1154,6 +1160,7 @@
                     </control>
                     <control type="image">
                         <include>Furniture_FlagUpright</include>
+                        <visible>!Skin.HasSetting(furniture.info.dividers)</visible>
                         <visible>!IsEmpty(Control.GetLabel(900012)) | !IsEmpty(Control.GetLabel(900011))</visible>
                     </control>
 
@@ -1167,6 +1174,7 @@
                     </control>
                     <control type="image">
                         <include>Furniture_FlagUpright</include>
+                        <visible>!Skin.HasSetting(furniture.info.dividers)</visible>
                         <visible>!IsEmpty(Control.GetLabel(900013))</visible>
                     </control>
                     <control type="image" id="900014">
@@ -1179,6 +1187,7 @@
                     </control>
                     <control type="image">
                         <include>Furniture_FlagUpright</include>
+                        <visible>!Skin.HasSetting(furniture.info.dividers)</visible>
                         <visible>!IsEmpty(Control.GetLabel(900014))</visible>
                     </control>
                     <control type="image" id="900015">
@@ -1191,6 +1200,7 @@
                     </control>
                     <control type="image">
                         <include>Furniture_FlagUpright</include>
+                        <visible>!Skin.HasSetting(furniture.info.dividers)</visible>
                         <visible>!IsEmpty(Control.GetLabel(900015))</visible>
                     </control>
 
@@ -1204,6 +1214,7 @@
                     </control>
                     <control type="image">
                         <include>Furniture_FlagUpright</include>
+                        <visible>!Skin.HasSetting(furniture.info.dividers)</visible>
                         <visible>ListItem.IsStereoscopic</visible>
                     </control>
 
@@ -1277,6 +1288,7 @@
                     <width>1042</width>
                     <height>1</height>
                     <texture>info/infopanel_line.png</texture>
+                    <visible>!Skin.HasSetting(furniture.info.dividers)</visible>
                     <visible>Container.Content(movies) | Container.Content(episodes)</visible>
                 </control>
             </control>

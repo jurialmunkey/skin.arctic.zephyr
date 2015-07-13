@@ -248,12 +248,14 @@
 					<width>1042</width>
 					<height>1</height>
 					<texture>info/infopanel_line.png</texture>
+					<visible>!Skin.HasSetting(furniture.info.dividers)</visible>
 				</control>
 				<control type="image">
 					<top>80</top>
 					<width>1042</width>
 					<height>1</height>
 					<texture>info/infopanel_line.png</texture>
+					<visible>!Skin.HasSetting(furniture.info.dividers)</visible>
 				</control>
 				<control type="grouplist">
 					<top>1</top>
@@ -289,6 +291,7 @@
 						<height>79</height>
 						<include>Furniture_FlagUpright</include>
 						<visible>Window.Property(type),episode)</visible>
+						<visible>!Skin.HasSetting(furniture.info.dividers)</visible>
 					</control>
 					<control type="image">
 						<posy>5</posy>
@@ -330,6 +333,7 @@
 						<height>79</height>
 						<include>Furniture_FlagUpright</include>
 						<visible>!IsEmpty(Window.Property(movie.rating))</visible>
+						<visible>!Skin.HasSetting(furniture.info.dividers)</visible>
 					</control>
 					<control type="group">
 						<width>155</width>
@@ -356,6 +360,7 @@
 						<height>79</height>
 						<include>Furniture_FlagUpright</include>
 						<visible>!IsEmpty(Window.Property(movie.Duration))</visible>
+						<visible>!Skin.HasSetting(furniture.info.dividers)</visible>
 					</control>
 					<control type="group">
 						<visible>!IsEmpty(Window.Property(movie.release_date))</visible>
@@ -380,6 +385,7 @@
 						<height>79</height>
 						<include>Furniture_FlagUpright</include>
 						<visible>!IsEmpty(Window.Property(movie.release_date))</visible>
+						<visible>!Skin.HasSetting(furniture.info.dividers)</visible>
 					</control>
 					<control type="group">
 						<visible>!IsEmpty(Window.Property(movie.Top250))</visible>
@@ -406,6 +412,7 @@
 						<height>79</height>
 						<include>Furniture_FlagUpright</include>
 						<visible>!IsEmpty(Window.Property(movie.Top250))</visible>
+						<visible>!Skin.HasSetting(furniture.info.dividers)</visible>
 					</control>
 
 					<control type="group">
@@ -431,6 +438,7 @@
 						<height>79</height>
 						<include>Furniture_FlagUpright</include>
 						<visible>!IsEmpty(Window.Property(movie.Budget))</visible>
+						<visible>!Skin.HasSetting(furniture.info.dividers)</visible>
 					</control>
 
 					<control type="group">
@@ -560,7 +568,7 @@
 				<top>409</top>
 				<width>1620</width>
 				<height>116</height>
-				<itemgap>10</itemgap>
+				<itemgap>21</itemgap>
 				<onleft>7000</onleft>
 				<onright>noop</onright>
 				<orientation>horizontal</orientation>
@@ -578,7 +586,7 @@
 				</control>
 				<!-- Play/Browse Button -->
 				<control id="8" type="button">
-					<width>234</width>
+					<width>222</width>
 					<height>116</height>
 					<ondown condition="Control.IsVisible(150)">150</ondown>
 					<ondown condition="Control.IsVisible(350)">350</ondown>
@@ -595,7 +603,7 @@
 					<visible>!IsEmpty(Window.Property(movie.DBID)) + !Stringcompare(Window.Property(Type),tvshow)</visible>
 				</control>
 				<control id="120" type="button">
-					<width>234</width>
+					<width>222</width>
 					<height>116</height>
 					<ondown condition="Control.IsVisible(150)">150</ondown>
 					<ondown condition="Control.IsVisible(350)">350</ondown>
@@ -612,7 +620,7 @@
 					<visible>!IsEmpty(Window.Property(movie.DBID)) + Stringcompare(Window.Property(Type),tvshow)</visible>
 				</control>
 				<control id="206" type="button">
-					<width>234</width>
+					<width>222</width>
 					<height>116</height>
 					<ondown condition="Control.IsVisible(150)">150</ondown>
 					<ondown condition="Control.IsVisible(350)">350</ondown>
@@ -629,7 +637,7 @@
 					<visible>IntegerGreaterThan(Container(1150).NumItems,0)</visible>
 				</control>
 				<control id="445" type="button" description="manage">
-					<width>234</width>
+					<width>222</width>
 					<height>116</height>
 					<ondown condition="Control.IsVisible(150)">150</ondown>
 					<ondown condition="Control.IsVisible(350)">350</ondown>
@@ -650,7 +658,7 @@
 				<top>444</top>
 				<width>1220</width>
 				<height>116</height>
-				<itemgap>10</itemgap>
+				<itemgap>21</itemgap>
 				<onleft>7000</onleft>
 				<onright>9002</onright>
 				<orientation>horizontal</orientation>
@@ -668,7 +676,7 @@
 				</control>
 				<!-- Play/Browse Button -->
 				<control id="8" type="button">
-					<width>234</width>
+					<width>222</width>
 					<height>116</height>
 					<textcolor>White70</textcolor>
 					<textoffsetx>0</textoffsetx>
@@ -686,7 +694,7 @@
 				</control>
 
 				<control id="120" type="button">
-					<width>234</width>
+					<width>222</width>
 					<height>116</height>
 					<textcolor>White70</textcolor>
 					<textoffsetx>0</textoffsetx>
@@ -704,7 +712,7 @@
 				</control>
 
 				<control id="206" type="button">
-					<width>234</width>
+					<width>222</width>
 					<height>116</height>
 					<ondown condition="Control.IsVisible(150)">150</ondown>
 					<ondown condition="Control.IsVisible(350)">350</ondown>
@@ -721,7 +729,7 @@
 					<visible>IntegerGreaterThan(Container(1150).NumItems,0)</visible>
 				</control>
 				<control id="445" type="button">
-					<width>234</width>
+					<width>222</width>
 					<height>116</height>
 					<ondown condition="Control.IsVisible(150)">150</ondown>
 					<ondown condition="Control.IsVisible(350)">350</ondown>
@@ -743,6 +751,7 @@
 				<width>1042</width>
 				<height>1</height>
 				<texture>info/infopanel_line.png</texture>
+				<visible>!Skin.HasSetting(furniture.info.dividers)</visible>
 				<visible>!IsEmpty(Window.Property(movie.VideoAspect))</visible>
 				<visible>Control.HasFocus(7000) | [ControlGroup(9000).HasFocus + IsEmpty(Window(home).Property(ExtendedYoutube)) + IsEmpty(Window(home).Property(ExtendedSimilar))]</visible>
             </control>
@@ -765,6 +774,7 @@
 				<control type="image">
 					<include>Furniture_FlagUpright</include>
 					<visible>!IsEmpty(Control.GetLabel(900012))</visible>
+					<visible>!Skin.HasSetting(furniture.info.dividers)</visible>
 				</control>
 
 				<control type="image" id="900013">
@@ -778,6 +788,7 @@
 				<control type="image">
 					<include>Furniture_FlagUpright</include>
 					<visible>!IsEmpty(Control.GetLabel(900013))</visible>
+					<visible>!Skin.HasSetting(furniture.info.dividers)</visible>
 				</control>
 				<control type="image" id="900014">
 					<posy>5</posy>
@@ -790,6 +801,7 @@
 				<control type="image">
 					<include>Furniture_FlagUpright</include>
 					<visible>!IsEmpty(Control.GetLabel(900014))</visible>
+					<visible>!Skin.HasSetting(furniture.info.dividers)</visible>
 				</control>
 				<control type="image" id="900015">
 					<posy>5</posy>
@@ -802,6 +814,7 @@
 				<control type="image">
 					<include>Furniture_FlagUpright</include>
 					<visible>!IsEmpty(Control.GetLabel(900015))</visible>
+					<visible>!Skin.HasSetting(furniture.info.dividers)</visible>
 				</control>
 
 				<!--Language flags-->
@@ -867,6 +880,7 @@
 				<width>1042</width>
 				<height>1</height>
 				<texture>info/infopanel_line.png</texture>
+				<visible>!Skin.HasSetting(furniture.info.dividers)</visible>
 				<visible>!IsEmpty(Window.Property(movie.VideoAspect))</visible>
 				<visible>Control.HasFocus(7000) | [ControlGroup(9000).HasFocus + IsEmpty(Window(home).Property(ExtendedYoutube)) + IsEmpty(Window(home).Property(ExtendedSimilar))]</visible>
 			</control>
