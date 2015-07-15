@@ -627,7 +627,7 @@
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="VideoInfoButton8T">
-		<value condition="ListItem.IsResumable">Resume</value>
+		<value condition="ListItem.IsResumable">$INFO[ListItem.PercentPlayed,Resume (,%)]</value>
 		<value condition="IntegerGreaterThan(ListItem.PlayCount,0)">Watch Again</value>
 		<value>Watch Now</value>
 	</variable>

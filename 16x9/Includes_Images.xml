@@ -155,6 +155,10 @@
 		<value condition="!IsEmpty(ListItem.VideoResolution)">cdart/default.png</value>
 	</variable>
 	<variable name="Studio">
+		<value condition="!IsEmpty(Container(301).ListItem.Studio) + !Skin.HasSetting(furniture.flags.colour)">$INFO[Container(301).ListItem.Studio,flagging/studios/,.png]</value>
+		<value condition="!IsEmpty(Container(301).ListItem.Studio) + Skin.HasSetting(furniture.flags.colour)">$INFO[Container(301).ListItem.Studio,colored/studios/,.png]</value>
+	</variable>
+	<variable name="StudioHome">
 		<value condition="!IsEmpty(ListItem.Studio) + !Skin.HasSetting(furniture.flags.colour)">$INFO[ListItem.Studio,flagging/studios/,.png]</value>
 		<value condition="!IsEmpty(ListItem.Studio) + Skin.HasSetting(furniture.flags.colour)">$INFO[ListItem.Studio,colored/studios/,.png]</value>
 	</variable>

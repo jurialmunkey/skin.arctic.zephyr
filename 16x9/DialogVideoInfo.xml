@@ -424,16 +424,6 @@
                     <texture>$VAR[PercentWatched]</texture>
                     <visible>StringCompare(ListItem.Overlay,OverlayWatched.png)</visible>
                 </control>
-                <control type="label">
-                    <left>16</left>
-                    <top>436</top>
-                    <width>604</width>
-                    <height>28</height>
-                    <font>Mini</font>
-                    <textcolor>Black700</textcolor>
-                    <label>$INFO[Window(home).Property(PercentRemaining)]</label>
-                    <visible>ListItem.IsResumable</visible>
-                </control>
                 <control type="progress">
                     <top>-7</top>
                     <width>320</width>
@@ -444,7 +434,6 @@
                     <lefttexture colordiffuse="$INFO[Window(home).Property(VideoInfo.ImageColor)]">osd/progress-end.png</lefttexture>
                     <midtexture colordiffuse="$INFO[Window(home).Property(VideoInfo.ImageColor)]">osd/progress-end.png</midtexture>
                     <righttexture colordiffuse="PanelWhite70">osd/progress-end.png</righttexture>
-
                     <visible>ListItem.IsResumable</visible>
                 </control>
                 <control type="image">
