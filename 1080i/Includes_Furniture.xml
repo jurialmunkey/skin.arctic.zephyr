@@ -19,7 +19,6 @@
     <include name="Furniture_Scrollbar_Horizontal">
         <control type="scrollbar" id="60">
             <onback>50</onback>
-            
             <left>SidePad</left>
             <width>1760</width>
             <bottom>200</bottom>
@@ -101,6 +100,31 @@
         <value>star0</value>
     </variable>
     
+    <variable name="HomeFlagstar1">
+        <value condition="IntegerGreaterThan(Container(301).ListItem.Rating,1)">star10</value>
+        <value condition="IntegerGreaterThan(Container(301).ListItem.Rating,0)">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="HomeFlagstar2">
+        <value condition="IntegerGreaterThan(Container(301).ListItem.Rating,3)">star10</value>
+        <value condition="IntegerGreaterThan(Container(301).ListItem.Rating,2)">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="HomeFlagstar3">
+        <value condition="IntegerGreaterThan(Container(301).ListItem.Rating,5)">star10</value>
+        <value condition="IntegerGreaterThan(Container(301).ListItem.Rating,4)">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="HomeFlagstar4">
+        <value condition="IntegerGreaterThan(Container(301).ListItem.Rating,7)">star10</value>
+        <value condition="IntegerGreaterThan(Container(301).ListItem.Rating,6)">star5</value>
+        <value>star0</value>
+    </variable>
+    <variable name="HomeFlagstar5">
+        <value condition="IntegerGreaterThan(Container(301).ListItem.Rating,9)">star10</value>
+        <value condition="IntegerGreaterThan(Container(301).ListItem.Rating,8)">star5</value>
+        <value>star0</value>
+    </variable>
     
     <!-- MusicFlags -->
     <variable name="MusicFlagstar5">
@@ -633,6 +657,213 @@
             
         </control>
     </include>
+    <include name="Furniture_Home_Flags">
+        <control type="grouplist">
+            <visible>!Skin.HasSetting(furniture.flags)</visible>
+            <visible>Control.HasFocus(301)</visible>
+            <include>Animation.FadeIn</include>
+            <include>Animation.FadeOut</include>
+            <left>SidePad</left>
+            <centerbottom>NavBarPad</centerbottom>
+            <width>1400</width>
+            <height>64</height>
+            <orientation>horizontal</orientation>
+            <align>left</align>
+            <itemgap>24</itemgap>
+            <usecontrolcoords>true</usecontrolcoords>
+            <control type="group">
+                <visible>!Skin.HasSetting(furniture.flagicons) | IsEmpty(Container(301).ListItem.VideoResolution)</visible>
+                <width>64</width>
+                <height>64</height>
+                <control type="image" description="button back">
+                    <width>64</width>
+                    <height>64</height>
+                    <texture border="32" colordiffuse="Dark1">common/circle.png</texture>
+                </control>
+                <control type="label">
+                    <width>64</width>
+                    <height>64</height>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <label>$VAR[HDSD]</label>
+                    <font>SmallBold</font>
+                    <textcolor>Light1</textcolor>
+                    <visible>!substring(Container(301).ListItem.Path,videodb://movies/sets,left)</visible>
+                </control>
+                <control type="image">
+                    <width>64</width>
+                    <height>64</height>
+                    <texture colordiffuse="Light1">flags/sets.png</texture>
+                    <visible>substring(Container(301).ListItem.Path,videodb://movies/sets,left)</visible>
+                </control>
+            </control>
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[Container(301).ListItem.VideoResolution,flags/resolution/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(301).ListItem.VideoResolution)</visible>
+            </control>
+            
+            <control type="image">
+                <width>64</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar1].png</texture>
+            </control>
+            <control type="image">
+                <posx>-48</posx>
+                <width>64</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar2].png</texture>
+                <visible>!Skin.HasSetting(furniture.numericrating)</visible>
+            </control>
+            <control type="image">
+                <posx>-48</posx>
+                <width>64</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar3].png</texture>
+                <visible>!Skin.HasSetting(furniture.numericrating)</visible>
+            </control>
+            <control type="image">
+                <posx>-48</posx>
+                <width>64</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar4].png</texture>
+                <visible>!Skin.HasSetting(furniture.numericrating)</visible>
+            </control>
+            <control type="image">
+                <posx>-48</posx>
+                <width>64</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar5].png</texture>
+                <visible>!Skin.HasSetting(furniture.numericrating)</visible>
+            </control>
+            <control type="label">
+                <left>-16</left>
+                <width min="48">auto</width>
+                <centertop>50%</centertop>
+                <height>64</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$INFO[Container(301).ListItem.Rating]</label>
+                <font>Flag</font>
+                <textcolor>Dark1</textcolor>
+                <visible>Skin.HasSetting(furniture.numericrating)</visible>
+            </control>
+
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[Container(301).ListItem.VideoCodec,flags/source/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(301).ListItem.VideoCodec)</visible>
+            </control>
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[Container(301).ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(301).ListItem.VideoAspect)</visible>
+            </control>
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[Container(301).ListItem.AudioCodec,flags/audio/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(301).ListItem.AudioCodec)</visible>
+            </control>
+            <control type="image">
+                <width>88</width>
+                <height>64</height>
+                <centertop>50%</centertop>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[Container(301).ListItem.AudioChannels,flags/channels/,.png]</texture>
+                <aspectratio align="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(301).ListItem.AudioChannels)</visible>
+            </control>
+            
+            <control type="image">
+                <width>48</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/video.png</texture>
+                <aspectratio align="left">scale</aspectratio>
+                <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(301).ListItem.VideoResolution)</visible>
+            </control>
+            <control type="label">
+                <width min="128">auto</width>
+                <height>64</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$INFO[Container(301).ListItem.VideoCodec,,  •  ]$INFO[Container(301).ListItem.VideoResolution]$INFO[Container(301).ListItem.VideoAspect,  •  ,]</label>
+                <font>Flag</font>
+                <textcolor>Dark1</textcolor>
+                <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(301).ListItem.VideoResolution)</visible>
+            </control>
+            <control type="image">
+                <width>48</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/audio.png</texture>
+                <aspectratio align="left">scale</aspectratio>
+                <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(301).ListItem.AudioCodec)</visible>
+            </control>
+            <control type="label">
+                <width min="128">auto</width>
+                <height>64</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$INFO[Container(301).ListItem.AudioCodec]$VAR[LabelHomeAudioChannels,  •  ,]</label>
+                <font>Flag</font>
+                <textcolor>Dark1</textcolor>
+                <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(301).ListItem.AudioCodec)</visible>
+            </control>
+            
+            <control type="image">
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/3D.png</texture>
+                <visible>Container(301).ListItem.IsStereoscopic</visible>
+            </control>
+            <control type="image">
+                <width>64</width>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/bluray.png</texture>
+                <visible>[substring(Container(301).ListItem.FilenameAndPath,bluray) | substring(Container(301).ListItem.FilenameAndPath,bdrip) | substring(Container(301).ListItem.FilenameAndPath,bd25) | substring(Container(301).ListItem.FilenameAndPath,bd50)]</visible>
+            </control>
+            <control type="image">
+                <width>95</width>
+                <centertop>50%</centertop>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/hddvd.png</texture>
+                <visible>substring(Container(301).ListItem.FilenameAndPath,hddvd)</visible>
+            </control>
+            <control type="image">
+                <width>64</width>
+                <centertop>50%</centertop>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/dvd.png</texture>
+                <visible>substring(Container(301).ListItem.FilenameAndPath,dvd) + !substring(Container(301).ListItem.FilenameAndPath,hddvd)</visible>
+            </control>
+            
+            <control type="image">
+                <width>64</width>
+                <centertop>50%</centertop>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/imdb.png</texture>
+                <visible>!IsEmpty(Container(301).ListItem.Top250)</visible>
+            </control>
+
+            
+            
+        </control>
+    </include>
 
     <variable name="HeaderIcon">
           <value condition="Window.IsVisible(DialogMuteBug.xml)">special://skin/extras/icons/mute.png</value>
@@ -872,8 +1103,61 @@
         </control>
         
     </include>
+
+    <include name="Furniture_Weather">
+        <!-- Weather Furniture -->
+        <control type="grouplist">
+            <include>Animation.FurnitureFadeInOut</include>
+            <visible>!Skin.HasSetting(furniture.weather)</visible>
+            <visible>Skin.HasSetting(furniture.topweather) | [Window.IsActive(home) + StringCompare(Container(300).ListItem.Property(widget),Weather)]</visible>
+            <visible>!Window.IsVisible(DialogVolumeBar.xml)</visible>
+            <visible>!Window.IsVisible(DialogKaiToast.xml)</visible>
+            <visible>!Window.IsVisible(DialogExtendedProgressBar.xml)</visible>
+            <visible>!Window.IsActive(DialogKaiToast.xml)</visible>
+            <visible>Skin.HasSetting(furniture.nowplaying) | [!Skin.HasSetting(furniture.nowplaying) + IsEmpty(Player.Duration) + !Player.HasAudio]</visible>
+            <top>70</top>
+            <right>62</right>
+            <orientation>horizontal</orientation>
+            <usecontrolcoords>true</usecontrolcoords>
+            <itemgap>24</itemgap>
+            <align>right</align>
+            <control type="group">
+                <width>700</width>
+                <posy>10</posy>
+                <control type="label">
+                    <centertop>24</centertop>
+                    <width>auto</width>
+                    <font>MediumBold</font>
+                    <align>right</align>
+                    <textcolor>Dark1</textcolor>
+                    <label>$INFO[Weather.Temperature]</label>
+                </control>
+                <control type="label">
+                    <centertop>58</centertop>
+                    <align>right</align>
+                    <font>Flag</font>
+                    <width>auto</width>
+                    <textcolor>Dark2</textcolor>
+                    <label>$INFO[Weather.Location,, - ]$INFO[Weather.Conditions]</label>
+                </control>
+            </control>
+            <control type="group">
+                <posx>-10</posx>
+                <posy>10</posy>
+                <height>80</height>
+                <width>90</width>
+                <control type="image">
+                    <width>80</width>
+                    <height>80</height>
+                    <fadetime>350</fadetime>
+                    <aspectratio aligny="center" align="center">keep</aspectratio>
+                    <texture colordiffuse="Dark1">$INFO[Weather.FanartCode,weather/small/,.png]</texture>
+                </control>
+            </control>
+        </control>
+    </include>
+
     <include name="Furniture_NowPlaying">
-        
         <control type="grouplist">
             <visible>!Skin.HasSetting(furniture.nowplaying)</visible>
             <visible>!Window.IsVisible(DialogVolumeBar.xml)</visible>

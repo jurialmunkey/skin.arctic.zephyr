@@ -37,7 +37,6 @@
                 <include>Furniture_NowPlaying</include>
             </control>
         </control>
-        
     </include>
     
     <include name="HomeNowPlaying">
@@ -138,8 +137,7 @@
                     <label>$INFO[VideoPlayer.TvShowTitle,,  ]$INFO[MusicPlayer.Artist,,  ]$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
                 </control>
             </control>
-        </control>
-        
+        </control>     
     </include>
 
     <include name="HomeNextRecording">
@@ -199,8 +197,7 @@
                 </control>
 
             </control>
-        </control>
-        
+        </control>   
     </include>
     
     <include name="HomeWeatherWidget">
@@ -270,7 +267,6 @@
                 <label>$INFO[Weather.Location]</label>
             </control>
         </control>
-        
     </include>
 
     <include name="HomeWidgetSelector">
@@ -350,7 +346,6 @@
         
             
         </control>
-        
     </include>
 
     <include name="HomeWidgetUpdating">
@@ -393,10 +388,9 @@
                 <label>$LOCALIZE[31138]...</label>
                 <textcolor>Dark1</textcolor>
             </control>
-
-        </control>
-        
+        </control> 
     </include>
+
     <include name="HomeWidgetInfo">
         <!-- Widget Info -->
         <control type="group">
@@ -639,7 +633,6 @@
             
             <include>HomeWidgetUpdating</include>
         </control>
-        
     </include>
     
     <include name="HomeRow">
@@ -716,7 +709,6 @@
             </control>
         
         </control>
-        
     </include>
     
     <include name="HomeSubMenu">
@@ -851,7 +843,6 @@
             </control>
         
         </control>
-        
     </include>
 
     <include name="HomeSubMenu2">
@@ -927,11 +918,9 @@
             </control>
         
         </control>
-        
     </include>
     
-
-    <include name="HomeClassicWidgets">        
+    <include name="HomeClassicWidgets">
         <control type="group">
             <animation effect="slide" start="0" end="0,800" time="200">WindowClose</animation>
             <animation effect="slide" end="0" start="0,550" time="200">WindowOpen</animation>
@@ -1478,62 +1467,12 @@
     </include>
 
     <include name="HomeVerticalMenu">
-
         <!-- Furniture -->
         <include>Furniture_Header</include>
         <include>Furniture_NowPlaying</include>
         <include>Furniture_Clock</include>
-
-        <!-- Weather Furniture -->
-        <control type="grouplist">
-            <include>Animation.FadeIn</include>
-            <include>Animation.FadeOut</include>
-            <visible>StringCompare(Container(300).ListItem.Property(widget),Weather) | Skin.HasSetting(home.showweatherfanart)</visible>
-            <visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
-            <include>Animation.FadeIn.Slide</include>
-            <include>Animation.FadeOut</include>
-            <visible>!Skin.HasSetting(furniture.weather)</visible>
-            <top>70</top>
-            <right>62</right>
-            <orientation>horizontal</orientation>
-            <usecontrolcoords>true</usecontrolcoords>
-            <itemgap>24</itemgap>
-            <align>right</align>
-            <control type="group">
-                <width>700</width>
-                <posy>10</posy>
-                <control type="label">
-                    <centertop>24</centertop>
-                    <width>auto</width>
-                    <font>MediumBold</font>
-                    <align>right</align>
-                    <textcolor>Dark1</textcolor>
-                    <label>$INFO[Weather.Temperature]</label>
-                </control>
-                <control type="label">
-                    <centertop>58</centertop>
-                    <align>right</align>
-                    <font>Flag</font>
-                    <width>auto</width>
-                    <textcolor>Dark2</textcolor>
-                    <label>$INFO[Weather.Location,, - ]$INFO[Weather.Conditions]</label>
-                </control>
-            </control>
-            <control type="group">
-                <posx>-10</posx>
-                <posy>10</posy>
-                <height>80</height>
-                <width>90</width>
-                <control type="image">
-                    <width>80</width>
-                    <height>80</height>
-                    <fadetime>350</fadetime>
-                    <aspectratio aligny="center" align="center">keep</aspectratio>
-                    <texture colordiffuse="Dark1">$INFO[Weather.FanartCode,weather/small/,.png]</texture>
-                </control>
-              
-            </control>
-        </control>
+        <include>Furniture_Weather</include>
+        <!-- <include>Furniture_Home_Flags</include> -->
 
         <control type="group">
             
