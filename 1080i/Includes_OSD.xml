@@ -200,10 +200,12 @@
     </include>
     
     <include name="DefOSDUpDown">
-        <onup condition="IsEmpty(Window(home).Property(osdshowinfo))">SetProperty(osdshowinfo,1,home)</onup>
-        <onup condition="!IsEmpty(Window(home).Property(osdshowinfo))">ClearProperty(osdshowinfo,home)</onup>
-        <ondown condition="IsEmpty(Window(home).Property(osdshowinfo))">SetProperty(osdshowinfo,1,home)</ondown>
-        <ondown condition="!IsEmpty(Window(home).Property(osdshowinfo))">ClearProperty(osdshowinfo,home)</ondown>
+        <onup condition="IsEmpty(Window(home).Property(osdshowinfo)) + !Window.IsVisible(MusicOSD.xml)">SetProperty(osdshowinfo,1,home)</onup>
+        <onup condition="!IsEmpty(Window(home).Property(osdshowinfo)) + !Window.IsVisible(MusicOSD.xml)">ClearProperty(osdshowinfo,home)</onup>
+        <ondown condition="IsEmpty(Window(home).Property(osdshowinfo)) + !Window.IsVisible(MusicOSD.xml)">SetProperty(osdshowinfo,1,home)</ondown>
+        <ondown condition="!IsEmpty(Window(home).Property(osdshowinfo)) + !Window.IsVisible(MusicOSD.xml)">ClearProperty(osdshowinfo,home)</ondown>
+        <onup condition="Window.IsVisible(MusicOSD.xml)">3</onup>
+        <ondown condition="Window.IsVisible(MusicOSD.xml)">3</ondown>
     </include>
     
     <include name="OSDVideosRight">
