@@ -3,40 +3,46 @@
 <window id="120">
     <include condition="!Player.PauseEnabled">OSDFocusStop</include>
     <include condition="Player.PauseEnabled">OSDFocusPause</include>
-    <zorder>2</zorder>
     <controls>
 
         <control type="group">
             <height>74</height>
-            <bottom>0</bottom>
-            <animation type="WindowOpen">
-                <effect type="fade" start="0" end="100" time="150" delay="150"/>
+            <bottom>64</bottom>
+            <include>Animation.FadeIn</include>
+            <animation type="Hidden">
+                <effect type="slide" end="0,60" start="0" time="200"/>
+                <effect type="fade" end="0" start="100" time="150"/>
             </animation>
             <animation type="WindowClose">
+                <effect type="slide" end="0,60" start="0" time="200"/>
                 <effect type="fade" end="0" start="100" time="150"/>
             </animation>
-            <animation type="Visible">
-                <effect type="fade" start="0" end="100" time="150" delay="150"/>
-            </animation>
-            <animation type="Hidden">
-                <effect type="fade" end="0" start="100" time="150"/>
-            </animation>
-            
-            <control type="grouplist" id="100">
-                <top>13</top>
-                <left>50</left>
+
+            <control type="grouplist" id="101">
+                <top>64</top>
+                <width>100%</width>
                 <height>48</height>
-                <itemgap>0</itemgap>
+                <itemgap>16</itemgap>
+                <orientation>horizontal</orientation>
+                <align>center</align>
+                <onleft>101</onleft>
+                <onright>101</onright>
+                <include condition="!Skin.HasSetting(osd.usetheme)">OSDVideoControls</include>
+                <include condition="Skin.HasSetting(osd.usetheme)">OSDVideoControlsFlip</include>
+            </control>
+
+            <control type="grouplist" id="100">
+                <top>0</top>
+                <left>350</left>
+                <height>48</height>
+                <itemgap>-10</itemgap>
                 <orientation>horizontal</orientation>
                 <align>left</align>
                 <onleft>6</onleft>
-                <onright condition="!Player.CanRecord | !VideoPlayer.Content(LiveTV)">12</onright>
-                <onright condition="Player.CanRecord + VideoPlayer.Content(LiveTV)">9003</onright>
-                <onup>noop</onup>
-                <ondown>noop</ondown>
+                <onright>500</onright>
+                <onup>101</onup>
+                <ondown>101</ondown>
                 <usecontrolcoords>true</usecontrolcoords>
-        
-                
 
                 <control type="button" id="1">
                     <description>Repeat</description>
@@ -50,10 +56,11 @@
                     <description>Lyrics</description>
                     <align>left</align>
                     <label>24013</label>
+                    <onclick>Close</onclick>
                     <onclick>RunScript(script.cu.lrclyrics)</onclick>
                     <include>DefOSDButtons</include>
                 </control>
-                
+
                 <control type="button" id="3">
                     <description>Playlist</description>
                     <align>left</align>
@@ -62,36 +69,20 @@
                     <include>DefOSDButtons</include>
                 </control>
             </control>
-            <control type="grouplist" id="101">
-            
-                <top>13</top>
-                <width>100%</width>
-                <height>48</height>
-                <itemgap>16</itemgap>
-                <orientation>horizontal</orientation>
-                <align>center</align>
-                <onleft>3</onleft>
-                <onright>500</onright>
-                <ondown>noop</ondown>
-                
-                <include condition="!Skin.HasSetting(osd.usetheme)">OSDVideoControls</include>
-                <include condition="Skin.HasSetting(osd.usetheme)">OSDVideoControlsFlip</include>
-            
-            </control>
-            
+
             <control type="grouplist" id="102">
-                <top>13</top>
-                <right>50</right>
+                <top>0</top>
+                <right>350</right>
                 <height>48</height>
-                <itemgap>0</itemgap>
+                <itemgap>-10</itemgap>
                 <orientation>horizontal</orientation>
                 <align>right</align>
-                <onleft>17</onleft>
+                <onleft>3</onleft>
                 <onright>1</onright>
-                <onup>noop</onup>
-                <ondown>noop</ondown>
+                <onup>101</onup>
+                <ondown>101</ondown>
                 <usecontrolcoords>true</usecontrolcoords>
-        
+
                 <control type="button" id="500">
                     <description>Vis</description>
                     <label>250</label>
@@ -120,8 +111,8 @@
                 </control>
             </control>
         </control>
-        
-    
+
+
     </controls>
 
 </window>

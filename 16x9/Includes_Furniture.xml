@@ -1384,63 +1384,6 @@
 				<textcolor>Dark1</textcolor>
 				<visible>Skin.HasSetting(furniture.numericrating)</visible>
 			</control>
-			<!-- sets -->
-			<control type="image">
-				<width>120</width>
-				<height>120</height>
-				<centertop>50%</centertop>
-				<texture>$INFO[Window(home).Property(Set.Movie.1.Art(discart))]</texture>
-				<visible>!IsEmpty(Window(home).Property(Set.Movie.1.Art(discart)))</visible>
-			</control>
-			<control type="image">
-				<width>120</width>
-				<height>120</height>
-				<centertop>50%</centertop>
-				<texture>$INFO[Window(home).Property(Set.Movie.2.Art(discart))]</texture>
-				<visible>!IsEmpty(Window(home).Property(Set.Movie.2.Art(discart)))</visible>
-			</control>
-			<control type="image">
-				<width>120</width>
-				<height>120</height>
-				<centertop>50%</centertop>
-				<texture>$INFO[Window(home).Property(Set.Movie.3.Art(discart))]</texture>
-				<visible>!IsEmpty(Window(home).Property(Set.Movie.3.Art(discart)))</visible>
-			</control>
-			<control type="image">
-				<width>120</width>
-				<height>120</height>
-				<centertop>50%</centertop>
-				<texture>$INFO[Window(home).Property(Set.Movie.4.Art(discart))]</texture>
-				<visible>!IsEmpty(Window(home).Property(Set.Movie.4.Art(discart)))</visible>
-			</control>
-			<control type="image">
-				<width>120</width>
-				<height>120</height>
-				<centertop>50%</centertop>
-				<texture>$INFO[Window(home).Property(Set.Movie.5.Art(discart))]</texture>
-				<visible>!IsEmpty(Window(home).Property(Set.Movie.5.Art(discart)))</visible>
-			</control>
-			<control type="image">
-				<width>120</width>
-				<height>120</height>
-				<centertop>50%</centertop>
-				<texture>$INFO[Window(home).Property(Set.Movie.6.Art(discart))]</texture>
-				<visible>!IsEmpty(Window(home).Property(Set.Movie.6.Art(discart)))</visible>
-			</control>
-			<control type="image">
-				<width>120</width>
-				<height>120</height>
-				<centertop>50%</centertop>
-				<texture>$INFO[Window(home).Property(Set.Movie.7.Art(discart))]</texture>
-				<visible>!IsEmpty(Window(home).Property(Set.Movie.7.Art(discart)))</visible>
-			</control>
-			<control type="image">
-				<width>120</width>
-				<height>120</height>
-				<centertop>50%</centertop>
-				<texture>$INFO[Window(home).Property(Set.Movie.8.Art(discart))]</texture>
-				<visible>!IsEmpty(Window(home).Property(Set.Movie.8.Art(discart)))</visible>
-			</control>
 			<include>lib_Rating_TV</include>
 			<include condition="IsEmpty(Skin.String(RatingCountry))">lib_Rating_BBFC_home</include>
 			<include condition="Stringcompare(Skin.String(RatingCountry),US)">lib_Rating_MPAA_home</include>

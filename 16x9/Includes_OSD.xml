@@ -152,10 +152,12 @@
 		<width>226</width>
 	</include>
 	<include name="DefOSDUpDown">
-		<onup condition="IsEmpty(Window(home).Property(osdshowinfo))">SetProperty(osdshowinfo,1,home)</onup>
-		<onup condition="!IsEmpty(Window(home).Property(osdshowinfo))">ClearProperty(osdshowinfo,home)</onup>
-		<ondown condition="IsEmpty(Window(home).Property(osdshowinfo))">SetProperty(osdshowinfo,1,home)</ondown>
-		<ondown condition="!IsEmpty(Window(home).Property(osdshowinfo))">ClearProperty(osdshowinfo,home)</ondown>
+		<onup condition="IsEmpty(Window(home).Property(osdshowinfo)) + !Window.IsVisible(MusicOSD.xml)">SetProperty(osdshowinfo,1,home)</onup>
+		<onup condition="!IsEmpty(Window(home).Property(osdshowinfo)) + !Window.IsVisible(MusicOSD.xml)">ClearProperty(osdshowinfo,home)</onup>
+		<ondown condition="IsEmpty(Window(home).Property(osdshowinfo)) + !Window.IsVisible(MusicOSD.xml)">SetProperty(osdshowinfo,1,home)</ondown>
+		<ondown condition="!IsEmpty(Window(home).Property(osdshowinfo)) + !Window.IsVisible(MusicOSD.xml)">ClearProperty(osdshowinfo,home)</ondown>
+		<onup condition="Window.IsVisible(MusicOSD.xml)">3</onup>
+		<ondown condition="Window.IsVisible(MusicOSD.xml)">3</ondown>
 	</include>
 	<include name="OSDVideosRight">
 		<control type="button" id="5">
@@ -232,23 +234,23 @@
 		</control>
 	</include>
 	<variable name="OSDPanel">
-		<value condition="Skin.HasSetting(osd.usetheme) | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)]">Background</value>
+		<value condition="[Skin.HasSetting(osd.usetheme)] | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)]">Background</value>
 		<value>OSDBack</value>
 	</variable>
 	<variable name="OSDPanelWhite12">
-		<value condition="Skin.HasSetting(osd.usetheme) | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)]">Dark3</value>
+		<value condition="[Skin.HasSetting(osd.usetheme)] | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)]">Dark3</value>
 		<value>PanelWhite12</value>
 	</variable>
 	<variable name="OSDPanelWhite30">
-		<value condition="Skin.HasSetting(osd.usetheme) | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)]">Dark2</value>
+		<value condition="[Skin.HasSetting(osd.usetheme)] | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)]">Dark2</value>
 		<value>PanelWhite30</value>
 	</variable>
 	<variable name="OSDPanelWhite70">
-		<value condition="Skin.HasSetting(osd.usetheme) | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)]">Dark1</value>
+		<value condition="[Skin.HasSetting(osd.usetheme)] | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)]">Dark1</value>
 		<value>PanelWhite70</value>
 	</variable>
 	<variable name="OSDPanelWhite100">
-		<value condition="Skin.HasSetting(osd.usetheme) | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)]">Dark1</value>
+		<value condition="[Skin.HasSetting(osd.usetheme)] | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)]">Dark1</value>
 		<value>PanelWhite100</value>
 	</variable>
 	<include name="OSDVideoControls">
