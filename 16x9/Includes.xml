@@ -366,7 +366,7 @@
 			<height>23</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>rating/mpaa/nc17.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nc)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,NC-17)</visible>
 		</control>
 		<control type="image">
 			<top>3</top>
@@ -374,7 +374,7 @@
 			<height>23</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>rating/mpaa/pg13.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,13)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,PG-13)</visible>
 		</control>
 		<control type="image">
 			<top>3</top>
@@ -382,7 +382,15 @@
 			<height>23</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>rating/mpaa/nr.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nr)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.Mpaa,Unrated) | SubString(ListItem.Mpaa,Approved) | SubString(ListItem.Mpaa,Passed) | SubString(ListItem.Mpaa,USA:NR) | SubString(ListItem.Mpaa,US:NR) | StringCompare(ListItem.Mpaa,NR) | SubString(ListItem.Mpaa,Not Rated)]</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>35</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/mpaa/nr.png</texture>
+			<visible>Container.Content(movies) + IsEmpty(ListItem.Mpaa)</visible>
 		</control>
 		<control type="image">
 			<top>3</top>
@@ -390,7 +398,7 @@
 			<height>23</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>rating/mpaa/pg.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg,right)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [StringCompare(ListItem.Mpaa,PG) | SubString(ListItem.Mpaa,USA:PG) | SubString(ListItem.Mpaa,US:PG) | SubString(ListItem.Mpaa,Rated PG)] + !SubString(ListItem.Mpaa,Rated PG-13</visible>
 		</control>
 		<control type="image">
 			<top>3</top>
@@ -398,7 +406,15 @@
 			<height>23</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>rating/mpaa/g.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,g) + !SubString(ListItem.Mpaa,pg)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [StringCompare(ListItem.Mpaa,G) | SubString(ListItem.Mpaa,USA:G) | SubString(ListItem.Mpaa,US:G) | SubString(ListItem.Mpaa,Rated G)]</visible>
+		</control>
+		<control type="image">
+			<top>3</top>
+			<width>25</width>
+			<height>23</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/mpaa/r.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [StringCompare(ListItem.Mpaa,R) | SubString(ListItem.Mpaa,USA:R) | SubString(ListItem.Mpaa,US:R) | SubString(ListItem.Mpaa,Rated R)]</visible>
 		</control>
 	</include>
 	<!-- TV Ratings -->
@@ -1023,14 +1039,29 @@
 			<height>50</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>rating/mpaa/nr.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nr) + !Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.Mpaa,Unrated) | SubString(ListItem.Mpaa,Approved) | SubString(ListItem.Mpaa,Passed) | SubString(ListItem.Mpaa,USA:NR) | SubString(ListItem.Mpaa,US:NR) | StringCompare(ListItem.Mpaa,NR) | SubString(ListItem.Mpaa,Not Rated)] + !Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
 			<width>70</width>
 			<height>50</height>
 			<texture>colored/rating/MPAA_NR_Certificate_US.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nr) + Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.Mpaa,Unrated) | SubString(ListItem.Mpaa,Approved) | SubString(ListItem.Mpaa,Passed) | SubString(ListItem.Mpaa,USA:NR) | SubString(ListItem.Mpaa,US:NR) | StringCompare(ListItem.Mpaa,NR) | SubString(ListItem.Mpaa,Not Rated)] + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>70</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/mpaa/nr.png</texture>
+			<visible>Container.Content(movies) + IsEmpty(ListItem.Mpaa) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>70</width>
+			<height>50</height>
+			<texture>colored/rating/MPAA_NR_Certificate_US.png</texture>
+			<visible>Container.Content(movies) + IsEmpty(ListItem.Mpaa) + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
@@ -1038,14 +1069,14 @@
 			<height>50</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>rating/mpaa/pg.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [Substring(ListItem.mpaa,Rated PG) | StringCompare(ListItem.Mpaa,PG)] + !Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.Mpaa,USA:PG) | SubString(ListItem.Mpaa,US:PG) | Substring(ListItem.mpaa,Rated PG) | StringCompare(ListItem.Mpaa,PG)] + !SubString(ListItem.Mpaa,PG-13) + !Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
 			<width>70</width>
 			<height>50</height>
 			<texture>colored/rating/MPAA_PG_Certificate_US.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [Substring(ListItem.mpaa,Rated PG) | StringCompare(ListItem.Mpaa,PG)] + Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.Mpaa,USA:PG) | SubString(ListItem.Mpaa,US:PG) | Substring(ListItem.mpaa,Rated PG) | StringCompare(ListItem.Mpaa,PG)] + !SubString(ListItem.Mpaa,PG-13) + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
@@ -1053,14 +1084,14 @@
 			<height>50</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>rating/mpaa/r.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.mpaa,US:R) | SubString(ListItem.mpaa,USA:R) | SubString(ListItem.mpaa,Rated R)] + !Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.mpaa,US:R) | SubString(ListItem.mpaa,USA:R) | SubString(ListItem.mpaa,Rated R) | StringCompare(ListItem.Mpaa,R)] + !Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
 			<width>70</width>
 			<height>50</height>
 			<texture>colored/rating/MPAA_R_Certificate_US.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.mpaa,US:R) | SubString(ListItem.mpaa,USA:R) | SubString(ListItem.mpaa,Rated R)] + Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.mpaa,US:R) | SubString(ListItem.mpaa,USA:R) | SubString(ListItem.mpaa,Rated R) | StringCompare(ListItem.Mpaa,R)] + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
@@ -1068,14 +1099,14 @@
 			<height>50</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>rating/mpaa/g.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.mpaa,US:G) | SubString(ListItem.mpaa,USA:G) | SubString(ListItem.mpaa,Rated G)] + !Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.mpaa,US:G) | SubString(ListItem.mpaa,USA:G) | SubString(ListItem.mpaa,Rated G) | StringCompare(ListItem.Mpaa,G)] + !Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
 			<width>50</width>
 			<height>50</height>
 			<texture>colored/rating/MPAA_G_Certificate_US.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.mpaa,US:G) | SubString(ListItem.mpaa,USA:G) | SubString(ListItem.mpaa,Rated G)] + Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.mpaa,US:G) | SubString(ListItem.mpaa,USA:G) | SubString(ListItem.mpaa,Rated G) | StringCompare(ListItem.Mpaa,G)] + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 	</include>
 	<include name="lib_Rating_MPAA_home">
@@ -1115,14 +1146,29 @@
 			<height>50</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>rating/mpaa/nr.png</texture>
-			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + SubString(Container(301).ListItem.Mpaa,nr) + !Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + [SubString(Container(301).ListItem.mpaa,Unrated) | SubString(Container(301).ListItem.mpaa,Passed) | SubString(Container(301).ListItem.mpaa,Approved) | SubString(Container(301).ListItem.mpaa,USA:NR) | SubString(Container(301).ListItem.mpaa,US:NR) | StringCompare(Container(301).ListItem.Mpaa,NR) | SubString(Container(301).ListItem.Mpaa,Not Rated)] + !Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
 			<width>70</width>
 			<height>50</height>
 			<texture>colored/rating/MPAA_NR_Certificate_US.png</texture>
-			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + SubString(Container(301).ListItem.Mpaa,nr) + Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + [SubString(Container(301).ListItem.mpaa,Unrated) | SubString(Container(301).ListItem.mpaa,Passed) | SubString(Container(301).ListItem.mpaa,Approved) | SubString(Container(301).ListItem.mpaa,USA:NR) | SubString(Container(301).ListItem.mpaa,US:NR) | StringCompare(Container(301).ListItem.Mpaa,NR) | SubString(Container(301).ListItem.Mpaa,Not Rated)] + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>70</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/mpaa/nr.png</texture>
+			<visible>IsEmpty(Container(301).ListItem.Mpaa) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>70</width>
+			<height>50</height>
+			<texture>colored/rating/MPAA_NR_Certificate_US.png</texture>
+			<visible>IsEmpty(Container(301).ListItem.Mpaa) + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
@@ -1130,14 +1176,14 @@
 			<height>50</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>rating/mpaa/pg.png</texture>
-			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + [Substring(Container(301).ListItem.mpaa,Rated PG) | StringCompare(Container(301).ListItem.Mpaa,PG)] + !Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + [SubString(Container(301).ListItem.mpaa,USA:PG) | SubString(Container(301).ListItem.mpaa,US:PG) | SubString(Container(301).ListItem.mpaa,Rated PG) | StringCompare(Container(301).ListItem.Mpaa,PG)] + !SubString(Container(301).ListItem.mpaa,PG-13) + !Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
 			<width>70</width>
 			<height>50</height>
 			<texture>colored/rating/MPAA_PG_Certificate_US.png</texture>
-			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + [Substring(Container(301).ListItem.mpaa,Rated PG) | StringCompare(Container(301).ListItem.Mpaa,PG)] + Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + [SubString(Container(301).ListItem.mpaa,USA:PG) | SubString(Container(301).ListItem.mpaa,US:PG) | SubString(Container(301).ListItem.mpaa,Rated PG) | StringCompare(Container(301).ListItem.Mpaa,PG)] + !SubString(Container(301).ListItem.mpaa,PG-13) + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
@@ -1145,14 +1191,14 @@
 			<height>50</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>rating/mpaa/r.png</texture>
-			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + [SubString(Container(301).ListItem.mpaa,US:R) | SubString(Container(301).ListItem.mpaa,USA:R) | SubString(Container(301).ListItem.mpaa,Rated R)] + !Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + [SubString(Container(301).ListItem.mpaa,US:R) | SubString(Container(301).ListItem.mpaa,USA:R) | SubString(Container(301).ListItem.mpaa,Rated R) | StringCompare(Container(301).ListItem.Mpaa,R)] + !Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
 			<width>70</width>
 			<height>50</height>
 			<texture>colored/rating/MPAA_R_Certificate_US.png</texture>
-			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + [SubString(Container(301).ListItem.mpaa,US:R) | SubString(Container(301).ListItem.mpaa,USA:R) | SubString(Container(301).ListItem.mpaa,Rated R)] + Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + [SubString(Container(301).ListItem.mpaa,US:R) | SubString(Container(301).ListItem.mpaa,USA:R) | SubString(Container(301).ListItem.mpaa,Rated R) | StringCompare(Container(301).ListItem.Mpaa,R)] + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
@@ -1160,14 +1206,14 @@
 			<height>50</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>rating/mpaa/g.png</texture>
-			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + [SubString(Container(301).ListItem.mpaa,US:G) | SubString(Container(301).ListItem.mpaa,USA:G) | SubString(Container(301).ListItem.mpaa,Rated G)] + !Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + [SubString(Container(301).ListItem.mpaa,US:G) | SubString(Container(301).ListItem.mpaa,USA:G) | SubString(Container(301).ListItem.mpaa,Rated G) | StringCompare(Container(301).ListItem.Mpaa,G)] + !Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
 			<width>50</width>
 			<height>50</height>
 			<texture>colored/rating/MPAA_G_Certificate_US.png</texture>
-			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + [SubString(Container(301).ListItem.mpaa,US:G) | SubString(Container(301).ListItem.mpaa,USA:G) | SubString(Container(301).ListItem.mpaa,Rated G)] + Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + [SubString(Container(301).ListItem.mpaa,US:G) | SubString(Container(301).ListItem.mpaa,USA:G) | SubString(Container(301).ListItem.mpaa,Rated G) | StringCompare(Container(301).ListItem.Mpaa,G)] + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 	</include>
 	<!-- MPAA Ratings -->
@@ -1210,7 +1256,7 @@
 			<height>50</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>rating/mpaa/nr.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nr) + !Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.Mpaa,Unrated) | SubString(ListItem.Mpaa,Approved) | SubString(ListItem.Mpaa,Passed) | Substring(ListItem.mpaa,USA:NR) | Substring(ListItem.mpaa,US:NR) | StringCompare(ListItem.Mpaa,NR) | SubString(ListItem.Mpaa,Not Rated)] + !Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
@@ -1218,7 +1264,23 @@
 			<width>118</width>
 			<height>57</height>
 			<texture>colored/rating/MPAA_NR_Certificate_US.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,nr) + Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.Mpaa,Unrated) | SubString(ListItem.Mpaa,Approved) | SubString(ListItem.Mpaa,Passed) | Substring(ListItem.mpaa,USA:NR) | Substring(ListItem.mpaa,US:NR) | StringCompare(ListItem.Mpaa,NR) | SubString(ListItem.Mpaa,Not Rated)] + Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>70</width>
+			<height>50</height>
+			<colordiffuse>Black100</colordiffuse>
+			<texture>rating/mpaa/nr.png</texture>
+			<visible>Container.Content(movies) + IsEmpty(ListItem.Mpaa) + !Skin.HasSetting(furniture.flags.colour)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<aspectratio align="center">keep</aspectratio>
+			<width>118</width>
+			<height>57</height>
+			<texture>colored/rating/MPAA_NR_Certificate_US.png</texture>
+			<visible>Container.Content(movies) + IsEmpty(ListItem.Mpaa) + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
@@ -1226,7 +1288,7 @@
 			<height>50</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>rating/mpaa/pg.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [Substring(ListItem.mpaa,Rated PG) | StringCompare(ListItem.Mpaa,PG)] + !Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [Substring(ListItem.mpaa,USA:PG) | Substring(ListItem.mpaa,US:PG) | Substring(ListItem.mpaa,Rated PG) | StringCompare(ListItem.Mpaa,PG)] + !Substring(ListItem.mpaa,PG-13) + !Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
@@ -1234,7 +1296,7 @@
 			<width>70</width>
 			<height>61</height>
 			<texture>colored/rating/MPAA_PG_Certificate_US.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [Substring(ListItem.mpaa,Rated PG) | StringCompare(ListItem.Mpaa,PG)] + Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [Substring(ListItem.mpaa,USA:PG) | Substring(ListItem.mpaa,US:PG) | Substring(ListItem.mpaa,Rated PG) | StringCompare(ListItem.Mpaa,PG)] + !Substring(ListItem.mpaa,PG-13) + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
@@ -1242,7 +1304,7 @@
 			<height>50</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>rating/mpaa/r.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.mpaa,US:R) | SubString(ListItem.mpaa,USA:R) | SubString(ListItem.mpaa,Rated R)]+ !Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.mpaa,US:R) | SubString(ListItem.mpaa,USA:R) | SubString(ListItem.mpaa,Rated R) | StringCompare(ListItem.Mpaa,R)]+ !Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
@@ -1250,7 +1312,7 @@
 			<height>61</height>
 			<aspectratio align="center">keep</aspectratio>
 			<texture>colored/rating/MPAA_R_Certificate_US.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.mpaa,US:R) | SubString(ListItem.mpaa,USA:R) | SubString(ListItem.mpaa,Rated R)] + Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.mpaa,US:R) | SubString(ListItem.mpaa,USA:R) | SubString(ListItem.mpaa,Rated R) | StringCompare(ListItem.Mpaa,R)] + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
@@ -1258,7 +1320,7 @@
 			<height>50</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>rating/mpaa/g.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.mpaa,US:G) | SubString(ListItem.mpaa,USA:G) | SubString(ListItem.mpaa,Rated G)] + !Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.mpaa,US:G) | SubString(ListItem.mpaa,USA:G) | SubString(ListItem.mpaa,Rated G) | StringCompare(ListItem.Mpaa,G)] + !Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
@@ -1266,7 +1328,7 @@
 			<width>50</width>
 			<height>61</height>
 			<texture>colored/rating/MPAA_G_Certificate_US.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.mpaa,US:G) | SubString(ListItem.mpaa,USA:G) | SubString(ListItem.mpaa,Rated G)] + Skin.HasSetting(furniture.flags.colour)</visible>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.mpaa,US:G) | SubString(ListItem.mpaa,USA:G) | SubString(ListItem.mpaa,Rated G) | StringCompare(ListItem.Mpaa,G)] + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 	</include>
 	<!-- TV Ratings -->
