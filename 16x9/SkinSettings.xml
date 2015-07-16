@@ -610,6 +610,35 @@
 						<selected>Skin.HasSetting(furniture.info.dividers)</selected>
 						<onclick>Skin.ToggleSetting(furniture.info.dividers)</onclick>
 					</control>
+					<control type="button" id="92705" description="Video Info Blur">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<label>Blur Level</label>
+						<label2 fallback="10">$VAR[VideoInfoBlurLevel]</label2>
+						<onclick>SetProperty(Dialog.NumItems,10)</onclick>
+						<onclick>SetProperty(Dialog.1.Label,2)</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(VideoInfoBlur,2))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,4)</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(VideoInfoBlur,4))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,6)</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(VideoInfoBlur,6))</onclick>
+						<onclick>SetProperty(Dialog.4.Label,8)</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(VideoInfoBlur,8))</onclick>
+						<onclick>SetProperty(Dialog.5.Label,10 - Default)</onclick>
+						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(VideoInfoBlur,10))</onclick>
+						<onclick>SetProperty(Dialog.6.Label,12)</onclick>
+						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(VideoInfoBlur,12))</onclick>
+						<onclick>SetProperty(Dialog.7.Label,14)</onclick>
+						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(VideoInfoBlur,14))</onclick>
+						<onclick>SetProperty(Dialog.8.Label,16)</onclick>
+						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(VideoInfoBlur,16))</onclick>
+						<onclick>SetProperty(Dialog.9.Label,18)</onclick>
+						<onclick>SetProperty(Dialog.9.BuiltIn,Skin.SetString(VideoInfoBlur,18))</onclick>
+						<onclick>SetProperty(Dialog.10.Label,20)</onclick>
+						<onclick>SetProperty(Dialog.10.BuiltIn,Skin.SetString(VideoInfoBlur,20))</onclick>
+						<onclick>RunScript(script.toolbox,info=selectdialog,header=Select Blur Level)</onclick>
+						<visible>ControlGroup(9100).HasFocus(9106)</visible>
+					</control>
 					<!-- Extras -->
 					<control type="radiobutton" id="92722" description="Next Up Poster">
 						<width>1310</width>

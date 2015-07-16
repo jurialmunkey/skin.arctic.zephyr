@@ -297,7 +297,7 @@
 						<posy>5</posy>
 						<width>135</width>
 						<height>67</height>
-						<aspectratio align="center">keep</aspectratio>
+						<aspectratio align="center">scale</aspectratio>
 						<visible>!StringCompare(Window.Property(type),Season) + !StringCompare(Window.Property(type),episode)</visible>
 
 						<texture colordiffuse="Black100" fallback="info/rating/MPAA_NR_Certificate_US.png">$VAR[ExtendedRatingFlagVar,info/rating/,.png]</texture>
@@ -510,16 +510,22 @@
 					<radioposy>12</radioposy>
 					<radiowidth>46</radiowidth>
 					<ondown>3443</ondown>
-					<textureradioonfocus colordiffuse="White70">defaulticons/DefaultAddonTvInfo.png</textureradioonfocus>
-					<textureradioonnofocus colordiffuse="Black100">defaulticons/DefaultAddonTvInfo.png</textureradioonnofocus>
-					<textureradioofffocus colordiffuse="White70">defaulticons/DefaultAddonTvInfo.png</textureradioofffocus>
-					<textureradiooffnofocus colordiffuse="Black100">defaulticons/DefaultAddonTvInfo.png</textureradiooffnofocus>
-					<texturefocus>-</texturefocus>
+					<textureradioonfocus colordiffuse="White70">-</textureradioonfocus>
+					<textureradioonnofocus colordiffuse="Black100">-</textureradioonnofocus>
+					<textureradioofffocus colordiffuse="White70">-</textureradioofffocus>
+					<textureradiooffnofocus colordiffuse="Black100">-</textureradiooffnofocus>
+					<texturefocus border="5" colordiffuse="$INFO[Window(home).Property(ImageColor)]">common/box.png</texturefocus>
 					<texturenofocus>-</texturenofocus>
-					<label>-</label>
+					<align>left</align>
+					<aligny>top</aligny>
+					<textoffsetx>6</textoffsetx>
+					<textoffsety>4</textoffsety>
+					<font>symbol</font>
+					<label></label>
 				</control>
 				<!-- Plot -->
 				<control type="textbox">
+					<top>-8</top>
 					<left>60</left>
 					<align>left</align>
 					<font>Small</font>
@@ -530,6 +536,7 @@
 					<visible>!ControlGroup(3444).HasFocus()</visible>
 				</control>
 				<control type="textbox">
+					<top>-8</top>
 					<left>60</left>
 					<align>left</align>
 					<font>Small</font>
@@ -551,12 +558,17 @@
 				<visible>!IsEmpty(Container(1000).ListItemNoWrap(0).Label)</visible>
 				<animation condition="Control.HasFocus(1000) | Control.HasFocus(150) | Control.HasFocus(350)  | Control.HasFocus(850)  | Control.HasFocus(950)" effect="fade" end="0" start="100" time="0">Conditional</animation>
 				<animation condition="!Control.HasFocus(1000) + !Control.HasFocus(150) + !Control.HasFocus(350)  + !Control.HasFocus(850) + !Control.HasFocus(950)" delay="200" effect="fade" end="100" start="0" time="80">Conditional</animation>
-	            <control type="image">
+				<control type="label">
+					<align>left</align>
+					<aligny>center</aligny>
+					<top>-14</top>
+					<posx>4</posx>
 					<width>44</width>
-					<texture colordiffuse="Black100">defaulticons/writer-icon.png</texture>
+					<font>symbol</font>
+					<label></label>
 				</control>
 				<control type="label">
-					<top>-1</top>
+					<top>0</top>
 					<width max="1024">auto</width>
 					<height>34</height>
 					<font>Small</font>
@@ -579,15 +591,28 @@
 				<animation condition="Control.HasFocus(1000) | Control.HasFocus(150) | Control.HasFocus(350)  | Control.HasFocus(850) | Control.HasFocus(950)" effect="fade" end="0" start="100" time="0">Conditional</animation>
 				<animation condition="!Control.HasFocus(1000) + !Control.HasFocus(150) + !Control.HasFocus(350)  + !Control.HasFocus(850) + !Control.HasFocus(950)" delay="200" effect="fade" end="100" start="0" time="80">Conditional</animation>
 				<control type="button" id="3443">
-					<width>44</width>
-					<height>44</height>
-					<texturefocus colordiffuse="$INFO[Window(home).Property(ImageColor)]">defaulticons/director-icon.png</texturefocus>
-					<texturenofocus colordiffuse="Black100">defaulticons/director-icon.png</texturenofocus>
+					<width>50</width>
+					<height>50</height>
+					<radioposx>1</radioposx>
+					<radioposy>12</radioposy>
+					<radiowidth>50</radiowidth>
+					<textureradioonfocus colordiffuse="White70">-</textureradioonfocus>
+					<textureradioonnofocus colordiffuse="Black100">-</textureradioonnofocus>
+					<textureradioofffocus colordiffuse="White70">-</textureradioofffocus>
+					<textureradiooffnofocus colordiffuse="Black100">-</textureradiooffnofocus>
+					<texturefocus border="5" colordiffuse="$INFO[Window(home).Property(ImageColor)]">common/box.png</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<align>left</align>
+					<aligny>top</aligny>
+					<textoffsetx>6</textoffsetx>
+					<textoffsety>2</textoffsety>
+					<font>symbol</font>
+					<label></label>
 					<ondown>9009</ondown>
 					<onup>9009</onup>
 				</control>
 				<control type="label">
-					<top>-1</top>
+					<top>6</top>
 					<width>auto</width>
 					<height>34</height>
 					<font>Small</font>
@@ -799,9 +824,9 @@
 				<itemgap>25</itemgap>
 				<control type="image" id="900012">
 					<posy>5</posy>
-					<width>100</width>
+					<width>120</width>
 					<height>62</height>
-					<aspectratio>keep</aspectratio>
+					<aspectratio>scale</aspectratio>
 					<texture colordiffuse="Black700">$INFO[Window.Property(movie.VideoCodec),flags/source/,.png]</texture>
 					<visible>!IsEmpty(Control.GetLabel(900012))</visible>
 				</control>
@@ -815,7 +840,7 @@
 					<posy>5</posy>
 					<width>126</width>
 					<height>62</height>
-					<aspectratio>keep</aspectratio>
+					<aspectratio>scale</aspectratio>
 					<texture colordiffuse="Black700">$INFO[Window.Property(movie.AudioCodec),info/audio/,.png]</texture>
 					<visible>!IsEmpty(Control.GetLabel(900013))</visible>
 				</control>
