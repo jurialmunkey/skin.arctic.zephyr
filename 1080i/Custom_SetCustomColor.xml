@@ -23,12 +23,11 @@
             <height>16</height>
             <texture flipx="false">common/arrow-small-right.png</texture>
         </control>
-        <control type="group"> <!--content -->
-            <control type="panel" id="9500"> <!--colours -->
+        <control type="group">
+            <control type="panel" id="9500">
                 <left>SidePad</left>
                 <right>SidePad</right>
                 <top>PosterPad</top>
-                
                 <height>640</height>
                 <onup>9500</onup>
                 <ondown>9500</ondown>
@@ -52,24 +51,22 @@
                         <texture colordiffuse="Highlight">common/white.png</texture>
                         <visible>StringCompare(ListItem.Thumb,special://skin/extras/icons/error.png)</visible>
                     </control>
-                    <control type="image"> <!--watched icon -->
+                    <control type="image">
                         <centerright>24</centerright>
                         <centertop>24</centertop>
                         <width>32</width>
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
-                        <include>WatchedOverlay</include>
                         <visible>[StringCompare(ListItem.Label,Skin.String(focuscolor.name)) + !StringCompare(ListItem.Label2,selected)]</visible>
                         <visible>!StringCompare(ListItem.Thumb,special://skin/extras/icons/error.png) | IsEmpty(Skin.String(focuscolor.name))</visible>
                         <texture colordiffuse="Black">indicator/checkmark.png</texture>
                     </control>
-                    <control type="image"> <!--watched icon -->
+                    <control type="image">
                         <centerright>24</centerright>
                         <centertop>24</centertop>
                         <width>32</width>
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
-                        <include>WatchedOverlay</include>
                         <visible>StringCompare(ListItem.Thumb,special://skin/extras/icons/error.png)</visible>
                         <texture colordiffuse="Black">indicator/new.png</texture>
                     </control>
@@ -95,24 +92,22 @@
                         <bordertexture>common/white.png</bordertexture>
                         <bordersize>7</bordersize>
                     </control>
-                    <control type="image"> <!--watched icon -->
+                    <control type="image">
                         <centerright>24</centerright>
                         <centertop>24</centertop>
                         <width>32</width>
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
-                        <include>WatchedOverlay</include>
                         <visible>[StringCompare(ListItem.Label,Skin.String(focuscolor.name)) + !StringCompare(ListItem.Label2,selected)]</visible>
                         <visible>!StringCompare(ListItem.Thumb,special://skin/extras/icons/error.png) | IsEmpty(Skin.String(focuscolor.name))</visible>
                         <texture colordiffuse="Black">indicator/checkmark.png</texture>
                     </control>
-                    <control type="image"> <!--watched icon -->
+                    <control type="image">
                         <centerright>24</centerright>
                         <centertop>24</centertop>
                         <width>32</width>
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
-                        <include>WatchedOverlay</include>
                         <visible>StringCompare(ListItem.Thumb,special://skin/extras/icons/error.png)</visible>
                         <texture colordiffuse="Black">indicator/new.png</texture>
                     </control>
@@ -123,14 +118,7 @@
                         <onclick>Close</onclick>
                         <thumb>special://skin/extras/icons/error.png</thumb>
                         <label>571</label>
-                    </item>
-                    <!-- <item id="1">
-                        <onclick>Close</onclick>
-                        <thumb>$INFO[Skin.String(focuscolor.name),special://skin/extras/colours/,.png]</thumb>
-                        <label>$INFO[Skin.String(focuscolor.name)]</label>
-                        <visible>!IsEmpty(Skin.String(focuscolor.name))</visible>
-                    </item> -->
-                    
+                    </item>                    
                     <item id="2"> <!--green 1 -->
                         <onclick>Skin.SetString(focuscolor.name,FF93ce5f)</onclick>
                         <onclick>Close</onclick>

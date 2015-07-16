@@ -37,28 +37,31 @@
         </control>
         
         <control type="group">
-            <visible>!Window.IsVisible(script-cu-lrclyrics-main.xml)</visible>
-            <control type="image">
-                <height>100%</height>
-                <width>100%</width>
-                <texture>common/white.png</texture>
-                <colordiffuse>$VAR[OSDPanel]</colordiffuse>
-                <animation effect="fade" start="100" end="75" condition="true">Conditional</animation>
-            </control>
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
-            <visible>Window.IsActive(MusicOSD.xml) | Player.ShowInfo | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding</visible>
+            <control type="image">
+                <include>Dimensions_Fullscreen</include>
+                <texture border="2">common/black-back.png</texture>
+            </control>
+            <visible>Window.IsActive(MusicOSD.xml) | Player.ShowInfo | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Window.IsVisible(script-cu-lrclyrics-main.xml)</visible>
             <control type="group">
                 <height>300</height>
-                <bottom>120</bottom>
+                <bottom>60</bottom>
                 <left>300</left>
                 <right>300</right>
+                <animation effect="slide" start="0" end="0,-60" time="200" condition="Window.IsActive(MusicOSD)">Conditional</animation>
                 <control type="group">
                     <left>SidePad</left>
                     <right>SidePad</right>
                     <top>20</top>
                     <bottom>20</bottom>
-                    
+                    <control type="image">
+                        <bottom>-10</bottom>
+                        <left>-10</left>
+                        <width>280</width>
+                        <height>280</height>
+                        <texture border="20">common/nofocus-shadow10.png</texture>
+                    </control>
                     <control type="image">
                         <bottom>0</bottom>
                         <width>260</width>
@@ -66,105 +69,103 @@
                         <texture>$VAR[PlayerPoster]</texture>
                         <aspectratio aligny="center" align="center">scale</aspectratio>
                     </control>
-
-                    <control type="grouplist">
-                        <left>0</left>
-                        <top>264</top>
-                        <width>260</width>
-                        <height>64</height>
-                        <orientation>horizontal</orientation>
-                        <align>center</align>
-                        <itemgap>24</itemgap>
-                        <usecontrolcoords>true</usecontrolcoords>
-                        <visible>false</visible>
-                        <control type="image">
-                            <width>64</width>
-                            <height>64</height>
-                            <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
-                            <texture>flags/$VAR[OSDMusicFlagstar1].png</texture>
-                        </control>
-                        <control type="image">
-                            <posx>-48</posx>
-                            <width>64</width>
-                            <height>64</height>
-                            <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
-                            <texture>flags/$VAR[OSDMusicFlagstar2].png</texture>
-                        </control>
-                        <control type="image">
-                            <posx>-48</posx>
-                            <width>64</width>
-                            <height>64</height>
-                            <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
-                            <texture>flags/$VAR[OSDMusicFlagstar3].png</texture>
-                        </control>
-                        <control type="image">
-                            <posx>-48</posx>
-                            <width>64</width>
-                            <height>64</height>
-                            <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
-                            <texture>flags/$VAR[OSDMusicFlagstar4].png</texture>
-                        </control>
-                        <control type="image">
-                            <posx>-48</posx>
-                            <width>64</width>
-                            <height>64</height>
-                            <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
-                            <texture>flags/$VAR[OSDMusicFlagstar5].png</texture>
-                        </control>
-                    </control>
-                    
                     <control type="group">
                         <left>290</left>
                         <right>0</right>
-                        
-
-                        <control type="label" description="Title">
-                            <width>1000</width>
-                            <top>0</top>
-                            <height>40</height>
-                            <font>TinyBold</font>
-                            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                            <label>$VAR[PlayerTitle]</label>
-                        </control>
-                        
-                        
-                        <control type="label" description="Show">
-                            <width>1000</width>
-                            <top>50</top>
-                            <height>40</height>
-                            <font>MediumBold</font>
-                            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                            <label>$VAR[PlayerBigTitle]</label>
-                        </control>
-                        
-                        <control type="textbox" description="Plot">
+                        <control type="grouplist">
+                            <top>-16</top>
+                            <bottom>0</bottom>
                             <width>100%</width>
-                            <top>105</top>
-                            <height>70</height>
-                            <font>Tiny</font>
-                            <align>justify</align>
-                            <textcolor>$VAR[OSDPanelWhite30]</textcolor>
-                            <label>$VAR[PlayerPlotBox]</label>
+                            <orientation>vertical</orientation>
+                            <itemgap>5</itemgap>
+                            <visible>true</visible>
+                            <usecontrolcoords>true</usecontrolcoords>
+                            <control type="grouplist">
+                                <top>2</top>
+                                <width>260</width>
+                                <height>64</height>
+                                <orientation>horizontal</orientation>
+                                <align>left</align>
+                                <itemgap>24</itemgap>
+                                <usecontrolcoords>true</usecontrolcoords>
+                                <visible>true</visible>
+                                <control type="image">
+                                    <posx>-16</posx>
+                                    <width>64</width>
+                                    <height>64</height>
+                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                    <texture>flags/$VAR[OSDMusicFlagstar1].png</texture>
+                                </control>
+                                <control type="image">
+                                    <posx>-48</posx>
+                                    <width>64</width>
+                                    <height>64</height>
+                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                    <texture>flags/$VAR[OSDMusicFlagstar2].png</texture>
+                                </control>
+                                <control type="image">
+                                    <posx>-48</posx>
+                                    <width>64</width>
+                                    <height>64</height>
+                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                    <texture>flags/$VAR[OSDMusicFlagstar3].png</texture>
+                                </control>
+                                <control type="image">
+                                    <posx>-48</posx>
+                                    <width>64</width>
+                                    <height>64</height>
+                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                    <texture>flags/$VAR[OSDMusicFlagstar4].png</texture>
+                                </control>
+                                <control type="image">
+                                    <posx>-48</posx>
+                                    <width>64</width>
+                                    <height>64</height>
+                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                    <texture>flags/$VAR[OSDMusicFlagstar5].png</texture>
+                                </control>
+                            </control>
+                            <control type="label" description="Artist">
+                                <top>-8</top>
+                                <width>100%</width>
+                                <height>48</height>
+                                <font>MediumBold</font>
+                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
+                                <label>$VAR[PlayerBigTitle]</label>
+                            </control>
+                            <control type="label" description="Song">
+                                <width>100%</width>
+                                <height>40</height>
+                                <font>TinyBold</font>
+                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
+                                <label>$VAR[PlayerTitle]</label>
+                            </control>
+                            
+                            <control type="label" description="AlbumYear">
+                                <width>100%</width>
+                                <height>40</height>
+                                <font>Tiny</font>
+                                <textcolor>$VAR[OSDPanelWhite30]</textcolor>
+                                <label>$VAR[PlayerPlotBox]</label>
+                            </control>
+                            <control type="label" description="NextUp">
+                                <width>100%</width>
+                                <height>40</height>
+                                <font>Tiny</font>
+                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
+                                <label>$VAR[PlayerStatus]</label>
+                            </control>
+                            <control type="label" description="Duration">
+                                <top>-45</top>
+                                <width>100%</width>
+                                <height>40</height>
+                                <font>Tiny</font>
+                                <align>right</align>
+                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
+                                <label>$INFO[Player.Time]  /  $INFO[Player.Duration]</label>
+                            </control>
                         </control>
-                        
-                        <control type="label" description="Elapsed Time">
-                            <width>400</width>
-                            <bottom>30</bottom>
-                            <height>40</height>
-                            <font>Tiny</font>
-                            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                            <label>$VAR[PlayerStatus]</label>
-                        </control>
-                        <control type="label" description="Total Time">
-                            <right>0</right>
-                            <align>right</align>
-                            <width>400</width>
-                            <bottom>30</bottom>
-                            <height>40</height>
-                            <font>Tiny</font>
-                            <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                            <label>$INFO[Player.Time]  /  $INFO[Player.Duration]</label>
-                        </control>
+
                         <control type="image">
                             <description>Progress Back</description>
                             <width>100%</width>
@@ -173,6 +174,7 @@
                             <texture colordiffuse="Black12">common/white.png</texture>
                             <visible>Skin.HasSetting(osd.usetheme)</visible>
                         </control>
+                        
                         <control type="progress" description="cache">
                             <description>Progress Bar</description>
                             <width>100%</width>
@@ -185,6 +187,7 @@
                             <midtexture colordiffuse="Highlight2">osd/progress-end.png</midtexture>
                             <righttexture colordiffuse="Highlight2">osd/progress-end.png</righttexture>
                         </control>
+                        
                         <control type="progress" id="23">
                             <description>Progress Bar</description>
                             <width>100%</width>

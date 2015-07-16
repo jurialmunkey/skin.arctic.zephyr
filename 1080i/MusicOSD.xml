@@ -8,9 +8,15 @@
         <control type="group">
             <height>74</height>
             <bottom>64</bottom>
-            <visible>!Window.IsVisible(script-cu-lrclyrics-main.xml)</visible>
             <include>Animation.FadeIn</include>
-            <include>Animation.FadeOut</include>
+            <animation type="Hidden">
+                <effect type="slide" end="0,60" start="0" time="200"/>
+                <effect type="fade" end="0" start="100" time="150"/>
+            </animation>
+            <animation type="WindowClose">
+                <effect type="slide" end="0,60" start="0" time="200"/>
+                <effect type="fade" end="0" start="100" time="150"/>
+            </animation>
             
             <control type="grouplist" id="101">
                 <top>64</top>
@@ -50,6 +56,7 @@
                     <description>Lyrics</description>
                     <align>left</align>
                     <label>24013</label>
+                    <onclick>Close</onclick>
                     <onclick>RunScript(script.cu.lrclyrics)</onclick>
                     <include>DefOSDButtons</include>
                 </control>
