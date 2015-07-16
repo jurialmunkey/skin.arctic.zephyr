@@ -41,7 +41,8 @@
             <include>Animation.FadeOut</include>
             <control type="image">
                 <include>Dimensions_Fullscreen</include>
-                <texture border="2">common/black-back.png</texture>
+                <texture border="2" colordiffuse="$VAR[OSDPanel]">common/white.png</texture>
+                <animation effect="fade" start="100" end="80" condition="true">Conditional</animation>
             </control>
             <visible>Window.IsActive(MusicOSD.xml) | Player.ShowInfo | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Window.IsVisible(script-cu-lrclyrics-main.xml)</visible>
             <control type="group">
