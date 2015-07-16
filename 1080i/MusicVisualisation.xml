@@ -74,17 +74,35 @@
                         <left>290</left>
                         <right>0</right>
                         <control type="grouplist">
-                            <top>-16</top>
+                            <top>-2</top>
                             <bottom>0</bottom>
                             <width>100%</width>
                             <orientation>vertical</orientation>
                             <itemgap>5</itemgap>
                             <visible>true</visible>
                             <usecontrolcoords>true</usecontrolcoords>
+                            
+                            <control type="label" description="Artist">
+                                <top>0</top>
+                                <width>100%</width>
+                                <height>48</height>
+                                <font>MediumBold</font>
+                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
+                                <label>$VAR[PlayerBigTitle]</label>
+                            </control>
+                            
+                            <control type="label" description="Song">
+                                <width>100%</width>
+                                <height>40</height>
+                                <font>TinyBold</font>
+                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
+                                <label>$VAR[PlayerTitle]</label>
+                            </control>
+
                             <control type="grouplist">
-                                <top>2</top>
+                                <top>-12</top>
                                 <width>260</width>
-                                <height>64</height>
+                                <height>52</height>
                                 <orientation>horizontal</orientation>
                                 <align>left</align>
                                 <itemgap>24</itemgap>
@@ -125,21 +143,6 @@
                                     <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
                                     <texture>flags/$VAR[OSDMusicFlagstar5].png</texture>
                                 </control>
-                            </control>
-                            <control type="label" description="Artist">
-                                <top>-8</top>
-                                <width>100%</width>
-                                <height>48</height>
-                                <font>MediumBold</font>
-                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                                <label>$VAR[PlayerBigTitle]</label>
-                            </control>
-                            <control type="label" description="Song">
-                                <width>100%</width>
-                                <height>40</height>
-                                <font>TinyBold</font>
-                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                                <label>$VAR[PlayerTitle]</label>
                             </control>
                             
                             <control type="label" description="AlbumYear">
