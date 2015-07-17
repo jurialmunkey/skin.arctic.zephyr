@@ -74,6 +74,7 @@
 			<aspectratio align="center" aligny="top">keep</aspectratio>
 			<include>DialogVideoInfoAnimation</include>
 			<visible>IsEmpty(Window.Property(movie.Logo))</visible>
+			<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
 		</control>
 		<control type="image">
 			<top>99</top>
@@ -84,6 +85,7 @@
 			<aspectratio align="center" aligny="top">keep</aspectratio>
 			<include>DialogVideoInfoAnimation</include>
 			<visible>!IsEmpty(Window.Property(movie.Logo))</visible>
+			<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
 		</control>
 		<control type="group">
 			<left>90</left>

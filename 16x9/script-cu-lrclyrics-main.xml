@@ -6,48 +6,43 @@
         <control type="group">
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
-            <control type="image">
-                <height>100%</height>
-                <width>100%</width>
-                <texture>common/white.png</texture>
-                <colordiffuse>$VAR[OSDPanel]</colordiffuse>
-                <animation effect="fade" start="100" end="95" condition="Skin.HasSetting(osd.usetheme)">Conditional</animation>
-            </control>
             <control type="group">
-                <animation effect="slide" start="0" end="0,-74" time="150" condition="Window.IsVisible(musicosd)">Conditional</animation>
+
                 <control type="group">
-                    <top>0</top>
-                    <bottom>300</bottom>
+                    <top>100</top>
+                    <bottom>400</bottom>
                     <width>100%</width>
-                    
+
                     <!-- ** Required ** Do not change <id> or <type> (Smooth scrolling list for lyrics) -->
                     <control type="list" id="110">
                         <left>SidePad</left>
                         <right>SidePad</right>
                         <top>SidePad</top>
-                        <bottom>30</bottom>
+                        <bottom>0</bottom>
                         <onleft>111</onleft>
                         <onright>111</onright>
                         <onup>110</onup>
                         <ondown>110</ondown>
                         <pagecontrol>111</pagecontrol>
                         <scrolltime>200</scrolltime>
-                        <itemlayout height="50">
+                        <itemlayout height="100" width="1760">
                             <control type="label">
-                                <width>749</width>
+                                <width>100%</width>
+                                <align>center</align>
                                 <selectedcolor>$VAR[ColourHighlight]</selectedcolor>
                                 <info>ListItem.Label</info>
                                 <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                                <font>Small</font>
+                                <font>Lyrics</font>
                             </control>
                         </itemlayout>
-                        <focusedlayout height="50">
+                        <focusedlayout height="100" width="1760">
                             <control type="label">
-                                <width>749</width>
+                                <width>100%</width>
+                                <align>center</align>
                                 <textcolor>$VAR[ColourHighlight]</textcolor>
                                 <selectedcolor>$VAR[ColourHighlight]</selectedcolor>
                                 <info>ListItem.Label</info>
-                                <font>Small</font>
+                                <font>Lyrics</font>
                             </control>
                         </focusedlayout>
                     </control>
@@ -82,202 +77,16 @@
                             </control>
                         </focusedlayout>
                     </control>
-                    
+
                     <control type="label" id="200">
                         <description>Scraper label</description>
                         <visible>false</visible>
                     </control>
-                
-                </control>
-                <control type="group">
-                    <top>300r</top>
-                    <bottom>0</bottom>
-                    <width>100%</width>
-                    <control type="group">
-                        <left>SidePad</left>
-                        <right>SidePad</right>
-                        <top>20</top>
-                        <bottom>20</bottom>
-                        
-                        <control type="image">
-                            <bottom>0</bottom>
-                            <width>260</width>
-                            <height>260</height>
-                            <texture>$VAR[PlayerPoster]</texture>
-                            <aspectratio aligny="center" align="center">scale</aspectratio>
-                        </control>
-                        
-                        <control type="group">
-                            <left>290</left>
-                            <right>0</right>
-                            <control type="grouplist">
-                                <right>-20</right>
-                                <posy>-14</posy>
-                                <width>600</width>
-                                <height>64</height>
-                                <orientation>horizontal</orientation>
-                                <align>right</align>
-                                <itemgap>24</itemgap>
-                                <usecontrolcoords>true</usecontrolcoords>
 
-                                <control type="image">
-                                    <width>64</width>
-                                    <height>64</height>
-                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
-                                    <texture>flags/$VAR[OSDMusicFlagstar1].png</texture>
-                                </control>
-                                <control type="image">
-                                    <posx>-48</posx>
-                                    <width>64</width>
-                                    <height>64</height>
-                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
-                                    <texture>flags/$VAR[OSDMusicFlagstar2].png</texture>
-                                </control>
-                                <control type="image">
-                                    <posx>-48</posx>
-                                    <width>64</width>
-                                    <height>64</height>
-                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
-                                    <texture>flags/$VAR[OSDMusicFlagstar3].png</texture>
-                                </control>
-                                <control type="image">
-                                    <posx>-48</posx>
-                                    <width>64</width>
-                                    <height>64</height>
-                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
-                                    <texture>flags/$VAR[OSDMusicFlagstar4].png</texture>
-                                </control>
-                                <control type="image">
-                                    <posx>-48</posx>
-                                    <width>64</width>
-                                    <height>64</height>
-                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
-                                    <texture>flags/$VAR[OSDMusicFlagstar5].png</texture>
-                                </control>
-                                
-                                
-                            </control>
-
-                            
-                            <control type="label" description="Title">
-                                <width>1000</width>
-                                <top>0</top>
-                                <height>40</height>
-                                <font>TinyBold</font>
-                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                                <label>$VAR[PlayerTitle]</label>
-                            </control>
-                            
-                            
-                            <control type="label" description="Show">
-                                <width>1000</width>
-                                <top>50</top>
-                                <height>40</height>
-                                <font>MediumBold</font>
-                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                                <label>$VAR[PlayerBigTitle]</label>
-                            </control>
-                            
-                            <control type="textbox" description="Plot">
-                                <width>100%</width>
-                                <top>105</top>
-                                <height>70</height>
-                                <font>Tiny</font>
-                                <align>justify</align>
-                                <textcolor>$VAR[OSDPanelWhite30]</textcolor>
-                                <label>$VAR[PlayerPlotBox]</label>
-                            </control>
-                            
-                            <control type="label" description="Elapsed Time">
-                                <width>400</width>
-                                <bottom>30</bottom>
-                                <height>40</height>
-                                <font>Tiny</font>
-                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                                <label>$VAR[PlayerStatus]</label>
-                            </control>
-                            <control type="label" description="Total Time">
-                                <right>0</right>
-                                <align>right</align>
-                                <width>400</width>
-                                <bottom>30</bottom>
-                                <height>40</height>
-                                <font>Tiny</font>
-                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                                <label>$INFO[Player.Time]  /  $INFO[Player.Duration]</label>
-                            </control>
-                            <control type="image">
-                                <description>Progress Back</description>
-                                <width>100%</width>
-                                <bottom>10</bottom>
-                                <height>8</height>
-                                <texture colordiffuse="Black12">common/white.png</texture>
-                                <visible>Skin.HasSetting(osd.usetheme)</visible>
-                            </control>
-                            <control type="progress" description="cache">
-                                <description>Progress Bar</description>
-                                <width>100%</width>
-                                <bottom>10</bottom>
-                                <height>8</height>
-                                <info>Player.ProgressCache</info>
-                                <visible>true</visible>
-                                <texturebg colordiffuse="00ffffff">osd/progress-bg.png</texturebg>
-                                <lefttexture colordiffuse="$VAR[ColourHighlight2]">osd/progress-end.png</lefttexture>
-                                <midtexture colordiffuse="$VAR[ColourHighlight2]">osd/progress-end.png</midtexture>
-                                <righttexture colordiffuse="$VAR[ColourHighlight2]">osd/progress-end.png</righttexture>
-                            </control>
-                            <control type="progress">
-                                <description>Progress Bar</description>
-                                <width>100%</width>
-                                <bottom>10</bottom>
-                                <height>8</height>
-                                <info>Player.Progress</info>
-                                <visible>true</visible>
-                            </control>
-                        </control>
-                    </control>
                 </control>
-                
-                
+
             </control>
-            <control type="group">
-                <visible>!Window.IsVisible(DialogKaiToast.xml)</visible>
-                <visible>!Window.IsVisible(DialogExtendedInfo.xml)</visible>
-                <visible>!Window.IsVisible(DialogVolumeBar.xml)</visible>
-                <right>70</right>
-                <posy>70</posy>
-                <width>240</width>
-                <height>90</height>
-                <include>Animation.FadeIn.Slide</include>
-                <include>Animation.FadeOut</include>
 
-                <control type="group">
-                    
-                    <control type="image">
-                        <left>20</left>
-                        <centertop>50%</centertop>
-                        <width>48</width>
-                        <height>48</height>
-                        <aspectratio aligny="center">keep</aspectratio>
-                        <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
-                        <texture>kaitoast/clock.png</texture>
-                    </control>
-                    
-                    
-                    <control type="label">
-                        <right>30</right>
-                        <left>80</left>
-                        <height>100%</height>
-                        <align>right</align>
-                        <aligny>center</aligny>
-                        <font>SmallBold</font>
-                        <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                        <label>$INFO[System.Time]</label>
-                    </control>
-
-                </control>
-            </control>
-            
         </control>
     </controls>
 </window>

@@ -94,17 +94,28 @@
                 <visible>Player.HasVideo + SubString(Window(10025).Property(PlayingBackgroundMedia),True)</visible>
             </control>
             <control type="image" id="5688">
-                <top>12</top>
+                <top>39</top>
                 <right>40</right>
                 <width>258</width>
                 <height>130</height>
-                <texture fallback="empty.png">$VAR[ClearArt]</texture>
-                <aspectratio align="center" aligny="top">keep</aspectratio>
+                <texture fallback="empty.png">$VAR[ClearLogo]</texture>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <visible>Skin.HasSetting(furniture.logo)</visible>
+                <include>DialogVideoInfoAnimation</include>
+                <animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
+            </control>
+            <control type="image">
+                <top>595</top>
+                <right>218</right>
+                <width>222</width>
+                <height>114</height>
+                <texture fallback="movies-logo.png">$VAR[ClearArtOnly]</texture>
+                <aspectratio align="center" aligny="center">stretch</aspectratio>
                 <visible>Skin.HasSetting(furniture.logo)</visible>
                 <include>DialogVideoInfoAnimation</include>
             </control>
             <control type="textbox">
-                <top>12</top>
+                <top>39</top>
                 <right>40</right>
                 <width>258</width>
                 <height>130</height>
@@ -115,9 +126,10 @@
                 <visible>Skin.HasSetting(furniture.logo) + Skin.HasSetting(furniture.logo.fake)</visible>
                 <visible>Substring(Control.GetLabel(5688),empty.png)</visible>
                 <visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,a,Left) | SubString(ListItem.Title,b,Left) | SubString(ListItem.Title,c,Left) | SubString(ListItem.Title,d,Left)]</visible>
+                <animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
             </control>
             <control type="textbox">
-                <top>12</top>
+                <top>39</top>
                 <right>40</right>
                 <width>258</width>
                 <height>130</height>
@@ -128,9 +140,10 @@
                 <visible>Skin.HasSetting(furniture.logo) + Skin.HasSetting(furniture.logo.fake)</visible>
                 <visible>Substring(Control.GetLabel(5688),empty.png)</visible>
                 <visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))]+ [SubString(ListItem.Title,e,Left) | SubString(ListItem.Title,f,Left) | SubString(ListItem.Title,g,Left) | SubString(ListItem.Title,h,Left)]</visible>
+                <animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
             </control>
             <control type="textbox">
-                <top>12</top>
+                <top>39</top>
                 <right>40</right>
                 <width>258</width>
                 <height>130</height>
@@ -143,7 +156,7 @@
                 <visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,i,Left) | SubString(ListItem.Title,j,Left) | SubString(ListItem.Title,k,Left) | SubString(ListItem.Title,l,Left)]</visible>
             </control>
             <control type="textbox">
-                <top>12</top>
+                <top>39</top>
                 <right>40</right>
                 <width>258</width>
                 <height>130</height>
@@ -154,9 +167,10 @@
                 <visible>Skin.HasSetting(furniture.logo) + Skin.HasSetting(furniture.logo.fake)</visible>
                 <visible>Substring(Control.GetLabel(5688),empty.png)</visible>
                 <visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,m,Left) | SubString(ListItem.Title,n,Left) | SubString(ListItem.Title,o,Left) | SubString(ListItem.Title,p,Left)]</visible>
+                <animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
             </control>
             <control type="textbox">
-                <top>12</top>
+                <top>39</top>
                 <right>40</right>
                 <width>258</width>
                 <height>130</height>
@@ -167,9 +181,10 @@
                 <visible>Skin.HasSetting(furniture.logo) + Skin.HasSetting(furniture.logo.fake)</visible>
                 <visible>Substring(Control.GetLabel(5688),empty.png)</visible>
                 <visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,q,Left) | SubString(ListItem.Title,r,Left) | SubString(ListItem.Title,s,Left) | SubString(ListItem.Title,t,Left)]</visible>
+                <animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
             </control>
             <control type="textbox">
-                <top>12</top>
+                <top>39</top>
                 <right>40</right>
                 <width>258</width>
                 <height>130</height>
@@ -180,6 +195,7 @@
                 <visible>Skin.HasSetting(furniture.logo) + Skin.HasSetting(furniture.logo.fake)</visible>
                 <visible>Substring(Control.GetLabel(5688),empty.png)</visible>
                 <visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,u,Left) | SubString(ListItem.Title,v,Left) | SubString(ListItem.Title,w,Left) | SubString(ListItem.Title,x,Left) | SubString(ListItem.Title,y,Left) | SubString(ListItem.Title,z,Left)]</visible>
+                <animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
             </control>
             <!-- <control type="label"> <top>45</top> <right>298</right> <width>auto</width> <height>32</height> <font>EndTime</font> <align>center</align> <aligny>bottom</aligny> <textcolor>Black700</textcolor> <label>$INFO[ListItem.EndTime,$LOCALIZE[31106] ,]</label> <visible>!IsEmpty(ListItem.EndTime)</visible> <visible>Container.Content(movies) | Container.Content(episodes)</visible> </control> -->
             <control type="group">
@@ -1009,14 +1025,16 @@
                         <ondown condition="Control.IsVisible(5000)">5000</ondown>
                         <ondown condition="Control.IsVisible(50)">50</ondown>
                         <font>symbol</font>
-                        <label></label>
+                        <label></label>
                         <textcolor>Black700</textcolor>
-                        <texturefocus colordiffuse="$INFO[Window(home).Property(VideoInfo.ImageColor)]" border="5">common/box.png</texturefocus>
+                        <focusedcolor>$INFO[Window(home).Property(VideoInfo.ImageColor)]</focusedcolor>
+                        <texturefocus colordiffuse="$INFO[Window(home).Property(VideoInfo.ImageColor)]" border="5">-</texturefocus>
                         <texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
                         <onclick condition="!System.HasAddon(script.extendedinfo)">ActivateWindow(Videos,plugin://script.extendedinfo)</onclick>
                         <onclick condition="IsEmpty(ListItem.TvShowTitle) + !Container.Content(tvshows)">RunScript(script.extendedinfo,info=extendedinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.Title])</onclick>
                         <onclick condition="Container.Content(tvshows) + IsEmpty(Window(home).Property(TVShowID))">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[ListItem.DBID],name=$INFO[ListItem.TvShowTitle])</onclick>
                         <onclick condition="!IsEmpty(Window(home).Property(TVShowID))">RunScript(script.extendedinfo,info=extendedtvinfo,dbid=$INFO[(Window(home).Property(TVShowID)],name=$INFO[ListItem.TvShowTitle])</onclick>
+                        <animation condition="Control.HasFocus(19)" effect="slide" end="00,-110"  time="100">Conditional</animation>
                     </control>
                 </control>
                 <!-- Button grouplist Focus  -->
@@ -1128,8 +1146,9 @@
                         <height>116</height>
                         <font>EPGTimeline</font>
                         <label>Extended Info</label>
-                        <textcolor>White70</textcolor>
+                        <textcolor>$INFO[Window(home).Property(VideoInfo.ImageColor)]</textcolor>
                         <animation condition="Control.HasFocus(19)" effect="fade" end="100" start="0" time="10">Conditional</animation>
+                        <animation condition="Control.HasFocus(19)" effect="slide" end="00,-110"  time="10">Conditional</animation>
                         <animation condition="!Control.HasFocus(19)" effect="fade" end="0" start="100" time="10">Conditional</animation>
                     </control>
                 </control>
@@ -1157,6 +1176,7 @@
 
                     <control type="image" id="900011">
                         <posy>5</posy>
+                        <posx>24</posx>
                         <width>120</width>
                         <height>62</height>
                         <aspectratio>scale</aspectratio>
@@ -1165,6 +1185,7 @@
                     </control>
                     <control type="image" id="900012">
                         <posy>5</posy>
+                        <posx>24</posx>
                         <width>120</width>
                         <height>62</height>
                         <aspectratio>scale</aspectratio>
