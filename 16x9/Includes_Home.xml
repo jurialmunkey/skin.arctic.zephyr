@@ -1766,10 +1766,10 @@
 					</control>
 					<!-- Logo -->
 					<control type="image">
-						<top>70</top>
-						<right>-228</right>
+						<top>19</top>
+						<right>-250</right>
 						<width>258</width>
-						<height>100</height>
+						<height>130</height>
 						<texture>$VAR[WidgetLogo]</texture>
 						<aspectratio align="right" aligny="center">keep</aspectratio>
 						<include>Animation.FadeIn</include>
@@ -1778,12 +1778,13 @@
 						<visible>Skin.HasSetting(furniture.logo)</visible>
 						<visible>Control.HasFocus(301)</visible>
 						<visible>!Player.HasMedia</visible>
+						<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
 					</control>
 					<control type="image">
-						<top>70</top>
-						<right>70</right>
+						<top>19</top>
+						<right>40</right>
 						<width>258</width>
-						<height>100</height>
+						<height>130</height>
 						<texture>$VAR[WidgetLogo]</texture>
 						<aspectratio align="right" aligny="center">keep</aspectratio>
 						<include>Animation.FadeIn</include>
@@ -1792,6 +1793,7 @@
 						<visible>Skin.HasSetting(furniture.logo)</visible>
 						<visible>!Control.HasFocus(301)</visible>
 						<visible>!Player.HasMedia</visible>
+						<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
 					</control>
 
 					<control type="grouplist">

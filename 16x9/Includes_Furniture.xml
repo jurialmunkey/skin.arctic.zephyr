@@ -789,23 +789,25 @@
 	<include name="Furniture_Logo">
 		<control type="group">
 			<visible>Skin.HasSetting(furniture.logo)</visible>
+			<visible>!Player.HasMedia</visible>
 			<visible>!Control.HasFocus(515)</visible>
 			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
-			<left>831</left>
-			<top>70</top>
+			<left>1622</left>
+			<top>19</top>
 			<include>Animation.FadeIn</include>
 			<include>Animation.FadeOut</include>
 			<control type="image">
 				<width>258</width>
-				<height>100</height>
+				<height>130</height>
 				<texture>$VAR[ClearLogo]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+				<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
 			</control>
 			<control type="textbox">
 				<width>258</width>
-				<height>100</height>
+				<height>130</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<textcolor>$VAR[ColourHighlight]</textcolor>
@@ -815,10 +817,11 @@
 				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
 				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))]</visible>
 				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,a,Left) | SubString(ListItem.Title,b,Left) | SubString(ListItem.Title,c,Left) | SubString(ListItem.Title,d,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
 			</control>
 			<control type="textbox">
 				<width>258</width>
-				<height>100</height>
+				<height>130</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<textcolor>$VAR[ColourHighlight]</textcolor>
@@ -828,10 +831,11 @@
 				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
 				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))]</visible>
 				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))]+ [SubString(ListItem.Title,e,Left) | SubString(ListItem.Title,f,Left) | SubString(ListItem.Title,g,Left) | SubString(ListItem.Title,h,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
 			</control>
 			<control type="textbox">
 				<width>258</width>
-				<height>100</height>
+				<height>130</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<textcolor>$VAR[ColourHighlight]</textcolor>
@@ -841,10 +845,11 @@
 				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
 				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))]</visible>
 				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,i,Left) | SubString(ListItem.Title,j,Left) | SubString(ListItem.Title,k,Left) | SubString(ListItem.Title,l,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
 			</control>
 			<control type="textbox">
 				<width>258</width>
-				<height>100</height>
+				<height>130</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<textcolor>$VAR[ColourHighlight]</textcolor>
@@ -854,10 +859,11 @@
 				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
 				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))]</visible>
 				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,m,Left) | SubString(ListItem.Title,n,Left) | SubString(ListItem.Title,o,Left) | SubString(ListItem.Title,p,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
 			</control>
 			<control type="textbox">
 				<width>258</width>
-				<height>100</height>
+				<height>130</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<textcolor>$VAR[ColourHighlight]</textcolor>
@@ -867,10 +873,11 @@
 				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
 				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))]</visible>
 				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,q,Left) | SubString(ListItem.Title,r,Left) | SubString(ListItem.Title,s,Left) | SubString(ListItem.Title,t,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
 			</control>
 			<control type="textbox">
 				<width>258</width>
-				<height>100</height>
+				<height>130</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<textcolor>$VAR[ColourHighlight]</textcolor>
@@ -880,6 +887,7 @@
 				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
 				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))]</visible>
 				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,u,Left) | SubString(ListItem.Title,v,Left) | SubString(ListItem.Title,w,Left) | SubString(ListItem.Title,x,Left) | SubString(ListItem.Title,y,Left) | SubString(ListItem.Title,z,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
 			</control>
 		</control>
 		<control type="group">
