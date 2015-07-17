@@ -526,13 +526,15 @@
 						<include>DefSettingsButton</include>
 						<label>$LOCALIZE[31753]</label>
 						<label2 fallback="UK">$VAR[MovieMPAALangLabel]</label2>
-						<onclick>SetProperty(Dialog.NumItems,3)</onclick>
+						<onclick>SetProperty(Dialog.NumItems,4)</onclick>
 						<onclick>SetProperty(Dialog.1.Label,Default - UK)</onclick>
 						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(RatingCountry,UK))</onclick>
 						<onclick>SetProperty(Dialog.2.Label,US)</onclick>
 						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(RatingCountry,US))</onclick>
 						<onclick>SetProperty(Dialog.3.Label,Germany)</onclick>
 						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(RatingCountry,Germany))</onclick>
+						<onclick>SetProperty(Dialog.4.Label,NL)</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(RatingCountry,NL))</onclick>
 						<onclick>RunScript(script.toolbox,info=selectdialog,header=Select Rating Country)</onclick>
 						<visible>ControlGroup(9100).HasFocus(9106)</visible>
 					</control>

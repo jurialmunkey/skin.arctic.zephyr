@@ -1001,6 +1001,109 @@
 			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,18) + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 	</include>
+	<!-- Dutch Ratings -->
+	<include name="lib_Rating_NL">
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>info/rating/rated_nl_6.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.mpaa,Nl-6)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>info/rating/rated_nl_9.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.mpaa,Nl-9)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>info/rating/rated_nl_12.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.mpaa,Nl-12)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>info/rating/rated_nl_16.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.mpaa,Nl-16)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>info/rating/rated_nl_18+.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.mpaa,Nl-18)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>info/rating/rated_nl_AL.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.mpaa,Nl-AL)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>info/rating/rated_nl_mg6.png</texture>
+			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.mpaa,Nl-mg6)</visible>
+		</control>
+	</include>
+	<include name="lib_Rating_NL_home">
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>info/rating/rated_nl_6.png</texture>
+			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + SubString(Container(301).ListItem.Mpaa,Nl-6)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>info/rating/rated_nl_9.png</texture>
+			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + SubString(Container(301).ListItem.Mpaa,Nl-9)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>info/rating/rated_nl_12.png</texture>
+			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + SubString(Container(301).ListItem.Mpaa,Nl-12)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>info/rating/rated_nl_16.png</texture>
+			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + SubString(Container(301).ListItem.Mpaa,Nl-16)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>info/rating/rated_nl_18+.png</texture>
+			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + SubString(Container(301).ListItem.Mpaa,Nl-18)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>info/rating/rated_nl_AL.png</texture>
+			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + SubString(Container(301).ListItem.Mpaa,Nl-AL)</visible>
+		</control>
+		<control type="image">
+			<centertop>50%</centertop>
+			<width>50</width>
+			<height>50</height>
+			<texture>info/rating/rated_nl_mg6.png</texture>
+			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + SubString(Container(301).ListItem.Mpaa,Nl-mg6)</visible>
+		</control>
+	</include>
 	<!-- MPAA Ratings -->
 	<include name="lib_Rating_MPAA">
 		<control type="image">
