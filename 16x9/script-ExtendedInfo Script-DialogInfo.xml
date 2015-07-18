@@ -40,14 +40,23 @@
 			<visible>Control.HasFocus(250)</visible>
 		</control>
 		<control type="image">
-			<top>99</top>
+			<include>DialogVideoInfoAnimation</include>
+			<texture>moviedb.png</texture>
 			<right>40</right>
+			<posy>59</posy>
 			<width>258</width>
 			<height>130</height>
-			<texture>moviedb.png</texture>
 			<aspectratio align="center" aligny="top">keep</aspectratio>
-			<include>DialogVideoInfoAnimation</include>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="slide" start="0,-1000" end="0,0" delay="0" tween="sine" time="1000" />
+				<effect type="fade" start="0" end="100" delay="0" tween="sine" time="2000" />
+				<effect type="rotate" end="15" delay="1500" center="auto" tween="sine" time="750" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" delay="0" tween="sine" time="100" />
+			</animation>
 		</control>
+		<include>ExtendedFurniture_Header</include>
 		<control type="group">
 			<control type="group">
 				<left>90</left>

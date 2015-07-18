@@ -1098,6 +1098,74 @@
 			</control>
 		</control>
 	</include>
+	<include name="ExtendedFurniture_Header">
+		<control type="grouplist">
+			<top>3</top>
+			<left>90</left>
+			<visible>Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
+			<include>Animation.FurnitureFadeInOut</include>
+			<orientation>horizontal</orientation>
+			<itemgap>24</itemgap>
+			<control type="group" description="iconbox">
+				<width>80</width>
+				<height>80</height>
+				<control type="image">
+					<width>80</width>
+					<height>80</height>
+					<texture colordiffuse="Panel" border="8">common/box.png</texture>
+				</control>
+				<control type="image">
+					<top>-14</top>
+					<left>-14</left>
+					<width>108</width>
+					<height>108</height>
+					<texture colordiffuse="PanelWhite100" border="8">$VAR[HeaderIcon]</texture>
+					<visible>!Container.Scrolling</visible>
+					<visible>!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)</visible>
+					<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+				</control>
+				<control type="label">
+					<centertop>39</centertop>
+					<centerleft>40</centerleft>
+					<width>80</width>
+					<height>80</height>
+					<font>LargeBold</font>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.SortLetter,[UPPERCASE],[/UPPERCASE]]</label>
+					<textcolor>PanelWhite100</textcolor>
+					<visible>Container.Scrolling</visible>
+					<visible>!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)</visible>
+					<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+				</control>
+				<control type="image">
+					<centertop>40</centertop>
+					<centerleft>40</centerleft>
+					<width>48</width>
+					<height>48</height>
+					<texture colordiffuse="PanelWhite100" fallback="special://skin/extras/spinners/flower.gif">$INFO[Skin.String(busyloader)]</texture>
+					<visible>Skin.HasSetting(hide.busydialog) + Window.IsVisible(DialogBusy.xml)</visible>
+					<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+				</control>
+			</control>
+			<control type="group">
+				<control type="label">
+					<centertop>24</centertop>
+					<width>auto</width>
+					<font>MediumBold</font>
+					<textcolor>Dark1</textcolor>
+					<label>$VAR[MainHeaderLabel]</label>
+				</control>
+				<control type="label">
+					<centertop>58</centertop>
+					<font>Flag</font>
+					<width>auto</width>
+					<textcolor>Dark2</textcolor>
+					<label>$VAR[SubHeaderLabel]</label>
+				</control>
+			</control>
+		</control>
+	</include>
 	<include name="Furniture_Clock">
 		<control type="group">
 			<include>Animation.FadeIn</include>
