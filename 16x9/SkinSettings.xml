@@ -83,6 +83,12 @@
 						<include>DefSettingsButton</include>
 						<label>31745</label>
 					</control>
+					<!--<control type="togglebutton" id="9109" description="Views">
+						<usealttexture>ControlGroup(9100).HasFocus(9109)</usealttexture>
+						<alttexturenofocus colordiffuse="$VAR[ColourHighlight]">common/white.png</alttexturenofocus>
+						<include>DefSettingsButton</include>
+						<label>Views</label>
+					</control> -->
 				</control>
 				<!-- Right Group -->
 				<control type="grouplist" id="9200">
@@ -792,6 +798,14 @@
 						<label> - $LOCALIZE[409]</label>
 						<visible>Skin.HasSetting(ColourSelected)</visible>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<!-- Views -->
+					<control type="button" id="9291" description="Enable or Disable views">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<onclick>RunScript(script.arctic.zephyr.helper,ENABLEVIEWS)</onclick>
+						<label>31769</label>
+						<visible>ControlGroup(9100).HasFocus(9109)</visible>
 					</control>
 				</control>
 				<!-- Lines -->
