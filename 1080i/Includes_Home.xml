@@ -50,7 +50,8 @@
             <include>Animation.FadeOut</include>
             <visible>!Skin.HasSetting(home.showheader)</visible>
             <visible>Player.HasMedia</visible>
-            <visible>!Control.HasFocus(301) + !ControlGroup(303).HasFocus()</visible>
+            <visible>!Control.HasFocus(301) | [Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.showheader)]</visible>
+            <visible>!ControlGroup(303).HasFocus()</visible>
             <animation effect="slide" end="0,100" time="150" condition="[[!Skin.HasSetting(home.showheader) + [Window.IsVisible(DialogKaiToast.xml) | Window.IsVisible(DialogExtendedProgressBar.xml) | Window.IsVisible(DialogVolumeBar.xml)]]]">Conditional</animation>
             <control type="image">
                 <description>background image</description>
@@ -149,7 +150,8 @@
             <height>100</height>
             <include>Animation.FadeIn.Slide</include>
             <include>Animation.FadeOut</include>
-            <visible>!Control.HasFocus(301) + !ControlGroup(303).HasFocus()</visible>
+            <visible>!Control.HasFocus(301) | [Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.showheader)]</visible>
+            <visible>!ControlGroup(303).HasFocus()</visible>
             <visible>Skin.HasSetting(home.showheader) | !Window.IsVisible(DialogKaiToast.xml)</visible>
             <visible>Skin.HasSetting(home.showheader) | !Window.IsVisible(DialogExtendedProgress.xml)</visible>
             <visible>Skin.HasSetting(home.showheader) | !Window.IsVisible(DialogVolumeBar.xml)</visible>
@@ -208,7 +210,8 @@
             <animation effect="slide" end="0,100" time="150" condition="!Skin.HasSetting(home.showheader) + Player.HasMedia">Conditional</animation>
             <visible>StringCompare(Container(300).ListItem.Property(widget),Weather) | Skin.HasSetting(home.showweatherfanart)</visible>
             <visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
-            <visible>!Control.HasFocus(301) + !ControlGroup(303).HasFocus()</visible>
+            <visible>!Control.HasFocus(301) | [Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.showheader) + ![Player.HasMedia + [Pvr.IsRecording | Pvr.HasTimer | Window.IsVisible(DialogKaiToast.xml) | Window.IsVisible(DialogExtendedProgressBar.xml) | Window.IsVisible(DialogVolumeBar.xml)]]]</visible>
+            <visible>!ControlGroup(303).HasFocus()</visible>
             <include>Animation.FadeIn.Slide</include>
             <include>Animation.FadeOut</include>
             <visible>!Skin.HasSetting(furniture.weather)</visible>

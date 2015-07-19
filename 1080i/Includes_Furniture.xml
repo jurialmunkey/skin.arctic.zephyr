@@ -1168,7 +1168,7 @@
             <visible>!Window.IsActive(DialogKaiToast.xml)</visible>
             <visible>Player.HasMedia</visible>
             <visible>!IsEmpty(Player.Duration) | Player.HasAudio</visible>
-            <animation effect="slide" start="0" end="0,-250" time="150" condition="Control.HasFocus(301)">Conditional</animation>
+            <animation effect="slide" start="0" end="0,-250" time="150" condition="Control.HasFocus(301) + !Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.vertical)">Conditional</animation>
             <top>70</top>
             <right>62</right>
             <orientation>horizontal</orientation>
