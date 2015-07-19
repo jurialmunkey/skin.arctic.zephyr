@@ -586,6 +586,16 @@
 						<selected>Skin.HasSetting(furniture.logo.fake)</selected>
 						<onclick>Skin.ToggleSetting(furniture.logo.fake)</onclick>
 					</control>
+					<control type="radiobutton" id="92682" description="Animate Logo">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9106)</visible>
+						<include>DefSettingsButton</include>
+						<label>  - Animate Logo</label>
+						<visible>Skin.HasSetting(furniture.logo)</visible>
+						<selected>Skin.HasSetting(furniture.logo.animate)</selected>
+						<onclick>Skin.ToggleSetting(furniture.logo.animate)</onclick>
+					</control>
+
 					<control type="radiobutton" id="9270" description="DiscArt">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9106)</visible>

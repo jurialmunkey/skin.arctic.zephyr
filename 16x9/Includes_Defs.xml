@@ -250,6 +250,48 @@
 			<onclick>$INFO[Window(Home).Property(favourite.7.path)]</onclick>
 		</item>
 	</include>
+	<include name="DefWeatherMaps">
+		<item id="1">
+			<label>$INFO[Window(weather).Property(Map.1.Heading)]</label>
+			<label2>$INFO[Window(weather).Property(Map.1.Legend)]</label2>
+			<icon>$INFO[Window(weather).Property(Map.1.Area)]</icon>
+			<property name="Layer">$INFO[Window(weather).Property(Map.1.Layer)]</property>
+			<onclick>ShowPicture(Window(weather).Property(Map.1.Area))</onclick>
+			<visible>Weather.IsFetched + !IsEmpty(Window(weather).Property(Map.1.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
+		</item>
+		<item id="2">
+			<label>$INFO[Window(weather).Property(Map.2.Heading)]</label>
+			<label2>$INFO[Window(weather).Property(Map.2.Legend)]</label2>
+			<icon>$INFO[Window(weather).Property(Map.2.Area)]</icon>
+			<property name="Layer">$INFO[Window(weather).Property(Map.2.Layer)]</property>
+			<onclick>ShowPicture(Window(weather).Property(Map.2.Area))</onclick>
+			<visible>Weather.IsFetched + !IsEmpty(Window(weather).Property(Map.2.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
+		</item>
+		<item id="3">
+			<label>$INFO[Window(weather).Property(Map.3.Heading)]</label>
+			<label2>$INFO[Window(weather).Property(Map.3.Legend)]</label2>
+			<icon>$INFO[Window(weather).Property(Map.3.Area)]</icon>
+			<property name="Layer">$INFO[Window(weather).Property(Map.3.Layer)]</property>
+			<onclick>ShowPicture(Window(weather).Property(Map.3.Area))</onclick>
+			<visible>Weather.IsFetched + !IsEmpty(Window(weather).Property(Map.3.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
+		</item>
+		<item id="4">
+			<label>$INFO[Window(weather).Property(Map.4.Heading)]</label>
+			<label2>$INFO[Window(weather).Property(Map.4.Legend)]</label2>
+			<icon>$INFO[Window(weather).Property(Map.4.Area)]</icon>
+			<property name="Layer">$INFO[Window(weather).Property(Map.4.Layer)]</property>
+			<onclick>ShowPicture(Window(weather).Property(Map.4.Area))</onclick>
+			<visible>Weather.IsFetched + !IsEmpty(Window(weather).Property(Map.4.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
+		</item>
+		<item id="5">
+			<label>$INFO[Window(weather).Property(Map.5.Heading)]</label>
+			<label2>$INFO[Window(weather).Property(Map.5.Legend)]</label2>
+			<icon>$INFO[Window(weather).Property(Map.5.Area)]</icon>
+			<property name="Layer">$INFO[Window(weather).Property(Map.5.Layer)]</property>
+			<onclick>ShowPicture(Window(weather).Property(Map.5.Area))</onclick>
+			<visible>Weather.IsFetched + !IsEmpty(Window(weather).Property(Map.5.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
+		</item>
+	</include>
 	<include name="DefWidgetSelector">
 		<align>center</align>
 		<aligny>center</aligny>

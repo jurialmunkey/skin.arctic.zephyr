@@ -1584,9 +1584,9 @@
 			<control type="group">
 				<!-- Home List -->
 				<control type="list" id="300">
-					<animation effect="fade" start="100" end="33" time="400" condition="Control.HasFocus(301)">Conditional</animation>
-					<animation effect="slide" start="0" end="-140" time="200" delay="100" tween="quadratic" easing="out" condition="Control.HasFocus(301)">Conditional</animation>
-					<animation effect="slide" start="-140" end="0" time="200" delay="100" tween="quadratic" easing="out" condition="!Control.HasFocus(301)">Conditional</animation>
+					<animation effect="fade" start="100" end="33" time="400" condition="Control.HasFocus(301) | Control.HasFocus(3438) | Control.HasFocus(3439) | Control.HasFocus(3440) | Control.HasFocus(3442)">Conditional</animation>
+					<animation effect="slide" start="0" end="-140" time="200" delay="100" tween="quadratic" easing="out" condition="Control.HasFocus(301) | Control.HasFocus(3438) | Control.HasFocus(3439) | Control.HasFocus(3440) | Control.HasFocus(3442)">Conditional</animation>
+					<animation effect="slide" start="-140" end="0" time="200" delay="100" tween="quadratic" easing="out" condition="!Control.HasFocus(301) + !Control.HasFocus(3438) + !Control.HasFocus(3439) + !Control.HasFocus(3440) + !Control.HasFocus(3442)">Conditional</animation>
 					<animation effect="slide" start="-500" end="0" time="200" delay="100" tween="quadratic" easing="out">Visible</animation>
 					<visible allowhiddenfocus="true">!Control.HasFocus(302)</visible>
 					<include>Animation.FadeIn</include>
@@ -1597,7 +1597,8 @@
 					<width>PosterW</width>
 					<height>720</height>
 					<orientation>vertical</orientation>
-					<onright>301</onright>
+					<onright condition="StringCompare(Container(300).ListItem.Property(widget),Weather)">3438</onright>
+					<onright condition="!StringCompare(Container(300).ListItem.Property(widget),Weather)">301</onright>
 					<onleft>302</onleft>
 					<onback>302</onback>
 					<scrolltime>200</scrolltime>
@@ -1763,6 +1764,60 @@
 						<include>Animation.FadeIn</include>
 						<include>Animation.FadeOut</include>
 						<animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
+						<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+					</control>
+					<control type="button" id="3438">
+						<onleft>300</onleft>
+						<onright>3439</onright>
+						<font>TinyBold</font>
+						<right>70</right>
+						<width>1322</width>
+						<top>256</top>
+						<align>left</align>
+						<textcolor>Dark2</textcolor>
+						<focusedcolor>$VAR[ColourHighlight]</focusedcolor>
+						<disabledcolor>Black30</disabledcolor>
+						<selectedcolor>$VAR[ColourHighlight2]</selectedcolor>
+						<texturefocus>-</texturefocus>
+						<label>$VAR[WidgetLabel]</label>
+						<visible>StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+						<animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(3438)">Conditional</animation>
+					</control>
+					<control type="button" id="3439">
+						<onleft>3438</onleft>
+						<ondown>3440</ondown>
+						<onright condition="Control.IsVisible(3442)">3442</onright>
+						<font>TinyBold</font>
+						<right>70</right>
+						<width>1200</width>
+						<top>256</top>
+						<align>left</align>
+						<textcolor>Dark2</textcolor>
+						<focusedcolor>$VAR[ColourHighlight]</focusedcolor>
+						<disabledcolor>Black30</disabledcolor>
+						<selectedcolor>$VAR[ColourHighlight2]</selectedcolor>
+						<texturefocus>-</texturefocus>
+						<label>Maps</label>
+						<visible>StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+						<animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(3439)">Conditional</animation>
+					</control>
+					<control type="button" id="3442">
+						<onleft>3439</onleft>
+						<ondown>3443</ondown>
+						<font>TinyBold</font>
+						<right>70</right>
+						<width>1078</width>
+						<top>256</top>
+						<align>left</align>
+						<textcolor>Red</textcolor>
+						<focusedcolor>$VAR[ColourHighlight]</focusedcolor>
+						<disabledcolor>Black30</disabledcolor>
+						<selectedcolor>$VAR[ColourHighlight2]</selectedcolor>
+						<texturefocus>-</texturefocus>
+						<label>33050</label>
+						<visible>StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+						<!--<visible>!IsEmpty(Window(weather).Property(Alerts.IsFetched))</visible>-->
+						<animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(3442)">Conditional</animation>
 					</control>
 					<!-- Logo -->
 					<control type="image">
@@ -1796,6 +1851,21 @@
 						<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
 					</control>
 
+					<control type="image">
+						<top>19</top>
+						<right>40</right>
+						<width>258</width>
+						<height>130</height>
+						<texture>$INFO[Window(Weather).Property(WeatherProviderLogo)]</texture>
+						<aspectratio align="right" aligny="center">keep</aspectratio>
+						<include>Animation.FadeIn</include>
+						<include>Animation.FadeOut</include>
+						<animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(3438) + !Control.HasFocus(3439) + !Control.HasFocus(3440) + !Control.HasFocus(3442)">Conditional</animation>
+						<visible>Skin.HasSetting(furniture.logo)</visible>
+						<visible>!Player.HasMedia</visible>
+						<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
+						<visible>StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+					</control>
 					<control type="grouplist">
 						<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 						<animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
@@ -1835,6 +1905,7 @@
 					<control type="group">
 						<visible>StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 						<visible>Weather.IsFetched</visible>
+						<visible>!Control.HasFocus(3439) + !Control.HasFocus(3442)</visible>
 						<include>Animation.FadeIn</include>
 						<include>Animation.FadeOut</include>
 						<control type="grouplist">
@@ -2183,6 +2254,148 @@
 								</control>
 							</control>
 						</control>
+					</control>
+					<control type="button" id="3440">
+						<onup>3439</onup>
+						<onleft>Control.Move(3441,-1)</onleft>
+						<onright>Control.Move(3441,1)</onright>
+						<onclick>ShowPicture($INFO[Container(3441).ListItem.Icon])</onclick>
+					</control>
+					<control type="wraplist" id="3441">
+						<visible>StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+						<visible allowhiddenfocus="true">Control.HasFocus(3439) | Control.HasFocus(3440)</visible>
+						<animation effect="fade" start="100" end="66" time="400" condition="!Control.HasFocus(3440)">Conditional</animation>
+						<include>Animation.FadeIn</include>
+						<autoscroll time="10000">Control.HasFocus(3439)</autoscroll>
+						<top>330</top>
+						<left>518</left>
+						<width>1420</width>
+						<onup>3439</onup>
+						<focusposition>0</focusposition>
+						<preloaditems>2</preloaditems>
+						<orientation>horizontal</orientation>
+						<pagecontrol>60</pagecontrol>
+						<viewtype label="536">list</viewtype>
+						<scrolltime tween="quadratic">400</scrolltime>
+						<itemlayout width="1420" height="570">
+							<control type="image">
+								<width>100%</width>
+								<height>100%</height>
+								<aspectratio>stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Icon]</texture>
+							</control>
+							<control type="image">
+								<width>100%</width>
+								<height>100%</height>
+								<aspectratio>stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Property(Layer)]</texture>
+								<colordiffuse>70FFFFFF</colordiffuse>
+							</control>
+							<control type="image">
+								<description>legend image</description>
+								<top>0</top>
+								<left>996</left>
+								<width>424</width>
+								<height>55</height>
+								<texture>$INFO[ListItem.Label2]</texture>
+							</control>
+						</itemlayout>
+						<focusedlayout width="1420" height="570">
+							<control type="image">
+								<width>100%</width>
+								<height>100%</height>
+								<aspectratio>stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Icon]</texture>
+							</control>
+							<control type="image">
+								<width>100%</width>
+								<height>100%</height>
+								<aspectratio>stretch</aspectratio>
+								<texture background="true">$INFO[ListItem.Property(Layer)]</texture>
+								<colordiffuse>70FFFFFF</colordiffuse>
+							</control>
+							<control type="image">
+								<description>legend image</description>
+								<top>0</top>
+								<left>996</left>
+								<width>424</width>
+								<height>55</height>
+								<texture>$INFO[ListItem.Label2]</texture>
+							</control>
+						</focusedlayout>
+						<content>
+							<include>DefWeatherMaps</include>
+						</content>
+					</control>
+					<control type="group">
+						<left>518</left>
+						<width>1420</width>
+						<top>830</top>
+						<height>70</height>
+						<visible>StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+						<visible>Control.HasFocus(3439) | Control.HasFocus(3440)</visible>
+						<visible>IntegerGreaterThan(Container(3441).NumItems,0)</visible>
+						<control type="image">
+							<left>0</left>
+							<right>0</right>
+							<bottom>0</bottom>
+							<height>70</height>
+							<texture border="15" colordiffuse="bf000000">common/white.png</texture>
+						</control>
+						<control type="label">
+							<width>auto</width>
+							<left>10</left>
+							<right>10</right>
+							<aligny>center</aligny>
+							<height>64</height>
+							<font>NetflixSmall</font>
+							<textcolor>PanelWhite70</textcolor>
+							<selectedcolor>PanelWhite70</selectedcolor>
+							<label>[B]$INFO[Container(3441).ListItem.Label][/B][CR]$INFO[Window(Weather).Property(Location),, - ]$INFO[Window(Weather).Property(Current.Condition),, - ]$INFO[Window(Weather).Property(Today.Sunrise),$LOCALIZE[33027]: , - ]$INFO[Window(Weather).Property(Today.Sunset),$LOCALIZE[33028]: , - ][B]$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits][/B]</label>
+						</control>
+					</control>
+					<control type="image">
+						<left>516</left>
+						<width>1424</width>
+						<top>328</top>
+						<height>574</height>
+						<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+						<visible>Control.HasFocus(3440)</visible>
+					</control>
+
+
+					<control type="radiobutton"  id="3443">
+						<visible>Control.HasFocus(3442)</visible>
+
+						<top>330</top>
+						<left>518</left>
+						<width>1420</width>
+						<height>570</height>
+						<radioposx>1</radioposx>
+						<radioposy>12</radioposy>
+						<radiowidth>46</radiowidth>
+						<ondown>3443</ondown>
+						<textureradioonfocus colordiffuse="White70">-</textureradioonfocus>
+						<textureradioonnofocus colordiffuse="Black100">-</textureradioonnofocus>
+						<textureradioofffocus colordiffuse="White70">-</textureradioofffocus>
+						<textureradiooffnofocus colordiffuse="Black100">-</textureradiooffnofocus>
+						<texturefocus>-</texturefocus>
+						<texturenofocus border="5" colordiffuse="White70">common/box.png</texturenofocus>
+						<align>left</align>
+						<aligny>top</aligny>
+						<textoffsetx>6</textoffsetx>
+						<textoffsety>4</textoffsety>
+						<font>symbol</font>
+						<label></label>
+					</control>
+					<control type="textbox">
+						<visible>Control.HasFocus(3442)</visible>
+						<top>380</top>
+						<left>568</left>
+						<width>1320</width>
+						<height>500</height>
+						<align>justify</align>
+						<label>$INFO[Window(weather).Property(Alerts)]</label>
 					</control>
 					<!-- Widget -->
 					<control type="fixedlist" id="301">

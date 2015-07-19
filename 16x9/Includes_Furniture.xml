@@ -1035,7 +1035,8 @@
 			<visible>!ControlGroup(303).HasFocus()</visible>
 			<visible>!Control.HasFocus(515)</visible>
 			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
-			<include>Animation.FurnitureFadeInOut</include>
+			<include condition="!Window.IsVisible(script-ExtendedInfo Script-VideoList.xml)">Animation.FurnitureFadeInOut</include>
+			<include condition="Window.IsVisible(script-ExtendedInfo Script-VideoList.xml)">FurnitureFadeInOutExtended</include>
 			<orientation>horizontal</orientation>
 			<itemgap>24</itemgap>
 			<control type="group" description="iconbox">
@@ -1103,7 +1104,7 @@
 			<top>3</top>
 			<left>90</left>
 			<visible>Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
-			<include>Animation.FurnitureFadeInOut</include>
+			<include>Animation.FurnitureFadeInOutExtended</include>
 			<orientation>horizontal</orientation>
 			<itemgap>24</itemgap>
 			<control type="group" description="iconbox">
@@ -1325,6 +1326,7 @@
 			<itemgap>10</itemgap>
 			<usecontrolcoords>true</usecontrolcoords>
 			<control type="group">
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 				<centertop>50%</centertop>
 				<width>73</width>
 				<height>50</height>
@@ -1360,6 +1362,8 @@
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar1].png</texture>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+
 			</control>
 			<control type="image">
 				<width>64</width>
@@ -1367,6 +1371,8 @@
 				<centertop>50%</centertop>
 				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[HomeFlagstar1].png</texture>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1376,6 +1382,8 @@
 				<texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar2].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1385,6 +1393,8 @@
 				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[HomeFlagstar2].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1394,6 +1404,8 @@
 				<texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar3].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1403,6 +1415,8 @@
 				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[HomeFlagstar3].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1412,6 +1426,8 @@
 				<texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar4].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1421,6 +1437,8 @@
 				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[HomeFlagstar4].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1430,6 +1448,8 @@
 				<texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar5].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1439,6 +1459,8 @@
 				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[HomeFlagstar5].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+
 			</control>
 			<control type="label">
 				<left>-16</left>

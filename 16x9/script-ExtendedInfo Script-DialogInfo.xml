@@ -42,19 +42,31 @@
 		<control type="image">
 			<include>DialogVideoInfoAnimation</include>
 			<texture>moviedb.png</texture>
-			<right>40</right>
-			<posy>59</posy>
+			<top>35</top>
+			<right>37</right>
+			<width>258</width>
+			<height>130</height>
+			<aspectratio align="center" aligny="top">keep</aspectratio>
+			<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
+			<visible>!Skin.HasSetting(furniture.logo.animate)</visible>
+		</control>
+		<control type="image">
+			<include>DialogVideoInfoAnimation</include>
+			<texture>moviedb.png</texture>
+			<top>35</top>
+			<right>37</right>
 			<width>258</width>
 			<height>130</height>
 			<aspectratio align="center" aligny="top">keep</aspectratio>
 			<animation type="WindowOpen" reversible="false">
 				<effect type="slide" start="0,-1000" end="0,0" delay="0" tween="sine" time="1000" />
 				<effect type="fade" start="0" end="100" delay="0" tween="sine" time="2000" />
-				<effect type="rotate" end="15" delay="1500" center="auto" tween="sine" time="750" />
+				<effect type="rotate" end="10" delay="1500" center="auto" tween="sine" time="750" />
 			</animation>
 			<animation type="WindowClose" reversible="false">
 				<effect type="fade" start="100" end="0" delay="0" tween="sine" time="100" />
 			</animation>
+			<visible>Skin.HasSetting(furniture.logo.animate)</visible>
 		</control>
 		<include>ExtendedFurniture_Header</include>
 		<control type="group">
