@@ -240,7 +240,18 @@
 						<bottom>10</bottom>
 						<fadetime>300</fadetime>
 						<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="diffuse/pvrinfo.png" background="true">$VAR[LandscapeImage]</texture>
+						<visible>!Skin.HasSetting(views.55.showfanart)</visible>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<right>10</right>
+						<bottom>10</bottom>
+						<fadetime>300</fadetime>
+						<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 						<texture diffuse="diffuse/pvrinfo.png" background="true">$VAR[FanartImage]</texture>
+						<visible>Skin.HasSetting(views.55.showfanart)</visible>
 					</control>
 				</control>
 				<control type="group">

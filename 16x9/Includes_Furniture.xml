@@ -893,34 +893,104 @@
 		<control type="group">
 			<visible>Skin.HasSetting(furniture.logo)</visible>
 			<visible>!Window.IsVisible(DialogAlbumInfo.xml)</visible>
+			<visible>!Player.HasMedia</visible>
 			<visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs)</visible>
-			<left>831</left>
-			<top>70</top>
+			<left>1622</left>
+			<top>19</top>
 			<include>Animation.FadeIn</include>
 			<include>Animation.FadeOut</include>
 			<control id="8308" type="image">
 				<width>258</width>
-				<height>100</height>
+				<height>130</height>
 				<texture fallback="empty.png">$VAR[MusicClearLogo]</texture>
-				<aspectratio align="center" aligny="top">keep</aspectratio>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+				<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
 				<visible>Skin.HasSetting(furniture.logo) + !IsEmpty(Skin.String(cdartlocation))</visible>
 			</control>
-			<control type="image">
+			<control type="textbox">
 				<width>258</width>
-				<height>100</height>
-				<texture>$INFO[Window(Home).Property(logo)]</texture>
-				<aspectratio align="center" aligny="top">keep</aspectratio>
-				<visible>Skin.HasSetting(furniture.logo) + Substring(Control.GetLabel(8308),empty.png)</visible>
-			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>64</height>
-				<align>left</align>
+				<height>130</height>
+				<align>center</align>
 				<aligny>center</aligny>
-				<label>$INFO[BottomClearLogoText]</label>
-				<font>Flag</font>
-				<textcolor>Dark2</textcolor>
-				<visible>IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<shadowcolor>Black</shadowcolor>
+				<font>font_SimplerE3D_bold</font>
+				<label>[B]$VAR[BottomClearLogoText][/B]</label>
+				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
+				<visible>Skin.HasSetting(furniture.logo) + Substring(Control.GetLabel(8308),empty.png)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,a,Left) | SubString(ListItem.Title,b,Left) | SubString(ListItem.Title,c,Left) | SubString(ListItem.Title,d,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
+			</control>
+			<control type="textbox">
+				<width>258</width>
+				<height>130</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<shadowcolor>Black</shadowcolor>
+				<font>font_armyofdarkness</font>
+				<label>[B]$VAR[BottomClearLogoText][/B]</label>
+				<visible>Skin.HasSetting(furniture.logo) + Substring(Control.GetLabel(8308),empty.png)</visible>
+				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))]+ [SubString(ListItem.Title,e,Left) | SubString(ListItem.Title,f,Left) | SubString(ListItem.Title,g,Left) | SubString(ListItem.Title,h,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
+			</control>
+			<control type="textbox">
+				<width>258</width>
+				<height>130</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<shadowcolor>Black</shadowcolor>
+				<font>font_babylon5</font>
+				<label>[B]$VAR[BottomClearLogoText][/B]</label>
+				<visible>Skin.HasSetting(furniture.logo) + Substring(Control.GetLabel(8308),empty.png)</visible>
+				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,i,Left) | SubString(ListItem.Title,j,Left) | SubString(ListItem.Title,k,Left) | SubString(ListItem.Title,l,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
+			</control>
+			<control type="textbox">
+				<width>258</width>
+				<height>130</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<shadowcolor>Black</shadowcolor>
+				<font>font_bachelorpad</font>
+				<label>[B]$VAR[BottomClearLogoText][/B]</label>
+				<visible>Skin.HasSetting(furniture.logo) + Substring(Control.GetLabel(8308),empty.png)</visible>
+				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,m,Left) | SubString(ListItem.Title,n,Left) | SubString(ListItem.Title,o,Left) | SubString(ListItem.Title,p,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
+			</control>
+			<control type="textbox">
+				<width>258</width>
+				<height>130</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<shadowcolor>Black</shadowcolor>
+				<font>font_bullpen3d</font>
+				<label>[B]$VAR[BottomClearLogoText][/B]</label>
+				<visible>Skin.HasSetting(furniture.logo) + Substring(Control.GetLabel(8308),empty.png)</visible>
+				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,q,Left) | SubString(ListItem.Title,r,Left) | SubString(ListItem.Title,s,Left) | SubString(ListItem.Title,t,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
+			</control>
+			<control type="textbox">
+				<width>258</width>
+				<height>130</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<shadowcolor>Black</shadowcolor>
+				<font>font_terminator</font>
+				<label>[B]$VAR[BottomClearLogoText][/B]</label>
+				<visible>Skin.HasSetting(furniture.logo) + Substring(Control.GetLabel(8308),empty.png)</visible>
+				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,u,Left) | SubString(ListItem.Title,v,Left) | SubString(ListItem.Title,w,Left) | SubString(ListItem.Title,x,Left) | SubString(ListItem.Title,y,Left) | SubString(ListItem.Title,z,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
 			</control>
 		</control>
 	</include>

@@ -23,6 +23,7 @@
 	<onload>ClearProperty(Born,home)</onload>
 	<onload>ClearProperty(Died,home)</onload>
 	<onload>ClearProperty(Description,home)</onload>
+	<onload>RunScript(script.toolbox,info=blur,id='"$INFO[ListItem.Icon]"',radius=$VAR[VideoInfoBlurLevel],prefix=MusicInfo)</onload>
 	<onunload>ClearProperty(AlbumDetails,home)</onunload>
 	<onunload>ClearProperty(MostLoved,home)</onunload>
 	<onunload>ClearProperty(Concerts,home)</onunload>
@@ -44,12 +45,29 @@
 				<colordiffuse>DialogFanartFade</colordiffuse>
 				<texture background="true">genrethumb/headphones.jpg</texture>
 				<visible>IsEmpty(Container.Art(artist.fanart)) + IsEmpty(ListItem.Art(fanart))</visible>
+				<visible>Skin.HasSetting(furniture.info.fanart)</visible>
 			</control>
 			<control type="image">
 				<include>Dimensions_Fullscreen</include>
 				<colordiffuse>DialogFanartFade</colordiffuse>
 				<texture background="true">$VAR[MusicFanart]</texture>
+				<visible>Skin.HasSetting(furniture.info.fanart)</visible>
 			</control>
+
+			<control type="image">
+				<include>Dimensions_Fullscreen</include>
+				<aspectratio align="center">scale</aspectratio>
+				<texture fallback="common/black.png" background="true">$INFO[Window(home).Property(MusicInfo.ImageFilter)]</texture>
+				<visible>!Skin.HasSetting(furniture.info.fanart)</visible>
+			</control>
+			<control type="image">
+				<include>Dimensions_Fullscreen</include>
+				<animation effect="fade" start="100" end="75" time="0" condition="true">Conditional</animation>
+				<aspectratio align="center">scale</aspectratio>
+				<texture colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]">diffuseoverlay.png</texture>
+				<visible>!Skin.HasSetting(furniture.info.fanart)</visible>
+			</control>
+
 			<control type="image">
 				<include>Dimensions_Fullscreen</include>
 				<colordiffuse>DialogFanartFade</colordiffuse>
@@ -58,22 +76,24 @@
 			</control>
 		</control>
 		<control id="8308" type="image">
-			<top>99</top>
+			<top>59</top>
 			<right>40</right>
 			<width>258</width>
 			<height>130</height>
 			<texture fallback="empty.png">$INFO[Skin.String(cdartlocation)]$INFO[ListItem.Artist]/logo.png</texture>
 			<aspectratio align="center" aligny="top">keep</aspectratio>
 			<visible>Skin.HasSetting(furniture.logo) + !IsEmpty(Skin.String(cdartlocation))</visible>
+			<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
 		</control>
 		<control type="image">
-			<top>99</top>
+			<top>59</top>
 			<right>40</right>
 			<width>258</width>
 			<height>130</height>
 			<texture>$INFO[Window(Home).Property(logo)]</texture>
 			<aspectratio align="center" aligny="top">keep</aspectratio>
 			<visible>Skin.HasSetting(furniture.logo) + Substring(Control.GetLabel(8308),empty.png)</visible>
+			<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
 		</control>
 		<control type="image">
 			<top>280</top>
@@ -155,7 +175,7 @@
 			<control id="7000" type="button">
 				<top>374</top>
 				<width>336</width>
-				<height>50</height>
+				<height>53</height>
 				<onup>Close</onup>
 				<ondown>7001</ondown>
 				<onleft>Close</onleft>
@@ -168,15 +188,15 @@
 				<onfocus>ClearProperty(SimilarArtists,home)</onfocus>
 				<label>Overview</label>
 				<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
-				<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+				<texturefocus colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]" border="5">common/box.png</texturefocus>
 				<font>SmallBold</font>
 				<textcolor>Black700</textcolor>
 				<include>DefDialogInfoButtons</include>
 			</control>
 			<control id="7001" type="button">
-				<top>434</top>
+				<top>439</top>
 				<width>336</width>
-				<height>50</height>
+				<height>53</height>
 				<onup>7000</onup>
 				<ondown condition="Container.Content(artists)">7002</ondown>
 				<onleft>Close</onleft>
@@ -188,16 +208,16 @@
 				<onfocus>ClearProperty(SimilarArtists,home)</onfocus>
 				<onfocus>SetProperty(AlbumDetails,1,home)</onfocus>
 				<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
-				<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+				<texturefocus colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]" border="5">common/box.png</texturefocus>
 				<font>SmallBold</font>
 				<textcolor>Black700</textcolor>
 				<include>DefDialogInfoButtons</include>
 				<label>Details</label>
 			</control>
 			<control id="7002" type="button">
-				<top>494</top>
+				<top>504</top>
 				<width>336</width>
-				<height>50</height>
+				<height>53</height>
 				<onup>7001</onup>
 				<ondown>7003</ondown>
 				<onleft>Close</onleft>
@@ -208,7 +228,7 @@
 				<onfocus>ClearProperty(AlbumDetails,home)</onfocus>
 				<onfocus>SetProperty(MostLoved,1,home)</onfocus>
 				<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
-				<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+				<texturefocus colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]" border="5">common/box.png</texturefocus>
 				<font>SmallBold</font>
 				<textcolor>Black700</textcolor>
 				<include>DefDialogInfoButtons</include>
@@ -216,9 +236,9 @@
 				<visible>Container.Content(artists)</visible>
 			</control>
 			<control id="7003" type="button">
-				<top>554</top>
+				<top>569</top>
 				<width>336</width>
-				<height>50</height>
+				<height>53</height>
 				<onup>7002</onup>
 				<ondown>7004</ondown>
 				<onleft>Close</onleft>
@@ -229,7 +249,7 @@
 				<onfocus>ClearProperty(AlbumDetails,home)</onfocus>
 				<onfocus>SetProperty(Concerts,1,home)</onfocus>
 				<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
-				<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+				<texturefocus colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]" border="5">common/box.png</texturefocus>
 				<font>SmallBold</font>
 				<textcolor>Black700</textcolor>
 				<include>DefDialogInfoButtons</include>
@@ -237,9 +257,9 @@
 				<visible>Container.Content(artists)</visible>
 			</control>
 			<control id="7004" type="button">
-				<top>614</top>
+				<top>634</top>
 				<width>336</width>
-				<height>50</height>
+				<height>53</height>
 				<onup>7003</onup>
 				<ondown>7005</ondown>
 				<onleft>Close</onleft>
@@ -250,7 +270,7 @@
 				<onfocus>ClearProperty(SimilarArtists,home)</onfocus>
 				<onfocus>SetProperty(Discography,1,home)</onfocus>
 				<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
-				<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+				<texturefocus colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]" border="5">common/box.png</texturefocus>
 				<font>SmallBold</font>
 				<textcolor>Black700</textcolor>
 				<include>DefDialogInfoButtons</include>
@@ -258,9 +278,9 @@
 				<visible>Container.Content(artists)</visible>
 			</control>
 			<control id="7005" type="button">
-				<top>674</top>
+				<top>699</top>
 				<width>336</width>
-				<height>50</height>
+				<height>53</height>
 				<onup>7004</onup>
 				<ondown>noop</ondown>
 				<onleft>Close</onleft>
@@ -271,7 +291,7 @@
 				<onfocus>ClearProperty(Discography,home)</onfocus>
 				<onfocus>SetProperty(SimilarArtists,1,home)</onfocus>
 				<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
-				<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+				<texturefocus colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]" border="5">common/box.png</texturefocus>
 				<font>SmallBold</font>
 				<textcolor>Black700</textcolor>
 				<include>DefDialogInfoButtons</include>
@@ -309,7 +329,7 @@
 					<width>137</width>
 					<height>24</height>
 					<texture>$INFO[ListItem.StarRating,stars/,]</texture>
-					<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+					<colordiffuse>$INFO[Window(home).Property(MusicInfo.ImageColor)]</colordiffuse>
 				</control>
 			</control>
 			<!-- Formed -->
@@ -467,9 +487,8 @@
 				<animation condition="!IsEmpty(Window(home).Property(AlbumDetails))" effect="fade" end="0" start="100" time="0">Conditional</animation>
 				<!-- Button grouplist -->
 				<control id="9000" type="grouplist">
-					<visible>!Skin.HasSetting(furniture.info.showtext)</visible>
 					<left>-2</left>
-					<top>346</top>
+					<top>374</top>
 					<width>1620</width>
 					<height>116</height>
 					<itemgap>10</itemgap>
@@ -489,20 +508,20 @@
 					</control>
 					<!-- Play Button -->
 					<control type="button" id="1">
-						<width>154</width>
+						<width>222</width>
 						<height>116</height>
 						<onup>Close</onup>
 						<font>symbol</font>
 						<label></label>
 						<textcolor>Black700</textcolor>
 						<onclick>RunScript(script.playalbum,albumid=$INFO[ListItem.DBID])</onclick>
-						<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+						<texturefocus colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]" border="5">common/box.png</texturefocus>
 						<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 						<visible>Control.IsEnabled(1)</visible>
 					</control>
 					<!-- Youtube Button -->
 					<control type="button" id="2">
-						<width>154</width>
+						<width>222</width>
 						<height>116</height>
 						<onup>Close</onup>
 						<font>symbol</font>
@@ -511,39 +530,38 @@
 						<onclick>back</onclick>
 						<onclick condition="Container.Content(artists)">ActivateWindow(videos,plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[ListItem.Artist],return)</onclick>
 						<onclick condition="Container.Content(albums)">ActivateWindow(videos,plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[ListItem.Artist] $INFO[ListItem.Album],return)</onclick>
-						<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+						<texturefocus colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]" border="5">common/box.png</texturefocus>
 						<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 						<visible>Control.IsEnabled(2)</visible>
 					</control>
 					<!-- Refresh Button -->
 					<control type="button" id="6">
-						<width>154</width>
+						<width>222</width>
 						<height>116</height>
 						<onup>Close</onup>
 						<font>symbol</font>
 						<label></label>
 						<textcolor>Black700</textcolor>
-						<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+						<texturefocus colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]" border="5">common/box.png</texturefocus>
 						<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 						<visible>Control.IsEnabled(6)</visible>
 					</control>
 					<!-- Get Thumb Button -->
 					<control type="button" id="10">
-						<width>154</width>
+						<width>222</width>
 						<height>116</height>
 						<onup>Close</onup>
 						<font>symbol</font>
 						<label></label>
 						<textcolor>Black700</textcolor>
-						<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
+						<texturefocus colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]" border="5">common/box.png</texturefocus>
 						<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 						<visible>Control.IsEnabled(10)</visible>
 					</control>
 				</control>
-				<control id="9001" type="grouplist">
-					<visible>Skin.HasSetting(furniture.info.showtext)</visible>
+				<control id="9002" type="grouplist">
 					<left>-2</left>
-					<top>346</top>
+					<top>409</top>
 					<width>1620</width>
 					<height>116</height>
 					<itemgap>10</itemgap>
@@ -562,56 +580,52 @@
 					</control>
 					<!-- Play Button -->
 					<control type="button" id="1">
-						<width>154</width>
+						<width>222</width>
 						<height>116</height>
-						<onup>Close</onup>
-						<font>Button</font>
+						<textcolor>White70</textcolor>
+						<textoffsetx>0</textoffsetx>
+						<font>EPGTimeline</font>
 						<label>Play</label>
-						<textcolor>Black700</textcolor>
 						<onclick>RunScript(script.playalbum,albumid=$INFO[ListItem.DBID])</onclick>
-						<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-						<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+						<animation condition="Control.HasFocus(1)" effect="fade" end="100" start="0" time="10">Conditional</animation>
+						<animation condition="!Control.HasFocus(1)" effect="fade" end="0" start="100" time="10">Conditional</animation>
 						<visible>Control.IsEnabled(1)</visible>
 					</control>
 					<!-- Youtube Button -->
 					<control type="button" id="2">
-						<width>154</width>
+						<width>222</width>
 						<height>116</height>
-						<onup>Close</onup>
-						<font>Button</font>
-						<label>Search[CR]Youtube</label>
-						<textcolor>Black700</textcolor>
-						<onclick>back</onclick>
-						<onclick condition="Container.Content(artists)">ActivateWindow(videos,plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[ListItem.Artist],return)</onclick>
-						<onclick condition="Container.Content(albums)">ActivateWindow(videos,plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[ListItem.Artist] $INFO[ListItem.Album],return)</onclick>
-						<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-						<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
+						<textcolor>White70</textcolor>
+						<textoffsetx>0</textoffsetx>
+						<font>EPGTimeline</font>
+						<label>Search Youtube</label>
+						<visible>Control.IsEnabled(2)</visible>
+						<animation condition="Control.HasFocus(2)" effect="fade" end="100" start="0" time="10">Conditional</animation>
+						<animation condition="!Control.HasFocus(2)" effect="fade" end="0" start="100" time="10">Conditional</animation>
 					</control>
 					<!-- Refresh Button -->
 					<control type="button" id="6">
-						<width>154</width>
+						<width>222</width>
 						<height>116</height>
-						<onup>Close</onup>
-						<textcolor>Black700</textcolor>
 						<label>184</label>
+						<textcolor>White70</textcolor>
 						<textoffsetx>0</textoffsetx>
-						<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-						<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
-						<font>Button</font>
+						<font>EPGTimeline</font>
 						<visible>Control.IsEnabled(6)</visible>
+						<animation condition="Control.HasFocus(6)" effect="fade" end="100" start="0" time="10">Conditional</animation>
+						<animation condition="!Control.HasFocus(6)" effect="fade" end="0" start="100" time="10">Conditional</animation>
 					</control>
 					<!-- Get Thumb Button -->
 					<control type="button" id="10">
-						<width>154</width>
+						<width>222</width>
 						<height>116</height>
-						<onup>Close</onup>
-						<label>Choose[CR]Thumb</label>
-						<textcolor>Black700</textcolor>
+						<label>Choose Thumb</label>
+						<textcolor>White70</textcolor>
 						<textoffsetx>0</textoffsetx>
-						<texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
-						<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
-						<font>Button</font>
+						<font>EPGTimeline</font>
 						<visible>Control.IsEnabled(10)</visible>
+						<animation condition="Control.HasFocus(10)" effect="fade" end="100" start="0" time="10">Conditional</animation>
+						<animation condition="!Control.HasFocus(10)" effect="fade" end="0" start="100" time="10">Conditional</animation>
 					</control>
 				</control>
 			</control>
@@ -707,7 +721,7 @@
 					<onleft>7001</onleft>
 					<onright>50</onright>
 					<onclick>SetFocus(4000)</onclick>
-					<texturefocus colordiffuse="$VAR[ColourHighlight]">views/more_fo.png</texturefocus>
+					<texturefocus colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]">views/more_fo.png</texturefocus>
 					<texturenofocus>views/more_nf.png</texturenofocus>
 					<visible>Control.IsVisible(96)</visible>
 				</control>
@@ -820,7 +834,7 @@
 								<height>44</height>
 								<align>left</align>
 								<font>Small</font>
-								<textcolor>$VAR[ColourHighlight]</textcolor>
+								<textcolor>$INFO[Window(home).Property(MusicInfo.ImageColor)]</textcolor>
 								<label>$INFO[ListItem.Label]</label>
 								<visible>Container.Content(albums)</visible>
 							</control>
@@ -829,7 +843,7 @@
 								<height>44</height>
 								<align>left</align>
 								<font>Small</font>
-								<textcolor>$VAR[ColourHighlight]</textcolor>
+								<textcolor>$INFO[Window(home).Property(MusicInfo.ImageColor)]</textcolor>
 								<label>$INFO[ListItem.Label]</label>
 								<visible>Container.Content(artists)</visible>
 							</control>
@@ -959,7 +973,7 @@
 								<left>-7</left>
 								<width>634</width>
 								<height>496</height>
-								<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+								<texture colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]" border="20">common/selectbox.png</texture>
 								<animation type="Focus">
 									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
 									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
@@ -1376,7 +1390,7 @@
 						<aligny>top</aligny>
 						<font>SmallBold</font>
 						<textcolor>Black700</textcolor>
-						<label>[COLOR=$VAR[ColourHighlight]]$INFO[Container(5012).ListItem.Label][/COLOR]$INFO[Container(5012).ListItem.Album, - ,]$INFO[Container(5012).ListItem.Artist, - ,]</label>
+						<label>[COLOR=$INFO[Window(home).Property(MusicInfo.ImageColor)]]$INFO[Container(5012).ListItem.Label][/COLOR]$INFO[Container(5012).ListItem.Album, - ,]$INFO[Container(5012).ListItem.Artist, - ,]</label>
 						<visible>Control.HasFocus(5012)</visible>
 					</control>
 				</control>
@@ -1504,7 +1518,7 @@
 								<left>-7</left>
 								<width>634</width>
 								<height>490</height>
-								<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+								<texture colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]" border="20">common/selectbox.png</texture>
 								<animation type="Focus">
 									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
 									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
@@ -1921,7 +1935,7 @@
 						<aligny>top</aligny>
 						<font>SmallBold</font>
 						<textcolor>Black700</textcolor>
-						<label>[COLOR=$VAR[ColourHighlight]]$INFO[Container(5013).ListItem.Property(EventName)][/COLOR]$INFO[Container(5013).ListItem.Property(Country), - ,]$INFO[Container(5013).ListItem.Property(City), - ,]$INFO[Container(5013).ListItem.Property(Name), - , - Date: ][COLOR=$VAR[ColourHighlight]]$INFO[Container(5013).ListItem.Property(Date)][/COLOR]</label>
+						<label>[COLOR=$INFO[Window(home).Property(MusicInfo.ImageColor)]]$INFO[Container(5013).ListItem.Property(EventName)][/COLOR]$INFO[Container(5013).ListItem.Property(Country), - ,]$INFO[Container(5013).ListItem.Property(City), - ,]$INFO[Container(5013).ListItem.Property(Name), - , - Date: ][COLOR=$INFO[Window(home).Property(MusicInfo.ImageColor)]]$INFO[Container(5013).ListItem.Property(Date)][/COLOR]</label>
 						<visible>Control.HasFocus(5013)</visible>
 						<scroll>true</scroll>
 					</control>
@@ -2069,7 +2083,7 @@
 								<left>-7</left>
 								<width>634</width>
 								<height>490</height>
-								<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+								<texture colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]" border="20">common/selectbox.png</texture>
 								<animation type="Focus">
 									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
 									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
@@ -2486,7 +2500,7 @@
 						<aligny>top</aligny>
 						<font>SmallBold</font>
 						<textcolor>Black700</textcolor>
-						<label>[COLOR=$VAR[ColourHighlight]]$INFO[Container(5014).ListItem.Label][/COLOR]$INFO[Container(5014).ListItem.Year, - ,]</label>
+						<label>[COLOR=$INFO[Window(home).Property(MusicInfo.ImageColor)]]$INFO[Container(5014).ListItem.Label][/COLOR]$INFO[Container(5014).ListItem.Year, - ,]</label>
 						<visible>Control.HasFocus(5014)</visible>
 					</control>
 				</control>
@@ -2530,7 +2544,7 @@
 				<control type="label">
 					<top>120</top>
 					<left>575</left>
-					<width>1000</width>
+					<width>1200</width>
 					<height>32</height>
 					<font>Large</font>
 					<textcolor>Black700</textcolor>
@@ -2633,7 +2647,7 @@
 								<left>-7</left>
 								<width>334</width>
 								<height>330</height>
-								<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+								<texture colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]" border="20">common/selectbox.png</texture>
 								<animation type="Focus">
 									<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
 									<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
@@ -2927,7 +2941,7 @@
 						<aligny>top</aligny>
 						<font>SmallBold</font>
 						<textcolor>Black700</textcolor>
-						<label>[COLOR=$VAR[ColourHighlight]]$INFO[Container(5015).ListItem.Label][/COLOR]$INFO[Container(5015).ListItem.Year, - ,]</label>
+						<label>[COLOR=$INFO[Window(home).Property(MusicInfo.ImageColor)]]$INFO[Container(5015).ListItem.Label][/COLOR]$INFO[Container(5015).ListItem.Year, - ,]</label>
 						<visible>Control.HasFocus(5015)</visible>
 					</control>
 				</control>

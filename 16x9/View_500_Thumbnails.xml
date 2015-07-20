@@ -58,8 +58,17 @@
 							<right>20</right>
 							<height>256</height>
 							<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
-							<texture diffuse="diffuse/wall.png" background="true">$VAR[ThumbImage]</texture>
-							<visible>!Container.Content(albums) + !Container.Content(artists) + !Container.Content(songs)</visible>
+							<texture diffuse="diffuse/wall.png" background="true">$VAR[LandscapeImage]</texture>
+							<visible>!Container.Content(albums) + !Container.Content(artists) + !Container.Content(songs) + !Skin.HasSetting(views.500.showfanart)</visible>
+						</control>
+						<control type="image">
+							<left>20</left>
+							<top>20</top>
+							<right>20</right>
+							<height>256</height>
+							<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+							<texture diffuse="diffuse/wall.png" background="true">$VAR[FanartImage]</texture>
+							<visible>!Container.Content(albums) + !Container.Content(artists) + !Container.Content(songs) + Skin.HasSetting(views.500.showfanart)</visible>
 						</control>
 						<control type="image">
 							<left>20</left>
@@ -124,8 +133,17 @@
 							<right>20</right>
 							<height>256</height>
 							<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
-							<texture diffuse="diffuse/wall.png" background="true">$VAR[ThumbImage]</texture>
-							<visible>!Container.Content(albums) + !Container.Content(artists) + !Container.Content(songs)</visible>
+							<texture diffuse="diffuse/wall.png" background="true">$VAR[LandscapeImage]</texture>
+							<visible>!Container.Content(albums) + !Container.Content(artists) + !Container.Content(songs) + !Skin.HasSetting(views.500.showfanart)</visible>
+						</control>
+						<control type="image">
+							<left>20</left>
+							<top>20</top>
+							<right>20</right>
+							<height>256</height>
+							<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+							<texture diffuse="diffuse/wall.png" background="true">$VAR[FanartImage]</texture>
+							<visible>!Container.Content(albums) + !Container.Content(artists) + !Container.Content(songs) + Skin.HasSetting(views.500.showfanart)</visible>
 						</control>
 						<control type="image">
 							<left>20</left>

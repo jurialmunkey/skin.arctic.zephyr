@@ -42,6 +42,16 @@
 							<height>100%</height>
 							<aspectratio scalediffuse="false">scale</aspectratio>
 							<texture background="true" diffuse="diffuse/lovefilmthumb.png">$VAR[LandscapeImage]</texture>
+							<visible>!Skin.HasSetting(views.51.showfanart)</visible>
+						</control>
+						<control type="image">
+							<top>0</top>
+							<right>0</right>
+							<width>100%</width>
+							<height>100%</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture background="true" diffuse="diffuse/lovefilmthumb.png">$VAR[FanartImage]</texture>
+							<visible>Skin.HasSetting(views.51.showfanart)</visible>
 						</control>
 					</itemlayout>
 					<focusedlayout height="640" width="1112">
@@ -58,6 +68,16 @@
 							<height>100%</height>
 							<aspectratio scalediffuse="false">scale</aspectratio>
 							<texture background="true" diffuse="diffuse/lovefilmthumb.png">$VAR[LandscapeImage]</texture>
+							<visible>!Skin.HasSetting(views.51.showfanart)</visible>
+						</control>
+						<control type="image">
+							<top>0</top>
+							<right>0</right>
+							<width>100%</width>
+							<height>100%</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture background="true" diffuse="diffuse/lovefilmthumb.png">$VAR[FanartImage]</texture>
+							<visible>Skin.HasSetting(views.51.showfanart)</visible>
 						</control>
 					</focusedlayout>
 				</control>
@@ -500,6 +520,16 @@
 							<height>100%</height>
 							<aspectratio scalediffuse="false">scale</aspectratio>
 							<texture background="true">$VAR[LandscapeImage]</texture>
+							<visible>!Skin.HasSetting(views.51.showfanart)</visible>
+						</control>
+						<control type="image">
+							<centerleft>50%</centerleft>
+							<centertop>50%</centertop>
+							<width>100%</width>
+							<height>100%</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture background="true">$VAR[FanartImage]</texture>
+							<visible>Skin.HasSetting(views.51.showfanart)</visible>
 						</control>
 					</itemlayout>
 					<focusedlayout height="620" width="1118">
@@ -516,6 +546,16 @@
 							<height>100%</height>
 							<aspectratio scalediffuse="false">scale</aspectratio>
 							<texture background="true">$VAR[LandscapeImage]</texture>
+							<visible>!Skin.HasSetting(views.51.showfanart)</visible>
+						</control>
+						<control type="image">
+							<centerleft>50%</centerleft>
+							<centertop>50%</centertop>
+							<width>100%</width>
+							<height>100%</height>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<texture background="true">$VAR[FanartImage]</texture>
+							<visible>Skin.HasSetting(views.51.showfanart)</visible>
 						</control>
 					</focusedlayout>
 				</control>
@@ -625,8 +665,18 @@
 					<centertop>50%</centertop>
 					<width>1920</width>
 					<height>1080</height>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<texture background="true" diffuse="diffuse/lovefilm.png">$VAR[LandscapeImage]</texture>
+					<visible>!Skin.HasSetting(views.51.showfanart)</visible>
+				</control>
+				<control type="image">
+					<centerleft>50%</centerleft>
+					<centertop>50%</centertop>
+					<width>1920</width>
+					<height>1080</height>
 					<aspectratio scalediffuse="false">scale</aspectratio>
 					<texture background="true" diffuse="diffuse/lovefilm.png">$VAR[FanartImage]</texture>
+					<visible>Skin.HasSetting(views.51.showfanart)</visible>
 				</control>
 			</itemlayout>
 			<focusedlayout height="640" width="1760">
@@ -641,8 +691,18 @@
 					<centertop>50%</centertop>
 					<width>1920</width>
 					<height>1080</height>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<texture background="true" diffuse="diffuse/lovefilm.png">$VAR[LandscapeImage]</texture>
+					<visible>!Skin.HasSetting(views.51.showfanart)</visible>
+				</control>
+				<control type="image">
+					<centerleft>50%</centerleft>
+					<centertop>50%</centertop>
+					<width>1920</width>
+					<height>1080</height>
 					<aspectratio scalediffuse="false">scale</aspectratio>
 					<texture background="true" diffuse="diffuse/lovefilm.png">$VAR[FanartImage]</texture>
+					<visible>Skin.HasSetting(views.51.showfanart)</visible>
 				</control>
 			</focusedlayout>
 		</control>
