@@ -538,7 +538,7 @@
             <visible>!Window.IsVisible(DialogVolumeBar.xml)</visible>
             <right>70</right>
             <posy>70</posy>
-            <width>480</width>
+            <width>550</width>
             <height>100</height>
             <include>Animation.FadeIn.Slide</include>
             <include>Animation.FadeOut</include>
@@ -570,7 +570,7 @@
             <control type="group">
                 <animation effect="slide" start="0" end="240" condition="!Player.HasVideo">Conditional</animation>
                 <control type="image">
-                    <left>20</left>
+                    <left>30</left>
                     <centertop>50%</centertop>
                     <width>48</width>
                     <height>48</height>
@@ -579,7 +579,7 @@
                     <texture>kaitoast/clock.png</texture>
                 </control>
                 <control type="label">
-                    <right>270</right>
+                    <right>55%</right>
                     <left>80</left>
                     <height>100%</height>
                     <align>center</align>
@@ -589,7 +589,17 @@
                     <label>$INFO[System.Time]</label>
                 </control>
                 <control type="image">
-                    <left>260</left>
+                    <centerleft>50%</centerleft>
+                    <centertop>50%</centertop>
+                    <width>48</width>
+                    <height>48</height>
+                    <aspectratio aligny="center">keep</aspectratio>
+                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                    <texture>kaitoast/arrow.png</texture>
+                    <visible>Player.HasVideo</visible>
+                </control>
+                <control type="image">
+                    <right>30</right>
                     <centertop>50%</centertop>
                     <width>48</width>
                     <height>48</height>
@@ -599,8 +609,8 @@
                     <visible>Player.HasVideo</visible>
                 </control>
                 <control type="label">
-                    <right>30</right>
-                    <left>320</left>
+                    <right>80</right>
+                    <left>55%</left>
                     <height>100%</height>
                     <align>center</align>
                     <aligny>center</aligny>
