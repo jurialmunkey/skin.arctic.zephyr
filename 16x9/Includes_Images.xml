@@ -145,6 +145,10 @@
 		<value condition="!IsEmpty(Container(301).ListItem.Art(tvshow.clearlogo))">$INFO[Container(301).ListItem.Art(tvshow.clearlogo)]</value>
 		<value condition="!IsEmpty(Container(301).ListItem.Art(clearlogo))">$INFO[Container(301).ListItem.Art(clearlogo)]</value>
 	</variable>
+	<variable name="WidgetAlbumLogo">
+		<value condition="!IsEmpty(Container(301).ListItem.AlbumArtist)">$INFO[Skin.String(cdartlocation)]$INFO[Container(301).ListItem.AlbumArtist]/logo.png</value>
+		<value>$INFO[Skin.String(cdartlocation)]$INFO[Container(301).ListItem.Artist]/logo.png</value>
+	</variable>
 	<variable name="Container515Logo">
 		<value condition="!IsEmpty(Container(515).ListItem.Art(tvshow.clearlogo))">$INFO[Container(515).ListItem.Art(tvshow.clearlogo)]</value>
 		<value condition="!IsEmpty(Container(515).ListItem.Art(clearlogo))">$INFO[Container(515).ListItem.Art(clearlogo)]</value>
