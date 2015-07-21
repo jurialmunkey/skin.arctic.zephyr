@@ -33,14 +33,15 @@
                     <right>30</right>
                     <control type="label">
                         <top>0</top>
+                        <right>280</right>
                         <aligny>center</aligny>
                         <height>64</height>
                         <font>SmallBold</font>
                         <textcolor>PanelWhite100</textcolor>
                         <selectedcolor>PanelWhite100</selectedcolor>
-                        <label>$INFO[ListItem.Label]</label>
+                        <label>[COLOR=$VAR[ColorHighlight]]$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,][/COLOR]$INFO[ListItem.Title,  ,]        [COLOR=$VAR[ColorHighlight]]$LOCALIZE[515][/COLOR]$INFO[ListItem.Title,  ,]</label>
                     </control>
-                    <control type="label">
+                    <!-- <control type="label">
                         <top>0</top>
                         <right>0</right>
                         <align>right</align>
@@ -50,16 +51,25 @@
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
                         <label>$INFO[ListItem.Genre,,  •  ]$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
-                    </control>
+                    </control> -->
                     
                     <control type="textbox">
                         <top>50</top>
+                        <right>280</right>
                         <height>70</height>
-                        <align>justify</align>
+                        <align>left</align>
                         <font>Tiny</font>
                         <textcolor>PanelWhite100</textcolor>
                         <selectedcolor>PanelWhite100</selectedcolor>
                         <label>$INFO[ListItem.Plot]</label>
+                    </control>
+                    <control type="image">
+                        <right>0</right>
+                        <top>20</top>
+                        <width>250</width>
+                        <bottom>10</bottom>
+                        <aspectratio align="right" aligny="center">scale</aspectratio>
+                        <texture>$INFO[ListItem.Icon]</texture>
                     </control>
                 </control>
                 

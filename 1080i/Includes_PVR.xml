@@ -1005,18 +1005,26 @@
                         <bottom>10</bottom>
                         <texture colordiffuse="Dark4" border="5">common/box.png</texture>
                     </control>
+                    <control type="image">                                
+                        <right>20</right>
+                        <top>20</top>
+                        <width>100</width>
+                        <height>100</height>
+                        <aspectratio align="right" aligny="top">keep</aspectratio>
+                        <texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
+                    </control>
                     <control type="label">
                         <left>30</left>
-                        <right>30</right>
+                        <right>130</right>
                         <top>16</top>
                         <align>left</align>
                         <aligny>top</aligny>
                         <font>SmallBold</font>
                         <textcolor>Dark1</textcolor>
                         <selectedcolor>Dark1</selectedcolor>
-                        <label>$INFO[ListItem.ChannelName]</label>
+                        <label>$VAR[PVRChannelZero]$INFO[ListItem.ChannelNumber,,. ]$INFO[ListItem.ChannelName]</label>
                     </control>
-                    <control type="label">
+                    <!-- <control type="label">
                         <left>30</left>
                         <right>30</right>
                         <top>16</top>
@@ -1026,7 +1034,7 @@
                         <textcolor>Dark1</textcolor>
                         <selectedcolor>Dark1</selectedcolor>
                         <label>$VAR[PVRChannelZero]$INFO[ListItem.ChannelNumber]</label>
-                    </control>
+                    </control> -->
                     <control type="image">
                         <left>30</left>
                         <top>66</top>
@@ -1038,7 +1046,7 @@
                     </control>
                     <control type="label">
                         <left>70</left>
-                        <right>30</right>
+                        <right>130</right>
                         <top>66</top>
                         <height>22</height>
                         <align>left</align>
@@ -1059,7 +1067,7 @@
                     </control>
                     <control type="label">
                         <left>70</left>
-                        <right>30</right>
+                        <right>130</right>
                         <top>96</top>
                         <height>22</height>
                         <align>left</align>
@@ -1085,18 +1093,26 @@
                         <bottom>10</bottom>
                         <texture colordiffuse="Dark1" border="5">common/box.png</texture>
                     </control>
+                    <control type="image">                                
+                        <right>20</right>
+                        <top>20</top>
+                        <width>100</width>
+                        <height>100</height>
+                        <aspectratio align="right" aligny="top">keep</aspectratio>
+                        <texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
+                    </control>
                     <control type="label">
                         <left>30</left>
-                        <right>30</right>
+                        <right>130</right>
                         <top>16</top>
                         <align>left</align>
                         <aligny>top</aligny>
                         <font>SmallBold</font>
                         <textcolor>Light1</textcolor>
                         <selectedcolor>Light1</selectedcolor>
-                        <label>$INFO[ListItem.ChannelName]</label>
+                        <label>$VAR[PVRChannelZero]$INFO[ListItem.ChannelNumber,,. ]$INFO[ListItem.ChannelName]</label>
                     </control>
-                    <control type="label">
+                    <!-- <control type="label">
                         <left>30</left>
                         <right>30</right>
                         <top>16</top>
@@ -1106,7 +1122,7 @@
                         <textcolor>Light1</textcolor>
                         <selectedcolor>Light1</selectedcolor>
                         <label>$VAR[PVRChannelZero]$INFO[ListItem.ChannelNumber]</label>
-                    </control>
+                    </control> -->
                     <control type="image">
                         <left>30</left>
                         <top>66</top>
@@ -1118,7 +1134,7 @@
                     </control>
                     <control type="label">
                         <left>70</left>
-                        <right>30</right>
+                        <right>130</right>
                         <top>66</top>
                         <height>22</height>
                         <align>left</align>
@@ -1139,7 +1155,7 @@
                     </control>
                     <control type="label">
                         <left>70</left>
-                        <right>30</right>
+                        <right>130</right>
                         <top>96</top>
                         <height>22</height>
                         <align>left</align>
@@ -1181,7 +1197,7 @@
                 <control type="label">
                     <left>30</left>
                     <right>30</right>
-                    <top>26</top>
+                    <top>24</top>
                     <align>left</align>
                     <aligny>top</aligny>
                     <font>SmallBold</font>
@@ -1192,7 +1208,7 @@
                 <control type="textbox">
                     <left>30</left>
                     <right>280</right>
-                    <top>68</top>
+                    <top>70</top>
                     <height>65</height>
                     <align>left</align>
                     <aligny>top</aligny>
