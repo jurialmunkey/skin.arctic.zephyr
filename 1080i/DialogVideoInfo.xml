@@ -92,6 +92,13 @@
                         <include>DefInfoButtons</include>
                     </control>
 
+                    <control type="button" id="11">
+                        <description>Trailer button</description>
+                        <label>20410</label>
+                        <include>DefInfoButtons</include>
+                        <visible>!IsEmpty(ListItem.Trailer)</visible>
+                    </control>
+
                     <control type="button" id="53">
                         <include>DefInfoButtons</include>
                         <label>206</label>
@@ -118,13 +125,6 @@
                         <onclick>SetProperty(content,2)</onclick>
                         <onclick>SetFocus(9501)</onclick>     
                         <visible>Container.Content(movies)</visible>
-                    </control>
-                    
-                    <control type="button" id="11">
-                        <description>Trailer button</description>
-                        <label>20410</label>
-                        <include>DefInfoButtons</include>
-                        <visible>!IsEmpty(ListItem.Trailer)</visible>
                     </control>
 
                     <control type="button" id="49">
