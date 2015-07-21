@@ -169,6 +169,58 @@
                             </control>
                         </control>
 
+                        <control type="grouplist">
+                            <right>0</right>
+                            <top>0</top>
+                            <height>64</height>
+                            <orientation>horizontal</orientation>
+                            <align>right</align>
+                            <itemgap>16</itemgap>
+                            <usecontrolcoords>true</usecontrolcoords>
+                            <!-- <control type="label" description="bitrate">
+                                <width>auto</width>
+                                <height>64</height>
+                                <font>Flag</font>
+                                <align>center</align>
+                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
+                                <label>$INFO[musicplayer.bitrate,, kB/s]</label>
+                            </control> -->
+                            <control type="image">
+                                <width>88</width>
+                                <height>64</height>
+                                <centertop>50%</centertop>
+                                <texture colordiffuse="$VAR[OSDPanelWhite70]" fallback="flags/fallback.png">$INFO[musicplayer.codec,flags/audio/,.png]</texture>
+                                <aspectratio align="center">keep</aspectratio>
+                                <visible>!IsEmpty(musicplayer.codec)</visible>
+                            </control>
+                            <control type="image">
+                                <width>88</width>
+                                <height>64</height>
+                                <centertop>50%</centertop>
+                                <texture colordiffuse="$VAR[OSDPanelWhite70]" fallback="flags/fallback.png">$INFO[musicplayer.channels,flags/channels/,.png]</texture>
+                                <aspectratio align="center">keep</aspectratio>
+                                <visible>!IsEmpty(musicplayer.channels)</visible>
+                            </control>
+                            <control type="label" description="samplerate">
+                                <left>8</left>
+                                <width>auto</width>
+                                <height>68</height>
+                                <font>Flag</font>
+                                <align>center</align>
+                                <aligny>center</aligny>
+                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
+                                <label>$INFO[musicplayer.samplerate,,[CR]kHz]</label>
+                            </control>
+                            
+
+                            
+                            
+                            
+                            
+                            
+                        </control>
+
+
                         <control type="image">
                             <description>Progress Back</description>
                             <width>100%</width>
