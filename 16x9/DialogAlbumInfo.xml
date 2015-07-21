@@ -112,42 +112,48 @@
 			<visible>Control.HasFocus(5014)</visible>
 		</control>
 		<!-- Twitter -->
-			<control type="group">
-			    <bottom>5</bottom>
+		<control type="group">
+			<bottom>5</bottom>
+			<height>36</height>
+			<visible>Container.Content(Artists)</visible>
+			<width>100%</width>
+			<control type="label">
+				<width>150</width>
 				<height>36</height>
-				<visible>Container.Content(Artists)</visible>
-				<width>100%</width>
-				<control type="label">
-					<width>150</width>
-					<height>36</height>
-					<font>Tiny</font>
-					<textcolor>Dark1</textcolor>
-					<label>[B]Twitter[/B]</label>
-					<aligny>center</aligny>
-				</control>
-				<control type="label">
-					<left>150</left>
-					<top>6</top>
-					<width>100%</width>
-					<height>24</height>
-					<font>Tiny</font>
-					<textcolor>Dark2</textcolor>
-					<scroll>true</scroll>
-					<wrapmultiline>false</wrapmultiline>
-					<scrollspeed>40</scrollspeed>
-					<scrollsuffix> ••</scrollsuffix>
-					<label fallback="19055">$INFO[Container(9301).ListItem.Property(author),[B],[/B]]$INFO[Container(9301).ListItem.Property(date), ,]$INFO[Container(9301).ListItem.Property(comment), - ","]$INFO[Container(9301).ListItem(1).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(1).Property(date), ,]$INFO[Container(9301).ListItem(1).Property(comment), - ","]$INFO[Container(9301).ListItem(2).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(2).Property(date), ,]$INFO[Container(9301).ListItem(2).Property(comment), - ","]$INFO[Container(9301).ListItem(3).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(3).Property(date), ,]$INFO[Container(9301).ListItem(3).Property(comment), - ","]$INFO[Container(9301).ListItem(4).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(4).Property(date), ,]$INFO[Container(9301).ListItem(4).Property(comment), - ","]$INFO[Container(9301).ListItem(5).Property(author), ••
-						[B],[/B]]$INFO[Container(9301).ListItem(5).Property(date), ,]$INFO[Container(9301).ListItem(5).Property(comment), - ","]$INFO[Container(9301).ListItem(6).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(6).Property(date), ,]$INFO[Container(9301).ListItem(6).Property(comment), - ","]$INFO[Container(9301).ListItem(7).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(7).Property(date), ,]$INFO[Container(9301).ListItem(7).Property(comment), - ","]$INFO[Container(9301).ListItem(8).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(8).Property(date), ,]$INFO[Container(9301).ListItem(8).Property(comment), - ","]$INFO[Container(9301).ListItem(9).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(9).Property(date), ,]$INFO[Container(9301).ListItem(9).Property(comment), - ","]$INFO[Container(9301).ListItem(10).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(10).Property(date), ,]$INFO[Container(9301).ListItem(10).Property(comment), -
-						","]$INFO[Container(9301).ListItem(11).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(11).Property(date), ,]$INFO[Container(9301).ListItem(11).Property(comment), - ","]$INFO[Container(9301).ListItem(12).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(12).Property(date), ,]$INFO[Container(9301).ListItem(12).Property(comment), - ","]$INFO[Container(9301).ListItem(13).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(13).Property(date), ,]$INFO[Container(9301).ListItem(13).Property(comment), - ","]$INFO[Container(9301).ListItem(14).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(14).Property(date), ,]$INFO[Container(9301).ListItem(14).Property(comment), - ","]$INFO[Container(9301).ListItem(15).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(15).Property(date), ,]$INFO[Container(9301).ListItem(15).Property(comment), - ","]$INFO[Container(9301).ListItem(16).Property(author), ••
-						[B],[/B]]$INFO[Container(9301).ListItem(16).Property(date), ,]$INFO[Container(9301).ListItem(16).Property(comment), - ","]$INFO[Container(9301).ListItem(17).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(17).Property(date), ,]$INFO[Container(9301).ListItem(17).Property(comment), - ","]$INFO[Container(9301).ListItem(18).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(18).Property(date), ,]$INFO[Container(9301).ListItem(18).Property(comment), - ","]$INFO[Container(9301).ListItem(19).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(19).Property(date), ,]$INFO[Container(9301).ListItem(19).Property(comment), - ","]</label>
-					<aligny>center</aligny>
-				</control>
+				<font>Tiny</font>
+				<textcolor>Dark1</textcolor>
+				<label>[B]Twitter[/B]</label>
+				<aligny>center</aligny>
 			</control>
+			<control type="label">
+				<left>150</left>
+				<top>6</top>
+				<width>100%</width>
+				<height>24</height>
+				<font>Tiny</font>
+				<textcolor>Dark2</textcolor>
+				<scroll>true</scroll>
+				<wrapmultiline>false</wrapmultiline>
+				<scrollspeed>40</scrollspeed>
+				<scrollsuffix> ••</scrollsuffix>
+				<label fallback="19055">$INFO[Container(9301).ListItem.Property(author),[B],[/B]]$INFO[Container(9301).ListItem.Property(date), ,]$INFO[Container(9301).ListItem.Property(comment), - ","]$INFO[Container(9301).ListItem(1).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(1).Property(date), ,]$INFO[Container(9301).ListItem(1).Property(comment), - ","]$INFO[Container(9301).ListItem(2).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(2).Property(date), ,]$INFO[Container(9301).ListItem(2).Property(comment), - ","]$INFO[Container(9301).ListItem(3).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(3).Property(date), ,]$INFO[Container(9301).ListItem(3).Property(comment), - ","]$INFO[Container(9301).ListItem(4).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(4).Property(date), ,]$INFO[Container(9301).ListItem(4).Property(comment), - ","]$INFO[Container(9301).ListItem(5).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(5).Property(date), ,]$INFO[Container(9301).ListItem(5).Property(comment), - ","]$INFO[Container(9301).ListItem(6).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(6).Property(date), ,]$INFO[Container(9301).ListItem(6).Property(comment), - ","]$INFO[Container(9301).ListItem(7).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(7).Property(date), ,]$INFO[Container(9301).ListItem(7).Property(comment), - ","]$INFO[Container(9301).ListItem(8).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(8).Property(date), ,]$INFO[Container(9301).ListItem(8).Property(comment), - ","]$INFO[Container(9301).ListItem(9).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(9).Property(date), ,]$INFO[Container(9301).ListItem(9).Property(comment), - ","]$INFO[Container(9301).ListItem(10).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(10).Property(date), ,]$INFO[Container(9301).ListItem(10).Property(comment), - ","]$INFO[Container(9301).ListItem(11).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(11).Property(date), ,]$INFO[Container(9301).ListItem(11).Property(comment), - ","]$INFO[Container(9301).ListItem(12).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(12).Property(date), ,]$INFO[Container(9301).ListItem(12).Property(comment), - ","]$INFO[Container(9301).ListItem(13).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(13).Property(date), ,]$INFO[Container(9301).ListItem(13).Property(comment), - ","]$INFO[Container(9301).ListItem(14).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(14).Property(date), ,]$INFO[Container(9301).ListItem(14).Property(comment), - ","]$INFO[Container(9301).ListItem(15).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(15).Property(date), ,]$INFO[Container(9301).ListItem(15).Property(comment), - ","]$INFO[Container(9301).ListItem(16).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(16).Property(date), ,]$INFO[Container(9301).ListItem(16).Property(comment), - ","]$INFO[Container(9301).ListItem(17).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(17).Property(date), ,]$INFO[Container(9301).ListItem(17).Property(comment), - ","]$INFO[Container(9301).ListItem(18).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(18).Property(date), ,]$INFO[Container(9301).ListItem(18).Property(comment), - ","]$INFO[Container(9301).ListItem(19).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(19).Property(date), ,]$INFO[Container(9301).ListItem(19).Property(comment), - ","]</label>
+				<aligny>center</aligny>
+			</control>
+		</control>
 		<control type="group">
 			<include>DialogMusicInfoAnimation</include>
 			<left>90</left>
 			<top>99</top>
 			<animation effect="fade" end="100" start="0" time="200">WindowOpen</animation>
+			<!-- Banner -->
+			<control type="image">
+				<top>-96</top>
+				<left>600</left>
+				<width>487</width>
+				<height>90</height>
+				<texture>$INFO[Window(home).Property(Banner)]</texture>
+				<aspectratio>keep</aspectratio>
+			</control>
 			<!-- Icon -->
 			<control type="image">
 				<width>336</width>
@@ -170,6 +176,7 @@
 				<animation type="WindowClose" reversible="false" condition="container.content(albums)">
 					<effect type="slide" start="20,0" end="-400,0" time="320" tween="quadratic" easing="out" />
 				</animation>
+				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
 				<visible>container.content(albums)</visible>
 			</control>
 			<control id="7000" type="button">
@@ -305,181 +312,273 @@
 			<animation effect="fade" end="100" start="0" time="200" delay="400">WindowOpen</animation>
 			<!-- Heading -->
 			<control type="label">
-				<top>-10</top>
 				<width>1170</width>
-				<height>48</height>
-				<font>Large</font>
+				<height>38</height>
+				<font>MusicTtile</font>
 				<scroll>true</scroll>
 				<textcolor>Black100</textcolor>
 				<scrollspeed>100</scrollspeed>
 				<label>$VAR[MusicInfoLabel]</label>
 				<include>DialogMusicInfoAnimation</include>
 			</control>
-			<!-- Star rating -->
-			<control type="group">
+			<!-- Formed -->
+			<control type="grouplist">
 				<include>DialogMusicInfoAnimation</include>
-				<left>-4</left>
-				<top>41</top>
-				<height>36</height>
-				<itemgap>20</itemgap>
+				<top>40</top>
+				<height>44</height>
+				<itemgap>10</itemgap>
 				<orientation>horizontal</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
-				<visible>Container.Content(albums) + !IsEmpty(ListItem.Rating)</visible>
-				<control type="image">
-					<width>137</width>
-					<height>24</height>
-					<texture>$INFO[ListItem.StarRating,stars/,]</texture>
-					<colordiffuse>$INFO[Window(home).Property(MusicInfo.ImageColor)]</colordiffuse>
-				</control>
-			</control>
-			<!-- Formed -->
-			<control type="group">
-				<include>DialogMusicInfoAnimation</include>
-				<top>67</top>
-				<height>36</height>
-				<itemgap>20</itemgap>
 				<visible>Container.Content(Artists)</visible>
 				<animation condition="Control.HasFocus(1500) | Control.HasFocus(2500)" effect="fade" end="0" start="100" time="0">Conditional</animation>
 				<animation condition="!Control.HasFocus(1500) + !Control.HasFocus(2500)" delay="200" effect="fade" end="100" start="0" time="80">Conditional</animation>
-				<control type="textbox">
-					<width>1192</width>
-					<height>36</height>
+				<control type="label">
 					<align>left</align>
+					<aligny>center</aligny>
+					<top>-14</top>
+					<posx>4</posx>
+					<width>44</width>
+					<font>symbol</font>
+					<label></label>
+				</control>
+				<control type="label">
+					<top>0</top>
+					<width max="1192">auto</width>
+					<height>36</height>
 					<font>Small</font>
-					<autoscroll>false</autoscroll>
+					<aligny>bottom</aligny>
 					<textcolor>Black700</textcolor>
-					<label>[COLOR Black300][B]Formed: [/B][/COLOR]$INFO[Window(Home).Property(Artist_Formed)]</label>
+					<label>$INFO[Window(Home).Property(Artist_Formed)]</label>
 				</control>
 			</control>
 			<!-- Year -->
-			<control type="group">
+			<control type="grouplist">
 				<include>DialogMusicInfoAnimation</include>
-				<top>67</top>
-				<height>36</height>
-				<itemgap>20</itemgap>
+				<top>40</top>
+				<height>44</height>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
 				<visible>Container.Content(Albums)</visible>
 				<animation condition="Control.HasFocus(1500) | Control.HasFocus(2500)" effect="fade" end="0" start="100" time="0">Conditional</animation>
 				<animation condition="!Control.HasFocus(1500) + !Control.HasFocus(2500)" delay="200" effect="fade" end="100" start="0" time="80">Conditional</animation>
-				<control type="textbox">
-					<width>1192</width>
-					<height>36</height>
+				<control type="label">
 					<align>left</align>
+					<aligny>center</aligny>
+					<top>-14</top>
+					<posx>4</posx>
+					<width>44</width>
+					<font>symbol</font>
+					<label></label>
+				</control>
+				<control type="label">
+					<top>0</top>
+					<width max="1192">auto</width>
+					<height>36</height>
 					<font>Small</font>
-					<autoscroll>false</autoscroll>
+					<aligny>bottom</aligny>
 					<textcolor>Black700</textcolor>
-					<label>[COLOR Black300][B]Year: [/B][/COLOR]$INFO[ListItem.Year]</label>
+					<label>$INFO[ListItem.Year]</label>
 				</control>
 			</control>
 			<!-- Genre -->
-			<control type="group">
+			<control type="grouplist">
 				<include>DialogMusicInfoAnimation</include>
-				<top>107</top>
-				<height>36</height>
-				<itemgap>20</itemgap>
+				<top>92</top>
+				<height>44</height>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
 				<animation condition="Control.HasFocus(1500) | Control.HasFocus(2500)" effect="fade" end="0" start="100" time="0">Conditional</animation>
 				<animation condition="!Control.HasFocus(1500) + !Control.HasFocus(2500)" delay="200" effect="fade" end="100" start="0" time="80">Conditional</animation>
-				<control type="textbox">
-					<width>1192</width>
-					<height>36</height>
+				<control type="label">
 					<align>left</align>
+					<aligny>center</aligny>
+					<top>-14</top>
+					<posx>4</posx>
+					<width>44</width>
+					<font>symbol</font>
+					<label></label>
+				</control>
+				<control type="label">
+					<top>0</top>
+					<width max="1192">auto</width>
+					<height>36</height>
 					<font>Small</font>
-					<autoscroll>false</autoscroll>
+					<aligny>bottom</aligny>
 					<textcolor>Black700</textcolor>
-					<label>[COLOR Black300][B]Genre: [/B][/COLOR]$INFO[ListItem.Genre]</label>
+					<label>$INFO[ListItem.Genre]</label>
 				</control>
 			</control>
 			<!-- Born -->
-			<control type="group">
+			<control type="grouplist">
 				<include>DialogMusicInfoAnimation</include>
-				<top>147</top>
-				<height>36</height>
-				<itemgap>20</itemgap>
+				<top>144</top>
+				<height>44</height>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
 				<visible>Container.Content(Artists)</visible>
 				<animation condition="Control.HasFocus(1500) | Control.HasFocus(2500)" effect="fade" end="0" start="100" time="0">Conditional</animation>
 				<animation condition="!Control.HasFocus(1500) + !Control.HasFocus(2500)" delay="200" effect="fade" end="100" start="0" time="80">Conditional</animation>
-				<control type="textbox">
-					<width>1192</width>
-					<height>36</height>
+				<control type="label">
 					<align>left</align>
+					<aligny>center</aligny>
+					<top>-14</top>
+					<posx>4</posx>
+					<width>44</width>
+					<font>symbol</font>
+					<label></label>
+				</control>
+				<control type="label">
+					<top>0</top>
+					<width max="1192">auto</width>
+					<height>36</height>
 					<font>Small</font>
-					<autoscroll>false</autoscroll>
+					<aligny>bottom</aligny>
 					<textcolor>Black700</textcolor>
-					<label>[COLOR Black300][B]Born: [/B][/COLOR]$INFO[Window(Home).Property(Born))]</label>
+					<label fallback="N/A">$INFO[Window(Home).Property(Born))]</label>
 				</control>
 			</control>
 			<!-- Artist -->
-			<control type="group">
+			<control type="grouplist">
 				<include>DialogMusicInfoAnimation</include>
-				<top>147</top>
-				<height>36</height>
-				<itemgap>20</itemgap>
+				<top>144</top>
+				<height>44</height>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
 				<visible>Container.Content(Albums)</visible>
 				<animation condition="Control.HasFocus(1500) | Control.HasFocus(2500)" effect="fade" end="0" start="100" time="0">Conditional</animation>
 				<animation condition="!Control.HasFocus(1500) + !Control.HasFocus(2500)" delay="200" effect="fade" end="100" start="0" time="80">Conditional</animation>
-				<control type="textbox">
-					<width>1192</width>
-					<height>36</height>
+				<control type="label">
 					<align>left</align>
+					<aligny>center</aligny>
+					<top>-14</top>
+					<posx>4</posx>
+					<width>44</width>
+					<font>symbol</font>
+					<label></label>
+				</control>
+				<control type="label">
+					<top>0</top>
+					<width max="1192">auto</width>
+					<height>36</height>
 					<font>Small</font>
-					<autoscroll>false</autoscroll>
+					<aligny>bottom</aligny>
 					<textcolor>Black700</textcolor>
-					<label>[COLOR Black300][B]Artist: [/B][/COLOR]$INFO[ListItem.Artist]</label>
+					<label>$INFO[ListItem.Artist]</label>
 				</control>
 			</control>
 			<!-- Style -->
-			<control type="group">
+			<control type="grouplist">
 				<include>DialogMusicInfoAnimation</include>
-				<top>187</top>
-				<height>36</height>
-				<itemgap>20</itemgap>
+				<top>196</top>
+				<height>44</height>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
 				<visible>Container.Content(Albums)</visible>
 				<animation condition="Control.HasFocus(1500) | Control.HasFocus(2500)" effect="fade" end="0" start="100" time="0">Conditional</animation>
 				<animation condition="!Control.HasFocus(1500) + !Control.HasFocus(2500)" delay="200" effect="fade" end="100" start="0" time="80">Conditional</animation>
-				<control type="textbox">
-					<width>1192</width>
-					<height>36</height>
+				<control type="label">
 					<align>left</align>
+					<aligny>center</aligny>
+					<top>-14</top>
+					<posx>4</posx>
+					<width>44</width>
+					<font>symbol</font>
+					<label></label>
+				</control>
+				<control type="label">
+					<top>0</top>
+					<width max="1192">auto</width>
+					<height>36</height>
 					<font>Small</font>
-					<autoscroll>false</autoscroll>
+					<aligny>bottom</aligny>
 					<textcolor>Black700</textcolor>
-					<label>[COLOR Black300][B]Style: [/B][/COLOR]$INFO[ListItem.Property(Album_Style)]</label>
+					<label>$INFO[ListItem.Property(Album_Style)]</label>
 				</control>
 			</control>
 			<!-- Died -->
-			<control type="group">
+			<control type="grouplist">
 				<include>DialogMusicInfoAnimation</include>
-				<top>187</top>
-				<height>36</height>
-				<itemgap>20</itemgap>
+				<top>196</top>
+				<height>44</height>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
 				<visible>!Container.Content(Albums)</visible>
 				<animation condition="Control.HasFocus(1500) | Control.HasFocus(2500)" effect="fade" end="0" start="100" time="0">Conditional</animation>
 				<animation condition="!Control.HasFocus(1500) + !Control.HasFocus(2500)" delay="200" effect="fade" end="100" start="0" time="80">Conditional</animation>
-				<control type="textbox">
-					<width>1192</width>
+				<control type="label">
+					<align>left</align>
+					<aligny>center</aligny>
+					<top>-14</top>
+					<posx>4</posx>
+					<width>44</width>
+					<font>symbol</font>
+					<label></label>
+				</control>
+				<control type="label">
+					<top>0</top>
+					<width max="1192">auto</width>
 					<height>36</height>
+					<font>Small</font>
+					<aligny>bottom</aligny>
+					<textcolor>Black700</textcolor>
+					<label fallback="N/A">$INFO[Window(Home).Property(Artist_Disbanded),, ]$INFO[Window(Home).Property(Died)]</label>
+				</control>
+			</control>
+			<control type="group" id="3444">
+				<visible>!Control.HasFocus(7001)</visible>
+				<include>DialogMusicInfoAnimation</include>
+				<top>258</top>
+				<width>1192</width>
+				<height>96</height>
+				<control type="radiobutton"  id="132">
+					<top>-8</top>
+					<width>1210</width>
+					<height>112</height>
+					<radioposx>1</radioposx>
+					<radioposy>12</radioposy>
+					<radiowidth>46</radiowidth>
+					<ondown>9000</ondown>
+					<textureradioonfocus colordiffuse="White70">-</textureradioonfocus>
+					<textureradioonnofocus colordiffuse="Black100">-</textureradioonnofocus>
+					<textureradioofffocus colordiffuse="White70">-</textureradioofffocus>
+					<textureradiooffnofocus colordiffuse="Black100">-</textureradiooffnofocus>
+					<texturefocus border="5" colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]">common/box.png</texturefocus>
+					<texturenofocus border="5" colordiffuse="White70">common/box.png</texturenofocus>
+					<align>left</align>
+					<aligny>top</aligny>
+					<textoffsetx>8</textoffsetx>
+					<textoffsety>4</textoffsety>
+					<font>symbol</font>
+					<label></label>
+				</control>
+				<!-- Plot -->
+				<control type="textbox">
+					<top>-8</top>
+					<left>60</left>
 					<align>left</align>
 					<font>Small</font>
 					<autoscroll>false</autoscroll>
 					<textcolor>Black700</textcolor>
-					<label>[COLOR Black300][B]$LOCALIZE[21897] / $LOCALIZE[21896]: [/B][/COLOR]$INFO[Window(Home).Property(Artist_Disbanded),, ]$INFO[Window(Home).Property(Died)]</label>
+					<label fallback="">$INFO[Window(Home).Property(Description)]</label>
+					<include>DialogMusicInfoAnimation</include>
+					<visible>!ControlGroup(3444).HasFocus()</visible>
 				</control>
-			</control>
-			<control type="group">
-				<visible>!Control.HasFocus(7001)</visible>
-				<include>DialogMusicInfoAnimation</include>
-				<top>227</top>
-				<height>96</height>
-				<itemgap>20</itemgap>
-				<animation condition="Control.HasFocus(1500) | Control.HasFocus(2500)" effect="fade" end="0" start="100" time="0">Conditional</animation>
-				<animation condition="!Control.HasFocus(1500) + !Control.HasFocus(2500)" delay="200" effect="fade" end="100" start="0" time="80">Conditional</animation>
 				<control type="textbox">
-					<width>1192</width>
-					<height>96</height>
+					<top>-8</top>
+					<left>60</left>
 					<align>left</align>
-					<font>Tiny</font>
-					<autoscroll>false</autoscroll>
-					<textcolor>Black700</textcolor>
-					<label>[COLOR Black300][B]Description: [/B][/COLOR]$INFO[Window(Home).Property(Description)]</label>
+					<font>Small</font>
+					<autoscroll time="3000" repeat="10000"/>
+					<textcolor>White70</textcolor>
+					<label fallback="">$INFO[Window(Home).Property(Description)]</label>
+					<include>DialogMusicInfoAnimation</include>
+					<visible>ControlGroup(3444).HasFocus()</visible>
 				</control>
 			</control>
 			<control type="group">
@@ -510,10 +609,10 @@
 					<control type="button" id="1">
 						<width>222</width>
 						<height>116</height>
-						<onup>Close</onup>
 						<font>symbol</font>
 						<label></label>
 						<textcolor>Black700</textcolor>
+						<onup condition="Control.IsVisible(3444)">3444</onup>
 						<onclick>RunScript(script.playalbum,albumid=$INFO[ListItem.DBID])</onclick>
 						<texturefocus colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]" border="5">common/box.png</texturefocus>
 						<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
@@ -523,13 +622,13 @@
 					<control type="button" id="2">
 						<width>222</width>
 						<height>116</height>
-						<onup>Close</onup>
 						<font>symbol</font>
 						<label></label>
 						<textcolor>Black700</textcolor>
-						<onclick>back</onclick>
-						<onclick condition="Container.Content(artists)">ActivateWindow(videos,plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[ListItem.Artist],return)</onclick>
-						<onclick condition="Container.Content(albums)">ActivateWindow(videos,plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[ListItem.Artist] $INFO[ListItem.Album],return)</onclick>
+						<onup condition="Control.IsVisible(3444)">3444</onup>
+						<onclick condition="Container.Content(artists)">SetProperty(listcontent,$INFO[ListItem.Artist],home)</onclick>
+						<onclick condition="Container.Content(albums)">SetProperty(listcontent,$INFO[ListItem.Artist] $INFO[ListItem.Album],home)</onclick>
+						<onclick>ActivateWindow(1168)</onclick>
 						<texturefocus colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]" border="5">common/box.png</texturefocus>
 						<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 						<visible>Control.IsEnabled(2)</visible>
@@ -538,10 +637,10 @@
 					<control type="button" id="6">
 						<width>222</width>
 						<height>116</height>
-						<onup>Close</onup>
 						<font>symbol</font>
 						<label></label>
 						<textcolor>Black700</textcolor>
+						<onup condition="Control.IsVisible(3444)">3444</onup>
 						<texturefocus colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]" border="5">common/box.png</texturefocus>
 						<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 						<visible>Control.IsEnabled(6)</visible>
@@ -550,10 +649,10 @@
 					<control type="button" id="10">
 						<width>222</width>
 						<height>116</height>
-						<onup>Close</onup>
 						<font>symbol</font>
 						<label></label>
 						<textcolor>Black700</textcolor>
+						<onup condition="Control.IsVisible(3444)">3444</onup>
 						<texturefocus colordiffuse="$INFO[Window(home).Property(MusicInfo.ImageColor)]" border="5">common/box.png</texturefocus>
 						<texturenofocus colordiffuse="White70" border="5">common/box.png</texturenofocus>
 						<visible>Control.IsEnabled(10)</visible>

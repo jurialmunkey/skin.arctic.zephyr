@@ -33,7 +33,7 @@
 
             <control type="grouplist" id="100">
                 <top>0</top>
-                <left>350</left>
+                <left>50</left>
                 <height>48</height>
                 <itemgap>-10</itemgap>
                 <orientation>horizontal</orientation>
@@ -68,16 +68,46 @@
                     <onclick>ActivateWindow(MusicPlaylist)</onclick>
                     <include>DefOSDButtons</include>
                 </control>
+
+                <control type="button" id="8">
+                    <description>Visual Text</description>
+                    <width>220</width>
+                    <aligny>center</aligny>
+                    <align>left</align>
+                    <height>48</height>
+                    <font>Tiny</font>
+                    <disabledcolor>$VAR[OSDPanelWhite12]</disabledcolor>
+                    <textcolor>$VAR[Music2OSDPanelWhite30]</textcolor>
+                    <focusedcolor>$VAR[ColourHighlight]</focusedcolor>
+                    <texturefocus>noop</texturefocus>
+                    <label>Visual Text</label>
+                    <onclick>Skin.ToggleSetting(osd.showvisualtext)</onclick>
+                </control>
+
+                <control type="button" id="9">
+                    <description>Twitter</description>
+                    <width>160</width>
+                    <aligny>center</aligny>
+                    <align>left</align>
+                    <height>48</height>
+                    <font>Tiny</font>
+                    <disabledcolor>$VAR[OSDPanelWhite12]</disabledcolor>
+                    <textcolor>$VAR[Music3OSDPanelWhite30]</textcolor>
+                    <focusedcolor>$VAR[ColourHighlight]</focusedcolor>
+                    <texturefocus>noop</texturefocus>
+                    <label>Twitter</label>
+                    <onclick>Skin.ToggleSetting(osd.showtwitter)</onclick>
+                </control>
             </control>
 
             <control type="grouplist" id="102">
                 <top>0</top>
-                <right>350</right>
+                <right>50</right>
                 <height>48</height>
                 <itemgap>-10</itemgap>
                 <orientation>horizontal</orientation>
                 <align>right</align>
-                <onleft>3</onleft>
+                <onleft>9</onleft>
                 <onright>1</onright>
                 <onup>101</onup>
                 <ondown>101</ondown>
@@ -101,6 +131,21 @@
                     <disabledcolor>PanelWhite12</disabledcolor>
                 </control>
 
+                <control type="button" id="7" description="Show musc info always">
+                    <width>220</width>
+                    <aligny>center</aligny>
+                    <align>center</align>
+                    <height>48</height>
+                    <font>Tiny</font>
+                    <disabledcolor>$VAR[OSDPanelWhite12]</disabledcolor>
+                    <textcolor>$VAR[MusicOSDPanelWhite30]</textcolor>
+                    <focusedcolor>$VAR[ColourHighlight]</focusedcolor>
+                    <texturefocus>noop</texturefocus>
+                    <width>226</width>
+                    <align>right</align>
+                    <label>Show Info</label>
+                    <onclick>Skin.ToggleSetting(osd.showmusicinfo)</onclick>
+                </control>
                 <control type="button" id="6">
                     <width>270</width>
                     <align>right</align>

@@ -794,7 +794,7 @@
                         <font>Small</font>
                         <autoscroll>false</autoscroll>
                         <textcolor>Black700</textcolor>
-                        <label fallback="N/A">[B]$INFO[ListItem.TagLine,,[CR]][/B]$VAR[Plot]</label>
+                        <label fallback="">[B]$INFO[ListItem.TagLine,,[CR]][/B]$VAR[Plot]</label>
                         <include>DialogVideoInfoAnimation</include>
                         <visible>!ControlGroup(3444).HasFocus()</visible>
                     </control>
@@ -803,9 +803,9 @@
                         <left>60</left>
                         <align>left</align>
                         <font>Small</font>
-                        <autoscroll>false</autoscroll>
+                        <autoscroll time="3000" repeat="10000"/>
                         <textcolor>White70</textcolor>
-                        <label fallback="N/A">[B]$INFO[ListItem.TagLine,,[CR]][/B]$VAR[Plot]</label>
+                        <label fallback="">[B]$INFO[ListItem.TagLine,,[CR]][/B]$VAR[Plot]</label>
                         <include>DialogVideoInfoAnimation</include>
                         <visible>ControlGroup(3444).HasFocus()</visible>
                     </control>

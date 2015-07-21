@@ -547,13 +547,13 @@
 				<radioposx>1</radioposx>
 				<radioposy>12</radioposy>
 				<radiowidth>46</radiowidth>
-				<ondown>3443</ondown>
+				<ondown>9000</ondown>
 				<textureradioonfocus colordiffuse="White70">-</textureradioonfocus>
 				<textureradioonnofocus colordiffuse="Black100">-</textureradioonnofocus>
 				<textureradioofffocus colordiffuse="White70">-</textureradioofffocus>
 				<textureradiooffnofocus colordiffuse="Black100">-</textureradiooffnofocus>
 				<texturefocus border="5" colordiffuse="$INFO[Window(home).Property(ImageColor)]">common/box.png</texturefocus>
-				<texturenofocus>-</texturenofocus>
+				<texturenofocus border="5" colordiffuse="White70">common/box.png</texturenofocus>
 				<align>left</align>
 				<aligny>top</aligny>
 				<textoffsetx>6</textoffsetx>
@@ -569,7 +569,7 @@
 				<font>Small</font>
 				<autoscroll>false</autoscroll>
 				<textcolor>Black700</textcolor>
-				<label fallback="N/A">[B]$INFO[Window.Property(movie.TagLine),,[CR]][/B]$INFO[Window.Property(movie.Plot)]</label>
+				<label fallback="">[B]$INFO[Window.Property(movie.TagLine),,[CR]][/B]$INFO[Window.Property(movie.Plot)]</label>
 				<include>DialogVideoInfoAnimation</include>
 				<visible>!ControlGroup(3444).HasFocus()</visible>
 			</control>
@@ -578,9 +578,9 @@
 				<left>60</left>
 				<align>left</align>
 				<font>Small</font>
-				<autoscroll>false</autoscroll>
+				<autoscroll time="3000" repeat="10000"/>
 				<textcolor>White70</textcolor>
-				<label fallback="N/A">[B]$INFO[Window.Property(movie.TagLine),,[CR]][/B]$INFO[Window.Property(movie.Plot)]</label>
+				<label fallback="">[B]$INFO[Window.Property(movie.TagLine),,[CR]][/B]$INFO[Window.Property(movie.Plot)]</label>
 				<include>DialogVideoInfoAnimation</include>
 				<visible>ControlGroup(3444).HasFocus()</visible>
 			</control>
@@ -672,19 +672,11 @@
 			<include>DialogVideoInfoAnimation</include>
 			<defaultcontrol always="true">9009</defaultcontrol>
 			<animation condition="Control.HasFocus(1000) | Control.HasFocus(150) | Control.HasFocus(350)" effect="slide" end="0,-192" start="0,0" time="200">Conditional</animation>
-			<!-- Dummy to always set focus to first visible button
-            <control id="9009" type="button">
-                <width>-10</width>
-                <height>0</height>
-                <label>-</label>
-                <onfocus>Right</onfocus>
-                <include>NoTextures</include>
-                <visible>!Control.HasFocus(8) + !Control.HasFocus(120) + !Control.HasFocus(206) + !Control.HasFocus(445)</visible>
-            </control> -->
 			<!-- Play/Browse Button -->
 			<control id="8" type="button">
 				<width>222</width>
 				<height>116</height>
+				<onup condition="Control.IsVisible(3444)">3444</onup>
 				<ondown condition="Control.IsVisible(150)">150</ondown>
 				<ondown condition="Control.IsVisible(350)">350</ondown>
 				<ondown condition="Control.IsVisible(850)">850</ondown>
@@ -702,6 +694,7 @@
 			<control id="120" type="button">
 				<width>222</width>
 				<height>116</height>
+				<onup condition="Control.IsVisible(3444)">3444</onup>
 				<ondown condition="Control.IsVisible(150)">150</ondown>
 				<ondown condition="Control.IsVisible(350)">350</ondown>
 				<ondown condition="Control.IsVisible(850)">850</ondown>
@@ -719,6 +712,7 @@
 			<control id="206" type="button">
 				<width>222</width>
 				<height>116</height>
+				<onup condition="Control.IsVisible(3444)">3444</onup>
 				<ondown condition="Control.IsVisible(150)">150</ondown>
 				<ondown condition="Control.IsVisible(350)">350</ondown>
 				<ondown condition="Control.IsVisible(850)">850</ondown>
@@ -736,6 +730,7 @@
 			<control id="445" type="button" description="manage">
 				<width>222</width>
 				<height>116</height>
+				<onup condition="Control.IsVisible(3444)">3444</onup>
 				<ondown condition="Control.IsVisible(150)">150</ondown>
 				<ondown condition="Control.IsVisible(350)">350</ondown>
 				<ondown condition="Control.IsVisible(850)">850</ondown>
