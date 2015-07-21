@@ -176,7 +176,7 @@
 				<animation type="WindowClose" reversible="false" condition="container.content(albums)">
 					<effect type="slide" start="20,0" end="-400,0" time="320" tween="quadratic" easing="out" />
 				</animation>
-				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="Player.Playing">Conditional</animation>
 				<visible>container.content(albums)</visible>
 			</control>
 			<control id="7000" type="button">
