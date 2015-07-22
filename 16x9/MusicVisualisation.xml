@@ -3,12 +3,9 @@
 <window id="2006">
     <defaultcontrol always="true">-</defaultcontrol>
     <allowoverlay>no</allowoverlay>
-
-
     <controls>
-
         <control type="visualisation" id="2">
-            <!--<visible>Skin.HasSetting(OSDVisualisation.ShowFanart) | [!Skin.HasSetting(musicvis.fanartfallback) + [!System.HasAddon(script.artistslideshow) | Skin.HasSetting(ArtistSlideShow.Disabled)]]</visible>-->
+            <visible>Skin.HasSetting(OSDVisualisation.ShowFanart) | [!Skin.HasSetting(musicvis.fanartfallback) + [!System.HasAddon(script.artistslideshow) | Skin.HasSetting(ArtistSlideShow.Disabled)]]</visible>
             <description>visualisation</description>
             <include>Dimensions_Fullscreen</include>
         </control>
@@ -37,6 +34,22 @@
         </control>
 
         <control type="group">
+            <visible>Skin.HasSetting(furniture.logo)</visible>
+            <left>1622</left>
+            <top>19</top>
+            <include>Animation.FadeIn</include>
+            <include>Animation.FadeOut</include>
+            <control id="8308" type="image">
+                <width>258</width>
+                <height>130</height>
+                <texture fallback="empty.png">$VAR[MusicPlayerClearLogo]</texture>
+                <aspectratio align="center" aligny="center">keep</aspectratio>
+                <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+                <animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
+            </control>
+        </control>
+
+        <control type="group">
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
             <control type="image">
@@ -44,12 +57,10 @@
                 <texture border="2" colordiffuse="$VAR[OSDPanel]">common/white.png</texture>
                 <animation effect="fade" start="100" end="70" condition="true">Conditional</animation>
             </control>
-            <visible>Window.IsActive(MusicOSD.xml) | Player.ShowInfo | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Window.IsVisible(script-cu-lrclyrics-main.xml)</visible>
+            <visible>Window.IsActive(MusicOSD.xml) | Player.ShowInfo | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Window.IsVisible(script-cu-lrclyrics-main.xml) | Skin.HasSetting(osd.showmusicinfo)</visible>
             <control type="group">
-                <height>300</height>
+                <height>500</height>
                 <bottom>60</bottom>
-                <left>300</left>
-                <right>300</right>
                 <animation effect="slide" start="0" end="0,-60" time="200" condition="Window.IsActive(MusicOSD)">Conditional</animation>
                 <control type="group">
                     <left>SidePad</left>
@@ -57,21 +68,49 @@
                     <top>20</top>
                     <bottom>20</bottom>
                     <control type="image">
-                        <bottom>-10</bottom>
-                        <left>-10</left>
-                        <width>280</width>
-                        <height>280</height>
-                        <texture border="20">common/nofocus-shadow10.png</texture>
+                        <bottom>-25</bottom>
+                        <left>-30</left>
+                        <width>520</width>
+                        <height>520</height>
+                        <texture colordiffuse="$VAR[ColourHighlight]" border="20">thumbs/cd_shadow_glow.png</texture>
+                    </control>
+                    <control type="image">
+                        <left>280</left>
+                        <top>10</top>
+                        <width>440</width>
+                        <height>440</height>
+                        <aspectratio>keep</aspectratio>
+                        <fadetime>400</fadetime>
+                        <animation effect="slide" start="-180" end="0" time="560" tween="cubic" delay="600">Visible</animation>
+                        <animation effect="slide" end="-180" time="320" tween="cubic">Hidden</animation>
+                        <animation effect="slide" start="-180" end="0" time="560" tween="cubic" delay="320">WindowOpen</animation>
+                        <animation type="WindowClose">
+                            <effect type="slide" end="-180" time="320" tween="cubic" easing="in" />
+                            <effect type="fade" start="100" end="0" time="0" delay="320" />
+                            <condition type="!Player.Playing" />
+                        </animation>
+                        <animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+                        <texture background="true" fallback="cdart/default.png">$INFO[Player.FolderPath]cdart.png</texture>
                     </control>
                     <control type="image">
                         <bottom>0</bottom>
-                        <width>260</width>
-                        <height>260</height>
-                        <texture>$VAR[PlayerPoster]</texture>
+                        <width>460</width>
+                        <height>460</height>
+                        <fadetime>400</fadetime>
+                        <texture fallback="DefaultAlbumCover.png" diffuse="thumbs/cdcover_mask2.png">$VAR[PlayerPoster]</texture>
                         <aspectratio aligny="center" align="center">scale</aspectratio>
+                        <bordertexture border="-90">thumbs/cd_shadow2.png</bordertexture>
+                    </control>
+                    <control type="image">
+                        <bottom>0</bottom>
+                        <width>460</width>
+                        <height>460</height>
+                        <aspectratio scalediffuse="false" align="right">scale</aspectratio>
+                        <texture diffuse="thumbs/cdcover_mask2.png">thumbs/cdcover_glass_noreflect.png</texture>
                     </control>
                     <control type="group">
-                        <left>290</left>
+                        <top>5</top>
+                        <left>730</left>
                         <right>0</right>
                         <control type="grouplist">
                             <top>0</top>
@@ -81,28 +120,27 @@
                             <itemgap>5</itemgap>
                             <visible>true</visible>
                             <usecontrolcoords>true</usecontrolcoords>
-
                             <control type="label" description="Artist">
                                 <top>0</top>
                                 <width>100%</width>
-                                <height>48</height>
-                                <font>MediumBold</font>
+                                <height>78</height>
+                                <font>ArtistTtile</font>
                                 <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                                 <label>$VAR[PlayerBigTitle]</label>
                             </control>
 
                             <control type="label" description="Song">
                                 <width>100%</width>
-                                <height>40</height>
-                                <font>TinyBold</font>
+                                <height>60</height>
+                                <font>MediumBold</font>
                                 <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                                 <label>$VAR[PlayerTitle]</label>
                             </control>
 
                             <control type="grouplist">
                                 <top>-12</top>
-                                <width>260</width>
-                                <height>52</height>
+                                <width>100%</width>
+                                <height>64</height>
                                 <orientation>horizontal</orientation>
                                 <align>left</align>
                                 <itemgap>24</itemgap>
@@ -112,47 +150,69 @@
                                     <posx>-16</posx>
                                     <width>64</width>
                                     <height>64</height>
-                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                    <colordiffuse>$VAR[ColourHighlight]</colordiffuse>
                                     <texture>flags/$VAR[OSDMusicFlagstar1].png</texture>
                                 </control>
                                 <control type="image">
                                     <posx>-48</posx>
                                     <width>64</width>
                                     <height>64</height>
-                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                    <colordiffuse>$VAR[ColourHighlight]</colordiffuse>
                                     <texture>flags/$VAR[OSDMusicFlagstar2].png</texture>
                                 </control>
                                 <control type="image">
                                     <posx>-48</posx>
                                     <width>64</width>
                                     <height>64</height>
-                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                    <colordiffuse>$VAR[ColourHighlight]</colordiffuse>
                                     <texture>flags/$VAR[OSDMusicFlagstar3].png</texture>
                                 </control>
                                 <control type="image">
                                     <posx>-48</posx>
                                     <width>64</width>
                                     <height>64</height>
-                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                    <colordiffuse>$VAR[ColourHighlight]</colordiffuse>
                                     <texture>flags/$VAR[OSDMusicFlagstar4].png</texture>
                                 </control>
                                 <control type="image">
                                     <posx>-48</posx>
                                     <width>64</width>
                                     <height>64</height>
-                                    <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
+                                    <colordiffuse>$VAR[ColourHighlight]</colordiffuse>
                                     <texture>flags/$VAR[OSDMusicFlagstar5].png</texture>
+                                </control>
+                                <control type="image">
+                                    <width>95</width>
+                                    <height>64</height>
+                                    <texture colordiffuse="$VAR[OSDPanelWhite70]">$INFO[MusicPlayer.Codec,flags/audio/,.png]</texture>
+                                    <aspectratio>keep</aspectratio>
+                                </control>
+                                <control type="image">
+                                    <width>95</width>
+                                    <height>64</height>
+                                    <aspectratio>keep</aspectratio>
+                                    <texture colordiffuse="$VAR[OSDPanelWhite70]">$INFO[MusicPlayer.Property(Album_Label),flags/music/recordlabel/,.png]</texture>
                                 </control>
                             </control>
 
                             <control type="label" description="AlbumYear">
                                 <width>100%</width>
                                 <height>40</height>
-                                <font>Tiny</font>
-                                <textcolor>$VAR[OSDPanelWhite30]</textcolor>
+                                <font>SmallBold</font>
+                                <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                                 <label>$VAR[PlayerPlotBox]</label>
                             </control>
+                            <control type="label" description="Other info">
+                                <top>20</top>
+                                <width>100%</width>
+                                <height>120</height>
+                                <font>Tiny</font>
+                                <align>left</align>
+                                <textcolor>$VAR[OSDPanelWhite30]</textcolor>
+                                <label>$INFO[musicplayer.Codec,$LOCALIZE[21446]: ,]$INFO[musicplayer.Bitrate, · $LOCALIZE[623]: ,kbps][CR]$INFO[musicplayer.bitspersample,$LOCALIZE[612]: ,]$INFO[musicplayer.Samplerate, · $LOCALIZE[613]: ,kHz][CR]$INFO[musicplayer.Channels,$LOCALIZE[21444]: ]</label>
+                            </control>
                             <control type="label" description="NextUp">
+                                <top>5</top>
                                 <width>100%</width>
                                 <height>40</height>
                                 <font>Tiny</font>
@@ -203,11 +263,7 @@
                     </control>
                 </control>
             </control>
-
-
         </control>
-
-
         <control type="group">
             <visible>Player.ShowCodec</visible>
             <left>70</left>
@@ -216,7 +272,6 @@
             <height>100</height>
             <include>Animation.FadeIn.Slide</include>
             <include>Animation.FadeOut</include>
-
             <control type="image">
                 <description>background image</description>
                 <posx>0</posx>
@@ -237,7 +292,100 @@
             </control>
         </control>
 
+        <control type="group">
+            <top>-100</top>
+            <control type="group">
+                <visible>Skin.HasSetting(osd.showvisualtext) + !Window.IsVisible(script-XBMC_Lyrics-main.xml)</visible>
+                <animation effect="fade" time="600">Visible</animation>
+                <animation effect="fade" time="350">Hidden</animation>
+                <control type="label">
+                    <description>Now Playing</description>
+                    <posx>0</posx>
+                    <posy>270</posy>
+                    <width>2070</width>
+                    <label>$INFO[MusicPlayer.Artist, ,]$INFO[MusicPlayer.Artist, ,]$INFO[MusicPlayer.Artist,,]$INFO[MusicPlayer.Artist,,]$INFO[MusicPlayer.Artist, ,]</label>
+                    <scroll>true</scroll>
+                    <pauseatend>0</pauseatend>
+                    <font>Font-MusicVis-Artist</font>
+                    <textcolor>88252525</textcolor>
+                    <angle>0</angle>
+                    <align>left</align>
+                    <scrollspeed>100</scrollspeed>
+                    <scrollsuffix>
+                    </scrollsuffix>
+                </control>
+                <control type="label">
+                    <description>Now Playing</description>
+                    <posx>0</posx>
+                    <posy>470</posy>
+                    <width>2070</width>
+                    <label>$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]$INFO[MusicPlayer.Album, ,]</label>
+                    <scroll>true</scroll>
+                    <pauseatend>0</pauseatend>
+                    <font>Font-MusicVis-Album</font>
+                    <textcolor>77666666</textcolor>
+                    <angle>0</angle>
+                    <align>left</align>
+                    <scrollspeed>80</scrollspeed>
+                    <pauseatend>0</pauseatend>
+                    <scrollsuffix>
+                    </scrollsuffix>
+                </control>
+                <control type="label">
+                    <description>Now Playing</description>
+                    <posx>0</posx>
+                    <posy>360</posy>
+                    <width>2070</width>
+                    <height>25</height>
+                    <label>$INFO[MusicPlayer.Title, ,]$INFO[MusicPlayer.Title, ,]$INFO[MusicPlayer.Title, ,]$INFO[MusicPlayer.Title, ,]$INFO[MusicPlayer.Title, ,]</label>
+                    <scroll>true</scroll>
+                    <font>Font-MusicVis-Title</font>
+                    <pauseatend>0</pauseatend>
+                    <textcolor>77FFFFFF</textcolor>
+                    <angle>0</angle>
+                    <align>left</align>
+                    <scrollsuffix>
+                    </scrollsuffix>
+                </control>
+            </control>
+        </control>
 
+        <control type="group">
+            <visible>Skin.HasSetting(osd.showtwitter)</visible>
+            <bottom>-5</bottom>
+            <height>36</height>
+            <width>100%</width>
+            <control type="label">
+                <width>100</width>
+                <height>36</height>
+                <font>Tiny</font>
+                <textcolor>Dark1</textcolor>
+                <label>[B]Twitter[/B]</label>
+                <aligny>center</aligny>
+            </control>
+            <control type="label">
+                <left>100</left>
+                <top>6</top>
+                <width>100%</width>
+                <height>24</height>
+                <font>Tiny</font>
+                <textcolor>Dark2</textcolor>
+                <scroll>true</scroll>
+                <wrapmultiline>false</wrapmultiline>
+                <scrollspeed>40</scrollspeed>
+                <scrollsuffix> ••</scrollsuffix>
+                <label fallback="19055">$INFO[Container(9301).ListItem.Property(author),[B],[/B]]$INFO[Container(9301).ListItem.Property(date), ,]$INFO[Container(9301).ListItem.Property(comment), - ","]$INFO[Container(9301).ListItem(1).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(1).Property(date), ,]$INFO[Container(9301).ListItem(1).Property(comment), - ","]$INFO[Container(9301).ListItem(2).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(2).Property(date), ,]$INFO[Container(9301).ListItem(2).Property(comment), - ","]$INFO[Container(9301).ListItem(3).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(3).Property(date), ,]$INFO[Container(9301).ListItem(3).Property(comment), - ","]$INFO[Container(9301).ListItem(4).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(4).Property(date), ,]$INFO[Container(9301).ListItem(4).Property(comment), - ","]$INFO[Container(9301).ListItem(5).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(5).Property(date), ,]$INFO[Container(9301).ListItem(5).Property(comment), - ","]$INFO[Container(9301).ListItem(6).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(6).Property(date), ,]$INFO[Container(9301).ListItem(6).Property(comment), - ","]$INFO[Container(9301).ListItem(7).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(7).Property(date), ,]$INFO[Container(9301).ListItem(7).Property(comment), - ","]$INFO[Container(9301).ListItem(8).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(8).Property(date), ,]$INFO[Container(9301).ListItem(8).Property(comment), - ","]$INFO[Container(9301).ListItem(9).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(9).Property(date), ,]$INFO[Container(9301).ListItem(9).Property(comment), - ","]$INFO[Container(9301).ListItem(10).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(10).Property(date), ,]$INFO[Container(9301).ListItem(10).Property(comment), - ","]$INFO[Container(9301).ListItem(11).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(11).Property(date), ,]$INFO[Container(9301).ListItem(11).Property(comment), - ","]$INFO[Container(9301).ListItem(12).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(12).Property(date), ,]$INFO[Container(9301).ListItem(12).Property(comment), - ","]$INFO[Container(9301).ListItem(13).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(13).Property(date), ,]$INFO[Container(9301).ListItem(13).Property(comment), - ","]$INFO[Container(9301).ListItem(14).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(14).Property(date), ,]$INFO[Container(9301).ListItem(14).Property(comment), - ","]$INFO[Container(9301).ListItem(15).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(15).Property(date), ,]$INFO[Container(9301).ListItem(15).Property(comment), - ","]$INFO[Container(9301).ListItem(16).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(16).Property(date), ,]$INFO[Container(9301).ListItem(16).Property(comment), - ","]$INFO[Container(9301).ListItem(17).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(17).Property(date), ,]$INFO[Container(9301).ListItem(17).Property(comment), - ","]$INFO[Container(9301).ListItem(18).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(18).Property(date), ,]$INFO[Container(9301).ListItem(18).Property(comment), - ","]$INFO[Container(9301).ListItem(19).Property(author), •• [B],[/B]]$INFO[Container(9301).ListItem(19).Property(date), ,]$INFO[Container(9301).ListItem(19).Property(comment), - ","]</label>
+                <aligny>center</aligny>
+            </control>
+        </control>
+
+        <control type="list" id="9301">
+            <height>36</height>
+            <orientation>horizontal</orientation>
+            <autoscroll time="8000">false</autoscroll>
+            <itemlayout width="1" height="1"></itemlayout>
+            <focusedlayout width="1" height="1"></focusedlayout>
+            <content>plugin://script.extendedinfo?info=artistshouts&amp;&amp;artistname=$INFO[MusicPlayer.Artist]</content>
+        </control>
     </controls>
-
 </window>
