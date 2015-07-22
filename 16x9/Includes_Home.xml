@@ -1866,7 +1866,22 @@
 						<visible>!Player.HasMedia</visible>
 						<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
 					</control>
-
+					<control type="image">
+						<top>19</top>
+						<right>40</right>
+						<width>258</width>
+						<height>130</height>
+						<texture>$VAR[WidgetAlbumLogo]</texture>
+						<aspectratio align="right" aligny="center">keep</aspectratio>
+						<include>Animation.FadeIn</include>
+						<include>Animation.FadeOut</include>
+						<animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
+						<visible>Skin.HasSetting(furniture.logo)</visible>
+						<visible>!Control.HasFocus(301)</visible>
+						<visible>!Player.HasMedia</visible>
+						<visible>substring(Container(300).ListItem.Property(widget),Albums)</visible>
+						<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
+					</control>
 					<control type="image">
 						<top>19</top>
 						<right>40</right>
