@@ -295,6 +295,16 @@
 		<value condition="!IsEmpty(Skin.String(RatingCountry))">$INFO[Skin.String(RatingCountry)]</value>
 		<value>UK</value>
 	</variable>
+
+	<variable name="FanartFadeLabel">
+		<value condition="Stringcompare(Skin.String(FanartFade),Darkest)">FanartFade6</value>
+		<value condition="Stringcompare(Skin.String(FanartFade),Dark)">FanartFade5</value>
+		<value condition="Stringcompare(Skin.String(FanartFade),Normal)">FanartFade</value>
+		<value condition="Stringcompare(Skin.String(FanartFade),Bright)">FanartFade2</value>
+		<value condition="Stringcompare(Skin.String(FanartFade),Brighter)">FanartFade3</value>
+		<value condition="Stringcompare(Skin.String(FanartFade),Brightest)">FanartFade4</value>
+		<value>FanartFade</value>
+	</variable>
 	<variable name="VideoInfoBlurLevel">
 		<value condition="!IsEmpty(Skin.String(VideoInfoBlur))">$INFO[Skin.String(VideoInfoBlur)]</value>
 		<value>10</value>

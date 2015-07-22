@@ -197,6 +197,27 @@
 						<selected>Skin.HasSetting(EnableExtraFanart)</selected>
 						<onclick>Skin.ToggleSetting(EnableExtraFanart)</onclick>
 					</control>
+					<control type="button" id="92281" description="Fanart Opacity">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<label>$LOCALIZE[31780]</label>
+						<label2 fallback="Normal">$INFO[Skin.String(FanartFade)]</label2>
+						<onclick>SetProperty(Dialog.NumItems,6)</onclick>
+						<onclick>SetProperty(Dialog.1.Label,Darkest)</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(FanartFade,Darkest))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,Dark)</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(FanartFade,Dark))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,Normal)</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(FanartFade,Normal))</onclick>
+						<onclick>SetProperty(Dialog.4.Label,Bright)</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(FanartFade,Bright))</onclick>
+						<onclick>SetProperty(Dialog.5.Label,Brighter)</onclick>
+						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(FanartFade,Brighter))</onclick>
+						<onclick>SetProperty(Dialog.6.Label,Brightest)</onclick>
+						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(FanartFade,Brightest))</onclick>
+						<onclick>RunScript(script.toolbox,info=selectdialog,header=Select Background Opacity)</onclick>
+						<visible>ControlGroup(9100).HasFocus(9102)</visible>
+					</control>
 					<control type="radiobutton" id="9224" description="Animate Fanart">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9102)</visible>
