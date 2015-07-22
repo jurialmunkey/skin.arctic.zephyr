@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<includes>
+	<include name="View_155_Wall_Emby">
+		<control type="group">
+			<include>Animation.Common</include>
+			<visible>Control.IsVisible(155)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
+			<control type="panel" id="155">
+				<visible>Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+				<top>180</top>
+				<right>0</right>
+				<width>1920</width>
+				<height>720</height>
+				<onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+				<onright>60</onright>
+				<onup>155</onup>
+				<ondown>155</ondown>
+				<preloaditems>2</preloaditems>
+				<pagecontrol>60</pagecontrol>
+				<viewtype label="536">panel</viewtype>
+				<scrolltime tween="quadratic">400</scrolltime>
+				<itemlayout width="128" height="180">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<right>0</right>
+						<bottom>0</bottom>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+						<animation effect="fade" start="25" end="25" condition="stringcompare(ListItem.Overlay,OverlayWatched.png)">Conditional</animation>
+					</control>
+					<control type="image">
+						<centerright>16</centerright>
+						<centertop>16</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout condition="!Container.Column(14) + !Container.Row(3)" width="256" height="360">
+					<control type="button">
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+						<onfocus condition="Container.Content(movies)">ClearProperty(TVShowID,home)</onfocus>
+						<onfocus condition="Container.Content(tvshows)">SetProperty(TVShowID,$INFO[ListItem.DBID],home)</onfocus>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<right>0</right>
+						<bottom>0</bottom>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+					</control>
+					<control type="image">
+						<left>256</left>
+						<top>0</top>
+						<right>-256</right>
+						<bottom>0</bottom>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture colordiffuse="Panel" background="true">common/white.png</texture>
+						<animation effect="fade" start="95" end="95" condition="true">Conditional</animation>
+						<visible>!Container.Column(12)</visible>
+					</control>
+					<control type="image">
+						<posx>-256</posx>
+						<width>256</width>
+						<height>360</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture colordiffuse="Panel" background="true">common/white.png</texture>
+						<animation effect="fade" start="95" end="95" condition="true">Conditional</animation>
+						<visible>Container.Column(12) | Container.Column(13)</visible>
+					</control>
+					<control type="group">
+						<visible>!Container.Column(12) + !Container.Column(13)</visible>
+						<width>236</width>
+						<control type="label">
+							<left>266</left>
+							<top>-10</top>
+							<right>-256</right>
+							<bottom>0</bottom>
+							<font>SmallBold</font>
+							<label>[B]$INFO[ListItem.Title][/B]</label>
+							<textcolor>Black100</textcolor>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<left>266</left>
+							<top>-10</top>
+							<right>-256</right>
+							<bottom>0</bottom>
+							<font>SmallBold</font>
+							<label>[B]$INFO[ListItem.Artist][/B]</label>
+							<textcolor>Black300</textcolor>
+							<scroll>true</scroll>
+							<visible>Container.Content(musicvideos) + !IsEmpty(ListItem.Artist)</visible>
+						</control>
+						<control type="label">
+							<left>266</left>
+							<top>-10</top>
+							<right>-256</right>
+							<bottom>0</bottom>
+							<font>SmallBold</font>
+							<label>[B]$INFO[ListItem.TvShowTitle][/B]</label>
+							<textcolor>Black300</textcolor>
+							<visible>Container.Content(episodes) + !IsEmpty(ListItem.TvShowTitle)</visible>
+						</control>
+						<!-- Plot -->
+						<control type="textbox">
+							<left>266</left>
+							<top>42</top>
+							<right>-256</right>
+							<bottom>0</bottom>
+							<align>left</align>
+							<font>Small</font>
+							<autoscroll>true</autoscroll>
+							<textcolor>Black700</textcolor>
+							<label fallback="N/A">$INFO[ListItem.Year]$INFO[ListItem.Duration, - ,mins][CR][CR][I][B]$INFO[ListItem.TagLine][/I][/B]</label>
+							<include>DialogVideoInfoAnimation</include>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Container.Column(12) | Container.Column(13)</visible>
+						<control type="label">
+							<posx>-246</posx>
+							<top>-10</top>
+							<right>20</right>
+							<bottom>0</bottom>
+							<font>SmallBold</font>
+							<label>[B]$INFO[ListItem.Title][/B]</label>
+							<textcolor>Black100</textcolor>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<posx>-246</posx>
+							<top>-10</top>
+							<right>20</right>
+							<bottom>0</bottom>
+							<font>SmallBold</font>
+							<label>[B]$INFO[ListItem.Artist][/B]</label>
+							<textcolor>Black300</textcolor>
+							<scroll>true</scroll>
+							<visible>Container.Content(musicvideos) + !IsEmpty(ListItem.Artist)</visible>
+						</control>
+						<control type="label">
+							<posx>-246</posx>
+							<top>-10</top>
+							<right>20</right>
+							<bottom>0</bottom>
+							<font>SmallBold</font>
+							<label>[B]$INFO[ListItem.TvShowTitle][/B]</label>
+							<textcolor>Black300</textcolor>
+							<visible>Container.Content(episodes) + !IsEmpty(ListItem.TvShowTitle)</visible>
+						</control>
+						<!-- Plot -->
+						<control type="textbox">
+							<posx>-246</posx>
+							<top>42</top>
+							<right>20</right>
+							<bottom>0</bottom>
+							<align>left</align>
+							<font>Small</font>
+							<autoscroll>true</autoscroll>
+							<textcolor>Black700</textcolor>
+							<label fallback="N/A">$INFO[ListItem.Year]$INFO[ListItem.Duration, - ,mins][CR][CR][I][B]$INFO[ListItem.TagLine][/I][/B]</label>
+							<include>DialogVideoInfoAnimation</include>
+						</control>
+					</control>
+					<control type="image">
+						<centerright>32</centerright>
+						<centertop>32</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<right>0</right>
+						<bottom>0</bottom>
+						<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectcorner.png</texture>
+						<animation type="Focus">
+							<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+						</animation>
+						<animation type="Unfocus">
+							<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+						</animation>
+					</control>
+				</focusedlayout>
+				<focusedlayout condition="!Container.Row(3) + Container.Column(14)" width="256" height="360">
+					<control type="button">
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+						<onfocus condition="Container.Content(movies)">ClearProperty(TVShowID,home)</onfocus>
+						<onfocus condition="Container.Content(tvshows)">SetProperty(TVShowID,$INFO[ListItem.DBID],home)</onfocus>
+					</control>
+					<control type="image">
+						<left>-128</left>
+						<top>0</top>
+						<right>128</right>
+						<bottom>0</bottom>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+					</control>
+					<control type="image">
+						<left>78</left>
+						<centerright>32</centerright>
+						<centertop>32</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
+					</control>
+					<control type="image">
+						<left>-128</left>
+						<top>0</top>
+						<right>128</right>
+						<bottom>0</bottom>
+						<texture colordiffuse="$VAR[ColourHighlight]" border="20" flipy="false" flipx="true">common/selectcorner.png</texture>
+						<animation type="Focus">
+							<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+						</animation>
+						<animation type="Unfocus">
+							<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+						</animation>
+					</control>
+					<control type="image">
+						<posx>-384</posx>
+						<width>256</width>
+						<height>360</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture colordiffuse="Panel" background="true">common/white.png</texture>
+						<animation effect="fade" start="95" end="95" condition="true">Conditional</animation>
+					</control>
+					<control type="group">
+						<posx>-128</posx>
+						<control type="label">
+							<posx>-246</posx>
+							<top>-10</top>
+							<right>148</right>
+							<bottom>0</bottom>
+							<font>SmallBold</font>
+							<label>[B]$INFO[ListItem.Title][/B]</label>
+							<textcolor>Black100</textcolor>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<posx>-246</posx>
+							<top>-10</top>
+							<right>148</right>
+							<bottom>0</bottom>
+							<font>SmallBold</font>
+							<label>[B]$INFO[ListItem.Artist][/B]</label>
+							<textcolor>Black300</textcolor>
+							<scroll>true</scroll>
+							<visible>Container.Content(musicvideos) + !IsEmpty(ListItem.Artist)</visible>
+						</control>
+						<control type="label">
+							<posx>-246</posx>
+							<top>-10</top>
+							<right>148</right>
+							<bottom>0</bottom>
+							<font>SmallBold</font>
+							<label>[B]$INFO[ListItem.TvShowTitle][/B]</label>
+							<textcolor>Black300</textcolor>
+							<visible>Container.Content(episodes) + !IsEmpty(ListItem.TvShowTitle)</visible>
+						</control>
+						<!-- Plot -->
+						<control type="textbox">
+							<posx>-246</posx>
+							<top>42</top>
+							<right>148</right>
+							<bottom>0</bottom>
+							<align>left</align>
+							<font>Small</font>
+							<autoscroll>true</autoscroll>
+							<textcolor>Black700</textcolor>
+							<label fallback="N/A">$INFO[ListItem.Year]$INFO[ListItem.Duration, - ,mins][CR][CR][I][B]$INFO[ListItem.TagLine][/I][/B]</label>
+							<include>DialogVideoInfoAnimation</include>
+						</control>
+					</control>
+				</focusedlayout>
+				<focusedlayout condition="Container.Row(3) + Container.Column(14)" width="256" height="360">
+					<control type="button">
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+						<onfocus condition="Container.Content(movies)">ClearProperty(TVShowID,home)</onfocus>
+						<onfocus condition="Container.Content(tvshows)">SetProperty(TVShowID,$INFO[ListItem.DBID],home)</onfocus>
+					</control>
+					<control type="image">
+						<left>-128</left>
+						<top>-180</top>
+						<right>128</right>
+						<bottom>180</bottom>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+					</control>
+					<control type="image">
+						<centerright>160</centerright>
+						<centertop>-148</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
+					</control>
+					<control type="image">
+						<left>-128</left>
+						<top>-180</top>
+						<right>128</right>
+						<bottom>180</bottom>
+						<texture colordiffuse="$VAR[ColourHighlight]" border="20" flipy="true" flipx="true">common/selectcorner.png</texture>
+						<animation type="Focus">
+							<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+						</animation>
+						<animation type="Unfocus">
+							<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+						</animation>
+					</control>
+					<control type="image">
+						<posy>-180</posy>
+						<posx>-384</posx>
+						<width>256</width>
+						<height>360</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture colordiffuse="Panel" background="true">common/white.png</texture>
+						<animation effect="fade" start="95" end="95" condition="true">Conditional</animation>
+					</control>
+					<control type="group">
+						<posx>-128</posx>
+						<posy>-180</posy>
+						<control type="label">
+							<posx>-246</posx>
+							<top>-10</top>
+							<right>148</right>
+							<bottom>0</bottom>
+							<font>SmallBold</font>
+							<label>[B]$INFO[ListItem.Title][/B]</label>
+							<textcolor>Black100</textcolor>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<posx>-246</posx>
+							<top>-10</top>
+							<right>148</right>
+							<bottom>0</bottom>
+							<font>SmallBold</font>
+							<label>[B]$INFO[ListItem.Artist][/B]</label>
+							<textcolor>Black300</textcolor>
+							<scroll>true</scroll>
+							<visible>Container.Content(musicvideos) + !IsEmpty(ListItem.Artist)</visible>
+						</control>
+						<control type="label">
+							<posx>-246</posx>
+							<top>-10</top>
+							<right>148</right>
+							<bottom>0</bottom>
+							<font>SmallBold</font>
+							<label>[B]$INFO[ListItem.TvShowTitle][/B]</label>
+							<textcolor>Black300</textcolor>
+							<visible>Container.Content(episodes) + !IsEmpty(ListItem.TvShowTitle)</visible>
+						</control>
+						<!-- Plot -->
+						<control type="textbox">
+							<posx>-246</posx>
+							<top>42</top>
+							<right>148</right>
+							<bottom>0</bottom>
+							<align>left</align>
+							<font>Small</font>
+							<autoscroll>true</autoscroll>
+							<textcolor>Black700</textcolor>
+							<label fallback="N/A">$INFO[ListItem.Year]$INFO[ListItem.Duration, - ,mins][CR][CR][I][B]$INFO[ListItem.TagLine][/I][/B]</label>
+							<include>DialogVideoInfoAnimation</include>
+						</control>
+					</control>
+				</focusedlayout>
+				<focusedlayout condition="Container.Row(3) + !Container.Column(14)" width="256" height="360">
+					<control type="button">
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+						<onfocus condition="Container.Content(movies)">ClearProperty(TVShowID,home)</onfocus>
+						<onfocus condition="Container.Content(tvshows)">SetProperty(TVShowID,$INFO[ListItem.DBID],home)</onfocus>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>-180</top>
+						<right>0</right>
+						<bottom>180</bottom>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+					</control>
+					<control type="image">
+						<left>256</left>
+						<posy>-180</posy>
+						<right>-256</right>
+						<bottom>0</bottom>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture colordiffuse="Panel" background="true">common/white.png</texture>
+						<animation effect="fade" start="95" end="95" condition="true">Conditional</animation>
+						<visible>!Container.Column(12)</visible>
+					</control>
+					<control type="image">
+						<posx>-256</posx>
+						<posy>-180</posy>
+						<width>256</width>
+						<height>360</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture colordiffuse="Panel" background="true">common/white.png</texture>
+						<animation effect="fade" start="95" end="95" condition="true">Conditional</animation>
+						<visible>Container.Column(12) | Container.Column(13)</visible>
+					</control>
+					<control type="group">
+						<visible>!Container.Column(12) + !Container.Column(13)</visible>
+						<width>236</width>
+						<posy>-180</posy>
+						<control type="label">
+							<left>266</left>
+							<top>-10</top>
+							<right>-256</right>
+							<bottom>0</bottom>
+							<font>SmallBold</font>
+							<label>[B]$INFO[ListItem.Title][/B]</label>
+							<textcolor>Black100</textcolor>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<left>266</left>
+							<top>-10</top>
+							<right>-256</right>
+							<bottom>0</bottom>
+							<font>SmallBold</font>
+							<label>[B]$INFO[ListItem.Artist][/B]</label>
+							<textcolor>Black300</textcolor>
+							<scroll>true</scroll>
+							<visible>Container.Content(musicvideos) + !IsEmpty(ListItem.Artist)</visible>
+						</control>
+						<control type="label">
+							<left>266</left>
+							<top>-10</top>
+							<right>-256</right>
+							<bottom>0</bottom>
+							<font>SmallBold</font>
+							<label>[B]$INFO[ListItem.TvShowTitle][/B]</label>
+							<textcolor>Black300</textcolor>
+							<visible>Container.Content(episodes) + !IsEmpty(ListItem.TvShowTitle)</visible>
+						</control>
+						<!-- Plot -->
+						<control type="textbox">
+							<left>266</left>
+							<top>42</top>
+							<right>-256</right>
+							<bottom>0</bottom>
+							<align>left</align>
+							<font>Small</font>
+							<autoscroll>true</autoscroll>
+							<textcolor>Black700</textcolor>
+							<label fallback="N/A">$INFO[ListItem.Year]$INFO[ListItem.Duration, - ,mins][CR][CR][I][B]$INFO[ListItem.TagLine][/I][/B]</label>
+							<include>DialogVideoInfoAnimation</include>
+						</control>
+					</control>
+					<control type="group">
+						<visible>Container.Column(12) | Container.Column(13)</visible>
+						<posy>-180</posy>
+						<control type="label">
+							<posx>-246</posx>
+							<top>-10</top>
+							<right>20</right>
+							<bottom>0</bottom>
+							<font>SmallBold</font>
+							<label>[B]$INFO[ListItem.Title][/B]</label>
+							<textcolor>Black100</textcolor>
+							<scroll>true</scroll>
+						</control>
+						<control type="label">
+							<posx>-246</posx>
+							<top>-10</top>
+							<right>20</right>
+							<bottom>0</bottom>
+							<font>SmallBold</font>
+							<label>[B]$INFO[ListItem.Artist][/B]</label>
+							<textcolor>Black300</textcolor>
+							<scroll>true</scroll>
+							<visible>Container.Content(musicvideos) + !IsEmpty(ListItem.Artist)</visible>
+						</control>
+						<control type="label">
+							<posx>-246</posx>
+							<top>-10</top>
+							<right>20</right>
+							<bottom>0</bottom>
+							<font>SmallBold</font>
+							<label>[B]$INFO[ListItem.TvShowTitle][/B]</label>
+							<textcolor>Black300</textcolor>
+							<visible>Container.Content(episodes) + !IsEmpty(ListItem.TvShowTitle)</visible>
+						</control>
+						<!-- Plot -->
+						<control type="textbox">
+							<posx>-246</posx>
+							<top>42</top>
+							<right>20</right>
+							<bottom>0</bottom>
+							<align>left</align>
+							<font>Small</font>
+							<autoscroll>true</autoscroll>
+							<textcolor>Black700</textcolor>
+							<label fallback="N/A">$INFO[ListItem.Year]$INFO[ListItem.Duration, - ,mins][CR][CR][I][B]$INFO[ListItem.TagLine][/I][/B]</label>
+							<include>DialogVideoInfoAnimation</include>
+						</control>
+					</control>
+					<control type="image">
+						<centerright>32</centerright>
+						<centertop>-148</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>-180</top>
+						<right>0</right>
+						<bottom>180</bottom>
+						<texture colordiffuse="$VAR[ColourHighlight]" border="20" flipy="true" flipx="false">common/selectcorner.png</texture>
+						<animation type="Focus">
+							<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+						</animation>
+						<animation type="Unfocus">
+							<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+						</animation>
+					</control>
+				</focusedlayout>
+			</control>
+			<include>Furniture_Scrollbar</include>
+			<!--<control type="group" description="Poster"><visible>!IsEmpty(ListItem.Icon)</visible><left>70</left><width>448</width><top>206</top><height>660</height><control type="image"><width>100%</width><height>100%</height><texture border="10">common/nofocus-shadow10.png</texture></control><control type="image"><left>10</left><top>10</top><right>10</right><bottom>10</bottom><texture border="10" colordiffuse="Panel">common/box.png</texture></control><control type="image"><left>10</left><top>10</top><right>10</right><bottom>10</bottom><fadetime>300</fadetime><aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio><texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture></control></control>--></control>
+	</include>
+	<include name="View_55_Wall_Fanout"/>
+</includes>
