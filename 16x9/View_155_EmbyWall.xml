@@ -39,6 +39,7 @@
 						<texture>$VAR[PercentWatched]</texture>
 						<visible>!stringcompare(ListItem.Label,..)</visible>
 						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
+						<visible>Skin.HasSetting(views.155.showtick)</visible>
 					</control>
 				</itemlayout>
 				<focusedlayout condition="!Container.Column(14) + !Container.Row(3)" width="256" height="360">
