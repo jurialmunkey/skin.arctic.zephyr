@@ -650,7 +650,7 @@
                         </control>
                         <control type="group">
                             <width>155</width>
-                            <visible>!IsEmpty(ListItem.Duration)</visible>
+                            <visible>!IsEmpty(ListItem.Duration) + Skin.HasSetting(furniture.alternate.duration)</visible>
                             <control type="label">
                                 <posy>12</posy>
                                 <width>155</width>
@@ -665,6 +665,26 @@
                                 <height>38</height>
                                 <align>center</align>
                                 <label>Minutes</label>
+                                <font>Flag</font>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <width>155</width>
+                            <visible>!IsEmpty(ListItem.Duration) + !Skin.HasSetting(furniture.alternate.duration)</visible>
+                            <control type="label">
+                                <posy>12</posy>
+                                <width>155</width>
+                                <height>38</height>
+                                <align>center</align>
+                                <label fallback="?">$VAR[DurationLongVideoInfo]</label>
+                                <font>MediumSmallBold</font>
+                            </control>
+                            <control type="label">
+                                <posy>37</posy>
+                                <width>155</width>
+                                <height>38</height>
+                                <align>center</align>
+                                <label>Runtime</label>
                                 <font>Flag</font>
                             </control>
                         </control>
@@ -739,7 +759,7 @@
                                 <width>150</width>
                                 <height>74</height>
                                 <aspectratio aligny="center" align="center">keep</aspectratio>
-                                <texture colordiffuse="Black100">$INFO[ListItem.Studio,colored/studios/,.png]</texture>
+                                <texture colordiffuse="Black100">$INFO[Window(home).Property(ListItemColourStudioLogo)]</texture>
                                 <visible>!IsEmpty(Control.GetLabel(800011)) + Container.Content(movies)</visible>
                             </control>
                             <control type="label">

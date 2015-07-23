@@ -556,6 +556,14 @@
 						<selected>!Skin.HasSetting(furniture.flags)</selected>
 						<onclick>Skin.ToggleSetting(furniture.flags)</onclick>
 					</control>
+					<control type="radiobutton" id="92631" description="Alternate Duration">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9106)</visible>
+						<include>DefSettingsButton</include>
+						<label>Use Default Duration</label>
+						<selected>Skin.HasSetting(furniture.alternate.duration)</selected>
+						<onclick>Skin.ToggleSetting(furniture.alternate.duration)</onclick>
+					</control>
 					<control type="button" id="9269" description="Country Rating">
 						<width>1310</width>
 						<include>DefSettingsButton</include>

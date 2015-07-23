@@ -480,7 +480,7 @@
 					<centertop>50%</centertop>
 					<texture colordiffuse="Dark1">flags/time.png</texture>
 					<aspectratio align="left">keep</aspectratio>
-					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(59) | Control.IsVisible(515) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
+					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(59) | Control.IsVisible(515) | Control.IsVisible(155) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
 				</control>
 				<control type="label">
 					<left>50</left>
@@ -489,10 +489,10 @@
 					<height>64</height>
 					<align>center</align>
 					<aligny>center</aligny>
-					<label>$INFO[ListItem.Duration,, $LOCALIZE[31102] ]</label>
+					<label>$VAR[DurationLong]</label>
 					<font>DurationFontSmall</font>
 					<textcolor>Dark1</textcolor>
-					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(59) | Control.IsVisible(515) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
+					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(59) | Control.IsVisible(515) | Control.IsVisible(155) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
 				</control>
 			</control>
 			<control type="group">
@@ -507,10 +507,10 @@
 					<height>50</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>$INFO[ListItem.Duration,, $LOCALIZE[31102] ]</label>
+					<label>$VAR[DurationLong]</label>
 					<font>DurationFont</font>
 					<textcolor>$VAR[ColourHighlight]</textcolor>
-					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(59) | Control.IsVisible(515) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
+					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(59) | Control.IsVisible(515) | Control.IsVisible(155) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
 				</control>
 			</control>
 			<control type="group">

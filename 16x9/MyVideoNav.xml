@@ -5,6 +5,7 @@
 	<allowoverlay>yes</allowoverlay>
 	<views>50,550,54,53,51,55,56,57,155,58,59,52,500,514,513,515</views>
 	<onload condition="System.HasAddon(script.tv.show.next.aired)">RunScript(script.tv.show.next.aired,backend=True)</onload>
+	<onload condition="System.HasAddon(script.duration)">RunScript(script.duration,backend=True)</onload>
 	<controls>
 		<include>GlobalBackground</include>
 		<include>View_550_List</include>

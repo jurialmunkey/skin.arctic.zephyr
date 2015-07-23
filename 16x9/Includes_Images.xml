@@ -162,19 +162,13 @@
 		<value condition="!IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
 	</variable>
 	<variable name="CDArt">
-		<value condition="!container.content(movies) + !Skin.HasSetting(furniture.flags.colour)">$INFO[ListItem.Studio,flagging/studios/,.png]</value>
-		<value condition="!container.content(movies) + Skin.HasSetting(furniture.flags.colour)">$INFO[ListItem.Studio,colored/studios/,.png]</value>
+		<value condition="!container.content(movies)">$INFO[Window(home).Property(ListItemStudioLogo)]</value>
 		<value condition="!IsEmpty(ListItem.Art(discart))">$INFO[ListItem.Art(discart)]</value>
 		<value condition="IntegerGreaterThan(ListItem.VideoResolution,719)">cdart/bd.png</value>
 		<value condition="!IsEmpty(ListItem.VideoResolution)">cdart/default.png</value>
 	</variable>
 	<variable name="Studio">
-		<value condition="!IsEmpty(Container(301).ListItem.Studio) + !Skin.HasSetting(furniture.flags.colour)">$INFO[Container(301).ListItem.Studio,flagging/studios/,.png]</value>
-		<value condition="!IsEmpty(Container(301).ListItem.Studio) + Skin.HasSetting(furniture.flags.colour)">$INFO[Container(301).ListItem.Studio,colored/studios/,.png]</value>
-	</variable>
-	<variable name="StudioHome">
-		<value condition="!IsEmpty(ListItem.Studio) + !Skin.HasSetting(furniture.flags.colour)">$INFO[ListItem.Studio,flagging/studios/,.png]</value>
-		<value condition="!IsEmpty(ListItem.Studio) + Skin.HasSetting(furniture.flags.colour)">$INFO[ListItem.Studio,colored/studios/,.png]</value>
+		<value condition="!IsEmpty(ListItem.Studio)">$INFO[Window(home).Property(ListItemStudioLogo)]</value>
 	</variable>
 	<variable name="ExtendedOverlayInfo">
 		<value condition="StringCompare(Container(3226).ListItem(6).Label,PlayedCount:) + !IntegerGreaterThan(Container(3226).ListItem(6).Label2,0)">indicator/watched.png</value>
