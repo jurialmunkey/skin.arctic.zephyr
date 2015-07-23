@@ -14,7 +14,7 @@
                 <height>700</height>
                 <onback condition="Window.IsVisible(MyPVRGuide.xml) + Control.IsVisible(10)">ActivateWindow(home)</onback>
                 <include>Def9000GroupList</include>
-                <control type="button" id="9001">
+                <!-- <control type="button" id="9001">
                     <description>Channels</description>
                     <label>19019</label>
                     <onclick>ActivateWindow(TVChannels)</onclick>
@@ -27,8 +27,8 @@
                     <onclick>ActivateWindow(TvGuide)</onclick>
                     <include>DefContextButton</include>
                     <align>left</align>
-                </control>
-                <control type="button" id="9003">
+                </control> -->
+                <!-- <control type="button" id="9003">
                     <description>Recordings</description>
                     <label>19017</label>
                     <onclick>ActivateWindow(TVRecordings)</onclick>
@@ -41,17 +41,11 @@
                     <onclick>ActivateWindow(TVTimers)</onclick>
                     <include>DefContextButton</include>
                     <align>left</align>
-                </control>
-                <control type="button" id="9005">
-                    <description>Search</description>
-                    <label>137</label>
-                    <onclick>ActivateWindow(TVSearch)</onclick>
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                </control>
+                </control> -->
+                
                 
                 <!-- PVR options -->
-                <control type="label" id="9010">
+                <!-- <control type="label" id="9010">
                     <description>Channels</description>
                     <label>31194</label>
                     <font>TinyBold</font>
@@ -59,7 +53,7 @@
                     <textoffsetx>30</textoffsetx>
                     <include>DefContextButton</include>
                     <align>left</align>
-                </control>
+                </control> -->
                 <control type="button" id="28">
                     <description>Group</description>
                     <include>DefContextButton</include>
@@ -81,6 +75,23 @@
                     <align>left</align>
                     <label>584</label>
                     <altlabel>585</altlabel>
+                </control>
+                <control type="radiobutton" id="6">
+                    <description>Show Hidden Channels</description>
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                </control>
+                <control type="button" id="31">
+                    <description>Filter</description>
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                </control>
+                <control type="button" id="9005">
+                    <description>Search</description>
+                    <label>137</label>
+                    <onclick>ActivateWindow(TVSearch)</onclick>
+                    <include>DefContextButton</include>
+                    <align>left</align>
                 </control>
             </control>
         </control>

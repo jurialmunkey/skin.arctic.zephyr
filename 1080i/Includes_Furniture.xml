@@ -1109,7 +1109,7 @@
         <control type="grouplist">
             <include>Animation.FurnitureFadeInOut</include>
             <visible>!Skin.HasSetting(furniture.weather)</visible>
-            <visible>Skin.HasSetting(furniture.topweather) | [Window.IsActive(home) + StringCompare(Container(300).ListItem.Property(widget),Weather)]</visible>
+            <visible>Skin.HasSetting(furniture.topweather) | [Window.IsActive(home) + substring(Container(300).ListItem.Property(widget),Weather,left)]</visible>
             <visible>!Window.IsVisible(DialogVolumeBar.xml)</visible>
             <visible>!Window.IsVisible(DialogKaiToast.xml)</visible>
             <visible>!Window.IsVisible(DialogExtendedProgressBar.xml)</visible>

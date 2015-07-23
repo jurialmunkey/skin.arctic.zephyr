@@ -137,7 +137,14 @@
                         <bottom>10</bottom>
                         <height>8</height>
                         <info>Player.Progress</info>
-                        <visible>true</visible>
+                        <visible>!Player.Seeking</visible>
+                    </control>
+                    <control type="progress" id="401">
+                        <description>Progress Bar</description>
+                        <width>100%</width>
+                        <bottom>10</bottom>
+                        <height>8</height>
+                        <visible>Player.Seeking</visible>
                     </control>
                 </control>
             </control>
