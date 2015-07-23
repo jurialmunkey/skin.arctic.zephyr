@@ -121,14 +121,26 @@
                         <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                         <label>$INFO[Player.Time]$INFO[Player.Duration,  /  ,]</label>
                     </control>
-          
+
+                    <control type="progress" description="cachelevel">
+                        <description>Progress Bar</description>
+                        <width>100%</width>
+                        <bottom>10</bottom>
+                        <height>8</height>
+                        <info>Player.CacheLevel</info>
+                        <texturebg colordiffuse="00ffffff">osd/progress-bg.png</texturebg>
+                        <lefttexture colordiffuse="$VAR[ColourHighlight]">osd/progress-end.png</lefttexture>
+                        <midtexture colordiffuse="$VAR[ColourHighlight2]">osd/progress-end.png</midtexture>
+                        <righttexture colordiffuse="$VAR[ColourHighlight2]">osd/progress-end.png</righttexture>
+                        <visible>Player.Seeking</visible>
+                    </control>
                     <control type="progress" description="cache">
                         <description>Progress Bar</description>
                         <width>100%</width>
                         <bottom>10</bottom>
                         <height>8</height>
                         <info>Player.ProgressCache</info>
-                        <visible>true</visible>
+                        <reveal>true</reveal>
                         <texturebg colordiffuse="00ffffff">osd/progress-bg.png</texturebg>
                         <lefttexture colordiffuse="$VAR[ColourHighlight2]">osd/progress-end.png</lefttexture>
                         <midtexture colordiffuse="$VAR[ColourHighlight2]">osd/progress-end.png</midtexture>
@@ -140,7 +152,14 @@
                         <bottom>10</bottom>
                         <height>8</height>
                         <info>Player.Progress</info>
-                        <visible>true</visible>
+                        <visible>!Player.Seeking</visible>
+                    </control>
+                    <control type="progress" id="401">
+                        <description>Progress Bar</description>
+                        <width>100%</width>
+                        <bottom>10</bottom>
+                        <height>8</height>
+                        <visible>Player.Seeking</visible>
                     </control>
                 </control>
             </control>

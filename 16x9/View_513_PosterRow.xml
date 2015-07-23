@@ -1410,36 +1410,47 @@
 		<value>$INFO[ListItem(9).Icon]</value>
 	</variable>
 	<variable name="IconOverlay-1Var">
-		<value condition="StringCompare(ListItem(-1).Overlay,OverlayWatched.png)">indicator/checkmark.png</value>
+		<value condition="StringCompare(ListItem(-1).Overlay,OverlayWatched.png) + !Skin.HasSetting(furniture.unwatched)">indicator/watched.png</value>
+		<value condition="StringCompare(ListItem(-1).Overlay,OverlayUnwatched.png) + Skin.HasSetting(furniture.unwatched)">indicator/unwatched2.png</value>
 	</variable>
 	<variable name="IconOverlay0Var">
-		<value condition="StringCompare(ListItem.Overlay,OverlayWatched.png)">indicator/checkmark.png</value>
+		<value condition="StringCompare(ListItem.Overlay,OverlayWatched.png) + !Skin.HasSetting(furniture.unwatched)">indicator/watched.png</value>
+		<value condition="StringCompare(ListItem.Overlay,OverlayUnwatched.png) + Skin.HasSetting(furniture.unwatched)">indicator/unwatched2.png</value>
 	</variable>
 	<variable name="IconOverlay1Var">
-		<value condition="StringCompare(ListItem(1).Overlay,OverlayWatched.png)">indicator/checkmark.png</value>
+		<value condition="StringCompare(ListItem(1).Overlay,OverlayWatched.png) + !Skin.HasSetting(furniture.unwatched)">indicator/watched.png</value>
+		<value condition="StringCompare(ListItem(1).Overlay,OverlayUnwatched.png) + Skin.HasSetting(furniture.unwatched)">indicator/unwatched2.png</value>
 	</variable>
 	<variable name="IconOverlay2Var">
-		<value condition="StringCompare(ListItem(2).Overlay,OverlayWatched.png)">indicator/checkmark.png</value>
+		<value condition="StringCompare(ListItem(2).Overlay,OverlayWatched.png) + !Skin.HasSetting(furniture.unwatched)">indicator/watched.png</value>
+		<value condition="StringCompare(ListItem(2).Overlay,OverlayUnwatched.png) + Skin.HasSetting(furniture.unwatched)">indicator/unwatched2.png</value>
 	</variable>
 	<variable name="IconOverlay3Var">
-		<value condition="StringCompare(ListItem(3).Overlay,OverlayWatched.png)">indicator/checkmark.png</value>
+		<value condition="StringCompare(ListItem(3).Overlay,OverlayWatched.png) + !Skin.HasSetting(furniture.unwatched)">indicator/watched.png</value>
+		<value condition="StringCompare(ListItem(3).Overlay,OverlayUnwatched.png) + Skin.HasSetting(furniture.unwatched)">indicator/unwatched2.png</value>
 	</variable>
 	<variable name="IconOverlay4Var">
-		<value condition="StringCompare(ListItem(4).Overlay,OverlayWatched.png)">indicator/checkmark.png</value>
+		<value condition="StringCompare(ListItem(4).Overlay,OverlayWatched.png) + !Skin.HasSetting(furniture.unwatched)">indicator/watched.png</value>
+		<value condition="StringCompare(ListItem(4).Overlay,OverlayUnwatched.png) + Skin.HasSetting(furniture.unwatched)">indicator/unwatched2.png</value>
 	</variable>
 	<variable name="IconOverlay5Var">
-		<value condition="StringCompare(ListItem(5).Overlay,OverlayWatched.png)">indicator/checkmark.png</value>
+		<value condition="StringCompare(ListItem(5).Overlay,OverlayWatched.png) + !Skin.HasSetting(furniture.unwatched)">indicator/watched.png</value>
+		<value condition="StringCompare(ListItem(5).Overlay,OverlayUnwatched.png) + Skin.HasSetting(furniture.unwatched)">indicator/unwatched2.png</value>
 	</variable>
 	<variable name="IconOverlay6Var">
-		<value condition="StringCompare(ListItem(6).Overlay,OverlayWatched.png)">indicator/checkmark.png</value>
+		<value condition="StringCompare(ListItem(6).Overlay,OverlayWatched.png) + !Skin.HasSetting(furniture.unwatched)">indicator/watched.png</value>
+		<value condition="StringCompare(ListItem(6).Overlay,OverlayUnwatched.png) + Skin.HasSetting(furniture.unwatched)">indicator/unwatched2.png</value>
 	</variable>
 	<variable name="IconOverlay7Var">
-		<value condition="StringCompare(ListItem(7).Overlay,OverlayWatched.png)">indicator/checkmark.png</value>
+		<value condition="StringCompare(ListItem(7).Overlay,OverlayWatched.png) + !Skin.HasSetting(furniture.unwatched)">indicator/watched.png</value>
+		<value condition="StringCompare(ListItem(7).Overlay,OverlayWatched.png) + Skin.HasSetting(furniture.unwatched)">indicator/unwatched2.png</value>
 	</variable>
 	<variable name="IconOverlay8Var">
-		<value condition="StringCompare(ListItem(8).Overlay,OverlayWatched.png)">indicator/checkmark.png</value>
+		<value condition="StringCompare(ListItem(8).Overlay,OverlayWatched.png) + !Skin.HasSetting(furniture.unwatched)">indicator/watched.png</value>
+		<value condition="StringCompare(ListItem(8).Overlay,OverlayUnwatched.png) + Skin.HasSetting(furniture.unwatched)">indicator/unwatched2.png</value>
 	</variable>
 	<variable name="IconOverlay9Var">
-		<value condition="StringCompare(ListItem(9).Overlay,OverlayWatched.png)">indicator/checkmark.png</value>
+		<value condition="StringCompare(ListItem(9).Overlay,OverlayWatched.png) + !Skin.HasSetting(furniture.unwatched)">indicator/watched.png</value>
+		<value condition="StringCompare(ListItem(9).Overlay,OverlayUnwatched.png) + Skin.HasSetting(furniture.unwatched)">indicator/unwatched2.png</value>
 	</variable>
 </includes>

@@ -59,6 +59,17 @@
 				</animation>
 				<visible>Skin.HasSetting(furniture.logo.animate)</visible>
 			</control>
+			<control type="label">
+				<top>160</top>
+				<height>40</height>
+				<aligny>center</aligny>
+				<width>1920</width>
+				<align>center</align>
+				<font>MediumBoldCapital</font>
+				<textcolor>Dark3</textcolor>
+				<label>$INFO[Window.Property(Filter_Label)]</label>
+				<animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(500)">Conditional</animation>
+			</control>
 			<control type="panel" id="500">
 				<animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(500)">Conditional</animation>
 				<top>206</top>
@@ -93,9 +104,8 @@
 						<width>32</width>
 						<height>32</height>
 						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatched]</texture>
+						<texture>$VAR[PercentWatchedViews]</texture>
 						<visible>!stringcompare(ListItem.Label,..)</visible>
-						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
 					</control>
 					<control type="image">
 						<top>11</top>
@@ -128,9 +138,8 @@
 						<width>32</width>
 						<height>32</height>
 						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatched]</texture>
+						<texture>$VAR[PercentWatchedViews]</texture>
 						<visible>!stringcompare(ListItem.Label,..)</visible>
-						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
 					</control>
 					<control type="image">
 						<top>11</top>
