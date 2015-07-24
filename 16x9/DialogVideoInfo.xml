@@ -4,11 +4,9 @@
     <zorder>0</zorder>
     <onload condition="System.HasAddon(script.videoextras)">RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
     <onload>Control.Move(5000,$INFO[Container(5000).CurrentItem,-])</onload>
-    <onload condition="SubString(System.BuildVersion,15,left)">Control.Move(5000,1)</onload>
-    <onload condition="!SubString(System.BuildVersion,15,left)">Control.Move(5000,0)</onload>
+    <onload>Control.Move(5000,1)</onload>
     <onload>Control.Move(50,$INFO[Container(50).CurrentItem,-])</onload>
-    <onload condition="SubString(System.BuildVersion,15,left)">Control.Move(50,1)</onload>
-    <onload condition="!SubString(System.BuildVersion,15,left)">Control.Move(50,0)</onload>
+    <onload>Control.Move(50,1)</onload>
     <onload condition="!IsEmpty(Container(50).ListItemNoWrap(0).Label)">SetProperty(Actor1,$INFO[Container(50).ListItemNoWrap(0).Label])</onload>
     <onload condition="!IsEmpty(Container(50).ListItemNoWrap(1).Label)">SetProperty(Actor2,$INFO[Container(50).ListItemNoWrap(1).Label])</onload>
     <onload condition="!IsEmpty(Container(50).ListItemNoWrap(2).Label)">SetProperty(Actor3,$INFO[Container(50).ListItemNoWrap(2).Label])</onload>
@@ -759,7 +757,7 @@
                                 <width>150</width>
                                 <height>74</height>
                                 <aspectratio aligny="center" align="center">keep</aspectratio>
-                                <texture colordiffuse="Black100">$INFO[Window(home).Property(ListItemColourStudioLogo)]</texture>
+                                <texture>resource://resource.images.studios.coloured/$INFO[Window(home).Property(ListItemStudioLabel),,.png]</texture>
                                 <visible>!IsEmpty(Control.GetLabel(800011)) + Container.Content(movies)</visible>
                             </control>
                             <control type="label">

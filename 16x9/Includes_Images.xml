@@ -66,7 +66,8 @@
 		<value condition="Container.Content(seasons)">$INFO[ListItem.Icon]</value>
 		<value condition="!IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/moviegenres/,.jpg]</value>
+		<value condition="Container.Content(genres) + Window.IsVisible(MyVideoNav.xml)">resource://resource.images.moviegenreicons.coloured/$INFO[Listitem.Label,,.jpg]</value>
+		<value condition="Container.Content(genres) + Window.IsVisible(MyMusicNav.xml)">resource://resource.images.musicgenreicons.text/$INFO[Listitem.Label,,.jpg]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="WidgetImage">
@@ -76,7 +77,8 @@
 	</variable>
 	<variable name="ThumbImage">
 		<value condition="Window.IsVisible(MyVideoNav.xml) + Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets)">$VAR[FanartImage]</value>
-		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/moviegenres/,.jpg]</value>
+		<value condition="Container.Content(genres) + Window.IsVisible(MyVideoNav.xml)">resource://resource.images.moviegenreicons.coloured/$INFO[Listitem.Label,,.jpg]</value>
+		<value condition="Container.Content(genres) + Window.IsVisible(MyMusicNav.xml)">resource://resource.images.musicgenreicons.text/$INFO[Listitem.Label,,.jpg]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="PlayerPoster">
@@ -89,7 +91,8 @@
 		<value condition="!IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
 		<value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
-		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/moviegenres/,.jpg]</value>
+		<value condition="Container.Content(genres) + Window.IsVisible(MyVideoNav.xml)">resource://resource.images.moviegenreicons.coloured/$INFO[Listitem.Label,,.jpg]</value>
+		<value condition="Container.Content(genres) + Window.IsVisible(MyMusicNav.xml)">resource://resource.images.musicgenreicons.text/$INFO[Listitem.Label,,.jpg]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="FanartImage">
@@ -100,7 +103,8 @@
 		<value condition="!IsEmpty(ListItem.Art(landscape)) + !Container.Content(episodes)">$INFO[ListItem.Art(landscape)]</value>
 		<value condition="!IsEmpty(ListItem.Art(tvshow.landscape)) + !Container.Content(episodes)">$INFO[ListItem.Art(tvshow.landscape)]</value>
 		<value condition="!IsEmpty(ListItem.Thumb) + !Container.Content(episodes)">$INFO[ListItem.Thumb]</value>
-		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/moviegenres/,.jpg]</value>
+		<value condition="Container.Content(genres) + Window.IsVisible(MyVideoNav.xml)">resource://resource.images.moviegenreicons.coloured/$INFO[Listitem.Label,,.jpg]</value>
+		<value condition="Container.Content(genres) + Window.IsVisible(MyMusicNav.xml)">resource://resource.images.musicgenreicons.text/$INFO[Listitem.Label,,.jpg]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="LandscapeImage">
@@ -111,7 +115,8 @@
 		<value condition="!IsEmpty(ListItem.Art(tvshow.landscape)) + !Container.Content(episodes)">$INFO[ListItem.Art(tvshow.landscape)]</value>
 		<value condition="!IsEmpty(ListItem.Art(fanart)) + !Container.Content(episodes)">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="!IsEmpty(ListItem.Thumb) + !Container.Content(episodes)">$INFO[ListItem.Thumb]</value>
-		<value condition="Container.Content(genres)">$INFO[ListItem.Label,special://skin/extras/moviegenres/,.jpg]</value>
+		<value condition="Container.Content(genres) + Window.IsVisible(MyVideoNav.xml)">resource://resource.images.moviegenreicons.coloured/$INFO[Listitem.Label,,.jpg]</value>
+		<value condition="Container.Content(genres) + Window.IsVisible(MyMusicNav.xml)">resource://resource.images.musicgenreicons.text/$INFO[Listitem.Label,,.jpg]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="MusicImage">
@@ -162,13 +167,14 @@
 		<value condition="!IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
 	</variable>
 	<variable name="CDArt">
-		<value condition="!container.content(movies)">$INFO[Window(home).Property(ListItemStudioLogo)]</value>
+		<value condition="!container.content(movies)">resource://resource.images.studios.coloured/$INFO[Window(home).Property(ListItemStudioLabel),,.png]</value>
 		<value condition="!IsEmpty(ListItem.Art(discart))">$INFO[ListItem.Art(discart)]</value>
 		<value condition="IntegerGreaterThan(ListItem.VideoResolution,719)">cdart/bd.png</value>
 		<value condition="!IsEmpty(ListItem.VideoResolution)">cdart/default.png</value>
 	</variable>
 	<variable name="Studio">
-		<value condition="!IsEmpty(ListItem.Studio)">$INFO[Window(home).Property(ListItemStudioLogo)]</value>
+		<value condition="!IsEmpty(ListItem.Studio) + !Skin.HasSetting(furniture.flags.colour)">resource://resource.images.studios.white/$INFO[Window(home).Property(ListItemStudioLabel),,.png]</value>
+		<value condition="!IsEmpty(ListItem.Studio) + Skin.HasSetting(furniture.flags.colour)">resource://resource.images.studios.coloured/$INFO[Window(home).Property(ListItemStudioLabel),,.png]</value>
 	</variable>
 	<variable name="ExtendedOverlayInfo">
 		<value condition="StringCompare(Container(3226).ListItem(6).Label,PlayedCount:) + !IntegerGreaterThan(Container(3226).ListItem(6).Label2,0)">indicator/watched.png</value>

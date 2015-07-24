@@ -1092,6 +1092,8 @@
 		<value condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-VideoList.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">$LOCALIZE[31242]</value>
 		<value condition="Window.IsVisible(LoginScreen.xml)">$LOCALIZE[10029]</value>
 		<value condition="[Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml)]">[COLOR=$VAR[ColourHighlight]]$INFO[Container.NumItems,,[/COLOR] $LOCALIZE[31101]]$INFO[Control.GetLabel(3), • ,]$INFO[Control.GetLabel(28), • ,]</value>
+		<value condition="!IsEmpty(Container.NumItems) + !Window.IsVisible(home) + Skin.HasSetting(furniture.unwatched) + Window.IsVisible(MyVideoNav.xml)">[COLOR=$VAR[ColourHighlight]]$INFO[Container.NumItems,,[/COLOR] $LOCALIZE[31101] • ][COLOR=$VAR[ColourHighlight]]$INFO[Container.TotalUnwatched,,[/COLOR] $LOCALIZE[16101]]$INFO[Control.GetLabel(3), • ,]</value>
+		<value condition="!IsEmpty(Container.NumItems) + !Window.IsVisible(home) + !Skin.HasSetting(furniture.unwatched) + Window.IsVisible(MyVideoNav.xml)">[COLOR=$VAR[ColourHighlight]]$INFO[Container.NumItems,,[/COLOR] $LOCALIZE[31101] • ][COLOR=$VAR[ColourHighlight]]$INFO[Container.TotalWatched,,[/COLOR] $LOCALIZE[16102]]$INFO[Control.GetLabel(3), • ,]</value>
 		<value condition="!IsEmpty(Container.NumItems) + !Window.IsVisible(home)">[COLOR=$VAR[ColourHighlight]]$INFO[Container.NumItems,,[/COLOR] $LOCALIZE[31101]]$INFO[Control.GetLabel(3), • ,]</value>
 		<value condition="!IsEmpty(Container(9500).NumItems) + !Window.IsVisible(home)">[COLOR=$VAR[ColourHighlight]]$INFO[Container(9500).NumItems,,[/COLOR] $LOCALIZE[31101]]</value>
 		<value condition="Window.IsVisible(MyWeather.xml) + !IsEmpty(Window(Weather).Property(Location))">[COLOR=$VAR[ColourHighlight]]$INFO[Weather.Temperature,,[/COLOR] ]$INFO[Window(Weather).Property(Location)]</value>
@@ -1448,7 +1450,6 @@
 				<texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar1].png</texture>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
 				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
-
 			</control>
 			<control type="image">
 				<width>64</width>
@@ -1457,7 +1458,6 @@
 				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[HomeFlagstar1].png</texture>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
 				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
-
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1468,7 +1468,6 @@
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
 				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
-
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1479,7 +1478,6 @@
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
 				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
-
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1490,7 +1488,6 @@
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
 				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
-
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1501,7 +1498,6 @@
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
 				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
-
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1512,7 +1508,6 @@
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
 				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
-
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1523,7 +1518,6 @@
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
 				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
-
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1534,7 +1528,6 @@
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
 				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
-
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1545,7 +1538,6 @@
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
 				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
-
 			</control>
 			<control type="label">
 				<left>-16</left>
