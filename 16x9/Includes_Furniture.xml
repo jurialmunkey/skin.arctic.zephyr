@@ -585,7 +585,7 @@
 				<visible>substring(ListItem.FilenameAndPath,dvd) + !substring(ListItem.FilenameAndPath,hddvd)</visible>
 			</control>
 		</control>
-		<control type="grouplist">
+		<control type="group">
 			<visible>!Skin.HasSetting(furniture.flags)</visible>
 			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
@@ -596,22 +596,21 @@
 			<centerbottom>60</centerbottom>
 			<width>1920</width>
 			<height>120</height>
-			<orientation>horizontal</orientation>
 			<align>left</align>
-			<itemgap>8</itemgap>
-			<usecontrolcoords>true</usecontrolcoords>
 			<control type="image">
+				<left>-15</left>
 				<centertop>50%</centertop>
-				<width>73</width>
-				<height>52</height>
+				<width>103</width>
+				<height>103</height>
 				<texture colordiffuse="Dark1">$VAR[Studio]</texture>
 				<aspectratio align="left">keep</aspectratio>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">
+				<left>-15</left>
 				<centertop>50%</centertop>
-				<width>73</width>
-				<height>52</height>
+				<width>103</width>
+				<height>103</height>
 				<texture>$VAR[Studio]</texture>
 				<aspectratio align="left">keep</aspectratio>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
