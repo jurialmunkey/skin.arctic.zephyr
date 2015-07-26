@@ -247,6 +247,7 @@
             <align>right</align>
             <include>DefOSDButtons</include>
             <label>19032</label>
+            <onclick>Close</onclick>
             <onclick>ActivateWindow(tvguide,,return)</onclick>
         </control>
     </include>
@@ -410,10 +411,10 @@
             
             <control type="button" id="3">
                 <description>Playlist</description>
-                <onclick>ActivateWindow(MusicPlaylist)</onclick>
+                <onclick>Close</onclick>
+                <onclick>ActivateWindow(musicplaylist)</onclick>
                 <width>48</width>
                 <height>48</height>
-                <label></label>
                 <font>noop</font>
                 <include>DefOSDUpDown</include>
                 <texturefocus colordiffuse="$VAR[ColorHighlight]">osd/playlist.png</texturefocus>
@@ -601,7 +602,8 @@
             
             <control type="button" id="3">
                 <description>Playlist</description>
-                <onclick>ActivateWindow(MusicPlaylist)</onclick>
+                <onclick>Close</onclick>
+                <onclick>ActivateWindow(musicplaylist)</onclick>
                 <width>48</width>
                 <height>48</height>
                 <label></label>
