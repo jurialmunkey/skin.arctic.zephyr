@@ -14,7 +14,7 @@
 				<height>700</height>
 				<onback condition="Window.IsVisible(MyPVRGuide.xml) + Control.IsVisible(10)">ActivateWindow(home)</onback>
 				<include>Def9000GroupList</include>
-			<!--	<control type="button" id="9001">
+				<control type="button" id="9001">
 					<description>Channels</description>
 					<label>19019</label>
 					<onclick>ActivateWindow(TVChannels)</onclick>
@@ -48,7 +48,7 @@
 					<onclick>ActivateWindow(TVSearch)</onclick>
 					<include>DefContextButton</include>
 					<align>left</align>
-				</control> -->
+				</control>
 				<!-- PVR options -->
 				<!-- <control type="label" id="9010">
 					<description>Channels</description>
@@ -81,18 +81,26 @@
 					<label>584</label>
 					<altlabel>585</altlabel>
 				</control>
-				<control type="radiobutton" id="31">
-					<description>Filter</description>
-					<include>DefContextButton</include>
-					<label>587</label>
-					<selected>Container.Filtered</selected>
-					<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)</visible>
-				</control>
 				<control type="radiobutton" id="6">
-					<description>Show hidden channels</description>
-					<include>DefContextButton</include>
+					<description>Show Hidden Channels</description>
 					<label>19051</label>
-					<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)</visible>
+					<include>DefContextButton</include>
+					<align>left</align>
+					<visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+				</control>
+				<control type="radiobutton" id="7">
+					<description>Show Hidden Channels</description>
+					<label>19184</label>
+					<visible>Window.IsVisible(MyPVRRecordings.xml)</visible>
+					<include>DefContextButton</include>
+					<align>left</align>
+				</control>
+				<control type="button" id="31">
+					<description>Filter</description>
+					<label>587</label>
+					<include>DefContextButton</include>
+					<align>left</align>
+					<visible>Window.IsVisible(MyPVRChannels.xml)</visible>
 				</control>
 				<control type="radiobutton" id="123">
 					<include>DefContextButton</include>
@@ -126,18 +134,6 @@
 					<onclick>Skin.ToggleSetting(EPGArt.Enabled)</onclick>
 					<align>left</align>
 					<visible>Control.IsVisible(10)</visible>
-				</control>
-				<control type="button" id="3">
-					<description>Sort</description>
-					<include>DefContextButton</include>
-					<align>left</align>
-				</control>
-				<control type="togglebutton" id="4">
-					<description>Direction</description>
-					<include>DefContextButton</include>
-					<align>left</align>
-					<label>584</label>
-					<altlabel>585</altlabel>
 				</control>
 			</control>
 		</control>

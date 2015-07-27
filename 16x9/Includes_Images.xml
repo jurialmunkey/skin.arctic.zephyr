@@ -96,6 +96,7 @@
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="FanartImage">
+		<value condition="substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left)">$INFO[ListItem.Icon]</value>
 		<value condition="Container.Content(episodes) + [!Skin.HasSetting(osd.hidespoilers) | [Skin.HasSetting(osd.hidespoilers) + stringcompare(ListItem.Overlay,OverlayWatched.png)]]">$INFO[ListItem.Icon]</value>
 		<value condition="Skin.HasSetting(osd.hidespoilers) + Container.Content(episodes) + [stringcompare(ListItem.Overlay,OverlayUnWatched.png) | ListItem.IsResumable]">$INFO[ListItem.Art(tvshow.landscape)]</value>
 		<value condition="Skin.HasSetting(osd.hidespoilers) + Container.Content(episodes) + ![stringcompare(ListItem.Overlay,OverlayUnWatched.png) + ListItem.IsResumable]">$INFO[ListItem.Icon]</value>
@@ -108,6 +109,7 @@
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="LandscapeImage">
+		<value condition="substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left)">$INFO[ListItem.Icon]</value>
 		<value condition="Container.Content(episodes) + [!Skin.HasSetting(osd.hidespoilers) | [Skin.HasSetting(osd.hidespoilers) + stringcompare(ListItem.Overlay,OverlayWatched.png)]]">$INFO[ListItem.Icon]</value>
 		<value condition="Skin.HasSetting(osd.hidespoilers) + Container.Content(episodes) + [stringcompare(ListItem.Overlay,OverlayUnWatched.png) | ListItem.IsResumable]">$INFO[ListItem.Art(tvshow.landscape)]</value>
 		<value condition="Skin.HasSetting(osd.hidespoilers) + Container.Content(episodes) + ![stringcompare(ListItem.Overlay,OverlayUnWatched.png) + ListItem.IsResumable]">$INFO[ListItem.Icon]</value>
