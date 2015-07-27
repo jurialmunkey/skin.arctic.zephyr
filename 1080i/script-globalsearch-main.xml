@@ -1,7 +1,8 @@
 <window type="dialog">
     <defaultcontrol always="true">9500</defaultcontrol>
     <backgroundcolor>0</backgroundcolor>
-    
+    <onload>SetProperty(globalsearch,1,home)</onload>
+    <onunload>ClearProperty(globalsearch,home)</onunload>
     <controls>
         <control type="group">
             <include>Animation.FadeIn</include>
@@ -15,20 +16,31 @@
         <control type="group" id="100">
             
             <control type="group">
-                <visible>!Window.IsVisible(script-globalsearch-infodialog.xml)</visible>            
+                <!-- <visible>!Window.IsVisible(script-globalsearch-infodialog.xml)</visible>-->
+                <visible>!Window.IsVisible(script-ExtendedInfo Script-VideoList.xml) + !Window.IsVisible(DialogAddonInfo.xml) + !Window.IsVisible(DialogPVRRecordingInfo.xml) + !Window.IsVisible(DialogPVRGuideInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml) + !Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
+                <animation type="WindowOpen" reversible="false">
+                    <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
+                    <effect type="zoom" start="50" end="100" time="300" center="auto" tween="quadratic" easing="out" />
+                </animation>
+                <animation type="WindowClose" reversible="false">
+                    <effect type="fade" end="0" start="100" time="200" tween="sine" easing="out" />
+                    <effect type="zoom" end="75" start="100" time="200" center="auto" tween="quadratic" easing="in" />
+                </animation>
+                <animation type="Visible" reversible="false">
+                    <effect type="fade" start="0" end="100" time="300" delay="300" tween="sine" easing="in" />
+                    <effect type="zoom" start="115" end="100" time="300" delay="300" center="auto" tween="sine" easing="out" />
+                </animation>
+                <animation type="Hidden" reversible="false">
+                    <effect type="zoom" start="100" end="115" center="auto" tween="sine" delay="0" easing="out" time="300" />
+                    <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
+                </animation>
+                <animation type="Conditional" reversible="true" condition="Window.IsVisible(script-skinshortcuts.xml) | Window.IsVisible(DialogSongInfo.xml) | Window.IsVisible(DialogPictureInfo.xml) | Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogProgress.xml) | Window.IsVisible(DialogYesNo.xml) | Window.IsVisible(DialogOK.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml) | ControlGroup(9000).HasFocus()">
+                    <effect type="zoom" end="95" start="100" time="200" center="auto" tween="quadratic" easing="in" />
+                </animation>
                 <left>SidePad</left>
                 <right>SidePad</right>
                 <top>PosterPad</top>
                 <bottom>SidePad</bottom>
-                <include>Animation.FadeIn.Slide</include>
-                <include>Animation.FadeOut</include>
-                <!-- <control type="image">
-                    <left>-8</left>
-                    <right>-8</right>
-                    <top>-8</top>
-                    <bottom>-8</bottom>
-                    <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
-                </control> -->
                 <control type="group">
                     <visible>Control.IsVisible(60)</visible>
                     <control type="image">
@@ -69,40 +81,7 @@
                     <itemgap>0</itemgap>
                     <pagecontrol>60</pagecontrol>
                     <orientation>vertical</orientation>
-                    <control type="group" id="219" description="Actors">
-                        <include>GlobalSearchGroup</include>
-                        <control type="label">
-                            <include>GlobalSearchLabel</include>
-                            <label>$INFO[Control.GetLabel(210),$LOCALIZE[20337] (,)]</label>
-                        </control>
-                        
-                        <control type="list" id="211">
-                            <onup>181</onup>
-                            <ondown>111</ondown>
-                            <include>GlobalSearchList</include>
-                            <focusedlayout height="220" width="442">
-                                <control type="group">
-                                    <visible>!Control.HasFocus(211)</visible>
-                                    <include>GlobalSearchListItem</include>
-                                </control>
-                                <control type="group">
-                                    <visible>Control.HasFocus(211)</visible>
-                                    <include>GlobalSearchListFocus</include>
-                                </control>
-                            </focusedlayout>
-                        </control>
-                        <control type="group">
-                            <include>Animation.DelayFadeIn</include>
-                            <include>Animation.FadeOut</include>
-                            <visible>Control.HasFocus(211) + IntegerGreaterThan(Container(211).NumItems,4)</visible>
-                            <control type="image">
-                                <include>GlobalSearchLeftArrow</include>
-                            </control>
-                            <control type="image">
-                                <include>GlobalSearchRightArrow</include>
-                            </control>
-                        </control>
-                    </control>
+                    
                     <control type="group" id="119" description="Movies">
                         <include>GlobalSearchGroup</include>
                         <control type="label">
@@ -359,6 +338,41 @@
                             <include>Animation.DelayFadeIn</include>
                             <include>Animation.FadeOut</include>
                             <visible>Control.HasFocus(181) + IntegerGreaterThan(Container(181).NumItems,4)</visible>
+                            <control type="image">
+                                <include>GlobalSearchLeftArrow</include>
+                            </control>
+                            <control type="image">
+                                <include>GlobalSearchRightArrow</include>
+                            </control>
+                        </control>
+
+                    </control>
+                    <control type="group" id="219" description="Actors">
+                        <include>GlobalSearchGroup</include>
+                        <control type="label">
+                            <include>GlobalSearchLabel</include>
+                            <label>$INFO[Control.GetLabel(210),$LOCALIZE[20337] (,)]</label>
+                        </control>
+                        
+                        <control type="list" id="211">
+                            <onup>181</onup>
+                            <ondown>111</ondown>
+                            <include>GlobalSearchList</include>
+                            <focusedlayout height="220" width="442">
+                                <control type="group">
+                                    <visible>!Control.HasFocus(211)</visible>
+                                    <include>GlobalSearchListItem</include>
+                                </control>
+                                <control type="group">
+                                    <visible>Control.HasFocus(211)</visible>
+                                    <include>GlobalSearchListFocus</include>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                        <control type="group">
+                            <include>Animation.DelayFadeIn</include>
+                            <include>Animation.FadeOut</include>
+                            <visible>Control.HasFocus(211) + IntegerGreaterThan(Container(211).NumItems,4)</visible>
                             <control type="image">
                                 <include>GlobalSearchLeftArrow</include>
                             </control>

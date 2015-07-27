@@ -116,6 +116,7 @@
                         <label>208</label>
                         <include>DefInfoButtons</include>
                         <visible>!IsEmpty(Window.Property(movie.DBID)) + !Stringcompare(Window.Property(Type),tvshow)</visible>
+                        <visible>IsEmpty(Window(home).Property(globalsearch))</visible>
                     </control>
 
                     <control type="button" id ="120">
@@ -123,6 +124,7 @@
                         <label>21385</label>
                         <include>DefInfoButtons</include>
                         <visible>!IsEmpty(Window.Property(movie.DBID)) + Stringcompare(Window.Property(Type),tvshow)</visible>
+                        <visible>IsEmpty(Window(home).Property(globalsearch))</visible>
                     </control>
 
                     <control type="button" id ="9002">
