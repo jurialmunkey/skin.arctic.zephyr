@@ -39,7 +39,7 @@
 						<texture>$VAR[PercentWatched]</texture>
 						<visible>!stringcompare(ListItem.Label,..)</visible>
 						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
-						<visible>!Skin.HasSetting(views.155.showtick)</visible>
+						<visible>!Skin.HasSetting(views.156.showtick)</visible>
 					</control>
 				</itemlayout>
 				<focusedlayout condition="Container.Row(0) | Container.Row(1)" width="256" height="360">
@@ -56,6 +56,17 @@
 						<bottom>180</bottom>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+					</control>
+					<control type="image">
+						<right>128</right>
+						<centertop>16</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
+						<visible>!Skin.HasSetting(views.156.showtick)</visible>
 					</control>
 					<control type="image">
 						<left>0</left>
