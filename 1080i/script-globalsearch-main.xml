@@ -13,21 +13,22 @@
             <include>Furniture_Weather</include>
         </control>
         <control type="group" id="100">
-            <visible>!Window.IsVisible(script-globalsearch-infodialog.xml)</visible>            
+            
             <control type="group">
+                <visible>!Window.IsVisible(script-globalsearch-infodialog.xml)</visible>            
                 <left>SidePad</left>
                 <right>SidePad</right>
-                <top>SidePad</top>
+                <top>PosterPad</top>
                 <bottom>SidePad</bottom>
                 <include>Animation.FadeIn.Slide</include>
                 <include>Animation.FadeOut</include>
-                <control type="image">
+                <!-- <control type="image">
                     <left>-8</left>
                     <right>-8</right>
                     <top>-8</top>
                     <bottom>-8</bottom>
                     <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
-                </control>
+                </control> -->
                 <control type="group">
                     <visible>Control.IsVisible(60)</visible>
                     <control type="image">
@@ -35,15 +36,15 @@
                         <centerleft>50%</centerleft>
                         <width>16</width>
                         <height>16</height>
-                        <texture colordiffuse="Light2" flipy="true">common/arrow-small.png</texture>
+                        <texture colordiffuse="Dark2" flipy="true">common/arrow-small.png</texture>
                         <animation effect="fade" end="100" start="0" delay="300" time="400" reversible="false">Visible</animation>
                     </control>
                     <control type="image">
-                        <bottom>-30</bottom>
+                        <bottom>100</bottom>
                         <centerleft>50%</centerleft>
                         <width>16</width>
                         <height>16</height>
-                        <texture colordiffuse="Light2" flipy="false">common/arrow-small.png</texture>
+                        <texture colordiffuse="Dark2" flipy="false">common/arrow-small.png</texture>
                         <animation effect="fade" end="100" start="0" delay="300" time="400" reversible="false">Visible</animation>
                     </control>
                 </control>
@@ -52,17 +53,17 @@
                     <left>-1000</left>
                     <animation effect="fade" start="100" end="0" time="400" condition="true">Conditional</animation>
                 </control>
-                <control type="label" description="Searching">
+                <!-- <control type="label" description="Searching">
                     <centerleft>50%</centerleft>
                     <posy>10</posy>
                     <font>MediumBold</font>
                     <align>center</align>
                     <label fallback="283">$INFO[Control.GetLabel(190)]$INFO[Control.GetLabel(191)]$INFO[Control.GetLabel(199)]</label>
-                </control>
+                </control> -->
                 
                 <control type="grouplist" id="9500">
-                    <posy>80</posy>
-                    <height>810</height>
+                    <posy>0</posy>
+                    <height>660</height>
                     <left>0</left>
                     <right>0</right>
                     <itemgap>0</itemgap>
@@ -79,7 +80,7 @@
                             <onup>181</onup>
                             <ondown>111</ondown>
                             <include>GlobalSearchList</include>
-                            <focusedlayout height="220" width="428">
+                            <focusedlayout height="220" width="442">
                                 <control type="group">
                                     <visible>!Control.HasFocus(211)</visible>
                                     <include>GlobalSearchListItem</include>
@@ -112,7 +113,7 @@
                             <onup>211</onup>
                             <ondown>121</ondown>
                             <include>GlobalSearchList</include>
-                            <focusedlayout height="220" width="428">
+                            <focusedlayout height="220" width="442">
                                 <control type="group">
                                     <visible>!Control.HasFocus(111)</visible>
                                     <include>GlobalSearchListItem</include>
@@ -145,7 +146,7 @@
                             <include>GlobalSearchList</include>
                             <onup>111</onup>
                             <ondown>131</ondown>
-                            <focusedlayout height="220" width="428">
+                            <focusedlayout height="220" width="442">
                                 <control type="group">
                                     <visible>!Control.HasFocus(121)</visible>
                                     <include>GlobalSearchListItem</include>
@@ -178,7 +179,7 @@
                             <include>GlobalSearchList</include>
                             <onup>121</onup>
                             <ondown>141</ondown>
-                            <focusedlayout height="220" width="428">
+                            <focusedlayout height="220" width="442">
                                 <control type="group">
                                     <visible>!Control.HasFocus(131)</visible>
                                     <include>GlobalSearchListItem</include>
@@ -211,7 +212,7 @@
                             <include>GlobalSearchList</include>
                             <onup>131</onup>
                             <ondown>151</ondown>
-                            <focusedlayout height="220" width="428">
+                            <focusedlayout height="220" width="442">
                                 <control type="group">
                                     <visible>!Control.HasFocus(141)</visible>
                                     <include>GlobalSearchListItem</include>
@@ -244,7 +245,7 @@
                             <include>GlobalSearchList</include>
                             <onup>141</onup>
                             <ondown>161</ondown>
-                            <focusedlayout height="220" width="428">
+                            <focusedlayout height="220" width="442">
                                 <control type="group">
                                     <visible>!Control.HasFocus(151)</visible>
                                     <include>GlobalSearchListItem</include>
@@ -277,7 +278,7 @@
                             <include>GlobalSearchList</include>
                             <onup>151</onup>
                             <ondown>171</ondown>
-                            <focusedlayout height="220" width="428">
+                            <focusedlayout height="220" width="442">
                                 <control type="group">
                                     <visible>!Control.HasFocus(161)</visible>
                                     <include>GlobalSearchListItem</include>
@@ -310,7 +311,7 @@
                             <include>GlobalSearchList</include>
                             <onup>161</onup>
                             <ondown>181</ondown>
-                            <focusedlayout height="220" width="428">
+                            <focusedlayout height="220" width="442">
                                 <control type="group">
                                     <visible>!Control.HasFocus(171)</visible>
                                     <include>GlobalSearchListItem</include>
@@ -343,7 +344,7 @@
                             <include>GlobalSearchList</include>
                             <onup>171</onup>
                             <ondown>211</ondown>
-                            <focusedlayout height="220" width="428">
+                            <focusedlayout height="220" width="442">
                                 <control type="group">
                                     <visible>!Control.HasFocus(181)</visible>
                                     <include>GlobalSearchListItem</include>

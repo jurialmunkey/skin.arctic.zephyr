@@ -3,29 +3,35 @@
     <include name="GlobalSearchGroup">
         <left>0</left>
         <right>0</right>
-        <height>270</height>
+        <height>220</height>
     </include>
     <include name="GlobalSearchLabel">
-        <left>30</left>
+        <!-- <left>0</left>
+        <bottom>0</bottom>
         <height>40</height>
+        <width>220</width>
         <aligny>center</aligny>
         <font>TinyBold</font>
-        <textcolor>Black70</textcolor>
-        <align>left</align>
+        <textcolor>Dark2</textcolor>
+        <align>center</align>
+        <animation type="Conditional" condition="true">
+            <effect type="rotate" end="90" start="0" center="-10,220"/>
+        </animation> -->
+        <visible>false</visible>
     </include>
     <include name="GlobalSearchLeftArrow">
-        <centertop>150</centertop>
+        <centertop>100</centertop>
         <centerleft>15</centerleft>
         <width>16</width>
         <height>16</height>
-        <texture colordiffuse="Black70" flipx="true">common/arrow-small-right.png</texture>
+        <texture colordiffuse="white" flipx="true">common/arrow-small-right.png</texture>
     </include>
     <include name="GlobalSearchRightArrow">
-        <centertop>150</centertop>
+        <centertop>100</centertop>
         <centerright>15</centerright>
         <width>16</width>
         <height>16</height>
-        <texture colordiffuse="Black70" flipx="false">common/arrow-small-right.png</texture>
+        <texture colordiffuse="white" flipx="false">common/arrow-small-right.png</texture>
     </include>
     <variable name="GlobalSearchArt">
         <value condition="!IsEmpty(ListItem.Property(Fanart))">$INFO[ListItem.Property(Fanart)]</value>
@@ -104,12 +110,12 @@
         </control>
     </include>
     <include name="GlobalSearchList">
-        <posy>50</posy>
-        <left>30</left>
+        <posy>0</posy>
+        <left>0</left>
         <height>220</height>
-        <width>1712</width>
+        <width>1770</width>
         <orientation>horizontal</orientation>
-        <itemlayout height="220" width="428">
+        <itemlayout height="220" width="442">
             <include>GlobalSearchListItem</include>
         </itemlayout>
     </include>
