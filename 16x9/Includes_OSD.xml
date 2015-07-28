@@ -538,6 +538,18 @@
 					<font>Small</font>
 					<textcolor>$VAR[OSDPanelWhite70]</textcolor>
 					<label>$INFO[Player.FinishTime(hh:mm)]</label>
+					<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+				</control>
+				<control type="label">
+					<right>-45</right>
+					<left>220</left>
+					<height>100%</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<font>Small</font>
+					<textcolor>$VAR[OSDPanelWhite70]</textcolor>
+					<label>$INFO[ListItem.EndTime(hh:mm)]</label>
+					<visible>Window.IsVisible(DialogVideoInfo.xml)</visible>
 				</control>
 			</control>
 		</control>
