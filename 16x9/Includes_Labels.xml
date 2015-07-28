@@ -658,11 +658,11 @@
 		<value>$INFO[ListItem.VideoCodec]</value>
 	</variable>
 	<variable name="DurationLong">
-        <value condition="!Skin.HasSetting(furniture.alternate.duration)">$INFO[Window(videolibrary).Property(Duration), , $LOCALIZE[31102] ]</value>
-		<value>$INFO[ListItem.Duration,, $LOCALIZE[31102] ]</value>
+        <value condition="!Skin.HasSetting(furniture.alternate.duration)">$INFO[Window(videolibrary).Property(Duration), ,min]</value>
+		<value>$INFO[ListItem.Duration,,min]</value>
 	</variable>
 	<variable name="DurationLongVideoInfo">
-		<value condition="!Skin.HasSetting(furniture.alternate.duration)">$INFO[Window(movieinformation).Property(Duration), , $LOCALIZE[31102] ]</value>
-		<value>$INFO[ListItem.Duration,, $LOCALIZE[31102] ]</value>
+		<value condition="!Skin.HasSetting(furniture.alternate.duration)">$INFO[Window(movieinformation).Property(Duration), ,min]</value>
+		<value>$INFO[ListItem.Duration,,min]</value>
 	</variable>
 </includes>
