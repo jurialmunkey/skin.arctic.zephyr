@@ -383,6 +383,14 @@
 						<visible>ControlGroup(9100).HasFocus(9104)</visible>
 						<visible>Skin.HasSetting(widgets.cases)</visible>
 					</control>
+					<control type="radiobutton" id="92417" description="Rounded music on widgets">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9104)</visible>
+						<include>DefSettingsButton</include>
+						<label>Round corners for music in widgets/visulisation</label>
+						<selected>Skin.HasSetting(widgets.music.rounded)</selected>
+						<onclick>Skin.ToggleSetting(widgets.music.rounded)</onclick>
+					</control>
 					<control type="radiobutton" id="9242" description="Classic Widget Auto show">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9104)</visible>

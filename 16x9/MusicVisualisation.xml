@@ -73,6 +73,7 @@
                         <width>520</width>
                         <height>520</height>
                         <texture colordiffuse="$VAR[ColourHighlight]" border="20">thumbs/cd_shadow_glow.png</texture>
+                        <visible>Skin.HasSetting(widgets.music.rounded)</visible>
                     </control>
                     <control type="image">
                         <left>280</left>
@@ -100,6 +101,17 @@
                         <texture fallback="DefaultAlbumCover.png" diffuse="thumbs/cdcover_mask2.png">$VAR[PlayerPoster]</texture>
                         <aspectratio aligny="center" align="center">scale</aspectratio>
                         <bordertexture border="-90">thumbs/cd_shadow2.png</bordertexture>
+                        <visible>Skin.HasSetting(widgets.music.rounded)</visible>
+                    </control>
+                    <control type="image">
+                        <bottom>0</bottom>
+                        <width>460</width>
+                        <height>460</height>
+                        <fadetime>400</fadetime>
+                        <texture fallback="DefaultAlbumCover.png">$VAR[PlayerPoster]</texture>
+                        <aspectratio aligny="center" align="center">scale</aspectratio>
+                        <bordertexture border="-90">thumbs/cd_shadow2.png</bordertexture>
+                        <visible>!Skin.HasSetting(widgets.music.rounded)</visible>
                     </control>
                     <control type="image">
                         <bottom>0</bottom>
@@ -107,6 +119,7 @@
                         <height>460</height>
                         <aspectratio scalediffuse="false" align="right">scale</aspectratio>
                         <texture diffuse="thumbs/cdcover_mask2.png">thumbs/cdcover_glass_noreflect.png</texture>
+                        <visible>Skin.HasSetting(widgets.music.rounded)</visible>
                     </control>
                     <control type="group">
                         <top>5</top>
