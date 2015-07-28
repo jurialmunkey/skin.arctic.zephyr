@@ -106,9 +106,10 @@
 							<right>-256</right>
 							<bottom>0</bottom>
 							<font>SmallBold</font>
-							<label>[B]$INFO[ListItem.TvShowTitle][/B]</label>
+							<label>[B]$INFO[ListItem.Title][/B]</label>
 							<textcolor>Black300</textcolor>
-							<visible>!IsEmpty(ListItem.TvShowTitle)</visible>
+							<scroll>true</scroll>
+							<visible>Container.Content(episodes) | Container.Content(seasons) | [Container.Content(movies) + IsEmpty(ListItem.TagLine)] | [!Container.Content(seasons) + !Container.Content(movies) + !Container.Content(episodes)]</visible>
 						</control>
 						<!-- Plot -->
 						<control type="textbox">
@@ -161,9 +162,10 @@
 							<right>20</right>
 							<bottom>0</bottom>
 							<font>SmallBold</font>
-							<label>[B]$INFO[ListItem.TvShowTitle][/B]</label>
+							<label>[B]$INFO[ListItem.Title][/B]</label>
 							<textcolor>Black300</textcolor>
-							<visible>!IsEmpty(ListItem.TvShowTitle)</visible>
+							<scroll>true</scroll>
+							<visible>Container.Content(episodes) | Container.Content(seasons) | [Container.Content(movies) + IsEmpty(ListItem.TagLine)] | [!Container.Content(seasons) + !Container.Content(movies) + !Container.Content(episodes)]</visible>
 						</control>
 						<!-- Plot -->
 						<control type="textbox">
@@ -291,9 +293,10 @@
 							<right>148</right>
 							<bottom>0</bottom>
 							<font>SmallBold</font>
-							<label>[B]$INFO[ListItem.TvShowTitle][/B]</label>
+							<label>[B]$INFO[ListItem.Title][/B]</label>
 							<textcolor>Black300</textcolor>
-							<visible>!IsEmpty(ListItem.TvShowTitle)</visible>
+							<scroll>true</scroll>
+							<visible>Container.Content(episodes) | Container.Content(seasons) | [Container.Content(movies) + IsEmpty(ListItem.TagLine)] | [!Container.Content(seasons) + !Container.Content(movies) + !Container.Content(episodes)]</visible>
 						</control>
 						<!-- Plot -->
 						<control type="textbox">
@@ -398,9 +401,10 @@
 							<right>148</right>
 							<bottom>0</bottom>
 							<font>SmallBold</font>
-							<label>[B]$INFO[ListItem.TvShowTitle][/B]</label>
+							<label>[B]$INFO[ListItem.Title][/B]</label>
 							<textcolor>Black300</textcolor>
-							<visible>!IsEmpty(ListItem.TvShowTitle)</visible>
+							<scroll>true</scroll>
+							<visible>Container.Content(episodes) | Container.Content(seasons) | [Container.Content(movies) + IsEmpty(ListItem.TagLine)] | [!Container.Content(seasons) + !Container.Content(movies) + !Container.Content(episodes)]</visible>
 						</control>
 						<!-- Plot -->
 						<control type="textbox">
@@ -491,9 +495,10 @@
 							<right>-256</right>
 							<bottom>0</bottom>
 							<font>SmallBold</font>
-							<label>[B]$INFO[ListItem.TvShowTitle][/B]</label>
+							<label>[B]$INFO[ListItem.Title][/B]</label>
 							<textcolor>Black300</textcolor>
-							<visible>!IsEmpty(ListItem.TvShowTitle)</visible>
+							<scroll>true</scroll>
+							<visible>Container.Content(episodes) | Container.Content(seasons) | [Container.Content(movies) + IsEmpty(ListItem.TagLine)] | [!Container.Content(seasons) + !Container.Content(movies) + !Container.Content(episodes)]</visible>
 						</control>
 						<!-- Plot -->
 						<control type="textbox">
@@ -547,9 +552,10 @@
 							<right>20</right>
 							<bottom>0</bottom>
 							<font>SmallBold</font>
-							<label>[B]$INFO[ListItem.TvShowTitle][/B]</label>
+							<label>[B]$INFO[ListItem.Title][/B]</label>
 							<textcolor>Black300</textcolor>
-							<visible>!IsEmpty(ListItem.TvShowTitle)</visible>
+							<scroll>true</scroll>
+							<visible>Container.Content(episodes) | Container.Content(seasons) | [Container.Content(movies) + IsEmpty(ListItem.TagLine)] | [!Container.Content(seasons) + !Container.Content(movies) + !Container.Content(episodes)]</visible>
 						</control>
 						<!-- Plot -->
 						<control type="textbox">
