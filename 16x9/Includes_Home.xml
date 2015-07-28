@@ -1993,15 +1993,16 @@
 									<label>$INFO[Window(Weather).Property(Day0.Outlook)]</label>
 								</control>
 								<control type="label">
-									<left>50</left>
-									<height>40</height>
+									<left>0</left>
+									<height>240</height>
+									<width>270</width>
 									<top>376</top>
 									<aligny>center</aligny>
 									<autoscroll>false</autoscroll>
-									<align>left</align>
+									<align>center</align>
 									<font>TinyBold</font>
 									<textcolor>PanelWhite100</textcolor>
-									<label>$INFO[Window(Weather).Property(Day0.LowTemp),Low ,°]    $INFO[Window(Weather).Property(Day0.HighTemp),High ,°]</label>
+									<label>$INFO[Window(Weather).Property(Day0.HighTemp),High ,°][CR][CR]$INFO[Window(Weather).Property(Day0.LowTemp),Low ,°]</label>
 								</control>
 							</control>
 							<control type="group">
@@ -2073,15 +2074,16 @@
 									<label>$INFO[Window(Weather).Property(Day1.Outlook)]</label>
 								</control>
 								<control type="label">
-									<left>50</left>
-									<height>40</height>
+									<left>0</left>
+									<height>240</height>
+									<width>270</width>
 									<top>376</top>
 									<aligny>center</aligny>
 									<autoscroll>false</autoscroll>
-									<align>left</align>
+									<align>center</align>
 									<font>TinyBold</font>
 									<textcolor>PanelWhite100</textcolor>
-									<label>$INFO[Window(Weather).Property(Day1.LowTemp),Low ,°]    $INFO[Window(Weather).Property(Day1.HighTemp),High ,°]</label>
+									<label>$INFO[Window(Weather).Property(Day1.HighTemp),High ,°][CR][CR]$INFO[Window(Weather).Property(Day1.LowTemp),Low ,°]</label>
 								</control>
 							</control>
 							<control type="group">
@@ -2153,15 +2155,16 @@
 									<label>$INFO[Window(Weather).Property(Day2.Outlook)]</label>
 								</control>
 								<control type="label">
-									<left>50</left>
-									<height>40</height>
+									<left>0</left>
+									<height>240</height>
+									<width>270</width>
 									<top>376</top>
 									<aligny>center</aligny>
 									<autoscroll>false</autoscroll>
-									<align>left</align>
+									<align>center</align>
 									<font>TinyBold</font>
 									<textcolor>PanelWhite100</textcolor>
-									<label>$INFO[Window(Weather).Property(Day2.LowTemp),Low ,°]    $INFO[Window(Weather).Property(Day2.HighTemp),High ,°]</label>
+									<label>$INFO[Window(Weather).Property(Day2.HighTemp),High ,°][CR][CR]$INFO[Window(Weather).Property(Day2.LowTemp),Low ,°]</label>
 								</control>
 							</control>
 							<control type="group">
@@ -2233,15 +2236,16 @@
 									<label>$INFO[Window(Weather).Property(Day3.Outlook)]</label>
 								</control>
 								<control type="label">
-									<left>50</left>
-									<height>40</height>
+									<left>0</left>
+									<height>240</height>
+									<width>270</width>
 									<top>376</top>
 									<aligny>center</aligny>
 									<autoscroll>false</autoscroll>
-									<align>left</align>
+									<align>center</align>
 									<font>TinyBold</font>
 									<textcolor>PanelWhite100</textcolor>
-									<label>$INFO[Window(Weather).Property(Day3.LowTemp),Low ,°]    $INFO[Window(Weather).Property(Day3.HighTemp),High ,°]</label>
+									<label>$INFO[Window(Weather).Property(Day3.HighTemp),High ,°][CR][CR]$INFO[Window(Weather).Property(Day3.LowTemp),Low ,°]</label>
 								</control>
 							</control>
 							<control type="group">
@@ -2313,15 +2317,16 @@
 									<label>$INFO[Window(Weather).Property(Day4.Outlook)]</label>
 								</control>
 								<control type="label">
-									<left>50</left>
-									<height>40</height>
+									<left>0</left>
+									<height>240</height>
+									<width>270</width>
 									<top>376</top>
 									<aligny>center</aligny>
 									<autoscroll>false</autoscroll>
-									<align>left</align>
+									<align>center</align>
 									<font>TinyBold</font>
 									<textcolor>PanelWhite100</textcolor>
-									<label>$INFO[Window(Weather).Property(Day4.LowTemp),Low ,°]    $INFO[Window(Weather).Property(Day4.HighTemp),High ,°]</label>
+									<label>$INFO[Window(Weather).Property(Day4.HighTemp),High ,°][CR][CR]$INFO[Window(Weather).Property(Day4.LowTemp),Low ,°]</label>
 								</control>
 							</control>
 						</control>
@@ -2466,7 +2471,7 @@
 						<label>$INFO[Window(weather).Property(Alerts)]</label>
 					</control>
 					<!-- Widget -->
-					<control type="fixedlist" id="301">
+					<control type="wraplist" id="301">
 						<visible>!StringCompare(Container(300).ListItem.Property(widget),NextAired) + !StringCompare(Container(300).ListItem.Property(widget),Favourites) + !StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 						<visible allowhiddenfocus="true">IntegerGreaterThan(Container(301).NumItems,0) | Container(301).IsUpdating</visible>
 						<animation effect="fade" start="100" end="66" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
@@ -2581,6 +2586,16 @@
 								<bottom>10</bottom>
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<texture diffuse="thumbs/cdcover_mask.png" fallback="DefaultAlbumCover.png">$VAR[PosterImage]</texture>
+								<visible>Skin.HasSetting(widgets.music.rounded)</visible>
+							</control>
+							<control type="image">
+								<left>10</left>
+								<top>10</top>
+								<right>10</right>
+								<bottom>10</bottom>
+								<aspectratio scalediffuse="false">scale</aspectratio>
+								<texture fallback="DefaultAlbumCover.png">$VAR[PosterImage]</texture>
+								<visible>!Skin.HasSetting(widgets.music.rounded)</visible>
 							</control>
 							<control type="image">
 								<left>10</left>
@@ -2589,6 +2604,7 @@
 								<bottom>10</bottom>
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<texture diffuse="thumbs/cdcover_mask.png">thumbs/cdcover_glass_noreflect.png</texture>
+								<visible>Skin.HasSetting(widgets.music.rounded)</visible>
 							</control>
 							<control type="image">
 								<centerright>32</centerright>
@@ -2745,6 +2761,16 @@
 								<bottom>10</bottom>
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<texture diffuse="thumbs/cdcover_mask.png" fallback="DefaultAlbumCover.png">$VAR[PosterImage]</texture>
+								<visible>Skin.HasSetting(widgets.music.rounded)</visible>
+							</control>
+							<control type="image">
+								<left>10</left>
+								<top>10</top>
+								<right>10</right>
+								<bottom>10</bottom>
+								<aspectratio scalediffuse="false">scale</aspectratio>
+								<texture fallback="DefaultAlbumCover.png">$VAR[PosterImage]</texture>
+								<visible>!Skin.HasSetting(widgets.music.rounded)</visible>
 							</control>
 							<control type="image">
 								<left>10</left>
@@ -2753,6 +2779,7 @@
 								<bottom>10</bottom>
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<texture diffuse="thumbs/cdcover_mask.png">thumbs/cdcover_glass_noreflect.png</texture>
+								<visible>Skin.HasSetting(widgets.music.rounded)</visible>
 							</control>
 							<control type="image">
 								<centerright>32</centerright>
