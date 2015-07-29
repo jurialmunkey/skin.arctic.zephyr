@@ -115,13 +115,14 @@
 			<textcolor>Dark1</textcolor>
 			<label>$INFO[ListItem.Label2]</label>
 		</control>
-		<control type="image">
+		<control type="label">
 			<centerright>58</centerright>
 			<centertop>60</centertop>
 			<width>32</width>
 			<height>32</height>
-			<aspectratio aligny="top">keep</aspectratio>
-			<texture>$VAR[PercentWatchedViews]</texture>
+			<font>symbolview</font>
+			<label>$VAR[PercentWatchedLabel]</label>
+			<textcolor>$VAR[ColourHighlight2]</textcolor>
 			<visible>!stringcompare(ListItem.Label,..)</visible>
 		</control>
 	</include>
@@ -177,13 +178,14 @@
 			<textcolor>Light1</textcolor>
 			<label>$INFO[ListItem.Label2]</label>
 		</control>
-		<control type="image">
+		<control type="label">
 			<centerright>58</centerright>
 			<centertop>60</centertop>
 			<width>32</width>
 			<height>32</height>
-			<aspectratio aligny="top">keep</aspectratio>
-			<texture>$VAR[PercentWatchedViews]</texture>
+			<font>symbolview</font>
+			<label>$VAR[PercentWatchedLabel]</label>
+			<textcolor>$VAR[ColourHighlight2]</textcolor>
 			<visible>!stringcompare(ListItem.Label,..)</visible>
 		</control>
 	</include>

@@ -30,15 +30,15 @@
 						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
 						<animation effect="fade" start="25" end="25" condition="stringcompare(ListItem.Overlay,OverlayWatched.png)">Conditional</animation>
 					</control>
-					<control type="image">
+					<control type="label">
 						<centerright>16</centerright>
 						<centertop>16</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatched]</texture>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
 						<visible>!stringcompare(ListItem.Label,..)</visible>
-						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
 						<visible>!Skin.HasSetting(views.156.showtick)</visible>
 					</control>
 				</itemlayout>
@@ -57,15 +57,15 @@
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
 					</control>
-					<control type="image">
+					<control type="label">
 						<right>128</right>
 						<centertop>16</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatched]</texture>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
 						<visible>!stringcompare(ListItem.Label,..)</visible>
-						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
 						<visible>!Skin.HasSetting(views.156.showtick)</visible>
 					</control>
 					<control type="image">
@@ -275,16 +275,16 @@
 							<texture colordiffuse="-" background="true">$VAR[Studios]</texture>
 						</control>
 					</control>
-					<control type="image">
+					<control type="label">
 						<centerright>-108</centerright>
 						<centertop>200</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatched]</texture>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
 						<visible>!stringcompare(ListItem.Label,..)</visible>
-						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
-						<visible>!Container.Column(11) + !Container.Column(12) + !Container.Column(13) + !Container.Column(14)</visible>
+						<visible>!Skin.HasSetting(views.156.showtick)</visible>
 					</control>
 					<control type="image">
 						<left>120</left>
@@ -294,16 +294,16 @@
 						<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectcorner.png</texture>
 						<visible>!Container.Column(11) + !Container.Column(12) + !Container.Column(13) + !Container.Column(14)</visible>
 					</control>
-					<control type="image">
+					<control type="label">
 						<centerright>274</centerright>
 						<centertop>200</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatched]</texture>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
 						<visible>!stringcompare(ListItem.Label,..)</visible>
-						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
-						<visible>Container.Column(11) | Container.Column(12) | Container.Column(13) | Container.Column(14)</visible>
+						<visible>!Skin.HasSetting(views.156.showtick)</visible>
 					</control>
 					<control type="image">
 						<left>-512</left>
@@ -537,16 +537,16 @@
 							<texture colordiffuse="-" background="true">$VAR[Studios]</texture>
 						</control>
 					</control>
-					<control type="image">
+					<control type="label">
 						<centerright>-108</centerright>
 						<centertop>-342</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatched]</texture>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
 						<visible>!stringcompare(ListItem.Label,..)</visible>
-						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
-						<visible>!Container.Column(11) + !Container.Column(12) + !Container.Column(13) + !Container.Column(14)</visible>
+						<visible>!Skin.HasSetting(views.156.showtick)</visible>
 					</control>
 					<control type="image">
 						<left>122</left>
@@ -556,16 +556,16 @@
 						<texture colordiffuse="$VAR[ColourHighlight]" border="20" flipy="true" flipx="false">common/selectcorner.png</texture>
 						<visible>!Container.Column(11) + !Container.Column(12) + !Container.Column(13) + !Container.Column(14)</visible>
 					</control>
-					<control type="image">
+					<control type="label">
 						<centerright>274</centerright>
 						<centertop>-342</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatched]</texture>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
 						<visible>!stringcompare(ListItem.Label,..)</visible>
-						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
-						<visible>Container.Column(11) | Container.Column(12) | Container.Column(13) | Container.Column(14)</visible>
+						<visible>!Skin.HasSetting(views.156.showtick)</visible>
 					</control>
 					<control type="image">
 						<left>-512</left>

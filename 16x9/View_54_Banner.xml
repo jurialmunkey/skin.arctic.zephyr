@@ -93,15 +93,16 @@
 								<selectedcolor>Dark1</selectedcolor>
 								<animation effect="slide" start="0" end="50" condition="IntegerGreaterThan(ListItem.Episode,99)">Conditional</animation>
 							</control>
-							<control type="image">
+							<control type="label">
 								<left>647</left>
 								<centertop>105</centertop>
 								<width>32</width>
 								<height>32</height>
-								<aspectratio aligny="top">keep</aspectratio>
-								<texture>$VAR[PercentWatchedViews]</texture>
-								<visible>!stringcompare(ListItem.Label,..)</visible>
+								<font>symbolview</font>
+								<label>$VAR[PercentWatchedLabel]</label>
+								<textcolor>$VAR[ColourHighlight2]</textcolor>
 								<animation effect="slide" start="0" end="50" condition="IntegerGreaterThan(ListItem.Episode,99)">Conditional</animation>
+								<visible>!stringcompare(ListItem.Label,..)</visible>
 							</control>
 							<control type="label">
 								<top>85</top>
@@ -237,13 +238,14 @@
 							<aspectratio scalediffuse="false">stretch</aspectratio>
 							<texture diffuse="diffuse/cardposter.png" background="true">$VAR[PosterImage]</texture>
 						</control>
-						<control type="image">
+						<control type="label">
 							<right>124</right>
 							<top>29</top>
 							<width>32</width>
 							<height>32</height>
-							<aspectratio aligny="top">keep</aspectratio>
-							<texture>$VAR[PercentWatchedViews]</texture>
+							<font>symbolview</font>
+							<label>$VAR[PercentWatchedLabel]</label>
+							<textcolor>$VAR[ColourHighlight2]</textcolor>
 							<visible>!stringcompare(ListItem.Label,..)</visible>
 						</control>
 						<control type="label">
@@ -346,13 +348,14 @@
 								<textcolor>Light1</textcolor>
 							</control>
 						</control>
-						<control type="image">
+						<control type="label">
 							<right>32</right>
 							<top>32</top>
 							<width>32</width>
 							<height>32</height>
-							<aspectratio aligny="top">keep</aspectratio>
-							<texture>$VAR[PercentWatchedViews]</texture>
+							<font>symbolview</font>
+							<label>$VAR[PercentWatchedLabel]</label>
+							<textcolor>$VAR[ColourHighlight2]</textcolor>
 							<visible>!stringcompare(ListItem.Label,..)</visible>
 						</control>
 						<control type="label">
@@ -430,15 +433,16 @@
 								<selectedcolor>Light1</selectedcolor>
 								<animation effect="slide" start="0" end="50" condition="IntegerGreaterThan(ListItem.Episode,99)">Conditional</animation>
 							</control>
-							<control type="image">
+							<control type="label">
 								<left>647</left>
 								<centertop>105</centertop>
 								<width>32</width>
 								<height>32</height>
-								<aspectratio aligny="top">keep</aspectratio>
-								<texture>$VAR[PercentWatchedViews]</texture>
-								<visible>!stringcompare(ListItem.Label,..)</visible>
+								<font>symbolview</font>
+								<label>$VAR[PercentWatchedLabel]</label>
+								<textcolor>$VAR[ColourHighlight2]</textcolor>
 								<animation effect="slide" start="0" end="50" condition="IntegerGreaterThan(ListItem.Episode,99)">Conditional</animation>
+								<visible>!stringcompare(ListItem.Label,..)</visible>
 							</control>
 							<control type="label">
 								<top>85</top>

@@ -136,13 +136,14 @@
 						<label>$VAR[LabelYear,, • ]$VAR[LabelDuration]$INFO[ListItem.Rating, • ]</label>
 						<visible>Container.Content(movies) | Container.Content(episodes)</visible>
 					</control>
-					<control type="image">
-						<centerleft>12</centerleft>
-						<centerbottom>12</centerbottom>
+					<control type="label">
+						<centerright>12</centerright>
+						<centertop>12</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatchedViews]</texture>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
 						<visible>!stringcompare(ListItem.Label,..)</visible>
 					</control>
 				</control>
@@ -204,13 +205,15 @@
 						<selectedcolor>PanelWhite70</selectedcolor>
 						<label>$VAR[LabelDuration]</label>
 					</control>
-					<control type="image">
+					<control type="label">
 						<centerright>110</centerright>
+						<centerright>32</centerright>
 						<centertop>32</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatchedViews]</texture>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
 						<visible>!stringcompare(ListItem.Label,..)</visible>
 						<animation effect="slide" start="0" end="64" time="0" condition="Container.Content(Seasons)">Conditional</animation>
 					</control>
@@ -280,14 +283,17 @@
 						<label>$INFO[ListItem(-3).Label]</label>
 						<angle>90</angle>
 					</control>
-					<control type="image">
+					<control type="label">
 						<centerleft>50%</centerleft>
+						<centerright>32</centerright>
 						<centertop>32</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatchedN3]</texture>
-						<visible>!stringcompare(ListItem(-3).Label,..)</visible>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedN3L]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+						<animation effect="slide" start="0" end="64" time="0" condition="Container.Content(Seasons)">Conditional</animation>
 					</control>
 				</control>
 				<!-- Item -2 -->
@@ -320,14 +326,16 @@
 						<label>$INFO[ListItem(-2).Label]</label>
 						<angle>90</angle>
 					</control>
-					<control type="image">
+					<control type="label">
 						<centerleft>50%</centerleft>
+						<centerright>32</centerright>
 						<centertop>32</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatchedN2]</texture>
-						<visible>!stringcompare(ListItem(-2).Label,..)</visible>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedN2L]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
 					</control>
 				</control>
 				<!-- Item -1 -->
@@ -360,14 +368,16 @@
 						<label>$INFO[ListItem(-1).Label]</label>
 						<angle>90</angle>
 					</control>
-					<control type="image">
+					<control type="label">
 						<centerleft>50%</centerleft>
+						<centerright>32</centerright>
 						<centertop>32</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatchedN1]</texture>
-						<visible>!stringcompare(ListItem(-1).Label,..)</visible>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedN1L]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
 					</control>
 				</control>
 				<!-- Item 3 -->
@@ -400,14 +410,16 @@
 						<label>$INFO[ListItem(3).Label]</label>
 						<angle>90</angle>
 					</control>
-					<control type="image">
+					<control type="label">
 						<centerleft>50%</centerleft>
+						<centerright>32</centerright>
 						<centertop>32</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatchedP3]</texture>
-						<visible>!stringcompare(ListItem(3).Label,..)</visible>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedP3L]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
 					</control>
 				</control>
 				<!-- Item 2 -->
@@ -440,14 +452,16 @@
 						<label>$INFO[ListItem(2).Label]</label>
 						<angle>90</angle>
 					</control>
-					<control type="image">
+					<control type="label">
 						<centerleft>50%</centerleft>
+						<centerright>32</centerright>
 						<centertop>32</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatchedP2]</texture>
-						<visible>!stringcompare(ListItem(2).Label,..)</visible>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedP2L]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
 					</control>
 				</control>
 				<!-- Item 1 -->
@@ -480,14 +494,16 @@
 						<label>$INFO[ListItem(1).Label]</label>
 						<angle>90</angle>
 					</control>
-					<control type="image">
+					<control type="label">
 						<centerleft>50%</centerleft>
+						<centerright>32</centerright>
 						<centertop>32</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatchedN3]</texture>
-						<visible>!stringcompare(ListItem(-3).Label,..)</visible>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedP1L]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
 					</control>
 				</control>
 			</control>
@@ -605,13 +621,15 @@
 						<selectedcolor>PanelWhite70</selectedcolor>
 						<label>$VAR[LabelDuration]</label>
 					</control>
-					<control type="image">
+					<control type="label">
 						<centerright>110</centerright>
+						<centerright>32</centerright>
 						<centertop>32</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatchedViews]</texture>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
 						<visible>!stringcompare(ListItem.Label,..)</visible>
 						<animation effect="slide" start="0" end="64" time="0" condition="Container.Content(Seasons)">Conditional</animation>
 					</control>
