@@ -10,7 +10,7 @@
     <onload condition="!IsEmpty(Container(50).ListItemNoWrap(0).Label)">SetProperty(Actor1,$INFO[Container(50).ListItemNoWrap(0).Label])</onload>
     <onload condition="!IsEmpty(Container(50).ListItemNoWrap(1).Label)">SetProperty(Actor2,$INFO[Container(50).ListItemNoWrap(1).Label])</onload>
     <onload condition="!IsEmpty(Container(50).ListItemNoWrap(2).Label)">SetProperty(Actor3,$INFO[Container(50).ListItemNoWrap(2).Label])</onload>
-    <onload>RunScript(script.toolbox,info=blur,id='"$INFO[ListItem.Art(fanart)]"',radius=$VAR[VideoInfoBlurLevel],prefix=VideoInfo)</onload>
+    <onload>RunScript(script.toolbox,info=blur,id='"$VAR[PosterImage]"',radius=$VAR[VideoInfoBlurLevel],prefix=VideoInfo)</onload>
     <onunload>ClearProperty(Similar,home)</onunload>
     <onunload>ClearProperty(VideoInfo.ImageColor,home)</onunload>
     <onunload>ClearProperty(VideoInfo.ImageFilter,home)</onunload>
@@ -376,13 +376,15 @@
                 </control>
                 <!-- Studio <control type="image"> <top>743</top> <width>320</width> <height>217</height> <texture>$VAR[Studio]</texture> <aspectratio aligny="center">keep</aspectratio> <visible>Container.Content(tvshows) | Container.Content(episodes)</visible> <visible>!IsEmpty(ListItem.Studio)</visible> </control> -->
                 <!-- <control type="image"> <width>90</width> <height>90</height> <texture>views/OverlayHD.png</texture> <visible>IntegerGreaterThan(ListItem.VideoResolution,719)</visible> </control> -->
-                <control type="image">
-                    <top>3</top>
-                    <left>287</left>
-                    <width>32</width>
-                    <height>32</height>
-                    <texture>$VAR[PercentWatchedViews]</texture>
-                </control>
+				<control type="label">
+					<top>8</top>
+					<left>280</left>
+					<width>32</width>
+					<height>32</height>
+					<font>symbolview</font>
+					<label>$VAR[PercentWatchedLabel]</label>
+					<textcolor>$VAR[ColourHighlight2]</textcolor>
+				</control>
                 <control type="progress">
                     <top>-7</top>
                     <width>320</width>
@@ -477,7 +479,7 @@
                         <label>$INFO[ListItem.Title]</label>
                         <font>Large</font>
                         <textcolor>Black100</textcolor>
-                        <animation effect="slide" start="0,0" end="0,30" time="0" condition="[Container.Content(musicvideos) + IsEmpty(ListItem.Artist)] | Container.Content(movies)">Conditional</animation>
+                        <animation effect="slide" start="0,0" end="0,30" time="0" condition="[Container.Content(musicvideos) + IsEmpty(ListItem.Artist)]">Conditional</animation>
                         <scroll>true</scroll>
                     </control>
                     <control type="label">
@@ -496,6 +498,15 @@
                         <font>MediumSmall</font>
                         <textcolor>Black300</textcolor>
                         <visible>Container.Content(episodes) + !IsEmpty(ListItem.TvShowTitle)</visible>
+                    </control>
+                    <control type="label">
+                        <height>35</height>
+                        <aligny>bottom</aligny>
+                        <label>$INFO[ListItem.TagLine]</label>
+                        <font>MediumSmall</font>
+                        <textcolor>Black300</textcolor>
+						<scroll>true</scroll>
+                        <visible>Container.Content(movies) + !IsEmpty(ListItem.TagLine)</visible>
                     </control>
                 </control>
                 <!-- First Row -->
@@ -757,7 +768,7 @@
                         <font>Small</font>
                         <autoscroll>false</autoscroll>
                         <textcolor>Black700</textcolor>
-                        <label fallback="">[B]$INFO[ListItem.TagLine,,[CR]][/B]$VAR[Plot]</label>
+                        <label fallback="">$VAR[Plot]</label>
                         <include>DialogVideoInfoAnimation</include>
                         <visible>!ControlGroup(3444).HasFocus()</visible>
                     </control>
@@ -768,7 +779,7 @@
                         <font>Small</font>
                         <autoscroll time="3000" repeat="10000"/>
                         <textcolor>White70</textcolor>
-                        <label fallback="">[B]$INFO[ListItem.TagLine,,[CR]][/B]$VAR[Plot]</label>
+                        <label fallback="">$VAR[Plot]</label>
                         <include>DialogVideoInfoAnimation</include>
                         <visible>ControlGroup(3444).HasFocus()</visible>
                     </control>
@@ -1229,9 +1240,9 @@
                         <orientation>vertical</orientation>
                         <usecontrolcoords>true</usecontrolcoords>
                         <control type="grouplist" id="11000">
-                            <posy>12</posy>
+                            <posy>4</posy>
                             <width>600</width>
-                            <height>25</height>
+                            <height>24</height>
                             <align>left</align>
                             <animation effect="fade" start="100" end="80" time="40" condition="true">Conditional</animation>
                             <itemgap>2</itemgap>
@@ -1242,17 +1253,28 @@
                                 <height>24</height>
                                 <align>right</align>
                                 <posy>3</posy>
-                                <label>$LOCALIZE[445]:</label>
-                                <font>EPGTimeline</font>
+                                <label></label>
+                                <font>symbolview</font>
                                 <textcolor>Black700</textcolor>
                             </control>
-                            <include>LanguageFlags</include>
+                             <control type="label">
+                                <width min="20" max="150">auto</width>
+                                <height>48</height>
+                                <align>left</align>
+                                <aligny>bottom</aligny>
+                                <label>N/A</label>
+                                <textcolor>Black300</textcolor>
+                                <font>Button</font>
+                                <visible>IsEmpty(Window(movieinformation).Property(AudioLanguage.1))</visible>
+                            </control>
+                           <include>LanguageFlags</include>
                         </control>
                         <!--Subtitle flags-->
                         <control type="grouplist" id="12000">
                             <animation effect="fade" start="100" end="80" time="40" condition="true">Conditional</animation>
+                            <posy>3</posy>
                             <width>600</width>
-                            <height>25</height>
+                            <height>32</height>
                             <align>left</align>
                             <itemgap>2</itemgap>
                             <visible>Control.IsVisible(11000)</visible>
@@ -1260,21 +1282,21 @@
                             <control type="label">
                                 <width>auto</width>
                                 <posy>3</posy>
-                                <height>24</height>
+                                <height>32</height>
                                 <align>right</align>
                                 <aligny>bottom</aligny>
-                                <label>$LOCALIZE[287]:</label>
-                                <font>EPGTimeline</font>
+                                <label></label>
+                                <font>symbolview</font>
                                 <textcolor>Black700</textcolor>
                             </control>
                             <control type="label">
                                 <width min="20" max="150">auto</width>
-                                <height>24</height>
+                                <height>48</height>
                                 <align>left</align>
                                 <aligny>bottom</aligny>
                                 <label>N/A</label>
                                 <textcolor>Black300</textcolor>
-                                <font>EPGTimeline</font>
+                                <font>Button</font>
                                 <visible>IsEmpty(Window(movieinformation).Property(SubtitleLanguage.1)) + IsEmpty(Window(movieinformation).Property(SubtitleLanguage.2))</visible>
                             </control>
                             <include>SubtitleFlags</include>

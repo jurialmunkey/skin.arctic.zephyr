@@ -917,53 +917,54 @@
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<control type="grouplist" id="11000">
-					<posy>12</posy>
-					<width>600</width>
-					<height>25</height>
-					<align>left</align>
+                            <posy>4</posy>
+                            <width>600</width>
+                            <height>24</height>
+                            <align>left</align>
 					<animation effect="fade" start="100" end="80" time="40" condition="true">Conditional</animation>
 					<itemgap>2</itemgap>
 					<orientation>horizontal</orientation>
 					<visible>!IsEmpty(Window.Property(movie.AudioLanguage.1)) | !IsEmpty(Window.Property(movie.AudioLanguage.2))</visible>
 					<control type="label">
-						<width>auto</width>
-						<height>24</height>
-						<align>right</align>
-						<posy>3</posy>
-						<label>$LOCALIZE[445]:</label>
-						<font>EPGTimeline</font>
-						<textcolor>Black700</textcolor>
+                                <width>auto</width>
+                                <height>24</height>
+                                <align>right</align>
+                                <posy>3</posy>
+                                <label></label>
+                                <font>symbolview</font>
+                                <textcolor>Black700</textcolor>
 					</control>
 					<include>LanguageFlagsExtraInfo</include>
 				</control>
 				<!--Subtitle flags-->
 				<control type="grouplist" id="12000">
 					<animation effect="fade" start="100" end="80" time="40" condition="true">Conditional</animation>
-					<width>600</width>
-					<height>25</height>
-					<align>left</align>
+                            <posy>3</posy>
+                            <width>600</width>
+                            <height>32</height>
+                            <align>left</align>
 					<itemgap>2</itemgap>
 					<orientation>horizontal</orientation>
 					<visible>!IsEmpty(Window.Property(movie.AudioLanguage.1)) | !IsEmpty(Window.Property(movie.AudioLanguage.2))</visible>
 
 					<control type="label">
-						<width>auto</width>
-						<posy>3</posy>
-						<height>24</height>
-						<align>right</align>
-						<aligny>bottom</aligny>
-						<label>$LOCALIZE[287]:</label>
-						<font>EPGTimeline</font>
-						<textcolor>Black700</textcolor>
+                                <width>auto</width>
+                                <posy>3</posy>
+                                <height>32</height>
+                                <align>right</align>
+                                <aligny>bottom</aligny>
+                                <label></label>
+                                <font>symbolview</font>
+                                <textcolor>Black700</textcolor>
 					</control>
 					<control type="label">
-						<width min="20" max="150">auto</width>
-						<height>24</height>
-						<align>left</align>
-						<aligny>bottom</aligny>
-						<label>N/A</label>
-						<textcolor>Black300</textcolor>
-						<font>EPGTimeline</font>
+                                <width min="20" max="150">auto</width>
+                                <height>48</height>
+                                <align>left</align>
+                                <aligny>bottom</aligny>
+                                <label>N/A</label>
+                                <textcolor>Black300</textcolor>
+                                <font>Button</font>
 						<visible>IsEmpty(Window.Property(movie.SubtitleLanguage.1)) + IsEmpty(Window.Property(movie.SubtitleLanguage.2))</visible>
 					</control>
 					<include>SubtitleFlagsExtraInfo</include>
