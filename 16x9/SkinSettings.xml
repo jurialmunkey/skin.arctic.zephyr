@@ -788,7 +788,7 @@
 					<control type="button" id="9282">
 						<width>1310</width>
 						<include>DefSettingsButton</include>
-						<onclick>RunScript(script.arctic.zephyr.helper,COLORPICKER,focuscolor.name)</onclick>
+						<onclick>RunScript(script.arctic.zephyr.helper.jarvis,COLORPICKER,focuscolor.name)</onclick>
 						<label> - Set main highlight colour</label>
 						<label2>[COLOR=$VAR[ColourHighlight]]$INFO[Skin.String(focuscolor.name)][/COLOR]</label2>
 						<visible>Skin.HasSetting(ColourHighlight)</visible>
@@ -814,7 +814,7 @@
 					<control type="button" id="9285">
 						<width>1310</width>
 						<include>DefSettingsButton</include>
-						<onclick>RunScript(script.arctic.zephyr.helper,COLORPICKER,focuscolor2.name)</onclick>
+						<onclick>RunScript(script.arctic.zephyr.helper.jarvis,COLORPICKER,focuscolor2.name)</onclick>
 						<label> - Set second highlight colour</label>
 						<label2>[COLOR=$VAR[ColourHighlight2]]$INFO[Skin.String(focuscolor2.name)][/COLOR]</label2>
 						<visible>Skin.HasSetting(ColourHighlight2)</visible>
@@ -840,7 +840,7 @@
 					<control type="button" id="9288">
 						<width>1310</width>
 						<include>DefSettingsButton</include>
-						<onclick>RunScript(script.arctic.zephyr.helper,COLORPICKER,selectedcolor.name)</onclick>
+						<onclick>RunScript(script.arctic.zephyr.helper.jarvis,COLORPICKER,selectedcolor.name)</onclick>
 						<label> - Set selected colour</label>
 						<label2>[COLOR=$VAR[ColourSelected]]$INFO[Skin.String(selectedcolor.name)][/COLOR]</label2>
 						<visible>Skin.HasSetting(ColourSelected)</visible>
@@ -858,7 +858,7 @@
 					<control type="button" id="9291" description="Enable or Disable views">
 						<width>1310</width>
 						<include>DefSettingsButton</include>
-						<onclick>RunScript(script.arctic.zephyr.helper,ENABLEVIEWS)</onclick>
+						<onclick>RunScript(script.arctic.zephyr.helper.jarvis,ENABLEVIEWS)</onclick>
 						<label>31769</label>
 						<visible>ControlGroup(9100).HasFocus(9109)</visible>
 					</control>
