@@ -315,7 +315,7 @@
 	<include name="HomeWidgetSelector">
 		<!-- Widget Selector -->
 		<control type="group">
-			<visible>![Window.IsVisible(home) + !IsEmpty(Skin.String(home.slideshowpath)) + IsEmpty(Container(300).ListItem.Property(widget))] + IsEmpty(Container(300).ListItem.Property(Background))</visible>
+			<visible>![Window.IsVisible(home) + Skin.HasSetting(home.dontshowfanart) + IsEmpty(Container(300).ListItem.Property(widget))] + IsEmpty(Container(300).ListItem.Property(Background))</visible>
 			<animation effect="slide" end="0" start="0,-250" time="150" reversible="false" condition="ControlGroup(303).HasFocus()">Conditional</animation>
 			<animation effect="slide" start="0" end="0,-250" time="150" reversible="false" condition="!ControlGroup(303).HasFocus()">Conditional</animation>
 			<include>Animation.FadeOut</include>
@@ -617,7 +617,7 @@
 				<visible>!Container(301).IsUpdating</visible>
 				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 				<visible>substring(Container(300).ListItem.Property(widget),Albums) | substring(Container(300).ListItem.Property(widget),Favourites)</visible>
-				<visible>![Window.IsVisible(home) + !IsEmpty(Skin.String(home.slideshowpath)) + IsEmpty(Container(300).ListItem.Property(widget))] + [IsEmpty(Container(300).ListItem.Property(Background)) | !IsEmpty(Container(300).ListItem.Property(widget))]</visible>
+				<visible>![Window.IsVisible(home) + Skin.HasSetting(home.dontshowfanart) + IsEmpty(Container(300).ListItem.Property(widget))] + [IsEmpty(Container(300).ListItem.Property(Background)) | !IsEmpty(Container(300).ListItem.Property(widget))]</visible>
 				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
 				<include>Animation.FadeIn</include>
 				<animation effect="slide" start="0" end="0,220" time="500" tween="back" reversible="false" easing="out" condition="Control.HasFocus(301) | ControlGroup(303).HasFocus()">Conditional</animation>
@@ -969,8 +969,8 @@
 				<control type="group">
 					<animation effect="slide" end="0,-250" time="450" tween="back" reversible="false" condition="Control.HasFocus(301) | ControlGroup(303).HasFocus()">Conditional</animation>
 					<animation effect="slide" start="0,-250" time="250" tween="quadratic" reversible="false" condition="!Control.HasFocus(301) + !ControlGroup(303).HasFocus()">Conditional</animation>
-					<animation effect="slide" start="0" end="0,-270" time="450" tween="back" reversible="false" condition="!StringCompare(Container(300).ListItem.Property(widget),Weather) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + IsEmpty(Skin.String(home.slideshowpath))]]] + Control.IsVisible(301)">Conditional</animation>
-					<animation effect="slide" end="0" start="0,-270" time="250" tween="quadratic" reversible="false" condition="![!StringCompare(Container(300).ListItem.Property(widget),Weather) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + IsEmpty(Skin.String(home.slideshowpath))]]]] | !Control.IsVisible(301)">Conditional</animation>
+					<animation effect="slide" start="0" end="0,-270" time="450" tween="back" reversible="false" condition="!StringCompare(Container(300).ListItem.Property(widget),Weather) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + !Skin.HasSetting(home.dontshowfanart))]]] + Control.IsVisible(301)">Conditional</animation>
+					<animation effect="slide" end="0" start="0,-270" time="250" tween="quadratic" reversible="false" condition="![!StringCompare(Container(300).ListItem.Property(widget),Weather) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + !Skin.HasSetting(home.dontshowfanart)]]]] | !Control.IsVisible(301)">Conditional</animation>
 					<control type="image" description="BottomBG">
 						<width>100%</width>
 						<height>900</height>
@@ -995,8 +995,8 @@
 				</control>
 				<!-- Widget -->
 				<control type="group">
-					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="![!StringCompare(Container(300).ListItem.Property(widget),Weather) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + [IsEmpty(Skin.String(home.slideshowpath))]]]]]">Conditional</animation>
-					<animation effect="fade" start="0" end="100" time="200" delay="200" reversible="false" condition="!StringCompare(Container(300).ListItem.Property(widget),Weather) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + [IsEmpty(Skin.String(home.slideshowpath))]]]]">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="![!StringCompare(Container(300).ListItem.Property(widget),Weather) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + [!Skin.HasSetting(home.dontshowfanart)]]]]]">Conditional</animation>
+					<animation effect="fade" start="0" end="100" time="200" delay="200" reversible="false" condition="!StringCompare(Container(300).ListItem.Property(widget),Weather) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + [!Skin.HasSetting(home.dontshowfanart)]]]]">Conditional</animation>
 					<animation type="WindowClose">
 						<effect type="fade" start="100" end="0" time="150" />
 					</animation>
@@ -1349,8 +1349,8 @@
 				<left>SidePad</left>
 				<include condition="!Skin.HasSetting(furniture.clock)">DefHomeRight520</include>
 				<include condition="Skin.HasSetting(furniture.clock)">DefHomeRightSidePad</include>
-				<onup condition="!Skin.HasSetting(home.dontshowfanart) + !StringCompare(Container(300).ListItem.Property(widget),Weather) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + [IsEmpty(Skin.String(home.slideshowpath))]]]]">301</onup>
-				<onup condition="Skin.HasSetting(home.dontshowfanart) + !StringCompare(Container(300).ListItem.Property(widget),Weather) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + [IsEmpty(Skin.String(home.slideshowpath))]]]]">SetFocus(301,0)</onup>
+				<onup condition="!Skin.HasSetting(home.dontshowfanart) + !StringCompare(Container(300).ListItem.Property(widget),Weather) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + [!Skin.HasSetting(home.dontshowfanart)]]]]">301</onup>
+				<onup condition="Skin.HasSetting(home.dontshowfanart) + !StringCompare(Container(300).ListItem.Property(widget),Weather) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + [!Skin.HasSetting(home.dontshowfanart)]]]]">SetFocus(301,0)</onup>
 				<ondown condition="IntegerGreaterThan(Container(302).NumItems,0)">SetFocus(302,0)</ondown>
 				<onleft>300</onleft>
 				<onright>300</onright>
@@ -1728,7 +1728,7 @@
 					</control>
 				</control>
 				<control type="group">
-					<animation effect="fade" start="100" end="0" time="0" delay="0" reversible="false" condition="![[!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + [IsEmpty(Skin.String(home.slideshowpath))]]]]] | !IntegerGreaterThan(Container(301).NumItems,0) | Container(301).IsUpdating | [!Weather.IsFetched + StringCompare(Container(300).ListItem.Property(widget),Weather)]">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="0" delay="0" reversible="false" condition="![[!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + [!Skin.HasSetting(home.dontshowfanart)]]]]] | !IntegerGreaterThan(Container(301).NumItems,0) | Container(301).IsUpdating | [!Weather.IsFetched + StringCompare(Container(300).ListItem.Property(widget),Weather)]">Conditional</animation>
 					<animation effect="fade" start="0" end="100" time="200" delay="200" reversible="false" condition="[!Container(301).IsUpdating + IntegerGreaterThan(Container(301).NumItems,0) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + [IsEmpty(Skin.String(home.slideshowpath))]]]]] | [Weather.IsFetched + StringCompare(Container(300).ListItem.Property(widget),Weather)]">Conditional</animation>
 					<animation effect="slide" start="0" end="-290" time="200" delay="100" tween="quadratic" easing="out">Focus</animation>
 					<animation effect="slide" start="-290" end="0" time="200" delay="100" tween="quadratic" easing="out">UnFocus</animation>
