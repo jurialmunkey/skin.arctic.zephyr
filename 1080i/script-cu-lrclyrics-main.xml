@@ -9,23 +9,24 @@
             <control type="group">
     
                 <control type="group">
-                    <top>100</top>
-                    <bottom>400</bottom>
+                    <animation effect="slide" end="334" start="0" time="75" tween="quadratic" condition="Window.IsActive(musicosd)">Conditional</animation>
+                    <top>200</top>
+                    <bottom>180</bottom>
                     <width>100%</width>
                     
                     <!-- ** Required ** Do not change <id> or <type> (Smooth scrolling list for lyrics) -->
                     <control type="list" id="110">
-                        <left>SidePad</left>
-                        <right>SidePad</right>
-                        <top>SidePad</top>
+                        <left>350</left>
+                        <right>350</right>
+                        <top>0</top>
                         <bottom>0</bottom>
-                        <onleft>111</onleft>
-                        <onright>111</onright>
+                        <onleft>101</onleft>
+                        <onright>101</onright>
                         <onup>110</onup>
                         <ondown>110</ondown>
                         <pagecontrol>111</pagecontrol>
                         <scrolltime>200</scrolltime>
-                        <itemlayout height="100" width="1760">
+                        <itemlayout height="100" width="1220">
                             <control type="label">
                                 <width>100%</width>
                                 <align>center</align>
@@ -35,7 +36,7 @@
                                 <font>Lyrics</font>
                             </control>
                         </itemlayout>
-                        <focusedlayout height="100" width="1760">
+                        <focusedlayout height="100" width="1220">
                             <control type="label">
                                 <width>100%</width>
                                 <align>center</align>
@@ -48,8 +49,8 @@
                     </control>
                     <!-- ** Required ** Do not change <id> or <type> (Song Chooser if it gets it wrong) -->
                     <control type="list" id="120">
-                        <left>SidePad</left>
-                        <right>SidePad</right>
+                        <left>350</left>
+                        <right>350</right>
                         <top>SidePad</top>
                         <bottom>30</bottom>
                         <onleft>111</onleft>
@@ -60,7 +61,7 @@
                         <scrolltime>200</scrolltime>
                         <itemlayout height="50">
                             <control type="label">
-                                <width>749</width>
+                                <width>1220</width>
                                 <selectedcolor>$VAR[ColorHighlight]</selectedcolor>
                                 <info>ListItem.Label</info>
                                 <textcolor>$VAR[OSDPanelWhite70]</textcolor>
@@ -69,7 +70,7 @@
                         </itemlayout>
                         <focusedlayout height="50">
                             <control type="label">
-                                <width>749</width>
+                                <width>1220</width>
                                 <textcolor>$VAR[ColorHighlight]</textcolor>
                                 <selectedcolor>$VAR[ColorHighlight]</selectedcolor>
                                 <info>ListItem.Label</info>

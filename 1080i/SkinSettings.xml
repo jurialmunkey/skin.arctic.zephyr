@@ -36,7 +36,7 @@
                     <itemgap>0</itemgap>
                     <onleft>9000</onleft>
                     <onright>9200</onright>
-                    <onup>20</onup>
+                    <onup>9100</onup>
                     <ondown>9100</ondown>
                     <orientation>vertical</orientation>
                     <control type="togglebutton" id="9101" description="Home">
@@ -225,6 +225,15 @@
                     </control>
                     
                     <!-- OSD -->
+                    <control type="radiobutton" id="9234" description="Match theme">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9103)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31196</label>
+                        <selected>!Skin.HasSetting(osd.usetheme)</selected>
+                        <onclick>Skin.ToggleSetting(osd.usetheme)</onclick>
+                        <onclick>ReloadSkin()</onclick>
+                    </control>s
                     <control type="radiobutton" id="9235" description="Show Fanart">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9103)</visible>
@@ -269,6 +278,14 @@
                         <selected>Skin.HasSetting(osd.showinfoonpause)</selected>
                         <onclick>Skin.ToggleSetting(osd.showinfoonpause)</onclick>
                     </control>
+                    <control type="radiobutton" id="9238" description="Always show osd info/controls in music visualisation">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9103)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31253</label>
+                        <selected>Skin.HasSetting(osd.alwaysshowmusicosd)</selected>
+                        <onclick>Skin.ToggleSetting(osd.alwaysshowmusicosd)</onclick>
+                    </control>
                     <control type="radiobutton" id="9237" description="Show clearart">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9103)</visible>
@@ -277,15 +294,7 @@
                         <selected>Skin.HasSetting(ShowClearArtOSD)</selected>
                         <onclick>Skin.ToggleSetting(ShowClearArtOSD)</onclick>
                     </control>
-                    <control type="radiobutton" id="9234" description="Match theme">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9103)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31196</label>
-                        <selected>!Skin.HasSetting(osd.usetheme)</selected>
-                        <onclick>Skin.ToggleSetting(osd.usetheme)</onclick>
-                        <onclick>ReloadSkin()</onclick>
-                    </control>
+                    
                     
                     <!-- Widgets -->
                     

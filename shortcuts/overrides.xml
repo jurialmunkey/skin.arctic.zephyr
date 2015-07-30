@@ -17,14 +17,14 @@
     <widget label="31189">RecommendedAlbums</widget>
     
     <!-- Weather Widget -->
-    <widget label="31251">Weather</widget>
+    <widget label="31251" condition="!IsEmpty(Skin.String(weather.fanart))">Weather</widget>
     <!-- <widget label="31252">WeatherForecast</widget> -->
     
     <!-- Next Aired -->
-    <widget label="31220">NextAired</widget>
+    <widget label="31220" condition="System.HasAddon(script.tv.show.next.aired)">NextAired</widget>
     
     <!-- Favourites -->
-    <widget label="1036">Favourites</widget>
+    <widget label="1036" condition="System.HasAddon(script.favourites)">Favourites</widget>
 
     <!-- Extended Info Trakt.tv -->
     <widget label="31134">TrendingMovies</widget>

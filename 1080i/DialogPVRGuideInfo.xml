@@ -5,12 +5,14 @@
     <allowoverlay>no</allowoverlay>
 
     <controls>
-        <control type="group">
+        <control type="image">
+            <width>100%</width>
+            <height>100%</height>
+            <animation effect="fade" start="100" end="90" condition="Skin.HasSetting(osd.usetheme)">Conditional</animation>
+            <texture colordiffuse="$VAR[OSDPanel]">common/white.png</texture>
             <visible>Window.IsVisible(fullscreenvideo)</visible>
             <visible>!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
             <visible>!Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
-            <include>GlobalOverlay</include>
-            <include>GlobalOverlay</include>
         </control>
         <control type="group">
             <animation type="Conditional" reversible="true" condition="Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogProgress.xml) | Window.IsVisible(DialogYesNo.xml) | Window.IsVisible(DialogOK.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml)">

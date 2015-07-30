@@ -14,7 +14,8 @@
         <control type="image">
             <width>100%</width>
             <height>100%</height>
-            <texture colordiffuse="OSDBack">common/white.png</texture>
+            <animation effect="fade" start="100" end="90" condition="Skin.HasSetting(osd.usetheme)">Conditional</animation>
+            <texture colordiffuse="$VAR[OSDPanel]">common/white.png</texture>
             <visible>Window.IsVisible(fullscreenvideo)</visible>
         </control>
         <control type="group">
