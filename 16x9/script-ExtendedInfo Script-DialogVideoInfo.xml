@@ -263,7 +263,7 @@
 			<scrollspeed>100</scrollspeed>
 			<label>$INFO[Window.Property(movie.TagLine)]</label>
 			<include>DialogVideoInfoAnimation</include>
-			<visible>!IsEmpty(Window(home).Property(movie.TagLine))</visible>
+			<visible>!IsEmpty(Window.Property(movie.TagLine))</visible>
 		</control>
 		<control type="label">
 			<top>-7</top>
@@ -275,7 +275,7 @@
 			<scrollspeed>100</scrollspeed>
 			<label>$INFO[Window.Property(movie.Title)]</label>
 			<include>DialogVideoInfoAnimation</include>
-			<visible>IsEmpty(Window(home).Property(movie.TagLine))</visible>
+			<visible>IsEmpty(Window.Property(movie.TagLine))</visible>
 		</control>
 		<control type="group">
 			<top>60</top>
@@ -569,7 +569,7 @@
 				<font>Small</font>
 				<autoscroll>false</autoscroll>
 				<textcolor>Black700</textcolor>
-				<label fallback="">[B]$INFO[Window.Property(movie.TagLine),,[CR]][/B]$INFO[Window.Property(movie.Plot)]</label>
+				<label fallback="">$INFO[Window.Property(movie.Plot)]</label>
 				<include>DialogVideoInfoAnimation</include>
 				<visible>!ControlGroup(3444).HasFocus()</visible>
 			</control>
@@ -580,14 +580,14 @@
 				<font>Small</font>
 				<autoscroll time="3000" repeat="10000"/>
 				<textcolor>White70</textcolor>
-				<label fallback="">[B]$INFO[Window.Property(movie.TagLine),,[CR]][/B]$INFO[Window.Property(movie.Plot)]</label>
+				<label fallback="">$INFO[Window.Property(movie.Plot)]</label>
 				<include>DialogVideoInfoAnimation</include>
 				<visible>ControlGroup(3444).HasFocus()</visible>
 			</control>
 		</control>
 
 		<control type="grouplist">
-			<top>303</top>
+			<top>310</top>
 			<height>44</height>
 			<itemgap>10</itemgap>
 			<include>DialogVideoInfoAnimation</include>
@@ -618,7 +618,7 @@
 		<!-- Director -->
 
 		<control type="grouplist">
-			<top>347</top>
+			<top>354</top>
 			<width>1192</width>
 			<height>44</height>
 			<itemgap>10</itemgap>
