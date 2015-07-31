@@ -1007,7 +1007,7 @@
 			<height>74</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>info/rating/MPAA_NR_Certificate_US.png</texture>
-			<visible>IsEmpty(ListItem.Mpaa) | SubString(ListItem.Mpaa,N/A) | SubString(ListItem.Mpaa,NOT RATED) | SubString(ListItem.Mpaa,PASSED)</visible>
+			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + IsEmpty(ListItem.Mpaa) | SubString(ListItem.Mpaa,N/A) | SubString(ListItem.Mpaa,NOT RATED) | SubString(ListItem.Mpaa,PASSED)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
@@ -1107,7 +1107,7 @@
 			<height>74</height>
 			<colordiffuse>Black100</colordiffuse>
 			<texture>info/rating/MPAA_NR_Certificate_US.png</texture>
-			<visible>IsEmpty(ListItem.Mpaa) | SubString(ListItem.Mpaa,N/A) | SubString(ListItem.Mpaa,NOT RATED) | SubString(ListItem.Mpaa,PASSED)</visible>
+			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + IsEmpty(ListItem.Mpaa) | SubString(ListItem.Mpaa,N/A) | SubString(ListItem.Mpaa,NOT RATED) | SubString(ListItem.Mpaa,PASSED)</visible>
 		</control>
 		<control type="image">
 			<centertop>50%</centertop>
