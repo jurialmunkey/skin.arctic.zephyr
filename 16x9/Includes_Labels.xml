@@ -720,4 +720,8 @@
 		<value condition="!Skin.HasSetting(furniture.alternate.duration)">$INFO[Window(movieinformation).Property(Duration), ,min]</value>
 		<value>$INFO[ListItem.Duration,,min]</value>
 	</variable>
+	<variable name="DurationHomeLong">
+		<value condition="!Skin.HasSetting(furniture.alternate.duration)">$INFO[Window(home).Property(Duration), ,min]</value>
+		<value>$INFO[Container(301).ListItem.Duration,,min]</value>
+	</variable>
 </includes>

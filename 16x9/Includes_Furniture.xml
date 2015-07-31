@@ -1639,7 +1639,7 @@
 			</control>
 			<control type="group">
 				<centertop>50%</centertop>
-				<width>170</width>
+				<width>220</width>
 				<height>64</height>
 				<visible>!IsEmpty(Container(301).ListItem.Duration) + !Skin.HasSetting(furniture.flags.colour)</visible>
 				<control type="image">
@@ -1650,14 +1650,14 @@
 					<visible>!IsEmpty(Container(301).ListItem.Duration)</visible>
 				</control>
 				<control type="label">
-					<left>50</left>
-					<width>115</width>
+					<left>57</left>
+					<width>170</width>
 					<centertop>50%</centertop>
 					<height>64</height>
-					<align>center</align>
+					<align>left</align>
 					<aligny>center</aligny>
-					<label>$INFO[Container(301).ListItem.Duration,, $LOCALIZE[31102] ]</label>
-					<font>Small</font>
+					<label>$VAR[DurationHomeLong]</label>
+					<font>DurationFontSmall</font>
 					<textcolor>Dark1</textcolor>
 					<visible>!IsEmpty(Container(301).ListItem.Duration)</visible>
 				</control>
@@ -1674,8 +1674,8 @@
 					<height>50</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>$INFO[Container(301).ListItem.Duration,, $LOCALIZE[31102] ]</label>
-					<font>DurationFont</font>
+					<label>$VAR[DurationHomeLong]</label>
+					<font>DurationFontSmall</font>
 					<textcolor>$VAR[ColourHighlight]</textcolor>
 					<visible>!IsEmpty(Container(301).ListItem.Duration)</visible>
 				</control>
