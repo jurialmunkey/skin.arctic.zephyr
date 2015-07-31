@@ -1,38 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-    <include name="GlobalSearchGroup">
-        <left>0</left>
-        <right>0</right>
-        <height>220</height>
-    </include>
-    <include name="GlobalSearchLabel">
-        <!-- <left>0</left>
-        <bottom>0</bottom>
-        <height>40</height>
-        <width>220</width>
-        <aligny>center</aligny>
-        <font>TinyBold</font>
-        <textcolor>Dark2</textcolor>
-        <align>center</align>
-        <animation type="Conditional" condition="true">
-            <effect type="rotate" end="90" start="0" center="-10,220"/>
-        </animation> -->
-        <visible>false</visible>
-    </include>
-    <include name="GlobalSearchLeftArrow">
-        <centertop>100</centertop>
-        <centerleft>15</centerleft>
-        <width>16</width>
-        <height>16</height>
-        <texture colordiffuse="white" flipx="true">common/arrow-small-right.png</texture>
-    </include>
-    <include name="GlobalSearchRightArrow">
-        <centertop>100</centertop>
-        <centerright>15</centerright>
-        <width>16</width>
-        <height>16</height>
-        <texture colordiffuse="white" flipx="false">common/arrow-small-right.png</texture>
-    </include>
     <variable name="GlobalSearchArt">
         <value condition="!IsEmpty(ListItem.Property(Fanart))">$INFO[ListItem.Property(Fanart)]</value>
         <value>$INFO[ListItem.Thumb]</value>
@@ -109,15 +76,78 @@
             <label>$INFO[ListItem.Label]</label>
         </control>
     </include>
-    <include name="GlobalSearchList">
-        <posy>0</posy>
-        <left>0</left>
-        <height>220</height>
-        <width>1770</width>
-        <orientation>horizontal</orientation>
-        <itemlayout height="220" width="442">
-            <include>GlobalSearchListItem</include>
-        </itemlayout>
+    <include name="GlobalSearchListGroupParams">
+        <control type="group" id="$PARAM[groupid]">
+            <height>220</height>
+            <control type="image">
+                <left>0</left>
+                <width>192</width>
+                <top>0</top>
+                <height>210</height>
+                <texture colordiffuse="Panel">common/white.png</texture>
+            </control>
+            <control type="image">
+                <left>0</left>
+                <width>192</width>
+                <top>0</top>
+                <bottom>58</bottom>
+                <aspectratio>keep</aspectratio>
+                <texture colordiffuse="PanelWhite70">$PARAM[iconimage]</texture>
+            </control>
+            <control type="button" id="$PARAM[buttonid]">
+                <left>0</left>
+                <width>192</width>
+                <height>48</height>
+                <bottom>10</bottom>
+                <font>Mini</font>
+                <textoffsetx>10</textoffsetx>
+                <textcolor>White100</textcolor>
+                <focusedcolor>Selected</focusedcolor>
+                <onright>$PARAM[listid]</onright>
+                <onup>$PARAM[onleft]</onup>
+                <ondown>$PARAM[onright]</ondown>
+                <onclick>Close</onclick>
+                <onclick>$PARAM[buttonclick]</onclick>
+                <texturenofocus colordiffuse="Black70">common/white.png</texturenofocus>
+                <texturefocus colordiffuse="$VAR[ColorHighlight]">common/white.png</texturefocus>
+                <label>$INFO[Control.GetLabel($PARAM[labelid]),$PARAM[locallabel] (,)]</label>
+            </control>
+            <control type="list" id="$PARAM[listid]">
+                <top>0</top>
+                <onleft>$PARAM[buttonid]</onleft>
+                <onup>$PARAM[onleft]</onup>
+                <ondown>$PARAM[onright]</ondown>
+                <height>220</height>
+                <left>202</left>
+                <width>1568</width>
+                <orientation>horizontal</orientation>
+                <itemlayout height="220" width="392">
+                    <include>GlobalSearchListItem</include>
+                </itemlayout>
+                <focusedlayout height="220" width="392">
+                    <control type="group">
+                        <visible>!Control.HasFocus($PARAM[listid])</visible>
+                        <include>GlobalSearchListItem</include>
+                    </control>
+                    <control type="group">
+                        <visible>Control.HasFocus($PARAM[listid])</visible>
+                        <include>GlobalSearchListFocus</include>
+                    </control>
+                </focusedlayout>
+            </control>
+        
+            <control type="image">
+                <centertop>100</centertop>
+                <centerright>8</centerright>
+                <width>16</width>
+                <height>16</height>
+                <include>Animation.DelayFadeIn</include>
+                <include>Animation.FadeOut</include>
+                <visible>Control.HasFocus($PARAM[listid]) + IntegerGreaterThan(Container($PARAM[listid]).NumItems,4)</visible>
+                <texture colordiffuse="Dark2" flipx="false">common/arrow-small-right.png</texture>
+            </control>
+        </control>
+
     </include>
     
     
