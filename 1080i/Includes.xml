@@ -23,6 +23,7 @@
     <include file="Includes_Furniture.xml" />
     <include file="Includes_Home.xml" />
     <include file="Includes_GlobalSearch.xml" />
+    <include file="Includes_NextAired.xml" />
     <include file="Includes_Labels.xml" />
     <include file="Includes_Images.xml" />
     <include file="Includes_Animations.xml" />
@@ -115,6 +116,7 @@
         <value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
         <value condition="!IsEmpty(Container(9500).ListItem.Art(fanart))">$INFO[Container(9500).ListItem.Art(fanart)]</value>
         <value condition="!IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
+        <value condition="!IsEmpty(ListItem.Property(Fanart))">$INFO[ListItem.Property(Fanart)]</value>
         <value condition="!IsEmpty(Skin.String(fanart.fallback))">$INFO[Skin.String(fanart.fallback)]</value>
         <value>common/null.png</value>
     </variable>
