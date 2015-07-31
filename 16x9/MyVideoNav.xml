@@ -3,8 +3,9 @@
 <window id="6">
 	<defaultcontrol always="true">50</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
-	<views>50,550,54,53,51,55,56,57,58,59,52,500,514,513,515</views>
+	<views>50,550,54,53,51,55,56,57,155,156,58,59,52,500,514,513,515</views>
 	<onload condition="System.HasAddon(script.tv.show.next.aired)">RunScript(script.tv.show.next.aired,backend=True)</onload>
+	<onload condition="System.HasAddon(script.duration)">RunScript(script.duration,backend=True)</onload>
 	<controls>
 		<include>GlobalBackground</include>
 		<include>View_550_List</include>
@@ -25,6 +26,8 @@
 		<include condition="Skin.HasSetting(56media.low)">View_56_MediaInfo3</include>
 		<include condition="!Skin.HasSetting(57list.low)">View_57_ExtraInfo</include>
 		<include condition="Skin.HasSetting(57list.low)">View_57_ExtraInfo_LowList</include>
+		<include>View_155_Wall_Emby</include>
+		<include>View_156_Wall_Kodi</include>
 		<include>View_58_Cards</include>
 		<include>View_59_BannerPlex</include>
 		<include>View_500_Thumbnails</include>
@@ -73,7 +76,7 @@
 					<include>DefContextButton</include>
 					<align>left</align>
 					<label>View: $INFO[Container.Viewmode]</label>
-					<onclick>XBMC.RunScript(script.arctic.zephyr.helper,SETVIEW)</onclick>
+					<onclick>XBMC.RunScript(script.arctic.zephyr.helper.jarvis,SETVIEW)</onclick>
 				</control>
 				<control type="button" id="3">
 					<description>Sort</description>
@@ -265,6 +268,63 @@
 					<selected>Skin.HasSetting(views.titleoverlay)</selected>
 					<onclick>Skin.ToggleSetting(views.titleoverlay)</onclick>
 					<visible>Control.IsVisible(515)</visible>
+				</control>
+
+				<control type="radiobutton" id="9023" description="Prefer Fanart (500)">
+					<include>DefContextButton</include>
+					<align>left</align>
+					<label>Show Fanart Image</label>
+					<selected>Skin.HasSetting(views.500.showfanart)</selected>
+					<onclick>Skin.ToggleSetting(views.500.showfanart)</onclick>
+					<visible>Control.IsVisible(500)</visible>
+				</control>
+				<control type="radiobutton" id="9024" description="Prefer Fanart (51)">
+					<include>DefContextButton</include>
+					<align>left</align>
+					<label>Show Fanart Image</label>
+					<selected>Skin.HasSetting(views.51.showfanart)</selected>
+					<onclick>Skin.ToggleSetting(views.51.showfanart)</onclick>
+					<visible>Control.IsVisible(51)</visible>
+				</control>
+				<control type="radiobutton" id="9025" description="Prefer Fanart (55)">
+					<include>DefContextButton</include>
+					<align>left</align>
+					<label>Show Fanart Image</label>
+					<selected>Skin.HasSetting(views.55.showfanart)</selected>
+					<onclick>Skin.ToggleSetting(views.55.showfanart)</onclick>
+					<visible>Control.IsVisible(55)</visible>
+				</control>
+				<control type="radiobutton" id="9026" description="Prefer Fanart (56)">
+					<include>DefContextButton</include>
+					<align>left</align>
+					<label>Show Fanart Image</label>
+					<selected>Skin.HasSetting(views.56.showfanart)</selected>
+					<onclick>Skin.ToggleSetting(views.56.showfanart)</onclick>
+					<visible>Control.IsVisible(56)</visible>
+				</control>
+				<control type="radiobutton" id="9027" description="Prefer Fanart (57)">
+					<include>DefContextButton</include>
+					<align>left</align>
+					<label>Show Fanart Image</label>
+					<selected>Skin.HasSetting(views.57.showfanart)</selected>
+					<onclick>Skin.ToggleSetting(views.57.showfanart)</onclick>
+					<visible>Control.IsVisible(57)</visible>
+				</control>
+				<control type="radiobutton" id="9028" description="Show Tick (155)">
+					<include>DefContextButton</include>
+					<align>left</align>
+					<label>Hide Watched/Unwatched Indicator</label>
+					<selected>Skin.HasSetting(views.155.showtick)</selected>
+					<onclick>Skin.ToggleSetting(views.155.showtick)</onclick>
+					<visible>Control.IsVisible(155)</visible>
+				</control>
+				<control type="radiobutton" id="9029" description="Show Tick (156)">
+					<include>DefContextButton</include>
+					<align>left</align>
+					<label>Hide Watched/Unwatched Indicator</label>
+					<selected>Skin.HasSetting(views.156.showtick)</selected>
+					<onclick>Skin.ToggleSetting(views.156.showtick)</onclick>
+					<visible>Control.IsVisible(156)</visible>
 				</control>
 				<!-- Other Options -->
 				<control type="radiobutton" id="14">

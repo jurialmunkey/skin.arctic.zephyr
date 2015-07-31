@@ -83,6 +83,12 @@
 						<include>DefSettingsButton</include>
 						<label>31745</label>
 					</control>
+					<!--<control type="togglebutton" id="9109" description="Views">
+						<usealttexture>ControlGroup(9100).HasFocus(9109)</usealttexture>
+						<alttexturenofocus colordiffuse="$VAR[ColourHighlight]">common/white.png</alttexturenofocus>
+						<include>DefSettingsButton</include>
+						<label>Views</label>
+					</control> -->
 				</control>
 				<!-- Right Group -->
 				<control type="grouplist" id="9200">
@@ -190,6 +196,27 @@
 						<label>31730</label>
 						<selected>Skin.HasSetting(EnableExtraFanart)</selected>
 						<onclick>Skin.ToggleSetting(EnableExtraFanart)</onclick>
+					</control>
+					<control type="button" id="92281" description="Fanart Opacity">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<label>$LOCALIZE[31780]</label>
+						<label2 fallback="Normal">$INFO[Skin.String(FanartFade)]</label2>
+						<onclick>SetProperty(Dialog.NumItems,6)</onclick>
+						<onclick>SetProperty(Dialog.1.Label,Darkest)</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(FanartFade,Darkest))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,Dark)</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(FanartFade,Dark))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,Normal)</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(FanartFade,Normal))</onclick>
+						<onclick>SetProperty(Dialog.4.Label,Bright)</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(FanartFade,Bright))</onclick>
+						<onclick>SetProperty(Dialog.5.Label,Brighter)</onclick>
+						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(FanartFade,Brighter))</onclick>
+						<onclick>SetProperty(Dialog.6.Label,Brightest)</onclick>
+						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(FanartFade,Brightest))</onclick>
+						<onclick>RunScript(script.toolbox,info=selectdialog,header=Select Background Opacity)</onclick>
+						<visible>ControlGroup(9100).HasFocus(9102)</visible>
 					</control>
 					<control type="radiobutton" id="9224" description="Animate Fanart">
 						<width>1310</width>
@@ -356,6 +383,14 @@
 						<visible>ControlGroup(9100).HasFocus(9104)</visible>
 						<visible>Skin.HasSetting(widgets.cases)</visible>
 					</control>
+					<control type="radiobutton" id="92417" description="Rounded music on widgets">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9104)</visible>
+						<include>DefSettingsButton</include>
+						<label>Round corners for music in widgets/visulisation</label>
+						<selected>Skin.HasSetting(widgets.music.rounded)</selected>
+						<onclick>Skin.ToggleSetting(widgets.music.rounded)</onclick>
+					</control>
 					<control type="radiobutton" id="9242" description="Classic Widget Auto show">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9104)</visible>
@@ -369,10 +404,10 @@
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9104)</visible>
 						<include>DefSettingsButton</include>
-						<label>31149</label>
+						<label>Replace widget with global fanart</label>
 						<selected>Skin.HasSetting(home.dontshowfanart)</selected>
-						<onclick condition="!Skin.HasSetting(home.dontshowfanart) + IsEmpty(Skin.String(home.slideshowpath))">Skin.SetPath(home.slideshowpath)</onclick>
 						<onclick>Skin.ToggleSetting(home.dontshowfanart)</onclick>
+						<visible>System.HasAddon(script.grab.fanart)</visible>
 					</control>
 					<control type="button" id="9246" description="Custom Widget 1">
 						<width>1310</width>
@@ -488,6 +523,14 @@
 						<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=episodeshub)</onclick>
 					</control>
 					<!-- Furniture -->
+					<control type="radiobutton" id="92611" description="Watched/Unwatched">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9106)</visible>
+						<include>DefSettingsButton</include>
+						<label>Show unwatched indicator</label>
+						<selected>Skin.HasSetting(furniture.unwatched)</selected>
+						<onclick>Skin.ToggleSetting(furniture.unwatched)</onclick>
+					</control>
 					<control type="radiobutton" id="9261" description="Header">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9106)</visible>
@@ -521,18 +564,28 @@
 						<selected>!Skin.HasSetting(furniture.flags)</selected>
 						<onclick>Skin.ToggleSetting(furniture.flags)</onclick>
 					</control>
+					<control type="radiobutton" id="92631" description="Alternate Duration">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9106)</visible>
+						<include>DefSettingsButton</include>
+						<label>Use Default Duration</label>
+						<selected>Skin.HasSetting(furniture.alternate.duration)</selected>
+						<onclick>Skin.ToggleSetting(furniture.alternate.duration)</onclick>
+					</control>
 					<control type="button" id="9269" description="Country Rating">
 						<width>1310</width>
 						<include>DefSettingsButton</include>
 						<label>$LOCALIZE[31753]</label>
 						<label2 fallback="UK">$VAR[MovieMPAALangLabel]</label2>
-						<onclick>SetProperty(Dialog.NumItems,3)</onclick>
+						<onclick>SetProperty(Dialog.NumItems,4)</onclick>
 						<onclick>SetProperty(Dialog.1.Label,Default - UK)</onclick>
 						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(RatingCountry,UK))</onclick>
 						<onclick>SetProperty(Dialog.2.Label,US)</onclick>
 						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(RatingCountry,US))</onclick>
 						<onclick>SetProperty(Dialog.3.Label,Germany)</onclick>
 						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(RatingCountry,Germany))</onclick>
+						<onclick>SetProperty(Dialog.4.Label,NL)</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(RatingCountry,NL))</onclick>
 						<onclick>RunScript(script.toolbox,info=selectdialog,header=Select Rating Country)</onclick>
 						<visible>ControlGroup(9100).HasFocus(9106)</visible>
 					</control>
@@ -578,6 +631,16 @@
 						<selected>Skin.HasSetting(furniture.logo.fake)</selected>
 						<onclick>Skin.ToggleSetting(furniture.logo.fake)</onclick>
 					</control>
+					<control type="radiobutton" id="92682" description="Animate Logo">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9106)</visible>
+						<include>DefSettingsButton</include>
+						<label>  - Animate Logo</label>
+						<visible>Skin.HasSetting(furniture.logo)</visible>
+						<selected>Skin.HasSetting(furniture.logo.animate)</selected>
+						<onclick>Skin.ToggleSetting(furniture.logo.animate)</onclick>
+					</control>
+
 					<control type="radiobutton" id="9270" description="DiscArt">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9106)</visible>
@@ -725,7 +788,7 @@
 					<control type="button" id="9282">
 						<width>1310</width>
 						<include>DefSettingsButton</include>
-						<onclick>RunScript(script.arctic.zephyr.helper,COLORPICKER,focuscolor.name)</onclick>
+						<onclick>RunScript(script.arctic.zephyr.helper.jarvis,COLORPICKER,focuscolor.name)</onclick>
 						<label> - Set main highlight colour</label>
 						<label2>[COLOR=$VAR[ColourHighlight]]$INFO[Skin.String(focuscolor.name)][/COLOR]</label2>
 						<visible>Skin.HasSetting(ColourHighlight)</visible>
@@ -751,7 +814,7 @@
 					<control type="button" id="9285">
 						<width>1310</width>
 						<include>DefSettingsButton</include>
-						<onclick>RunScript(script.arctic.zephyr.helper,COLORPICKER,focuscolor2.name)</onclick>
+						<onclick>RunScript(script.arctic.zephyr.helper.jarvis,COLORPICKER,focuscolor2.name)</onclick>
 						<label> - Set second highlight colour</label>
 						<label2>[COLOR=$VAR[ColourHighlight2]]$INFO[Skin.String(focuscolor2.name)][/COLOR]</label2>
 						<visible>Skin.HasSetting(ColourHighlight2)</visible>
@@ -777,7 +840,7 @@
 					<control type="button" id="9288">
 						<width>1310</width>
 						<include>DefSettingsButton</include>
-						<onclick>RunScript(script.arctic.zephyr.helper,COLORPICKER,selectedcolor.name)</onclick>
+						<onclick>RunScript(script.arctic.zephyr.helper.jarvis,COLORPICKER,selectedcolor.name)</onclick>
 						<label> - Set selected colour</label>
 						<label2>[COLOR=$VAR[ColourSelected]]$INFO[Skin.String(selectedcolor.name)][/COLOR]</label2>
 						<visible>Skin.HasSetting(ColourSelected)</visible>
@@ -790,6 +853,14 @@
 						<label> - $LOCALIZE[409]</label>
 						<visible>Skin.HasSetting(ColourSelected)</visible>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<!-- Views -->
+					<control type="button" id="9291" description="Enable or Disable views">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<onclick>RunScript(script.arctic.zephyr.helper.jarvis,ENABLEVIEWS)</onclick>
+						<label>31769</label>
+						<visible>ControlGroup(9100).HasFocus(9109)</visible>
 					</control>
 				</control>
 				<!-- Lines -->

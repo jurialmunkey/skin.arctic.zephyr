@@ -27,7 +27,7 @@
 					<width>PosterW</width>
 					<height>PosterH</height>
 					<fadetime>100</fadetime>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$VAR[PosterImage]</texture>
 					<visible>Skin.HasSetting(show.reflections)</visible>
 				</control>
@@ -49,7 +49,7 @@
 					<width>PosterW</width>
 					<height>PosterH</height>
 					<fadetime>100</fadetime>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
 					<visible>!Skin.Hassetting(views.cases)</visible>
 				</control>
@@ -58,7 +58,7 @@
 					<top>11</top>
 					<width>411</width>
 					<height>627</height>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture background="true" diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
 					<visible>Skin.Hassetting(views.cases) + !Skin.Hassetting(views.clearcases)</visible>
 				</control>
@@ -66,7 +66,7 @@
 					<width>PosterW</width>
 					<height>PosterH</height>
 					<fadetime>100</fadetime>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture background="true" diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
 					<visible>Skin.Hassetting(views.cases) + Skin.Hassetting(views.clearcases)</visible>
 				</control>
@@ -94,14 +94,15 @@
 				</control>
 				<control type="group">
 					<visible>!stringcompare(ListItem.Label,..)</visible>
-					<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
-					<control type="image">
+					<control type="label">
 						<left>379</left>
 						<centertop>32</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatched]</texture>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
 					</control>
 				</control>
 				<control type="image">
@@ -130,7 +131,7 @@
 					<width>PosterW</width>
 					<height>PosterH</height>
 					<fadetime>100</fadetime>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$VAR[PosterImage]</texture>
 					<visible>Skin.HasSetting(show.reflections)</visible>
 				</control>
@@ -152,7 +153,7 @@
 					<width>PosterW</width>
 					<height>PosterH</height>
 					<fadetime>100</fadetime>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
 					<visible>!Skin.Hassetting(views.cases)</visible>
 				</control>
@@ -161,7 +162,7 @@
 					<top>11</top>
 					<width>411</width>
 					<height>627</height>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture background="true" diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
 					<visible>Skin.Hassetting(views.cases) + !Skin.Hassetting(views.clearcases)</visible>
 				</control>
@@ -169,7 +170,7 @@
 					<width>PosterW</width>
 					<height>PosterH</height>
 					<fadetime>100</fadetime>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture background="true" diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
 					<visible>Skin.Hassetting(views.cases) + Skin.Hassetting(views.clearcases)</visible>
 				</control>
@@ -197,14 +198,15 @@
 				</control>
 				<control type="group">
 					<visible>!stringcompare(ListItem.Label,..)</visible>
-					<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
-					<control type="image">
+					<control type="label">
 						<left>379</left>
 						<centertop>32</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatched]</texture>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
 					</control>
 				</control>
 				<control type="image">

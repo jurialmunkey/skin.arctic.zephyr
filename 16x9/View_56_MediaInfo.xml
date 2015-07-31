@@ -47,7 +47,7 @@
 					<width>PosterW</width>
 					<height>PosterH</height>
 					<fadetime>100</fadetime>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$VAR[PosterImage]</texture>
 					<visible>Skin.HasSetting(show.reflections)</visible>
 				</control>
@@ -69,7 +69,7 @@
 					<width>PosterW</width>
 					<height>PosterH</height>
 					<fadetime>100</fadetime>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
 					<visible>!Skin.Hassetting(views.cases)</visible>
 				</control>
@@ -78,7 +78,7 @@
 					<top>11</top>
 					<width>411</width>
 					<height>627</height>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture background="true" diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
 					<visible>Skin.Hassetting(views.cases) + !Skin.Hassetting(views.clearcases)</visible>
 				</control>
@@ -86,7 +86,7 @@
 					<width>PosterW</width>
 					<height>PosterH</height>
 					<fadetime>100</fadetime>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture background="true" diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
 					<visible>Skin.Hassetting(views.cases) + Skin.Hassetting(views.clearcases)</visible>
 				</control>
@@ -201,7 +201,7 @@
 					<width>PosterW</width>
 					<height>PosterH</height>
 					<fadetime>200</fadetime>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$VAR[PosterImage]</texture>
 					<visible>Skin.HasSetting(show.reflections)</visible>
 				</control>
@@ -223,7 +223,7 @@
 					<width>PosterW</width>
 					<height>PosterH</height>
 					<fadetime>200</fadetime>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
 					<visible>!Skin.Hassetting(views.cases)</visible>
 				</control>
@@ -232,7 +232,7 @@
 					<top>11</top>
 					<width>411</width>
 					<height>627</height>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture background="true" diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
 					<visible>Skin.Hassetting(views.cases) + !Skin.Hassetting(views.clearcases)</visible>
 				</control>
@@ -240,7 +240,7 @@
 					<width>PosterW</width>
 					<height>PosterH</height>
 					<fadetime>200</fadetime>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture background="true" diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
 					<visible>Skin.Hassetting(views.cases) + Skin.Hassetting(views.clearcases)</visible>
 				</control>
@@ -277,7 +277,7 @@
 			</control>
 			<control type="group">
 				<right>70</right>
-				<width>645</width>
+				<width>587</width>
 				<top>206</top>
 				<height>660</height>
 				<control type="group">
@@ -293,8 +293,19 @@
 						<right>10</right>
 						<bottom>10</bottom>
 						<fadetime>200</fadetime>
-						<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+						<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="diffuse/pvrinfo.png" background="true">$VAR[LandscapeImage]</texture>
+						<visible>!Skin.HasSetting(views.56.showfanart)</visible>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<right>10</right>
+						<bottom>10</bottom>
+						<fadetime>200</fadetime>
+						<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 						<texture diffuse="diffuse/pvrinfo.png" background="true">$VAR[FanartImage]</texture>
+						<visible>Skin.HasSetting(views.56.showfanart)</visible>
 					</control>
 				</control>
 				<control type="group">
@@ -403,7 +414,7 @@
 					<width>PosterW</width>
 					<height>PosterH</height>
 					<fadetime>200</fadetime>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$VAR[PosterImage]</texture>
 					<visible>Skin.HasSetting(show.reflections)</visible>
 				</control>
@@ -425,7 +436,7 @@
 					<width>PosterW</width>
 					<height>PosterH</height>
 					<fadetime>200</fadetime>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
 					<visible>!Skin.Hassetting(views.cases)</visible>
 				</control>
@@ -434,7 +445,7 @@
 					<top>11</top>
 					<width>411</width>
 					<height>627</height>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture background="true" diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
 					<visible>Skin.Hassetting(views.cases) + !Skin.Hassetting(views.clearcases)</visible>
 				</control>
@@ -442,7 +453,7 @@
 					<width>PosterW</width>
 					<height>PosterH</height>
 					<fadetime>200</fadetime>
-					<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture background="true" diffuse="diffuse/listposter.png">$VAR[PosterImage]</texture>
 					<visible>Skin.Hassetting(views.cases) + Skin.Hassetting(views.clearcases)</visible>
 				</control>
@@ -540,14 +551,14 @@
 			<selectedcolor>Light1</selectedcolor>
 			<label>$INFO[ListItem.Label]</label>
 		</control>
-		<control type="image">
+		<control type="label">
 			<centerright>32</centerright>
-			>
 			<centertop>32</centertop>
 			<width>32</width>
 			<height>32</height>
-			<aspectratio aligny="top">keep</aspectratio>
-			<texture>$VAR[PercentWatched]</texture>
+			<font>symbolview</font>
+			<label>$VAR[PercentWatchedLabel]</label>
+			<textcolor>$VAR[ColourHighlight2]</textcolor>
 			<visible>!stringcompare(ListItem.Label,..)</visible>
 		</control>
 		<control type="label">
@@ -573,13 +584,14 @@
 			<textcolor>Dark1</textcolor>
 			<selectedcolor>Dark1</selectedcolor>
 		</control>
-		<control type="image">
+		<control type="label">
 			<centerright>32</centerright>
 			<centertop>32</centertop>
 			<width>32</width>
 			<height>32</height>
-			<aspectratio aligny="top">keep</aspectratio>
-			<texture>$VAR[PercentWatched]</texture>
+			<font>symbolview</font>
+			<label>$VAR[PercentWatchedLabel]</label>
+			<textcolor>$VAR[ColourHighlight2]</textcolor>
 			<visible>!stringcompare(ListItem.Label,..)</visible>
 		</control>
 		<control type="label">

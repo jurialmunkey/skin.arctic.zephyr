@@ -10,9 +10,10 @@
 			<onleft>50</onleft>
 			<onright condition="!Skin.HasSetting(global.kioskmode)">9000</onright>
 			<texturesliderbackground border="4" colordiffuse="Dark4">scrollbar/scrollv.png</texturesliderbackground>
-			<texturesliderbar border="4" colordiffuse="Dark3">scrollbar/scrollv.png</texturesliderbar>
-			<texturesliderbarfocus border="4" colordiffuse="Dark2">scrollbar/scrollv.png</texturesliderbarfocus>
+			<texturesliderbar border="4" colordiffuse="$VAR[ColourHighlight]">scrollbar/scrollv.png</texturesliderbar>
+			<texturesliderbarfocus border="4" colordiffuse="$VAR[ColourHighlight]">scrollbar/scrollv.png</texturesliderbarfocus>
 			<animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
+			<animation effect="slide" end="100,0" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
 		</control>
 	</include>
 	<include name="Furniture_Scrollbar_Horizontal">
@@ -26,8 +27,8 @@
 			<onup>50</onup>
 			<ondown condition="!Skin.HasSetting(global.kioskmode)">9000</ondown>
 			<texturesliderbackground border="4" colordiffuse="Dark4">scrollbar/scrollv.png</texturesliderbackground>
-			<texturesliderbar border="4" colordiffuse="Dark3">scrollbar/scrollv.png</texturesliderbar>
-			<texturesliderbarfocus border="4" colordiffuse="Dark2">scrollbar/scrollv.png</texturesliderbarfocus>
+			<texturesliderbar border="4" colordiffuse="$VAR[ColourHighlight]">scrollbar/scrollv.png</texturesliderbar>
+			<texturesliderbarfocus border="4" colordiffuse="$VAR[ColourHighlight]">scrollbar/scrollv.png</texturesliderbarfocus>
 			<animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
 		</control>
 	</include>
@@ -159,7 +160,7 @@
 	<include name="Furniture_Flags">
 		<control type="grouplist">
 			<visible>!Skin.HasSetting(furniture.flags)</visible>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-VideoList.xml) + !Window.IsVisible(script-ExtendedInfo Script-YoutubeList.xml)</visible>
 			<visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 			<visible>!stringcompare(ListItem.Label,..)</visible>
 			<include>Animation.FadeIn</include>
@@ -388,12 +389,13 @@
 			<include condition="Stringcompare(Skin.String(RatingCountry),US)">lib_Rating_MPAA</include>
 			<include condition="Stringcompare(Skin.String(RatingCountry),UK)">lib_Rating_BBFC</include>
 			<include condition="Stringcompare(Skin.String(RatingCountry),Germany)">lib_Rating_FSK</include>
+			<include condition="Stringcompare(Skin.String(RatingCountry),NL)">lib_Rating_NL</include>
 			<control type="image">
 				<width>108</width>
 				<height>50</height>
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">$INFO[ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
-				<aspectratio align="left">scale</aspectratio>
+				<aspectratio align="left">keep</aspectratio>
 				<visible>!IsEmpty(ListItem.VideoAspect) + !Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">
@@ -409,7 +411,7 @@
 				<height>50</height>
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
-				<aspectratio align="left">scale</aspectratio>
+				<aspectratio align="left">keep</aspectratio>
 				<visible>!IsEmpty(ListItem.VideoResolution) + !Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">
@@ -425,7 +427,7 @@
 				<height>50</height>
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">$INFO[ListItem.VideoCodec,flags/video/,.png]</texture>
-				<aspectratio align="left">scale</aspectratio>
+				<aspectratio align="left">keep</aspectratio>
 				<visible>!IsEmpty(ListItem.VideoCodec) + !Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">
@@ -441,7 +443,7 @@
 				<height>50</height>
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
-				<aspectratio align="left">scale</aspectratio>
+				<aspectratio align="left">keep</aspectratio>
 				<visible>!IsEmpty(ListItem.AudioCodec) + !Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">
@@ -457,7 +459,7 @@
 				<height>50</height>
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">$INFO[ListItem.AudioChannels,flags/channels/,.png]</texture>
-				<aspectratio align="left">scale</aspectratio>
+				<aspectratio align="left">keep</aspectratio>
 				<visible>!IsEmpty(ListItem.AudioChannels) + !Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">
@@ -470,7 +472,7 @@
 			</control>
 			<control type="group">
 				<centertop>50%</centertop>
-				<width>170</width>
+				<width>220</width>
 				<height>64</height>
 				<visible>!IsEmpty(ListItem.Duration) + !Skin.HasSetting(furniture.flags.colour)</visible>
 				<control type="image">
@@ -478,19 +480,19 @@
 					<centertop>50%</centertop>
 					<texture colordiffuse="Dark1">flags/time.png</texture>
 					<aspectratio align="left">keep</aspectratio>
-					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(59) | Control.IsVisible(515) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
+					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(59) | Control.IsVisible(515) | Control.IsVisible(155) | Control.IsVisible(156) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
 				</control>
 				<control type="label">
-					<left>50</left>
-					<width>115</width>
+					<left>57</left>
+					<width>170</width>
 					<centertop>50%</centertop>
 					<height>64</height>
-					<align>center</align>
+					<align>left</align>
 					<aligny>center</aligny>
-					<label>$INFO[ListItem.Duration,, $LOCALIZE[31102] ]</label>
-					<font>Small</font>
+					<label>$VAR[DurationLong]</label>
+					<font>DurationFontSmall</font>
 					<textcolor>Dark1</textcolor>
-					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(59) | Control.IsVisible(515) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
+					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(59) | Control.IsVisible(515) | Control.IsVisible(155) | Control.IsVisible(156) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
 				</control>
 			</control>
 			<control type="group">
@@ -505,55 +507,10 @@
 					<height>50</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>$INFO[ListItem.Duration,, $LOCALIZE[31102] ]</label>
-					<font>DurationFont</font>
+					<label>$VAR[DurationLong]</label>
+					<font>DurationFontSmall</font>
 					<textcolor>$VAR[ColourHighlight]</textcolor>
-					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(59) | Control.IsVisible(515) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
-				</control>
-			</control>
-			<control type="group">
-				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
-				<centertop>50%</centertop>
-				<height>64</height>
-				<width>64</width>
-				<control type="image">
-					<width>73</width>
-					<texture colordiffuse="Dark1">flags/imdb.png</texture>
-					<visible>!IsEmpty(ListItem.Top250)</visible>
-				</control>
-				<control type="label">
-					<left>70</left>
-					<aligny>top</aligny>
-					<top>7</top>
-					<width>auto</width>
-					<font>Medium</font>
-					<align>left</align>
-					<textcolor>Black700</textcolor>
-					<label>#$INFO[ListItem.Top250]</label>
-					<visible>!IsEmpty(ListItem.Top250)</visible>
-				</control>
-			</control>
-			<control type="group">
-				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
-				<centertop>52%</centertop>
-				<height>64</height>
-				<width>64</width>
-				<control type="image">
-					<width>73</width>
-					<texture>views/imdbtop250.png</texture>
-					<visible>!IsEmpty(ListItem.Top250)</visible>
-					<aspectratio>keep</aspectratio>
-				</control>
-				<control type="label">
-					<left>77</left>
-					<aligny>top</aligny>
-					<top>7</top>
-					<width>auto</width>
-					<font>Medium</font>
-					<align>left</align>
-					<textcolor>fff3ce13</textcolor>
-					<label>#$INFO[ListItem.Top250]</label>
-					<visible>!IsEmpty(ListItem.Top250)</visible>
+					<visible>!IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(503) | Control.IsVisible(505) | Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(56) | Control.IsVisible(55) | Control.IsVisible(513) | Control.IsVisible(514) | Control.IsVisible(59) | Control.IsVisible(515) | Control.IsVisible(155) | Control.IsVisible(156) | [Control.IsVisible(56) + Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)]]</visible>
 				</control>
 			</control>
 			<control type="image">
@@ -584,8 +541,51 @@
 				<texture colordiffuse="Dark1">flags/dvd.png</texture>
 				<visible>substring(ListItem.FilenameAndPath,dvd) + !substring(ListItem.FilenameAndPath,hddvd)</visible>
 			</control>
+			<control type="group">
+				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
+				<centertop>70%</centertop>
+				<height>120</height>
+				<width>64</width>
+				<control type="image">
+					<width>73</width>
+					<height>55</height>
+					<texture colordiffuse="Dark1">flags/imdb.png</texture>
+					<visible>!IsEmpty(ListItem.Top250)</visible>
+				</control>
+				<control type="label">
+					<top>24</top>
+					<width>auto</width>
+					<font>Flag</font>
+					<align>center</align>
+					<textcolor>Black700</textcolor>
+					<label>$INFO[ListItem.Top250,#,]</label>
+					<visible>!IsEmpty(ListItem.Top250)</visible>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
+				<centertop>72%</centertop>
+				<height>120</height>
+				<width>64</width>
+				<control type="image">
+					<width>73</width>
+					<height>55</height>
+					<texture>views/imdbtop250.png</texture>
+					<visible>!IsEmpty(ListItem.Top250)</visible>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+					<top>24</top>
+					<width>auto</width>
+					<font>Flag</font>
+					<align>center</align>
+					<textcolor>fff3ce13</textcolor>
+					<label>$INFO[ListItem.Top250,#,]</label>
+					<visible>!IsEmpty(ListItem.Top250)</visible>
+				</control>
+			</control>
 		</control>
-		<control type="grouplist">
+		<control type="group">
 			<visible>!Skin.HasSetting(furniture.flags)</visible>
 			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
@@ -596,22 +596,21 @@
 			<centerbottom>60</centerbottom>
 			<width>1920</width>
 			<height>120</height>
-			<orientation>horizontal</orientation>
 			<align>left</align>
-			<itemgap>8</itemgap>
-			<usecontrolcoords>true</usecontrolcoords>
 			<control type="image">
+				<left>-15</left>
 				<centertop>50%</centertop>
-				<width>73</width>
-				<height>52</height>
+				<width>104</width>
+				<height>104</height>
 				<texture colordiffuse="Dark1">$VAR[Studio]</texture>
 				<aspectratio align="left">keep</aspectratio>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">
+				<left>-15</left>
 				<centertop>50%</centertop>
-				<width>73</width>
-				<height>52</height>
+				<width>104</width>
+				<height>104</height>
 				<texture>$VAR[Studio]</texture>
 				<aspectratio align="left">keep</aspectratio>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
@@ -790,23 +789,25 @@
 	<include name="Furniture_Logo">
 		<control type="group">
 			<visible>Skin.HasSetting(furniture.logo)</visible>
+			<visible>!Player.HasMedia</visible>
 			<visible>!Control.HasFocus(515)</visible>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
 			<visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
-			<left>831</left>
-			<top>70</top>
+			<left>1622</left>
+			<top>19</top>
 			<include>Animation.FadeIn</include>
 			<include>Animation.FadeOut</include>
 			<control type="image">
 				<width>258</width>
-				<height>100</height>
+				<height>130</height>
 				<texture>$VAR[ClearLogo]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+				<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
 			</control>
 			<control type="textbox">
 				<width>258</width>
-				<height>100</height>
+				<height>130</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<textcolor>$VAR[ColourHighlight]</textcolor>
@@ -816,10 +817,11 @@
 				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
 				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))]</visible>
 				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,a,Left) | SubString(ListItem.Title,b,Left) | SubString(ListItem.Title,c,Left) | SubString(ListItem.Title,d,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
 			</control>
 			<control type="textbox">
 				<width>258</width>
-				<height>100</height>
+				<height>130</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<textcolor>$VAR[ColourHighlight]</textcolor>
@@ -829,10 +831,11 @@
 				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
 				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))]</visible>
 				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))]+ [SubString(ListItem.Title,e,Left) | SubString(ListItem.Title,f,Left) | SubString(ListItem.Title,g,Left) | SubString(ListItem.Title,h,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
 			</control>
 			<control type="textbox">
 				<width>258</width>
-				<height>100</height>
+				<height>130</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<textcolor>$VAR[ColourHighlight]</textcolor>
@@ -842,10 +845,11 @@
 				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
 				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))]</visible>
 				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,i,Left) | SubString(ListItem.Title,j,Left) | SubString(ListItem.Title,k,Left) | SubString(ListItem.Title,l,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
 			</control>
 			<control type="textbox">
 				<width>258</width>
-				<height>100</height>
+				<height>130</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<textcolor>$VAR[ColourHighlight]</textcolor>
@@ -855,10 +859,11 @@
 				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
 				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))]</visible>
 				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,m,Left) | SubString(ListItem.Title,n,Left) | SubString(ListItem.Title,o,Left) | SubString(ListItem.Title,p,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
 			</control>
 			<control type="textbox">
 				<width>258</width>
-				<height>100</height>
+				<height>130</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<textcolor>$VAR[ColourHighlight]</textcolor>
@@ -868,10 +873,11 @@
 				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
 				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))]</visible>
 				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,q,Left) | SubString(ListItem.Title,r,Left) | SubString(ListItem.Title,s,Left) | SubString(ListItem.Title,t,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
 			</control>
 			<control type="textbox">
 				<width>258</width>
-				<height>100</height>
+				<height>130</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<textcolor>$VAR[ColourHighlight]</textcolor>
@@ -881,39 +887,110 @@
 				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
 				<visible>[Container.Content(movies) | Container.Content(sets) + IsEmpty(ListItem.Art(clearlogo))] | [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) + IsEmpty(ListItem.Art(tvshow.clearlogo))]</visible>
 				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,u,Left) | SubString(ListItem.Title,v,Left) | SubString(ListItem.Title,w,Left) | SubString(ListItem.Title,x,Left) | SubString(ListItem.Title,y,Left) | SubString(ListItem.Title,z,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
 			</control>
 		</control>
 		<control type="group">
 			<visible>Skin.HasSetting(furniture.logo)</visible>
 			<visible>!Window.IsVisible(DialogAlbumInfo.xml)</visible>
+			<visible>!Player.HasMedia</visible>
 			<visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs)</visible>
-			<left>831</left>
-			<top>70</top>
+			<left>1622</left>
+			<top>19</top>
 			<include>Animation.FadeIn</include>
 			<include>Animation.FadeOut</include>
 			<control id="8308" type="image">
 				<width>258</width>
-				<height>100</height>
+				<height>130</height>
 				<texture fallback="empty.png">$VAR[MusicClearLogo]</texture>
-				<aspectratio align="center" aligny="top">keep</aspectratio>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+				<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
 				<visible>Skin.HasSetting(furniture.logo) + !IsEmpty(Skin.String(cdartlocation))</visible>
 			</control>
-			<control type="image">
+			<control type="textbox">
 				<width>258</width>
-				<height>100</height>
-				<texture>$INFO[Window(Home).Property(logo)]</texture>
-				<aspectratio align="center" aligny="top">keep</aspectratio>
-				<visible>Skin.HasSetting(furniture.logo) + Substring(Control.GetLabel(8308),empty.png)</visible>
-			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>64</height>
-				<align>left</align>
+				<height>130</height>
+				<align>center</align>
 				<aligny>center</aligny>
-				<label>$INFO[BottomClearLogoText]</label>
-				<font>Flag</font>
-				<textcolor>Dark2</textcolor>
-				<visible>IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<shadowcolor>Black</shadowcolor>
+				<font>font_SimplerE3D_bold</font>
+				<label>[B]$VAR[BottomClearLogoText][/B]</label>
+				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
+				<visible>Skin.HasSetting(furniture.logo) + Substring(Control.GetLabel(8308),empty.png)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,a,Left) | SubString(ListItem.Title,b,Left) | SubString(ListItem.Title,c,Left) | SubString(ListItem.Title,d,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
+			</control>
+			<control type="textbox">
+				<width>258</width>
+				<height>130</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<shadowcolor>Black</shadowcolor>
+				<font>font_armyofdarkness</font>
+				<label>[B]$VAR[BottomClearLogoText][/B]</label>
+				<visible>Skin.HasSetting(furniture.logo) + Substring(Control.GetLabel(8308),empty.png)</visible>
+				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))]+ [SubString(ListItem.Title,e,Left) | SubString(ListItem.Title,f,Left) | SubString(ListItem.Title,g,Left) | SubString(ListItem.Title,h,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
+			</control>
+			<control type="textbox">
+				<width>258</width>
+				<height>130</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<shadowcolor>Black</shadowcolor>
+				<font>font_babylon5</font>
+				<label>[B]$VAR[BottomClearLogoText][/B]</label>
+				<visible>Skin.HasSetting(furniture.logo) + Substring(Control.GetLabel(8308),empty.png)</visible>
+				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,i,Left) | SubString(ListItem.Title,j,Left) | SubString(ListItem.Title,k,Left) | SubString(ListItem.Title,l,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
+			</control>
+			<control type="textbox">
+				<width>258</width>
+				<height>130</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<shadowcolor>Black</shadowcolor>
+				<font>font_bachelorpad</font>
+				<label>[B]$VAR[BottomClearLogoText][/B]</label>
+				<visible>Skin.HasSetting(furniture.logo) + Substring(Control.GetLabel(8308),empty.png)</visible>
+				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,m,Left) | SubString(ListItem.Title,n,Left) | SubString(ListItem.Title,o,Left) | SubString(ListItem.Title,p,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
+			</control>
+			<control type="textbox">
+				<width>258</width>
+				<height>130</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<shadowcolor>Black</shadowcolor>
+				<font>font_bullpen3d</font>
+				<label>[B]$VAR[BottomClearLogoText][/B]</label>
+				<visible>Skin.HasSetting(furniture.logo) + Substring(Control.GetLabel(8308),empty.png)</visible>
+				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,q,Left) | SubString(ListItem.Title,r,Left) | SubString(ListItem.Title,s,Left) | SubString(ListItem.Title,t,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
+			</control>
+			<control type="textbox">
+				<width>258</width>
+				<height>130</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
+				<shadowcolor>Black</shadowcolor>
+				<font>font_terminator</font>
+				<label>[B]$VAR[BottomClearLogoText][/B]</label>
+				<visible>Skin.HasSetting(furniture.logo) + Substring(Control.GetLabel(8308),empty.png)</visible>
+				<visible>Skin.HasSetting(furniture.logo.fake)</visible>
+				<visible>[IsEmpty(ListItem.Art(clearlogo)) + IsEmpty(ListItem.Art(tvshow.clearlogo))] + [SubString(ListItem.Title,u,Left) | SubString(ListItem.Title,v,Left) | SubString(ListItem.Title,w,Left) | SubString(ListItem.Title,x,Left) | SubString(ListItem.Title,y,Left) | SubString(ListItem.Title,z,Left)]</visible>
+				<animation effect="rotate" end="15" center="auto" condition="true" time="200">conditional</animation>
 			</control>
 		</control>
 	</include>
@@ -1014,6 +1091,8 @@
 		<value condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-VideoList.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">$LOCALIZE[31242]</value>
 		<value condition="Window.IsVisible(LoginScreen.xml)">$LOCALIZE[10029]</value>
 		<value condition="[Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml)]">[COLOR=$VAR[ColourHighlight]]$INFO[Container.NumItems,,[/COLOR] $LOCALIZE[31101]]$INFO[Control.GetLabel(3), • ,]$INFO[Control.GetLabel(28), • ,]</value>
+		<value condition="!IsEmpty(Container.NumItems) + !Window.IsVisible(home) + Skin.HasSetting(furniture.unwatched) + Window.IsVisible(MyVideoNav.xml)">[COLOR=$VAR[ColourHighlight]]$INFO[Container.NumItems,,[/COLOR] $LOCALIZE[31101] • ][COLOR=$VAR[ColourHighlight]]$INFO[Container.TotalUnwatched,,[/COLOR] $LOCALIZE[16101]]$INFO[Control.GetLabel(3), • ,]</value>
+		<value condition="!IsEmpty(Container.NumItems) + !Window.IsVisible(home) + !Skin.HasSetting(furniture.unwatched) + Window.IsVisible(MyVideoNav.xml)">[COLOR=$VAR[ColourHighlight]]$INFO[Container.NumItems,,[/COLOR] $LOCALIZE[31101] • ][COLOR=$VAR[ColourHighlight]]$INFO[Container.TotalWatched,,[/COLOR] $LOCALIZE[16102]]$INFO[Control.GetLabel(3), • ,]</value>
 		<value condition="!IsEmpty(Container.NumItems) + !Window.IsVisible(home)">[COLOR=$VAR[ColourHighlight]]$INFO[Container.NumItems,,[/COLOR] $LOCALIZE[31101]]$INFO[Control.GetLabel(3), • ,]</value>
 		<value condition="!IsEmpty(Container(9500).NumItems) + !Window.IsVisible(home)">[COLOR=$VAR[ColourHighlight]]$INFO[Container(9500).NumItems,,[/COLOR] $LOCALIZE[31101]]</value>
 		<value condition="Window.IsVisible(MyWeather.xml) + !IsEmpty(Window(Weather).Property(Location))">[COLOR=$VAR[ColourHighlight]]$INFO[Weather.Temperature,,[/COLOR] ]$INFO[Window(Weather).Property(Location)]</value>
@@ -1027,8 +1106,77 @@
 			<visible>!Skin.HasSetting(furniture.header)</visible>
 			<visible>!ControlGroup(303).HasFocus()</visible>
 			<visible>!Control.HasFocus(515)</visible>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
-			<include>Animation.FurnitureFadeInOut</include>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
+			<include condition="!Window.IsVisible(script-ExtendedInfo Script-VideoList.xml)">Animation.FurnitureFadeInOut</include>
+			<include condition="Window.IsVisible(script-ExtendedInfo Script-VideoList.xml)">FurnitureFadeInOutExtended</include>
+			<orientation>horizontal</orientation>
+			<itemgap>24</itemgap>
+			<control type="group" description="iconbox">
+				<width>80</width>
+				<height>80</height>
+				<control type="image">
+					<width>80</width>
+					<height>80</height>
+					<texture colordiffuse="Panel" border="8">common/box.png</texture>
+				</control>
+				<control type="image">
+					<top>-14</top>
+					<left>-14</left>
+					<width>108</width>
+					<height>108</height>
+					<texture colordiffuse="PanelWhite100" border="8">$VAR[HeaderIcon]</texture>
+					<visible>!Container.Scrolling</visible>
+					<visible>!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)</visible>
+					<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+				</control>
+				<control type="label">
+					<centertop>39</centertop>
+					<centerleft>40</centerleft>
+					<width>80</width>
+					<height>80</height>
+					<font>LargeBold</font>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.SortLetter,[UPPERCASE],[/UPPERCASE]]</label>
+					<textcolor>PanelWhite100</textcolor>
+					<visible>Container.Scrolling</visible>
+					<visible>!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)</visible>
+					<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+				</control>
+				<control type="image">
+					<centertop>40</centertop>
+					<centerleft>40</centerleft>
+					<width>48</width>
+					<height>48</height>
+					<texture colordiffuse="PanelWhite100" fallback="special://skin/extras/spinners/flower.gif">$INFO[Skin.String(busyloader)]</texture>
+					<visible>Skin.HasSetting(hide.busydialog) + Window.IsVisible(DialogBusy.xml)</visible>
+					<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+				</control>
+			</control>
+			<control type="group">
+				<control type="label">
+					<centertop>24</centertop>
+					<width>auto</width>
+					<font>MediumBold</font>
+					<textcolor>Dark1</textcolor>
+					<label>$VAR[MainHeaderLabel]</label>
+				</control>
+				<control type="label">
+					<centertop>58</centertop>
+					<font>Flag</font>
+					<width>auto</width>
+					<textcolor>Dark2</textcolor>
+					<label>$VAR[SubHeaderLabel]</label>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="ExtendedFurniture_Header">
+		<control type="grouplist">
+			<top>3</top>
+			<left>90</left>
+			<visible>Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
+			<include>Animation.FurnitureFadeInOutExtended</include>
 			<orientation>horizontal</orientation>
 			<itemgap>24</itemgap>
 			<control type="group" description="iconbox">
@@ -1164,11 +1312,25 @@
 			<control type="group">
 				<width>700</width>
 				<posy>10</posy>
+				<control type="image">
+					<centertop>24</centertop>
+					<width>auto</width>
+					<height>auto</height>
+					<texture colordiffuse="$VAR[ColourHighlight]">equaliser.gif</texture>
+					<visible>!Player.Paused</visible>
+				</control>
+				<control type="image">
+					<centertop>24</centertop>
+					<width>auto</width>
+					<height>auto</height>
+					<texture colordiffuse="$VAR[ColourHighlight]">equaliser_stop.gif</texture>
+					<visible>Player.Paused</visible>
+				</control>
 				<control type="label">
 					<centertop>24</centertop>
 					<width>auto</width>
 					<font>MediumBold</font>
-					<align>right</align>
+					<align>left</align>
 					<textcolor>Dark1</textcolor>
 					<label>$INFO[Player.Title]</label>
 				</control>
@@ -1250,6 +1412,7 @@
 			<itemgap>10</itemgap>
 			<usecontrolcoords>true</usecontrolcoords>
 			<control type="group">
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather) + !StringCompare(Container(300).ListItem.Property(widget),NextAired) + !StringCompare(Container(300).ListItem.Property(widget),Favourites) + !substring(Container(300).ListItem.Property(widget),Albums)</visible>
 				<centertop>50%</centertop>
 				<width>73</width>
 				<height>50</height>
@@ -1266,7 +1429,7 @@
 					<label>$VAR[HDSD]</label>
 					<font>FlagHD</font>
 					<textcolor>Dark1</textcolor>
-					<visible>!substring(Container(301).ListItem.Path,videodb://movies/sets,left) + !Skin.HasSetting(furniture.flags.colour)</visible>
+					<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
 				</control>
 				<control type="label">
 					<width>73</width>
@@ -1276,14 +1439,7 @@
 					<label>$VAR[HDSD]</label>
 					<font>FlagHD</font>
 					<textcolor>$VAR[ColourHighlight2]</textcolor>
-					<visible>!substring(Container(301).ListItem.Path,videodb://movies/sets,left) + Skin.HasSetting(furniture.flags.colour)</visible>
-				</control>
-				<control type="image">
-					<width>73</width>
-					<height>50</height>
-					<centertop>50%</centertop>
-					<texture colordiffuse="Dark1">flags/sets.png</texture>
-					<visible>substring(Container(301).ListItem.Path,videodb://movies/sets,left)</visible>
+					<visible>Skin.HasSetting(furniture.flags.colour)</visible>
 				</control>
 			</control>
 			<control type="image">
@@ -1292,6 +1448,7 @@
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar1].png</texture>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="image">
 				<width>64</width>
@@ -1299,6 +1456,7 @@
 				<centertop>50%</centertop>
 				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[HomeFlagstar1].png</texture>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1308,6 +1466,7 @@
 				<texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar2].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1317,6 +1476,7 @@
 				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[HomeFlagstar2].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1326,6 +1486,7 @@
 				<texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar3].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1335,6 +1496,7 @@
 				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[HomeFlagstar3].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1344,6 +1506,7 @@
 				<texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar4].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1353,6 +1516,7 @@
 				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[HomeFlagstar4].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1362,6 +1526,7 @@
 				<texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar5].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1371,6 +1536,7 @@
 				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[HomeFlagstar5].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="label">
 				<left>-16</left>
@@ -1389,13 +1555,14 @@
 			<include condition="Stringcompare(Skin.String(RatingCountry),US)">lib_Rating_MPAA_home</include>
 			<include condition="Stringcompare(Skin.String(RatingCountry),UK)">lib_Rating_BBFC_home</include>
 			<include condition="Stringcompare(Skin.String(RatingCountry),Germany)">lib_Rating_FSK_home</include>
+			<include condition="Stringcompare(Skin.String(RatingCountry),NL)">lib_Rating_NL_home</include>
 			<include>lib_Rating_TV_home</include>
 			<control type="image">
 				<width>108</width>
 				<height>50</height>
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">$INFO[Container(301).ListItem.VideoAspect,flags/aspectratio/,.png]</texture>
-				<aspectratio align="left">scale</aspectratio>
+				<aspectratio align="left">keep</aspectratio>
 				<visible>!IsEmpty(Container(301).ListItem.VideoAspect) + !Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">
@@ -1411,7 +1578,7 @@
 				<height>50</height>
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">$INFO[Container(301).ListItem.VideoResolution,flags/resolution/,.png]</texture>
-				<aspectratio align="left">scale</aspectratio>
+				<aspectratio align="left">keep</aspectratio>
 				<visible>!IsEmpty(Container(301).ListItem.VideoResolution) + !Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">
@@ -1427,7 +1594,7 @@
 				<height>50</height>
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">$INFO[Container(301).ListItem.VideoCodec,flags/video/,.png]</texture>
-				<aspectratio align="left">scale</aspectratio>
+				<aspectratio align="left">keep</aspectratio>
 				<visible>!IsEmpty(Container(301).ListItem.VideoCodec) + !Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">
@@ -1443,7 +1610,7 @@
 				<height>50</height>
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">$INFO[Container(301).ListItem.AudioCodec,flags/audio/,.png]</texture>
-				<aspectratio align="left">scale</aspectratio>
+				<aspectratio align="left">keep</aspectratio>
 				<visible>!IsEmpty(Container(301).ListItem.AudioCodec) + !Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">
@@ -1459,7 +1626,7 @@
 				<height>50</height>
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">$INFO[Container(301).ListItem.AudioChannels,flags/channels/,.png]</texture>
-				<aspectratio align="left">scale</aspectratio>
+				<aspectratio align="left">keep</aspectratio>
 				<visible>!IsEmpty(Container(301).ListItem.AudioChannels) + !Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">

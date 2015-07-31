@@ -101,7 +101,7 @@
     <include name="57Info">
         <control type="group">
             <left>70</left>
-            <width>645</width>
+            <width>587</width>
             <top>206</top>
             <height>660</height>
             <control type="group">
@@ -120,9 +120,19 @@
                     <right>10</right>
                     <bottom>10</bottom>
                     <fadetime>200</fadetime>
-                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
                     <texture diffuse="diffuse/pvrinfo.png" background="true">$VAR[LandscapeImage]</texture>
-                    <visible>!Container.Content(episodes)</visible>
+                    <visible>!Container.Content(episodes) + !Skin.HasSetting(views.57.showfanart)</visible>
+                </control>
+                <control type="image">
+                    <left>10</left>
+                    <top>10</top>
+                    <right>10</right>
+                    <bottom>10</bottom>
+                    <fadetime>200</fadetime>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
+                    <texture diffuse="diffuse/pvrinfo.png" background="true">$VAR[FanartImage]</texture>
+                    <visible>!Container.Content(episodes) + Skin.HasSetting(views.57.showfanart)</visible>
                 </control>
                 <control type="image">
                     <aspectratio align="left" aligny="center" scalediffuse="false">keep</aspectratio>

@@ -33,18 +33,18 @@
 						<top>10</top>
 						<right>10</right>
 						<bottom>20</bottom>
-						<aspectratio scalediffuse="false">keep</aspectratio>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
 					</control>
-					<control type="image">
+					<control type="label">
 						<centerright>32</centerright>
 						<centertop>32</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatched]</texture>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
 						<visible>!stringcompare(ListItem.Label,..)</visible>
-						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
 					</control>
 				</itemlayout>
 				<focusedlayout height="335" width="222">
@@ -66,18 +66,18 @@
 						<top>10</top>
 						<right>10</right>
 						<bottom>20</bottom>
-						<aspectratio scalediffuse="false">keep</aspectratio>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
 					</control>
-					<control type="image">
+					<control type="label">
 						<centerright>32</centerright>
 						<centertop>32</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatched]</texture>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
 						<visible>!stringcompare(ListItem.Label,..)</visible>
-						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
 					</control>
 					<control type="image">
 						<left>5</left>
@@ -98,7 +98,7 @@
 			</control>
 			<include>Furniture_Scrollbar</include>
 			<control type="group" description="Poster">
-			    <visible>!IsEmpty(ListItem.Icon)</visible>
+				<visible>!IsEmpty(ListItem.Icon)</visible>
 				<left>70</left>
 				<width>448</width>
 				<top>206</top>
@@ -121,7 +121,7 @@
 					<right>10</right>
 					<bottom>10</bottom>
 					<fadetime>300</fadetime>
-					<aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
+					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 					<texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
 				</control>
 			</control>
@@ -157,18 +157,18 @@
 						<top>10</top>
 						<right>10</right>
 						<bottom>10</bottom>
-						<aspectratio scalediffuse="false">keep</aspectratio>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
 					</control>
-					<control type="image">
+					<control type="label">
 						<centerright>32</centerright>
 						<centertop>32</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatched]</texture>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
 						<visible>!stringcompare(ListItem.Label,..)</visible>
-						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
 					</control>
 				</itemlayout>
 				<focusedlayout height="330" width="227">
@@ -189,19 +189,19 @@
 							<top>10</top>
 							<right>10</right>
 							<bottom>10</bottom>
-							<aspectratio scalediffuse="false">keep</aspectratio>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
 							<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
 						</control>
-						<control type="image">
-							<centerright>32</centerright>
-							<centertop>32</centertop>
-							<width>32</width>
-							<height>32</height>
-							<aspectratio aligny="top">keep</aspectratio>
-							<texture>$VAR[PercentWatched]</texture>
-							<visible>!stringcompare(ListItem.Label,..)</visible>
-							<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
-						</control>
+					<control type="label">
+						<centerright>32</centerright>
+						<centertop>32</centertop>
+						<width>32</width>
+						<height>32</height>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+					</control>
 						<control type="image">
 							<left>3</left>
 							<top>3</top>
@@ -223,7 +223,7 @@
 			<include>Furniture_Scrollbar</include>
 			<control type="group" description="Fanart Info">
 				<left>70</left>
-				<width>645</width>
+				<width>587</width>
 				<top>206</top>
 				<height>660</height>
 				<control type="group">
@@ -239,8 +239,19 @@
 						<right>10</right>
 						<bottom>10</bottom>
 						<fadetime>300</fadetime>
-						<aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+						<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="diffuse/pvrinfo.png" background="true">$VAR[LandscapeImage]</texture>
+						<visible>!Skin.HasSetting(views.55.showfanart)</visible>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>10</top>
+						<right>10</right>
+						<bottom>10</bottom>
+						<fadetime>300</fadetime>
+						<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
 						<texture diffuse="diffuse/pvrinfo.png" background="true">$VAR[FanartImage]</texture>
+						<visible>Skin.HasSetting(views.55.showfanart)</visible>
 					</control>
 				</control>
 				<control type="group">
@@ -311,18 +322,18 @@
 						<top>10</top>
 						<right>10</right>
 						<bottom>22</bottom>
-						<aspectratio scalediffuse="false">scale</aspectratio>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
 					</control>
-					<control type="image">
+					<control type="label">
 						<centerright>32</centerright>
 						<centertop>32</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatched]</texture>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
 						<visible>!stringcompare(ListItem.Label,..)</visible>
-						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
 					</control>
 				</itemlayout>
 				<focusedlayout height="337" width="222">
@@ -344,18 +355,18 @@
 						<top>10</top>
 						<right>10</right>
 						<bottom>22</bottom>
-						<aspectratio scalediffuse="false">scale</aspectratio>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
 					</control>
-					<control type="image">
+					<control type="label">
 						<centerright>32</centerright>
 						<centertop>32</centertop>
 						<width>32</width>
 						<height>32</height>
-						<aspectratio aligny="top">keep</aspectratio>
-						<texture>$VAR[PercentWatched]</texture>
+						<font>symbolview</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[ColourHighlight2]</textcolor>
 						<visible>!stringcompare(ListItem.Label,..)</visible>
-						<visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
 					</control>
 					<control type="image">
 						<left>3</left>

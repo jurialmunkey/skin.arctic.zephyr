@@ -53,11 +53,7 @@
 		<value condition="StringCompare(Container(300).ListItem.Property(widget),TopRatedTvShows)">plugin://script.extendedinfo?info=topratedtvshows</value>
 		<value condition="StringCompare(Container(300).ListItem.Property(widget),OnAirTvShows)">plugin://script.extendedinfo?info=onairtvshows</value>
 		<value condition="StringCompare(Container(300).ListItem.Property(widget),AiringTodayTvShows)">plugin://script.extendedinfo?info=airingtodaytvshows</value>
-		<value condition="StringCompare(Container(300).ListItem.Property(widget),RecentAlbums)">plugin://service.library.data.provider?type=recentalbums&amp;reload=$INFO[Window.Property(recentalbums)]</value>
-		<value condition="StringCompare(Container(300).ListItem.Property(widget),RecommendedAlbums)">plugin://service.library.data.provider?type=recommendedalbums&amp;reload=$INFO[Window.Property(recommendedalbums)]</value>
-		<value condition="StringCompare(Container(300).ListItem.Property(widget),RandomAlbums)">plugin://service.library.data.provider?type=randomalbums&amp;reload=$INFO[Window.Property(randomalbums)]</value>
-		<value condition="StringCompare(Container(300).ListItem.Property(widget),RecentlyPlayedAlbums)">musicdb://recentlyplayedalbums/</value>
-		<value condition="StringCompare(Container(300).ListItem.Property(widget),Top100Albums)">musicdb://top100/albums/</value>
+		<value condition="[Skin.HasSetting(home.vertical) | !Skin.HasSetting(home.classicwidgets)] + substring(Container(300).ListItem.Property(widget),Albums)">$VAR[DefWidgetContentAlbums]</value>
 		<value condition="StringCompare(Container(300).ListItem.Property(widget),Weather) + !IsEmpty(Skin.String(weather.fanart))">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Current.FanartCode)]/</value>
 		<value condition="StringCompare(Container(300).ListItem.Property(widget),bbc.popular)">plugin://plugin.video.bbciplayer/?IPID&amp;description&amp;iconimage&amp;mode=10&amp;name=Most%20Popular&amp;url=http%3a%2f%2fwww.bbc.co.uk%2fiplayer%2fgroup%2fmost-popular</value>
 		<value condition="StringCompare(Container(300).ListItem.Property(widget),bbc.sport)">plugin://plugin.video.bbciplayer/?IPID&amp;description&amp;iconimage&amp;mode=8&amp;name=%5bCOLOR%20blue%5d%3e%3e%20Next%20Page%20%3e%3e%5b%2fCOLOR%5d&amp;url=http%3a%2f%2fwww.bbc.co.uk%2fiplayer%2fcategories%2fsport%2fall%3fsort%3ddateavailable%26</value>
@@ -70,7 +66,7 @@
 		<!-- Background -->
 		<value condition="!IsEmpty(Container(300).ListItem.Property(Background))">$INFO[Container(300).ListItem.Property(Background)]</value>
 		<!-- Slideshow -->
-		<value condition="!IsEmpty(Skin.String(home.slideshowpath)) + IsEmpty(Container(300).ListItem.Property(widget))">$INFO[Skin.String(home.slideshowpath)]</value>
+		<value condition="Skin.HasSetting(home.dontshowfanart) + IsEmpty(Container(300).ListItem.Property(widget))">$INFO[Window(Home).Property(script.grab.fanart.Global.FanArt)]</value>
 		<!-- Global Widget -->
 		<value condition="StringCompare(Window(home).Property(widget),Spotlight) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=recommendedepisodes+recommendedmovies+randommovies&amp;reload=$INFO[Window.Property(recommendedepisodes)]$INFO[Window.Property(recommendedmovies)]$INFO[Window.Property(randommovies)]</value>
 		<value condition="StringCompare(Window(home).Property(widget),RandomMovies) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window.Property(randommovies)]</value>
@@ -87,6 +83,14 @@
 		<value condition="StringCompare(Window(home).Property(widget),AiringTodayTvShows) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://script.extendedinfo?info=airingtodaytvshows</value>
 		<value condition="IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=recommendedepisodes+recommendedmovies+randommovies&amp;reload=$INFO[Window.Property(recommendedepisodes)]$INFO[Window.Property(recommendedmovies)]$INFO[Window.Property(randommovies)]</value>
 	</variable>
+
+	<variable name="DefWidgetContentAlbums">
+		<value condition="StringCompare(Container(300).ListItem.Property(widget),RecentAlbums)">plugin://service.library.data.provider?type=recentalbums&amp;reload=$INFO[Window.Property(recentalbums)]</value>
+		<value condition="StringCompare(Container(300).ListItem.Property(widget),RecommendedAlbums)">plugin://service.library.data.provider?type=recommendedalbums&amp;reload=$INFO[Window.Property(recommendedalbums)]</value>
+		<value condition="StringCompare(Container(300).ListItem.Property(widget),RandomAlbums)">plugin://service.library.data.provider?type=randomalbums&amp;reload=$INFO[Window.Property(randomalbums)]</value>
+		<value condition="StringCompare(Container(300).ListItem.Property(widget),RecentlyPlayedAlbums)">musicdb://recentlyplayedalbums/</value>
+		<value condition="StringCompare(Container(300).ListItem.Property(widget),Top100Albums)">musicdb://top100/albums/</value>
+	</variable>
 	<include name="DefSideBrowserButton">
 		<radioposx>400</radioposx>
 		<width>100%</width>
@@ -94,8 +98,8 @@
 		<font>Tiny</font>
 		<textcolor>Dark2</textcolor>
 		<focusedcolor>Light1</focusedcolor>
-		<alttexturefocus colordiffuse="Dark1" border="16">common/box.png</alttexturefocus>
-		<texturefocus colordiffuse="Dark1" border="16">common/box.png</texturefocus>
+		<alttexturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/box.png</alttexturefocus>
+		<texturefocus colordiffuse="$VAR[ColourHighlight]" border="16">common/box.png</texturefocus>
 	</include>
 	<include name="DefNextAiredWidget">
 		<item id="1">
@@ -248,6 +252,48 @@
 			<icon>$INFO[Window(Home).Property(favourite.7.thumb)]</icon>
 			<property name="ItemType">$LOCALIZE[1036]</property>
 			<onclick>$INFO[Window(Home).Property(favourite.7.path)]</onclick>
+		</item>
+	</include>
+	<include name="DefWeatherMaps">
+		<item id="1">
+			<label>$INFO[Window(weather).Property(Map.1.Heading)]</label>
+			<label2>$INFO[Window(weather).Property(Map.1.Legend)]</label2>
+			<icon>$INFO[Window(weather).Property(Map.1.Area)]</icon>
+			<property name="Layer">$INFO[Window(weather).Property(Map.1.Layer)]</property>
+			<onclick>ShowPicture(Window(weather).Property(Map.1.Area))</onclick>
+			<visible>Weather.IsFetched + !IsEmpty(Window(weather).Property(Map.1.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
+		</item>
+		<item id="2">
+			<label>$INFO[Window(weather).Property(Map.2.Heading)]</label>
+			<label2>$INFO[Window(weather).Property(Map.2.Legend)]</label2>
+			<icon>$INFO[Window(weather).Property(Map.2.Area)]</icon>
+			<property name="Layer">$INFO[Window(weather).Property(Map.2.Layer)]</property>
+			<onclick>ShowPicture(Window(weather).Property(Map.2.Area))</onclick>
+			<visible>Weather.IsFetched + !IsEmpty(Window(weather).Property(Map.2.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
+		</item>
+		<item id="3">
+			<label>$INFO[Window(weather).Property(Map.3.Heading)]</label>
+			<label2>$INFO[Window(weather).Property(Map.3.Legend)]</label2>
+			<icon>$INFO[Window(weather).Property(Map.3.Area)]</icon>
+			<property name="Layer">$INFO[Window(weather).Property(Map.3.Layer)]</property>
+			<onclick>ShowPicture(Window(weather).Property(Map.3.Area))</onclick>
+			<visible>Weather.IsFetched + !IsEmpty(Window(weather).Property(Map.3.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
+		</item>
+		<item id="4">
+			<label>$INFO[Window(weather).Property(Map.4.Heading)]</label>
+			<label2>$INFO[Window(weather).Property(Map.4.Legend)]</label2>
+			<icon>$INFO[Window(weather).Property(Map.4.Area)]</icon>
+			<property name="Layer">$INFO[Window(weather).Property(Map.4.Layer)]</property>
+			<onclick>ShowPicture(Window(weather).Property(Map.4.Area))</onclick>
+			<visible>Weather.IsFetched + !IsEmpty(Window(weather).Property(Map.4.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
+		</item>
+		<item id="5">
+			<label>$INFO[Window(weather).Property(Map.5.Heading)]</label>
+			<label2>$INFO[Window(weather).Property(Map.5.Legend)]</label2>
+			<icon>$INFO[Window(weather).Property(Map.5.Area)]</icon>
+			<property name="Layer">$INFO[Window(weather).Property(Map.5.Layer)]</property>
+			<onclick>ShowPicture(Window(weather).Property(Map.5.Area))</onclick>
+			<visible>Weather.IsFetched + !IsEmpty(Window(weather).Property(Map.5.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
 		</item>
 	</include>
 	<include name="DefWidgetSelector">
@@ -409,7 +455,7 @@
 	</include>
 	<include name="DefContextButton">
 		<radioposx>400</radioposx>
-		<width>450</width>
+		<width>430</width>
 		<height>70</height>
 		<font>Tiny</font>
 		<textcolor>Black70</textcolor>

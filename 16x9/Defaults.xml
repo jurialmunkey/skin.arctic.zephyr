@@ -104,6 +104,8 @@
         <texturenofocus>noop</texturenofocus>
         <textureradiofocus colordiffuse="Black70">buttons/radio-on.png</textureradiofocus>
         <textureradionofocus colordiffuse="Black30">buttons/radio-off.png</textureradionofocus>
+        <textureradioondisabled colordiffuse="Black12">buttons/radio-on.png</textureradioondisabled>
+        <textureradioofdisabled colordiffuse="Black12">buttons/radio-off.png</textureradioofdisabled>
         <textoffsetx>30</textoffsetx>
         <pulseonselect>false</pulseonselect>
     </default>
@@ -123,6 +125,8 @@
         <texturedown colordiffuse="Black30">buttons/spin-down.png</texturedown>
         <textureupfocus flipy="true" colordiffuse="$VAR[ColourSelected]">buttons/spin-down.png</textureupfocus>
         <texturedownfocus colordiffuse="$VAR[ColourSelected]">buttons/spin-down.png</texturedownfocus>
+        <textureupdisabled flipy="true" colordiffuse="Black12">buttons/spin-down.png</textureupdisabled>
+        <texturedowndisabled colordiffuse="Black12">buttons/spin-down.png</texturedowndisabled>
         <textoffsetx>30</textoffsetx>
         <align>left</align>
         <aligny>center</aligny>
@@ -145,6 +149,8 @@
         <texturedown colordiffuse="Black30">buttons/spin-down.png</texturedown>
         <textureupfocus flipy="true" colordiffuse="$VAR[ColourSelected]">buttons/spin-down.png</textureupfocus>
         <texturedownfocus colordiffuse="$VAR[ColourSelected]">buttons/spin-down.png</texturedownfocus>
+        <textureupdisabled flipy="true" colordiffuse="Black12">buttons/spin-down.png</textureupdisabled>
+        <texturedowndisabled colordiffuse="Black12">buttons/spin-down.png</texturedowndisabled>
         <textoffsetx>30</textoffsetx>
         <align>left</align>
         <aligny>center</aligny>
@@ -208,7 +214,7 @@
         <shadowcolor>noop</shadowcolor>
         <selectedcolor>$VAR[ColourHighlight2]</selectedcolor>
         <pagecontrol>61</pagecontrol>
-        <autoscroll delay="6000" time="3000" repeat="10000"/>
+        <autoscroll delay="5000" time="1000" repeat="5000"/>
     </default>
 
 </includes>
