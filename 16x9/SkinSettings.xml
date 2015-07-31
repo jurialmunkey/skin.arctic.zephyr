@@ -404,10 +404,10 @@
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9104)</visible>
 						<include>DefSettingsButton</include>
-						<label>31149</label>
+						<label>Replace widget with global fanart</label>
 						<selected>Skin.HasSetting(home.dontshowfanart)</selected>
-						<onclick condition="!Skin.HasSetting(home.dontshowfanart) + IsEmpty(Skin.String(home.slideshowpath))">Skin.SetPath(home.slideshowpath)</onclick>
 						<onclick>Skin.ToggleSetting(home.dontshowfanart)</onclick>
+						<visible>System.HasAddon(script.grab.fanart)</visible>
 					</control>
 					<control type="button" id="9246" description="Custom Widget 1">
 						<width>1310</width>

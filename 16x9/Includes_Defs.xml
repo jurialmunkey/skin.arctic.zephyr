@@ -66,7 +66,7 @@
 		<!-- Background -->
 		<value condition="!IsEmpty(Container(300).ListItem.Property(Background))">$INFO[Container(300).ListItem.Property(Background)]</value>
 		<!-- Slideshow -->
-		<value condition="!IsEmpty(Skin.String(home.slideshowpath)) + IsEmpty(Container(300).ListItem.Property(widget))">$INFO[Skin.String(home.slideshowpath)]</value>
+		<value condition="Skin.HasSetting(home.dontshowfanart) + IsEmpty(Container(300).ListItem.Property(widget))">$INFO[Window(Home).Property(script.grab.fanart.Global.FanArt)]</value>
 		<!-- Global Widget -->
 		<value condition="StringCompare(Window(home).Property(widget),Spotlight) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=recommendedepisodes+recommendedmovies+randommovies&amp;reload=$INFO[Window.Property(recommendedepisodes)]$INFO[Window.Property(recommendedmovies)]$INFO[Window.Property(randommovies)]</value>
 		<value condition="StringCompare(Window(home).Property(widget),RandomMovies) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window.Property(randommovies)]</value>
