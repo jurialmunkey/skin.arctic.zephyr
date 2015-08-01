@@ -1319,22 +1319,6 @@
 			<texture colordiffuse="Black700" fallback="info/rating/MPAA_NR_Certificate_US.png">colored/rating/bbfc_u_certificate_uk.png</texture>
 			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,u) + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
-		<control type="image">
-			<top>14</top>
-			<width>118</width>
-			<height>50</height>
-			<colordiffuse>Black100</colordiffuse>
-			<aspectratio align="center">scale</aspectratio>
-			<texture colordiffuse="Black700" fallback="info/rating/MPAA_NR_Certificate_US.png">info/rating/BBFC_g_Certificate_UK.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.Mpaa,g) + !SubString(ListItem.Mpaa,pg)] + !Skin.HasSetting(furniture.flags.colour)</visible>
-		</control>
-		<control type="image">
-			<top>14</top>
-			<width>125</width>
-			<height>90</height>
-			<texture colordiffuse="Black700" fallback="info/rating/MPAA_NR_Certificate_US.png">colored/rating/bbfc_g_certificate_uk.png</texture>
-			<visible>Container.Content(movies) + !IsEmpty(ListItem.Mpaa) + [SubString(ListItem.Mpaa,g) + !SubString(ListItem.Mpaa,pg)] + Skin.HasSetting(furniture.flags.colour)</visible>
-		</control>
 	</include>
 	<!-- FSK Ratings -->
 	<include name="lib_RatingDV_FSK">
