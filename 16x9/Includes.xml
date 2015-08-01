@@ -21,9 +21,11 @@
 	<include file="View_514_PosterShift.xml" />
 	<include file="View_513_PosterRow.xml" />
 	<include file="View_515_Netflix.xml" />
+
 	<include file="Includes_Furniture.xml" />
 	<include file="Includes_Home.xml" />
 	<include file="Includes_GlobalSearch.xml" />
+	<include file="Includes_NextAired.xml" />
 	<include file="Includes_Labels.xml" />
 	<include file="Includes_Images.xml" />
 	<include file="Includes_Animations.xml" />
@@ -200,6 +202,32 @@
 			<texture background="true" colordiffuse="FloorFade">backgrounds/black_content2.png</texture>
 			<visible>Control.HasFocus(515)</visible>
 		</control>
+	</include>
+	<include name="GlobalBackgroundExtended">
+		<control type="image" description="Background">
+			<include>Dimensions_Fullscreen</include>
+			<include condition="!Skin.HasSetting(home.vertical)">Animation.FadeFromHome</include>
+			<texture colordiffuse="Background">common/bg.jpg</texture>
+		</control>
+		<control type="multiimage" description="Fanart">
+			<include>GlobalBackgroundFade</include>
+			<visible>!Skin.HasSetting(global.hidefanart)</visible>
+			<include>Dimensions_Fullscreen</include>
+			<include condition="!Skin.HasSetting(home.vertical)">Animation.FadeFromHome</include>
+			<fadetime>600</fadetime>
+			<timeperimage>12000</timeperimage>
+			<randomize>true</randomize>
+			<aspectratio>scale</aspectratio>
+			<imagepath background="true">$VAR[GlobalFanart]</imagepath>
+			<animation effect="zoom" start="110" end="120" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
+			<animation effect="slide" start="-20,-20" end="20,20" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
+		</control>
+		<control type="image" description="FanartOverlay">
+			<include>Dimensions_Fullscreen</include>
+			<include condition="!Skin.HasSetting(home.vertical)">Animation.FadeFromHome</include>
+			<texture colordiffuse="FloorFade">common/floor.png</texture>
+		</control>
+
 	</include>
 	<include name="NetflixBackground">
 		<include>GlobalVideoWindow</include>
