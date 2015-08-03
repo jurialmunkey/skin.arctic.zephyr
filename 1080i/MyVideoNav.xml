@@ -23,9 +23,9 @@
         <include condition="!Skin.HasSetting(52biglist.singlepane)">View_52_BigList_DoublePane</include>
         <include>View_53_Poster</include>
         <include>View_54_Banner</include>
-        <include condition="!Skin.HasSetting(55wall.hideinfo)">View_55_Wall_Info</include>
+        <include condition="Skin.HasSetting(55wall.showinfo)">View_55_Wall_Info</include>
         <include condition="Skin.HasSetting(55wall.showposter)">View_55_Wall_Poster</include>
-        <include condition="Skin.HasSetting(55wall.hideinfo) + !Skin.HasSetting(55wall.showposter)">View_55_Wall</include>
+        <include condition="!Skin.HasSetting(55wall.showinfo) + !Skin.HasSetting(55wall.showposter)">View_55_Wall</include>
         <include condition="!Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)">View_56_MediaInfo</include>
         <include condition="Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)">View_56_MediaInfo2</include>
         <include condition="Skin.HasSetting(56media.low)">View_56_MediaInfo3</include>
@@ -128,9 +128,9 @@
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31147</label>
-                    <selected>!Skin.HasSetting(55wall.hideinfo)</selected>
+                    <selected>Skin.HasSetting(55wall.showinfo)</selected>
                     <onclick>Skin.Reset(55wall.showposter)</onclick>
-                    <onclick>Skin.ToggleSetting(55wall.hideinfo)</onclick>
+                    <onclick>Skin.ToggleSetting(55wall.showinfo)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(55)</visible>
                 </control>
@@ -140,7 +140,7 @@
                     <align>left</align>
                     <label>31185</label>
                     <selected>Skin.HasSetting(55wall.showposter)</selected>
-                    <onclick>Skin.SetBool(55wall.hideinfo)</onclick>
+                    <onclick>Skin.Reset(55wall.showinfo)</onclick>
                     <onclick>Skin.ToggleSetting(55wall.showposter)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(55)</visible>
