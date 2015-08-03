@@ -76,7 +76,7 @@
                     <width>1</width>
                     <height>1</height>
                     <visible allowhiddenfocus="true">false</visible>
-                    <!-- <onback>9000</onback> -->
+                    <onback>9000</onback>
                     <onup>9000</onup>
                     <ondown>9000</ondown>
                     <onleft>9000</onleft>
@@ -833,6 +833,16 @@
             
             <include>GlobalOverlay</include>
             <include>GlobalOverlay</include>
+
+            <control type="image" description="clearlogo">
+                <visible>Skin.HasSetting(furniture.logo)</visible>
+                <centertop>120</centertop>
+                <centerleft>50%</centerleft>
+                <width>400</width>
+                <height>100</height>
+                <aspectratio align="center">keep</aspectratio>
+                <texture background="true">$VAR[ClearLogoTopVar]</texture>
+            </control>
         </control>
 
         <control type="group">
