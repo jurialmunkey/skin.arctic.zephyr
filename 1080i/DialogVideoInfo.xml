@@ -72,6 +72,17 @@
                     <height>1</height>
                     <visible allowhiddenfocus="true">false</visible>
                 </control>
+                <control type="button" id ="9601">
+                    <width>1</width>
+                    <height>1</height>
+                    <visible allowhiddenfocus="true">false</visible>
+                    <onback>9000</onback>
+                    <onup>9000</onup>
+                    <ondown>9000</ondown>
+                    <onleft>9000</onleft>
+                    <onright>9000</onright>
+                </control>
+
                 <!-- Control Buttons -->
                 <control type="grouplist" id="9000">
                     <visible allowhiddenfocus="true">ControlGroup(9000).HasFocus()</visible>
@@ -81,9 +92,10 @@
                     <height>68</height>
                     <bottom>33</bottom>
                     <itemgap>16</itemgap>
-                    <ondown>9000</ondown>
                     <onup condition="Control.IsVisible(50)">51</onup>
                     <onup condition="Control.IsVisible(9501)">9501</onup>
+                    <onup condition="!Control.IsVisible(50) + !Control.IsVisible(9501)">9601</onup>
+                    <ondown condition="!Control.IsVisible(50) + !Control.IsVisible(9501)">9601</ondown>
                     <orientation>horizontal</orientation>
 
                     <control type="button" id ="8">
@@ -813,6 +825,50 @@
                 </control>
             </control>
         </control>
+
+        <control type="group">
+            <visible>Control.HasFocus(9601)</visible>
+            <include>Animation.FadeIn</include>
+            <include>Animation.FadeOut</include>
+            
+            <include>GlobalOverlay</include>
+            <include>GlobalOverlay</include>
+        </control>
+
+        <control type="group">
+            <left>SidePad</left>
+            <right>SidePad</right>
+            <top>PosterPad</top>
+            <height>640</height>
+            <visible>Control.HasFocus(9601)</visible>
+            <include>Animation.FadeIn.Slide</include>
+            <include>Animation.FadeOut</include>
+            
+            
+            <control type="label">
+                <description>header label</description>
+                <left>60</left>
+                <right>60</right>
+                <posy>60</posy>
+                <font>EpisodeNumber</font>
+                <textcolor>PanelWhite70</textcolor>
+                <height>45</height>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+
+            <control type="textbox">
+                <description>textarea</description>
+                <left>60</left>
+                <right>60</right>
+                <top>150</top>
+                <bottom>0</bottom>
+                <align>justify</align>
+                <font>Medium</font>
+                <textcolor>PanelWhite70</textcolor>
+                <label>$INFO[ListItem.Tagline,[B],[/B][CR][CR]]$INFO[ListItem.Plot]</label>
+            </control>
+        </control>
+
         <control type="button" id="51">
             <visible allowhiddenfocus="true">false</visible>
             <onright>Control.Move(50,1)</onright>

@@ -40,6 +40,8 @@
         <include>Furniture_Clock</include>
         <include>Furniture_Flags</include>
         <include>Furniture_Weather</include>
+
+        <include>Furniture_OverlayInfo</include>
         
         <control type="group">
             <include>Animation.FadeIn</include>
@@ -217,6 +219,14 @@
                     <onclick>Skin.ToggleSetting(52biglist.singlepane)</onclick>
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(52)</visible>
+                </control>
+
+                <control type="radiobutton" id="9021" description="Plot Overlay">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31255</label>
+                    <selected>Skin.HasSetting(furniture.overlayinfo)</selected>
+                    <onclick>Skin.ToggleSetting(furniture.overlayinfo)</onclick>
                 </control>
 
                 <!-- Other Options -->

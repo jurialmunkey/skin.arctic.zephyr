@@ -1269,5 +1269,53 @@
             </control>
         </control>
     </include>
+
+    <include name="Furniture_OverlayInfo">
+        <control type="group">
+            <visible>System.IdleTime(3)</visible>
+            <visible>Skin.HasSetting(furniture.overlayinfo)</visible>
+            <visible>!ControlGroup(9000).HasFocus()</visible>
+            <visible>[!IsEmpty(Window(home).Property(Set.Movies.ExtendedPlot)) + [Container.Content(Sets) | substring(ListItem.Path,videodb://movies/sets,left)]] | !IsEmpty(ListItem.Plot)</visible>
+            <include>Animation.FadeIn</include>
+            <include>GlobalOverlay</include>
+            <include>GlobalOverlay</include>
+        </control>
+
+        <control type="group">
+            <left>SidePad</left>
+            <right>SidePad</right>
+            <top>PosterPad</top>
+            <height>650</height>
+            <visible>System.IdleTime(3)</visible>
+            <visible>Skin.HasSetting(furniture.overlayinfo)</visible>
+            <visible>!ControlGroup(9000).HasFocus()</visible>
+            <visible>[!IsEmpty(Window(home).Property(Set.Movies.ExtendedPlot)) + [Container.Content(Sets) | substring(ListItem.Path,videodb://movies/sets,left)]] | !IsEmpty(ListItem.Plot)</visible>
+            <include>Animation.FadeIn.Slide</include>
+
+            <control type="label">
+                <description>header label</description>
+                <left>60</left>
+                <right>60</right>
+                <posy>60</posy>
+                <font>EpisodeNumber</font>
+                <textcolor>PanelWhite70</textcolor>
+                <height>45</height>
+                <label>$VAR[LabelOverlayTitle]</label>
+            </control>
+
+            <control type="textbox">
+                <description>textarea</description>
+                <left>60</left>
+                <right>60</right>
+                <top>150</top>
+                <bottom>0</bottom>
+                <align>justify</align>
+                <font>Medium</font>
+                <textcolor>PanelWhite70</textcolor>
+                <label>$VAR[LabelOverlayPlot]</label>
+            </control>
+        </control>
+    </include>
+
     
 </includes>
