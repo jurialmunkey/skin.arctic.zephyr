@@ -1127,7 +1127,7 @@
 		<value condition="Window.IsVisible(DialogButtonMenu.xml)">$LOCALIZE[33060]</value>
 		<value condition="Window.IsVisible(DialogFavourites.xml)">$LOCALIZE[1036]</value>
 		<value condition="Window.IsVisible(script-ExtendedInfo Script-YoutubeList.xml)">$LOCALIZE[31141]</value>
-		<value condition="Window.IsVisible(DialogVideoInfo.xml)">$INFO[ListItem.Title]</value>
+		<value condition="Window.IsVisible(DialogVideoInfo.xml)">$INFO[ListItem.Title] ($INFO[ListItem.Year])</value>
 		<value condition="Window.IsVisible(DialogVideoInfo.xml) + Container.Content(musicvideos) + !IsEmpty(ListItem.Artist)">$INFO[ListItem.Artist]</value>
 		<value condition="Window.IsVisible(DialogVideoInfo.xml) + Container.Content(episodes) + !IsEmpty(ListItem.TvShowTitle)">$INFO[ListItem.TvShowTitle]</value>
 		<value condition="Window.IsVisible(script-ExtendedInfo Script-VideoList.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">$LOCALIZE[31241]</value>		<value condition="Window.IsVisible(MyVideoNav.xml) + StringCompare(Container.FolderPath,videodb://movies/titles/)">$LOCALIZE[20342]</value>
@@ -1170,8 +1170,9 @@
 	<variable name="SubHeaderLabel">
 		<value condition="Window.IsVisible(script-ExtendedInfo Script-YoutubeList.xml)">$INFO[Window.Property(Filter_Label),, ]$INFO[Window.Property(TotalItems),, $LOCALIZE[31101]]</value>
 		<value condition="Window.IsVisible(script-ExtendedInfo Script-VideoList.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">$LOCALIZE[31242]</value>
-		<value condition="Window.IsVisible(DialogVideoInfo.xml) + Container.Content(movies) + !IsEmpty(ListItem.TagLine)">$INFO[ListItem.TagLine]</value>
-		<value condition="Window.IsVisible(DialogVideoInfo.xml) + Container.Content(episodes)">$VAR[ListItemSeasonVar,S]-$VAR[ListItemEpisodeVar,E] • [COLOR Black300]Premiered:[/COLOR] $INFO[ListItem.Premiered]</value>		<value condition="Window.IsVisible(LoginScreen.xml)">$LOCALIZE[10029]</value>
+		<value condition="Window.IsVisible(DialogVideoInfo.xml) + Container.Content(movies)">$INFO[ListItem.TagLine]</value>
+		<value condition="Window.IsVisible(DialogVideoInfo.xml) + Container.Content(episodes)">$VAR[ListItemSeasonVar,S]-$VAR[ListItemEpisodeVar,E] • [COLOR Black300]Premiered:[/COLOR] $INFO[ListItem.Premiered]</value>
+		<value condition="Window.IsVisible(LoginScreen.xml)">$LOCALIZE[10029]</value>
 		<value condition="[Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml)]">[COLOR=$VAR[ColourHighlight]]$INFO[Container.NumItems,,[/COLOR] $LOCALIZE[31101]]$INFO[Control.GetLabel(3), • ,]$INFO[Control.GetLabel(28), • ,]</value>
 		<value condition="!IsEmpty(Container.NumItems) + !Window.IsVisible(home) + Skin.HasSetting(furniture.unwatched) + Window.IsVisible(MyVideoNav.xml)">[COLOR=$VAR[ColourHighlight]]$INFO[Container.NumItems,,[/COLOR] $LOCALIZE[31101] • ][COLOR=$VAR[ColourHighlight]]$INFO[Container.TotalUnwatched,,[/COLOR] $LOCALIZE[16101]]$INFO[Control.GetLabel(3), • ,]</value>
 		<value condition="!IsEmpty(Container.NumItems) + !Window.IsVisible(home) + !Skin.HasSetting(furniture.unwatched) + Window.IsVisible(MyVideoNav.xml)">[COLOR=$VAR[ColourHighlight]]$INFO[Container.NumItems,,[/COLOR] $LOCALIZE[31101] • ][COLOR=$VAR[ColourHighlight]]$INFO[Container.TotalWatched,,[/COLOR] $LOCALIZE[16102]]$INFO[Control.GetLabel(3), • ,]</value>
