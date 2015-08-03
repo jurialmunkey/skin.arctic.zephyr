@@ -163,16 +163,31 @@
 			<include condition="!Skin.HasSetting(home.vertical)">Animation.FadeFromHome</include>
 			<texture colordiffuse="Background">common/bg.jpg</texture>
 			<visible>!Window.IsVisible(home) | Skin.HasSetting(home.vertical)</visible>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
 			<visible>!Window.IsVisible(DialogAlbumInfo.xml)</visible>
 			<animation effect="fade" start="100" end="75" time="200" condition="Player.HasVideo + Skin.HasSetting(global.showvideo) | Player.HasAudio + Skin.HasSetting(global.showvisualisation)">Conditional</animation>
+		</control>
+		<control type="image">
+			<include>Dimensions_Fullscreen</include>
+			<aspectratio align="center">scale</aspectratio>
+			<texture fallback="common/black.png" background="true">$INFO[Window(home).Property(VideoInfo.ImageFilter)]</texture>
+			<visible>Window.IsVisible(DialogVideoInfo.xml) + !Skin.HasSetting(furniture.info.fanart)</visible>
+			<animation effect="fade" start="100" end="75" time="0" condition="true">Conditional</animation>
+			<fadetime>600</fadetime>
+		</control>
+		<control type="image">
+			<include>Dimensions_Fullscreen</include>
+			<animation effect="fade" start="100" end="75" time="0" condition="true">Conditional</animation>
+			<aspectratio align="center">scale</aspectratio>
+			<texture colordiffuse="$INFO[Window(home).Property(VideoInfo.ImageColor)]">common/floor.png</texture>
+			<animation effect="fade" start="100" end="75" time="0" condition="true">Conditional</animation>
+			<visible>Window.IsVisible(DialogVideoInfo.xml) + !Skin.HasSetting(furniture.info.fanart)</visible>
 		</control>
 		<control type="multiimage" description="Fanart">
 			<include condition="!Window.IsVisible(home) | Skin.HasSetting(home.vertical)">GlobalBackgroundFade</include>
 			<visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio]</visible>
 			<visible>!Skin.HasSetting(global.hidefanart) | Window.IsVisible(home)</visible>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
 			<visible>!Window.IsVisible(DialogAlbumInfo.xml)</visible>
+			<visible>![Window.IsVisible(DialogVideoInfo.xml) + !Skin.HasSetting(furniture.info.fanart)]</visible>
 			<include>Dimensions_Fullscreen</include>
 			<include>Animation.FadeFromHome</include>
 			<animation effect="fade" end="0" start="100" time="350" tween="cubic" easing="inout" condition="Window.IsVisible(home)">WindowClose</animation>
@@ -184,12 +199,41 @@
 			<animation effect="zoom" start="110" end="120" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
 			<animation effect="slide" start="-20,-20" end="20,20" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
 		</control>
+            <control id="8328" type="image">
+                <include>Dimensions_Fullscreen</include>
+                <colordiffuse>DialogFanartFade</colordiffuse>
+                <texture fallback="empty.png" background="true">$INFO[ListItem.Art(fanart)]</texture>
+                <visible>Skin.HasSetting(furniture.info.fanart)</visible>
+                <visible>Control.HasFocus(4000)</visible>
+            </control>
+            <control type="image">
+                <include>Dimensions_Fullscreen</include>
+                <colordiffuse>DialogFanartFade</colordiffuse>
+                <texture background="true">genrethumb/Kodi.jpg</texture>
+                <visible>Substring(Control.GetLabel(8328),empty.png)</visible>
+                <visible>Skin.HasSetting(furniture.info.fanart)</visible>
+                <visible>Control.HasFocus(4000)</visible>
+            </control>
+            <control type="image">
+                <include>Dimensions_Fullscreen</include>
+                <aspectratio align="center">scale</aspectratio>
+                <texture fallback="common/black.png" background="true">$INFO[Window(home).Property(VideoInfo.ImageFilter)]</texture>
+                <visible>!Skin.HasSetting(furniture.info.fanart)</visible>
+                <visible>Control.HasFocus(4000)</visible>
+            </control>
+            <control type="image">
+                <include>Dimensions_Fullscreen</include>
+                <animation effect="fade" start="100" end="75" time="0" condition="true">Conditional</animation>
+                <aspectratio align="center">scale</aspectratio>
+                <texture colordiffuse="$INFO[Window(home).Property(VideoInfo.ImageColor)]">diffuseoverlay.png</texture>
+                <visible>!Skin.HasSetting(furniture.info.fanart)</visible>
+                <visible>Control.HasFocus(4000)</visible>
+            </control>
 		<control type="image" description="FanartOverlay">
 			<include>Dimensions_Fullscreen</include>
 			<visible>!Window.IsVisible(home) | Skin.HasSetting(home.vertical)</visible>
 			<include condition="!Skin.HasSetting(home.vertical)">Animation.FadeFromHome</include>
 			<texture colordiffuse="FloorFade">common/floor.png</texture>
-			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
 			<visible>!Window.IsVisible(DialogAlbumInfo.xml)</visible>
 		</control>
 		<control type="image">
@@ -227,7 +271,6 @@
 			<include condition="!Skin.HasSetting(home.vertical)">Animation.FadeFromHome</include>
 			<texture colordiffuse="FloorFade">common/floor.png</texture>
 		</control>
-
 	</include>
 	<include name="NetflixBackground">
 		<include>GlobalVideoWindow</include>
@@ -1030,6 +1073,7 @@
 	<!-- TV Ratings -->
 	<include name="lib_Rating_TV">
 		<control type="image">
+			<aspectratio align="center">keep</aspectratio>
 			<centertop>50%</centertop>
 			<width>118</width>
 			<height>74</height>
@@ -1038,6 +1082,7 @@
 			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + IsEmpty(ListItem.Mpaa) | SubString(ListItem.Mpaa,N/A) | SubString(ListItem.Mpaa,NOT RATED) | SubString(ListItem.Mpaa,PASSED)</visible>
 		</control>
 		<control type="image">
+			<aspectratio align="center">keep</aspectratio>
 			<centertop>50%</centertop>
 			<width>118</width>
 			<height>50</height>
@@ -1053,6 +1098,7 @@
 			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,14) + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
+			<aspectratio align="center">keep</aspectratio>
 			<centertop>50%</centertop>
 			<width>118</width>
 			<height>50</height>
@@ -1068,6 +1114,7 @@
 			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,g) + !SubString(ListItem.Mpaa,pg) + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
+			<aspectratio align="center">keep</aspectratio>
 			<centertop>50%</centertop>
 			<width>118</width>
 			<height>50</height>
@@ -1083,6 +1130,7 @@
 			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,pg) + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
+			<aspectratio align="center">keep</aspectratio>
 			<centertop>50%</centertop>
 			<width>118</width>
 			<height>50</height>
@@ -1098,6 +1146,7 @@
 			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,ma) + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
+			<aspectratio align="center">keep</aspectratio>
 			<centertop>50%</centertop>
 			<width>118</width>
 			<height>50</height>
@@ -1113,11 +1162,12 @@
 			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,y) + !SubString(ListItem.Mpaa,y7) + Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
+			<aspectratio align="center">keep</aspectratio>
 			<centertop>50%</centertop>
 			<width>118</width>
 			<height>50</height>
 			<colordiffuse>Black100</colordiffuse>
-			<texture>inf0/rating/tv-y7.png</texture>
+			<texture>info/rating/tv-y7.png</texture>
 			<visible>[Container.Content(episode) | Container.Content(episodes) | Container.Content(tvshow) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(season)] + !IsEmpty(ListItem.Mpaa) + SubString(ListItem.Mpaa,y7) + !Skin.HasSetting(furniture.flags.colour)</visible>
 		</control>
 		<control type="image">
