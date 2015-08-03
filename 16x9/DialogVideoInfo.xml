@@ -803,17 +803,27 @@
                                 <animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">Focus</animation>
                                 <animation center="auto" condition="Control.HasFocus(50)" easing="inout" effect="fade" end="100" start="0" time="300" tween="sine">UnFocus</animation>
                             </control>
-                            <!-- More 
+                            <!-- More -->
                             <control type="image">
                                 <left>125</left>
-                                <top>590</top>
+                                <top>586</top>
                                 <width>37</width>
                                 <height>23</height>
                                 <texture colordiffuse="Black300">views/more_fo.png</texture>
-                                <animation condition="Control.HasFocus(50)" easing="inout" effect="rotate" end="-90" center="auto" time="0">Focus</animation>
-                                <animation condition="Control.HasFocus(50)" easing="inout" effect="slide" end="-90,-300" center="auto" time="0">UnFocus</animation>
-                                <animation effect="slide" end="0,200" time="30" tween="sine">UnFocus</animation>
-                            </control> -->
+                                <animation condition="true" easing="inout" effect="rotate" end="-90" center="auto" time="300">conditional</animation>
+                                <animation condition="!Control.HasFocus(50)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">conditional</animation>
+                            </control>
+							<control type="label">
+								<left>164</left>
+								<top>586</top>
+								<aligny>top</aligny>
+								<width>36</width>
+								<height>36</height>
+								<font>symbolview</font>
+								<label></label>
+								<textcolor>Black700</textcolor>
+                                <animation condition="!Control.HasFocus(50)" easing="inout" effect="fade" end="0" start="100" time="300" tween="sine">conditional</animation>
+							</control>
                         </control>
                     </focusedlayout>
                 </control>
@@ -1536,13 +1546,5 @@
                     <animation condition="System.IdleTime(1)" effect="fade" end="0" start="100" time="200">Conditional</animation>
                 </control>
             </control>
-
-
-
-
-
-
-
-
     </controls>
 </window>
