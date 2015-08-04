@@ -1349,7 +1349,7 @@
 				<textcolor>Dark1</textcolor>
 				<label></label>
 				<fadetime>200</fadetime>
-				<visible>container.content(movies) | container.content(episodes)</visible>
+				<visible>[!IsEmpty(ListItem.EndTime) + [Container.Content(movies) | Container.Content(episodes)]] | [!IsEmpty(Container(301).ListItem.EndTime) + Control.HasFocus(301) + Skin.HasSetting(home.vertical)] | [!IsEmpty(Container(301).ListItem.EndTime) + !Skin.HasSetting(home.vertical)]</visible>
 			</control>
 			<control type="label">
 				<centertop>220</centertop>
@@ -1362,7 +1362,20 @@
 				<label>$INFO[ListItem.EndTime(hh:mm)]</label>
 				<angle>-90</angle>
 				<fadetime>200</fadetime>
-				<visible>container.content(movies) | container.content(episodes)</visible>
+				<visible>[!IsEmpty(ListItem.EndTime) + [Container.Content(movies) | Container.Content(episodes)]]</visible>
+			</control>
+			<control type="label">
+				<centertop>220</centertop>
+				<right>-230</right>
+				<aligny>top</aligny>
+				<width>240</width>
+				<height>333</height>
+				<font>MediumBold</font>
+				<textcolor>Dark1</textcolor>
+				<label>$INFO[Container(301).ListItem.EndTime(hh:mm)]</label>
+				<angle>-90</angle>
+				<fadetime>200</fadetime>
+				<visible>[!IsEmpty(Container(301).ListItem.EndTime) + Control.HasFocus(301) + Skin.HasSetting(home.vertical)] | [!IsEmpty(Container(301).ListItem.EndTime) + !Skin.HasSetting(home.vertical)]</visible>
 			</control>
 			<control type="label">
 				<centertop>30</centertop>
