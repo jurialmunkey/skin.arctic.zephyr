@@ -1887,4 +1887,73 @@
 		<value condition="IntegerGreaterThan(Container(301).ListItem.Rating,8)">star5</value>
 		<value>star0</value>
 	</variable>
+	<variable name="ClearLogoTopVar">
+		<value condition="!IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
+		<value condition="!IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
+		<value condition="!IsEmpty(Container(9500).ListItem.Art(clearlogo))">$INFO[Container(9500).ListItem.Art(clearlogo)]</value>
+		<value condition="!IsEmpty(Container(9500).ListItem.Art(tvshow.clearlogo))">$INFO[Container(9500).ListItem.Art(tvshow.clearlogo)]</value>
+	</variable>
+	<include name="Furniture_OverlayInfo">
+		<control type="button" id ="9601">
+			<width>1</width>
+			<height>1</height>
+			<visible allowhiddenfocus="true">false</visible>
+			<onback>50</onback>
+			<onup>50</onup>
+			<ondown>50</ondown>
+			<onleft>50</onleft>
+			<onright>50</onright>
+		</control>
+		<control type="group">
+			<visible>[System.IdleTime(3) + Skin.HasSetting(furniture.overlayinfo)] | Control.HasFocus(9601)</visible>
+			<visible>![Window.IsVisible(script-skinshortcuts.xml) | Window.IsVisible(DialogSongInfo.xml) | Window.IsVisible(DialogPictureInfo.xml) | Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogProgress.xml) | Window.IsVisible(DialogYesNo.xml) | Window.IsVisible(DialogOK.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml) | ControlGroup(9000).HasFocus()]</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>[!IsEmpty(Window(home).Property(Set.Movies.ExtendedPlot)) + [Container.Content(Sets) | substring(ListItem.Path,videodb://movies/sets,left)]] | !IsEmpty(ListItem.Plot)</visible>
+			<include>Animation.FadeIn</include>
+			<include>Animation.FadeOut</include>
+			<include>GlobalOverlay</include>
+			<control type="image">
+				<left>1622</left>
+				<top>19</top>
+				<width>258</width>
+				<height>130</height>
+				<texture>$VAR[ClearLogoTopVar]</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+				<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
+			</control>
+		</control>
+		<control type="group">
+			<left>SidePad</left>
+			<right>SidePad</right>
+			<top>PosterPad</top>
+			<height>650</height>
+			<visible>[System.IdleTime(3) + Skin.HasSetting(furniture.overlayinfo)] | Control.HasFocus(9601)</visible>
+			<visible>![Window.IsVisible(script-skinshortcuts.xml) | Window.IsVisible(DialogSongInfo.xml) | Window.IsVisible(DialogPictureInfo.xml) | Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogProgress.xml) | Window.IsVisible(DialogYesNo.xml) | Window.IsVisible(DialogOK.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml) | ControlGroup(9000).HasFocus()]</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
+			<visible>[!IsEmpty(Window(home).Property(Set.Movies.ExtendedPlot)) + [Container.Content(Sets) | substring(ListItem.Path,videodb://movies/sets,left)]] | !IsEmpty(ListItem.Plot)</visible>
+			<include>Animation.FadeIn.Slide</include>
+			<control type="label">
+				<description>header label</description>
+				<left>60</left>
+				<right>60</right>
+				<posy>60</posy>
+				<font>EpisodeNumber</font>
+				<textcolor>PanelWhite70</textcolor>
+				<height>45</height>
+				<label>$VAR[LabelOverlayTitle]</label>
+			</control>
+			<control type="textbox">
+				<description>textarea</description>
+				<left>60</left>
+				<right>60</right>
+				<top>150</top>
+				<bottom>0</bottom>
+				<align>justify</align>
+				<font>Medium</font>
+				<textcolor>PanelWhite70</textcolor>
+				<label>$VAR[LabelOverlayPlot]</label>
+			</control>
+		</control>
+	</include>
 </includes>
