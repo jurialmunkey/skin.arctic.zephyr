@@ -651,6 +651,31 @@
 		<value condition="Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.netflix)">$LOCALIZE[31249]</value>
 		<value condition="Skin.HasSetting(home.netflix)">$LOCALIZE[31751]</value>
 	</variable>
+	<variable name="ResumeColourHighlight">
+		<value condition="Skin.HasSetting(ResumeColour)">$INFO[Skin.String(resume.colour.name)]</value>
+		<value condition="!Skin.HasSetting(ResumeColour) + Skin.HasSetting(ColourHighlight2)">$INFO[Skin.String(focuscolor2.name)]</value>
+		<value condition="!Skin.HasSetting(ResumeColour) + !Skin.HasSetting(ColourHighlight2)">Highlight2</value>
+	</variable>
+	<variable name="PlayingColourHighlight">
+		<value condition="Skin.HasSetting(PlayingColour)">$INFO[Skin.String(playing.colour.name)]</value>
+		<value condition="!Skin.HasSetting(PlayingColour) + Skin.HasSetting(ColourHighlight2)">$INFO[Skin.String(focuscolor2.name)]</value>
+		<value condition="!Skin.HasSetting(PlayingColour) + !Skin.HasSetting(ColourHighlight2)">Highlight2</value>
+	</variable>
+	<variable name="NewColourHighlight">
+		<value condition="Skin.HasSetting(NewColour)">$INFO[Skin.String(new.colour.name)]</value>
+		<value condition="!Skin.HasSetting(NewColour) + Skin.HasSetting(ColourHighlight2)">$INFO[Skin.String(focuscolor2.name)]</value>
+		<value condition="!Skin.HasSetting(NewColour) + !Skin.HasSetting(ColourHighlight2)">Highlight2</value>
+	</variable>
+	<variable name="WatchedColourHighlight">
+		<value condition="Skin.HasSetting(WatchedColour)">$INFO[Skin.String(watched.colour.name)]</value>
+		<value condition="!Skin.HasSetting(WatchedColour) + Skin.HasSetting(ColourHighlight2)">$INFO[Skin.String(focuscolor2.name)]</value>
+		<value condition="!Skin.HasSetting(WatchedColour) + !Skin.HasSetting(ColourHighlight2)">Highlight2</value>
+	</variable>
+	<variable name="UnwatchedColourHighlight">
+		<value condition="Skin.HasSetting(UnwatchedColour)">$INFO[Skin.String(unwatched.colour.name)]</value>
+		<value condition="!Skin.HasSetting(UnwatchedColour) + Skin.HasSetting(ColourHighlight2)">$INFO[Skin.String(focuscolor2.name)]</value>
+		<value condition="!Skin.HasSetting(UnwatchedColour) + !Skin.HasSetting(ColourHighlight2)">Highlight2</value>
+	</variable>
 	<variable name="PercentWatchedLabel">
 		<value condition="ListItem.IsPlaying"></value>
 		<value condition="ListItem.IsResumable"></value>

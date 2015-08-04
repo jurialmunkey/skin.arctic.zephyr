@@ -854,6 +854,91 @@
 						<visible>Skin.HasSetting(ColourSelected)</visible>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
 					</control>
+					<control type="radiobutton" id="92817">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<selected>Skin.HasSetting(WatchedColour)</selected>
+						<onclick>Skin.ToggleSetting(WatchedColour)</onclick>
+						<label>Change the watched icon colour</label>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<control type="button" id="92818">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<onclick>RunScript(script.arctic.zephyr.helper.jarvis,COLORPICKER,watched.colour.name)</onclick>
+						<label> - Set watched colour</label>
+						<label2>[COLOR=$INFO[Skin.String(watched.colour.name)]]$INFO[Skin.String(watched.colour.name)][/COLOR]</label2>
+						<visible>Skin.HasSetting(WatchedColour)</visible>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<control type="radiobutton" id="92827">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<selected>Skin.HasSetting(UnwatchedColour)</selected>
+						<onclick>Skin.ToggleSetting(UnwatchedColour)</onclick>
+						<label>Change the unwatched icon colour</label>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<control type="button" id="92828">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<onclick>RunScript(script.arctic.zephyr.helper.jarvis,COLORPICKER,unwatched.colour.name)</onclick>
+						<label> - Set unwatched colour</label>
+						<label2>[COLOR=$INFO[Skin.String(unwatched.colour.name)]]$INFO[Skin.String(unwatched.colour.name)][/COLOR]</label2>
+						<visible>Skin.HasSetting(UnwatchedColour)</visible>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<control type="radiobutton" id="92837">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<selected>Skin.HasSetting(NewColour)</selected>
+						<onclick>Skin.ToggleSetting(NewColour)</onclick>
+						<label>Change the new icon colour</label>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<control type="button" id="92838">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<onclick>RunScript(script.arctic.zephyr.helper.jarvis,COLORPICKER,new.colour.name)</onclick>
+						<label> - Set new colour</label>
+						<label2>[COLOR=$INFO[Skin.String(new.colour.name)]]$INFO[Skin.String(new.colour.name)][/COLOR]</label2>
+						<visible>Skin.HasSetting(NewColour)</visible>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<control type="radiobutton" id="92847">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<selected>Skin.HasSetting(ResumeColour)</selected>
+						<onclick>Skin.ToggleSetting(ResumeColour)</onclick>
+						<label>Change the resume icon colour</label>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<control type="button" id="92848">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<onclick>RunScript(script.arctic.zephyr.helper.jarvis,COLORPICKER,resume.colour.name)</onclick>
+						<label> - Set resume colour</label>
+						<label2>[COLOR=$INFO[Skin.String(resume.colour.name)]]$INFO[Skin.String(resume.colour.name)][/COLOR]</label2>
+						<visible>Skin.HasSetting(ResumeColour)</visible>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<control type="radiobutton" id="92857">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<selected>Skin.HasSetting(PlayingColour)</selected>
+						<onclick>Skin.ToggleSetting(PlayingColour)</onclick>
+						<label>Change the playing icon colour</label>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<control type="button" id="92858">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<onclick>RunScript(script.arctic.zephyr.helper.jarvis,COLORPICKER,playing.colour.name)</onclick>
+						<label> - Set playing colour</label>
+						<label2>[COLOR=$INFO[Skin.String(playing.colour.name)]]$INFO[Skin.String(playing.colour.name)][/COLOR]</label2>
+						<visible>Skin.HasSetting(PlayingColour)</visible>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
 					<!-- Views -->
 					<control type="button" id="9291" description="Enable or Disable views">
 						<width>1310</width>
