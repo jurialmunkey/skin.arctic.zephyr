@@ -1542,7 +1542,7 @@
 				<visible>!IsEmpty(Container(301).ListItem.VideoResolution)</visible>
 			</control>
 			<visible>!substring(ListItem.Path,videodb://movies/sets,left)</visible>
-			<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather) + !StringCompare(Container(300).ListItem.Property(widget),NextAired) + !StringCompare(Container(300).ListItem.Property(widget),Favourites) + !substring(Container(300).ListItem.Property(widget),Albums)</visible>
+			<visible>!StringCompare(Container(300).ListItem.Property(widget),LiveTV) + !StringCompare(Container(300).ListItem.Property(widget),Weather) + !StringCompare(Container(300).ListItem.Property(widget),NextAired) + !StringCompare(Container(300).ListItem.Property(widget),Favourites) + !substring(Container(300).ListItem.Property(widget),Albums)</visible>
 		</control>
 		<control type="grouplist">
 			<visible>!Skin.HasSetting(furniture.flags)</visible>
@@ -1558,7 +1558,7 @@
 			<itemgap>10</itemgap>
 			<usecontrolcoords>true</usecontrolcoords>
 			<control type="group">
-				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather) + !StringCompare(Container(300).ListItem.Property(widget),NextAired) + !StringCompare(Container(300).ListItem.Property(widget),Favourites) + !substring(Container(300).ListItem.Property(widget),Albums)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),LiveTV) + !StringCompare(Container(300).ListItem.Property(widget),Weather) + !StringCompare(Container(300).ListItem.Property(widget),NextAired) + !StringCompare(Container(300).ListItem.Property(widget),Favourites) + !substring(Container(300).ListItem.Property(widget),Albums)</visible>
 				<centertop>50%</centertop>
 				<width>73</width>
 				<height>50</height>
@@ -1594,7 +1594,7 @@
 				<centertop>50%</centertop>
 				<texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar1].png</texture>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
-				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),LiveTV) + !StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="image">
 				<width>64</width>
@@ -1602,7 +1602,7 @@
 				<centertop>50%</centertop>
 				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[HomeFlagstar1].png</texture>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
-				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),LiveTV) + !StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1612,7 +1612,7 @@
 				<texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar2].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
-				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),LiveTV) + !StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1622,7 +1622,7 @@
 				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[HomeFlagstar2].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
-				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),LiveTV) + !StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1632,7 +1632,7 @@
 				<texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar3].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
-				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),LiveTV) + !StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1642,7 +1642,7 @@
 				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[HomeFlagstar3].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
-				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),LiveTV) + !StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1652,7 +1652,7 @@
 				<texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar4].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
-				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),LiveTV) + !StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1662,7 +1662,7 @@
 				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[HomeFlagstar4].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
-				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),LiveTV) + !StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1672,7 +1672,7 @@
 				<texture colordiffuse="Dark1">flags/$VAR[HomeFlagstar5].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
-				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),LiveTV) + !StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="image">
 				<posx>-48</posx>
@@ -1682,7 +1682,7 @@
 				<texture colordiffuse="$VAR[ColourHighlight]">flags/$VAR[HomeFlagstar5].png</texture>
 				<visible>!Skin.HasSetting(furniture.numericrating)</visible>
 				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
-				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),LiveTV) + !StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 			</control>
 			<control type="label">
 				<left>-16</left>
@@ -1777,7 +1777,15 @@
 					<centertop>50%</centertop>
 					<texture colordiffuse="Dark1">flags/time.png</texture>
 					<aspectratio align="left">keep</aspectratio>
-					<visible>!IsEmpty(Container(301).ListItem.Duration)</visible>
+					<visible>!IsEmpty(Container(301).ListItem.Duration) + !StringCompare(Container(300).ListItem.Property(widget),LiveTV)</visible>
+				</control>
+				<control type="image">
+					<left>10</left>
+					<height>50</height>
+					<centertop>50%</centertop>
+					<texture colordiffuse="Dark1">flags/time.png</texture>
+					<aspectratio align="left">keep</aspectratio>
+					<visible>!IsEmpty(Container(301).ListItem.Duration) + StringCompare(Container(300).ListItem.Property(widget),LiveTV)</visible>
 				</control>
 				<control type="label">
 					<left>57</left>
@@ -1789,7 +1797,19 @@
 					<label>$VAR[DurationHomeLong]</label>
 					<font>DurationFontSmall</font>
 					<textcolor>Dark1</textcolor>
-					<visible>!IsEmpty(Container(301).ListItem.Duration)</visible>
+					<visible>!IsEmpty(Container(301).ListItem.Duration) + !StringCompare(Container(300).ListItem.Property(widget),LiveTV)</visible>
+				</control>
+				<control type="label">
+					<left>57</left>
+					<width>155</width>
+					<centertop>50%</centertop>
+					<height>64</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[Container(301).ListItem.Duration]</label>
+					<font>DurationFontSmall</font>
+					<textcolor>Dark1</textcolor>
+					<visible>!IsEmpty(Container(301).ListItem.Duration) + StringCompare(Container(300).ListItem.Property(widget),LiveTV)</visible>
 				</control>
 			</control>
 			<control type="group">
@@ -1807,7 +1827,19 @@
 					<label>$VAR[DurationHomeLong]</label>
 					<font>DurationFontSmall</font>
 					<textcolor>$VAR[ColourHighlight]</textcolor>
-					<visible>!IsEmpty(Container(301).ListItem.Duration)</visible>
+					<visible>!IsEmpty(Container(301).ListItem.Duration) + !StringCompare(Container(300).ListItem.Property(widget),LiveTV)</visible>
+				</control>
+				<control type="label">
+					<left>0</left>
+					<width>230</width>
+					<centertop>50%</centertop>
+					<height>50</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[Container(301).ListItem.Duration]</label>
+					<font>DurationFontSmall</font>
+					<textcolor>$VAR[ColourHighlight]</textcolor>
+					<visible>!IsEmpty(Container(301).ListItem.Duration) + StringCompare(Container(300).ListItem.Property(widget),LiveTV)</visible>
 				</control>
 			</control>
 			<control type="image">

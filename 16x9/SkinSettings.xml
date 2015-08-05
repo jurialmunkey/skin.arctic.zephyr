@@ -339,6 +339,14 @@
 						<onclick>Skin.ToggleSetting(osd.hidespoilers)</onclick>
 					</control>
 					<!-- Widgets -->
+					<control type="radiobutton" id="924111" description="landscape widgets">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9104)</visible>
+						<include>DefSettingsButton</include>
+						<label>Show landscape widgets</label>
+						<selected>Skin.HasSetting(widgets.landscape)</selected>
+						<onclick>Skin.ToggleSetting(widgets.landscape)</onclick>
+					</control>
 					<control type="radiobutton" id="9241" description="Cases on widgets">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9104)</visible>
