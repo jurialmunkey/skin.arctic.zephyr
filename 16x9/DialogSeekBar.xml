@@ -163,6 +163,72 @@
                     </control>
                 </control>
             </control>
+
+            <control type="group">
+                <visible>PVR.IsTimeshift</visible>
+                <animation effect="fade" start="0" end="100" delay="150" time="150">Visible</animation>
+                <animation effect="fade" start="0" end="100" delay="150" time="150">WindowOpen</animation>
+                <top>180r</top>
+                <bottom>0</bottom>
+                <width>100%</width>
+
+                <control type="group">
+                    <left>SidePad</left>
+                    <right>SidePad</right>
+                    <top>20</top>
+                    <bottom>20</bottom>
+                    <control type="label" description="Finishes Time">
+                        <width>400</width>
+                        <bottom>30</bottom>
+                        <height>40</height>
+                        <font>Tiny</font>
+                        <textcolor>$VAR[OSDPanelWhite70]</textcolor>
+                        <label>$INFO[PVR.TimeshiftEnd]</label>
+                    </control>
+                    <control type="label" description="Duration Total Time">
+                        <right>0</right>
+                        <align>right</align>
+                        <width>400</width>
+                        <bottom>30</bottom>
+                        <height>40</height>
+                        <font>Tiny</font>
+                        <textcolor>$VAR[OSDPanelWhite70]</textcolor>
+                        <label>$INFO[PVR.TimeshiftStart]</label>
+                    </control>
+
+                    <control type="progress" description="cachelevel">
+                        <description>Progress Bar</description>
+                        <width>100%</width>
+                        <bottom>10</bottom>
+                        <height>8</height>
+                        <info>Player.CacheLevel</info>
+                        <texturebg colordiffuse="00ffffff">osd/progress-bg.png</texturebg>
+                        <lefttexture colordiffuse="$VAR[ColourHighlight]">osd/progress-end.png</lefttexture>
+                        <midtexture colordiffuse="$VAR[ColourHighlight2]">osd/progress-end.png</midtexture>
+                        <righttexture colordiffuse="$VAR[ColourHighlight2]">osd/progress-end.png</righttexture>
+                        <visible>Player.Seeking</visible>
+                    </control>
+                    <control type="progress" description="cache">
+                        <description>Progress Bar</description>
+                        <width>100%</width>
+                        <bottom>10</bottom>
+                        <height>8</height>
+                        <info>PVR.TimeshiftCur</info>
+                        <reveal>true</reveal>
+                        <texturebg colordiffuse="00ffffff">osd/progress-bg.png</texturebg>
+                        <lefttexture colordiffuse="$VAR[ColourHighlight2]">osd/progress-end.png</lefttexture>
+                        <midtexture colordiffuse="$VAR[ColourHighlight2]">osd/progress-end.png</midtexture>
+                        <righttexture colordiffuse="$VAR[ColourHighlight2]">osd/progress-end.png</righttexture>
+                    </control>
+                    <control type="progress" id="23">
+                        <description>Progress Bar</description>
+                        <width>100%</width>
+                        <bottom>10</bottom>
+                        <height>8</height>
+                        <info>PVR.TimeshiftProgress</info>
+                    </control>
+                </control>
+            </control>
         
         </control>
         <!-- Clock -->
