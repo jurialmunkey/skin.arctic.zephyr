@@ -539,6 +539,14 @@
 						<selected>!Skin.HasSetting(furniture.clock)</selected>
 						<onclick>Skin.ToggleSetting(furniture.clock)</onclick>
 					</control>
+					<control type="radiobutton" id="92621" description="Hide end time">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9106)</visible>
+						<include>DefSettingsButton</include>
+						<label>Hide end time (views/home screen)</label>
+						<selected>Skin.HasSetting(furniture.hideendtime)</selected>
+						<onclick>Skin.ToggleSetting(furniture.hideendtime)</onclick>
+					</control>
 					<control type="radiobutton" id="9265" description="Weather">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9106)</visible>
