@@ -515,11 +515,20 @@
 						<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=episodeshub)</onclick>
 					</control>
 					<!-- Furniture -->
+					<control type="radiobutton" id="92613" description="Watched/Unwatched">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9106)</visible>
+						<include>DefSettingsButton</include>
+						<label>Hide indicators</label>
+						<selected>Skin.HasSetting(furniture.hideindicators)</selected>
+						<onclick>Skin.ToggleSetting(furniture.hideindicators)</onclick>
+					</control>
 					<control type="radiobutton" id="92611" description="Watched/Unwatched">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9106)</visible>
 						<include>DefSettingsButton</include>
 						<label>Show unwatched indicator</label>
+						<visible>!Skin.HasSetting(furniture.hideindicators)</visible>
 						<selected>Skin.HasSetting(furniture.unwatched)</selected>
 						<onclick>Skin.ToggleSetting(furniture.unwatched)</onclick>
 					</control>
