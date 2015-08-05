@@ -158,6 +158,26 @@
 		<value>star0</value>
 	</variable>
 	<include name="Furniture_Flags">
+		<control type="group">
+			<visible>!Skin.HasSetting(furniture.flags)</visible>
+			<visible>!Window.IsVisible(DialogAlbumInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-VideoList.xml) + !Window.IsVisible(script-ExtendedInfo Script-YoutubeList.xml)</visible>
+			<visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+			<visible>!stringcompare(ListItem.Label,..)</visible>
+			<include>Animation.FadeIn</include>
+			<include>Animation.FadeOut</include>
+			<left>0</left>
+			<centerbottom>NavBarPad</centerbottom>
+			<width>120</width>
+			<height>120</height>
+			<control type="label">
+				<align>right</align>
+				<label>[B]$INFO[ListItem.VideoResolution]p[/B]</label>
+				<font>MiniSystem</font>
+				<textcolor>Dark1</textcolor>
+				<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+			</control>
+			<visible>!substring(ListItem.Path,videodb://movies/sets,left)</visible>
+		</control>
 		<control type="grouplist">
 			<visible>!Skin.HasSetting(furniture.flags)</visible>
 			<visible>!Window.IsVisible(DialogAlbumInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-VideoList.xml) + !Window.IsVisible(script-ExtendedInfo Script-YoutubeList.xml)</visible>
@@ -187,7 +207,7 @@
 					<height>46</height>
 					<align>center</align>
 					<aligny>center</aligny>
-					<label>$VAR[HDSD]</label>
+					<label>[B]$VAR[HDSD][/B]</label>
 					<font>FlagHD</font>
 					<textcolor>Dark1</textcolor>
 					<visible>!substring(ListItem.Path,videodb://movies/sets,left) + !Skin.HasSetting(furniture.flags.colour)</visible>
@@ -197,7 +217,7 @@
 					<height>46</height>
 					<align>center</align>
 					<aligny>center</aligny>
-					<label>$VAR[HDSD]</label>
+					<label>[B]$VAR[HDSD][/B]</label>
 					<font>FlagHD</font>
 					<textcolor>$VAR[ColourHighlight2]</textcolor>
 					<visible>!substring(ListItem.Path,videodb://movies/sets,left) + Skin.HasSetting(furniture.flags.colour)</visible>
@@ -405,22 +425,6 @@
 				<texture>$INFO[ListItem.VideoAspect,colored/aspectratio/,.png]</texture>
 				<aspectratio align="center">stretch</aspectratio>
 				<visible>!IsEmpty(ListItem.VideoAspect) + Skin.HasSetting(furniture.flags.colour)</visible>
-			</control>
-			<control type="image">
-				<width>130</width>
-				<height>50</height>
-				<centertop>50%</centertop>
-				<texture colordiffuse="Dark1">$INFO[ListItem.VideoResolution,flags/resolution/,.png]</texture>
-				<aspectratio align="left">keep</aspectratio>
-				<visible>!IsEmpty(ListItem.VideoResolution) + !Skin.HasSetting(furniture.flags.colour)</visible>
-			</control>
-			<control type="image">
-				<width>110</width>
-				<height>60</height>
-				<centertop>51%</centertop>
-				<texture>$INFO[ListItem.VideoResolution,colored/resolution/,.png]</texture>
-				<aspectratio align="left">stretch</aspectratio>
-				<visible>!IsEmpty(ListItem.VideoResolution) + Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">
 				<width>130</width>
@@ -1127,13 +1131,14 @@
 		<value condition="Window.IsVisible(DialogButtonMenu.xml)">$LOCALIZE[33060]</value>
 		<value condition="Window.IsVisible(DialogFavourites.xml)">$LOCALIZE[1036]</value>
 		<value condition="Window.IsVisible(script-ExtendedInfo Script-YoutubeList.xml)">$LOCALIZE[31141]</value>
-		<value condition="Window.IsVisible(DialogVideoInfo.xml)">$INFO[ListItem.Title] ($INFO[ListItem.Year])</value>
+		<value condition="Window.IsVisible(DialogVideoInfo.xml) + !Container.Content(episodes)">$INFO[ListItem.Title] ($INFO[ListItem.Year])</value>
+		<value condition="Window.IsVisible(DialogVideoInfo.xml) + Container.Content(episodes)">$INFO[ListItem.Title]</value>
 		<value condition="Window.IsVisible(DialogVideoInfo.xml) + Container.Content(musicvideos) + !IsEmpty(ListItem.Artist)">$INFO[ListItem.Artist]</value>
 		<value condition="Window.IsVisible(DialogVideoInfo.xml) + Container.Content(episodes) + !IsEmpty(ListItem.TvShowTitle)">$INFO[ListItem.TvShowTitle]</value>
 		<value condition="Window.IsVisible(script-ExtendedInfo Script-VideoList.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) | Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)">$LOCALIZE[31241]</value>		<value condition="Window.IsVisible(MyVideoNav.xml) + StringCompare(Container.FolderPath,videodb://movies/titles/)">$LOCALIZE[20342]</value>
 		<value condition="Window.IsVisible(MyVideoNav.xml) + StringCompare(Container.FolderPath,videodb://tvshows/titles/)">$LOCALIZE[20343]</value>
 		<value condition="Window.IsVisible(MyVideoNav.xml) + SubString(Container.FolderPath,videodb://movies/,Left)">$INFO[Container.FolderName]</value>
-		<value condition="Window.IsVisible(MyVideoNav.xml) + SubString(Container.FolderPath,videodb://tvshows/,Left) + Container.Content(episodes) + !IsEmpty(ListItem.TvShowTitle)">$INFO[ListItem.TvShowTitle]$INFO[Container.FolderName, - ,]</value>
+		<value condition="Window.IsVisible(MyVideoNav.xml) + SubString(Container.FolderPath,videodb://tvshows/,Left) + Container.Content(episodes) + !IsEmpty(ListItem.TvShowTitle)">$INFO[ListItem.TvShowTitle]$INFO[ListItem.Season, - Season ,]</value>
 		<value condition="Window.IsVisible(MyVideoNav.xml) + SubString(Container.FolderPath,videodb://tvshows/,Left)">$INFO[Container.FolderName]</value>
 		<value condition="Window.IsVisible(MyVideoNav.xml) + !IsEmpty(Container.FolderName)">$INFO[Container.FolderName]</value>
 		<value condition="Window.IsVisible(MyVideoNav.xml)">$LOCALIZE[3]</value>
@@ -1517,6 +1522,25 @@
 	</include>
 
 	<include name="Furniture_Home_Flags">
+		<control type="group">
+			<visible>!Skin.HasSetting(furniture.flags)</visible>
+			<visible>Control.HasFocus(301)</visible>
+			<include>Animation.FadeIn</include>
+			<include>Animation.FadeOut</include>
+			<left>146</left>
+			<centerbottom>NavBarPad</centerbottom>
+			<width>120</width>
+			<height>120</height>
+			<control type="label">
+				<align>right</align>
+				<label>[B]$INFO[Container(301).ListItem.VideoResolution]p[/B]</label>
+				<font>MiniSystem</font>
+				<textcolor>Dark1</textcolor>
+				<visible>!IsEmpty(Container(301).ListItem.VideoResolution)</visible>
+			</control>
+			<visible>!substring(ListItem.Path,videodb://movies/sets,left)</visible>
+			<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather) + !StringCompare(Container(300).ListItem.Property(widget),NextAired) + !StringCompare(Container(300).ListItem.Property(widget),Favourites) + !substring(Container(300).ListItem.Property(widget),Albums)</visible>
+		</control>
 		<control type="grouplist">
 			<visible>!Skin.HasSetting(furniture.flags)</visible>
 			<visible>Control.HasFocus(301)</visible>
@@ -1545,7 +1569,7 @@
 					<height>46</height>
 					<align>center</align>
 					<aligny>center</aligny>
-					<label>$VAR[HDSD]</label>
+					<label>[B]$VAR[HDSD][/B]</label>
 					<font>FlagHD</font>
 					<textcolor>Dark1</textcolor>
 					<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
@@ -1555,7 +1579,7 @@
 					<height>46</height>
 					<align>center</align>
 					<aligny>center</aligny>
-					<label>$VAR[HDSD]</label>
+					<label>[B]$VAR[HDSD][B]</label>
 					<font>FlagHD</font>
 					<textcolor>$VAR[ColourHighlight2]</textcolor>
 					<visible>Skin.HasSetting(furniture.flags.colour)</visible>
@@ -1691,22 +1715,6 @@
 				<texture>$INFO[Container(301).ListItem.VideoAspect,colored/aspectratio/,.png]</texture>
 				<aspectratio align="center">stretch</aspectratio>
 				<visible>!IsEmpty(Container(301).ListItem.VideoAspect) + Skin.HasSetting(furniture.flags.colour)</visible>
-			</control>
-			<control type="image">
-				<width>130</width>
-				<height>50</height>
-				<centertop>50%</centertop>
-				<texture colordiffuse="Dark1">$INFO[Container(301).ListItem.VideoResolution,flags/resolution/,.png]</texture>
-				<aspectratio align="left">keep</aspectratio>
-				<visible>!IsEmpty(Container(301).ListItem.VideoResolution) + !Skin.HasSetting(furniture.flags.colour)</visible>
-			</control>
-			<control type="image">
-				<width>110</width>
-				<height>60</height>
-				<centertop>51%</centertop>
-				<texture>$INFO[Container(301).ListItem.VideoResolution,colored/resolution/,.png]</texture>
-				<aspectratio align="left">stretch</aspectratio>
-				<visible>!IsEmpty(Container(301).ListItem.VideoResolution) + Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">
 				<width>130</width>
