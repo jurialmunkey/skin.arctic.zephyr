@@ -1807,6 +1807,34 @@
 					<visible>!IsEmpty(Container(301).ListItem.Duration)</visible>
 				</control>
 			</control>
+			<control type="image">
+				<width>73</width>
+				<centertop>50%</centertop>
+				<height>50</height>
+				<texture colordiffuse="Dark1">flags/3D.png</texture>
+				<visible>Container(301).ListItem.IsStereoscopic</visible>
+			</control>
+			<control type="image">
+				<width>73</width>
+				<centertop>50%</centertop>
+				<height>50</height>
+				<texture colordiffuse="Dark1">flags/bluray.png</texture>
+				<visible>[substring(Container(301).ListItem.FilenameAndPath,bluray) | substring(Container(301).ListItem.FilenameAndPath,bdrip) | substring(Container(301).ListItem.FilenameAndPath,bd25) | substring(Container(301).ListItem.FilenameAndPath,bd50)]</visible>
+			</control>
+			<control type="image">
+				<width>73</width>
+				<centertop>50%</centertop>
+				<height>50</height>
+				<texture colordiffuse="Dark1">flags/hddvd.png</texture>
+				<visible>substring(Container(301).ListItem.FilenameAndPath,hddvd)</visible>
+			</control>
+			<control type="image">
+				<width>73</width>
+				<centertop>50%</centertop>
+				<height>50</height>
+				<texture colordiffuse="Dark1">flags/dvd.png</texture>
+				<visible>substring(Container(301).ListItem.FilenameAndPath,dvd) + !substring(Container(301).ListItem.FilenameAndPath,hddvd)</visible>
+			</control>
 			<control type="group">
 				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
 				<centertop>50%</centertop>
@@ -1852,33 +1880,34 @@
 					<visible>!IsEmpty(Container(301).ListItem.Top250)</visible>
 				</control>
 			</control>
+		</control>
+		<control type="group">
+			<visible>!Skin.HasSetting(furniture.flags)</visible>
+			<visible>Control.HasFocus(301)</visible>
+			<include>Animation.FadeIn</include>
+			<include>Animation.FadeOut</include>
+			<left>226</left>
+			<centerbottom>60</centerbottom>
+			<width>1400</width>
+			<height>120</height>
+			<align>left</align>
 			<control type="image">
-				<width>73</width>
+				<left>-15</left>
 				<centertop>50%</centertop>
-				<height>50</height>
-				<texture colordiffuse="Dark1">flags/3D.png</texture>
-				<visible>Container(301).ListItem.IsStereoscopic</visible>
+				<width>104</width>
+				<height>104</height>
+				<texture colordiffuse="Dark1">$VAR[StudioHome]</texture>
+				<aspectratio align="left">keep</aspectratio>
+				<visible>!Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 			<control type="image">
-				<width>73</width>
+				<left>-15</left>
 				<centertop>50%</centertop>
-				<height>50</height>
-				<texture colordiffuse="Dark1">flags/bluray.png</texture>
-				<visible>[substring(Container(301).ListItem.FilenameAndPath,bluray) | substring(Container(301).ListItem.FilenameAndPath,bdrip) | substring(Container(301).ListItem.FilenameAndPath,bd25) | substring(Container(301).ListItem.FilenameAndPath,bd50)]</visible>
-			</control>
-			<control type="image">
-				<width>73</width>
-				<centertop>50%</centertop>
-				<height>50</height>
-				<texture colordiffuse="Dark1">flags/hddvd.png</texture>
-				<visible>substring(Container(301).ListItem.FilenameAndPath,hddvd)</visible>
-			</control>
-			<control type="image">
-				<width>73</width>
-				<centertop>50%</centertop>
-				<height>50</height>
-				<texture colordiffuse="Dark1">flags/dvd.png</texture>
-				<visible>substring(Container(301).ListItem.FilenameAndPath,dvd) + !substring(Container(301).ListItem.FilenameAndPath,hddvd)</visible>
+				<width>104</width>
+				<height>104</height>
+				<texture>$VAR[StudioHome]</texture>
+				<aspectratio align="left">keep</aspectratio>
+				<visible>Skin.HasSetting(furniture.flags.colour)</visible>
 			</control>
 		</control>
 	</include>

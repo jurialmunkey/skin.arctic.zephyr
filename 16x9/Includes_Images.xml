@@ -175,6 +175,10 @@
 		<value condition="IntegerGreaterThan(ListItem.VideoResolution,719)">cdart/bd.png</value>
 		<value condition="!IsEmpty(ListItem.VideoResolution)">cdart/default.png</value>
 	</variable>
+	<variable name="StudioHome">
+		<value condition="!IsEmpty(Container(301).ListItem.Studio) + !Skin.HasSetting(furniture.flags.colour)">resource://resource.images.studios.white/$INFO[Window(home).Property(HomeStudioLabel),,.png]</value>
+		<value condition="!IsEmpty(Container(301).ListItem.Studio) + Skin.HasSetting(furniture.flags.colour)">resource://resource.images.studios.coloured/$INFO[Window(home).Property(HomeStudioLabel),,.png]</value>
+	</variable>
 	<variable name="Studio">
 		<value condition="!IsEmpty(ListItem.Studio) + !Skin.HasSetting(furniture.flags.colour)">resource://resource.images.studios.white/$INFO[Window(home).Property(ListItemStudioLabel),,.png]</value>
 		<value condition="!IsEmpty(ListItem.Studio) + Skin.HasSetting(furniture.flags.colour)">resource://resource.images.studios.coloured/$INFO[Window(home).Property(ListItemStudioLabel),,.png]</value>
