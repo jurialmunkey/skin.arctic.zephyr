@@ -12,7 +12,7 @@
 		<include condition="!Skin.HasSetting(home.netflix) + Skin.HasSetting(lights.out)">GlobalBackground</include>
 		<include condition="Skin.HasSetting(home.netflix) + System.HasAddon(plugin.video.netflixbmc) + !Skin.HasSetting(lights.out)">NetflixBackground</include>
 		<control type="group">
-		<animation type="Conditional" condition="System.IdleTime(3) + Skin.HasSetting(home.fade)" reversible="false">
+		<animation type="Conditional" condition="System.IdleTime(10) + Skin.HasSetting(home.fade)" reversible="false">
 			<!-- Broken Fade -->
 			<effect type="fade" start="100" end="0" time="3500" tween="quadratic"/>
 			<effect type="zoom" start="100" end="90" time="750" tween="elastic"/>
