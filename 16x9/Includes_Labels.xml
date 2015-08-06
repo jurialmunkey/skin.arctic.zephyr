@@ -680,6 +680,11 @@
 		<value condition="!Skin.HasSetting(UnwatchedColour) + Skin.HasSetting(ColourHighlight2)">$INFO[Skin.String(focuscolor2.name)]</value>
 		<value condition="!Skin.HasSetting(UnwatchedColour) + !Skin.HasSetting(ColourHighlight2)">Highlight2</value>
 	</variable>
+	<variable name="PercentColourHighlight">
+		<value condition="Skin.HasSetting(PosterBackingColour)">$INFO[Skin.String(posterbacking.colour.name)]</value>
+		<value condition="Skin.HasSetting(ColourHighlight)">$INFO[Skin.String(focuscolor.name)]</value>
+		<value condition="!Skin.HasSetting(ColourHighlight)">Highlight</value>
+	</variable>
 	<variable name="PercentWatchedLabel">
 		<value condition="Skin.HasSetting(furniture.alternateindicators) + !Skin.HasSetting(furniture.hideindicators) + ListItem.IsPlaying"></value>
 		<value condition="Skin.HasSetting(furniture.alternateindicators) + !Skin.HasSetting(furniture.hideindicators) + !Skin.HasSetting(furniture.hideresume) + ListItem.IsResumable"></value>

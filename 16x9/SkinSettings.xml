@@ -934,6 +934,7 @@
 						<onclick>Skin.ToggleSetting(WatchedColour)</onclick>
 						<label>Change the watched icon colour</label>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+						<visible>Skin.HasSetting(furniture.alternateindicators)</visible>
 					</control>
 					<control type="button" id="92818">
 						<width>1310</width>
@@ -942,6 +943,7 @@
 						<label> - Set watched colour</label>
 						<label2>[COLOR=$INFO[Skin.String(watched.colour.name)]]$INFO[Skin.String(watched.colour.name)][/COLOR]</label2>
 						<visible>Skin.HasSetting(WatchedColour)</visible>
+						<visible>Skin.HasSetting(furniture.alternateindicators)</visible>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
 					</control>
 					<control type="radiobutton" id="92827">
@@ -951,6 +953,7 @@
 						<onclick>Skin.ToggleSetting(UnwatchedColour)</onclick>
 						<label>Change the unwatched icon colour</label>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+						<visible>Skin.HasSetting(furniture.alternateindicators)</visible>
 					</control>
 					<control type="button" id="92828">
 						<width>1310</width>
@@ -959,6 +962,7 @@
 						<label> - Set unwatched colour</label>
 						<label2>[COLOR=$INFO[Skin.String(unwatched.colour.name)]]$INFO[Skin.String(unwatched.colour.name)][/COLOR]</label2>
 						<visible>Skin.HasSetting(UnwatchedColour)</visible>
+						<visible>Skin.HasSetting(furniture.alternateindicators)</visible>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
 					</control>
 					<control type="radiobutton" id="92837">
@@ -968,6 +972,7 @@
 						<onclick>Skin.ToggleSetting(NewColour)</onclick>
 						<label>Change the new icon colour</label>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+						<visible>Skin.HasSetting(furniture.alternateindicators)</visible>
 					</control>
 					<control type="button" id="92838">
 						<width>1310</width>
@@ -976,6 +981,7 @@
 						<label> - Set new colour</label>
 						<label2>[COLOR=$INFO[Skin.String(new.colour.name)]]$INFO[Skin.String(new.colour.name)][/COLOR]</label2>
 						<visible>Skin.HasSetting(NewColour)</visible>
+						<visible>Skin.HasSetting(furniture.alternateindicators)</visible>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
 					</control>
 					<control type="radiobutton" id="92847">
@@ -985,6 +991,7 @@
 						<onclick>Skin.ToggleSetting(ResumeColour)</onclick>
 						<label>Change the resume icon colour</label>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+						<visible>Skin.HasSetting(furniture.alternateindicators)</visible>
 					</control>
 					<control type="button" id="92848">
 						<width>1310</width>
@@ -993,6 +1000,7 @@
 						<label> - Set resume colour</label>
 						<label2>[COLOR=$INFO[Skin.String(resume.colour.name)]]$INFO[Skin.String(resume.colour.name)][/COLOR]</label2>
 						<visible>Skin.HasSetting(ResumeColour)</visible>
+						<visible>Skin.HasSetting(furniture.alternateindicators)</visible>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
 					</control>
 					<control type="radiobutton" id="92857">
@@ -1002,6 +1010,7 @@
 						<onclick>Skin.ToggleSetting(PlayingColour)</onclick>
 						<label>Change the playing icon colour</label>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+						<visible>Skin.HasSetting(furniture.alternateindicators)</visible>
 					</control>
 					<control type="button" id="92858">
 						<width>1310</width>
@@ -1010,6 +1019,25 @@
 						<label> - Set playing colour</label>
 						<label2>[COLOR=$INFO[Skin.String(playing.colour.name)]]$INFO[Skin.String(playing.colour.name)][/COLOR]</label2>
 						<visible>Skin.HasSetting(PlayingColour)</visible>
+						<visible>Skin.HasSetting(furniture.alternateindicators)</visible>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<control type="radiobutton" id="92867">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<selected>Skin.HasSetting(PosterBackingColour)</selected>
+						<onclick>Skin.ToggleSetting(PosterBackingColour)</onclick>
+						<label>Change indicators backing colour</label>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+						<visible>!Skin.HasSetting(furniture.alternateindicators)</visible>
+					</control>
+					<control type="button" id="92868">
+						<width>1310</width>
+						<include>DefSettingsButton</include>
+						<onclick>RunScript(script.arctic.zephyr.helper.jarvis,COLORPICKER,posterbacking.colour.name)</onclick>
+						<label> - Set backing colour</label>
+						<label2>[COLOR=$INFO[Skin.String(posterbacking.colour.name)]]$INFO[Skin.String(posterbacking.colour.name)][/COLOR]</label2>
+						<visible>Skin.HasSetting(PosterBackingColour)</visible>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
 					</control>
 					<!-- Views -->

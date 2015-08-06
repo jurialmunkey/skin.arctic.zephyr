@@ -75,13 +75,21 @@
 		</control>
 		<control type="group">
 			<control type="image">
-				<right>5</right>
-				<top>149</top>
-				<width>32</width>
-				<height>32</height>
+				<right>10</right>
+				<top>152</top>
+				<width>29</width>
+				<height>29</height>
 				<aspectratio aligny="top">keep</aspectratio>
-				<texture>$VAR[PercentWatched]</texture>
-				<visible>!stringcompare(ListItem.Label,..)</visible>
+				<texture colordiffuse="$VAR[PercentColourHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+				<visible>!Skin.HasSetting(furniture.alternateindicators)</visible>
+			</control>
+			<control type="image">
+				<right>10</right>
+				<top>152</top>
+				<width>29</width>
+				<height>29</height>
+				<aspectratio aligny="top">keep</aspectratio>
+				<texture>$VAR[PosterPercentWatched]</texture>
 			</control>
 			<control type="label">
 				<right>5</right>

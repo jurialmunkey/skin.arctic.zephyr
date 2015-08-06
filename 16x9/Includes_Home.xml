@@ -1033,6 +1033,23 @@
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<texture diffuse="diffuse/wall.png" fallback="DefaultAddonNone.png" background="true">$VAR[PosterImage]</texture>
 							</control>
+							<control type="image">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture colordiffuse="$VAR[PercentColourHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+								<visible>!Skin.HasSetting(furniture.alternateindicators)</visible>
+							</control>
+							<control type="image">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture>$VAR[PosterPercentWatched]</texture>
+							</control>
 						</itemlayout>
 						<itemlayout width="457" height="257" condition="[StringCompare(Container(300).ListItem.Property(widget),LiveTV) | Skin.HasSetting(widgets.landscape)]">
 							<control type="image">
@@ -1043,6 +1060,23 @@
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<texture diffuse="diffuse/pvrinfo.png" fallback="DefaultMovies.png" background="true">$VAR[LandscapeImage]</texture>
 							</control>
+							<control type="image">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture colordiffuse="$VAR[PercentColourHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+								<visible>!Skin.HasSetting(furniture.alternateindicators)</visible>
+							</control>
+							<control type="image">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture>$VAR[PosterPercentWatched]</texture>
+							</control>
 						</itemlayout>
 						<focusedlayout width="178" height="257" condition="!StringCompare(Container(300).ListItem.Property(widget),LiveTV) + !Skin.HasSetting(widgets.landscape)">
 							<control type="image">
@@ -1052,6 +1086,23 @@
 								<top>10</top>
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<texture diffuse="diffuse/wall.png" fallback="DefaultAddonNone.png" background="true">$VAR[PosterImage]</texture>
+							</control>
+							<control type="image">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture colordiffuse="$VAR[PercentColourHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+								<visible>!Skin.HasSetting(furniture.alternateindicators)</visible>
+							</control>
+							<control type="image">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture>$VAR[PosterPercentWatched]</texture>
 							</control>
 							<control type="image">
 								<visible>Control.HasFocus(301)</visible>
@@ -1078,6 +1129,23 @@
 								<top>10</top>
 								<aspectratio scalediffuse="false">scale</aspectratio>
 								<texture diffuse="diffuse/pvrinfo.png" fallback="DefaultMovies.png" background="true">$VAR[LandscapeImage]</texture>
+							</control>
+							<control type="image">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture colordiffuse="$VAR[PercentColourHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+								<visible>!Skin.HasSetting(furniture.alternateindicators)</visible>
+							</control>
+							<control type="image">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture>$VAR[PosterPercentWatched]</texture>
 							</control>
 							<control type="image">
 								<visible>Control.HasFocus(301)</visible>
@@ -2612,8 +2680,16 @@
 								<width>32</width>
 								<height>32</height>
 								<aspectratio aligny="top">keep</aspectratio>
-								<texture>$VAR[PercentWatched]</texture>
-								<visible>!stringcompare(ListItem.Label,..)</visible>
+								<texture colordiffuse="$VAR[PercentColourHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+								<visible>!Skin.HasSetting(furniture.alternateindicators)</visible>
+							</control>
+							<control type="image">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture>$VAR[PosterPercentWatched]</texture>
 							</control>
 							<control type="label">
 								<centerright>32</centerright>
@@ -2644,6 +2720,16 @@
 								<label>$VAR[PercentWatchedLabel]</label>
 								<textcolor>$VAR[WatchedColourHighlight]</textcolor>
 								<visible>!stringcompare(ListItem.Label,..) + stringcompare(ListItem.Overlay,OverlayWatched.png) + !Skin.HasSetting(furniture.unwatched)</visible>
+							</control>
+							<control type="label">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<font>symbolview</font>
+								<label>$VAR[PercentWatchedLabel]</label>
+								<textcolor>$VAR[ResumeColourHighlight]</textcolor>
+								<visible>!stringcompare(ListItem.Label,..) + ListItem.IsResumable</visible>
 							</control>
 							<control type="label">
 								<centerright>32</centerright>
@@ -2684,8 +2770,16 @@
 								<width>32</width>
 								<height>32</height>
 								<aspectratio aligny="top">keep</aspectratio>
-								<texture>$VAR[PercentWatched]</texture>
-								<visible>!stringcompare(ListItem.Label,..)</visible>
+								<texture colordiffuse="$VAR[PercentColourHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+								<visible>!Skin.HasSetting(furniture.alternateindicators)</visible>
+							</control>
+							<control type="image">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture>$VAR[PosterPercentWatched]</texture>
 							</control>
 							<control type="label">
 								<centerright>32</centerright>
@@ -2760,8 +2854,16 @@
 								<width>32</width>
 								<height>32</height>
 								<aspectratio aligny="top">keep</aspectratio>
-								<texture>$VAR[PercentWatched]</texture>
-								<visible>!stringcompare(ListItem.Label,..)</visible>
+								<texture colordiffuse="$VAR[PercentColourHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+								<visible>!Skin.HasSetting(furniture.alternateindicators)</visible>
+							</control>
+							<control type="image">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture>$VAR[PosterPercentWatched]</texture>
 							</control>
 							<control type="label">
 								<centerright>32</centerright>
@@ -2792,6 +2894,16 @@
 								<label>$VAR[PercentWatchedLabel]</label>
 								<textcolor>$VAR[WatchedColourHighlight]</textcolor>
 								<visible>!stringcompare(ListItem.Label,..) + stringcompare(ListItem.Overlay,OverlayWatched.png) + !Skin.HasSetting(furniture.unwatched)</visible>
+							</control>
+							<control type="label">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<font>symbolview</font>
+								<label>$VAR[PercentWatchedLabel]</label>
+								<textcolor>$VAR[ResumeColourHighlight]</textcolor>
+								<visible>!stringcompare(ListItem.Label,..) + ListItem.IsResumable</visible>
 							</control>
 							<control type="label">
 								<centerright>32</centerright>
@@ -2879,8 +2991,16 @@
 								<width>32</width>
 								<height>32</height>
 								<aspectratio aligny="top">keep</aspectratio>
-								<texture>$VAR[PercentWatched]</texture>
-								<visible>!stringcompare(ListItem.Label,..)</visible>
+								<texture colordiffuse="$VAR[PercentColourHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+								<visible>!Skin.HasSetting(furniture.alternateindicators)</visible>
+							</control>
+							<control type="image">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture>$VAR[PosterPercentWatched]</texture>
 							</control>
 							<control type="label">
 								<centerright>32</centerright>
@@ -2911,6 +3031,16 @@
 								<label>$VAR[PercentWatchedLabel]</label>
 								<textcolor>$VAR[WatchedColourHighlight]</textcolor>
 								<visible>!stringcompare(ListItem.Label,..) + stringcompare(ListItem.Overlay,OverlayWatched.png) + !Skin.HasSetting(furniture.unwatched)</visible>
+							</control>
+							<control type="label">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<font>symbolview</font>
+								<label>$VAR[PercentWatchedLabel]</label>
+								<textcolor>$VAR[ResumeColourHighlight]</textcolor>
+								<visible>!stringcompare(ListItem.Label,..) + ListItem.IsResumable</visible>
 							</control>
 							<control type="label">
 								<centerright>32</centerright>
@@ -3002,8 +3132,16 @@
 								<width>32</width>
 								<height>32</height>
 								<aspectratio aligny="top">keep</aspectratio>
-								<texture>$VAR[PercentWatched]</texture>
-								<visible>!stringcompare(ListItem.Label,..)</visible>
+								<texture colordiffuse="$VAR[PercentColourHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+								<visible>!Skin.HasSetting(furniture.alternateindicators)</visible>
+							</control>
+							<control type="image">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture>$VAR[PosterPercentWatched]</texture>
 							</control>
 							<control type="label">
 								<centerright>32</centerright>
@@ -3094,8 +3232,16 @@
 								<width>32</width>
 								<height>32</height>
 								<aspectratio aligny="top">keep</aspectratio>
-								<texture>$VAR[PercentWatched]</texture>
-								<visible>!stringcompare(ListItem.Label,..)</visible>
+								<texture colordiffuse="$VAR[PercentColourHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+								<visible>!Skin.HasSetting(furniture.alternateindicators)</visible>
+							</control>
+							<control type="image">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture>$VAR[PosterPercentWatched]</texture>
 							</control>
 							<control type="label">
 								<centerright>32</centerright>
@@ -3126,6 +3272,16 @@
 								<label>$VAR[PercentWatchedLabel]</label>
 								<textcolor>$VAR[WatchedColourHighlight]</textcolor>
 								<visible>!stringcompare(ListItem.Label,..) + stringcompare(ListItem.Overlay,OverlayWatched.png) + !Skin.HasSetting(furniture.unwatched)</visible>
+							</control>
+							<control type="label">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<font>symbolview</font>
+								<label>$VAR[PercentWatchedLabel]</label>
+								<textcolor>$VAR[ResumeColourHighlight]</textcolor>
+								<visible>!stringcompare(ListItem.Label,..) + ListItem.IsResumable</visible>
 							</control>
 							<control type="label">
 								<centerright>32</centerright>
@@ -3211,8 +3367,16 @@
 								<width>32</width>
 								<height>32</height>
 								<aspectratio aligny="top">keep</aspectratio>
-								<texture>$VAR[PercentWatched]</texture>
-								<visible>!stringcompare(ListItem.Label,..)</visible>
+								<texture colordiffuse="$VAR[PercentColourHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+								<visible>!Skin.HasSetting(furniture.alternateindicators)</visible>
+							</control>
+							<control type="image">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture>$VAR[PosterPercentWatched]</texture>
 							</control>
 							<control type="label">
 								<centerright>32</centerright>
@@ -3287,8 +3451,16 @@
 								<width>32</width>
 								<height>32</height>
 								<aspectratio aligny="top">keep</aspectratio>
-								<texture>$VAR[PercentWatched]</texture>
-								<visible>!stringcompare(ListItem.Label,..)</visible>
+								<texture colordiffuse="$VAR[PercentColourHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+								<visible>!Skin.HasSetting(furniture.alternateindicators)</visible>
+							</control>
+							<control type="image">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture>$VAR[PosterPercentWatched]</texture>
 							</control>
 							<control type="label">
 								<centerright>32</centerright>
@@ -3403,8 +3575,16 @@
 								<width>32</width>
 								<height>32</height>
 								<aspectratio aligny="top">keep</aspectratio>
-								<texture>$VAR[PercentWatched]</texture>
-								<visible>!stringcompare(ListItem.Label,..)</visible>
+								<texture colordiffuse="$VAR[PercentColourHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+								<visible>!Skin.HasSetting(furniture.alternateindicators)</visible>
+							</control>
+							<control type="image">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture>$VAR[PosterPercentWatched]</texture>
 							</control>
 							<control type="label">
 								<centerright>32</centerright>
@@ -3479,8 +3659,16 @@
 								<width>32</width>
 								<height>32</height>
 								<aspectratio aligny="top">keep</aspectratio>
-								<texture>$VAR[PercentWatched]</texture>
-								<visible>!stringcompare(ListItem.Label,..)</visible>
+								<texture colordiffuse="$VAR[PercentColourHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+								<visible>!Skin.HasSetting(furniture.alternateindicators)</visible>
+							</control>
+							<control type="image">
+								<centerright>32</centerright>
+								<centertop>32</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture>$VAR[PosterPercentWatched]</texture>
 							</control>
 							<control type="label">
 								<centerright>32</centerright>
