@@ -544,13 +544,22 @@
 						<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=episodeshub)</onclick>
 					</control>
 					<!-- Furniture -->
-					<control type="radiobutton" id="92613" description="Watched/Unwatched">
+					<control type="radiobutton" id="92615" description="Hide indicators">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9106)</visible>
 						<include>DefSettingsButton</include>
-						<label>Hide indicators</label>
+						<label>Hide all indicators</label>
 						<selected>Skin.HasSetting(furniture.hideindicators)</selected>
 						<onclick>Skin.ToggleSetting(furniture.hideindicators)</onclick>
+					</control>
+					<control type="radiobutton" id="92616" description="Alternate indicators">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9106)</visible>
+						<include>DefSettingsButton</include>
+						<label>Use alternate indicators</label>
+						<visible>!Skin.HasSetting(furniture.hideindicators)</visible>
+						<selected>Skin.HasSetting(furniture.alternateindicators)</selected>
+						<onclick>Skin.ToggleSetting(furniture.alternateindicators)</onclick>
 					</control>
 					<control type="radiobutton" id="92611" description="Watched/Unwatched">
 						<width>1310</width>
@@ -560,6 +569,24 @@
 						<visible>!Skin.HasSetting(furniture.hideindicators)</visible>
 						<selected>Skin.HasSetting(furniture.unwatched)</selected>
 						<onclick>Skin.ToggleSetting(furniture.unwatched)</onclick>
+					</control>
+					<control type="radiobutton" id="92612" description="Resume indicator">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9106)</visible>
+						<include>DefSettingsButton</include>
+						<label>Do not show resume indicator</label>
+						<visible>!Skin.HasSetting(furniture.hideindicators)</visible>
+						<selected>Skin.HasSetting(furniture.hideresume)</selected>
+						<onclick>Skin.ToggleSetting(furniture.hideresume)</onclick>
+					</control>
+					<control type="radiobutton" id="92613" description="New indicator">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9106)</visible>
+						<include>DefSettingsButton</include>
+						<label>Do not show new indicator</label>
+						<visible>!Skin.HasSetting(furniture.hideindicators)</visible>
+						<selected>Skin.HasSetting(furniture.hidenew)</selected>
+						<onclick>Skin.ToggleSetting(furniture.hidenew)</onclick>
 					</control>
 					<control type="radiobutton" id="9261" description="Header">
 						<width>1310</width>

@@ -245,6 +245,15 @@
 						<texture background="true">$VAR[LandscapeImage]</texture>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 					</control>
+					<control type="image">
+						<centerright>32</centerright>
+						<centertop>32</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+					</control>
 					<control type="label">
 						<centerright>32</centerright>
 						<centertop>35</centertop>
@@ -332,6 +341,15 @@
 							<height>185</height>
 							<aspectratio scalediffuse="false">stretch</aspectratio>
 							<texture background="true" fallback="views/fallbacks/DefaultVideo.png/large.png">$VAR[LandscapeImage]</texture>
+						</control>
+						<control type="image">
+							<centerright>32</centerright>
+							<centertop>32</centertop>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
 						</control>
 						<control type="label">
 							<centerright>32</centerright>

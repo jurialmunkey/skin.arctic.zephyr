@@ -115,6 +115,15 @@
 			<textcolor>Dark1</textcolor>
 			<label>$INFO[ListItem.Label2]</label>
 		</control>
+		<control type="image">
+			<centerright>58</centerright>
+			<centertop>60</centertop>
+			<width>32</width>
+			<height>32</height>
+			<aspectratio aligny="top">keep</aspectratio>
+			<texture>$VAR[PercentWatched]</texture>
+			<visible>!stringcompare(ListItem.Label,..)</visible>
+		</control>
 		<control type="label">
 			<centerright>58</centerright>
 			<centertop>60</centertop>
@@ -217,6 +226,15 @@
 			<font>Small</font>
 			<textcolor>Light1</textcolor>
 			<label>$INFO[ListItem.Label2]</label>
+		</control>
+		<control type="image">
+			<centerright>58</centerright>
+			<centertop>60</centertop>
+			<width>32</width>
+			<height>32</height>
+			<aspectratio aligny="top">keep</aspectratio>
+			<texture>$VAR[PercentWatched]</texture>
+			<visible>!stringcompare(ListItem.Label,..)</visible>
 		</control>
 		<control type="label">
 			<centerright>58</centerright>

@@ -31,6 +31,16 @@
 						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
 						<animation effect="fade" start="25" end="25" condition="stringcompare(ListItem.Overlay,OverlayWatched.png)">Conditional</animation>
 					</control>
+					<control type="image">
+						<centerright>12</centerright>
+						<centertop>16</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!Skin.HasSetting(views.156.showtick)</visible>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+					</control>
 					<control type="label">
 						<centerright>12</centerright>
 						<centertop>16</centertop>
@@ -102,6 +112,16 @@
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
 						<animation effect="fade" start="25" end="25" condition="stringcompare(ListItem.Overlay,OverlayWatched.png)">Conditional</animation>
+					</control>
+					<control type="image">
+						<right>124</right>
+						<centertop>16</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+						<visible>!Skin.HasSetting(views.156.showtick)</visible>
 					</control>
 					<control type="label">
 						<right>124</right>
@@ -183,6 +203,17 @@
 						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
 						<visible>!Container.Content(episodes) + !Container.Column(11) + !Container.Column(12) + !Container.Column(13) + !Container.Column(14)</visible>
 					</control>
+					<control type="image">
+						<centerright>-108</centerright>
+						<centertop>200</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+						<visible>!Skin.HasSetting(views.156.showtick)</visible>
+						<visible>!Container.Content(episodes) + !Container.Column(11) + !Container.Column(12) + !Container.Column(13) + !Container.Column(14)</visible>
+					</control>
 					<control type="label">
 						<centerright>-108</centerright>
 						<centertop>200</centertop>
@@ -259,6 +290,17 @@
 						<bottom>-180</bottom>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+						<visible>!Container.Content(episodes) + [Container.Column(11) | Container.Column(12) | Container.Column(13) | Container.Column(14)]</visible>
+					</control>
+					<control type="image">
+						<centerright>274</centerright>
+						<centertop>200</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+						<visible>!Skin.HasSetting(views.156.showtick)</visible>
 						<visible>!Container.Content(episodes) + [Container.Column(11) | Container.Column(12) | Container.Column(13) | Container.Column(14)]</visible>
 					</control>
 					<control type="label">
@@ -540,6 +582,16 @@
 						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
 						<animation effect="fade" start="25" end="25" condition="stringcompare(ListItem.Overlay,OverlayWatched.png)">Conditional</animation>
 					</control>
+					<control type="image">
+						<right>124</right>
+						<centertop>16</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+						<visible>!Skin.HasSetting(views.156.showtick)</visible>
+					</control>
 					<control type="label">
 						<right>124</right>
 						<centertop>16</centertop>
@@ -620,6 +672,17 @@
 						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
 						<visible>!Container.Content(episodes) + !Container.Column(11) + !Container.Column(12) + !Container.Column(13) + !Container.Column(14)</visible>
 					</control>
+					<control type="image">
+						<centerright>-108</centerright>
+						<centertop>-342</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+						<visible>!Skin.HasSetting(views.156.showtick)</visible>
+						<visible>!Container.Content(episodes) + !Container.Column(11) + !Container.Column(12) + !Container.Column(13) + !Container.Column(14)</visible>
+					</control>
 					<control type="label">
 						<centerright>-108</centerright>
 						<centertop>-342</centertop>
@@ -688,6 +751,17 @@
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
 						<visible>!Container.Content(episodes) + [Container.Column(11) | Container.Column(12) | Container.Column(13) | Container.Column(14)]</visible>
+					</control>
+					<control type="image">
+						<centerright>274</centerright>
+						<centertop>-342</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!Skin.HasSetting(views.156.showtick)</visible>
+						<visible>!Container.Content(episodes) + [Container.Column(11) | Container.Column(12) | Container.Column(13) | Container.Column(14)]</visible>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
 					</control>
 					<control type="label">
 						<centerright>274</centerright>

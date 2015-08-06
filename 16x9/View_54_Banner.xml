@@ -93,6 +93,15 @@
 								<selectedcolor>Dark1</selectedcolor>
 								<animation effect="slide" start="0" end="50" condition="IntegerGreaterThan(ListItem.Episode,99)">Conditional</animation>
 							</control>
+							<control type="image">
+								<left>647</left>
+								<centertop>105</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture>$VAR[PercentWatched]</texture>
+								<visible>!stringcompare(ListItem.Label,..)</visible>
+							</control>
 							<control type="label">
 								<left>647</left>
 								<centertop>105</centertop>
@@ -282,6 +291,15 @@
 							<aspectratio scalediffuse="false">stretch</aspectratio>
 							<texture diffuse="diffuse/cardposter.png" background="true">$VAR[PosterImage]</texture>
 						</control>
+						<control type="image">
+							<right>124</right>
+							<top>29</top>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
 						<control type="label">
 							<right>124</right>
 							<top>29</top>
@@ -432,6 +450,15 @@
 								<textcolor>Light1</textcolor>
 							</control>
 						</control>
+						<control type="image">
+							<right>32</right>
+							<top>32</top>
+							<width>32</width>
+							<height>32</height>
+							<aspectratio aligny="top">keep</aspectratio>
+							<texture>$VAR[PercentWatched]</texture>
+							<visible>!stringcompare(ListItem.Label,..)</visible>
+						</control>
 						<control type="label">
 							<right>32</right>
 							<top>32</top>
@@ -556,6 +583,15 @@
 								<textcolor>Light1</textcolor>
 								<selectedcolor>Light1</selectedcolor>
 								<animation effect="slide" start="0" end="50" condition="IntegerGreaterThan(ListItem.Episode,99)">Conditional</animation>
+							</control>
+							<control type="image">
+								<left>647</left>
+								<centertop>105</centertop>
+								<width>32</width>
+								<height>32</height>
+								<aspectratio aligny="top">keep</aspectratio>
+								<texture>$VAR[PercentWatched]</texture>
+								<visible>!stringcompare(ListItem.Label,..)</visible>
 							</control>
 							<control type="label">
 								<left>647</left>

@@ -73,6 +73,15 @@
 				<texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
 			</control>
 			<!--<control type="group"><left>1070</left><top>660</top><include>Furniture_OSDClock</include><animation effect="zoom" end="80" time="00" condition="true">Conditional</animation><include>DialogVideoInfoAnimation</include></control>-->
+			<control type="image">
+				<top>8</top>
+				<left>444</left>
+				<width>32</width>
+				<height>32</height>
+				<aspectratio aligny="top">keep</aspectratio>
+				<texture>$VAR[PercentWatched]</texture>
+				<visible>!stringcompare(ListItem.Label,..)</visible>
+			</control>
 			<control type="label">
 				<top>8</top>
 				<left>444</left>
