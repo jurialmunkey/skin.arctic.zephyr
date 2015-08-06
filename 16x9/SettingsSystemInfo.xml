@@ -4,8 +4,8 @@
 	<defaultcontrol always="true">95</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
 	<controls>
-		<include condition="Skin.HasSetting(lights.out)">GlobalBackground</include>
-		<include condition="Skin.HasSetting(lights.out)">GlobalBackground</include>
+		<include condition="!Skin.HasSetting(lights.out)">GlobalBackground</include>
+		<include condition="!Skin.HasSetting(lights.out)">GlobalBackground</include>
 		<include>Furniture_Clock</include>
 		<include>Furniture_NowPlaying</include>
 		<include>Furniture_Header</include>

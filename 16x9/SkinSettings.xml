@@ -3,7 +3,7 @@
 	<allowoverlay>yes</allowoverlay>
 	<defaultcontrol always="true">9101</defaultcontrol>
 	<controls>
-		<include condition="Skin.HasSetting(lights.out)">GlobalBackground</include>
+		<include condition="!Skin.HasSetting(lights.out)">GlobalBackground</include>
 		<include>Furniture_Header</include>
 		<include>Furniture_NowPlaying</include>
 		<include>Furniture_Clock</include>
@@ -203,6 +203,7 @@
 						<label>31121</label>
 						<selected>!Skin.HasSetting(global.hidefanart)</selected>
 						<onclick>Skin.ToggleSetting(global.hidefanart)</onclick>
+						<visible>!Skin.HasSetting(lights.out)</visible>
 					</control>
 					<control type="radiobutton" id="9228" description="Show Extra fanart">
 						<width>1310</width>
@@ -212,6 +213,7 @@
 						<label>31730</label>
 						<selected>Skin.HasSetting(EnableExtraFanart)</selected>
 						<onclick>Skin.ToggleSetting(EnableExtraFanart)</onclick>
+						<visible>!Skin.HasSetting(lights.out)</visible>
 					</control>
 					<control type="button" id="92281" description="Fanart Opacity">
 						<width>1310</width>
@@ -233,6 +235,7 @@
 						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(FanartFade,Brightest))</onclick>
 						<onclick>RunScript(script.toolbox,info=selectdialog,header=Select Background Opacity)</onclick>
 						<visible>ControlGroup(9100).HasFocus(9102)</visible>
+						<visible>!Skin.HasSetting(lights.out)</visible>
 					</control>
 					<control type="radiobutton" id="9224" description="Animate Fanart">
 						<width>1310</width>
@@ -241,6 +244,7 @@
 						<label>31146</label>
 						<selected>Skin.HasSetting(Fanart.Animate)</selected>
 						<onclick>Skin.ToggleSetting(Fanart.Animate)</onclick>
+						<visible>!Skin.HasSetting(lights.out)</visible>
 					</control>
 					<control type="button" id="9225" description="Set Fallback Image">
 						<width>1310</width>
@@ -250,6 +254,7 @@
 						<label2>$INFO[Skin.String(fanart.fallback)]</label2>
 						<onclick condition="IsEmpty(Skin.String(fanart.fallback))">Skin.SetImage(fanart.fallback)</onclick>
 						<onclick condition="!IsEmpty(Skin.String(fanart.fallback))">Skin.Reset(fanart.fallback)</onclick>
+						<visible>!Skin.HasSetting(lights.out)</visible>
 					</control>
 					<control type="button" id="9229" description="Set Weather Fanart">
 						<width>1310</width>
