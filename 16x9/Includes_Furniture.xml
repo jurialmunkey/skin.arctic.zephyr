@@ -16,6 +16,38 @@
 			<animation effect="slide" end="100,0" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
 		</control>
 	</include>
+	<include name="Furniture_ScrollbarW">
+		<control type="scrollbar" id="60">
+			<onback>50</onback>
+			<centerleft>60</centerleft>
+			<posy>PosterPad</posy>
+			<height>PosterH</height>
+			<width>8</width>
+			<onleft condition="!Skin.HasSetting(global.kioskmode)">9000</onleft>
+			<onright>50</onright>
+			<texturesliderbackground border="4" colordiffuse="Dark4">scrollbar/scrollv.png</texturesliderbackground>
+			<texturesliderbar border="4" colordiffuse="$VAR[ColourHighlight]">scrollbar/scrollv.png</texturesliderbar>
+			<texturesliderbarfocus border="4" colordiffuse="$VAR[ColourHighlight]">scrollbar/scrollv.png</texturesliderbarfocus>
+			<animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
+			<animation effect="slide" end="-100,0" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
+			<visible>Container.Column(0)</visible>
+		</control>
+		<control type="scrollbar" id="60">
+			<onback>50</onback>
+			<centerright>60</centerright>
+			<posy>PosterPad</posy>
+			<height>PosterH</height>
+			<width>8</width>
+			<onleft>50</onleft>
+			<onright condition="!Skin.HasSetting(global.kioskmode)">9000</onright>
+			<texturesliderbackground border="4" colordiffuse="Dark4">scrollbar/scrollv.png</texturesliderbackground>
+			<texturesliderbar border="4" colordiffuse="$VAR[ColourHighlight]">scrollbar/scrollv.png</texturesliderbar>
+			<texturesliderbarfocus border="4" colordiffuse="$VAR[ColourHighlight]">scrollbar/scrollv.png</texturesliderbarfocus>
+			<animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
+			<animation effect="slide" end="100,0" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
+			<visible>!Container.Column(0)</visible>
+		</control>
+	</include>
 	<include name="Furniture_Scrollbar_Horizontal">
 		<control type="scrollbar" id="60">
 			<onback>50</onback>
@@ -1696,7 +1728,7 @@
 				<textcolor>Dark1</textcolor>
 				<visible>Skin.HasSetting(furniture.numericrating)</visible>
 			</control>
-			<include>lib_Rating_TV</include>
+			<!--<include>lib_Rating_TV</include>-->
 			<include condition="IsEmpty(Skin.String(RatingCountry))">lib_Rating_BBFC_home</include>
 			<include condition="Stringcompare(Skin.String(RatingCountry),US)">lib_Rating_MPAA_home</include>
 			<include condition="Stringcompare(Skin.String(RatingCountry),UK)">lib_Rating_BBFC_home</include>
@@ -1979,17 +2011,8 @@
 		<value condition="!IsEmpty(Container(9500).ListItem.Art(tvshow.clearlogo))">$INFO[Container(9500).ListItem.Art(tvshow.clearlogo)]</value>
 	</variable>
 	<include name="Furniture_OverlayInfo">
-		<control type="button" id ="9601">
-			<width>1</width>
-			<height>1</height>
-			<visible allowhiddenfocus="true">false</visible>
-			<onback>50</onback>
-			<onup>50</onup>
-			<ondown>50</ondown>
-			<onleft>50</onleft>
-			<onright>50</onright>
-		</control>
 		<control type="group">
+			<visible>![Skin.HasSetting(osd.hidespoilers) + Container.Content(episodes) + [stringcompare(ListItem.Overlay,OverlayUnWatched.png) | ListItem.IsResumable]]</visible>
 			<visible>[System.IdleTime(3) + Skin.HasSetting(furniture.overlayinfo)] | Control.HasFocus(9601)</visible>
 			<visible>![Window.IsVisible(script-skinshortcuts.xml) | Window.IsVisible(DialogSongInfo.xml) | Window.IsVisible(DialogPictureInfo.xml) | Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogProgress.xml) | Window.IsVisible(DialogYesNo.xml) | Window.IsVisible(DialogOK.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml) | ControlGroup(9000).HasFocus()]</visible>
 			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
@@ -2013,6 +2036,7 @@
 			<right>SidePad</right>
 			<top>PosterPad</top>
 			<height>650</height>
+			<visible>![Skin.HasSetting(osd.hidespoilers) + Container.Content(episodes) + [stringcompare(ListItem.Overlay,OverlayUnWatched.png) | ListItem.IsResumable]]</visible>
 			<visible>[System.IdleTime(3) + Skin.HasSetting(furniture.overlayinfo)] | Control.HasFocus(9601)</visible>
 			<visible>![Window.IsVisible(script-skinshortcuts.xml) | Window.IsVisible(DialogSongInfo.xml) | Window.IsVisible(DialogPictureInfo.xml) | Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogProgress.xml) | Window.IsVisible(DialogYesNo.xml) | Window.IsVisible(DialogOK.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml) | ControlGroup(9000).HasFocus()]</visible>
 			<visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>

@@ -12,7 +12,8 @@
 				<right>0</right>
 				<width>1920</width>
 				<height>720</height>
-				<onleft>60</onleft>
+				<onleft condition="Control.IsVisible(60)">60</onleft>
+				<onleft condition="!Control.IsVisible(60)">9000</onleft>
 				<onright>60</onright>
 				<onup>156</onup>
 				<ondown>156</ondown>
@@ -962,7 +963,7 @@
 					</control>
 				</focusedlayout>
 			</control>
-			<include>Furniture_Scrollbar</include>
+			<include>Furniture_ScrollbarW</include>
 		</control>
 	</include>
 	<include name="View_55_Wall_Fanout"/>
