@@ -9,7 +9,20 @@
 	<onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;group=mainmenu|movieshub|episodeshub)</onload>
 	<onload condition="System.HasAddon(script.duration)">RunScript(script.duration,backend=True)</onload>
 	<controls>
-		<include condition="!Skin.HasSetting(home.netflix)">GlobalBackground</include>
+		<include condition="!Skin.HasSetting(home.netflix) + Skin.HasSetting(lights.out)">GlobalBackground</include>
+		<include condition="Skin.HasSetting(home.netflix) + System.HasAddon(plugin.video.netflixbmc) + !Skin.HasSetting(lights.out)">NetflixBackground</include>
+		<control type="group">
+		<animation type="Conditional" condition="System.IdleTime(3) + Skin.HasSetting(home.fade)" reversible="false">
+			<!-- Broken Fade -->
+			<effect type="fade" start="100" end="0" time="3500" tween="quadratic"/>
+			<effect type="zoom" start="100" end="90" time="750" tween="elastic"/>
+			<effect type="rotate" end="-1" time="1900" tween="elastic"/>
+			<!-- Normal fade
+						<effect type="fade" start="100" end="0" time="1500" tween="sine"/>
+			<effect type="zoom" start="100" end="110" time="1150" tween="bounce"/>
+			<effect type="rotate" end="-1" time="1500" tween="elastic"/>
+			-->
+		</animation>
 		<include condition="Skin.HasSetting(home.vertical)">HomeVerticalMenu</include>
 		<include condition="!Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.netflix)">HomeHeader</include>
 		<include condition="!Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.netflix)">HomeNextRecording</include>
@@ -22,10 +35,10 @@
 		<include condition="!Skin.HasSetting(home.vertical) + Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.netflix)">HomeClassicWidgets</include>
 		<include condition="!Skin.HasSetting(home.vertical) + Skin.HasSetting(home.submenu2) + !Skin.HasSetting(home.showicons) + !Skin.HasSetting(home.netflix)">HomeSubMenu2</include>
 		<include condition="!Skin.HasSetting(home.vertical) + [!Skin.HasSetting(home.submenu2) | Skin.HasSetting(home.showicons)] + !Skin.HasSetting(home.netflix)">HomeSubMenu</include>
-		<include condition="Skin.HasSetting(home.netflix) + !System.HasAddon(plugin.video.netflixbmc)">NetflixBackground</include>
 		<include condition="Skin.HasSetting(home.netflix) + !System.HasAddon(plugin.video.netflixbmc)">HomeNetflix</include>
 		<include condition="Skin.HasSetting(home.netflix) + !System.HasAddon(plugin.video.netflixbmc)">NetflixWidgetSelector</include>
 		<include condition="Skin.HasSetting(home.netflix) + System.HasAddon(plugin.video.netflixbmc)">NetflixXbmcBackground</include>
 		<include condition="Skin.HasSetting(home.netflix) + System.HasAddon(plugin.video.netflixbmc)">HomeNetflixXbmc</include>
+		</control>
 	</controls>
 </window>

@@ -4,7 +4,7 @@
 	<defaultcontrol always="true">5</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<controls>
-	    <include>GlobalBackground</include>
+	    <include condition="Skin.HasSetting(lights.out)">GlobalBackground</include>
 	   
 		<control type="group">
 			<animation type="Conditional" reversible="true" condition="Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogProgress.xml) | Window.IsVisible(DialogYesNo.xml) | Window.IsVisible(DialogOK.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml)">

@@ -148,8 +148,9 @@
 				<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
 				<visible>System.HasAddon(script.artistslideshow) + !Skin.HasSetting(ArtistSlideShow.Disabled)</visible>
 				<animation effect="fade" start="100" end="65" time="0" condition="Skin.HasSetting(OSDVisualisation.ShowFanart)">Conditional</animation>
-				<animation effect="zoom" start="110" end="130" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
-				<animation effect="slide" start="-30,-30" end="30,30" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
+				<animation effect="zoom" start="115" end="135" center="auto" time="19000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
+				<animation effect="slide" start="-10,-10" end="20,20" time="14000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
+				<animation effect="rotate" center="360,640" start="-2" end="3" time="27000" tween="back" easing="inout" pulse="true"  condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
 			</control>
 		</control>
 	</include>
@@ -197,8 +198,9 @@
 			<randomize>true</randomize>
 			<aspectratio>scale</aspectratio>
 			<imagepath background="true">$VAR[GlobalFanart]</imagepath>
-			<animation effect="zoom" start="110" end="120" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
-			<animation effect="slide" start="-20,-20" end="20,20" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
+			<animation effect="zoom" start="115" end="135" center="auto" time="19000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
+			<animation effect="slide" start="-10,-10" end="20,20" time="14000" tween="cubic" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
+			<animation effect="rotate" center="360,640" start="-2" end="3" time="27000" tween="back" easing="inout" pulse="true"  condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
 		</control>
             <control id="8328" type="image">
                 <include>Dimensions_Fullscreen</include>
@@ -264,8 +266,11 @@
 			<randomize>true</randomize>
 			<aspectratio>scale</aspectratio>
 			<imagepath background="true">$VAR[GlobalFanart]</imagepath>
-			<animation effect="zoom" start="110" end="120" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
-			<animation effect="slide" start="-20,-20" end="20,20" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
+			<animation type="Conditional" condition="Skin.HasSetting(Fanart.Animate)">
+				<effect type="zoom" start="115" end="135" center="auto" time="19000" tween="sine" easing="inout" pulse="true" />
+				<effect type="slide" start="-10,-10" end="20,20" time="14000" tween="cubic" easing="inout" pulse="true"/>
+				<effect type="rotate" center="360,640" start="-2" end="3" time="27000" tween="back" easing="inout" pulse="true"/>
+			</animation>
 		</control>
 		<control type="image" description="FanartOverlay">
 			<include>Dimensions_Fullscreen</include>

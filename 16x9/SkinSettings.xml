@@ -3,7 +3,7 @@
 	<allowoverlay>yes</allowoverlay>
 	<defaultcontrol always="true">9101</defaultcontrol>
 	<controls>
-		<include>GlobalBackground</include>
+		<include condition="Skin.HasSetting(lights.out)">GlobalBackground</include>
 		<include>Furniture_Header</include>
 		<include>Furniture_NowPlaying</include>
 		<include>Furniture_Clock</include>
@@ -104,7 +104,7 @@
 					<ondown>9200</ondown>
 					<orientation>vertical</orientation>
 					<!-- Home -->
-					<control type="button" id="9214" description="Home Style">
+					<control type="button" id="9211" description="Home Style">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9101)</visible>
 						<include>DefSettingsButton</include>
@@ -121,21 +121,21 @@
 						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetBool(home.netflix) || Skin.Reset(home.vertical) || Skin.Reset(home.classicwidgets))</onclick>
 						<onclick>RunScript(script.toolbox,info=selectdialog,header=Select Home Layout)</onclick>
 					</control>
-					<control type="button" id="9211" description="Customise Home">
+					<control type="button" id="9212" description="Customise Home">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9101)</visible>
 						<include>DefSettingsButton</include>
 						<label>31109</label>
 						<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
 					</control>
-					<control type="button" id="9212" description="Reset Home to Defaults">
+					<control type="button" id="9213" description="Reset Home to Defaults">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9101)</visible>
 						<include>DefSettingsButton</include>
 						<label>31132</label>
 						<onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
 					</control>
-					<control type="radiobutton" id="9213" description="Show Header">
+					<control type="radiobutton" id="9214" description="Show Header">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9101)</visible>
 						<include>DefSettingsButton</include>
@@ -143,7 +143,15 @@
 						<selected>Skin.HasSetting(home.showheader)</selected>
 						<onclick>Skin.ToggleSetting(home.showheader)</onclick>
 					</control>
-					<control type="radiobutton" id="9217" description="Always Show Weather Widget">
+					<control type="radiobutton" id="9215" description="home.fade">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9101)</visible>
+						<include>DefSettingsButton</include>
+						<label>Fade Home Screen on Idle</label>
+						<selected>Skin.HasSetting(home.fade)</selected>
+						<onclick>Skin.ToggleSetting(home.fade)</onclick>
+					</control>
+					<control type="radiobutton" id="9216" description="Always Show Weather Widget">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9101)</visible>
 						<include>DefSettingsButton</include>
@@ -152,7 +160,7 @@
 						<selected>Skin.HasSetting(home.showweatherfanart)</selected>
 						<onclick>Skin.ToggleSetting(home.showweatherfanart)</onclick>
 					</control>
-					<control type="radiobutton" id="9216" description="Show Icons">
+					<control type="radiobutton" id="9217" description="Show Icons">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9101)</visible>
 						<include>DefSettingsButton</include>
@@ -180,6 +188,14 @@
 						<onclick condition="!IsEmpty(Skin.String(home.slideshowpath))">Skin.Reset(home.slideshowpath)</onclick>
 					</control>
 					<!-- Fanart -->
+					<control type="radiobutton" id="9201" description="Lights Out">
+						<width>1310</width>
+						<visible>ControlGroup(9100).HasFocus(9102)</visible>
+						<include>DefSettingsButton</include>
+						<label>Lights Out</label>
+						<selected>!Skin.HasSetting(lights.out)</selected>
+						<onclick>Skin.ToggleSetting(lights.out)</onclick>
+					</control>
 					<control type="radiobutton" id="9223" description="Show fanart">
 						<width>1310</width>
 						<visible>ControlGroup(9100).HasFocus(9102)</visible>

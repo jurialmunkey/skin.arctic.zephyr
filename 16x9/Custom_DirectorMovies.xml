@@ -5,7 +5,7 @@
     <allowoverlay>false</allowoverlay>
     <onunload>ClearProperty(content)</onunload>
     <controls>
-        <include>GlobalBackground</include>
+        <include condition="Skin.HasSetting(lights.out)">GlobalBackground</include>
         <include>Furniture_Header</include>
         <include>Furniture_NowPlaying</include>
         <include>Furniture_Clock</include>
