@@ -9,7 +9,7 @@
 	<onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=300&amp;group=mainmenu|movieshub|episodeshub)</onload>
 	<onload condition="System.HasAddon(script.duration)">RunScript(script.duration,backend=True)</onload>
 	<controls>
-		<include condition="!Skin.HasSetting(home.netflix) + Skin.HasSetting(lights.out)">GlobalBackground</include>
+		<include condition="!Skin.HasSetting(home.netflix) + !Skin.HasSetting(lights.out)">GlobalBackground</include>
 		<include condition="Skin.HasSetting(home.netflix) + System.HasAddon(plugin.video.netflixbmc) + !Skin.HasSetting(lights.out)">NetflixBackground</include>
 		<control type="group">
 		<animation type="Conditional" condition="System.IdleTime(10) + Skin.HasSetting(home.fade)" reversible="false">
