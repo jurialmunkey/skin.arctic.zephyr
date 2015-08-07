@@ -280,6 +280,11 @@
 		<value condition="Skin.HasSetting(ColourSelected)">$INFO[Skin.String(selectedcolor.name)]</value>
 		<value condition="!Skin.HasSetting(ColourSelected)">Selected</value>
 	</variable>
+	<variable name="ColourSelectedSettingsRow1">
+		<value condition="!ControlGroup(9100).HasFocus + [ControlGroup(9200).HasFocus(9211) | ControlGroup(9200).HasFocus(9201) | ControlGroup(9200).HasFocus(9235) | ControlGroup(9200).HasFocus(924111) | ControlGroup(9200).HasFocus(9251) | ControlGroup(9200).HasFocus(92615) | ControlGroup(9200).HasFocus(92722) | ControlGroup(9200).HasFocus(9281)] + Skin.HasSetting(ColourSelected)">$INFO[Skin.String(selectedcolor.name)]</value>
+		<value condition="!ControlGroup(9100).HasFocus + [ControlGroup(9200).HasFocus(9211) | ControlGroup(9200).HasFocus(9201) | ControlGroup(9200).HasFocus(9235) | ControlGroup(9200).HasFocus(924111) | ControlGroup(9200).HasFocus(9251) | ControlGroup(9200).HasFocus(92615) | ControlGroup(9200).HasFocus(92722) | ControlGroup(9200).HasFocus(9281)] + !Skin.HasSetting(ColourSelected)">Selected</value>
+		<value>PanelWhite100</value>
+	</variable>
 	<variable name="Plot">
 		<value condition="[!IsEmpty(ListItem.PlotOutline) | !IsEmpty(ListItem.Plot)] + Skin.HasSetting(osd.hidespoilers) + Container.Content(episodes) + [stringcompare(ListItem.Overlay,OverlayUnWatched.png) | ListItem.IsResumable]">* Hidden to prevent spoilers *</value>
 		<value condition="!IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.PlotOutline]</value>
