@@ -201,40 +201,6 @@
 		<value condition="!IsEmpty(ListItem.Studio) + !Skin.HasSetting(furniture.flags.colour)">resource://resource.images.studios.white/$INFO[Window(home).Property(ListItemStudioLabel),,.png]</value>
 		<value condition="!IsEmpty(ListItem.Studio) + Skin.HasSetting(furniture.flags.colour)">resource://resource.images.studios.coloured/$INFO[Window(home).Property(ListItemStudioLabel),,.png]</value>
 	</variable>
-	<variable name="ExtendedOverlayInfo">
-		<value condition="StringCompare(Container(3226).ListItem(6).Label,PlayedCount:) + !IntegerGreaterThan(Container(3226).ListItem(6).Label2,0)">indicator/watched.png</value>
-		<value condition="StringCompare(Container(3226).ListItem(7).Label,PlayedCount:) + !IntegerGreaterThan(Container(3226).ListItem(7).Label2,0)">indicator/watched.png</value>
-		<value condition="StringCompare(Container(3226).ListItem(8).Label,PlayedCount:) + !IntegerGreaterThan(Container(3226).ListItem(8).Label2,0)">indicator/watched.png</value>
-	</variable>
-	<variable name="RottenTomatoesInfo">
-		<value condition="StringCompare(Container(3226).ListItem(6).Label,CriticRating:) + IntegerGreaterThan(Container(3226).ListItem(6).Label2,59)">special://skin/extras/icons/rottentomatoes.png</value>
-		<value condition="StringCompare(Container(3226).ListItem(6).Label,CriticRating:) + !IntegerGreaterThan(Container(3226).ListItem(6).Label2,59)">special://skin/extras/icons/rottentomatoesrotten.png</value>
-	</variable>
-	<variable name="CommunityRatingInfo">
-		<value condition="StringCompare(Container(3226).ListItem(6).Label,Metascore:) + IntegerGreaterThan(Container(3226).ListItem(6).Label2,59)">green</value>
-		<value condition="StringCompare(Container(3226).ListItem(7).Label,Metascore:) + IntegerGreaterThan(Container(3226).ListItem(7).Label2,59)">green</value>
-		<value condition="StringCompare(Container(3226).ListItem(8).Label,Metascore:) + IntegerGreaterThan(Container(3226).ListItem(8).Label2,59)">green</value>
-		<value condition="StringCompare(Container(3226).ListItem(6).Label,Metascore:) + [IntegerGreaterThan(Container(3226).ListItem(6).Label2,39) + !IntegerGreaterThan(Container(3226).ListItem(6).Label2,59)]">SelectedOrange</value>
-		<value condition="StringCompare(Container(3226).ListItem(7).Label,Metascore:) + [IntegerGreaterThan(Container(3226).ListItem(7).Label2,39) + !IntegerGreaterThan(Container(3226).ListItem(7).Label2,59)]">SelectedOrange</value>
-		<value condition="StringCompare(Container(3226).ListItem(8).Label,Metascore:) + [IntegerGreaterThan(Container(3226).ListItem(8).Label2,39) + !IntegerGreaterThan(Container(3226).ListItem(7).Label2,59)]">SelectedOrange</value>
-		<value condition="StringCompare(Container(3226).ListItem(6).Label,Metascore:) + !IntegerGreaterThan(Container(3226).ListItem(6).Label2,39)">SelectedRed</value>
-		<value condition="StringCompare(Container(3226).ListItem(7).Label,Metascore:) + !IntegerGreaterThan(Container(3226).ListItem(7).Label2,39)">SelectedRed</value>
-		<value condition="StringCompare(Container(3226).ListItem(8).Label,Metascore:) + !IntegerGreaterThan(Container(3226).ListItem(8).Label2,39)">SelectedRed</value>
-	</variable>
-	<variable name="StudioInfo">
-		<value condition="StringCompare(Container(3226).ListItem(6).Label,Studio:)">$INFO[Container(3226).ListItem(6).Label2]</value>
-		<value condition="StringCompare(Container(3226).ListItem(7).Label,Studio:)">$INFO[Container(3226).ListItem(7).Label2]</value>
-		<value condition="StringCompare(Container(3226).ListItem(8).Label,Studio:)">$INFO[Container(3226).ListItem(8).Label2]</value>
-		<value condition="StringCompare(Container(3226).ListItem(9).Label,Studio:)">$INFO[Container(3226).ListItem(9).Label2]</value>
-		<value condition="StringCompare(Container(3226).ListItem(10).Label,Studio:)">$INFO[Container(3226).ListItem(10).Label2]</value>
-	</variable>
-	<variable name="IDInfo">
-		<value condition="StringCompare(Container(3226).ListItem(6).Label,ID:)">$INFO[Container(3226).ListItem(6).Label2]</value>
-		<value condition="StringCompare(Container(3226).ListItem(7).Label,ID:)">$INFO[Container(3226).ListItem(7).Label2]</value>
-		<value condition="StringCompare(Container(3226).ListItem(8).Label,ID:)">$INFO[Container(3226).ListItem(8).Label2]</value>
-		<value condition="StringCompare(Container(3226).ListItem(9).Label,ID:)">$INFO[Container(3226).ListItem(9).Label2]</value>
-		<value condition="StringCompare(Container(3226).ListItem(10).Label,ID:)">$INFO[Container(3226).ListItem(10).Label2]</value>
-	</variable>
 	<variable name="StarRating">
 		<value condition="IntegerGreaterThan(ListItem.Rating,9)">rating/rating10.png</value>
 		<value condition="IntegerGreaterThan(ListItem.Rating,8)">rating/rating9.png</value>
