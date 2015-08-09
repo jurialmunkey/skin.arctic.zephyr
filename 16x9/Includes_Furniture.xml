@@ -1152,7 +1152,7 @@
 		<value condition="Window.IsVisible(SettingsSystemInfo.xml) | Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(settings) | Window.IsVisible(SkinSettings.xml)">special://skin/extras/icons/settings.png</value>
 		<value condition="Window.IsVisible(MyMusicPlaylist.xml)">special://skin/extras/icons/playlist.png</value>
 		<value condition="Window.IsVisible(FileManager.xml)">special://skin/extras/icons/database.png</value>
-		<value condition="Window.IsVisible(Home.xml)">special://skin/extras/icons/home.png</value>
+		<value condition="Window.IsVisible(Home.xml)">empty.png</value>
 		<value condition="Window.IsVisible(MyVideoNav.xml)">special://skin/extras/icons/video-addons.png</value>
 		<value>special://skin/extras/icons/artist.png</value>
 	</variable>
@@ -1239,6 +1239,10 @@
 					<height>80</height>
 					<texture colordiffuse="Panel" border="8">common/box.png</texture>
 				</control>
+				<control id="8308" type="image">
+					<texture colordiffuse="PanelWhite100" border="8">$VAR[HeaderIcon]</texture>
+					<visible>false</visible>
+				</control>
 				<control type="image">
 					<top>-14</top>
 					<left>-14</left>
@@ -1246,7 +1250,23 @@
 					<height>108</height>
 					<texture colordiffuse="PanelWhite100" border="8">$VAR[HeaderIcon]</texture>
 					<visible>!Container.Scrolling</visible>
-					<visible>!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)</visible>
+					<visible>[!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)] + !Substring(Control.GetLabel(8308),empty.png)</visible>
+					<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+				</control>
+				<control type="image">
+					<width>80</width>
+					<height>80</height>
+					<texture border="8">special://skin/extras/icons/emby2.png</texture>
+					<visible>!Container.Scrolling</visible>
+					<visible>[!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)] + Substring(Control.GetLabel(8308),empty.png) + IsEmpty(Window(Home).Property(EmbyUserImage))</visible>
+					<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+				</control>
+				<control type="image">
+					<width>80</width>
+					<height>80</height>
+					<texture border="8">$INFO[Window(Home).Property(EmbyUserImage)]</texture>
+					<visible>!Container.Scrolling</visible>
+					<visible>[!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)] + Substring(Control.GetLabel(8308),empty.png) + !IsEmpty(Window(Home).Property(EmbyUserImage))</visible>
 					<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
 				</control>
 				<control type="label">
