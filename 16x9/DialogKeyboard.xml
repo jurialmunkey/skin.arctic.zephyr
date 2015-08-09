@@ -15,9 +15,8 @@
             <visible>!Window.IsVisible(numericinput)</visible>
             <include>Animation.ZoomIn</include>
             <include>Animation.FadeOut</include>
-            
             <centerleft>50%</centerleft>
-            <centertop>60%</centertop>
+            <centertop>40%</centertop>
             <height>522</height>
             <width>1530</width>
             <control type="image">
@@ -57,7 +56,7 @@
                 <texturefocus colordiffuse="$VAR[ColourHighlight]" border="5">common/box.png</texturefocus>
             </control>
 
-            <control type="group">
+            <control type="group" id="4000">
                 <posx>10</posx>
                 <posy>96</posy>
                 <control type="grouplist" description="toprow">
@@ -420,7 +419,8 @@
                         <width>370</width>
                         <label>20177</label>
                         <onup>307</onup>
-                        <ondown>309</ondown>
+                        <ondown condition="!Control.IsVisible(5000)">309</ondown>
+                        <ondown condition="Control.IsVisible(5000)">5000</ondown>
                         <include>DefKeyboardKeys</include>
                     </control>
                     
@@ -429,7 +429,8 @@
                         <width>655</width>
                         <label>20182</label>
                         <onup>160</onup>
-                        <ondown>100</ondown>
+                        <ondown condition="!Control.IsVisible(5000)">100</ondown>
+                        <ondown condition="Control.IsVisible(5000)">5000</ondown>
                         <include>DefKeyboardKeys</include>
                     </control>
                     <control type="button" id="8">
@@ -437,7 +438,8 @@
                         <width>275</width>
                         <label>20181</label>
                         <onup>169</onup>
-                        <ondown>109</ondown>
+                        <ondown condition="!Control.IsVisible(5000)">109</ondown>
+                        <ondown condition="Control.IsVisible(5000)">5000</ondown>
                         <include>DefKeyboardKeys</include>
                     </control>
                     <control type="button" id="305">
@@ -445,20 +447,87 @@
                         <description>Layout</description>
                         <include>DefKeyboardKeys</include>
                         <onup>170</onup>
-                        <ondown>110</ondown>
+                        <ondown condition="!Control.IsVisible(5000)">110</ondown>
+                        <ondown condition="Control.IsVisible(5000)">5000</ondown>
                     </control>
                     <control type="button" id="306">
                         <label>&gt;</label>
                         <description>Layout</description>
                         <include>DefKeyboardKeys</include>
                         <onup>171</onup>
-                        <ondown>111</ondown>
+                        <ondown condition="!Control.IsVisible(5000)">111</ondown>
+                        <ondown condition="Control.IsVisible(5000)">5000</ondown>
                     </control>
                 </control>
-            
+                <control type="group">
+                    <visible>System.HasAddon(script.extendedinfo) + !IsEmpty(Control.GetLabel(312).index(1)) + !Window.IsVisible(1130)</visible>
+                    <top>480</top>
+                    <centerleft>50%</centerleft>
+                    <centertop>40%</centertop>
+                    <height>160</height>
+                    <width>1530</width>
+                    <control type="image">
+                        <top>-18</top>
+                        <bottom>-18</bottom>
+                        <left>-18</left>
+                        <right>-18</right>
+                        <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
+                    </control>
+                    <control type="group">
+                        <animation effect="fade" time="300" tween="cubic" start="0" end="100" reversible="false" condition="!IsEmpty(Container(5000).ListItem.Label)">Conditional</animation>
+                        <animation effect="fade" time="150" tween="cubic" start="100" end="0" reversible="false" condition="IsEmpty(Container(5000).ListItem.Label)">Conditional</animation>
+                    </control>
+                    <control type="panel" id="5000">
+                        <width>1530</width>
+                        <height>160</height>
+                        <onleft>5000</onleft>
+                        <onright>5000</onright>
+                        <onup>300</onup>
+                        <ondown>300</ondown>
+                        <onback>noop</onback>
+                        <orientation>vertical</orientation>
+                        <scrolltime tween="quadratic" easing="out">200</scrolltime>
+                        <itemlayout height="80" width="306">
+                            <control type="image">
+                                <top>5</top>
+                                <width>296</width>
+                                <height>70</height>
+                                <texture border="5" colordiffuse="Black12">common/box.png</texture>
+                            </control>
+                            <control type="label">
+                                <top>5</top>
+                                <width>296</width>
+                                <height>70</height>
+                                <align>center</align>
+                                <textcolor>Black70</textcolor>
+                                <textoffsetx>5</textoffsetx>
+                                <font>Small</font>
+                                <label>$INFO[ListItem.Label]</label>
+                            </control>
+                        </itemlayout>
+                        <focusedlayout height="80" width="306">
+                            <control type="image">
+                                <top>5</top>
+                                <width>296</width>
+                                <height>70</height>
+                                <texture border="5" colordiffuse="$VAR[ColourHighlight]">common/box.png</texture>
+                                <visible>Control.HasFocus(5000)</visible>
+                            </control>
+                            <control type="label">
+                                <top>5</top>
+                                <width>296</width>
+                                <height>70</height>
+                                <align>center</align>
+                                <textoffsetx>5</textoffsetx>
+                                <textcolor>$VAR[ColourSelected]</textcolor>
+                                <font>Small</font>
+                                <label>$INFO[ListItem.Label]</label>
+                            </control>
+                        </focusedlayout>
+                        <content>plugin://script.extendedinfo?info=autocomplete&amp;&amp;id=$INFO[Control.GetLabel(312).index(1)]&amp;&amp;limit=10</content>
+                    </control>
+                </control>
             </control>
         </control>
-
     </controls>
-
 </window>
