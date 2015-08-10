@@ -26,57 +26,55 @@
             <include>GlobalOverlay</include>
         </control>
         <control type="group">
-            <include>Def9000Background</include>
-            <include>Def9000Arrows</include>
+            <include>Def9000SideBladeLeft</include>
             <control type="grouplist" id="9000">
-                <include>Def9000GroupList</include>
                 <include>Def9000MusicSide</include>
-                <control type="radiobutton" id="9007" description="Low List (57)">
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>31142</label>
-                    <selected>Skin.HasSetting(57list.low)</selected>
-                    <onclick>Skin.ToggleSetting(57list.low)</onclick>
-                    <onclick>ReloadSkin()</onclick>
-                    <visible>Control.IsVisible(57)</visible>
-                </control>
-                <control type="radiobutton" id="9008" description="Big Wide Info (51)">
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>31147</label>
-                    <selected>Skin.HasSetting(51bigwide.showinfo)</selected>
-                    <onclick>Skin.ToggleSetting(51bigwide.showinfo)</onclick>
-                    <onclick>ReloadSkin()</onclick>
-                    <visible>Control.IsVisible(51)</visible>
+                <control type="label" id="201">
+                    <width>455</width>
+                    <height>42</height>
+                    <textoffsetx>15</textoffsetx>
+                    <font>Home</font>
+                    <label>Misc Options</label>
+                    <textcolor>$VAR[ColourHighlight]</textcolor>
+                    <aligny>center</aligny>
                 </control>
                 <control type="button" id="9091">
                     <description>Global Search</description>
-                    <include>DefContextButton</include>
+                    <include>DefContextButton2</include>
                     <align>left</align>
                     <label>137</label>
                     <onclick>RunScript(script.globalsearch,artists=true&amp;albums=true&amp;songs=true)</onclick>
                 </control>
                 <control type="radiobutton" id="16">
                     <description>PartyMode</description>
-                    <include>DefContextButton</include>
+                    <include>DefContextButton2</include>
                     <align>left</align>
                     <label>589</label>
                 </control>
                 <control type="radiobutton" id="98">
                     <visible>Container.CanFilterAdvanced</visible>
                     <description>Filter</description>
-                    <include>DefContextButton</include>
+                    <include>DefContextButton2</include>
                     <label>587</label>
                     <align>left</align>
                     <onclick>SetFocus(50)</onclick>
                     <onclick>Filter</onclick>
                     <selected>Container.Filtered</selected>
                 </control>
+                <control type="label" id="203">
+                    <width>455</width>
+                    <height>42</height>
+                    <textoffsetx>15</textoffsetx>
+                    <font>Home</font>
+                    <label>Actions</label>
+                    <textcolor>$VAR[ColourHighlight]</textcolor>
+                    <aligny>center</aligny>
+                </control>
                 <control type="button" id="20">
                     <description>Update</description>
                     <align>left</align>
                     <label>653</label>
-                    <include>DefContextButton</include>
+                    <include>DefContextButton2</include>
                 </control>
             </control>
         </control>

@@ -8,102 +8,79 @@
 			<include>GlobalOverlay</include>
 		</control>
 		<control type="group">
-			<height>732</height>
-			<include>Def9000Background</include>
+			<include>Def9000SideBladeLeft</include>
 			<control type="grouplist" id="9000">
-				<height>700</height>
 				<onback condition="Window.IsVisible(MyPVRGuide.xml) + Control.IsVisible(10)">ActivateWindow(home)</onback>
-				<include>Def9000GroupList</include>
+				<left>0</left>
+				<top>115</top>
+				<width>455</width>
+				<height>1080</height>
+				<onleft>9000</onleft>
+				<onright>ClearProperty(MediaMenu,Home)</onright>
+				<onright condition="![Window.IsVisible(tvguide) | Window.IsActive(SettingsCategory.xml)]">50</onright>
+				<onright condition="Window.IsVisible(tvguide)">10</onright>
+				<onright condition="Window.IsActive(SettingsCategory.xml)">3</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<onback>ClearProperty(MediaMenu,Home)</onback>
+				<onback>50</onback>
+				<itemgap>0</itemgap>
+				<animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
+				<control type="label" id="200">
+					<height>42</height>
+					<textoffsetx>15</textoffsetx>
+					<font>Home</font>
+					<label>Live TV Sections</label>
+					<textcolor>$VAR[ColourHighlight]</textcolor>
+					<aligny>center</aligny>
+				</control>
 				<control type="button" id="9001">
 					<description>Channels</description>
 					<label>19019</label>
 					<onclick>ActivateWindow(TVChannels)</onclick>
-					<include>DefContextButton</include>
+					<include>DefContextButton2</include>
 					<align>left</align>
 				</control>
 				<control type="button" id="9002">
 					<description>Guide</description>
 					<label>22020</label>
 					<onclick>ActivateWindow(TvGuide)</onclick>
-					<include>DefContextButton</include>
+					<include>DefContextButton2</include>
 					<align>left</align>
 				</control>
 				<control type="button" id="9003">
 					<description>Recordings</description>
 					<label>19017</label>
 					<onclick>ActivateWindow(TVRecordings)</onclick>
-					<include>DefContextButton</include>
+					<include>DefContextButton2</include>
 					<align>left</align>
 				</control>
 				<control type="button" id="9004">
 					<description>Timers</description>
 					<label>19040</label>
 					<onclick>ActivateWindow(TVTimers)</onclick>
-					<include>DefContextButton</include>
+					<include>DefContextButton2</include>
 					<align>left</align>
 				</control>
 				<control type="button" id="9005">
 					<description>Search</description>
 					<label>137</label>
 					<onclick>ActivateWindow(TVSearch)</onclick>
-					<include>DefContextButton</include>
+					<include>DefContextButton2</include>
 					<align>left</align>
 				</control>
 				<!-- PVR options -->
-				<!-- <control type="label" id="9010">
-					<description>Channels</description>
-					<label>31194</label>
-					<font>TinyBold</font>
-					<textcolor>Black30</textcolor>
-					<textoffsetx>30</textoffsetx>
-					<include>DefContextButton</include>
-					<align>left</align>
-				</control> -->
-				<control type="button" id="28">
-					<description>Group</description>
-					<include>DefContextButton</include>
-					<align>left</align>
-				</control>
-				<control type="button" id="2">
-					<description>View</description>
-					<include>DefContextButton</include>
-					<align>left</align>
-				</control>
-				<control type="button" id="3">
-					<description>Sort</description>
-					<include>DefContextButton</include>
-					<align>left</align>
-				</control>
-				<control type="togglebutton" id="4">
-					<description>Ascending</description>
-					<include>DefContextButton</include>
-					<align>left</align>
-					<label>584</label>
-					<altlabel>585</altlabel>
-				</control>
-				<control type="radiobutton" id="6">
-					<description>Show Hidden Channels</description>
-					<label>19051</label>
-					<include>DefContextButton</include>
-					<align>left</align>
-					<visible>Window.IsVisible(MyPVRChannels.xml)</visible>
-				</control>
-				<control type="radiobutton" id="7">
-					<description>Show Hidden Channels</description>
-					<label>19184</label>
-					<visible>Window.IsVisible(MyPVRRecordings.xml)</visible>
-					<include>DefContextButton</include>
-					<align>left</align>
-				</control>
-				<control type="button" id="31">
-					<description>Filter</description>
-					<label>587</label>
-					<include>DefContextButton</include>
-					<align>left</align>
-					<visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+				<control type="label" id="201">
+					<height>42</height>
+					<textoffsetx>15</textoffsetx>
+					<font>Home</font>
+					<label>View Options</label>
+					<textcolor>$VAR[ColourHighlight]</textcolor>
+					<aligny>center</aligny>
+					<visible>Control.IsVisible(10)</visible>
 				</control>
 				<control type="radiobutton" id="123">
-					<include>DefContextButton</include>
+					<include>DefContextButton2</include>
 					<label>31739</label>
 					<selected>Skin.HasSetting(ShowIconViewEpg)</selected>
 					<onclick>Skin.ToggleSetting(ShowIconViewEpg)</onclick>
@@ -112,7 +89,7 @@
 					<visible>Control.IsVisible(10)</visible>
 				</control>
 				<control type="radiobutton" id="124">
-					<include>DefContextButton</include>
+					<include>DefContextButton2</include>
 					<label>31740</label>
 					<selected>Skin.HasSetting(EPGGenreColors.Enabled)</selected>
 					<onclick>Skin.ToggleSetting(EPGGenreColors.Enabled)</onclick>
@@ -120,7 +97,7 @@
 					<visible>Control.IsVisible(10)</visible>
 				</control>
 				<control type="radiobutton" id="125">
-					<include>DefContextButton</include>
+					<include>DefContextButton2</include>
 					<label> -- Show Aired Date</label>
 					<selected>Skin.HasSetting(Airdate.Enabled)</selected>
 					<onclick>Skin.ToggleSetting(Airdate.Enabled)</onclick>
@@ -128,12 +105,63 @@
 					<visible>Control.IsVisible(10)</visible>
 				</control>
 				<control type="radiobutton" id="126">
-					<include>DefContextButton</include>
+					<include>DefContextButton2</include>
 					<label> -- Show EPG Art</label>
 					<selected>Skin.HasSetting(EPGArt.Enabled)</selected>
 					<onclick>Skin.ToggleSetting(EPGArt.Enabled)</onclick>
 					<align>left</align>
 					<visible>Control.IsVisible(10)</visible>
+				</control>
+				<control type="label" id="202">
+					<height>42</height>
+					<textoffsetx>15</textoffsetx>
+					<font>Home</font>
+					<label>Misc Options</label>
+					<textcolor>$VAR[ColourHighlight]</textcolor>
+					<aligny>center</aligny>
+				</control>
+				<control type="button" id="28">
+					<description>Group</description>
+					<include>DefContextButton2</include>
+					<align>left</align>
+				</control>
+				<control type="button" id="2">
+					<description>View</description>
+					<include>DefContextButton2</include>
+					<align>left</align>
+				</control>
+				<control type="button" id="3">
+					<description>Sort</description>
+					<include>DefContextButton2</include>
+					<align>left</align>
+				</control>
+				<control type="togglebutton" id="4">
+					<description>Ascending</description>
+					<include>DefContextButton2</include>
+					<align>left</align>
+					<label>584</label>
+					<altlabel>585</altlabel>
+				</control>
+				<control type="radiobutton" id="6">
+					<description>Show Hidden Channels</description>
+					<label>19051</label>
+					<include>DefContextButton2</include>
+					<align>left</align>
+					<visible>Window.IsVisible(MyPVRChannels.xml)</visible>
+				</control>
+				<control type="radiobutton" id="7">
+					<description>Show Hidden Channels</description>
+					<label>19184</label>
+					<visible>Window.IsVisible(MyPVRRecordings.xml)</visible>
+					<include>DefContextButton2</include>
+					<align>left</align>
+				</control>
+				<control type="button" id="31">
+					<description>Filter</description>
+					<label>587</label>
+					<include>DefContextButton2</include>
+					<align>left</align>
+					<visible>Window.IsVisible(MyPVRChannels.xml)</visible>
 				</control>
 			</control>
 		</control>

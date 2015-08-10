@@ -4,17 +4,13 @@
     <defaultcontrol always="true">50</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
     <views>50,500</views>
-
     <controls>
-
         <include condition="!Skin.HasSetting(lights.out)">GlobalBackground</include>
-
         <include>View_50_List_Square</include>
         <include>View_500_Thumbnails</include>
         <include>Furniture_Header</include>
         <include>Furniture_NowPlaying</include>
         <include>Furniture_Clock</include>
-
         <control type="group">
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
@@ -22,23 +18,41 @@
             <include>GlobalOverlay</include>
         </control>
         <control type="group">
-            <height>242</height>
-            <include>Def9000Background</include>
+            <include>Def9000SideBladeLeft</include>
             <control type="grouplist" id="9000">
-                <include>Def9000GroupList</include>
-                
+                <left>0</left>
+                <top>115</top>
+                <width>455</width>
+                <height>1080</height>
+                <onleft>9000</onleft>
+                <onright>ClearProperty(MediaMenu,Home)</onright>
+                <onright condition="![Window.IsVisible(tvguide) | Window.IsActive(SettingsCategory.xml)]">50</onright>
+                <onright condition="Window.IsVisible(tvguide)">10</onright>
+                <onright condition="Window.IsActive(SettingsCategory.xml)">3</onright>
+                <onup>9000</onup>
+                <ondown>9000</ondown>
+                <onback>ClearProperty(MediaMenu,Home)</onback>
+                <onback>50</onback>
+                <itemgap>0</itemgap>
+                <animation effect="slide" start="-440,0" end="0,0" time="400" tween="quadratic" easing="out">Visible</animation>
+                <control type="label" id="200">
+                    <height>42</height>
+                    <textoffsetx>15</textoffsetx>
+                    <font>Home</font>
+                    <label>View Options</label>
+                    <textcolor>$VAR[ColourHighlight]</textcolor>
+                    <aligny>center</aligny>
+                </control>
                 <control type="button" id="2">
                     <description>View</description>
                     <include>DefContextButton</include>
                     <align>left</align>
                 </control>
-
                 <control type="button" id="3">
                     <description>Sort</description>
                     <include>DefContextButton</include>
                     <align>left</align>
                 </control>
-
                 <control type="togglebutton" id="4">
                     <description>Ascending</description>
                     <include>DefContextButton</include>
@@ -46,10 +60,8 @@
                     <label>584</label>
                     <altlabel>585</altlabel>
                 </control>
-
             </control>
         </control>
-
     </controls>
 
 </window>
