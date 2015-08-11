@@ -1268,6 +1268,29 @@
 					<visible>!Container.Scrolling</visible>
 					<visible>[!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)] + Substring(Control.GetLabel(8308),empty.png) + !IsEmpty(Window(Home).Property(EmbyUserImage))</visible>
 					<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+					<visible>!Control.HasFocus(3634)</visible>
+				</control>
+				<control type="button" id="3634">
+					<width>80</width>
+					<height>80</height>
+					<onleft>301</onleft>
+					<onright>301</onright>
+					<onup>303</onup>
+					<ondown>301</ondown>
+					<onclick>RunPlugin("plugin://plugin.video.emby?mode=userprefs")</onclick>
+					<font>Button</font>
+					<texturefocus>-</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<visible>!Container.Scrolling</visible>
+					<visible>[!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)] + Substring(Control.GetLabel(8308),empty.png) + !IsEmpty(Window(Home).Property(EmbyUserImage))</visible>
+				</control>
+				<control type="image">
+					<top>-14</top>
+					<left>-14</left>
+					<width>108</width>
+					<height>108</height>
+					<texture colordiffuse="$VAR[ColourHighlight]" border="8">special://skin/extras/icons/configure.png</texture>
+					<visible>Control.HasFocus(3634)</visible>
 				</control>
 				<control type="label">
 					<centertop>39</centertop>

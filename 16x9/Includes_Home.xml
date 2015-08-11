@@ -1622,10 +1622,11 @@
 	</include>
 	<include name="HomeVerticalMenu">
 		<!-- Furniture -->
-		<include condition="Skin.HasSetting(home.showheader)">Furniture_Header</include>
+		<include condition="!Skin.HasSetting(furniture.header)">Furniture_Header</include>
 		<include>Furniture_NowPlaying</include>
 		<include>Furniture_Clock</include>
 		<include>Furniture_Home_Flags</include>
+
 		<!-- Weather Widget -->
 		<control type="grouplist">
 			<include>Animation.FadeIn</include>
@@ -2640,6 +2641,7 @@
 						<height>325</height>
 						<onback>300</onback>
 						<onleft>300</onleft>
+						<onup>3634</onup>
 						<onup condition="IsEmpty(Container(300).ListItem.Property(widget))">303</onup>
 						<onup>300</onup>
 						<ondown>300</ondown>
