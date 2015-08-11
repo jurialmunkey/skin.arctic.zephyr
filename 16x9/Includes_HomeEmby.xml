@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="Furniture_EmbyClock">
+		<control type="group">
+			<include>Animation.FadeIn</include>
+			<include>Animation.FadeOut</include>
+			<centertop>94</centertop>
+			<visible>!Skin.HasSetting(furniture.clock)</visible>
+			<include>Animation.FurnitureFadeInOut</include>
+			<height>84</height>
+			<animation effect="slide" start="0" end="0,-10" time="150" condition="Skin.HasSetting(furniture.weather)">Conditional</animation>
+			<control type="label">
+				<centertop>24</centertop>
+				<right>130</right>
+				<align>right</align>
+				<font>LargeBold</font>
+				<textcolor>Dark1</textcolor>
+				<label>$INFO[System.Time(hh:mm)]</label>
+				<animation effect="slide" start="0" end="50" time="0" condition="IsEmpty(System.Time(xx))">Conditional</animation>
+			</control>
+			<control type="label">
+				<centertop>25</centertop>
+				<align>right</align>
+				<right>24</right>
+				<font>symbolview</font>
+				<textcolor>Dark1</textcolor>
+				<label></label>
+				<fadetime>200</fadetime>
+				<visible>[!IsEmpty(ListItem.EndTime) + [Container.Content(movies) | Container.Content(episodes)]] | [!IsEmpty(Container(301).ListItem.EndTime) + Control.HasFocus(301) + Skin.HasSetting(home.vertical)] | [!IsEmpty(Container(301).ListItem.EndTime) + !Skin.HasSetting(home.vertical)]</visible>
+				<visible>[!Window.IsVisible(DialogVideoInfo.xml) + !Skin.HasSetting(furniture.hideendtime)] | Window.IsVisible(DialogVideoInfo.xml)</visible>
+			</control>
+			<control type="label">
+				<centertop>220</centertop>
+				<right>-230</right>
+				<aligny>top</aligny>
+				<width>240</width>
+				<height>333</height>
+				<font>MediumBoldAngle</font>
+				<textcolor>Dark1</textcolor>
+				<label>$INFO[ListItem.EndTime(hh:mm)]</label>
+				<angle>-90</angle>
+				<fadetime>200</fadetime>
+				<visible>[!IsEmpty(ListItem.EndTime) + [Container.Content(movies) | Container.Content(episodes)]]</visible>
+				<visible>[!Window.IsVisible(DialogVideoInfo.xml) + !Skin.HasSetting(furniture.hideendtime)] | Window.IsVisible(DialogVideoInfo.xml)</visible>
+			</control>
+			<control type="label">
+				<centertop>220</centertop>
+				<right>-230</right>
+				<aligny>top</aligny>
+				<width>240</width>
+				<height>333</height>
+				<font>MediumBoldAngle</font>
+				<textcolor>Dark1</textcolor>
+				<label>$INFO[Container(301).ListItem.EndTime(hh:mm)]</label>
+				<angle>-90</angle>
+				<fadetime>200</fadetime>
+				<visible>!Skin.HasSetting(furniture.hideendtime)</visible>
+				<visible>[!IsEmpty(Container(301).ListItem.EndTime) + Control.HasFocus(301) + Skin.HasSetting(home.vertical)] | [!IsEmpty(Container(301).ListItem.EndTime) + !Skin.HasSetting(home.vertical)]</visible>
+			</control>
+			<control type="label">
+				<centertop>30</centertop>
+				<right>SidePad</right>
+				<font>SmallBold</font>
+				<textcolor>Dark3</textcolor>
+				<align>right</align>
+				<width>120</width>
+				<label>$INFO[System.Time(xx)]</label>
+				<visible>!IsEmpty(System.Time(xx))</visible>
+			</control>
+			<control type="label">
+				<centertop>64</centertop>
+				<right>SidePad</right>
+				<font>Flag</font>
+				<textcolor>Dark2</textcolor>
+				<align>right</align>
+				<width>50%</width>
+				<label>$INFO[System.Date(DDD)]$COMMA $INFO[System.Date(d MMM yyyy)]</label>
+			</control>
+			<control type="label">
+				<centertop>92</centertop>
+				<right>SidePad</right>
+				<font>Flag</font>
+				<textcolor>Dark3</textcolor>
+				<align>right</align>
+				<width>50%</width>
+				<visible>Skin.HasSetting(furniture.weather)</visible>
+				<label>[COLOR=$VAR[ColourHighlight]]$INFO[Weather.Temperature][/COLOR] $INFO[Weather.Conditions]</label>
+			</control>
+		</control>
+	</include>
+	<include name="Furniture_HeaderEmby">
+		<control type="grouplist">
+			<top>40</top>
+			<left>SidePad</left>
+			<visible>!Skin.HasSetting(furniture.header)</visible>
+			<visible>!ControlGroup(303).HasFocus()</visible>
+			<visible>!Control.HasFocus(515)</visible>
+			<visible>!Window.IsVisible(DialogAlbumInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
+			<include condition="!Window.IsVisible(script-ExtendedInfo Script-VideoList.xml)">Animation.FurnitureFadeInOut</include>
+			<include condition="Window.IsVisible(script-ExtendedInfo Script-VideoList.xml)">FurnitureFadeInOutExtended</include>
+			<orientation>horizontal</orientation>
+			<itemgap>24</itemgap>
+			<control type="group" description="iconbox">
+				<width>50</width>
+				<height>50</height>
+				<control type="image">
+					<texture diffuse="common/circle.png" colordiffuse="Panel">common/box.png</texture>
+				</control>
+				<control id="8308" type="image">
+					<texture colordiffuse="PanelWhite100" border="8">$VAR[HeaderIcon]</texture>
+					<visible>false</visible>
+				</control>
+				<control type="image">
+					<top>-14</top>
+					<left>-14</left>
+					<width>78</width>
+					<height>78</height>
+					<texture diffuse="common/circle.png" colordiffuse="PanelWhite100">$VAR[HeaderIcon]</texture>
+					<visible>!Container.Scrolling</visible>
+					<visible>[!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)] + !Substring(Control.GetLabel(8308),empty.png)</visible>
+					<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+				</control>
+				<control type="image">
+					<texture diffuse="common/circle.png">special://skin/extras/icons/emby2.png</texture>
+					<visible>[!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)] + Substring(Control.GetLabel(8308),empty.png) + IsEmpty(Window(Home).Property(EmbyUserImage))</visible>
+					<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+				</control>
+				<control type="image">
+					<texture diffuse="common/circle.png">$INFO[Window(Home).Property(EmbyUserImage)]</texture>
+					<visible>[!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)] + Substring(Control.GetLabel(8308),empty.png) + !IsEmpty(Window(Home).Property(EmbyUserImage))</visible>
+					<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+					<visible>!Control.HasFocus(3634)</visible>
+				</control>
+				<control type="button" id="3634">
+					<onleft>3635</onleft>
+					<onright>3635</onright>
+					<onup>303</onup>
+					<ondown>300</ondown>
+					<onclick>RunPlugin("plugin://plugin.video.emby?mode=userprefs")</onclick>
+					<font>Button</font>
+					<texturefocus>-</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<visible>[!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)] + Substring(Control.GetLabel(8308),empty.png) + !IsEmpty(Window(Home).Property(EmbyUserImage))</visible>
+				</control>
+				<control type="image">
+					<top>-14</top>
+					<left>-14</left>
+					<width>78</width>
+					<height>78</height>
+					<texture colordiffuse="$VAR[ColourHighlight]" border="8">special://skin/extras/icons/configure.png</texture>
+					<visible>Control.HasFocus(3634)</visible>
+				</control>
+			</control>
+			<control type="group" description="iconbox">
+				<width>50</width>
+				<height>50</height>
+				<control type="image">
+					<texture diffuse="common/circle.png" colordiffuse="Panel">common/box.png</texture>
+					<visible>Control.HasFocus(3635)</visible>
+				</control>
+				<control type="image">
+					<top>-14</top>
+					<left>-14</left>
+					<width>78</width>
+					<height>78</height>
+					<texture colordiffuse="PanelWhite100" border="8">special://skin/extras/icons/search.png</texture>
+					<visible>!Control.HasFocus(3635)</visible>
+				</control>
+				<control type="image">
+					<top>-14</top>
+					<left>-14</left>
+					<width>78</width>
+					<height>78</height>
+					<texture colordiffuse="$VAR[ColourHighlight]" border="8">special://skin/extras/icons/search.png</texture>
+					<visible>Control.HasFocus(3635)</visible>
+				</control>
+				<control type="button" id="3635">
+					<onleft>3634</onleft>
+					<onright>3634</onright>
+					<onup>303</onup>
+					<ondown>300</ondown>
+					<onclick>RunScript(script.globalsearch)</onclick>
+					<font>Button</font>
+					<texturefocus>-</texturefocus>
+					<texturenofocus>-</texturenofocus>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="HomeEmbyRow">
+		<!-- Home Row -->
+		<control type="group">
+			<animation effect="slide" start="0" end="0,250" time="150" condition="!Skin.HasSetting(home.classicwidgets) + [Control.HasFocus(301) | ControlGroup(303).HasFocus()]">Conditional</animation>
+			<animation effect="slide" start="0" end="0,250" time="150">WindowClose</animation>
+			<animation effect="slide" end="0" start="0,250" time="150">WindowOpen</animation>
+			<include>Furniture_EmbyClock</include>
+			<include>Furniture_HeaderEmby</include>
+			<control type="image">
+				<visible>IntegerGreaterThan(Container(300).NumItems,8)</visible>
+				<bottom>863</bottom>
+				<left>32</left>
+				<width>16</width>
+				<height>16</height>
+				<texture colordiffuse="Dark2" flipx="true">common/arrow-small-right.png</texture>
+			</control>
+			<control type="image">
+				<visible>IntegerGreaterThan(Container(300).NumItems,8)</visible>
+				<bottom>863</bottom>
+				<right>32</right>
+				<width>16</width>
+				<height>16</height>
+				<texture colordiffuse="Dark2" flipx="false">common/arrow-small-right.png</texture>
+			</control>
+			<control type="list" id="300">
+				<include>Animation.FadeIn.Delay</include>
+				<include>Animation.FadeOut</include>
+				<description>Home Wraplist</description>
+				<left>SidePad</left>
+				<right>SidePad</right>
+				<ondown condition="[!Player.HasVideo | !Skin.HasSetting(global.showvideo)] + StringCompare(Container(300).ListItem.Property(defaultID),movies)">3011</ondown>
+				<ondown condition="[!Player.HasVideo | !Skin.HasSetting(global.showvideo)] + !StringCompare(Container(300).ListItem.Property(defaultID),movies)">301</ondown>
+				<onup condition="IntegerGreaterThan(Container(302).NumItems,0)">SetFocus(302,0)</onup>
+				<onup condition="!IntegerGreaterThan(Container(302).NumItems,0)">3634</onup>
+				<onleft>300</onleft>
+				<onright>300</onright>
+				<orientation>horizontal</orientation>
+				<scrolltime>200</scrolltime>
+				<include condition="Skin.HasSetting(home.showicons)">HomeEmbyContentIcon</include>
+				<include condition="!Skin.HasSetting(home.showicons)">HomeEmbyContentNoIcon</include>
+			</control>
+		</control>
+	</include>
+	<include name="HomeEmbySubMenu">
+		<!-- Sub Menu -->
+			<control type="list" id="302">
+				<include>Animation.FadeIn.Delay</include>
+				<include>Animation.FadeOut</include>
+				<left>SidePad</left>
+				<right>SidePad</right>
+				<top>122</top>
+				<onup>3634</onup>
+				<ondown>300</ondown>
+				<onleft>302</onleft>
+				<onright>302</onright>
+				<onback>302</onback>
+				<orientation>horizontal</orientation>
+				<scrolltime>200</scrolltime>
+				<visible allowhiddenfocus="true">Control.HasFocus(302)</visible>
+				<itemlayout width="260" height="44">
+					<control type="label">
+						<align>center</align>
+						<aligny>top</aligny>
+						<width>90%</width>
+						<top>0</top>
+						<centerleft>50%</centerleft>
+						<textcolor>Dark3</textcolor>
+						<font>HomeEmbySubMenu</font>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout width="260" height="44">
+					<control type="label">
+						<align>center</align>
+						<aligny>top</aligny>
+						<width>90%</width>
+						<top>0</top>
+						<centerleft>50%</centerleft>
+						<textcolor>Dark1</textcolor>
+						<font>HomeEmbySubMenu</font>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<top>35</top>
+						<centerleft>50%</centerleft>
+						<width>90%</width>
+						<height>4</height>
+						<texture colordiffuse="$VAR[ColourHighlight]">common/box.png</texture>
+						<visible>Control.HasFocus(302)</visible>
+						<include>Animation.FadeIn</include>
+						<include>Animation.FadeOut</include>
+					</control>
+					<control type="image">
+						<top>46</top>
+						<centerleft>50%</centerleft>
+						<width>16</width>
+						<height>16</height>
+						<texture colordiffuse="Dark3">common/arrow-small.png</texture>
+						<visible>Control.HasFocus(302)</visible>
+						<animation effect="fade" end="100" start="0" delay="300" time="400" reversible="false">Focus</animation>
+					</control>
+				</focusedlayout>
+				<content>
+					<include>skinshortcuts-submenu</include>
+				</content>
+			</control>
+	</include>
+	<include name="HomeEmbySubMenu2">
+		<control type="group">
+			<animation type="Conditional" condition="Control.HasFocus(302)" reversible="false">
+				<effect type="slide" start="0,24" end="0" time="100" delay="200" />
+				<effect type="fade" start="0" end="100" time="200" delay="200" />
+			</animation>
+			<animation type="Conditional" condition="!Control.HasFocus(302)" reversible="false">
+				<effect type="fade" start="100" end="0" time="200" delay="0" />
+			</animation>
+			<animation effect="slide" start="0" end="0,250" time="150">WindowClose</animation>
+			<include>Animation.FadeOut</include>
+			<control type="list" id="302">
+				<description>Home Wraplist</description>
+				<left>SidePad</left>
+				<include condition="!Skin.HasSetting(furniture.clock)">DefHomeRight520</include>
+				<include condition="Skin.HasSetting(furniture.clock)">DefHomeRightSidePad</include>
+				<onup>300</onup>
+				<ondown>300</ondown>
+				<onleft>302</onleft>
+				<onright>302</onright>
+				<orientation>horizontal</orientation>
+				<scrolltime>200</scrolltime>
+				<top>921</top>
+				<itemlayout width="220" height="64">
+					<control type="label">
+						<align>center</align>
+						<aligny>top</aligny>
+						<width>180</width>
+						<top>30</top>
+						<centerleft>50%</centerleft>
+						<textcolor>Dark3</textcolor>
+						<font>HomeIcon</font>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout width="220" height="64">
+					<control type="label">
+						<align>center</align>
+						<aligny>top</aligny>
+						<width>90%</width>
+						<top>30</top>
+						<centerleft>50%</centerleft>
+						<textcolor>Dark1</textcolor>
+						<font>HomeIcon</font>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<top>74</top>
+						<centerleft>50%</centerleft>
+						<width>90%</width>
+						<height>4</height>
+						<texture colordiffuse="$VAR[ColourHighlight]">common/box.png</texture>
+						<visible>Control.HasFocus(302)</visible>
+						<include>Animation.FadeIn</include>
+						<include>Animation.FadeOut</include>
+					</control>
+					<control type="image">
+						<top>10</top>
+						<centerleft>50%</centerleft>
+						<width>16</width>
+						<height>16</height>
+						<texture colordiffuse="Dark3" flipy="true">common/arrow-small.png</texture>
+						<animation effect="fade" end="100" start="0" delay="300" time="400" reversible="false">Focus</animation>
+					</control>
+				</focusedlayout>
+				<content>
+					<include>skinshortcuts-submenu</include>
+				</content>
+			</control>
+		</control>
+	</include>
+	<include name="HomeEmbyContentNoIcon">
+		<top>177</top>
+		<animation effect="fade" start="100" end="0" time="150" reversible="false" condition="Control.HasFocus(302) + Skin.HasSetting(home.submenu2)">Conditional</animation>
+		<animation type="Conditional" condition="!Control.HasFocus(302) + Skin.HasSetting(home.submenu2)" reversible="false">
+			<effect type="slide" start="0,-24" end="0" time="100" delay="200" />
+			<effect type="fade" start="0" end="100" time="200" delay="200" />
+		</animation>
+		<itemlayout width="220" height="74">
+			<control type="label">
+				<align>center</align>
+				<aligny>top</aligny>
+				<width>185</width>
+				<top>10</top>
+				<centerleft>50%</centerleft>
+				<textcolor>Dark3</textcolor>
+				<font>HomeEmby</font>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+		</itemlayout>
+		<focusedlayout width="220" height="74">
+			<control type="label">
+				<align>center</align>
+				<aligny>top</aligny>
+				<width>90%</width>
+				<top>10</top>
+				<centerleft>50%</centerleft>
+				<textcolor>Dark1</textcolor>
+				<font>HomeEmby</font>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+			<control type="image">
+				<top>65</top>
+				<centerleft>50%</centerleft>
+				<width>90%</width>
+				<height>4</height>
+				<texture colordiffuse="$VAR[ColourHighlight]">common/box.png</texture>
+				<visible>Control.HasFocus(300)</visible>
+				<include>Animation.FadeIn</include>
+				<include>Animation.FadeOut</include>
+			</control>
+			<control type="image">
+				<top>-2</top>
+				<centerleft>50%</centerleft>
+				<width>16</width>
+				<height>16</height>
+				<texture flipy="true" colordiffuse="Dark3">common/arrow-small.png</texture>
+				<visible>Control.HasFocus(300)</visible>
+				<visible>IntegerGreaterThan(Container(302).NumItems,0)</visible>
+				<animation effect="fade" end="100" start="0" delay="300" time="400" reversible="false">Focus</animation>
+			</control>
+		</focusedlayout>
+		<content>
+			<include>skinshortcuts-mainmenu</include>
+		</content>
+	</include>
+	<include name="HomeEmbyContentIcon">
+		<top>848</top>
+		<itemlayout width="220" height="220">
+			<control type="image">
+				<width>128</width>
+				<height>128</height>
+				<centerleft>50%</centerleft>
+				<centertop>40%</centertop>
+				<texture colordiffuse="Dark3">$INFO[ListItem.Icon]</texture>
+				<visible>substring(ListItem.Icon,icons)</visible>
+			</control>
+			<control type="label">
+				<align>center</align>
+				<aligny>top</aligny>
+				<width>180</width>
+				<bottom>0</bottom>
+				<centerleft>50%</centerleft>
+				<textcolor>Dark3</textcolor>
+				<font>HomeIcon</font>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+		</itemlayout>
+		<focusedlayout width="220" height="220">
+			<control type="image">
+				<width>128</width>
+				<height>128</height>
+				<centerleft>50%</centerleft>
+				<centertop>40%</centertop>
+				<texture colordiffuse="Dark1">$INFO[ListItem.Icon]</texture>
+				<visible>substring(ListItem.Icon,icons)</visible>
+			</control>
+			<control type="label">
+				<align>center</align>
+				<aligny>top</aligny>
+				<width>180</width>
+				<bottom>0</bottom>
+				<centerleft>50%</centerleft>
+				<textcolor>Dark1</textcolor>
+				<font>HomeIcon</font>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+			<control type="image">
+				<bottom>16</bottom>
+				<centerleft>50%</centerleft>
+				<width>90%</width>
+				<height>4</height>
+				<texture colordiffuse="$VAR[ColourHighlight]">common/box.png</texture>
+				<visible>Control.HasFocus(300)</visible>
+				<include>Animation.FadeIn</include>
+				<include>Animation.FadeOut</include>
+			</control>
+			<control type="image">
+				<top>-4</top>
+				<centerleft>50%</centerleft>
+				<width>16</width>
+				<height>16</height>
+				<texture flipy="true" colordiffuse="Dark3">common/arrow-small.png</texture>
+				<visible>Control.HasFocus(300)</visible>
+				<visible>IntegerGreaterThan(Container(302).NumItems,0)</visible>
+				<animation effect="fade" end="100" start="0" delay="300" time="400" reversible="false">Focus</animation>
+			</control>
+		</focusedlayout>
+		<content>
+			<include>skinshortcuts-mainmenu</include>
+		</content>
+	</include>
+	<include name="HomeEmbyWidgetInfo">
+		<!-- Widget Info -->
+		<control type="group">
+			<animation type="WindowClose">
+				<effect type="fade" start="100" end="0" time="150" />
+			</animation>
+			<control type="wraplist" id="301">
+				<description>Widget</description>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),NextAired)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Favourites)</visible>
+				<width>1</width>
+				<height>1</height>
+				<onup condition="IsEmpty(Container(300).ListItem.Property(widget))">303</onup>
+				<onup condition="!IsEmpty(Container(300).ListItem.Property(widget))">300</onup>
+				<ondown>300</ondown>
+				<onback>300</onback>
+				<onleft>301</onleft>
+				<onright>301</onright>
+				<preloaditems>2</preloaditems>
+				<orientation>horizontal</orientation>
+				<autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
+				<scrolltime tween="quadratic">0</scrolltime>
+				<include>Animation.FadeIn</include>
+				<include>Animation.FadeOut</include>
+				<itemlayout width="1" height="1">
+				</itemlayout>
+				<focusedlayout width="1" height="1">
+				</focusedlayout>
+				<content target="video">$VAR[DefWidgetContent]</content>
+			</control>
+			<control type="wraplist" id="301">
+				<description>Widget</description>
+				<visible>StringCompare(Container(300).ListItem.Property(widget),NextAired) | StringCompare(Container(300).ListItem.Property(widget),Favourites)</visible>
+				<width>1</width>
+				<height>1</height>
+				<onup condition="IsEmpty(Container(300).ListItem.Property(widget))">303</onup>
+				<onup condition="!IsEmpty(Container(300).ListItem.Property(widget))">300</onup>
+				<ondown>300</ondown>
+				<onback>300</onback>
+				<onleft>301</onleft>
+				<onright>301</onright>
+				<preloaditems>2</preloaditems>
+				<orientation>horizontal</orientation>
+				<autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
+				<scrolltime tween="quadratic">0</scrolltime>
+				<include>Animation.FadeIn</include>
+				<include>Animation.FadeOut</include>
+				<itemlayout width="1" height="1">
+				</itemlayout>
+				<focusedlayout width="1" height="1">
+				</focusedlayout>
+				<content target="video">
+					<include>DefNextAiredWidget</include>
+					<include>DefFavouritesWidget</include>
+				</content>
+			</control>
+			<!-- Normal Widget -->
+			<control type="group">
+				<visible>!Container(301).IsUpdating</visible>
+				<visible>IntegerGreaterThan(Container(301).NumItems,0)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+				<visible>!substring(Container(300).ListItem.Property(widget),Albums) + !substring(Container(300).ListItem.Property(widget),Favourites)</visible>
+				<visible>![Window.IsVisible(home) + !IsEmpty(Skin.String(home.slideshowpath)) + IsEmpty(Container(300).ListItem.Property(widget))] + [IsEmpty(Container(300).ListItem.Property(Background)) | !IsEmpty(Container(300).ListItem.Property(widget))]</visible>
+				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+				<include>Animation.FadeIn</include>
+				<animation effect="slide" start="0" end="0,220" time="500" tween="back" reversible="false" easing="out" condition="Control.HasFocus(301) | ControlGroup(303).HasFocus()">Conditional</animation>
+				<animation effect="slide" end="0" start="0,220" time="150" reversible="false" condition="!Control.HasFocus(301) + !ControlGroup(303).HasFocus()">Conditional</animation>
+				<left>40</left>
+				<bottom>250</bottom>
+				<width>890</width>
+				<height>339</height>
+				<control type="image">
+					<left>0</left>
+					<right>5</right>
+					<top>0</top>
+					<height>334</height>
+					<texture border="10">common/shadow-5.png</texture>
+				</control>
+				<control type="image">
+					<top>5</top>
+					<left>5</left>
+					<right>10</right>
+					<height>324</height>
+					<animation effect="fade" start="100" end="90" time="200" condition="true">Conditional</animation>
+					<texture border="5" colordiffuse="Background">common/box.png</texture>
+				</control>
+				<control type="image">
+					<left>5</left>
+					<top>5</top>
+					<width>216</width>
+					<height>324</height>
+					<fadetime>350</fadetime>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture diffuse="diffuse/widgetposter.png" fallback="DefaultAddonNone.png">$VAR[WidgetImage]</texture>
+					<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+				</control>
+				<control type="image">
+					<left>5</left>
+					<top>5</top>
+					<width>216</width>
+					<height>324</height>
+					<fadetime>350</fadetime>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<texture diffuse="diffuse/widgetposter.png">$INFO[Weather.FanartCode,weather/,.png]</texture>
+					<visible>StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+				</control>
+				<control type="label">
+					<left>251</left>
+					<top>5</top>
+					<right>40</right>
+					<aligny>center</aligny>
+					<height>80</height>
+					<font>TinyBold</font>
+					<textcolor>Dark2</textcolor>
+					<selectedcolor>Dark2</selectedcolor>
+					<label>$VAR[WidgetLabel]</label>
+				</control>
+				<control type="label">
+					<left>251</left>
+					<top>55</top>
+					<right>40</right>
+					<aligny>center</aligny>
+					<height>80</height>
+					<font>MediumBold</font>
+					<textcolor>Dark1</textcolor>
+					<selectedcolor>Dark1</selectedcolor>
+					<label>$VAR[WidgetTitle]</label>
+				</control>
+				<control type="textbox">
+					<left>251</left>
+					<right>40</right>
+					<top>132</top>
+					<height>127</height>
+					<font>Tiny</font>
+					<align>justify</align>
+					<autoscroll>false</autoscroll>
+					<textcolor>Dark2</textcolor>
+					<selectedcolor>Dark2</selectedcolor>
+					<shadowcolor>noop</shadowcolor>
+					<label>$VAR[WidgetPlot]</label>
+				</control>
+				<control type="label">
+					<left>251</left>
+					<right>40</right>
+					<top>265</top>
+					<bottom>324</bottom>
+					<align>right</align>
+					<autoscroll>false</autoscroll>
+					<textcolor>Dark1</textcolor>
+					<selectedcolor>Dark1</selectedcolor>
+					<label>$VAR[WidgetSubLabel]</label>
+					<font>Flag</font>
+				</control>
+			</control>
+			<!-- Album Widget -->
+			<control type="group">
+				<visible>!Container(301).IsUpdating</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
+				<visible>substring(Container(300).ListItem.Property(widget),Albums) | substring(Container(300).ListItem.Property(widget),Favourites)</visible>
+				<visible>![Window.IsVisible(home) + Skin.HasSetting(home.dontshowfanart) + IsEmpty(Container(300).ListItem.Property(widget))] + [IsEmpty(Container(300).ListItem.Property(Background)) | !IsEmpty(Container(300).ListItem.Property(widget))]</visible>
+				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+				<include>Animation.FadeIn</include>
+				<animation effect="slide" start="0" end="0,220" time="500" tween="back" reversible="false" easing="out" condition="Control.HasFocus(301) | ControlGroup(303).HasFocus()">Conditional</animation>
+				<animation effect="slide" end="0" start="0,220" time="150" reversible="false" condition="!Control.HasFocus(301) + !ControlGroup(303).HasFocus()">Conditional</animation>
+				<left>40</left>
+				<bottom>250</bottom>
+				<width>890</width>
+				<height>339</height>
+				<control type="image">
+					<left>0</left>
+					<right>5</right>
+					<top>0</top>
+					<height>334</height>
+					<texture border="10">common/shadow-5.png</texture>
+				</control>
+				<control type="image">
+					<top>5</top>
+					<left>5</left>
+					<right>10</right>
+					<height>324</height>
+					<animation effect="fade" start="100" end="90" time="200" condition="true">Conditional</animation>
+					<texture border="5" colordiffuse="Background">common/box.png</texture>
+				</control>
+				<control type="image">
+					<left>5</left>
+					<top>5</top>
+					<width>324</width>
+					<height>324</height>
+					<fadetime>350</fadetime>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture diffuse="diffuse/widgetposter.png" fallback="DefaultAddonNone.png">$VAR[WidgetImage]</texture>
+				</control>
+				<control type="label">
+					<left>359</left>
+					<top>5</top>
+					<right>40</right>
+					<aligny>center</aligny>
+					<height>80</height>
+					<font>TinyBold</font>
+					<textcolor>Dark2</textcolor>
+					<selectedcolor>Dark2</selectedcolor>
+					<label>$VAR[WidgetLabel]</label>
+				</control>
+				<control type="label">
+					<left>359</left>
+					<top>55</top>
+					<right>40</right>
+					<aligny>center</aligny>
+					<height>80</height>
+					<font>MediumBold</font>
+					<textcolor>Dark1</textcolor>
+					<selectedcolor>Dark1</selectedcolor>
+					<label>$VAR[WidgetTitle]</label>
+				</control>
+				<control type="textbox">
+					<left>359</left>
+					<right>40</right>
+					<top>132</top>
+					<height>127</height>
+					<font>Tiny</font>
+					<align>justify</align>
+					<autoscroll>false</autoscroll>
+					<textcolor>Dark2</textcolor>
+					<selectedcolor>Dark2</selectedcolor>
+					<shadowcolor>noop</shadowcolor>
+					<label>$VAR[WidgetPlot]</label>
+				</control>
+				<control type="label">
+					<left>359</left>
+					<right>40</right>
+					<top>265</top>
+					<bottom>324</bottom>
+					<align>right</align>
+					<autoscroll>false</autoscroll>
+					<textcolor>Dark1</textcolor>
+					<selectedcolor>Dark1</selectedcolor>
+					<label>$VAR[WidgetSubLabel]</label>
+					<font>Flag</font>
+				</control>
+			</control>
+			<include>HomeWidgetUpdating</include>
+			<control type="button" id="3011">
+				<onup>300</onup>
+				<ondown>3013</ondown>
+				<onleft>Control.Move(3012,-1)</onleft>
+				<onright>Control.Move(3012,1)</onright>
+			</control>
+			<control type="wraplist" id="3012">
+				<description>Widget</description>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+				<top>330</top>
+				<left>SidePad</left>
+				<width>820</width>
+				<height>460</height>
+				<onup>300</onup>
+				<ondown>300</ondown>
+				<onback>300</onback>
+				<onleft>301</onleft>
+				<onright>301</onright>
+				<preloaditems>2</preloaditems>
+				<orientation>horizontal</orientation>
+				<autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
+				<scrolltime tween="quadratic">0</scrolltime>
+				<include>Animation.FadeIn</include>
+				<include>Animation.FadeOut</include>
+				<itemlayout width="820" height="460">
+					<control type="image">
+						<aspectratio>keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+					</control>
+				</itemlayout>
+				<focusedlayout width="820" height="460">
+					<control type="image">
+						<aspectratio>keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+					</control>
+				</focusedlayout>
+				<content target="video">plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window.Property(randommovies)]</content>
+			</control>
+			<control type="image">
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+				<description>Title overlay</description>
+				<left>SidePad</left>
+				<posy>712</posy>
+				<width>820</width>
+				<height>80</height>
+				<texture border="15" colordiffuse="df000000">common/white.png</texture>
+			</control>
+			<control type="label">
+				<posx>200</posx>
+				<posy>712</posy>
+				<width>auto</width>
+				<aligny>center</aligny>
+				<height>64</height>
+				<font>SmallBold</font>
+				<textcolor>PanelWhite70</textcolor>
+				<selectedcolor>PanelWhite70</selectedcolor>
+				<label>$INFO[Container(3012).ListItem.Label]</label>
+				<animation effect="slide" start="0" end="-90" time="0" condition="![Container.Content(movies) | Container.Content(episodes)]">Conditional</animation>
+				<animation effect="slide" start="0" end="70" time="0" condition="Container.Content(episodes)">Conditional</animation>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+	        </control>
+			<control type="label">
+				<left>SidePad</left>
+				<posy>712</posy>
+				<width>760</width>
+				<right>84</right>
+				<aligny>center</aligny>
+				<height>64</height>
+				<align>right</align>
+				<font>Small</font>
+				<textcolor>PanelWhite70</textcolor>
+				<selectedcolor>PanelWhite70</selectedcolor>
+				<label>$VAR[LabelDuration]</label>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+			</control>
+			<control type="image">
+				<posy>730</posy>
+				<left>860</left>
+				<width>32</width>
+				<height>32</height>
+				<aspectratio aligny="top">keep</aspectratio>
+				<texture>$VAR[PercentWatched3012]</texture>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+			</control>
+			<control type="image">
+				<left>76</left>
+				<width>828</width>
+				<top>326</top>
+				<height>468</height>
+				<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+				<visible>Control.HasFocus(3011)</visible>
+			</control>
+
+			<control type="button" id="3013">
+				<onup>3011</onup>
+				<onleft>3014</onleft>
+				<onright>3014</onright>
+				<onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
+			</control>
+			<control type="image">
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+				<description>All Movies</description>
+				<left>SidePad</left>
+				<posy>800</posy>
+				<width>400</width>
+				<height>230</height>
+				<texture border="15" colordiffuse="dark pastel green">common/white.png</texture>
+			</control>
+			<control type="image">
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+				<description>All Movies</description>
+				<left>SidePad</left>
+				<posy>800</posy>
+				<width>400</width>
+				<height>230</height>
+				<texture background="true">special://skin/extras/icons/film.png</texture>
+				<aspectratio>keep</aspectratio>
+				<align>center</align>
+				<aligny>center</aligny>
+			</control>
+			<control type="image">
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+				<description>Title overlay</description>
+				<left>SidePad</left>
+				<posy>990</posy>
+				<width>400</width>
+				<height>40</height>
+				<texture border="15" colordiffuse="df000000">common/white.png</texture>
+			</control>
+			<control type="label">
+				<left>SidePad</left>
+				<posy>990</posy>
+				<width>400</width>
+				<align>center</align>
+				<height>40</height>
+				<align>right</align>
+				<font>Small</font>
+				<textcolor>PanelWhite70</textcolor>
+				<selectedcolor>PanelWhite70</selectedcolor>
+				<label>All Movies</label>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+			</control>
+			<control type="image">
+				<left>76</left>
+				<width>408</width>
+				<posy>796</posy>
+				<height>238</height>
+				<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+				<visible>Control.HasFocus(3013)</visible>
+			</control>
+
+			<control type="button" id="3014">
+				<onup>3011</onup>
+				<onleft>3013</onleft>
+				<onleft>3013</onleft>
+				<onclick>ActivateWindow(VideoLibrary,MovieGenres,return)</onclick>
+			</control>
+			<control type="image">
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+				<description>Genres</description>
+				<left>500</left>
+				<posy>800</posy>
+				<width>400</width>
+				<height>230</height>
+				<texture border="15" colordiffuse="lust">common/white.png</texture>
+			</control>
+			<control type="image">
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+				<description>Genres</description>
+				<left>500</left>
+				<posy>800</posy>
+				<width>400</width>
+				<height>230</height>
+				<aspectratio>keep</aspectratio>
+				<align>center</align>
+				<aligny>center</aligny>
+				<texture background="true">special://skin/extras/icons/genre.png</texture>
+			</control>
+			<control type="image">
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+				<description>Title overlay</description>
+				<left>500</left>
+				<posy>990</posy>
+				<width>400</width>
+				<height>40</height>
+				<texture border="15" colordiffuse="df000000">common/white.png</texture>
+			</control>
+			<control type="label">
+				<left>500</left>
+				<posy>990</posy>
+				<width>400</width>
+				<align>center</align>
+				<height>40</height>
+				<align>right</align>
+				<font>Small</font>
+				<textcolor>PanelWhite70</textcolor>
+				<selectedcolor>PanelWhite70</selectedcolor>
+				<label>Genres</label>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+			</control>
+			<control type="image">
+				<left>496</left>
+				<width>408</width>
+				<posy>796</posy>
+				<height>238</height>
+				<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+				<visible>Control.HasFocus(3014)</visible>
+			</control>
+		</control>
+	</include>
+</includes>

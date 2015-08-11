@@ -8,6 +8,7 @@
 		<value condition="Container.Content(tvshows) + stringcompare(Container.SortMethod,$LOCALIZE[20360])">$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20360]]</value>
 		<value condition="[Container.Content(tvshows) | Container.Content(episodes)] + stringcompare(Container.SortMethod,$LOCALIZE[568])">$INFO[ListItem.LastPlayed]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Premiered]</value>
+		<value condition="!IsEmpty(Container(3012).ListItem.Year)">$INFO[Container(3012).ListItem.Year]</value>
 		<value condition="!IsEmpty(ListItem.Year)">$INFO[ListItem.Year]</value>
 	</variable>
 	<variable name="LabelEpisodeZero">
@@ -39,6 +40,7 @@
 		<value condition="stringcompare(Container.SortMethod,$LOCALIZE[570])">$INFO[ListItem.DateAdded]</value>
 		<value condition="stringcompare(Container.SortMethod,$LOCALIZE[567])">$INFO[ListItem.PlayCount]</value>
 		<value condition="!IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration,, $LOCALIZE[31102]]</value>
+		<value condition="!IsEmpty(Container(3012).ListItem.Duration)">$INFO[Container(3012).ListItem.Duration,, $LOCALIZE[31102]]</value>
 		<value condition="[Container.Content(tvshows) + !Control.IsVisible(54)] | Container.Content(episodes)">$VAR[LabelYear]</value>
 	</variable>
 	<variable name="LabelPlotBox">
@@ -650,10 +652,11 @@
 		<value condition="!IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>
 	</variable>
 	<variable name="LabelHomeWidgetStyle">
-		<value condition="!Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.netflix)">$LOCALIZE[31248]</value>
-		<value condition="!Skin.HasSetting(home.classicwidgets) + Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.netflix)">$LOCALIZE[31250]</value>
-		<value condition="Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.netflix)">$LOCALIZE[31249]</value>
+		<value condition="!Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.netflix) + !Skin.HasSetting(home.emby)">$LOCALIZE[31248]</value>
+		<value condition="!Skin.HasSetting(home.classicwidgets) + Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.netflix) + !Skin.HasSetting(home.emby)">$LOCALIZE[31250]</value>
+		<value condition="Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.netflix) + !Skin.HasSetting(home.emby)">$LOCALIZE[31249]</value>
 		<value condition="Skin.HasSetting(home.netflix)">$LOCALIZE[31751]</value>
+		<value condition="Skin.HasSetting(home.emby)">Emby</value>
 	</variable>
 	<variable name="ResumeColourHighlight">
 		<value condition="Skin.HasSetting(ResumeColour)">$INFO[Skin.String(resume.colour.name)]</value>

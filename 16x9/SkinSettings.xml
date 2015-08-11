@@ -202,15 +202,17 @@
 						<include>DefSettingsButton2</include>
 						<label>31247</label>
 						<label2>[COLOR=$VAR[ColourHighlight2]]$VAR[LabelHomeWidgetStyle][/COLOR]</label2>
-						<onclick>SetProperty(Dialog.NumItems,4)</onclick>
+						<onclick>SetProperty(Dialog.NumItems,5)</onclick>
 						<onclick>SetProperty(Dialog.1.Label,Default - Horizontal)</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(home.vertical) || Skin.Reset(home.classicwidgets) || Skin.Reset(home.netflix) )</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(home.vertical) || Skin.Reset(home.classicwidgets) || Skin.Reset(home.netflix) || Skin.Reset(home.emby) )</onclick>
 						<onclick>SetProperty(Dialog.2.Label,Vertical)</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetBool(home.vertical) || Skin.Reset(home.classicwidgets) || Skin.Reset(home.netflix) )</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetBool(home.vertical) || Skin.Reset(home.classicwidgets) || Skin.Reset(home.netflix) || Skin.Reset(home.emby) )</onclick>
 						<onclick>SetProperty(Dialog.3.Label,Classic)</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetBool(home.classicwidgets) || Skin.Reset(home.vertical) || Skin.Reset(home.netflix))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,Netflix)</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetBool(home.netflix) || Skin.Reset(home.vertical) || Skin.Reset(home.classicwidgets))</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetBool(home.classicwidgets) || Skin.Reset(home.vertical) || Skin.Reset(home.netflix) || Skin.Reset(home.emby))</onclick>
+						<onclick>SetProperty(Dialog.4.Label,Emby)</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetBool(home.emby) || Skin.Reset(home.vertical) || Skin.Reset(home.classicwidgets) || Skin.Reset(home.netflix))</onclick>
+						<onclick>SetProperty(Dialog.5.Label,Netflix)</onclick>
+						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetBool(home.netflix) || Skin.Reset(home.vertical) || Skin.Reset(home.classicwidgets) || Skin.Reset(home.emby))</onclick>
 						<onclick>RunScript(script.toolbox,info=selectdialog,header=Select Home Layout)</onclick>
 					</control>
 					<control type="button" id="9212" description="Customise Home">

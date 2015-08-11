@@ -24,6 +24,7 @@
 
 	<include file="Includes_Furniture.xml" />
 	<include file="Includes_Home.xml" />
+	<include file="Includes_HomeEmby.xml" />
 	<include file="Includes_GlobalSearch.xml" />
 	<include file="Includes_NextAired.xml" />
 	<include file="Includes_Labels.xml" />
@@ -92,6 +93,11 @@
 		</control>
 	</include>
 	<variable name="GlobalFanart">
+		<value condition="Window.IsVisible(home) + Skin.HasSetting(home.emby) + StringCompare(Container(300).ListItem.Property(defaultID),movies)">$INFO[Window(Home).Property(script.grab.fanart.Movie.FanArt)]</value>
+		<value condition="Window.IsVisible(home) + Skin.HasSetting(home.emby) + StringCompare(Container(300).ListItem.Property(defaultID),tvshows)">$INFO[Window(Home).Property(script.grab.fanart.TV.FanArt)]</value>
+		<value condition="Window.IsVisible(home) + Skin.HasSetting(home.emby) + StringCompare(Container(300).ListItem.Property(defaultID),music)">$INFO[Window(Home).Property(script.grab.fanart.Music.FanArt)]</value>
+		<value condition="Window.IsVisible(home) + Skin.HasSetting(home.emby) + StringCompare(Container(300).ListItem.Property(defaultID),weather) + !IsEmpty(Skin.String(weather.fanart))">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Current.FanartCode)]/</value>
+		<value condition="Window.IsVisible(home) + Skin.HasSetting(home.emby)">$INFO[Window(Home).Property(script.grab.fanart.Global.FanArt)]</value>
 		<value condition="Window.IsVisible(home) + System.IdleTime(10) + Skin.HasSetting(home.fade)">$INFO[Window(Home).Property(script.grab.fanart.Global.FanArt)]</value>
 		<value condition="Window.IsActive(script-globalsearch-infodialog.xml) | Window.IsActive(script-globalsearch-main.xml)">$VAR[GlobalSearchArtInfo]</value>
 		<value condition="Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRGuide.xml) | Window.IsVisible(MyPVRRecordings.xml)">genrethumb/Kodi.jpg</value>
