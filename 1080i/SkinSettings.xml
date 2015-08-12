@@ -374,7 +374,7 @@
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9105)</visible>
                         <include>DefSettingsButton</include>
-                        <label>$LOCALIZE[20342] [LOWERCASE]$LOCALIZE[31178][/LOWERCASE]</label>
+                        <label>31256</label>
                         <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=movieshub)</onclick>
                     </control>
                     <control type="button" id="9253" description="Select TV Shows Hub Widget">
@@ -386,11 +386,11 @@
                         <onclick condition="IsEmpty(Skin.String(TVHubWidget))">Skin.SetFile(TVHubWidget,.xsp|.m3u,special://profile/playlists/video/)</onclick>
                         <onclick condition="!IsEmpty(Skin.String(TVHubWidget))">Skin.Reset(TVHubWidget)</onclick>
                     </control>
-                    <control type="button" id="9254" description="Select Movies Hub Items">
+                    <control type="button" id="9254" description="Select TV Hub Items">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9105)</visible>
                         <include>DefSettingsButton</include>
-                        <label>$LOCALIZE[20343] [LOWERCASE]$LOCALIZE[31178][/LOWERCASE]</label>
+                        <label>31256</label>
                         <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=episodeshub)</onclick>
                     </control>
                     

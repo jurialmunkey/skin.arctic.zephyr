@@ -1289,8 +1289,11 @@
             <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
             <visible>[!IsEmpty(Window(home).Property(Set.Movies.ExtendedPlot)) + [Container.Content(Sets) | substring(ListItem.Path,videodb://movies/sets,left)]] | !IsEmpty(ListItem.Plot)</visible>
             <include>Animation.FadeIn</include>
-            <include>GlobalOverlay</include>
-            <include>GlobalOverlay</include>
+            <control type="image" description="Background">
+                <include>Dimensions_Fullscreen</include>
+                <texture colordiffuse="Background">common/bg.jpg</texture>
+                <animation effect="fade" start="100" end="95" condition="true">Conditional</animation>
+            </control>
             <control type="image" description="clearlogo">
                 <visible>Skin.HasSetting(furniture.logo)</visible>
                 <centertop>120</centertop>
@@ -1319,7 +1322,7 @@
                 <right>60</right>
                 <posy>60</posy>
                 <font>EpisodeNumber</font>
-                <textcolor>PanelWhite70</textcolor>
+                <textcolor>Dark1</textcolor>
                 <height>45</height>
                 <label>$VAR[LabelOverlayTitle]</label>
             </control>
@@ -1332,7 +1335,7 @@
                 <bottom>0</bottom>
                 <align>justify</align>
                 <font>Medium</font>
-                <textcolor>PanelWhite70</textcolor>
+                <textcolor>Dark1</textcolor>
                 <label>$VAR[LabelOverlayPlot]</label>
             </control>
         </control>
