@@ -217,8 +217,8 @@
 				<description>Home Wraplist</description>
 				<left>SidePad</left>
 				<right>SidePad</right>
-				<ondown condition="[!Player.HasVideo | !Skin.HasSetting(global.showvideo)] + StringCompare(Container(300).ListItem.Property(defaultID),movies)">3011</ondown>
-				<ondown condition="[!Player.HasVideo | !Skin.HasSetting(global.showvideo)] + !StringCompare(Container(300).ListItem.Property(defaultID),movies)">301</ondown>
+				<ondown condition="StringCompare(Container(300).ListItem.Property(defaultID),movies)">3011</ondown>
+				<ondown condition="!StringCompare(Container(300).ListItem.Property(defaultID),movies)">301</ondown>
 				<onup condition="IntegerGreaterThan(Container(302).NumItems,0)">SetFocus(302,0)</onup>
 				<onup condition="!IntegerGreaterThan(Container(302).NumItems,0)">3634</onup>
 				<onleft>300</onleft>
@@ -737,7 +737,6 @@
 			<control type="wraplist" id="3012">
 				<description>Widget</description>
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
-				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
 				<top>330</top>
 				<left>SidePad</left>
 				<width>820</width>
@@ -769,7 +768,6 @@
 			</control>
 			<control type="image">
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
-				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
 				<description>Title overlay</description>
 				<left>SidePad</left>
 				<posy>712</posy>
@@ -790,8 +788,7 @@
 				<animation effect="slide" start="0" end="-90" time="0" condition="![Container.Content(movies) | Container.Content(episodes)]">Conditional</animation>
 				<animation effect="slide" start="0" end="70" time="0" condition="Container.Content(episodes)">Conditional</animation>
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
-				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
-	        </control>
+			</control>
 			<control type="label">
 				<left>SidePad</left>
 				<posy>712</posy>
@@ -805,7 +802,6 @@
 				<selectedcolor>PanelWhite70</selectedcolor>
 				<label>$VAR[LabelDuration]</label>
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
-				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
 			</control>
 			<control type="image">
 				<posy>730</posy>
@@ -815,7 +811,6 @@
 				<aspectratio aligny="top">keep</aspectratio>
 				<texture>$VAR[PercentWatched3012]</texture>
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
-				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
 			</control>
 			<control type="image">
 				<left>76</left>
@@ -828,13 +823,11 @@
 
 			<control type="button" id="3013">
 				<onup>3011</onup>
-				<onleft>3014</onleft>
 				<onright>3014</onright>
 				<onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
 			</control>
 			<control type="image">
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
-				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
 				<description>All Movies</description>
 				<left>SidePad</left>
 				<posy>800</posy>
@@ -844,7 +837,6 @@
 			</control>
 			<control type="image">
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
-				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
 				<description>All Movies</description>
 				<left>SidePad</left>
 				<posy>800</posy>
@@ -857,7 +849,6 @@
 			</control>
 			<control type="image">
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
-				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
 				<description>Title overlay</description>
 				<left>SidePad</left>
 				<posy>990</posy>
@@ -871,13 +862,23 @@
 				<width>400</width>
 				<align>center</align>
 				<height>40</height>
-				<align>right</align>
 				<font>Small</font>
 				<textcolor>PanelWhite70</textcolor>
 				<selectedcolor>PanelWhite70</selectedcolor>
-				<label>All Movies</label>
+				<label>20342</label>
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
-				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
+			</control>
+			<control type="label">
+				<left>SidePad</left>
+				<posy>805</posy>
+				<width>390</width>
+				<align>right</align>
+				<height>40</height>
+				<font>Small</font>
+				<textcolor>FF222222</textcolor>
+				<selectedcolor>PanelWhite70</selectedcolor>
+				<label>$INFO[Window.Property(Movies.Count)]</label>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
 			</control>
 			<control type="image">
 				<left>76</left>
@@ -891,12 +892,11 @@
 			<control type="button" id="3014">
 				<onup>3011</onup>
 				<onleft>3013</onleft>
-				<onleft>3013</onleft>
+				<onright>3016</onright>
 				<onclick>ActivateWindow(VideoLibrary,MovieGenres,return)</onclick>
 			</control>
 			<control type="image">
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
-				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
 				<description>Genres</description>
 				<left>500</left>
 				<posy>800</posy>
@@ -906,7 +906,6 @@
 			</control>
 			<control type="image">
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
-				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
 				<description>Genres</description>
 				<left>500</left>
 				<posy>800</posy>
@@ -919,7 +918,6 @@
 			</control>
 			<control type="image">
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
-				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
 				<description>Title overlay</description>
 				<left>500</left>
 				<posy>990</posy>
@@ -937,9 +935,8 @@
 				<font>Small</font>
 				<textcolor>PanelWhite70</textcolor>
 				<selectedcolor>PanelWhite70</selectedcolor>
-				<label>Genres</label>
+				<label>135</label>
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
-				<visible>!Player.HasVideo | !Skin.HasSetting(global.showvideo)</visible>
 			</control>
 			<control type="image">
 				<left>496</left>
@@ -948,6 +945,90 @@
 				<height>238</height>
 				<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
 				<visible>Control.HasFocus(3014)</visible>
+			</control>
+
+			<!-- In progress thumbs -->
+			<control type="label">
+				<left>980</left>
+				<top>290</top>
+				<width>410</width>
+				<align>left</align>
+				<height>40</height>
+				<font>Small</font>
+				<textcolor>PanelWhite70</textcolor>
+				<selectedcolor>PanelWhite70</selectedcolor>
+				<label>Continue Watching</label>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+			</control>
+			<control type="list" id="3016">
+				<description>Widget</description>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+				<top>330</top>
+				<left>980</left>
+				<width>410</width>
+				<height>705</height>
+				<onup>3016</onup>
+				<ondown>3016</ondown>
+				<onback>300</onback>
+				<onleft>3014</onleft>
+				<preloaditems>2</preloaditems>
+				<orientation>vertical</orientation>
+				<scrolltime tween="quadratic">0</scrolltime>
+				<include>Animation.FadeIn</include>
+				<include>Animation.FadeOut</include>
+				<itemlayout width="410" height="235">
+					<control type="image">
+						<aspectratio>keep</aspectratio>
+						<height>230</height>
+						<texture background="true">$INFO[ListItem.Art(landscape)]</texture>
+					</control>
+					<control type="progress">
+						<bottom>5</bottom>
+						<height>8</height>
+						<info>ListItem.PercentPlayed</info>
+						<overlaytexture>-</overlaytexture>
+						<texturebg colordiffuse="2f5f5f5f">osd/progress-bg.png</texturebg>
+						<lefttexture colordiffuse="$VAR[PercentColourHighlight]">osd/progress-end.png</lefttexture>
+						<midtexture colordiffuse="$VAR[PercentColourHighlight]">osd/progress-end.png</midtexture>
+						<righttexture colordiffuse="PanelWhite70">osd/progress-end.png</righttexture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout width="410" height="235">
+					<control type="image">
+						<aspectratio>keep</aspectratio>
+						<height>230</height>
+						<texture background="true">$INFO[ListItem.Art(landscape)]</texture>
+					</control>
+					<control type="progress">
+						<bottom>7</bottom>
+						<height>8</height>
+						<info>ListItem.PercentPlayed</info>
+						<overlaytexture>-</overlaytexture>
+						<texturebg colordiffuse="2f5f5f5f">osd/progress-bg.png</texturebg>
+						<lefttexture colordiffuse="$VAR[PercentColourHighlight]">osd/progress-end.png</lefttexture>
+						<midtexture colordiffuse="$VAR[PercentColourHighlight]">osd/progress-end.png</midtexture>
+						<righttexture colordiffuse="PanelWhite70">osd/progress-end.png</righttexture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+					<control type="image">
+						<left>-3</left>
+						<top>-3</top>
+						<right>-3</right>
+						<bottom>0</bottom>
+						<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+						<visible>Control.HasFocus(3016)</visible>
+						<animation type="Focus">
+							<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+						</animation>
+						<animation type="Unfocus">
+							<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+						</animation>
+					</control>
+				</focusedlayout>
+				<content target="video">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window.Property(recommendedmovies)]</content>
 			</control>
 		</control>
 	</include>
