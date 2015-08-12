@@ -1276,7 +1276,7 @@
 				<visible>Control.HasFocus(4014)</visible>
 			</control>
 
-			<!-- In progress thumbs -->
+			<!-- Next Up/In progress  -->
 			<control type="label">
 				<left>980</left>
 				<top>290</top>
@@ -1313,7 +1313,7 @@
 						<texture background="true">$VAR[LandscapeImage]</texture>
 					</control>
 					<control type="progress">
-						<bottom>5</bottom>
+						<bottom>0</bottom>
 						<height>8</height>
 						<info>ListItem.PercentPlayed</info>
 						<overlaytexture>-</overlaytexture>
@@ -1330,8 +1330,44 @@
 						<height>230</height>
 						<texture background="true">$VAR[LandscapeImage]</texture>
 					</control>
+					<control type="image">
+						<description>Title overlay</description>
+						<bottom>0</bottom>
+						<height>40</height>
+						<texture border="15" colordiffuse="df000000">common/white.png</texture>
+						<visible>Control.HasFocus(4016)</visible>
+					</control>
+					<control type="label">
+						<bottom>10</bottom>
+						<left>5</left>
+						<align>left</align>
+						<height>30</height>
+						<font>Small</font>
+						<textcolor>PanelWhite70</textcolor>
+						<selectedcolor>PanelWhite70</selectedcolor>
+						<label>$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</label>
+						<visible>Control.HasFocus(4016)</visible>
+					</control>
+					<control type="image">
+						<centerright>32</centerright>
+						<centertop>32</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture colordiffuse="$VAR[PercentColourHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
+						<visible>Control.HasFocus(4016)</visible>
+					</control>
+					<control type="image">
+						<centerright>32</centerright>
+						<centertop>32</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PosterPercentWatched]</texture>
+						<visible>Control.HasFocus(4016)</visible>
+					</control>
 					<control type="progress">
-						<bottom>7</bottom>
+						<bottom>0</bottom>
 						<height>8</height>
 						<info>ListItem.PercentPlayed</info>
 						<overlaytexture>-</overlaytexture>
@@ -1340,6 +1376,7 @@
 						<midtexture colordiffuse="$VAR[PercentColourHighlight]">osd/progress-end.png</midtexture>
 						<righttexture colordiffuse="PanelWhite70">osd/progress-end.png</righttexture>
 						<visible>ListItem.IsResumable</visible>
+						<visible>!Control.HasFocus(4016)</visible>
 					</control>
 					<control type="image">
 						<left>-3</left>
@@ -1394,16 +1431,13 @@
 						<height>230</height>
 						<texture background="true">$VAR[PosterImage]</texture>
 					</control>
-					<control type="progress">
-						<bottom>5</bottom>
-						<height>8</height>
-						<info>ListItem.PercentPlayed</info>
-						<overlaytexture>-</overlaytexture>
-						<texturebg colordiffuse="2f5f5f5f">osd/progress-bg.png</texturebg>
-						<lefttexture colordiffuse="$VAR[PercentColourHighlight]">osd/progress-end.png</lefttexture>
-						<midtexture colordiffuse="$VAR[PercentColourHighlight]">osd/progress-end.png</midtexture>
-						<righttexture colordiffuse="PanelWhite70">osd/progress-end.png</righttexture>
-						<visible>ListItem.IsResumable</visible>
+					<control type="image">
+						<centerright>32</centerright>
+						<centertop>32</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
 					</control>
 				</itemlayout>
 				<focusedlayout width="158" height="235">
@@ -1412,16 +1446,29 @@
 						<height>230</height>
 						<texture background="true">$VAR[PosterImage]</texture>
 					</control>
-					<control type="progress">
-						<bottom>7</bottom>
-						<height>8</height>
-						<info>ListItem.PercentPlayed</info>
-						<overlaytexture>-</overlaytexture>
-						<texturebg colordiffuse="2f5f5f5f">osd/progress-bg.png</texturebg>
-						<lefttexture colordiffuse="$VAR[PercentColourHighlight]">osd/progress-end.png</lefttexture>
-						<midtexture colordiffuse="$VAR[PercentColourHighlight]">osd/progress-end.png</midtexture>
-						<righttexture colordiffuse="PanelWhite70">osd/progress-end.png</righttexture>
-						<visible>ListItem.IsResumable</visible>
+					<control type="image">
+						<description>Title overlay</description>
+						<texture border="15" colordiffuse="df000000">common/white.png</texture>
+					</control>
+					<control type="textbox">
+						<left>5</left>
+						<right>5</right>
+						<top>30</top>
+						<bottom>30</bottom>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>Tiny</font>
+						<textcolor>PanelWhite70</textcolor>
+						<selectedcolor>PanelWhite70</selectedcolor>
+						<label>$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ][CR][B]$INFO[ListItem.Title][/B]</label>
+					</control>
+					<control type="image">
+						<centerright>32</centerright>
+						<centertop>32</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
 					</control>
 					<control type="image">
 						<left>-3</left>
