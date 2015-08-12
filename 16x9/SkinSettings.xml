@@ -1132,6 +1132,42 @@
 						<visible>Skin.HasSetting(PosterBackingColour)</visible>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
 					</control>
+					<control type="radiobutton" id="92869">
+						<width>1310</width>
+						<include>DefSettingsButton2</include>
+						<selected>Skin.HasSetting(emby.left.colour)</selected>
+						<onclick>Skin.ToggleSetting(emby.left.colour)</onclick>
+						<label>Change left thumb colour emby screen</label>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+						<visible>Skin.HasSetting(home.emby)</visible>
+					</control>
+					<control type="button" id="92870">
+						<width>1310</width>
+						<include>DefSettingsButton2</include>
+						<onclick>RunScript(script.arctic.zephyr.helper.jarvis,COLORPICKER,emby.left.colour.name)</onclick>
+						<label> - Set left colour</label>
+						<label2>[COLOR=$INFO[Skin.String(emby.left.colour.name)]]$INFO[Skin.String(emby.left.colour.name)][/COLOR]</label2>
+						<visible>Skin.HasSetting(emby.left.colour) + Skin.HasSetting(home.emby)</visible>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
+					<control type="radiobutton" id="92871">
+						<width>1310</width>
+						<include>DefSettingsButton2</include>
+						<selected>Skin.HasSetting(emby.right.colour)</selected>
+						<onclick>Skin.ToggleSetting(emby.right.colour)</onclick>
+						<label>Change right thumb colour emby</label>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+						<visible>Skin.HasSetting(home.emby)</visible>
+					</control>
+					<control type="button" id="92872">
+						<width>1310</width>
+						<include>DefSettingsButton2</include>
+						<onclick>RunScript(script.arctic.zephyr.helper.jarvis,COLORPICKER,emby.right.colour.name)</onclick>
+						<label> - Set right colour</label>
+						<label2>[COLOR=$INFO[Skin.String(emby.right.colour.name)]]$INFO[Skin.String(emby.right.colour.name)][/COLOR]</label2>
+						<visible>Skin.HasSetting(emby.right.colour) + Skin.HasSetting(home.emby)</visible>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
 					<!-- Views -->
 					<control type="button" id="9291" description="Enable or Disable views">
 						<width>1310</width>

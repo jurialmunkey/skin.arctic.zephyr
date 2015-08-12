@@ -688,6 +688,14 @@
 		<value condition="Skin.HasSetting(ColourHighlight)">$INFO[Skin.String(focuscolor.name)]</value>
 		<value condition="!Skin.HasSetting(ColourHighlight)">Highlight</value>
 	</variable>
+	<variable name="EmbyLeftColourHighlight">
+		<value condition="Skin.HasSetting(emby.left.colour)">$INFO[Skin.String(emby.left.colour.name)]</value>
+		<value>dark pastel green</value>
+	</variable>
+	<variable name="EmbyRightColourHighlight">
+		<value condition="Skin.HasSetting(emby.right.colour)">$INFO[Skin.String(emby.right.colour.name)]</value>
+		<value>lust</value>
+	</variable>
 	<variable name="PercentWatchedLabel">
 		<value condition="Skin.HasSetting(furniture.alternateindicators) + !Skin.HasSetting(furniture.hideindicators) + ListItem.IsPlaying"></value>
 		<value condition="Skin.HasSetting(furniture.alternateindicators) + !Skin.HasSetting(furniture.hideindicators) + !Skin.HasSetting(furniture.hideresume) + ListItem.IsResumable"></value>
