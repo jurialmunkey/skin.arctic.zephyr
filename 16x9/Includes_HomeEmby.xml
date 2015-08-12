@@ -734,6 +734,18 @@
 				<onleft>Control.Move(3012,-1)</onleft>
 				<onright>Control.Move(3012,1)</onright>
 			</control>
+			<control type="label">
+				<left>SidePad</left>
+				<top>290</top>
+				<width>410</width>
+				<align>left</align>
+				<height>40</height>
+				<font>Small</font>
+				<textcolor>PanelWhite70</textcolor>
+				<selectedcolor>PanelWhite70</selectedcolor>
+				<label>Random Movies</label>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+			</control>
 			<control type="wraplist" id="3012">
 				<description>Widget</description>
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
@@ -971,6 +983,7 @@
 				<ondown>3016</ondown>
 				<onback>300</onback>
 				<onleft>3014</onleft>
+				<onright>3017</onright>
 				<preloaditems>2</preloaditems>
 				<orientation>vertical</orientation>
 				<scrolltime tween="quadratic">0</scrolltime>
@@ -1029,6 +1042,89 @@
 					</control>
 				</focusedlayout>
 				<content target="video">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window.Property(recommendedmovies)]</content>
+			</control>
+			<!-- Latest Movies -->
+			<control type="label">
+				<left>1470</left>
+				<top>290</top>
+				<width>410</width>
+				<align>left</align>
+				<height>40</height>
+				<font>Small</font>
+				<textcolor>PanelWhite70</textcolor>
+				<selectedcolor>PanelWhite70</selectedcolor>
+				<label>Latest Movies</label>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+			</control>
+			<control type="list" id="3017">
+				<description>Widget</description>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
+				<top>330</top>
+				<left>1470</left>
+				<width>410</width>
+				<height>705</height>
+				<onup>3017</onup>
+				<ondown>3017</ondown>
+				<onback>300</onback>
+				<onleft>3016</onleft>
+				<preloaditems>2</preloaditems>
+				<orientation>vertical</orientation>
+				<scrolltime tween="quadratic">0</scrolltime>
+				<include>Animation.FadeIn</include>
+				<include>Animation.FadeOut</include>
+				<itemlayout width="410" height="235">
+					<control type="image">
+						<aspectratio>keep</aspectratio>
+						<height>230</height>
+						<texture background="true">$INFO[ListItem.Art(landscape)]</texture>
+					</control>
+					<control type="progress">
+						<bottom>5</bottom>
+						<height>8</height>
+						<info>ListItem.PercentPlayed</info>
+						<overlaytexture>-</overlaytexture>
+						<texturebg colordiffuse="2f5f5f5f">osd/progress-bg.png</texturebg>
+						<lefttexture colordiffuse="$VAR[PercentColourHighlight]">osd/progress-end.png</lefttexture>
+						<midtexture colordiffuse="$VAR[PercentColourHighlight]">osd/progress-end.png</midtexture>
+						<righttexture colordiffuse="PanelWhite70">osd/progress-end.png</righttexture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout width="410" height="235">
+					<control type="image">
+						<aspectratio>keep</aspectratio>
+						<height>230</height>
+						<texture background="true">$INFO[ListItem.Art(landscape)]</texture>
+					</control>
+					<control type="progress">
+						<bottom>7</bottom>
+						<height>8</height>
+						<info>ListItem.PercentPlayed</info>
+						<overlaytexture>-</overlaytexture>
+						<texturebg colordiffuse="2f5f5f5f">osd/progress-bg.png</texturebg>
+						<lefttexture colordiffuse="$VAR[PercentColourHighlight]">osd/progress-end.png</lefttexture>
+						<midtexture colordiffuse="$VAR[PercentColourHighlight]">osd/progress-end.png</midtexture>
+						<righttexture colordiffuse="PanelWhite70">osd/progress-end.png</righttexture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+					<control type="image">
+						<left>-3</left>
+						<top>-3</top>
+						<right>-3</right>
+						<bottom>0</bottom>
+						<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+						<visible>Control.HasFocus(3017)</visible>
+						<animation type="Focus">
+							<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+						</animation>
+						<animation type="Unfocus">
+							<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+						</animation>
+					</control>
+				</focusedlayout>
+				<content target="video">plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window.Property(recentmovies)]</content>
 			</control>
 		</control>
 	</include>
