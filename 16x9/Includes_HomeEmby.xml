@@ -993,7 +993,7 @@
 					<control type="image">
 						<aspectratio>keep</aspectratio>
 						<height>230</height>
-						<texture background="true">$INFO[ListItem.Art(landscape)]</texture>
+						<texture background="true">$VAR[LandscapeImage]</texture>
 					</control>
 					<control type="progress">
 						<bottom>5</bottom>
@@ -1011,7 +1011,7 @@
 					<control type="image">
 						<aspectratio>keep</aspectratio>
 						<height>230</height>
-						<texture background="true">$INFO[ListItem.Art(landscape)]</texture>
+						<texture background="true">$VAR[LandscapeImage]</texture>
 					</control>
 					<control type="progress">
 						<bottom>7</bottom>
@@ -1056,27 +1056,26 @@
 				<label>Latest Movies</label>
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
 			</control>
-			<control type="list" id="3017">
+			<control type="panel" id="3017">
 				<description>Widget</description>
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),movies)</visible>
 				<top>330</top>
 				<left>1470</left>
-				<width>410</width>
+				<width>316</width>
 				<height>705</height>
 				<onup>3017</onup>
 				<ondown>3017</ondown>
 				<onback>300</onback>
 				<onleft>3016</onleft>
 				<preloaditems>2</preloaditems>
-				<orientation>vertical</orientation>
 				<scrolltime tween="quadratic">0</scrolltime>
 				<include>Animation.FadeIn</include>
 				<include>Animation.FadeOut</include>
-				<itemlayout width="410" height="235">
+				<itemlayout width="158" height="235">
 					<control type="image">
 						<aspectratio>keep</aspectratio>
 						<height>230</height>
-						<texture background="true">$INFO[ListItem.Art(landscape)]</texture>
+						<texture background="true">$VAR[PosterImage]</texture>
 					</control>
 					<control type="progress">
 						<bottom>5</bottom>
@@ -1090,11 +1089,11 @@
 						<visible>ListItem.IsResumable</visible>
 					</control>
 				</itemlayout>
-				<focusedlayout width="410" height="235">
+				<focusedlayout width="158" height="235">
 					<control type="image">
 						<aspectratio>keep</aspectratio>
 						<height>230</height>
-						<texture background="true">$INFO[ListItem.Art(landscape)]</texture>
+						<texture background="true">$VAR[PosterImage]</texture>
 					</control>
 					<control type="progress">
 						<bottom>7</bottom>
