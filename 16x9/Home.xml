@@ -11,8 +11,9 @@
 	<controls>
 		<include condition="!Skin.HasSetting(home.netflix) + !Skin.HasSetting(lights.out)">GlobalBackground</include>
 		<include condition="Skin.HasSetting(home.netflix) + System.HasAddon(plugin.video.netflixbmc) + !Skin.HasSetting(lights.out)">NetflixBackground</include>
+		<include condition="Skin.HasSetting(home.emby)">GlobalOverlay</include>
 		<control type="group">
-			 <animation type="Conditional" condition="System.IdleTime(10) + Skin.HasSetting(home.fade)" reversible="false">
+			 <animation type="Conditional" condition="System.IdleTime(20) + Skin.HasSetting(home.fade)" reversible="false">
 				<!-- Broken Fade -->
 				<effect type="fade" start="100" end="0" time="3500" tween="quadratic"/>
 				<effect type="zoom" start="100" end="90" time="750" tween="elastic"/>
@@ -34,7 +35,6 @@
 			<include condition="Skin.HasSetting(home.netflix) + !System.HasAddon(plugin.video.netflixbmc)">NetflixWidgetSelector</include>
 			<include condition="Skin.HasSetting(home.netflix) + System.HasAddon(plugin.video.netflixbmc)">NetflixXbmcBackground</include>
 			<include condition="Skin.HasSetting(home.netflix) + System.HasAddon(plugin.video.netflixbmc)">HomeNetflixXbmc</include>
-			<include condition="Skin.HasSetting(home.emby)">GlobalOverlay</include>
 			<include condition="Skin.HasSetting(home.emby)">HomeEmbyRow</include>
 			<include condition="Skin.HasSetting(home.emby)">HomeEmbyWidgetInfo</include>
 			<include condition="Skin.HasSetting(home.emby) + [!Skin.HasSetting(home.submenu2) | Skin.HasSetting(home.showicons)]">HomeEmbySubMenu</include>
