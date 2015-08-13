@@ -211,7 +211,6 @@
 			</control>
 			<control type="list" id="300">
 				<animation effect="slide" end="0,24" condition="control.hasfocus(302)" time="200">Conditional</animation>
-				<animation effect="fade" start="100" end="25" condition="control.hasfocus(302)" time="200">Conditional</animation>
 				<include>Animation.FadeIn.Delay</include>
 				<include>Animation.FadeOut</include>
 				<description>Home Wraplist</description>
@@ -227,8 +226,8 @@
 				<onright>300</onright>
 				<orientation>horizontal</orientation>
 				<scrolltime>200</scrolltime>
-				<include condition="Skin.HasSetting(home.showicons)">HomeEmbyContentIcon</include>
-				<include condition="!Skin.HasSetting(home.showicons)">HomeEmbyContentNoIcon</include>
+				<!-- tmi? <include condition="Skin.HasSetting(home.showicons)">HomeEmbyContentIcon</include> -->
+				<include>HomeEmbyContentNoIcon</include>
 			</control>
 		</control>
 	</include>
@@ -386,6 +385,7 @@
 				<textcolor>Dark3</textcolor>
 				<font>HomeEmby</font>
 				<label>$INFO[ListItem.Label]</label>
+				<animation effect="fade" start="100" end="25" condition="control.hasfocus(302)" time="200">Conditional</animation>
 			</control>
 		</itemlayout>
 		<focusedlayout width="220" height="74">
@@ -425,11 +425,11 @@
 		</content>
 	</include>
 	<include name="HomeEmbyContentIcon">
-		<top>848</top>
-		<itemlayout width="220" height="220">
+		<top>122</top>
+		<itemlayout width="220" height="110">
 			<control type="image">
-				<width>128</width>
-				<height>128</height>
+				<width>64</width>
+				<height>64</height>
 				<centerleft>50%</centerleft>
 				<centertop>40%</centertop>
 				<texture colordiffuse="Dark3">$INFO[ListItem.Icon]</texture>
@@ -446,10 +446,10 @@
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
-		<focusedlayout width="220" height="220">
+		<focusedlayout width="220" height="110">
 			<control type="image">
-				<width>128</width>
-				<height>128</height>
+				<width>64</width>
+				<height>64</height>
 				<centerleft>50%</centerleft>
 				<centertop>40%</centertop>
 				<texture colordiffuse="Dark1">$INFO[ListItem.Icon]</texture>
