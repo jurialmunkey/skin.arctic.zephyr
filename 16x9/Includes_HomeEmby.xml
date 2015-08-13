@@ -5,7 +5,7 @@
 			<include>Animation.FadeIn</include>
 			<include>Animation.FadeOut</include>
 			<animation effect="fade" start="100" end="25" condition="control.hasfocus(302)" time="200">Conditional</animation>
-			<top>40</top>
+			<top>SidePad</top>
 			<visible>!Skin.HasSetting(furniture.clock)</visible>
 			<include>Animation.FurnitureFadeInOut</include>
 			<height>84</height>
@@ -194,6 +194,7 @@
 			<include>Furniture_EmbyClock</include>
 			<include>Furniture_HeaderEmby</include>
 			<control type="image">
+				<animation effect="fade" start="100" end="00" condition="control.hasfocus(302)" time="200">Conditional</animation>
 				<visible>IntegerGreaterThan(Container(300).NumItems,8)</visible>
 				<bottom>863</bottom>
 				<left>32</left>
@@ -202,6 +203,7 @@
 				<texture colordiffuse="Dark2" flipx="true">common/arrow-small-right.png</texture>
 			</control>
 			<control type="image">
+				<animation effect="fade" start="100" end="00" condition="control.hasfocus(302)" time="200">Conditional</animation>
 				<visible>IntegerGreaterThan(Container(300).NumItems,8)</visible>
 				<bottom>863</bottom>
 				<right>32</right>
@@ -491,6 +493,7 @@
 		</content>
 	</include>
 	<include name="HomeEmbyWidgetInfo">
+		<top>-40</top>
 		<!-- Widget Info -->
 		<control type="group">
 			<animation type="WindowClose">
