@@ -218,9 +218,9 @@
 				<description>Home Wraplist</description>
 				<left>SidePad</left>
 				<right>SidePad</right>
-				<ondown condition="StringCompare(Container(300).ListItem.Property(defaultID),movies)">3016</ondown>
-				<ondown condition="StringCompare(Container(300).ListItem.Property(defaultID),tvshows)">4016</ondown>
-				<ondown condition="StringCompare(Container(300).ListItem.Property(defaultID),music)">5016</ondown>
+				<ondown condition="StringCompare(Container(300).ListItem.Property(defaultID),movies)">3011</ondown>
+				<ondown condition="StringCompare(Container(300).ListItem.Property(defaultID),tvshows)">4011</ondown>
+				<ondown condition="StringCompare(Container(300).ListItem.Property(defaultID),music)">5011</ondown>
 				<ondown condition="StringCompare(Container(300).ListItem.Property(widget),Weather)">3439</ondown>
 				<ondown condition="!StringCompare(Container(300).ListItem.Property(defaultID),movies)">301</ondown>
 				<onup condition="IntegerGreaterThan(Container(302).NumItems,0)">SetFocus(302,0)</onup>
@@ -1507,7 +1507,8 @@
 			<control type="button" id="3014">
 				<onup>3011</onup>
 				<onleft>3013</onleft>
-				<onright>3016</onright>
+				<onright condition="Control.IsVisible(3016)">3016</onright>
+				<onright condition="!Control.IsVisible(3016)">3017</onright>
 				<onclick>ActivateWindow(VideoLibrary,MovieGenres,return)</onclick>
 			</control>
 			<control type="image">
@@ -1669,7 +1670,8 @@
 				<onup>300</onup>
 				<ondown>3017</ondown>
 				<onback>300</onback>
-				<onleft>3016</onleft>
+				<onleft condition="Control.IsVisible(3016)">3016</onleft>
+				<onleft condition="!Control.IsVisible(3016)">3011</onleft>
 				<preloaditems>2</preloaditems>
 				<scrolltime tween="quadratic">0</scrolltime>
 				<include>Animation.FadeIn</include>
@@ -2469,7 +2471,7 @@
 				<font>Small</font>
 				<textcolor>PanelWhite70</textcolor>
 				<selectedcolor>PanelWhite70</selectedcolor>
-				<label>Recommended Albums</label>
+				<label>Recently Played Albums</label>
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),music)</visible>
 			</control>
 			<control type="list" id="5016">
@@ -2541,7 +2543,7 @@
 						</animation>
 					</control>
 				</focusedlayout>
-				<content target="video">plugin://service.library.data.provider?type=recommendedalbums&amp;reload=$INFO[Window.Property(recommendedalbums)]</content>
+				<content target="video">musicdb://recentlyplayedalbums/</content>
 			</control>
 			<!-- Latest Albums -->
 			<control type="label">
