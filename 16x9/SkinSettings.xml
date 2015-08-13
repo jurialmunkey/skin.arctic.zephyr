@@ -1168,6 +1168,24 @@
 						<visible>Skin.HasSetting(emby.right.colour) + Skin.HasSetting(home.emby)</visible>
 						<visible>ControlGroup(9100).HasFocus(9108)</visible>
 					</control>
+					<control type="radiobutton" id="92873">
+						<width>1310</width>
+						<include>DefSettingsButton2</include>
+						<selected>Skin.HasSetting(emby.middle.colour)</selected>
+						<onclick>Skin.ToggleSetting(emby.middle.colour)</onclick>
+						<label>Change middle thumb colour emby screen</label>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+						<visible>Skin.HasSetting(home.emby)</visible>
+					</control>
+					<control type="button" id="92874">
+						<width>1310</width>
+						<include>DefSettingsButton2</include>
+						<onclick>RunScript(script.arctic.zephyr.helper.jarvis,COLORPICKER,emby.middle.colour.name)</onclick>
+						<label> - Set middle colour</label>
+						<label2>[COLOR=$INFO[Skin.String(emby.middle.colour.name)]]$INFO[Skin.String(emby.middle.colour.name)][/COLOR]</label2>
+						<visible>Skin.HasSetting(emby.middle.colour) + Skin.HasSetting(home.emby)</visible>
+						<visible>ControlGroup(9100).HasFocus(9108)</visible>
+					</control>
 					<!-- Views -->
 					<control type="button" id="9291" description="Enable or Disable views">
 						<width>1310</width>

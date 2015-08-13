@@ -2250,7 +2250,7 @@
 				<font>SmallBold</font>
 				<textcolor>PanelWhite70</textcolor>
 				<selectedcolor>PanelWhite70</selectedcolor>
-				<label>$INFO[Container(5012).ListItem.Title,, ]$INFO[Container(5012).ListItem.Artist]$INFO[Container(5012).ListItem.Year, • ,]</label>
+				<label>$INFO[Container(5012).ListItem.Title]$INFO[Container(5012).ListItem.Artist, • ,]$INFO[Container(5012).ListItem.Year, • ,]</label>
 				<animation effect="slide" start="0" end="-90" time="0" condition="![Container.Content(movies) | Container.Content(episodes)]">Conditional</animation>
 				<animation effect="slide" start="0" end="70" time="0" condition="Container.Content(episodes)">Conditional</animation>
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),music)</visible>
@@ -2263,10 +2263,9 @@
 				<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
 				<visible>Control.HasFocus(5011)</visible>
 			</control>
-
 			<control type="button" id="5013">
 				<onup>5011</onup>
-				<onright>5014</onright>
+				<onright>5015</onright>
 				<onclick>ActivateWindow(Music)</onclick>
 			</control>
 			<control type="image">
@@ -2274,7 +2273,7 @@
 				<description>All music</description>
 				<left>SidePad</left>
 				<posy>800</posy>
-				<width>400</width>
+				<width>255</width>
 				<height>230</height>
 				<texture border="15" colordiffuse="$VAR[EmbyLeftColourHighlight]">common/white.png</texture>
 			</control>
@@ -2283,7 +2282,7 @@
 				<description>All music</description>
 				<left>SidePad</left>
 				<posy>800</posy>
-				<width>400</width>
+				<width>255</width>
 				<height>230</height>
 				<texture background="true">special://skin/extras/icons/songs.png</texture>
 				<aspectratio>keep</aspectratio>
@@ -2295,26 +2294,26 @@
 				<description>Title overlay</description>
 				<left>SidePad</left>
 				<posy>990</posy>
-				<width>400</width>
+				<width>255</width>
 				<height>40</height>
 				<texture border="15" colordiffuse="df000000">common/white.png</texture>
 			</control>
 			<control type="label">
 				<left>SidePad</left>
 				<posy>990</posy>
-				<width>400</width>
+				<width>255</width>
 				<align>center</align>
 				<height>40</height>
 				<font>Small</font>
 				<textcolor>PanelWhite70</textcolor>
 				<selectedcolor>PanelWhite70</selectedcolor>
-				<label>2</label>
+				<label>132</label>
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),music)</visible>
 			</control>
 			<control type="label">
 				<left>SidePad</left>
 				<posy>805</posy>
-				<width>390</width>
+				<width>245</width>
 				<align>right</align>
 				<height>40</height>
 				<font>Small</font>
@@ -2325,33 +2324,104 @@
 			</control>
 			<control type="image">
 				<left>76</left>
-				<width>408</width>
+				<width>263</width>
 				<posy>796</posy>
 				<height>238</height>
 				<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
 				<visible>Control.HasFocus(5013)</visible>
 			</control>
-			<control type="button" id="5014">
+
+			<control type="button" id="5015">
 				<onup>5011</onup>
 				<onleft>5013</onleft>
+				<onright>5014</onright>
+				<onclick>ActivateWindow(music,artists,return)</onclick>
+			</control>
+			<control type="image">
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),music)</visible>
+				<description>music artists</description>
+				<left>360</left>
+				<posy>800</posy>
+				<width>255</width>
+				<height>230</height>
+				<texture border="15" colordiffuse="$VAR[EmbyMiddleColourHighlight]">common/white.png</texture>
+			</control>
+			<control type="image">
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),music)</visible>
+				<description>All music</description>
+				<left>360</left>
+				<posy>800</posy>
+				<width>255</width>
+				<height>230</height>
+				<texture background="true">special://skin/extras/icons/artist.png</texture>
+				<aspectratio>keep</aspectratio>
+				<align>center</align>
+				<aligny>center</aligny>
+			</control>
+			<control type="image">
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),music)</visible>
+				<description>Title overlay</description>
+				<left>360</left>
+				<posy>990</posy>
+				<width>255</width>
+				<height>40</height>
+				<texture border="15" colordiffuse="df000000">common/white.png</texture>
+			</control>
+			<control type="label">
+				<left>360</left>
+				<posy>990</posy>
+				<width>255</width>
+				<align>center</align>
+				<height>40</height>
+				<font>Small</font>
+				<textcolor>PanelWhite70</textcolor>
+				<selectedcolor>PanelWhite70</selectedcolor>
+				<label>133</label>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),music)</visible>
+			</control>
+			<control type="label">
+				<left>360</left>
+				<posy>805</posy>
+				<width>245</width>
+				<align>right</align>
+				<height>40</height>
+				<font>Small</font>
+				<textcolor>FF222222</textcolor>
+				<selectedcolor>PanelWhite70</selectedcolor>
+				<label>$INFO[Window(Home).Property(Music.ArtistsCount)]</label>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),music)</visible>
+			</control>
+			<control type="image">
+				<left>356</left>
+				<width>263</width>
+				<posy>796</posy>
+				<height>238</height>
+				<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+				<visible>Control.HasFocus(5015)</visible>
+			</control>
+
+
+			<control type="button" id="5014">
+				<onup>5011</onup>
+				<onleft>5015</onleft>
 				<onright>5016</onright>
 				<onclick>ActivateWindow(music,genres,return)</onclick>
 			</control>
 			<control type="image">
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),music)</visible>
 				<description>Genres</description>
-				<left>500</left>
+				<left>640</left>
 				<posy>800</posy>
-				<width>400</width>
+				<width>255</width>
 				<height>230</height>
 				<texture border="15" colordiffuse="$VAR[EmbyRightColourHighlight]">common/white.png</texture>
 			</control>
 			<control type="image">
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),music)</visible>
 				<description>Genres</description>
-				<left>500</left>
+				<left>640</left>
 				<posy>800</posy>
-				<width>400</width>
+				<width>255</width>
 				<height>230</height>
 				<aspectratio>keep</aspectratio>
 				<align>center</align>
@@ -2361,16 +2431,16 @@
 			<control type="image">
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),music)</visible>
 				<description>Title overlay</description>
-				<left>500</left>
+				<left>640</left>
 				<posy>990</posy>
-				<width>400</width>
+				<width>255</width>
 				<height>40</height>
 				<texture border="15" colordiffuse="df000000">common/white.png</texture>
 			</control>
 			<control type="label">
-				<left>500</left>
+				<left>640</left>
 				<posy>990</posy>
-				<width>400</width>
+				<width>255</width>
 				<align>center</align>
 				<height>40</height>
 				<align>right</align>
@@ -2381,8 +2451,8 @@
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),music)</visible>
 			</control>
 			<control type="image">
-				<left>496</left>
-				<width>408</width>
+				<left>636</left>
+				<width>263</width>
 				<posy>796</posy>
 				<height>238</height>
 				<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
