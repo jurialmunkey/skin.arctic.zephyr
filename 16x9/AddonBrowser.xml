@@ -82,14 +82,21 @@
 					<align>left</align>
 					<include>DefContextButton2</include>
 				</control>
-				<!--  <control type="button" id="98">
-					<description>Open Player Controls</description>
-					<include>DefContextButton</include>
-					<align>left</align>
-					<label>31015</label>
-					<onclick>ActivateWindow(playercontrols)</onclick>
-					<visible>Player.HasMedia</visible>
-				</control> -->
+				<control type="label" id="202">
+					<height>42</height>
+					<textoffsetx>15</textoffsetx>
+					<font>Home</font>
+					<label>Last Updated</label>
+					<textcolor>$VAR[ColourHighlight2]</textcolor>
+					<aligny>center</aligny>
+				</control>
+				<control type="label" id="203">
+					<include>DefContextButton2</include>
+					<textoffsetx>15</textoffsetx>
+					<font>Home</font>
+					<label>$INFO[Window(AddonBrowser).Property(Updated)]</label>
+					<aligny>center</aligny>
+				</control>
 			</control>
 		</control>
 	</controls>
