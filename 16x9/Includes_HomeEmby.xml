@@ -179,9 +179,10 @@
 				<description>Home Wraplist</description>
 				<left>SidePad</left>
 				<right>SidePad</right>
-				<ondown condition="StringCompare(Container(300).ListItem.Property(defaultID),movies)">3011</ondown>
-				<ondown condition="StringCompare(Container(300).ListItem.Property(defaultID),tvshows)">4011</ondown>
-				<ondown condition="StringCompare(Container(300).ListItem.Property(defaultID),music)">5011</ondown>
+				<ondown condition="StringCompare(Container(300).ListItem.Property(defaultID),movies)">3016</ondown>
+				<ondown condition="StringCompare(Container(300).ListItem.Property(defaultID),tvshows)">4016</ondown>
+				<ondown condition="StringCompare(Container(300).ListItem.Property(defaultID),music)">5016</ondown>
+				<ondown condition="StringCompare(Container(300).ListItem.Property(defaultID),videos)">6016</ondown>
 				<ondown condition="StringCompare(Container(300).ListItem.Property(widget),Weather)">3439</ondown>
 				<ondown condition="!StringCompare(Container(300).ListItem.Property(defaultID),movies)">301</ondown>
 				<onup condition="IntegerGreaterThan(Container(302).NumItems,0)">SetFocus(302,0)</onup>
@@ -190,7 +191,6 @@
 				<onright>300</onright>
 				<orientation>horizontal</orientation>
 				<scrolltime>200</scrolltime>
-				<!-- tmi? <include condition="Skin.HasSetting(home.showicons)">HomeEmbyContentIcon</include> -->
 				<include>HomeEmbyContentNoIcon</include>
 			</control>
 		</control>
@@ -388,72 +388,6 @@
 			<include>skinshortcuts-mainmenu</include>
 		</content>
 	</include>
-	<include name="HomeEmbyContentIcon">
-		<top>122</top>
-		<itemlayout width="220" height="110">
-			<control type="image">
-				<width>64</width>
-				<height>64</height>
-				<centerleft>50%</centerleft>
-				<centertop>40%</centertop>
-				<texture colordiffuse="Dark3">$INFO[ListItem.Icon]</texture>
-				<visible>substring(ListItem.Icon,icons)</visible>
-			</control>
-			<control type="label">
-				<align>center</align>
-				<aligny>top</aligny>
-				<width>180</width>
-				<bottom>0</bottom>
-				<centerleft>50%</centerleft>
-				<textcolor>Dark3</textcolor>
-				<font>HomeIcon</font>
-				<label>$INFO[ListItem.Label]</label>
-			</control>
-		</itemlayout>
-		<focusedlayout width="220" height="110">
-			<control type="image">
-				<width>64</width>
-				<height>64</height>
-				<centerleft>50%</centerleft>
-				<centertop>40%</centertop>
-				<texture colordiffuse="Dark1">$INFO[ListItem.Icon]</texture>
-				<visible>substring(ListItem.Icon,icons)</visible>
-			</control>
-			<control type="label">
-				<align>center</align>
-				<aligny>top</aligny>
-				<width>180</width>
-				<bottom>0</bottom>
-				<centerleft>50%</centerleft>
-				<textcolor>Dark1</textcolor>
-				<font>HomeIcon</font>
-				<label>$INFO[ListItem.Label]</label>
-			</control>
-			<control type="image">
-				<bottom>16</bottom>
-				<centerleft>50%</centerleft>
-				<width>90%</width>
-				<height>4</height>
-				<texture colordiffuse="$VAR[ColourHighlight]">common/box.png</texture>
-				<visible>Control.HasFocus(300)</visible>
-				<include>Animation.FadeIn</include>
-				<include>Animation.FadeOut</include>
-			</control>
-			<control type="image">
-				<top>-4</top>
-				<centerleft>50%</centerleft>
-				<width>16</width>
-				<height>16</height>
-				<texture flipy="true" colordiffuse="Dark3">common/arrow-small.png</texture>
-				<visible>Control.HasFocus(300)</visible>
-				<visible>IntegerGreaterThan(Container(302).NumItems,0)</visible>
-				<animation effect="fade" end="100" start="0" delay="300" time="400" reversible="false">Focus</animation>
-			</control>
-		</focusedlayout>
-		<content>
-			<include>skinshortcuts-mainmenu</include>
-		</content>
-	</include>
 	<include name="HomeEmbyWidgetInfo">
 		<top>-40</top>
 		<!-- Widget Info -->
@@ -515,7 +449,7 @@
 			<control type="group">
 				<visible>!Container(301).IsUpdating</visible>
 				<visible>IntegerGreaterThan(Container(301).NumItems,0)</visible>
-				<visible>!StringCompare(Container(300).ListItem.Property(defaultID),movies) + !StringCompare(Container(300).ListItem.Property(defaultID),tvshows) + !StringCompare(Container(300).ListItem.Property(defaultID),music)</visible>
+				<visible>!StringCompare(Container(300).ListItem.Property(defaultID),movies) + !StringCompare(Container(300).ListItem.Property(defaultID),tvshows) + !StringCompare(Container(300).ListItem.Property(defaultID),music) + !StringCompare(Container(300).ListItem.Property(defaultID),videos)</visible>
 				<visible>!StringCompare(Container(300).ListItem.Property(widget),Weather)</visible>
 				<visible>!substring(Container(300).ListItem.Property(widget),Albums) + !substring(Container(300).ListItem.Property(widget),Favourites)</visible>
 				<visible>![Window.IsVisible(home) + !IsEmpty(Skin.String(home.slideshowpath)) + IsEmpty(Container(300).ListItem.Property(widget))] + [IsEmpty(Container(300).ListItem.Property(Background)) | !IsEmpty(Container(300).ListItem.Property(widget))]</visible>
@@ -1293,12 +1227,13 @@
 			</control>
 
 			<!-- Movies menu item -->
-			<control type="button" id="3011">
+		<!--	<control type="button" id="3011">
 				<onup>300</onup>
 				<ondown>3013</ondown>
 				<onleft>Control.Move(3012,-1)</onleft>
 				<onright>Control.Move(3012,1)</onright>
-			</control>
+				<onclick>PlayMedia($ESCINFO[Container(3012).ListItem.Path])</onclick>
+			</control> -->
 			<control type="label">
 				<left>SidePad</left>
 				<top>290</top>
@@ -1319,13 +1254,13 @@
 				<width>820</width>
 				<height>460</height>
 				<onup>300</onup>
-				<ondown>300</ondown>
+				<ondown>3013</ondown>
 				<onback>300</onback>
 				<onleft>301</onleft>
 				<onright>301</onright>
 				<preloaditems>2</preloaditems>
 				<orientation>horizontal</orientation>
-				<autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
+				<autoscroll time="10000">!Control.HasFocus(3012)</autoscroll>
 				<scrolltime tween="quadratic">0</scrolltime>
 				<include>Animation.FadeIn</include>
 				<include>Animation.FadeOut</include>
@@ -1395,11 +1330,11 @@
 				<top>326</top>
 				<height>468</height>
 				<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
-				<visible>Control.HasFocus(3011)</visible>
+				<visible>Control.HasFocus(3011) | Control.HasFocus(3012)</visible>
 			</control>
 
 			<control type="button" id="3013">
-				<onup>3011</onup>
+				<onup>3012</onup>
 				<onright>3014</onright>
 				<onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
 			</control>
@@ -1466,7 +1401,7 @@
 				<visible>Control.HasFocus(3013)</visible>
 			</control>
 			<control type="button" id="3014">
-				<onup>3011</onup>
+				<onup>3012</onup>
 				<onleft>3013</onleft>
 				<onright condition="Control.IsVisible(3016)">3016</onright>
 				<onright condition="!Control.IsVisible(3016)">3017</onright>
@@ -1547,7 +1482,7 @@
 				<onup>300</onup>
 				<ondown>3016</ondown>
 				<onback>300</onback>
-				<onleft>3011</onleft>
+				<onleft>3012</onleft>
 				<onright>3017</onright>
 				<preloaditems>2</preloaditems>
 				<orientation>vertical</orientation>
@@ -1632,7 +1567,7 @@
 				<ondown>3017</ondown>
 				<onback>300</onback>
 				<onleft condition="Control.IsVisible(3016)">3016</onleft>
-				<onleft condition="!Control.IsVisible(3016)">3011</onleft>
+				<onleft condition="!Control.IsVisible(3016)">3012</onleft>
 				<preloaditems>2</preloaditems>
 				<scrolltime tween="quadratic">0</scrolltime>
 				<include>Animation.FadeIn</include>
@@ -1693,12 +1628,6 @@
 			</control>
 
 			<!-- TV menu item -->
-			<control type="button" id="4011">
-				<onup>300</onup>
-				<ondown>4013</ondown>
-				<onleft>Control.Move(4012,-1)</onleft>
-				<onright>Control.Move(4012,1)</onright>
-			</control>
 			<control type="label">
 				<left>SidePad</left>
 				<top>290</top>
@@ -1719,7 +1648,7 @@
 				<width>820</width>
 				<height>460</height>
 				<onup>300</onup>
-				<ondown>300</ondown>
+				<ondown>4013</ondown>
 				<onback>300</onback>
 				<onleft>301</onleft>
 				<onright>301</onright>
@@ -1801,11 +1730,11 @@
 				<top>326</top>
 				<height>468</height>
 				<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
-				<visible>Control.HasFocus(4011)</visible>
+				<visible>Control.HasFocus(4012)</visible>
 			</control>
 
 			<control type="button" id="4013">
-				<onup>4011</onup>
+				<onup>4012</onup>
 				<onright>4014</onright>
 				<onclick>ActivateWindow(Videos,TVShowTitles,return)</onclick>
 			</control>
@@ -1872,7 +1801,7 @@
 				<visible>Control.HasFocus(4013)</visible>
 			</control>
 			<control type="button" id="4014">
-				<onup>4011</onup>
+				<onup>4012</onup>
 				<onleft>4013</onleft>
 				<onright>4016</onright>
 				<onclick>ActivateWindow(VideoLibrary,TVShowGenres,return)</onclick>
@@ -1952,7 +1881,7 @@
 				<onup>300</onup>
 				<ondown>4016</ondown>
 				<onback>300</onback>
-				<onleft>4011</onleft>
+				<onleft>4012</onleft>
 				<onright>4017</onright>
 				<preloaditems>2</preloaditems>
 				<orientation>vertical</orientation>
@@ -2144,12 +2073,6 @@
 			</control>
 
 			<!-- Music menu item -->
-			<control type="button" id="5011">
-				<onup>300</onup>
-				<ondown>5013</ondown>
-				<onleft>Control.Move(5012,-1)</onleft>
-				<onright>Control.Move(5012,1)</onright>
-			</control>
 			<control type="label">
 				<left>SidePad</left>
 				<top>290</top>
@@ -2170,7 +2093,7 @@
 				<width>820</width>
 				<height>460</height>
 				<onup>300</onup>
-				<ondown>300</ondown>
+				<ondown>5013</ondown>
 				<onback>300</onback>
 				<onleft>301</onleft>
 				<onright>301</onright>
@@ -2224,10 +2147,10 @@
 				<top>326</top>
 				<height>468</height>
 				<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
-				<visible>Control.HasFocus(5011)</visible>
+				<visible>Control.HasFocus(5012)</visible>
 			</control>
 			<control type="button" id="5013">
-				<onup>5011</onup>
+				<onup>5012</onup>
 				<onright>5015</onright>
 				<onclick>ActivateWindow(Music)</onclick>
 			</control>
@@ -2295,7 +2218,7 @@
 			</control>
 
 			<control type="button" id="5015">
-				<onup>5011</onup>
+				<onup>5012</onup>
 				<onleft>5013</onleft>
 				<onright>5014</onright>
 				<onclick>ActivateWindow(music,artists,return)</onclick>
@@ -2365,7 +2288,7 @@
 
 
 			<control type="button" id="5014">
-				<onup>5011</onup>
+				<onup>5012</onup>
 				<onleft>5015</onleft>
 				<onright>5016</onright>
 				<onclick>ActivateWindow(music,genres,return)</onclick>
@@ -2445,7 +2368,7 @@
 				<onup>300</onup>
 				<ondown>5016</ondown>
 				<onback>300</onback>
-				<onleft>5011</onleft>
+				<onleft>5012</onleft>
 				<onright>5017</onright>
 				<preloaditems>2</preloaditems>
 				<orientation>vertical</orientation>
@@ -2588,6 +2511,393 @@
 				</focusedlayout>
 				<content target="video">plugin://service.library.data.provider?type=recentalbums&amp;reload=$INFO[Window.Property(recentalbums)]</content>
 			</control>
+
+
+			<!-- Video Menu -->
+			<control type="label">
+				<left>SidePad</left>
+				<top>290</top>
+				<width>410</width>
+				<align>left</align>
+				<height>40</height>
+				<font>Small</font>
+				<textcolor>PanelWhite70</textcolor>
+				<selectedcolor>PanelWhite70</selectedcolor>
+				<label>Trending Movies</label>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),videos)</visible>
+			</control>
+			<control type="wraplist" id="6012">
+				<description>Widget</description>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),videos)</visible>
+				<top>330</top>
+				<left>SidePad</left>
+				<width>820</width>
+				<height>460</height>
+				<onup>300</onup>
+				<ondown>300</ondown>
+				<onback>6013</onback>
+				<onleft>301</onleft>
+				<onright>301</onright>
+				<preloaditems>2</preloaditems>
+				<orientation>horizontal</orientation>
+				<autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
+				<scrolltime tween="quadratic">0</scrolltime>
+				<include>Animation.FadeIn</include>
+				<include>Animation.FadeOut</include>
+				<itemlayout width="820" height="460">
+					<control type="image">
+						<aspectratio>keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+					</control>
+				</itemlayout>
+				<focusedlayout width="820" height="460">
+					<control type="image">
+						<aspectratio>keep</aspectratio>
+						<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+					</control>
+				</focusedlayout>
+				<content target="video">plugin://script.extendedinfo?info=trendingmovies</content>
+			</control>
+			<control type="image">
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),videos)</visible>
+				<description>Title overlay</description>
+				<left>SidePad</left>
+				<posy>712</posy>
+				<width>820</width>
+				<height>80</height>
+				<texture border="15" colordiffuse="df000000">common/white.png</texture>
+			</control>
+			<control type="label">
+				<posx>200</posx>
+				<posy>712</posy>
+				<width>auto</width>
+				<aligny>center</aligny>
+				<height>64</height>
+				<font>SmallBold</font>
+				<textcolor>PanelWhite70</textcolor>
+				<selectedcolor>PanelWhite70</selectedcolor>
+				<label>$INFO[Container(6012).ListItem.Label]</label>
+				<animation effect="slide" start="0" end="-90" time="0" condition="![Container.Content(movies) | Container.Content(episodes)]">Conditional</animation>
+				<animation effect="slide" start="0" end="70" time="0" condition="Container.Content(episodes)">Conditional</animation>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),videos)</visible>
+			</control>
+			<control type="label">
+				<left>SidePad</left>
+				<posy>712</posy>
+				<width>815</width>
+				<right>84</right>
+				<aligny>center</aligny>
+				<height>64</height>
+				<align>right</align>
+				<font>Small</font>
+				<textcolor>PanelWhite70</textcolor>
+				<selectedcolor>PanelWhite70</selectedcolor>
+				<label>$INFO[Container(6012).ListItem.Year,, • ]$INFO[Container(6012).ListItem.Rating]$INFO[Container(6012).ListItem.Votes, (, $LOCALIZE[20350])]</label>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),videos)</visible>
+			</control>
+			<control type="image">
+				<left>76</left>
+				<width>828</width>
+				<top>326</top>
+				<height>468</height>
+				<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+				<visible>Control.HasFocus(6012)</visible>
+			</control>
+
+			<control type="button" id="6013">
+				<onup>6012</onup>
+				<onright>6014</onright>
+				<onclick>ActivateWindow(videos,addons,return)</onclick>
+			</control>
+			<control type="image">
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),videos)</visible>
+				<description>All Movies</description>
+				<left>SidePad</left>
+				<posy>800</posy>
+				<width>400</width>
+				<height>230</height>
+				<texture border="15" colordiffuse="$VAR[EmbyLeftColourHighlight]">common/white.png</texture>
+			</control>
+			<control type="image">
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),videos)</visible>
+				<description>Video Addons</description>
+				<left>SidePad</left>
+				<posy>800</posy>
+				<width>400</width>
+				<height>230</height>
+				<texture background="true">special://skin/extras/icons/video-addons.png</texture>
+				<aspectratio>keep</aspectratio>
+				<align>center</align>
+				<aligny>center</aligny>
+			</control>
+			<control type="image">
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),videos)</visible>
+				<description>Title overlay</description>
+				<left>SidePad</left>
+				<posy>990</posy>
+				<width>400</width>
+				<height>40</height>
+				<texture border="15" colordiffuse="df000000">common/white.png</texture>
+			</control>
+			<control type="label">
+				<left>SidePad</left>
+				<posy>990</posy>
+				<width>400</width>
+				<align>center</align>
+				<height>40</height>
+				<font>Small</font>
+				<textcolor>PanelWhite70</textcolor>
+				<selectedcolor>PanelWhite70</selectedcolor>
+				<label>1037</label>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),videos)</visible>
+			</control>
+			<control type="image">
+				<left>76</left>
+				<width>408</width>
+				<posy>796</posy>
+				<height>238</height>
+				<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+				<visible>Control.HasFocus(6013)</visible>
+			</control>
+			<control type="button" id="6014">
+				<onup>6012</onup>
+				<onleft>6013</onleft>
+				<onright condition="Control.IsVisible(6016)">6016</onright>
+				<onright condition="!Control.IsVisible(6016)">6017</onright>
+				<onclick>ActivateWindow(10025,&quot;plugin://plugin.video.youtube/&quot;,return)</onclick>
+			</control>
+			<control type="image">
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),videos)</visible>
+				<description>Genres</description>
+				<left>500</left>
+				<posy>800</posy>
+				<width>400</width>
+				<height>230</height>
+				<texture border="15" colordiffuse="$VAR[EmbyRightColourHighlight]">common/white.png</texture>
+			</control>
+			<control type="image">
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),videos)</visible>
+				<description>Genres</description>
+				<left>500</left>
+				<posy>800</posy>
+				<width>400</width>
+				<height>230</height>
+				<aspectratio>keep</aspectratio>
+				<align>center</align>
+				<aligny>center</aligny>
+				<texture background="true">special://skin/extras/icons/youtube.png</texture>
+			</control>
+			<control type="image">
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),videos)</visible>
+				<description>Title overlay</description>
+				<left>500</left>
+				<posy>990</posy>
+				<width>400</width>
+				<height>40</height>
+				<texture border="15" colordiffuse="df000000">common/white.png</texture>
+			</control>
+			<control type="label">
+				<left>500</left>
+				<posy>990</posy>
+				<width>400</width>
+				<align>center</align>
+				<height>40</height>
+				<align>right</align>
+				<font>Small</font>
+				<textcolor>PanelWhite70</textcolor>
+				<selectedcolor>PanelWhite70</selectedcolor>
+				<label>YouTube</label>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),videos)</visible>
+			</control>
+			<control type="image">
+				<left>496</left>
+				<width>408</width>
+				<posy>796</posy>
+				<height>238</height>
+				<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+				<visible>Control.HasFocus(6014)</visible>
+			</control>
+
+			<!-- In progress thumbs -->
+			<control type="label">
+				<left>980</left>
+				<top>290</top>
+				<width>410</width>
+				<align>left</align>
+				<height>40</height>
+				<font>Small</font>
+				<textcolor>PanelWhite70</textcolor>
+				<selectedcolor>PanelWhite70</selectedcolor>
+				<label>Trending Shows</label>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),videos)</visible>
+			</control>
+			<control type="list" id="6016">
+				<description>Widget</description>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),videos)</visible>
+				<top>330</top>
+				<left>980</left>
+				<width>410</width>
+				<height>705</height>
+				<onup>300</onup>
+				<ondown>6016</ondown>
+				<onback>300</onback>
+				<onleft>6012</onleft>
+				<onright>6017</onright>
+				<preloaditems>2</preloaditems>
+				<orientation>vertical</orientation>
+				<scrolltime tween="quadratic">0</scrolltime>
+				<include>Animation.FadeIn</include>
+				<include>Animation.FadeOut</include>
+				<itemlayout width="410" height="117.5">
+					<control type="image">
+						<height>110</height>
+						<texture background="true">$VAR[BannerImage]</texture>
+					</control>
+					<control type="progress">
+						<bottom>5</bottom>
+						<height>8</height>
+						<info>ListItem.PercentPlayed</info>
+						<overlaytexture>-</overlaytexture>
+						<texturebg colordiffuse="2f5f5f5f">osd/progress-bg.png</texturebg>
+						<lefttexture colordiffuse="$VAR[PercentColourHighlight]">osd/progress-end.png</lefttexture>
+						<midtexture colordiffuse="$VAR[PercentColourHighlight]">osd/progress-end.png</midtexture>
+						<righttexture colordiffuse="PanelWhite70">osd/progress-end.png</righttexture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout width="410" height="117.5">
+					<control type="image">
+						<height>110</height>
+						<texture background="true">$VAR[BannerImage]</texture>
+					</control>
+					<control type="image">
+						<description>Title overlay</description>
+						<texture border="15" colordiffuse="df000000">common/white.png</texture>
+						<visible>Control.HasFocus(6016)</visible>
+					</control>
+					<control type="textbox">
+						<left>5</left>
+						<right>5</right>
+						<top>3</top>
+						<bottom>5</bottom>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>Tiny</font>
+						<textcolor>PanelWhite70</textcolor>
+						<selectedcolor>PanelWhite70</selectedcolor>
+						<label>$INFO[ListItem.Rating]$INFO[ListItem.Votes,[CR](, $LOCALIZE[20350])]</label>
+						<visible>Control.HasFocus(6016)</visible>
+					</control>
+					<control type="image">
+						<left>-3</left>
+						<top>-3</top>
+						<right>-3</right>
+						<bottom>0</bottom>
+						<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+						<visible>Control.HasFocus(6016)</visible>
+						<animation type="Focus">
+							<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+						</animation>
+						<animation type="Unfocus">
+							<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+						</animation>
+					</control>
+				</focusedlayout>
+				<content target="video">plugin://script.extendedinfo?info=trendingshows</content>
+			</control>
+			<!-- Latest Movies -->
+			<control type="label">
+				<left>1470</left>
+				<top>290</top>
+				<width>410</width>
+				<align>left</align>
+				<height>40</height>
+				<font>Small</font>
+				<textcolor>PanelWhite70</textcolor>
+				<selectedcolor>PanelWhite70</selectedcolor>
+				<label>Popular Movies</label>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),videos)</visible>
+			</control>
+			<control type="panel" id="6017">
+				<description>Widget</description>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),videos)</visible>
+				<top>330</top>
+				<left>1470</left>
+				<width>316</width>
+				<height>705</height>
+				<onup>300</onup>
+				<ondown>6017</ondown>
+				<onback>300</onback>
+				<onleft condition="Control.IsVisible(6016)">6016</onleft>
+				<onleft condition="!Control.IsVisible(6016)">6012</onleft>
+				<preloaditems>2</preloaditems>
+				<scrolltime tween="quadratic">0</scrolltime>
+				<include>Animation.FadeIn</include>
+				<include>Animation.FadeOut</include>
+				<itemlayout width="158" height="235">
+					<control type="image">
+						<aspectratio>keep</aspectratio>
+						<height>230</height>
+						<texture background="true">$VAR[PosterImage]</texture>
+					</control>
+					<control type="progress">
+						<bottom>5</bottom>
+						<height>8</height>
+						<info>ListItem.PercentPlayed</info>
+						<overlaytexture>-</overlaytexture>
+						<texturebg colordiffuse="2f5f5f5f">osd/progress-bg.png</texturebg>
+						<lefttexture colordiffuse="$VAR[PercentColourHighlight]">osd/progress-end.png</lefttexture>
+						<midtexture colordiffuse="$VAR[PercentColourHighlight]">osd/progress-end.png</midtexture>
+						<righttexture colordiffuse="PanelWhite70">osd/progress-end.png</righttexture>
+						<visible>ListItem.IsResumable</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout width="158" height="235">
+					<control type="image">
+						<aspectratio>keep</aspectratio>
+						<height>230</height>
+						<texture background="true">$VAR[PosterImage]</texture>
+					</control>
+					<control type="image">
+						<description>Title overlay</description>
+						<texture border="15" colordiffuse="df000000">common/white.png</texture>
+						<visible>Control.HasFocus(6017)</visible>
+					</control>
+					<control type="textbox">
+						<left>5</left>
+						<right>5</right>
+						<top>30</top>
+						<bottom>30</bottom>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>Tiny</font>
+						<textcolor>PanelWhite70</textcolor>
+						<selectedcolor>PanelWhite70</selectedcolor>
+						<label>$INFO[ListItem.Rating]$INFO[ListItem.Votes,[CR](, $LOCALIZE[20350])]</label>
+						<visible>Control.HasFocus(6017)</visible>
+					</control>
+					<control type="image">
+						<left>-3</left>
+						<top>-3</top>
+						<right>-3</right>
+						<bottom>0</bottom>
+						<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+						<visible>Control.HasFocus(6017)</visible>
+						<animation type="Focus">
+							<effect type="zoom" start="90" end="100" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="0" end="100" time="150" tween="sine" easing="in" />
+						</animation>
+						<animation type="Unfocus">
+							<effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
+							<effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
+						</animation>
+					</control>
+				</focusedlayout>
+				<content target="video">plugin://script.extendedinfo?info=popularmovies</content>
+			</control>
+
 		</control>
 	</include>
 </includes>
