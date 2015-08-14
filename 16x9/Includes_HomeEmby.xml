@@ -5,7 +5,7 @@
 			<include>Animation.FadeIn</include>
 			<include>Animation.FadeOut</include>
 			<animation effect="fade" start="100" end="25" condition="control.hasfocus(302)" time="200">Conditional</animation>
-			<top>SidePad</top>
+			<top>TopPad</top>
 			<visible>!Skin.HasSetting(furniture.clock)</visible>
 			<include>Animation.FurnitureFadeInOut</include>
 			<height>84</height>
@@ -18,6 +18,101 @@
 				<textcolor>Dark1</textcolor>
 				<label>$INFO[System.Time(hh:mm)]</label>
 				<animation effect="slide" start="0" end="50" time="0" condition="IsEmpty(System.Time(xx))">Conditional</animation>
+			</control>
+			<control type="label">
+				<centertop>25</centertop>
+				<align>right</align>
+				<right>24</right>
+				<font>symbolview</font>
+				<textcolor>Dark1</textcolor>
+				<label></label>
+				<fadetime>200</fadetime>
+				<visible>[!IsEmpty(Container(3012).ListItem.EndTime) + Control.HasFocus(3012)] | [!IsEmpty(Container(3016).ListItem.EndTime) + Control.HasFocus(3016)] | [!IsEmpty(Container(3017).ListItem.EndTime) + Control.HasFocus(3017)] | [!IsEmpty(Container(4012).ListItem.EndTime) + Control.HasFocus(4012)] | [!IsEmpty(Container(4016).ListItem.EndTime) + Control.HasFocus(4016)] | [!IsEmpty(Container(4017).ListItem.EndTime) + Control.HasFocus(4017)]</visible>
+				<visible>!Skin.HasSetting(furniture.hideendtime)</visible>
+			</control>
+			<control type="label">
+				<centertop>220</centertop>
+				<right>-230</right>
+				<aligny>top</aligny>
+				<width>240</width>
+				<height>333</height>
+				<font>MediumBoldAngle</font>
+				<textcolor>Dark1</textcolor>
+				<label>$INFO[Container(3012).ListItem.EndTime(hh:mm)]</label>
+				<angle>-90</angle>
+				<fadetime>200</fadetime>
+				<visible>!Skin.HasSetting(furniture.hideendtime)</visible>
+				<visible>[!IsEmpty(Container(3012).ListItem.EndTime) + Control.HasFocus(3012)]</visible>
+			</control>
+			<control type="label">
+				<centertop>220</centertop>
+				<right>-230</right>
+				<aligny>top</aligny>
+				<width>240</width>
+				<height>333</height>
+				<font>MediumBoldAngle</font>
+				<textcolor>Dark1</textcolor>
+				<label>$INFO[Container(3016).ListItem.EndTime(hh:mm)]</label>
+				<angle>-90</angle>
+				<fadetime>200</fadetime>
+				<visible>!Skin.HasSetting(furniture.hideendtime)</visible>
+				<visible>[!IsEmpty(Container(3016).ListItem.EndTime) + Control.HasFocus(3016)]</visible>
+			</control>
+			<control type="label">
+				<centertop>220</centertop>
+				<right>-230</right>
+				<aligny>top</aligny>
+				<width>240</width>
+				<height>333</height>
+				<font>MediumBoldAngle</font>
+				<textcolor>Dark1</textcolor>
+				<label>$INFO[Container(3017).ListItem.EndTime(hh:mm)]</label>
+				<angle>-90</angle>
+				<fadetime>200</fadetime>
+				<visible>!Skin.HasSetting(furniture.hideendtime)</visible>
+				<visible>[!IsEmpty(Container(3017).ListItem.EndTime) + Control.HasFocus(3017)]</visible>
+			</control>
+			<control type="label">
+				<centertop>220</centertop>
+				<right>-230</right>
+				<aligny>top</aligny>
+				<width>240</width>
+				<height>333</height>
+				<font>MediumBoldAngle</font>
+				<textcolor>Dark1</textcolor>
+				<label>$INFO[Container(4012).ListItem.EndTime(hh:mm)]</label>
+				<angle>-90</angle>
+				<fadetime>200</fadetime>
+				<visible>!Skin.HasSetting(furniture.hideendtime)</visible>
+				<visible>[!IsEmpty(Container(4012).ListItem.EndTime) + Control.HasFocus(4012)]</visible>
+			</control>
+			<control type="label">
+				<centertop>220</centertop>
+				<right>-230</right>
+				<aligny>top</aligny>
+				<width>240</width>
+				<height>333</height>
+				<font>MediumBoldAngle</font>
+				<textcolor>Dark1</textcolor>
+				<label>$INFO[Container(4016).ListItem.EndTime(hh:mm)]</label>
+				<angle>-90</angle>
+				<fadetime>200</fadetime>
+				<visible>!Skin.HasSetting(furniture.hideendtime)</visible>
+				<visible>[!IsEmpty(Container(4016).ListItem.EndTime) + Control.HasFocus(4016)]</visible>
+			</control>
+			<control type="label">
+				<centertop>220</centertop>
+				<right>-230</right>
+				<aligny>top</aligny>
+				<width>240</width>
+				<height>333</height>
+				<font>MediumBoldAngle</font>
+				<textcolor>Dark1</textcolor>
+				<label>$INFO[Container(4017).ListItem.EndTime(hh:mm)]</label>
+				<angle>-90</angle>
+				<fadetime>200</fadetime>
+				<visible>!Skin.HasSetting(furniture.hideendtime)</visible>
+				<visible>[!IsEmpty(Container(4017).ListItem.EndTime) + Control.HasFocus(4017)]</visible>
 			</control>
 			<control type="label">
 				<centertop>30</centertop>
@@ -52,7 +147,7 @@
 	</include>
 	<include name="Furniture_HeaderEmby">
 		<control type="grouplist">
-			<top>SidePad</top>
+			<top>TopPad</top>
 			<left>SidePad</left>
 			<visible>!Skin.HasSetting(furniture.header)</visible>
 			<visible>!ControlGroup(303).HasFocus()</visible>
@@ -198,7 +293,7 @@
 	<include name="HomeEmbySubMenu">
 		<!-- Sub Menu -->
 			<control type="list" id="302">
-				<width>1300</width>
+				<width>1600</width>
 				<animation effect="slide" end="0,24" condition="control.hasfocus(302)" time="200">Conditional</animation>
 				<include>Animation.FadeIn.Delay</include>
 				<include>Animation.FadeOut</include>
