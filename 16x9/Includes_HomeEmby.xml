@@ -155,6 +155,8 @@
 			<include>Furniture_EmbyClock</include>
 			<include>Furniture_HeaderEmby</include>
 			<control type="image">
+				<include>Animation.FadeIn.Delay</include>
+				<include>Animation.FadeOut</include>
 				<animation effect="fade" start="100" end="00" condition="control.hasfocus(302)" time="200">Conditional</animation>
 				<visible>IntegerGreaterThan(Container(300).NumItems,8)</visible>
 				<bottom>903</bottom>
@@ -164,6 +166,8 @@
 				<texture colordiffuse="Dark2" flipx="true">common/arrow-small-right.png</texture>
 			</control>
 			<control type="image">
+				<include>Animation.FadeIn.Delay</include>
+				<include>Animation.FadeOut</include>
 				<animation effect="fade" start="100" end="00" condition="control.hasfocus(302)" time="200">Conditional</animation>
 				<visible>IntegerGreaterThan(Container(300).NumItems,8)</visible>
 				<bottom>903</bottom>
