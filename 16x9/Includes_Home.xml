@@ -47,6 +47,7 @@
 			<include>Animation.FadeIn.Slide</include>
 			<include>Animation.FadeOut</include>
 			<visible>Player.HasMedia</visible>
+			<visible>!SubString(Window(10025).Property(PlayingBackgroundMedia),True)</visible>
 				<animation effect="zoom" start="100" end="85" condition="true">Conditional</animation>
 			<control type="image">
 				<description>background image</description>
