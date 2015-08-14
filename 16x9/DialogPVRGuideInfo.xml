@@ -95,6 +95,69 @@
 							</control>
 						</control>
 						<control type="group">
+							<visible>!IsEmpty(ListItem.EpisodeName)</visible>
+							<height>36</height>
+							<control type="label">
+								<width>150</width>
+								<height>36</height>
+								<font>Tiny</font>
+								<textcolor>Dark1</textcolor>
+								<label>[B]$LOCALIZE[21442][/B]</label>
+								<aligny>center</aligny>
+							</control>
+							<control type="label">
+								<left>150</left>
+								<width>100%</width>
+								<height>36</height>
+								<font>Tiny</font>
+								<textcolor>Dark2</textcolor>
+								<label fallback="19055">$INFO[ListItem.EpisodeName]</label>
+								<aligny>center</aligny>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!IsEmpty(ListItem.Season)</visible>
+							<height>36</height>
+							<control type="label">
+								<width>150</width>
+								<height>36</height>
+								<font>Tiny</font>
+								<textcolor>Dark1</textcolor>
+								<label>[B]$LOCALIZE[20373][/B]</label>
+								<aligny>center</aligny>
+							</control>
+							<control type="label">
+								<left>150</left>
+								<width>100%</width>
+								<height>36</height>
+								<font>Tiny</font>
+								<textcolor>Dark2</textcolor>
+								<label fallback="19055">$INFO[ListItem.Season]</label>
+								<aligny>center</aligny>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!IsEmpty(ListItem.Episode)</visible>
+							<height>36</height>
+							<control type="label">
+								<width>150</width>
+								<height>36</height>
+								<font>Tiny</font>
+								<textcolor>Dark1</textcolor>
+								<label>[B]$LOCALIZE[20359][/B]</label>
+								<aligny>center</aligny>
+							</control>
+							<control type="label">
+								<left>150</left>
+								<width>100%</width>
+								<height>36</height>
+								<font>Tiny</font>
+								<textcolor>Dark2</textcolor>
+								<label fallback="19055">$INFO[ListItem.Episode]</label>
+								<aligny>center</aligny>
+							</control>
+						</control>
+						<control type="group">
 							<height>36</height>
 							<control type="label">
 								<width>150</width>

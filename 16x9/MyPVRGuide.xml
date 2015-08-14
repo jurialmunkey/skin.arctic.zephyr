@@ -62,7 +62,7 @@
 						<font>SmallBold</font>
 						<textcolor>$VAR[ColourHighlight]</textcolor>
 						<selectedcolor>$VAR[ColourHighlight]</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
+						<label>$INFO[ListItem.Label]$INFO[ListItem.EpisodeName, (,)]</label>
 					</control>
 					<control type="label">
 						<top>-10</top>
@@ -73,7 +73,7 @@
 						<font>TinyBold</font>
 						<textcolor>$VAR[ColourHighlight]</textcolor>
 						<selectedcolor>$VAR[ColourHighlight]</selectedcolor>
-						<label>$INFO[ListItem.Genre,, • ]$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
+						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]$INFO[ListItem.Season, • $LOCALIZE[20373] ]$INFO[ListItem.Episode, • $LOCALIZE[20359] ]$INFO[ListItem.Genre, • ]</label>
 					</control>
 					<control type="label">
 						<top>125</top>
