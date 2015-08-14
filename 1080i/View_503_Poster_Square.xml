@@ -7,7 +7,7 @@
             <include>Animation.Common</include>
             <visible>Control.IsVisible(503)</visible>
             <control type="fixedlist" id="503">
-                <visible>Container.Content(musicvideos) | Container.Content(albums)</visible>
+                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(albums)</visible>
                 <posy>309</posy>
                 <posx>-190</posx>
                 <width>2300</width>

@@ -110,13 +110,14 @@
     </include>
 
     <include name="PVRInfoPanel">
+        
         <control type="group">
             <left>70</left>
             <width>645</width>
             <top>206</top>
             <height>660</height>
             <control type="group">
-                <height>330</height>
+                <height>370</height>
                 <control type="image">
                     <width>100%</width>
                     <height>100%</height>
@@ -146,7 +147,7 @@
                     <right>10</right>
                     <bottom>10</bottom>
                     <fadetime>200</fadetime>
-                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
                     <texture diffuse="diffuse/pvrinfo.png" background="true" fallback="pvr/background.jpg">$INFO[ListItem.Thumb]</texture>
                     <visible>!Player.HasVideo</visible>
                     <visible>Window.IsVisible(MyPVRRecordings.xml)</visible>
@@ -166,11 +167,11 @@
             <control type="group">
                 <left>20</left>
                 <right>20</right>
-                <posy>330</posy>
-                <height>330</height>
+                <posy>370</posy>
+                <height>290</height>
                 
                 <control type="label">
-                    <top>10</top>
+                    <top>8</top>
                     <aligny>center</aligny>
                     <height>64</height>
                     <font>SmallBold</font>
@@ -179,7 +180,7 @@
                     <label>$INFO[ListItem.Title]</label>
                 </control>
                 <control type="label">
-                    <top>50</top>
+                    <top>48</top>
                     <height>64</height>
                     <aligny>center</aligny>
                     <font>Tiny</font>
@@ -188,7 +189,7 @@
                     <label fallback="19055">$INFO[ListItem.Genre]</label>
                 </control>
                 <control type="textbox">
-                    <top>125</top>
+                    <top>116</top>
                     <bottom>17</bottom>
                     <align>justify</align>
                     <font>Tiny</font>
