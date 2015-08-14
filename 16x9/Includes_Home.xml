@@ -37,19 +37,17 @@
 			</control>
 		</control>
 	</include>
-	<include name="HomeNowPlaying">
+	<include name="Furniture_NowPlaying">
 		<!-- Next Recording -->
 		<control type="group">
-			<right>72</right>
-			<posy>70</posy>
+			<bottom>-13</bottom>
+			<left>680</left>
 			<width>660</width>
 			<height>100</height>
 			<include>Animation.FadeIn.Slide</include>
 			<include>Animation.FadeOut</include>
-			<visible>!Skin.HasSetting(home.showheader)</visible>
 			<visible>Player.HasMedia</visible>
-			<visible>!Control.HasFocus(301) + !ControlGroup(303).HasFocus()</visible>
-			<animation effect="slide" end="0,100" time="150" condition="[[!Skin.HasSetting(home.showheader) + [Window.IsVisible(DialogKaiToast.xml) | Window.IsVisible(DialogExtendedProgressBar.xml) | Window.IsVisible(DialogVolumeBar.xml)]]]">Conditional</animation>
+				<animation effect="zoom" start="100" end="85" condition="true">Conditional</animation>
 			<control type="image">
 				<description>background image</description>
 				<posx>0</posx>
@@ -130,6 +128,20 @@
 					<width>auto</width>
 					<textcolor>Dark2</textcolor>
 					<label>$INFO[VideoPlayer.TvShowTitle,, ]$INFO[MusicPlayer.Artist,, ]$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
+				</control>
+				<control type="image">
+					<centertop>20</centertop>
+					<width>auto</width>
+					<height>auto</height>
+					<texture colordiffuse="$VAR[ColourHighlight]">equaliser.gif</texture>
+					<visible>!Player.Paused</visible>
+				</control>
+				<control type="image">
+					<centertop>20</centertop>
+					<width>auto</width>
+					<height>auto</height>
+					<texture colordiffuse="$VAR[ColourHighlight]">equaliser_stop.gif</texture>
+					<visible>Player.Paused</visible>
 				</control>
 			</control>
 		</control>

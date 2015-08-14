@@ -903,7 +903,6 @@
 	<include name="Furniture_Logo">
 		<control type="group">
 			<visible>Skin.HasSetting(furniture.logo)</visible>
-			<visible>!Player.HasMedia | SubString(Window(10025).Property(PlayingBackgroundMedia),True)</visible>
 			<visible>!Control.HasFocus(515)</visible>
 			<visible>!Window.IsVisible(DialogAlbumInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
 			<visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
@@ -1490,7 +1489,7 @@
 			</control>
 		</control>
 	</include>
-	<include name="Furniture_NowPlaying">
+	<include name="xx">
 		<control type="grouplist">
 			<visible>!Skin.HasSetting(furniture.nowplaying)</visible>
 			<visible>!Window.IsVisible(DialogVolumeBar.xml)</visible>
@@ -1504,8 +1503,8 @@
 			<visible>!IsEmpty(Player.Duration) | Player.HasAudio</visible>
 			<visible>!ControlGroup(303).HasFocus()</visible>
 			<animation effect="slide" start="0" end="0,-250" time="150" condition="Control.HasFocus(301) + !Skin.HasSetting(home.vertical)">Conditional</animation>
-			<top>70</top>
-			<right>62</right>
+			<top>980</top>
+			<right>5</right>
 			<orientation>horizontal</orientation>
 			<usecontrolcoords>true</usecontrolcoords>
 			<itemgap>24</itemgap>
