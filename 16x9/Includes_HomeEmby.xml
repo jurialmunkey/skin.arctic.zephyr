@@ -20,6 +20,27 @@
 				<animation effect="slide" start="0" end="50" time="0" condition="IsEmpty(System.Time(xx))">Conditional</animation>
 			</control>
 			<control type="label">
+				<centertop>25</centertop>
+				<align>right</align>
+				<right>24</right>
+				<font>symbolview</font>
+				<textcolor>Dark1</textcolor>
+				<label>$VAR[EmbyEndTimeSymbol]</label>
+				<fadetime>200</fadetime>
+			</control>
+			<control type="label">
+				<centertop>215</centertop>
+				<right>-225</right>
+				<aligny>top</aligny>
+				<width>240</width>
+				<height>333</height>
+				<font>HomeEmbyTime</font>
+				<textcolor>Dark1</textcolor>
+				<label>$VAR[EmbyEndTimeLabel]</label>
+				<angle>-90</angle>
+				<fadetime>200</fadetime>
+			</control>
+			<control type="label">
 				<centertop>30</centertop>
 				<right>SidePad</right>
 				<font>SmallBold</font>
@@ -159,7 +180,7 @@
 				<include>Animation.FadeOut</include>
 				<animation effect="fade" start="100" end="00" condition="control.hasfocus(302)" time="200">Conditional</animation>
 				<visible>IntegerGreaterThan(Container(300).NumItems,8)</visible>
-				<bottom>903</bottom>
+				<bottom>893</bottom>
 				<left>32</left>
 				<width>16</width>
 				<height>16</height>
@@ -170,7 +191,7 @@
 				<include>Animation.FadeOut</include>
 				<animation effect="fade" start="100" end="00" condition="control.hasfocus(302)" time="200">Conditional</animation>
 				<visible>IntegerGreaterThan(Container(300).NumItems,8)</visible>
-				<bottom>903</bottom>
+				<bottom>893</bottom>
 				<right>32</right>
 				<width>16</width>
 				<height>16</height>

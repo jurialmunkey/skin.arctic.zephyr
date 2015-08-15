@@ -700,6 +700,17 @@
 		<value condition="Skin.HasSetting(emby.middle.colour)">$INFO[Skin.String(emby.middle.colour.name)]</value>
 		<value>paris green</value>
 	</variable>
+	<variable name="EmbyEndTimeSymbol">
+		<value condition="!Skin.HasSetting(furniture.hideendtime) + [!IsEmpty(Container(3012).ListItem.EndTime) + Control.HasFocus(3012)] | [!IsEmpty(Container(3016).ListItem.EndTime) + Control.HasFocus(3016)] | [!IsEmpty(Container(3017).ListItem.EndTime) + Control.HasFocus(3017)] | [!IsEmpty(Container(4012).ListItem.EndTime) + Control.HasFocus(4012)] | [!IsEmpty(Container(4016).ListItem.EndTime) + Control.HasFocus(4016)] | [!IsEmpty(Container(4017).ListItem.EndTime) + Control.HasFocus(4017)]"></value>
+	</variable>
+	<variable name="EmbyEndTimeLabel">
+		<value condition="!Skin.HasSetting(furniture.hideendtime) + [!IsEmpty(Container(3012).ListItem.EndTime) + Control.HasFocus(3012)]">$INFO[Container(3012).ListItem.EndTime(hh:mm)]</value>
+		<value condition="!Skin.HasSetting(furniture.hideendtime) + [!IsEmpty(Container(3016).ListItem.EndTime) + Control.HasFocus(3016)]">$INFO[Container(3016).ListItem.EndTime(hh:mm)]</value>
+		<value condition="!Skin.HasSetting(furniture.hideendtime) + [!IsEmpty(Container(3017).ListItem.EndTime) + Control.HasFocus(3017)]">$INFO[Container(3017).ListItem.EndTime(hh:mm)]</value>
+		<value condition="!Skin.HasSetting(furniture.hideendtime) + [!IsEmpty(Container(4012).ListItem.EndTime) + Control.HasFocus(4012)]">$INFO[Container(4012).ListItem.EndTime(hh:mm)]</value>
+		<value condition="!Skin.HasSetting(furniture.hideendtime) + [!IsEmpty(Container(4016).ListItem.EndTime) + Control.HasFocus(4016)]">$INFO[Container(4016).ListItem.EndTime(hh:mm)]</value>
+		<value condition="!Skin.HasSetting(furniture.hideendtime) + [!IsEmpty(Container(4017).ListItem.EndTime) + Control.HasFocus(4017)]">$INFO[Container(4017).ListItem.EndTime(hh:mm)]</value>
+	</variable>
 	<variable name="PercentWatchedLabel">
 		<value condition="Skin.HasSetting(furniture.alternateindicators) + !Skin.HasSetting(furniture.hideindicators) + ListItem.IsPlaying"></value>
 		<value condition="Skin.HasSetting(furniture.alternateindicators) + !Skin.HasSetting(furniture.hideindicators) + !Skin.HasSetting(furniture.hideresume) + ListItem.IsResumable"></value>
