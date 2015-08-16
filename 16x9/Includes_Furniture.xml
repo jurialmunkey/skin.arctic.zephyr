@@ -1401,6 +1401,116 @@
 			</control>
 		</control>
 	</include>
+	<include name="Furniture_Clock_Bottom">
+		<control type="group">
+			<include>Animation.FadeIn</include>
+			<include>Animation.FadeOut</include>
+			<centerbottom>94</centerbottom>
+			<visible>!Skin.HasSetting(furniture.clock)</visible>
+			<include>Animation.FurnitureFadeInOut</include>
+			<height>84</height>
+			<animation effect="slide" start="0" end="0,-10" time="150" condition="Skin.HasSetting(furniture.weather)">Conditional</animation>
+			<control type="label">
+				<centertop>24</centertop>
+				<right>130</right>
+				<align>right</align>
+				<font>LargeBold</font>
+				<textcolor>Dark1</textcolor>
+				<label>$INFO[System.Time(hh:mm)]</label>
+				<animation effect="slide" start="0" end="50" time="0" condition="IsEmpty(System.Time(xx))">Conditional</animation>
+			</control>
+			<control type="label">
+				<centertop>25</centertop>
+				<align>right</align>
+				<right>24</right>
+				<font>symbolview</font>
+				<textcolor>Dark1</textcolor>
+				<label></label>
+				<fadetime>200</fadetime>
+				<visible>[!IsEmpty(ListItem.EndTime) + [Container.Content(movies) | Container.Content(episodes)]] | [!IsEmpty(Container(301).ListItem.EndTime) + Control.HasFocus(301) + Skin.HasSetting(home.vertical)] | [!IsEmpty(Container(301).ListItem.EndTime) + !Skin.HasSetting(home.vertical)]</visible>
+				<visible>[!Window.IsVisible(DialogVideoInfo.xml) + !Skin.HasSetting(furniture.hideendtime)] | Window.IsVisible(DialogVideoInfo.xml)</visible>
+			</control>
+			<control type="label">
+				<centertop>24</centertop>
+				<right>24</right>
+				<align>right</align>
+				<font>SmallBold</font>
+				<textcolor>Dark1</textcolor>
+				<angle>-90</angle>
+				<label>$INFO[ListItem.EndTime(hh:mm)]</label>
+				<visible>[!IsEmpty(ListItem.EndTime) + [Container.Content(movies) | Container.Content(episodes)]]</visible>
+				<visible>[!Window.IsVisible(DialogVideoInfo.xml) + !Skin.HasSetting(furniture.hideendtime)] | Window.IsVisible(DialogVideoInfo.xml)</visible>
+			</control>
+			<control type="label">
+				<centertop>220</centertop>
+				<right>-225</right>
+				<aligny>top</aligny>
+				<width>240</width>
+				<height>333</height>
+				<font>SmallBold</font>
+				<textcolor>Dark1</textcolor>
+				<label>$INFO[ListItem.EndTime(hh:mm)]</label>
+				<angle>-90</angle>
+				<fadetime>200</fadetime>
+				<visible>[!IsEmpty(ListItem.EndTime) + [Container.Content(movies) | Container.Content(episodes)]]</visible>
+				<visible>[!Window.IsVisible(DialogVideoInfo.xml) + !Skin.HasSetting(furniture.hideendtime)] | Window.IsVisible(DialogVideoInfo.xml)</visible>
+			</control>
+			<control type="label">
+				<centertop>24</centertop>
+				<right>24</right>
+				<align>right</align>
+				<font>SmallBold</font>
+				<textcolor>Dark1</textcolor>
+				<angle>-90</angle>
+				<label>$INFO[Container(301).ListItem.EndTime(hh:mm)]</label>
+				<visible>!Skin.HasSetting(furniture.hideendtime)</visible>
+				<visible>[!IsEmpty(Container(301).ListItem.EndTime) + Control.HasFocus(301) + Skin.HasSetting(home.vertical)] | [!IsEmpty(Container(301).ListItem.EndTime) + !Skin.HasSetting(home.vertical)]</visible>
+			</control>
+			<control type="label">
+				<centertop>220</centertop>
+				<right>-225</right>
+				<aligny>top</aligny>
+				<width>240</width>
+				<height>333</height>
+				<font>SmallBold</font>
+				<textcolor>Dark1</textcolor>
+				<label>$INFO[Container(301).ListItem.EndTime(hh:mm)]</label>
+				<angle>-90</angle>
+				<fadetime>200</fadetime>
+				<visible>!Skin.HasSetting(furniture.hideendtime)</visible>
+				<visible>[!IsEmpty(Container(301).ListItem.EndTime) + Control.HasFocus(301) + Skin.HasSetting(home.vertical)] | [!IsEmpty(Container(301).ListItem.EndTime) + !Skin.HasSetting(home.vertical)]</visible>
+			</control>
+			<control type="label">
+				<centertop>30</centertop>
+				<right>SidePad</right>
+				<font>SmallBold</font>
+				<textcolor>Dark3</textcolor>
+				<align>right</align>
+				<width>120</width>
+				<label>$INFO[System.Time(xx)]</label>
+				<visible>!IsEmpty(System.Time(xx))</visible>
+			</control>
+			<control type="label">
+				<centertop>64</centertop>
+				<right>SidePad</right>
+				<font>Flag</font>
+				<textcolor>Dark2</textcolor>
+				<align>right</align>
+				<width>50%</width>
+				<label>$INFO[System.Date(DDD)]$COMMA $INFO[System.Date(d MMM yyyy)]</label>
+			</control>
+			<control type="label">
+				<centertop>92</centertop>
+				<right>SidePad</right>
+				<font>Flag</font>
+				<textcolor>Dark3</textcolor>
+				<align>right</align>
+				<width>50%</width>
+				<visible>Skin.HasSetting(furniture.weather)</visible>
+				<label>[COLOR=$VAR[ColourHighlight]]$INFO[Weather.Temperature][/COLOR] $INFO[Weather.Conditions]</label>
+			</control>
+		</control>
+	</include>
 	<include name="Furniture_Clock">
 		<control type="group">
 			<include>Animation.FadeIn</include>

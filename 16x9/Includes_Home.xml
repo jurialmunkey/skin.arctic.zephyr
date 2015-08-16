@@ -3,7 +3,7 @@
 	<include name="HomeHeader">
 		<!-- Header -->
 		<control type="group">
-			<visible>Skin.HasSetting(home.showheader) | [!Skin.HasSetting(furniture.clock) + !Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.netflix) + !Skin.HasSetting(home.emby)]</visible>
+			<visible>Skin.HasSetting(home.showheader)</visible>
 			<animation effect="slide" start="0" end="0,-250" time="150" condition="[!Skin.HasSetting(home.classicwidgets) + Control.HasFocus(301)] | ControlGroup(303).HasFocus()">Conditional</animation>
 			<animation effect="slide" start="0" end="0,-250" time="150">WindowClose</animation>
 			<animation effect="slide" end="0" start="0,-250" time="150">WindowOpen</animation>
@@ -796,6 +796,7 @@
 				<animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
 				<visible>Skin.HasSetting(furniture.logo)</visible>
 				<visible>!Player.HasMedia</visible>
+				<visible>Skin.HasSetting(home.showheader)</visible>
 				<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
 			</control>
 			<control type="image">
@@ -811,8 +812,10 @@
 				<visible>Skin.HasSetting(furniture.logo)</visible>
 				<visible>!Player.HasMedia</visible>
 				<visible>StringCompare(Container(300).ListItem.Property(defaultID),music)</visible>
+				<visible>Skin.HasSetting(home.showheader)</visible>
 				<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
 			</control>
+			<include condition="!Skin.HasSetting(home.showheader)">Furniture_Clock_Bottom</include>
 		</control>
 	</include>
 	<include name="HomeSubMenu">
