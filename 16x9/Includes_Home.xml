@@ -3,7 +3,7 @@
 	<include name="HomeHeader">
 		<!-- Header -->
 		<control type="group">
-			<visible>Skin.HasSetting(home.showheader)</visible>
+			<visible>Skin.HasSetting(home.showheader) | [!Skin.HasSetting(furniture.clock) + !Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.netflix) + !Skin.HasSetting(home.emby)]</visible>
 			<animation effect="slide" start="0" end="0,-250" time="150" condition="[!Skin.HasSetting(home.classicwidgets) + Control.HasFocus(301)] | ControlGroup(303).HasFocus()">Conditional</animation>
 			<animation effect="slide" start="0" end="0,-250" time="150">WindowClose</animation>
 			<animation effect="slide" end="0" start="0,-250" time="150">WindowOpen</animation>
@@ -29,6 +29,7 @@
 				<texture flipy="false">common/shadow16B.png</texture>
 			</control>
 			<include>Furniture_Header</include>
+			<include>Furniture_Clock</include>
 			<control type="group">
 				<visible>Player.HasMedia</visible>
 				<include>Animation.FadeIn</include>
@@ -741,7 +742,6 @@
 				<bottom>220</bottom>
 				<texture flipy="true">common/shadow16B.png</texture>
 			</control>
-			<include>Furniture_Clock</include>
 			<control type="image">
 				<visible>IntegerGreaterThan(Container(300).NumItems,6)</visible>
 				<top>962</top>
@@ -783,6 +783,35 @@
 				<scrolltime>200</scrolltime>
 				<include condition="Skin.HasSetting(home.showicons)">HomeContentIcon</include>
 				<include condition="!Skin.HasSetting(home.showicons)">HomeContentNoIcon</include>
+			</control>
+			<control type="image">
+				<left>1622</left>
+				<top>931</top>
+				<width>258</width>
+				<height>130</height>
+				<texture>$VAR[WidgetLogo]</texture>
+				<aspectratio align="right" aligny="center">keep</aspectratio>
+				<include>Animation.FadeIn</include>
+				<include>Animation.FadeOut</include>
+				<animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
+				<visible>Skin.HasSetting(furniture.logo)</visible>
+				<visible>!Player.HasMedia</visible>
+				<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
+			</control>
+			<control type="image">
+				<left>1622</left>
+				<top>931</top>
+				<width>258</width>
+				<height>130</height>
+				<texture>$VAR[WidgetAlbumLogo]</texture>
+				<aspectratio align="right" aligny="center">keep</aspectratio>
+				<include>Animation.FadeIn</include>
+				<include>Animation.FadeOut</include>
+				<animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
+				<visible>Skin.HasSetting(furniture.logo)</visible>
+				<visible>!Player.HasMedia</visible>
+				<visible>StringCompare(Container(300).ListItem.Property(defaultID),music)</visible>
+				<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
 			</control>
 		</control>
 	</include>
