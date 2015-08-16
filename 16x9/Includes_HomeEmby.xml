@@ -106,10 +106,12 @@
 				<control type="image">
 					<texture diffuse="common/circle.png">special://skin/extras/icons/emby2.png</texture>
 					<visible>[!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)] + Substring(Control.GetLabel(8308),empty.png) + IsEmpty(Window(Home).Property(EmbyUserImage))</visible>
+					<visible>System.HasAddon(plugin.video.emby)</visible>
 					<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
 				</control>
 				<control type="image">
 					<texture diffuse="common/circle.png">$INFO[Window(Home).Property(EmbyUserImage)]</texture>
+					<visible>System.HasAddon(plugin.video.emby)</visible>
 					<visible>[!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)] + Substring(Control.GetLabel(8308),empty.png) + !IsEmpty(Window(Home).Property(EmbyUserImage))</visible>
 					<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
 					<visible>!Control.HasFocus(3634)</visible>
@@ -132,6 +134,13 @@
 					<height>78</height>
 					<texture colordiffuse="$VAR[ColourHighlight]" border="8">special://skin/extras/icons/configure.png</texture>
 					<visible>Control.HasFocus(3634)</visible>
+					<visible>System.HasAddon(plugin.video.emby)</visible>
+				</control>
+				<control type="image">
+					<texture diffuse="common/circle.png">$INFO[System.ProfileThumb]</texture>
+					<visible>!System.HasAddon(plugin.video.emby)</visible>
+					<visible>[!Skin.HasSetting(hide.busydialog) | !Window.IsVisible(DialogBusy.xml)] + Substring(Control.GetLabel(8308),empty.png) + !IsEmpty(System.ProfileThumb)</visible>
+					<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
 				</control>
 			</control>
 			<control type="group" description="iconbox">
@@ -492,7 +501,7 @@
 				<height>460</height>
 				<onup>300</onup>
 				<ondown>6013</ondown>
-				<onback>SetProperty(Dialog.NumItems,9)</onback>
+				<onback>SetProperty(Dialog.NumItems,19)</onback>
 				<onback>SetProperty(Dialog.1.Label,$LOCALIZE[31134])</onback>
 				<onback>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget2,TrendingMovies))</onback>
 				<onback>SetProperty(Dialog.2.Label,$LOCALIZE[31208])</onback>
@@ -511,6 +520,26 @@
 				<onback>SetProperty(Dialog.8.BuiltIn,Skin.SetString(widget2,OnAirTvShows))</onback>
 				<onback>SetProperty(Dialog.9.Label,$LOCALIZE[31229])</onback>
 				<onback>SetProperty(Dialog.9.BuiltIn,Skin.SetString(widget2,AiringTodayTvShows))</onback>
+				<onback>SetProperty(Dialog.10.Label,Custom1)</onback>
+				<onback>SetProperty(Dialog.10.BuiltIn,Skin.SetString(widget2,Custom1))</onback>
+				<onback>SetProperty(Dialog.11.Label,Custom2)</onback>
+				<onback>SetProperty(Dialog.11.BuiltIn,Skin.SetString(widget2,Custom2))</onback>
+				<onback>SetProperty(Dialog.12.Label,Custom3)</onback>
+				<onback>SetProperty(Dialog.12.BuiltIn,Skin.SetString(widget2,Custom3))</onback>
+				<onback>SetProperty(Dialog.13.Label,Custom4)</onback>
+				<onback>SetProperty(Dialog.13.BuiltIn,Skin.SetString(widget2,Custom4))</onback>
+				<onback>SetProperty(Dialog.14.Label,Custom5)</onback>
+				<onback>SetProperty(Dialog.14.BuiltIn,Skin.SetString(widget2,Custom5))</onback>
+				<onback>SetProperty(Dialog.15.Label,Custom6)</onback>
+				<onback>SetProperty(Dialog.15.BuiltIn,Skin.SetString(widget2,Custom6))</onback>
+				<onback>SetProperty(Dialog.16.Label,Custom7)</onback>
+				<onback>SetProperty(Dialog.16.BuiltIn,Skin.SetString(widget2,Custom7))</onback>
+				<onback>SetProperty(Dialog.17.Label,Custom8)</onback>
+				<onback>SetProperty(Dialog.17.BuiltIn,Skin.SetString(widget2,Custom8))</onback>
+				<onback>SetProperty(Dialog.18.Label,Custom9)</onback>
+				<onback>SetProperty(Dialog.18.BuiltIn,Skin.SetString(widget2,Custom9))</onback>
+				<onback>SetProperty(Dialog.19.Label,Custom10)</onback>
+				<onback>SetProperty(Dialog.19.BuiltIn,Skin.SetString(widget2,Custom10))</onback>
 				<onback>RunScript(script.toolbox,info=selectdialog,header=Select Widget)</onback>
 				<onleft>301</onleft>
 				<onright>301</onright>
@@ -523,13 +552,13 @@
 				<itemlayout width="820" height="460">
 					<control type="image">
 						<aspectratio>keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+						<texture background="true">$VAR[FanartImage]</texture>
 					</control>
 				</itemlayout>
 				<focusedlayout width="820" height="460">
 					<control type="image">
 						<aspectratio>keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+						<texture background="true">$VAR[FanartImage]</texture>
 					</control>
 				</focusedlayout>
 				<content target="video">$VAR[DefWidget2Content]</content>
@@ -1600,13 +1629,33 @@
 				<height>460</height>
 				<onup>300</onup>
 				<ondown>3013</ondown>
-				<onback>SetProperty(Dialog.NumItems,3)</onback>
+				<onback>SetProperty(Dialog.NumItems,13)</onback>
 				<onback>SetProperty(Dialog.1.Label,$LOCALIZE[31127])</onback>
 				<onback>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget6,RandomMovies))</onback>
 				<onback>SetProperty(Dialog.2.Label,$LOCALIZE[31124])</onback>
 				<onback>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget6,RecentMovies))</onback>
 				<onback>SetProperty(Dialog.3.Label,$LOCALIZE[31123])</onback>
 				<onback>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget6,RecommendedMovies))</onback>
+				<onback>SetProperty(Dialog.4.Label,Custom1)</onback>
+				<onback>SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget6,Custom1))</onback>
+				<onback>SetProperty(Dialog.5.Label,Custom2)</onback>
+				<onback>SetProperty(Dialog.5.BuiltIn,Skin.SetString(widget6,Custom2))</onback>
+				<onback>SetProperty(Dialog.6.Label,Custom3)</onback>
+				<onback>SetProperty(Dialog.6.BuiltIn,Skin.SetString(widget6,Custom3))</onback>
+				<onback>SetProperty(Dialog.7.Label,Custom4)</onback>
+				<onback>SetProperty(Dialog.7.BuiltIn,Skin.SetString(widget6,Custom4))</onback>
+				<onback>SetProperty(Dialog.8.Label,Custom5)</onback>
+				<onback>SetProperty(Dialog.8.BuiltIn,Skin.SetString(widget6,Custom5))</onback>
+				<onback>SetProperty(Dialog.9.Label,Custom6)</onback>
+				<onback>SetProperty(Dialog.9.BuiltIn,Skin.SetString(widget6,Custom6))</onback>
+				<onback>SetProperty(Dialog.10.Label,Custom7)</onback>
+				<onback>SetProperty(Dialog.10.BuiltIn,Skin.SetString(widget6,Custom7))</onback>
+				<onback>SetProperty(Dialog.11.Label,Custom8)</onback>
+				<onback>SetProperty(Dialog.11.BuiltIn,Skin.SetString(widget6,Custom8))</onback>
+				<onback>SetProperty(Dialog.12.Label,Custom9)</onback>
+				<onback>SetProperty(Dialog.12.BuiltIn,Skin.SetString(widget6,Custom9))</onback>
+				<onback>SetProperty(Dialog.13.Label,Custom10)</onback>
+				<onback>SetProperty(Dialog.13.BuiltIn,Skin.SetString(widget6,Custom10))</onback>
 				<onback>RunScript(script.toolbox,info=selectdialog,header=Select Widget)</onback>
 				<onleft>301</onleft>
 				<onright>301</onright>
@@ -1619,13 +1668,13 @@
 				<itemlayout width="820" height="460">
 					<control type="image">
 						<aspectratio>keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+						<texture background="true">$VAR[FanartImage]</texture>
 					</control>
 				</itemlayout>
 				<focusedlayout width="820" height="460">
 					<control type="image">
 						<aspectratio>keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+						<texture background="true">$VAR[FanartImage]</texture>
 					</control>
 				</focusedlayout>
 				<content target="video">$VAR[DefWidget6Content]</content>
@@ -2013,13 +2062,33 @@
 				<height>460</height>
 				<onup>300</onup>
 				<ondown>4013</ondown>
-				<onback>SetProperty(Dialog.NumItems,3)</onback>
+				<onback>SetProperty(Dialog.NumItems,13)</onback>
 				<onback>SetProperty(Dialog.1.Label,$LOCALIZE[31126])</onback>
 				<onback>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget9,RandomEpisodes))</onback>
 				<onback>SetProperty(Dialog.2.Label,$LOCALIZE[31125])</onback>
 				<onback>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget9,RecentEpisodes))</onback>
 				<onback>SetProperty(Dialog.3.Label,Next Up)</onback>
 				<onback>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget9,RecommendedEpisodes))</onback>
+				<onback>SetProperty(Dialog.4.Label,Custom1)</onback>
+				<onback>SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget9,Custom1))</onback>
+				<onback>SetProperty(Dialog.5.Label,Custom2)</onback>
+				<onback>SetProperty(Dialog.5.BuiltIn,Skin.SetString(widget9,Custom2))</onback>
+				<onback>SetProperty(Dialog.6.Label,Custom3)</onback>
+				<onback>SetProperty(Dialog.6.BuiltIn,Skin.SetString(widget9,Custom3))</onback>
+				<onback>SetProperty(Dialog.7.Label,Custom4)</onback>
+				<onback>SetProperty(Dialog.7.BuiltIn,Skin.SetString(widget9,Custom4))</onback>
+				<onback>SetProperty(Dialog.8.Label,Custom5)</onback>
+				<onback>SetProperty(Dialog.8.BuiltIn,Skin.SetString(widget9,Custom5))</onback>
+				<onback>SetProperty(Dialog.9.Label,Custom6)</onback>
+				<onback>SetProperty(Dialog.9.BuiltIn,Skin.SetString(widget9,Custom6))</onback>
+				<onback>SetProperty(Dialog.10.Label,Custom7)</onback>
+				<onback>SetProperty(Dialog.10.BuiltIn,Skin.SetString(widget9,Custom7))</onback>
+				<onback>SetProperty(Dialog.11.Label,Custom8)</onback>
+				<onback>SetProperty(Dialog.11.BuiltIn,Skin.SetString(widget9,Custom8))</onback>
+				<onback>SetProperty(Dialog.12.Label,Custom9)</onback>
+				<onback>SetProperty(Dialog.12.BuiltIn,Skin.SetString(widget9,Custom9))</onback>
+				<onback>SetProperty(Dialog.13.Label,Custom10)</onback>
+				<onback>SetProperty(Dialog.13.BuiltIn,Skin.SetString(widget9,Custom10))</onback>
 				<onback>RunScript(script.toolbox,info=selectdialog,header=Select Widget)</onback>
 				<onleft>301</onleft>
 				<onright>301</onright>
@@ -2032,13 +2101,13 @@
 				<itemlayout width="820" height="460">
 					<control type="image">
 						<aspectratio>keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+						<texture background="true">$VAR[FanartImage]</texture>
 					</control>
 				</itemlayout>
 				<focusedlayout width="820" height="460">
 					<control type="image">
 						<aspectratio>keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+						<texture background="true">$VAR[FanartImage]</texture>
 					</control>
 				</focusedlayout>
 				<content target="video">$VAR[DefWidget9Content]</content>
@@ -2562,7 +2631,7 @@
 				<height>460</height>
 				<onup>300</onup>
 				<ondown>5013</ondown>
-				<onback>SetProperty(Dialog.NumItems,5)</onback>
+				<onback>SetProperty(Dialog.NumItems,15)</onback>
 				<onback>SetProperty(Dialog.1.Label,$LOCALIZE[31187])</onback>
 				<onback>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget12,RandomMusic))</onback>
 				<onback>SetProperty(Dialog.2.Label,$LOCALIZE[31188])</onback>
@@ -2573,6 +2642,26 @@
 				<onback>SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget12,RecentPlayedMusic))</onback>
 				<onback>SetProperty(Dialog.5.Label,Top 100 Albums)</onback>
 				<onback>SetProperty(Dialog.5.BuiltIn,Skin.SetString(widget12,Top100Music))</onback>
+				<onback>SetProperty(Dialog.6.Label,Custom1)</onback>
+				<onback>SetProperty(Dialog.6.BuiltIn,Skin.SetString(widget12,Custom1))</onback>
+				<onback>SetProperty(Dialog.7.Label,Custom2)</onback>
+				<onback>SetProperty(Dialog.7.BuiltIn,Skin.SetString(widget12,Custom2))</onback>
+				<onback>SetProperty(Dialog.8.Label,Custom3)</onback>
+				<onback>SetProperty(Dialog.8.BuiltIn,Skin.SetString(widget12,Custom3))</onback>
+				<onback>SetProperty(Dialog.9.Label,Custom4)</onback>
+				<onback>SetProperty(Dialog.9.BuiltIn,Skin.SetString(widget12,Custom4))</onback>
+				<onback>SetProperty(Dialog.10.Label,Custom5)</onback>
+				<onback>SetProperty(Dialog.10.BuiltIn,Skin.SetString(widget12,Custom5))</onback>
+				<onback>SetProperty(Dialog.11.Label,Custom6)</onback>
+				<onback>SetProperty(Dialog.11.BuiltIn,Skin.SetString(widget12,Custom6))</onback>
+				<onback>SetProperty(Dialog.12.Label,Custom7)</onback>
+				<onback>SetProperty(Dialog.12.BuiltIn,Skin.SetString(widget12,Custom7))</onback>
+				<onback>SetProperty(Dialog.13.Label,Custom8)</onback>
+				<onback>SetProperty(Dialog.13.BuiltIn,Skin.SetString(widget12,Custom8))</onback>
+				<onback>SetProperty(Dialog.14.Label,Custom9)</onback>
+				<onback>SetProperty(Dialog.14.BuiltIn,Skin.SetString(widget12,Custom9))</onback>
+				<onback>SetProperty(Dialog.15.Label,Custom10)</onback>
+				<onback>SetProperty(Dialog.15.BuiltIn,Skin.SetString(widget12,Custom10))</onback>
 				<onback>RunScript(script.toolbox,info=selectdialog,header=Select Widget)</onback>
 				<onleft>301</onleft>
 				<onright>301</onright>
@@ -2585,13 +2674,13 @@
 				<itemlayout width="820" height="460">
 					<control type="image">
 						<aspectratio>keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+						<texture background="true">$VAR[FanartImage]</texture>
 					</control>
 				</itemlayout>
 				<focusedlayout width="820" height="460">
 					<control type="image">
 						<aspectratio>keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+						<texture background="true">$VAR[FanartImage]</texture>
 					</control>
 				</focusedlayout>
 				<content target="video">$VAR[DefWidget12Content]</content>
@@ -3034,13 +3123,33 @@
 				<height>460</height>
 				<onup>300</onup>
 				<ondown>7013</ondown>
-				<onback>SetProperty(Dialog.NumItems,3)</onback>
+				<onback>SetProperty(Dialog.NumItems,13)</onback>
 				<onback>SetProperty(Dialog.1.Label,Engadget)</onback>
 				<onback>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget4,Engadget))</onback>
 				<onback>SetProperty(Dialog.2.Label,Eurogamer)</onback>
 				<onback>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget4,Eurogamer))</onback>
 				<onback>SetProperty(Dialog.3.Label,MobileTech Review)</onback>
 				<onback>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget4,MobileTech))</onback>
+				<onback>SetProperty(Dialog.4.Label,Custom1)</onback>
+				<onback>SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget4,Custom1))</onback>
+				<onback>SetProperty(Dialog.5.Label,Custom2)</onback>
+				<onback>SetProperty(Dialog.5.BuiltIn,Skin.SetString(widget4,Custom2))</onback>
+				<onback>SetProperty(Dialog.6.Label,Custom3)</onback>
+				<onback>SetProperty(Dialog.6.BuiltIn,Skin.SetString(widget4,Custom3))</onback>
+				<onback>SetProperty(Dialog.7.Label,Custom4)</onback>
+				<onback>SetProperty(Dialog.7.BuiltIn,Skin.SetString(widget4,Custom4))</onback>
+				<onback>SetProperty(Dialog.8.Label,Custom5)</onback>
+				<onback>SetProperty(Dialog.8.BuiltIn,Skin.SetString(widget4,Custom5))</onback>
+				<onback>SetProperty(Dialog.9.Label,Custom6)</onback>
+				<onback>SetProperty(Dialog.9.BuiltIn,Skin.SetString(widget4,Custom6))</onback>
+				<onback>SetProperty(Dialog.10.Label,Custom7)</onback>
+				<onback>SetProperty(Dialog.10.BuiltIn,Skin.SetString(widget4,Custom7))</onback>
+				<onback>SetProperty(Dialog.11.Label,Custom8)</onback>
+				<onback>SetProperty(Dialog.11.BuiltIn,Skin.SetString(widget4,Custom8))</onback>
+				<onback>SetProperty(Dialog.12.Label,Custom9)</onback>
+				<onback>SetProperty(Dialog.12.BuiltIn,Skin.SetString(widget4,Custom9))</onback>
+				<onback>SetProperty(Dialog.13.Label,Custom10)</onback>
+				<onback>SetProperty(Dialog.13.BuiltIn,Skin.SetString(widget4,Custom10))</onback>
 				<onback>RunScript(script.toolbox,info=selectdialog,header=Select Widget)</onback>
 				<onleft>301</onleft>
 				<onright>301</onright>
