@@ -92,6 +92,120 @@
 		<value condition="StringCompare(Container(300).ListItem.Property(widget),RecentlyPlayedAlbums)">musicdb://recentlyplayedalbums/</value>
 		<value condition="StringCompare(Container(300).ListItem.Property(widget),Top100Albums)">musicdb://top100/albums/</value>
 	</variable>
+
+	<variable name="DefWidget1Content">
+		<value condition="Stringcompare(Skin.String(widget1),TrendingShows)">plugin://script.extendedinfo?info=trendingshows</value>
+		<value condition="Stringcompare(Skin.String(widget1),AiringShows)">plugin://script.extendedinfo?info=airingshows</value>
+		<value condition="Stringcompare(Skin.String(widget1),PremiereShows)">plugin://script.extendedinfo?info=premiereshows</value>
+		<value>plugin://script.extendedinfo?info=trendingshows</value>
+	</variable>
+
+	<variable name="DefWidget2Content">
+		<value condition="Stringcompare(Skin.String(widget2),TrendingMovies)">plugin://script.extendedinfo?info=trendingmovies</value>
+		<value condition="Stringcompare(Skin.String(widget2),InCinemas)">plugin://script.extendedinfo?info=incinemas</value>
+		<value condition="Stringcompare(Skin.String(widget2),Upcoming)">plugin://script.extendedinfo?info=upcoming</value>
+		<value condition="Stringcompare(Skin.String(widget2),PopularMovies)">plugin://script.extendedinfo?info=popularmovies</value>
+		<value condition="Stringcompare(Skin.String(widget2),TopRatedMovies)">plugin://script.extendedinfo?info=topratedmovies</value>
+		<value condition="Stringcompare(Skin.String(widget2),PopularTvShows)">plugin://script.extendedinfo?info=populartvshows</value>
+		<value condition="Stringcompare(Skin.String(widget2),TopRatedTvShows)">plugin://script.extendedinfo?info=topratedtvshows</value>
+		<value condition="Stringcompare(Skin.String(widget2),OnAirTvShows)">plugin://script.extendedinfo?info=onairtvshows</value>
+		<value condition="Stringcompare(Skin.String(widget2),AiringTodayTvShows)">plugin://script.extendedinfo?info=airingtodaytvshows</value>
+		<value>plugin://script.extendedinfo?info=trendingmovies</value>
+	</variable>
+
+	<variable name="DefWidget3Content">
+		<value condition="Stringcompare(Skin.String(widget3),TrendingMovies)">plugin://script.extendedinfo?info=trendingmovies</value>
+		<value condition="Stringcompare(Skin.String(widget3),InCinemas)">plugin://script.extendedinfo?info=incinemas</value>
+		<value condition="Stringcompare(Skin.String(widget3),Upcoming)">plugin://script.extendedinfo?info=upcoming</value>
+		<value condition="Stringcompare(Skin.String(widget3),PopularMovies)">plugin://script.extendedinfo?info=popularmovies</value>
+		<value condition="Stringcompare(Skin.String(widget3),TopRatedMovies)">plugin://script.extendedinfo?info=topratedmovies</value>
+		<value condition="Stringcompare(Skin.String(widget3),PopularTvShows)">plugin://script.extendedinfo?info=populartvshows</value>
+		<value condition="Stringcompare(Skin.String(widget3),TopRatedTvShows)">plugin://script.extendedinfo?info=topratedtvshows</value>
+		<value condition="Stringcompare(Skin.String(widget3),OnAirTvShows)">plugin://script.extendedinfo?info=onairtvshows</value>
+		<value condition="Stringcompare(Skin.String(widget3),AiringTodayTvShows)">plugin://script.extendedinfo?info=airingtodaytvshows</value>
+		<value>plugin://script.extendedinfo?info=popularmovies</value>
+	</variable>
+
+	<variable name="DefWidget4Content">
+		<value condition="Stringcompare(Skin.String(widget4),Engadget)">plugin://script.extendedinfo?info=youtubeusersearch&amp;&amp;id=Engadget</value>
+		<value condition="Stringcompare(Skin.String(widget4),Eurogamer)">plugin://script.extendedinfo?info=youtubeusersearch&amp;&amp;id=Eurogamer</value>
+		<value condition="Stringcompare(Skin.String(widget4),MobileTech)">plugin://script.extendedinfo?info=youtubeusersearch&amp;&amp;id=MobileTechReview</value>
+		<value>plugin://script.extendedinfo?info=youtubeusersearch&amp;&amp;id=Engadget</value>
+    </variable>
+
+	<variable name="DefWidget5Content">
+		<value condition="Stringcompare(Skin.String(widget5),LiveTV)">pvr://channels/tv/All&amp;channels/</value>
+		<value condition="Stringcompare(Skin.String(widget5),Recordings)">pvr://recordings/</value>
+		<value>pvr://channels/tv/All&amp;channels/</value>
+	</variable>
+
+	<variable name="DefWidget6Content">
+		<value condition="Stringcompare(Skin.String(widget6),RandomMovies)">plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window.Property(randommovies)]</value>
+		<value condition="Stringcompare(Skin.String(widget6),RecentMovies)">plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window.Property(recentmovies)]</value>
+		<value condition="Stringcompare(Skin.String(widget6),RecommendedMovies)">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window.Property(recommendedmovies)]</value>
+		<value>plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window.Property(randommovies)]</value>
+	</variable>
+
+	<variable name="DefWidget7Content">
+		<value condition="Stringcompare(Skin.String(widget7),RandomMovies)">plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window.Property(randommovies)]</value>
+		<value condition="Stringcompare(Skin.String(widget7),RecentMovies)">plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window.Property(recentmovies)]</value>
+		<value condition="Stringcompare(Skin.String(widget7),RecommendedMovies)">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window.Property(recommendedmovies)]</value>
+		<value>plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window.Property(recommendedmovies)]</value>
+	</variable>
+
+	<variable name="DefWidget8Content">
+		<value condition="Stringcompare(Skin.String(widget8),RandomMovies)">plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window.Property(randommovies)]</value>
+		<value condition="Stringcompare(Skin.String(widget8),RecentMovies)">plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window.Property(recentmovies)]</value>
+		<value condition="Stringcompare(Skin.String(widget8),RecommendedMovies)">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window.Property(recommendedmovies)]</value>
+		<value>plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window.Property(recentmovies)]</value>
+	</variable>
+
+	<variable name="DefWidget9Content">
+		<value condition="Stringcompare(Skin.String(widget9),RandomEpisodes)">plugin://service.library.data.provider?type=randomepisodes&amp;reload=$INFO[Window.Property(randomepisodes)]</value>
+		<value condition="Stringcompare(Skin.String(widget9),RecentEpisodes)">plugin://service.library.data.provider?type=recentepisodes&amp;reload=$INFO[Window.Property(recentepisodes)]</value>
+		<value condition="Stringcompare(Skin.String(widget9),RecommendedEpisodes)">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window.Property(recommendedepisodes)]</value>
+		<value>plugin://service.library.data.provider?type=randomepisodes&amp;reload=$INFO[Window.Property(randomepisodes)]</value>
+	</variable>
+
+	<variable name="DefWidget10Content">
+		<value condition="Stringcompare(Skin.String(widget10),RandomEpisodes)">plugin://service.library.data.provider?type=randomepisodes&amp;reload=$INFO[Window.Property(randomepisodes)]</value>
+		<value condition="Stringcompare(Skin.String(widget10),RecentEpisodes)">plugin://service.library.data.provider?type=recentepisodes&amp;reload=$INFO[Window.Property(recentepisodes)]</value>
+		<value condition="Stringcompare(Skin.String(widget10),RecommendedEpisodes)">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window.Property(recommendedepisodes)]</value>
+		<value>plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window.Property(recommendedepisodes)]</value>
+	</variable>
+
+	<variable name="DefWidget11Content">
+		<value condition="Stringcompare(Skin.String(widget11),RandomEpisodes)">plugin://service.library.data.provider?type=randomepisodes&amp;reload=$INFO[Window.Property(randomepisodes)]</value>
+		<value condition="Stringcompare(Skin.String(widget11),RecentEpisodes)">plugin://service.library.data.provider?type=recentepisodes&amp;reload=$INFO[Window.Property(recentepisodes)]</value>
+		<value condition="Stringcompare(Skin.String(widget11),RecommendedEpisodes)">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window.Property(recommendedepisodes)]</value>
+		<value>plugin://service.library.data.provider?type=recentepisodes&amp;reload=$INFO[Window.Property(recentepisodes)]</value>
+	</variable>
+
+	<variable name="DefWidget12Content">
+		<value condition="Stringcompare(Skin.String(widget12),RandomMusic)">plugin://service.library.data.provider?type=randomalbums&amp;reload=$INFO[Window.Property(randomalbums)]</value>
+		<value condition="Stringcompare(Skin.String(widget12),RecentMusic)">plugin://service.library.data.provider?type=recentalbums&amp;reload=$INFO[Window.Property(recentalbums)]</value>
+		<value condition="Stringcompare(Skin.String(widget12),RecommendedMusic)">plugin://service.library.data.provider?type=recommendedalbums&amp;reload=$INFO[Window.Property(recommendedalbums)]</value>
+		<value condition="Stringcompare(Skin.String(widget12),RecentPlayedMusic)">musicdb://recentlyplayedalbums/</value>
+		<value condition="Stringcompare(Skin.String(widget12),Top100Music)">musicdb://top100/albums/</value>
+		<value>plugin://service.library.data.provider?type=randomalbums&amp;reload=$INFO[Window.Property(randomalbums)]</value>
+	</variable>
+	<variable name="DefWidget13Content">
+		<value condition="Stringcompare(Skin.String(widget13),RecommendedMusic)">plugin://service.library.data.provider?type=recommendedalbums&amp;reload=$INFO[Window.Property(recommendedalbums)]</value>
+		<value condition="Stringcompare(Skin.String(widget13),RandomMusic)">plugin://service.library.data.provider?type=randomalbums&amp;reload=$INFO[Window.Property(randomalbums)]</value>
+		<value condition="Stringcompare(Skin.String(widget13),RecentMusic)">plugin://service.library.data.provider?type=recentalbums&amp;reload=$INFO[Window.Property(recentalbums)]</value>
+		<value condition="Stringcompare(Skin.String(widget13),RecentPlayedMusic)">musicdb://recentlyplayedalbums/</value>
+		<value condition="Stringcompare(Skin.String(widget13),Top100Music)">musicdb://top100/albums/</value>
+		<value>musicdb://recentlyplayedalbums/</value>
+	</variable>
+	<variable name="DefWidget14Content">
+		<value condition="Stringcompare(Skin.String(widget14),RecentMusic)">plugin://service.library.data.provider?type=recentalbums&amp;reload=$INFO[Window.Property(recentalbums)]</value>
+		<value condition="Stringcompare(Skin.String(widget14),RandomMusic)">plugin://service.library.data.provider?type=randomalbums&amp;reload=$INFO[Window.Property(randomalbums)]</value>
+		<value condition="Stringcompare(Skin.String(widget14),RecommendedMusic)">plugin://service.library.data.provider?type=recommendedalbums&amp;reload=$INFO[Window.Property(recommendedalbums)]</value>
+		<value condition="Stringcompare(Skin.String(widget14),RecentPlayedMusic)">musicdb://recentlyplayedalbums/</value>
+		<value condition="Stringcompare(Skin.String(widget14),Top100Music)">musicdb://top100/albums/</value>
+		<value>plugin://service.library.data.provider?type=recentalbums&amp;reload=$INFO[Window.Property(recentalbums)]</value>
+	</variable>
+
 	<include name="DefSideBrowserButton">
 		<radioposx>400</radioposx>
 		<width>100%</width>

@@ -58,22 +58,21 @@
 						<top>-10</top>
 						<left>425</left>
 						<aligny>center</aligny>
-						<height>64</height>
+						<height>32</height>
 						<font>SmallBold</font>
 						<textcolor>$VAR[ColourHighlight]</textcolor>
 						<selectedcolor>$VAR[ColourHighlight]</selectedcolor>
-						<label>$INFO[ListItem.Label]$INFO[ListItem.EpisodeName, (,)]</label>
+						<label>$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Label]$INFO[ListItem.EpisodeName, (,)]</label>
 					</control>
 					<control type="label">
-						<top>-10</top>
-						<right>0</right>
-						<align>right</align>
+						<top>26</top>
+						<left>425</left>
 						<aligny>center</aligny>
-						<height>64</height>
+						<height>26</height>
 						<font>TinyBold</font>
-						<textcolor>$VAR[ColourHighlight]</textcolor>
-						<selectedcolor>$VAR[ColourHighlight]</selectedcolor>
-						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]$INFO[ListItem.Season, • $LOCALIZE[20373] ]$INFO[ListItem.Episode, • $LOCALIZE[20359] ]$INFO[ListItem.Genre, • ]</label>
+						<textcolor>PanelWhite70</textcolor>
+						<selectedcolor>PanelWhite70</selectedcolor>
+						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]$INFO[ListItem.Genre, • ]</label>
 					</control>
 					<control type="label">
 						<top>125</top>
