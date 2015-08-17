@@ -326,6 +326,85 @@
 					<label>$VAR[CastList]</label>
 				</control>
 			</control>
+			<control type="group">
+				<visible>!Skin.HasSetting(furniture.flags)</visible>
+				<visible>Window.IsVisible(DialogVideoInfo.xml)</visible>
+				<visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+				<visible>!stringcompare(ListItem.Label,..)</visible>
+				<include>Animation.FadeIn</include>
+				<include>Animation.FadeOut</include>
+				<left>1956</left>
+				<top>120</top>
+				<width>1920</width>
+				<height>120</height>
+				<align>left</align>
+				<animation condition="true" easing="inout" effect="rotate" end="-90" center="1956,0" time="300">conditional</animation>
+				<control type="grouplist">
+					<orientation>vertical</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<control type="grouplist" id="11000">
+						<posy>6</posy>
+						<width>600</width>
+						<height>24</height>
+						<align>left</align>
+						<animation effect="fade" start="100" end="80" time="40" condition="true">Conditional</animation>
+						<itemgap>2</itemgap>
+						<orientation>horizontal</orientation>
+						<visible>!IsEmpty(Window(movieinformation).Property(AudioLanguage.1))</visible>
+						<control type="label">
+							<width>auto</width>
+							<height>24</height>
+							<align>right</align>
+							<label></label>
+							<font>symbolview</font>
+							<textcolor>Black700</textcolor>
+						</control>
+						 <control type="label">
+							<width min="20" max="150">auto</width>
+							<height>48</height>
+							<align>left</align>
+							<aligny>bottom</aligny>
+							<label>N/A</label>
+							<textcolor>Black300</textcolor>
+							<font>Button</font>
+							<visible>IsEmpty(Window(movieinformation).Property(AudioLanguage.1))</visible>
+						</control>
+					   <include>LanguageFlags</include>
+					</control>
+					<control type="grouplist" id="12000">
+						<animation effect="fade" start="100" end="80" time="40" condition="true">Conditional</animation>
+						<posy>3</posy>
+						<width>600</width>
+						<height>32</height>
+						<align>left</align>
+						<itemgap>2</itemgap>
+						<visible>Control.IsVisible(11000)</visible>
+						<orientation>horizontal</orientation>
+						<control type="label">
+							<width>auto</width>
+							<posy>3</posy>
+							<height>32</height>
+							<align>right</align>
+							<aligny>bottom</aligny>
+							<label></label>
+							<font>symbolview</font>
+							<textcolor>Black700</textcolor>
+						</control>
+						<control type="label">
+							<textoffsety>-2</textoffsety>
+							<width min="20" max="150">auto</width>
+							<height>48</height>
+							<align>left</align>
+							<aligny>bottom</aligny>
+							<label>N/A</label>
+							<textcolor>Black300</textcolor>
+							<font>EPGTimeline</font>
+							<visible>IsEmpty(Window(movieinformation).Property(SubtitleLanguage.1)) + IsEmpty(Window(movieinformation).Property(SubtitleLanguage.2))</visible>
+						</control>
+						<include>SubtitleFlags</include>
+					</control>
+				</control>
+			</control>
 			<!-- Button grouplist -->
 			<control id="9000" type="grouplist">
 				<left>566</left>
