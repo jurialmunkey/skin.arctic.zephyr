@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation commit check -->
+<includes>
+	<include name="View_157_Wall_Move">
+		<control type="group">
+			<left>-145</left>
+			<width>2260</width>
+			<height>720</height>
+			<include>Animation.Common</include>
+			<visible>Control.IsVisible(157)</visible>
+			<visible>!Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml)</visible>
+			<control type="wraplist" id="157">
+				<visible>Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(episodes)</visible>
+				<top>420</top>
+				<left>0</left>
+				<width>2260</width>
+				<height>720</height>
+				<onleft condition="Control.IsVisible(60)">60</onleft>
+				<onleft condition="!Control.IsVisible(60)">9000</onleft>
+				<onleft>60</onleft>
+				<onright>60</onright>
+				<onup>Control.Move(157,-13)</onup>
+				<ondown>Control.Move(157,13)</ondown>
+				<focusposition>6</focusposition>
+				<preloaditems>2</preloaditems>
+				<pagecontrol>60</pagecontrol>
+				<orientation>horizontal</orientation>
+				<viewtype label="31779">panel</viewtype>
+				<scrolltime tween="quadratic">0</scrolltime>
+				<itemlayout width="170" height="240">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<right>0</right>
+						<bottom>0</bottom>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+						<animation effect="fade" start="25" end="25" condition="stringcompare(ListItem.Overlay,OverlayWatched.png)">Conditional</animation>
+					</control>
+					<control type="image">
+						<centerright>12</centerright>
+						<centertop>16</centertop>
+						<width>32</width>
+						<height>32</height>
+						<aspectratio aligny="top">keep</aspectratio>
+						<texture>$VAR[PercentWatched]</texture>
+						<visible>!stringcompare(ListItem.Label,..)</visible>
+						<visible>!Skin.HasSetting(views.157.showtick)</visible>
+					</control>
+					<control type="label">
+						<centerright>12</centerright>
+						<centertop>16</centertop>
+						<width>32</width>
+						<height>32</height>
+						<font>tinysymbol</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[UnwatchedColourHighlight]</textcolor>
+						<visible>!Skin.HasSetting(views.157.showtick)</visible>
+						<visible>!stringcompare(ListItem.Label,..) + stringcompare(ListItem.Overlay,OverlayUnwatched.png) + Skin.HasSetting(furniture.unwatched)</visible>
+					</control>
+					<control type="label">
+						<centerright>12</centerright>
+						<centertop>16</centertop>
+						<width>32</width>
+						<height>32</height>
+						<font>tinysymbol</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[PlayingColourHighlight]</textcolor>
+						<visible>!Skin.HasSetting(views.157.showtick)</visible>
+						<visible>!stringcompare(ListItem.Label,..) + ListItem.IsPlaying</visible>
+					</control>
+					<control type="label">
+						<centerright>12</centerright>
+						<centertop>16</centertop>
+						<width>32</width>
+						<height>32</height>
+						<font>tinysymbol</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[WatchedColourHighlight]</textcolor>
+						<visible>!Skin.HasSetting(views.157.showtick)</visible>
+						<visible>!stringcompare(ListItem.Label,..) + stringcompare(ListItem.Overlay,OverlayWatched.png) + !Skin.HasSetting(furniture.unwatched)</visible>
+					</control>
+					<control type="label">
+						<centerright>12</centerright>
+						<centertop>16</centertop>
+						<width>32</width>
+						<height>32</height>
+						<font>tinysymbol</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[ResumeColourHighlight]</textcolor>
+						<visible>!Skin.HasSetting(views.157.showtick)</visible>
+						<visible>!stringcompare(ListItem.Label,..) + ListItem.IsResumable</visible>
+					</control>
+					<control type="label">
+						<centerright>12</centerright>
+						<centertop>16</centertop>
+						<width>32</width>
+						<height>32</height>
+						<font>tinysymbol</font>
+						<label>$VAR[PercentWatchedLabel]</label>
+						<textcolor>$VAR[NewColourHighlight]</textcolor>
+						<visible>!Skin.HasSetting(views.157.showtick)</visible>
+						<visible>!stringcompare(ListItem.Label,..) + [SubString(ListItem.Overlay,OverlayUnwatched.png) + [[Container.Content(movies) + [StringCompare(Window(Home).Property(LatestMovie.1.Title),ListItem.Label) | StringCompare(Window(Home).Property(LatestMovie.2.Title),ListItem.Label) | StringCompare(Window(Home).Property(LatestMovie.3.Title),ListItem.Label) | StringCompare(Window(Home).Property(LatestMovie.4.Title),ListItem.Label) | StringCompare(Window(Home).Property(LatestMovie.5.Title),ListItem.Label) | StringCompare(Window(Home).Property(LatestMovie.6.Title),ListItem.Label) | StringCompare(Window(Home).Property(LatestMovie.7.Title),ListItem.Label) | StringCompare(Window(Home).Property(LatestMovie.8.Title),ListItem.Label) | StringCompare(Window(Home).Property(LatestMovie.9.Title),ListItem.Label) | StringCompare(Window(Home).Property(LatestMovie.10.Title),ListItem.Label)]] | [[Container.Content(tvshows)] + [StringCompare(Window(Home).Property(LatestEpisode.1.ShowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(LatestEpisode.2.ShowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(LatestEpisode.3.ShowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(LatestEpisode.4.ShowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(LatestEpisode.5.ShowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(LatestEpisode.6.ShowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(LatestEpisode.7.ShowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(LatestEpisode.8.ShowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(LatestEpisode.9.ShowTitle),ListItem.TvShowTitle) | StringCompare(Window(Home).Property(LatestEpisode.10.ShowTitle),ListItem.TvShowTitle)]] | [Container.Content(episodes) + [StringCompare(Window(Home).Property(LatestEpisode.1.EpisodeTitle),ListItem.Title) | StringCompare(Window(Home).Property(LatestEpisode.2.EpisodeTitle),ListItem.Title) | StringCompare(Window(Home).Property(LatestEpisode.3.EpisodeTitle),ListItem.Title) | StringCompare(Window(Home).Property(LatestEpisode.4.EpisodeTitle),ListItem.Title) | StringCompare(Window(Home).Property(LatestEpisode.5.EpisodeTitle),ListItem.Title) | StringCompare(Window(Home).Property(LatestEpisode.6.EpisodeTitle),ListItem.Title) | StringCompare(Window(Home).Property(LatestEpisode.7.EpisodeTitle),ListItem.Title) | StringCompare(Window(Home).Property(LatestEpisode.8.EpisodeTitle),ListItem.Title) | StringCompare(Window(Home).Property(LatestEpisode.9.EpisodeTitle),ListItem.Title) | StringCompare(Window(Home).Property(LatestEpisode.10.EpisodeTitle),ListItem.Title)]]]]</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout width="170" height="240">
+					<control type="button">
+						<texturefocus>-</texturefocus>
+						<texturenofocus>-</texturenofocus>
+						<onfocus condition="Container.Content(movies)">ClearProperty(TVShowID,home)</onfocus>
+						<onfocus condition="Container.Content(tvshows)">SetProperty(TVShowID,$INFO[ListItem.DBID],home)</onfocus>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<right>0</right>
+						<bottom>0</bottom>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="diffuse/wall.png" background="true">$VAR[PosterImage]</texture>
+					</control>
+				</focusedlayout>
+			</control>
+			<include>Furniture_ScrollbarW</include>
+<!-- top line -->
+		<control type="image">
+			<left>0</left>
+			<top>180</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(-19).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>170</left>
+			<top>180</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(-18).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>340</left>
+			<top>180</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(-17).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>510</left>
+			<top>180</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(-16).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>680</left>
+			<top>180</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(-15).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>850</left>
+			<top>180</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(-14).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>1020</left>
+			<top>180</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(-13).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>1190</left>
+			<top>180</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(-12).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>1360</left>
+			<top>180</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(-11).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>1530</left>
+			<top>180</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(-10).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>1700</left>
+			<top>180</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(-9).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>1870</left>
+			<top>180</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(-8).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>2040</left>
+			<top>180</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(-7).Icon]</texture><fadetime>100</fadetime>
+		</control>
+
+
+<!-- bottom line -->
+		<control type="image">
+			<left>0</left>
+			<top>660</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(7).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>170</left>
+			<top>660</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(8).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>340</left>
+			<top>660</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(9).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>510</left>
+			<top>660</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(10).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>680</left>
+			<top>660</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(11).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>850</left>
+			<top>660</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(12).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>1020</left>
+			<top>660</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(13).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>1190</left>
+			<top>660</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(14).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>1360</left>
+			<top>660</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(15).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>1530</left>
+			<top>660</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(16).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>1700</left>
+			<top>660</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(17).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>1870</left>
+			<top>660</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(18).Icon]</texture><fadetime>100</fadetime>
+		</control>
+		<control type="image">
+			<left>2040</left>
+			<top>660</top>
+			<width>170</width>
+			<height>240</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(19).Icon]</texture><fadetime>100</fadetime>
+		</control>
+<!-- middle -->
+
+		<control type="image">
+			<left>935</left>
+			<top>300</top>
+			<width>340</width>
+			<height>480</height>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<texture diffuse="views/wall/poster3d_diffuse.png" background="true" fallback="thumbs/fallback_poster.png">$INFO[ListItem(0).Icon]</texture><fadetime>300</fadetime>
+			<animation effect="zoom" end="80" time="0" reversible="false" condition="true" center="auto">conditional</animation>
+			<animation effect="rotatex" end="-10" time="0" reversible="false" condition="true" center="auto">conditional</animation>
+		</control>
+		<control type="image">
+			<left>930</left>
+			<top>295</top>
+			<width>350</width>
+			<height>490</height>
+			<fadetime>100</fadetime>
+			<texture colordiffuse="$VAR[ColourHighlight]" border="20">common/selectbox.png</texture>
+			<animation effect="zoom" start="100" end="80" time="0" reversible="false" condition="true" center="auto">conditional</animation>
+			<animation effect="rotatex" end="-10" time="0" reversible="false" condition="true" center="auto">conditional</animation>
+		</control>
+			<animation effect="rotatex" end="5" time="0" reversible="false" condition="true" center="auto">conditional</animation>
+		</control>
+	</include>
+</includes>
