@@ -436,12 +436,7 @@
 				<texture>$INFO[Window(home).Property(Set.Movie.8.Art(discart))]</texture>
 				<visible>!IsEmpty(Window(home).Property(Set.Movie.8.Art(discart)))</visible>
 			</control>
-			<include>lib_Rating_TV</include>
-			<include condition="IsEmpty(Skin.String(RatingCountry))">lib_Rating_BBFC</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),US)">lib_Rating_MPAA</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),UK)">lib_Rating_BBFC</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),Germany)">lib_Rating_FSK</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),NL)">lib_Rating_NL</include>
+			<include>lib_Rating_MPAA</include>
 			<control type="image">
 				<width>108</width>
 				<height>50</height>
@@ -1893,12 +1888,7 @@
 				<visible>Skin.HasSetting(furniture.numericrating) + !substring(Container(300).ListItem.Property(widget),Albums)</visible>
 			</control>
 			<!--<include>lib_Rating_TV</include>-->
-			<include condition="IsEmpty(Skin.String(RatingCountry))">lib_Rating_BBFC_home</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),US)">lib_Rating_MPAA_home</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),UK)">lib_Rating_BBFC_home</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),Germany)">lib_Rating_FSK_home</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),NL)">lib_Rating_NL_home</include>
-			<include>lib_Rating_TV_home</include>
+			<include>lib_Rating_MPAA_home</include>
 			<control type="image">
 				<width>108</width>
 				<height>50</height>
