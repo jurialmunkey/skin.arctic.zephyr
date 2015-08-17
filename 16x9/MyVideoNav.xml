@@ -19,9 +19,9 @@
 		<include condition="!Skin.HasSetting(52biglist.singlepane)">View_52_BigList_DoublePane</include>
 		<include>View_53_Poster</include>
 		<include>View_54_Banner</include>
-		<include condition="!Skin.HasSetting(55wall.hideinfo)">View_55_Wall_Info</include>
+		<include condition="Skin.HasSetting(55wall.showinfo)">View_55_Wall_Info</include>
 		<include condition="Skin.HasSetting(55wall.showposter)">View_55_Wall_Poster</include>
-		<include condition="Skin.HasSetting(55wall.hideinfo) + !Skin.HasSetting(55wall.showposter)">View_55_Wall</include>
+		<include condition="!Skin.HasSetting(55wall.showinfo) + !Skin.HasSetting(55wall.showposter)">View_55_Wall</include>
 		<include condition="!Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)">View_56_MediaInfo</include>
 		<include condition="Skin.HasSetting(56media.showinfo) + !Skin.HasSetting(56media.low)">View_56_MediaInfo2</include>
 		<include condition="Skin.HasSetting(56media.low)">View_56_MediaInfo3</include>

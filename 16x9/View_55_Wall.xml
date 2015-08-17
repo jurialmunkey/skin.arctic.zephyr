@@ -211,34 +211,7 @@
 				</focusedlayout>
 			</control>
 			<include>Furniture_Scrollbar</include>
-			<control type="group" description="Poster">
-				<visible>!IsEmpty(ListItem.Icon)</visible>
-				<left>70</left>
-				<width>448</width>
-				<top>206</top>
-				<height>660</height>
-				<control type="image">
-					<width>100%</width>
-					<height>100%</height>
-					<texture border="10">common/nofocus-shadow10.png</texture>
-				</control>
-				<control type="image">
-					<left>10</left>
-					<top>10</top>
-					<right>10</right>
-					<bottom>10</bottom>
-					<texture border="10" colordiffuse="Panel">common/box.png</texture>
-				</control>
-				<control type="image">
-					<left>10</left>
-					<top>10</top>
-					<right>10</right>
-					<bottom>10</bottom>
-					<fadetime>300</fadetime>
-					<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
-					<texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
-				</control>
-			</control>
+			<include>View_50_SidePoster</include>
 		</control>
 	</include>
 	<include name="View_55_Wall_Info">
@@ -449,73 +422,9 @@
 				</focusedlayout>
 			</control>
 			<include>Furniture_Scrollbar</include>
-			<control type="group" description="Fanart Info">
-				<left>70</left>
-				<width>587</width>
-				<top>206</top>
-				<height>660</height>
-				<control type="group">
-					<height>330</height>
-					<control type="image">
-						<width>100%</width>
-						<height>100%</height>
-						<texture border="10">common/nofocus-shadow10.png</texture>
-					</control>
-					<control type="image">
-						<left>10</left>
-						<top>10</top>
-						<right>10</right>
-						<bottom>10</bottom>
-						<fadetime>300</fadetime>
-						<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
-						<texture diffuse="diffuse/pvrinfo.png" background="true">$VAR[LandscapeImage]</texture>
-						<visible>!Skin.HasSetting(views.55.showfanart)</visible>
-					</control>
-					<control type="image">
-						<left>10</left>
-						<top>10</top>
-						<right>10</right>
-						<bottom>10</bottom>
-						<fadetime>300</fadetime>
-						<aspectratio align="center" aligny="center" scalediffuse="false">stretch</aspectratio>
-						<texture diffuse="diffuse/pvrinfo.png" background="true">$VAR[FanartImage]</texture>
-						<visible>Skin.HasSetting(views.55.showfanart)</visible>
-					</control>
-				</control>
-				<control type="group">
-					<left>20</left>
-					<right>20</right>
-					<posy>330</posy>
-					<height>330</height>
-					<control type="label">
-						<top>10</top>
-						<aligny>center</aligny>
-						<height>64</height>
-						<font>SmallBold</font>
-						<textcolor>Dark1</textcolor>
-						<selectedcolor>Dark1</selectedcolor>
-						<label>$INFO[ListItem.Title]</label>
-					</control>
-					<control type="label">
-						<top>50</top>
-						<height>64</height>
-						<aligny>center</aligny>
-						<font>Tiny</font>
-						<textcolor>Dark1</textcolor>
-						<selectedcolor>Dark1</selectedcolor>
-						<label>$INFO[ListItem.Genre]</label>
-					</control>
-					<control type="textbox">
-						<top>125</top>
-						<bottom>19</bottom>
-						<align>justify</align>
-						<font>Tiny</font>
-						<textcolor>Dark1</textcolor>
-						<selectedcolor>Dark1</selectedcolor>
-						<label>$VAR[LabelPlotBox]</label>
-					</control>
-				</control>
-			</control>
+			<include name="Fanart_Info">
+				<param name="posx" value="70" />
+			</include>
 		</control>
 	</include>
 	<include name="View_55_Wall">
