@@ -376,6 +376,7 @@
 				<width>130</width>
 				<height>50</height>
 				<align>center</align>
+				<top>33</top>
 				<textcolor>Black100</textcolor>
 				<label>$INFO[ListItem.Mpaa]</label>
 				<font>SmallBold</font>
@@ -396,6 +397,7 @@
 				<width>130</width>
 				<height>50</height>
 				<align>center</align>
+				<top>33</top>
 				<textcolor>$VAR[ColourHighlight]</textcolor>
 				<label>$INFO[ListItem.Mpaa]</label>
 				<font>SmallBold</font>
@@ -417,8 +419,30 @@
 				<centertop>50%</centertop>
 				<width>130</width>
 				<height>50</height>
+				<top>33</top>
 				<align>center</align>
 				<colordiffuse>Black100</colordiffuse>
+				<label>$INFO[Container(301).ListItem.Mpaa]</label>
+				<font>SmallBold</font>
+			</control>
+		</control>
+		<control type="group">
+			<width>130</width>
+			<visible>!IsEmpty(Container(301).ListItem.Mpaa) + Skin.HasSetting(furniture.flags.colour)</visible>
+			<control type="image">
+				<centertop>50%</centertop>
+				<width>130</width>
+				<height>50</height>
+				<colordiffuse>$VAR[ColourHighlight]</colordiffuse>
+				<texture>info/rating/rating_blank.png</texture>
+			</control>
+			<control type="label">
+				<centertop>50%</centertop>
+				<width>130</width>
+				<height>50</height>
+				<align>center</align>
+				<top>33</top>
+				<textcolor>$VAR[ColourHighlight]</textcolor>
 				<label>$INFO[Container(301).ListItem.Mpaa]</label>
 				<font>SmallBold</font>
 			</control>
