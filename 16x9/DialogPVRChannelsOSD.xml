@@ -72,86 +72,65 @@
 						<colordiffuse>$VAR[OSDPanelWhite100]</colordiffuse>
 					</control>
 					<control type="image">
-						<posx>22</posx>
-						<posy>12</posy>
-						<width>85</width>
-						<height>85</height>
-						<texture>$INFO[ListItem.Thumb]</texture>
-						<aspectratio>keep</aspectratio>
-					</control>
-					<control type="label">
-						<posx>561</posx>
-						<posy>20</posy>
+						<left>10</left>
+						<top>10</top>
 						<width>100</width>
-						<align>left</align>
-						<textcolor>$VAR[OSDPanelWhite70]</textcolor>
-						<font>LargeBold</font>
-						<label>$INFO[ListItem.ChannelNumber]</label>
-						<selectedcolor>$VAR[OSDPanelWhite70]</selectedcolor>
+						<height>100</height>
+						<aspectratio align="left">keep</aspectratio>
+						<texture fallback="DefaultAddonNone.png">$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="progress">
-						<posx>194</posx>
-						<posy>81</posy>
-						<width>295</width>
-						<height>19</height>
+						<width>647</width>
+						<left>10</left>
+						<bottom>4</bottom>
+						<height>6</height>
 						<reveal>true</reveal>
-						<texturebg>pvr/progress-back-wide.png</texturebg>
-						<lefttexture>pvr/progress-leftright.png</lefttexture>
-						<midtexture>pvr/progress-mid-wide.png</midtexture>
-						<righttexture>pvr/progress-leftright.png</righttexture>
 						<info>ListItem.Progress</info>
-						<colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
 					</control>
 					<control type="label">
 						<posx>130</posx>
-						<posy>55</posy>
-						<width>420</width>
-						<align>left</align>
-						<textcolor>$VAR[OSDPanelWhite70]</textcolor>
-						<font>TinyBold</font>
-						<label>$INFO[ListItem.StartTime(hh:mm)]</label>
-						<selectedcolor>$VAR[OSDPanelWhite70]</selectedcolor>
-					</control>
-					<control type="label">
-						<posx>130</posx>
-						<posy>55</posy>
-						<width>420</width>
-						<align>right</align>
-						<textcolor>$VAR[OSDPanelWhite70]</textcolor>
-						<font>TinyBold</font>
-						<label>$INFO[ListItem.EndTime(hh:mm)]</label>
-						<selectedcolor>$VAR[OSDPanelWhite70]</selectedcolor>
-					</control>
-					<control type="label">
-						<posx>130</posx>
-						<posy>-10</posy>
-						<width>400</width>
-						<align>left</align>
-						<textcolor>$VAR[OSDPanelWhite70]</textcolor>
+						<right>100</right>
+						<top>4</top>
+						<aligny>center</aligny>
+						<height>64</height>
 						<font>SmallBold</font>
-						<label>$INFO[ListItem.ChannelName]</label>
+						<textcolor>$VAR[OSDPanelWhite70]</textcolor>
 						<selectedcolor>$VAR[OSDPanelWhite70]</selectedcolor>
+						<label>$INFO[ListItem.ChannelNumberLabel,,  ]$INFO[ListItem.ChannelName]</label>
 					</control>
 					<control type="label">
 						<posx>130</posx>
-						<posy>25</posy>
-						<width>400</width>
-						<align>left</align>
+						<bottom>20</bottom>
+						<right>100</right>
+						<aligny>center</aligny>
+						<height>64</height>
 						<font>Small</font>
 						<textcolor>$VAR[OSDPanelWhite70]</textcolor>
-						<label>$INFO[ListItem.Title]</label>
 						<selectedcolor>$VAR[OSDPanelWhite70]</selectedcolor>
+						<label>$INFO[ListItem.Title]</label>
+					</control>
+					<control type="label">
+						<posx>130</posx>
+						<width>517</width>
+						<top>4</top>
+						<aligny>center</aligny>
+						<height>64</height>
+						<align>right</align>
+						<font>Tiny</font>
+						<textcolor>$VAR[OSDPanelWhite70]</textcolor>
+						<selectedcolor>$VAR[OSDPanelWhite70]</selectedcolor>
+						<label>$INFO[ListItem.EndTime(hh:mm),$LOCALIZE[31106] ,]</label>
 					</control>
 				</itemlayout>
 				<focusedlayout height="120">
 					<control type="image">
 						<width>667</width>
-						<height>109</height>
-						<texture colordiffuse="$VAR[ColourHighlight]">common/white.png</texture>
+						<height>120</height>
+						<texture colordiffuse="Dark1" border="5">common/box.png</texture>
 					</control>
 					<control type="image">
 						<width>667</width>
-						<height>109</height>
+						<height>110</height>
 						<texture>common/selected.png</texture>
 						<aspectratio aligny="top">center</aspectratio>
 						<animation effect="fade" start="100" end="30" condition="true">Conditional</animation>
@@ -159,75 +138,54 @@
 						<colordiffuse>$VAR[ColourSelected]</colordiffuse>
 					</control>
 					<control type="image">
-						<posx>22</posx>
-						<posy>12</posy>
-						<width>85</width>
-						<height>85</height>
-						<texture>$INFO[ListItem.Thumb]</texture>
-						<aspectratio>keep</aspectratio>
-					</control>
-					<control type="label">
-						<posx>561</posx>
-						<posy>20</posy>
+						<left>10</left>
+						<top>10</top>
 						<width>100</width>
-						<align>left</align>
-						<textcolor>$VAR[ColourSelected]</textcolor>
-						<font>LargeBold</font>
-						<label>$INFO[ListItem.ChannelNumber]</label>
-						<selectedcolor>$VAR[ColourSelected]</selectedcolor>
+						<height>100</height>
+						<aspectratio align="left">keep</aspectratio>
+						<texture fallback="DefaultAddonNone.png">$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="progress">
-						<posx>194</posx>
-						<posy>81</posy>
-						<width>295</width>
-						<height>19</height>
+						<width>647</width>
+						<left>10</left>
+						<bottom>4</bottom>
+						<height>6</height>
 						<reveal>true</reveal>
-						<texturebg>pvr/progress-back-wide.png</texturebg>
-						<lefttexture>pvr/progress-leftright.png</lefttexture>
-						<midtexture>pvr/progress-mid-wide.png</midtexture>
-						<righttexture>pvr/progress-leftright.png</righttexture>
 						<info>ListItem.Progress</info>
-						<colordiffuse>$VAR[ColourSelected]</colordiffuse>
 					</control>
 					<control type="label">
 						<posx>130</posx>
-						<posy>55</posy>
-						<width>420</width>
-						<align>left</align>
-						<textcolor>$VAR[ColourSelected]</textcolor>
-						<font>TinyBold</font>
-						<label>$INFO[ListItem.StartTime(hh:mm)]</label>
-						<selectedcolor>$VAR[ColourSelected]</selectedcolor>
-					</control>
-					<control type="label">
-						<posx>130</posx>
-						<posy>55</posy>
-						<width>420</width>
-						<align>right</align>
-						<textcolor>$VAR[ColourSelected]</textcolor>
-						<font>TinyBold</font>
-						<label>$INFO[ListItem.EndTime(hh:mm)]</label>
-						<selectedcolor>$VAR[ColourSelected]</selectedcolor>
-					</control>
-					<control type="label">
-						<posx>130</posx>
-						<posy>-10</posy>
-						<width>400</width>
-						<align>left</align>
-						<textcolor>$VAR[ColourSelected]</textcolor>
+						<width>417</width>
+						<top>4</top>
+						<aligny>center</aligny>
+						<height>64</height>
 						<font>SmallBold</font>
-						<label>$INFO[ListItem.ChannelName]</label>
+						<textcolor>$VAR[ColourSelected]</textcolor>
 						<selectedcolor>$VAR[ColourSelected]</selectedcolor>
+						<label>$INFO[ListItem.ChannelNumberLabel,,  ]$INFO[ListItem.ChannelName]</label>
 					</control>
 					<control type="label">
 						<posx>130</posx>
-						<posy>25</posy>
-						<width>400</width>
-						<align>left</align>
+						<width>417</width>
+						<bottom>20</bottom>
+						<aligny>center</aligny>
+						<height>64</height>
 						<font>Small</font>
 						<textcolor>$VAR[ColourSelected]</textcolor>
-						<label>$INFO[ListItem.Title]</label>
 						<selectedcolor>$VAR[ColourSelected]</selectedcolor>
+						<label>$INFO[ListItem.Title]</label>
+					</control>
+					<control type="label">
+						<posx>130</posx>
+						<width>517</width>
+						<top>4</top>
+						<aligny>center</aligny>
+						<height>64</height>
+						<align>right</align>
+						<font>Tiny</font>
+						<textcolor>$VAR[ColourSelected]</textcolor>
+						<selectedcolor>$VAR[ColourSelected]</selectedcolor>
+						<label>$INFO[ListItem.EndTime(hh:mm),$LOCALIZE[31106] ,]</label>
 					</control>
 				</focusedlayout>
 			</control>
