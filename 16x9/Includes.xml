@@ -378,7 +378,7 @@
 				<align>center</align>
 				<top>33</top>
 				<textcolor>Black100</textcolor>
-				<label>$INFO[ListItem.Mpaa]</label>
+				<label>$VAR[MPAA]</label>
 				<font>SmallBold</font>
 				<visible>!IsEmpty(ListItem.Mpaa) + ![SubString(ListItem.Mpaa,NOT RATED) | SubString(ListItem.Mpaa,APPROVED)]</visible>
 			</control>
@@ -411,7 +411,7 @@
 				<align>center</align>
 				<top>33</top>
 				<textcolor>$VAR[ColourHighlight]</textcolor>
-				<label>$INFO[ListItem.Mpaa]</label>
+				<label>$VAR[MPAA]</label>
 				<font>SmallBold</font>
 				<visible>!IsEmpty(ListItem.Mpaa) + ![SubString(ListItem.Mpaa,NOT RATED) | SubString(ListItem.Mpaa,APPROVED)]</visible>
 			</control>
@@ -446,7 +446,7 @@
 				<top>33</top>
 				<align>center</align>
 				<colordiffuse>Black100</colordiffuse>
-				<label>$INFO[Container(301).ListItem.Mpaa]</label>
+				<label>$VAR[MPAA_Home]</label>
 				<font>SmallBold</font>
 				<visible>!IsEmpty(Container(301).ListItem.Mpaa) + ![SubString(Container(301).ListItem.Mpaa,NOT RATED) | SubString(Container(301).ListItem.Mpaa,APPROVED)]</visible>
 			</control>
@@ -479,7 +479,7 @@
 				<align>center</align>
 				<top>33</top>
 				<textcolor>$VAR[ColourHighlight]</textcolor>
-				<label>$INFO[Container(301).ListItem.Mpaa]</label>
+				<label>$VAR[MPAA_Home]</label>
 				<font>SmallBold</font>
 				<visible>!IsEmpty(Container(301).ListItem.Mpaa) + ![SubString(Container(301).ListItem.Mpaa,NOT RATED) | SubString(Container(301).ListItem.Mpaa,APPROVED)]</visible>
 			</control>

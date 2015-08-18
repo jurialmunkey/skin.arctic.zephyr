@@ -1150,4 +1150,24 @@
 		<value condition="!Skin.HasSetting(furniture.alternate.duration)">$INFO[Window(home).Property(Duration), ,min]</value>
 		<value>$INFO[Container(301).ListItem.Duration,,min]</value>
 	</variable>
+	<variable name="MPAA">
+		<value condition="SubString(ListItem.Mpaa,gb-pg)">PG</value>
+		<value condition="SubString(ListItem.Mpaa,gb-12A)">12A</value>
+		<value condition="SubString(ListItem.Mpaa,gb-12)">12</value>
+		<value condition="SubString(ListItem.Mpaa,gb-15)">15</value>
+		<value condition="SubString(ListItem.Mpaa,gb-18)">18</value>
+		<value condition="SubString(ListItem.Mpaa,gb-u)">U</value>
+		<value condition="SubString(ListItem.Mpaa,gb-r18)">R18</value>
+		<value>$INFO[ListItem.Mpaa]</value>
+	</variable>
+	<variable name="MPAA_Home">
+		<value condition="SubString(Container(301).ListItem.Mpaa,gb-pgpg)">PG</value>
+		<value condition="SubString(Container(301).ListItem.Mpaa,gb-12A12A)">12A</value>
+		<value condition="SubString(Container(301).ListItem.Mpaa,gb-12)">12</value>
+		<value condition="SubString(Container(301).ListItem.Mpaa,gb-15)">15</value>
+		<value condition="SubString(Container(301).ListItem.Mpaa,gb-18)">18</value>
+		<value condition="SubString(Container(301).ListItem.Mpaa,gb-u)">U</value>
+		<value condition="SubString(Container(301).ListItem.Mpaa,gb-r18)">R18</value>
+		<value>$INFO[Container(301).ListItem.Mpaa]</value>
+	</variable>
 </includes>
