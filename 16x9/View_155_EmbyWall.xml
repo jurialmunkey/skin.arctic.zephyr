@@ -13,9 +13,9 @@
 				<width>1920</width>
 				<height>720</height>
 				<onleft condition="Control.IsVisible(60)">60</onleft>
-				<onleft condition="!Control.IsVisible(60)">9000</onleft>
-				<onleft>60</onleft>
-				<onright>60</onright>
+				<onleft condition="!Control.IsVisible(60) + !Skin.HasSetting(global.kioskmode)">9000</onleft>
+				<onright condition="Control.IsVisible(60)">60</onright>
+				<onright condition="!Control.IsVisible(60) + !Skin.HasSetting(global.kioskmode)">9000</onright>
 				<onup>155</onup>
 				<ondown>155</ondown>
 				<preloaditems>2</preloaditems>
