@@ -100,8 +100,9 @@
 					</control>
 					<control type="label">
 						<posx>130</posx>
-						<bottom>20</bottom>
-						<right>100</right>
+						<bottom>14</bottom>
+						<right>10</right>
+						<align>left</align>
 						<aligny>center</aligny>
 						<height>64</height>
 						<font>Small</font>
@@ -122,14 +123,11 @@
 						<label>$INFO[ListItem.EndTime(hh:mm),$LOCALIZE[31106] ,]</label>
 					</control>
 				</itemlayout>
-				<focusedlayout height="120">
+				<focusedlayout height="120" width="667">
 					<control type="image">
-						<width>667</width>
-						<height>120</height>
 						<texture colordiffuse="Dark1" border="5">common/box.png</texture>
 					</control>
 					<control type="image">
-						<width>667</width>
 						<height>110</height>
 						<texture>common/selected.png</texture>
 						<aspectratio aligny="top">center</aspectratio>
@@ -165,10 +163,11 @@
 						<label>$INFO[ListItem.ChannelNumberLabel,,  ]$INFO[ListItem.ChannelName]</label>
 					</control>
 					<control type="label">
-						<posx>130</posx>
-						<width>417</width>
-						<bottom>20</bottom>
+						<left>130</left>
+						<right>10</right>
+						<bottom>14</bottom>
 						<aligny>center</aligny>
+						<align>left</align>
 						<height>64</height>
 						<font>Small</font>
 						<textcolor>$VAR[ColourSelected]</textcolor>
