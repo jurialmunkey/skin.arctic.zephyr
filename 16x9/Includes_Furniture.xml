@@ -436,12 +436,7 @@
 				<texture>$INFO[Window(home).Property(Set.Movie.8.Art(discart))]</texture>
 				<visible>!IsEmpty(Window(home).Property(Set.Movie.8.Art(discart)))</visible>
 			</control>
-			<include>lib_Rating_TV</include>
-			<include condition="IsEmpty(Skin.String(RatingCountry))">lib_Rating_BBFC</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),US)">lib_Rating_MPAA</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),UK)">lib_Rating_BBFC</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),Germany)">lib_Rating_FSK</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),NL)">lib_Rating_NL</include>
+			<include>lib_Rating_MPAA</include>
 			<control type="image">
 				<width>108</width>
 				<height>50</height>
@@ -910,6 +905,7 @@
 			<top>931</top>
 			<include>Animation.FadeIn</include>
 			<include>Animation.FadeOut</include>
+			<animation effect="slide" start="0" end="0,-911" time="0" condition="!Skin.HasSetting(home.showheader)">Conditional</animation>
 			<control type="image">
 				<width>258</width>
 				<height>130</height>
@@ -1401,94 +1397,6 @@
 			</control>
 		</control>
 	</include>
-	<include name="Furniture_Clock_Bottom">
-		<control type="group">
-			<include>Animation.FadeIn</include>
-			<include>Animation.FadeOut</include>
-			<centerbottom>94</centerbottom>
-			<visible>!Skin.HasSetting(furniture.clock)</visible>
-			<include>Animation.FurnitureFadeInOut</include>
-			<height>84</height>
-			<animation effect="slide" start="0" end="0,-10" time="150" condition="Skin.HasSetting(furniture.weather)">Conditional</animation>
-			<control type="label">
-				<centertop>24</centertop>
-				<right>130</right>
-				<align>right</align>
-				<font>LargeBold</font>
-				<textcolor>Dark1</textcolor>
-				<label>$INFO[System.Time(hh:mm)]</label>
-				<animation effect="slide" start="0" end="50" time="0" condition="IsEmpty(System.Time(xx))">Conditional</animation>
-			</control>
-			<control type="label">
-				<centertop>25</centertop>
-				<align>right</align>
-				<right>24</right>
-				<font>symbolview</font>
-				<textcolor>Dark1</textcolor>
-				<label></label>
-				<fadetime>200</fadetime>
-				<visible>[!IsEmpty(ListItem.EndTime) + [Container.Content(movies) | Container.Content(episodes)]] | [!IsEmpty(Container(301).ListItem.EndTime) + Control.HasFocus(301) + Skin.HasSetting(home.vertical)] | [!IsEmpty(Container(301).ListItem.EndTime) + !Skin.HasSetting(home.vertical)]</visible>
-				<visible>[!Window.IsVisible(DialogVideoInfo.xml) + !Skin.HasSetting(furniture.hideendtime)] | Window.IsVisible(DialogVideoInfo.xml)</visible>
-			</control>
-			<control type="label">
-				<centertop>220</centertop>
-				<right>-225</right>
-				<aligny>top</aligny>
-				<width>240</width>
-				<height>333</height>
-				<font>SmallBold</font>
-				<textcolor>Dark1</textcolor>
-				<label>$INFO[ListItem.EndTime(hh:mm)]</label>
-				<angle>-90</angle>
-				<fadetime>200</fadetime>
-				<visible>[!IsEmpty(ListItem.EndTime) + [Container.Content(movies) | Container.Content(episodes)]]</visible>
-				<visible>[!Window.IsVisible(DialogVideoInfo.xml) + !Skin.HasSetting(furniture.hideendtime)] | Window.IsVisible(DialogVideoInfo.xml)</visible>
-			</control>
-			<control type="label">
-				<centertop>220</centertop>
-				<right>-225</right>
-				<aligny>top</aligny>
-				<width>240</width>
-				<height>333</height>
-				<font>SmallBold</font>
-				<textcolor>Dark1</textcolor>
-				<label>$INFO[Container(301).ListItem.EndTime(hh:mm)]</label>
-				<angle>-90</angle>
-				<fadetime>200</fadetime>
-				<visible>!Skin.HasSetting(furniture.hideendtime)</visible>
-				<visible>[!IsEmpty(Container(301).ListItem.EndTime) + Control.HasFocus(301) + Skin.HasSetting(home.vertical)] | [!IsEmpty(Container(301).ListItem.EndTime) + !Skin.HasSetting(home.vertical)]</visible>
-			</control>
-			<control type="label">
-				<centertop>30</centertop>
-				<right>SidePad</right>
-				<font>SmallBold</font>
-				<textcolor>Dark3</textcolor>
-				<align>right</align>
-				<width>120</width>
-				<label>$INFO[System.Time(xx)]</label>
-				<visible>!IsEmpty(System.Time(xx))</visible>
-			</control>
-			<control type="label">
-				<centertop>64</centertop>
-				<right>SidePad</right>
-				<font>Flag</font>
-				<textcolor>Dark2</textcolor>
-				<align>right</align>
-				<width>50%</width>
-				<label>$INFO[System.Date(DDD)]$COMMA $INFO[System.Date(d MMM yyyy)]</label>
-			</control>
-			<control type="label">
-				<centertop>92</centertop>
-				<right>SidePad</right>
-				<font>Flag</font>
-				<textcolor>Dark3</textcolor>
-				<align>right</align>
-				<width>50%</width>
-				<visible>Skin.HasSetting(furniture.weather)</visible>
-				<label>[COLOR=$VAR[ColourHighlight]]$INFO[Weather.Temperature][/COLOR] $INFO[Weather.Conditions]</label>
-			</control>
-		</control>
-	</include>
 	<include name="Furniture_Clock">
 		<control type="group">
 			<include>Animation.FadeIn</include>
@@ -1497,7 +1405,7 @@
 			<visible>!Skin.HasSetting(furniture.clock)</visible>
 			<include>Animation.FurnitureFadeInOut</include>
 			<height>84</height>
-			<animation effect="slide" start="0" end="0,-10" time="150" condition="Skin.HasSetting(furniture.weather)">Conditional</animation>
+			<animation effect="slide" start="0" end="0,891" time="0" condition="!Skin.HasSetting(home.showheader)">Conditional</animation>
 			<control type="label">
 				<centertop>24</centertop>
 				<right>130</right>
@@ -1519,7 +1427,7 @@
 			    <visible>[!Window.IsVisible(DialogVideoInfo.xml) + !Skin.HasSetting(furniture.hideendtime)] | Window.IsVisible(DialogVideoInfo.xml)</visible>
 			</control>
 			<control type="label">
-				<centertop>220</centertop>
+				<centertop>219</centertop>
 				<right>-225</right>
 				<aligny>top</aligny>
 				<width>240</width>
@@ -1527,13 +1435,13 @@
 				<font>SmallBold</font>
 				<textcolor>Dark1</textcolor>
 				<label>$INFO[ListItem.EndTime(hh:mm)]</label>
-				<angle>-90</angle>
+				<animation condition="true" easing="inout" effect="rotate" end="-90" center="1907,50" time="300">conditional</animation>
 				<fadetime>200</fadetime>
 				<visible>[!IsEmpty(ListItem.EndTime) + [Container.Content(movies) | Container.Content(episodes)]]</visible>
 				<visible>[!Window.IsVisible(DialogVideoInfo.xml) + !Skin.HasSetting(furniture.hideendtime)] | Window.IsVisible(DialogVideoInfo.xml)</visible>
 			</control>
 			<control type="label">
-				<centertop>220</centertop>
+				<centertop>219</centertop>
 				<right>-225</right>
 				<aligny>top</aligny>
 				<width>240</width>
@@ -1541,7 +1449,7 @@
 				<font>SmallBold</font>
 				<textcolor>Dark1</textcolor>
 				<label>$INFO[Container(301).ListItem.EndTime(hh:mm)]</label>
-				<angle>-90</angle>
+				<animation condition="true" easing="inout" effect="rotate" end="-90" center="1907,50" time="300">conditional</animation>
 				<fadetime>200</fadetime>
 				<visible>!Skin.HasSetting(furniture.hideendtime)</visible>
 				<visible>[!IsEmpty(Container(301).ListItem.EndTime) + Control.HasFocus(301) + Skin.HasSetting(home.vertical)] | [!IsEmpty(Container(301).ListItem.EndTime) + !Skin.HasSetting(home.vertical)]</visible>
@@ -1858,12 +1766,7 @@
 				<visible>Skin.HasSetting(furniture.numericrating) + !substring(Container(300).ListItem.Property(widget),Albums)</visible>
 			</control>
 			<!--<include>lib_Rating_TV</include>-->
-			<include condition="IsEmpty(Skin.String(RatingCountry))">lib_Rating_BBFC_home</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),US)">lib_Rating_MPAA_home</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),UK)">lib_Rating_BBFC_home</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),Germany)">lib_Rating_FSK_home</include>
-			<include condition="Stringcompare(Skin.String(RatingCountry),NL)">lib_Rating_NL_home</include>
-			<include>lib_Rating_TV_home</include>
+			<include>lib_Rating_MPAA_home</include>
 			<control type="image">
 				<width>108</width>
 				<height>50</height>
@@ -2177,7 +2080,7 @@
 				<right>60</right>
 				<posy>60</posy>
 				<font>EpisodeNumber</font>
-				<textcolor>Dark1</textcolor>
+				<textcolor>PanelWhite70</textcolor>
 				<height>45</height>
 				<label>$VAR[LabelOverlayTitle]</label>
 			</control>
@@ -2189,7 +2092,7 @@
 				<bottom>0</bottom>
 				<align>justify</align>
 				<font>Medium</font>
-				<textcolor>Dark1</textcolor>
+				<textcolor>PanelWhite70</textcolor>
 				<label>$VAR[LabelOverlayPlot]</label>
 			</control>
 		</control>

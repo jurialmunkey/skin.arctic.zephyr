@@ -815,7 +815,7 @@
 				<visible>Skin.HasSetting(home.showheader)</visible>
 				<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
 			</control>
-			<include condition="!Skin.HasSetting(home.showheader)">Furniture_Clock_Bottom</include>
+			<include>Furniture_Clock</include>
 		</control>
 	</include>
 	<include name="HomeSubMenu">
@@ -2007,6 +2007,7 @@
 						<visible>Skin.HasSetting(furniture.logo)</visible>
 						<visible>Control.HasFocus(301)</visible>
 						<visible>!Player.HasMedia</visible>
+						<animation effect="slide" start="0,0" end="0,-911" time="0" condition="!Skin.HasSetting(home.showheader)">Conditional</animation>
 						<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
 					</control>
 					<control type="image">
@@ -2023,6 +2024,7 @@
 						<visible>Control.HasFocus(301)</visible>
 						<visible>!Player.HasMedia</visible>
 						<visible>substring(Container(300).ListItem.Property(widget),Albums)</visible>
+						<animation effect="slide" start="0,0" end="0,-911" time="0" condition="!Skin.HasSetting(home.showheader)">Conditional</animation>
 						<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
 					</control>
 					<control type="image">
@@ -2038,6 +2040,7 @@
 						<visible>Skin.HasSetting(furniture.logo)</visible>
 						<visible>!Control.HasFocus(301)</visible>
 						<visible>!Player.HasMedia</visible>
+						<animation effect="slide" start="0,0" end="0,-911" time="0" condition="!Skin.HasSetting(home.showheader)">Conditional</animation>
 						<animation effect="rotate" end="10" center="auto" condition="true" time="200">conditional</animation>
 					</control>
 					<control type="image">
