@@ -30,11 +30,11 @@
 			</control>
 			<control type="label">
 				<centertop>219</centertop>
-				<right>-225</right>
+				<right>-226</right>
 				<aligny>top</aligny>
 				<width>240</width>
 				<height>333</height>
-				<font>SmallBold</font>
+				<font>MediumBoldAngle</font>
 				<textcolor>Dark1</textcolor>
 				<label>$VAR[EmbyEndTimeLabel]</label>
 				<animation condition="true" easing="inout" effect="rotate" end="-90" center="1907,50" time="300">conditional</animation>
@@ -443,8 +443,7 @@
 				<onright>301</onright>
 				<preloaditems>2</preloaditems>
 				<orientation>horizontal</orientation>
-				<autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
-				<scrolltime tween="quadratic">0</scrolltime>
+				<scrolltime tween="quadratic">100</scrolltime>
 				<include>Animation.FadeIn</include>
 				<include>Animation.FadeOut</include>
 				<itemlayout width="1" height="1">
@@ -466,8 +465,7 @@
 				<onright>301</onright>
 				<preloaditems>2</preloaditems>
 				<orientation>horizontal</orientation>
-				<autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
-				<scrolltime tween="quadratic">0</scrolltime>
+				<scrolltime tween="quadratic">100</scrolltime>
 				<include>Animation.FadeIn</include>
 				<include>Animation.FadeOut</include>
 				<itemlayout width="1" height="1">
@@ -546,7 +544,7 @@
 				<preloaditems>2</preloaditems>
 				<orientation>horizontal</orientation>
 				<autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
-				<scrolltime tween="quadratic">0</scrolltime>
+				<scrolltime tween="quadratic">100</scrolltime>
 				<include>Animation.FadeIn</include>
 				<include>Animation.FadeOut</include>
 				<itemlayout width="820" height="460">
@@ -755,7 +753,8 @@
 				<onright>6017</onright>
 				<preloaditems>2</preloaditems>
 				<orientation>vertical</orientation>
-				<scrolltime tween="quadratic">0</scrolltime>
+				<autoscroll time="3000">!Control.HasFocus(301)</autoscroll>
+				<scrolltime tween="quadratic">100</scrolltime>
 				<include>Animation.FadeIn</include>
 				<include>Animation.FadeOut</include>
 				<itemlayout width="410" height="89">
@@ -863,7 +862,7 @@
 				<onleft condition="Control.IsVisible(6016)">6016</onleft>
 				<onleft condition="!Control.IsVisible(6016)">6012</onleft>
 				<preloaditems>2</preloaditems>
-				<scrolltime tween="quadratic">0</scrolltime>
+				<scrolltime tween="quadratic">100</scrolltime>
 				<include>Animation.FadeIn</include>
 				<include>Animation.FadeOut</include>
 				<itemlayout width="158" height="235">
@@ -1659,7 +1658,7 @@
 				<preloaditems>2</preloaditems>
 				<orientation>horizontal</orientation>
 				<autoscroll time="10000">!Control.HasFocus(3012)</autoscroll>
-				<scrolltime tween="quadratic">0</scrolltime>
+				<scrolltime tween="quadratic">100</scrolltime>
 				<include>Animation.FadeIn</include>
 				<include>Animation.FadeOut</include>
 				<itemlayout width="820" height="460">
@@ -1889,9 +1888,11 @@
 				<onright>3017</onright>
 				<preloaditems>2</preloaditems>
 				<orientation>vertical</orientation>
-				<scrolltime tween="quadratic">0</scrolltime>
+				<autoscroll time="3000">!Control.HasFocus(301)</autoscroll>
+				<scrolltime tween="quadratic">100</scrolltime>
 				<include>Animation.FadeIn</include>
 				<include>Animation.FadeOut</include>
+				<autoscroll time="3000">!Control.HasFocus(301)</autoscroll>
 				<itemlayout width="410" height="235">
 					<control type="image">
 						<top>3</top>
@@ -1977,7 +1978,7 @@
 				<onleft condition="Control.IsVisible(3016)">3016</onleft>
 				<onleft condition="!Control.IsVisible(3016)">3012</onleft>
 				<preloaditems>2</preloaditems>
-				<scrolltime tween="quadratic">0</scrolltime>
+				<scrolltime tween="quadratic">100</scrolltime>
 				<include>Animation.FadeIn</include>
 				<include>Animation.FadeOut</include>
 				<itemlayout width="158" height="235">
@@ -2082,7 +2083,7 @@
 				<preloaditems>2</preloaditems>
 				<orientation>horizontal</orientation>
 				<autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
-				<scrolltime tween="quadratic">0</scrolltime>
+				<scrolltime tween="quadratic">100</scrolltime>
 				<include>Animation.FadeIn</include>
 				<include>Animation.FadeOut</include>
 				<itemlayout width="820" height="460">
@@ -2402,7 +2403,8 @@
 				<onright>4017</onright>
 				<preloaditems>2</preloaditems>
 				<orientation>vertical</orientation>
-				<scrolltime tween="quadratic">0</scrolltime>
+				<scrolltime tween="quadratic">100</scrolltime>
+				<autoscroll time="3000">!Control.HasFocus(301)</autoscroll>
 				<include>Animation.FadeIn</include>
 				<include>Animation.FadeOut</include>
 				<itemlayout width="410" height="235">
@@ -2526,7 +2528,7 @@
 				<onback>RunScript(script.toolbox,info=selectdialog,header=Select Widget)</onback>
 				<onleft>4016</onleft>
 				<preloaditems>2</preloaditems>
-				<scrolltime tween="quadratic">0</scrolltime>
+				<scrolltime tween="quadratic">100</scrolltime>
 				<include>Animation.FadeIn</include>
 				<include>Animation.FadeOut</include>
 				<itemlayout width="158" height="235">
@@ -2649,7 +2651,7 @@
 				<preloaditems>2</preloaditems>
 				<orientation>horizontal</orientation>
 				<autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
-				<scrolltime tween="quadratic">0</scrolltime>
+				<scrolltime tween="quadratic">100</scrolltime>
 				<include>Animation.FadeIn</include>
 				<include>Animation.FadeOut</include>
 				<itemlayout width="820" height="460">
@@ -2933,7 +2935,7 @@
 				<onright>5017</onright>
 				<preloaditems>2</preloaditems>
 				<orientation>vertical</orientation>
-				<scrolltime tween="quadratic">0</scrolltime>
+				<scrolltime tween="quadratic">100</scrolltime>
 				<include>Animation.FadeIn</include>
 				<include>Animation.FadeOut</include>
 				<itemlayout width="230" height="235">
@@ -3024,7 +3026,7 @@
 				<onback>SetProperty(Dialog.5.BuiltIn,Skin.SetString(widget14,Top100Music))</onback>
 				<onleft>5016</onleft>
 				<preloaditems>2</preloaditems>
-				<scrolltime tween="quadratic">0</scrolltime>
+				<scrolltime tween="quadratic">100</scrolltime>
 				<include>Animation.FadeIn</include>
 				<include>Animation.FadeOut</include>
 				<itemlayout width="230" height="235">
@@ -3137,7 +3139,7 @@
 				<preloaditems>2</preloaditems>
 				<orientation>horizontal</orientation>
 				<autoscroll time="10000">!Control.HasFocus(7012)</autoscroll>
-				<scrolltime tween="quadratic">0</scrolltime>
+				<scrolltime tween="quadratic">100</scrolltime>
 				<include>Animation.FadeIn</include>
 				<include>Animation.FadeOut</include>
 				<itemlayout width="820" height="460">
@@ -3400,7 +3402,8 @@
 				<onright>7016</onright>
 				<preloaditems>2</preloaditems>
 				<orientation>vertical</orientation>
-				<scrolltime tween="quadratic">0</scrolltime>
+				<autoscroll time="3000">!Control.HasFocus(301)</autoscroll>
+				<scrolltime tween="quadratic">100</scrolltime>
 				<include>Animation.FadeIn</include>
 				<include>Animation.FadeOut</include>
 				<itemlayout height="235" width="418">
