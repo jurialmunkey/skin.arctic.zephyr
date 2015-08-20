@@ -9,7 +9,7 @@
             <centerleft>50%</centerleft>
             <centertop>50%</centertop>
             <width>1065</width>
-            <height>864</height>
+            <height>657</height>
             <control type="image">
                 <description>background image</description>
                 <top>-8</top>
@@ -35,11 +35,12 @@
                 <left>15</left>
                 <bottom>15</bottom>
                 <width>600</width>
-                <height>759</height>
+                <height>552</height>
                 <onup>211</onup>
                 <onleft>211</onleft>
                 <onright>9100</onright>
                 <ondown>211</ondown>
+                <scrolltime>0</scrolltime>
                 <itemlayout width="600" height="69">
                     <control type="image">
                         <posx>0</posx>
@@ -70,7 +71,7 @@
                         <width>100%</width>
                         <height>66</height>
                         <texture border="5" colordiffuse="$VAR[ColorHighlight]">common/box.png</texture>
-                        <visible>Control.HasFocus(211)</visible>
+                        <!-- <visible>Control.HasFocus(211)</visible> -->
                     </control>
                     <control type="image">
                         <posx>0</posx>
@@ -78,7 +79,8 @@
                         <width>100%</width>
                         <height>66</height>
                         <texture border="5" colordiffuse="PanelBlack30">common/box.png</texture>
-                        <visible>!Control.HasFocus(211)</visible>
+                        <!-- <visible>!Control.HasFocus(211)</visible> -->
+                        <visible>false</visible>
                     </control>
                     <control type="label">
                         <left>30</left>
@@ -91,23 +93,77 @@
                         <top>0</top>
                         <width>66</width>
                         <height>66</height>
-                        <texture colordiffuse="Selected">$INFO[ListItem.Icon]</texture>
+                        <texture colordiffuse="Black30">$INFO[ListItem.Icon]</texture>
                         <visible>substring(ListItem.Icon,special://skin/extras/icons)</visible>
                         <visible>Skin.HasSetting(home.showicons) | stringcompare(Window.Property(groupname),movieshub) | stringcompare(Window.Property(groupname),episodeshub)</visible>
                     </control>
                 </focusedlayout>
             </control>
+
+            <control type="grouplist" id="9200">
+                <left>15</left>
+                <top>91</top>
+                <width>600</width>
+                <align>right</align>
+                <itemgap>-20</itemgap>
+                <onright>9100</onright>
+                <onup>Control.Move(211,-1)</onup>
+                <ondown>Control.Move(211,1)</ondown>
+                <orientation>horizontal</orientation>
+                <animation effect="slide" end="-48" condition="Skin.HasSetting(home.showicons) | stringcompare(Window.Property(groupname),movieshub) | stringcompare(Window.Property(groupname),episodeshub)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,0)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,1)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,2)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,3)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,4)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,5)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,6)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,7)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,8)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,9)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,10)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,11)">Conditional</animation>
+                <control type="button" id="302" description="Delete">
+                    <width>64</width>
+                    <height>64</height>
+                    <font>-</font>
+                    <texturenofocus colordiffuse="Black30">buttons/delete.png</texturenofocus>
+                    <texturefocus colordiffuse="Selected">buttons/delete.png</texturefocus>
+                </control>
+                <!-- <control type="button" id="301" description="Add">
+                    <width>64</width>
+                    <height>64</height>
+                    <font>-</font>
+                    <texturenofocus colordiffuse="Black30">buttons/add.png</texturenofocus>
+                    <texturefocus colordiffuse="Selected">buttons/add.png</texturefocus>
+                </control> -->
+                <control type="button" id="303" description="Up">
+                    <width>64</width>
+                    <height>64</height>
+                    <font>-</font>
+                    <texturenofocus colordiffuse="Black30">buttons/moveup.png</texturenofocus>
+                    <texturefocus colordiffuse="Selected">buttons/moveup.png</texturefocus>
+                </control>
+                <control type="button" id="304" description="Down">
+                    <width>64</width>
+                    <height>64</height>
+                    <font>-</font>
+                    <texturenofocus colordiffuse="Black30" flipy="true">buttons/moveup.png</texturenofocus>
+                    <texturefocus colordiffuse="Selected" flipy="true">buttons/moveup.png</texturefocus>
+                </control>
+                
+            </control>
             
             <!-- Right Buttons -->
             <control type="grouplist" id="9100">
-                <onleft>211</onleft>
-                <onright>111</onright>
+                <onleft>304</onleft>
+                <onright>303</onright>
                 <onup>9100</onup>
                 <ondown>9100</ondown>
                 <right>15</right>
                 <bottom>15</bottom>
                 <width>420</width>
-                <height>759</height>
+                <height>552</height>
                 <orientation>vertical</orientation>
                 <itemgap>3</itemgap>
                 
@@ -184,31 +240,18 @@
                     <visible>stringcompare(Container(211).ListItem.Label2,TVHub)</visible>
                     <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=episodeshub)</onclick>
                 </control>
-                <control type="button" id="303" description="Up">
-                    <width>100%</width>
-                    <height>66</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <include>DefDialogButtons</include>
-                </control>
-                <control type="button" id="304" description="Down">
-                    <width>100%</width>
-                    <height>66</height>
-                    <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
-                    <include>DefDialogButtons</include>
-                </control>
                 <control type="button" id="301" description="Add">
                     <width>100%</width>
                     <height>66</height>
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <include>DefDialogButtons</include>
                 </control>
-                <control type="button" id="302" description="Delete">
+                <!-- <control type="button" id="302" description="Delete">
                     <width>100%</width>
                     <height>66</height>
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <include>DefDialogButtons</include>
-                </control>
-                
+                </control> -->
                 <control type="button" id="308" description="Reset">
                     <width>100%</width>
                     <height>66</height>

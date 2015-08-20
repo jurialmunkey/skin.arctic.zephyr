@@ -41,7 +41,7 @@
         <value condition="stringcompare(Container.SortMethod,$LOCALIZE[570])">$INFO[ListItem.DateAdded]</value>
         <value condition="stringcompare(Container.SortMethod,$LOCALIZE[567])">$INFO[ListItem.PlayCount]</value>
         <value condition="!IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration,, $LOCALIZE[31102]]</value>
-        <value condition="[Container.Content(tvshows) + !Control.IsVisible(54)] | Container.Content(episodes)">$VAR[LabelYear]</value>
+        <value condition="[Container.Content(tvshows) + !Control.IsVisible(54) + !Control.IsVisible(555)] | Container.Content(episodes)">$VAR[LabelYear]</value>
     </variable>
     <variable name="LabelPlotBox">
         <value condition="!IsEmpty(Window(home).Property(Set.Movies.ExtendedPlot)) + [Container.Content(Sets) | substring(ListItem.Path,videodb://movies/sets,left)]">$INFO[Window(home).Property(Set.Movies.ExtendedPlot)]</value>
