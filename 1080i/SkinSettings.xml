@@ -114,7 +114,12 @@
                         <label>31132</label>
                         <onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
                     </control>
-
+                    <!-- <control type="button" id="9532" description="Tester">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
+                        <include>DefSettingsButton</include>
+                        <onclick>RunScript(script.skin.helper.service,action=searchtrailer,title=Deftones)</onclick>
+                    </control> -->
                     <control type="button" id="9214" description="Home Style">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
@@ -498,7 +503,7 @@
                         <include>DefSettingsButton</include>
                         <label>31168</label>
                         <label2>$INFO[Skin.String(StartupPlaylist)]</label2>
-                        <onclick condition="IsEmpty(Skin.String(StartupPlaylist))">Skin.SetFile(StartupPlaylist,.mp4|.avi|.mkv|.xvid|.wmv|.mov)</onclick>
+                        <onclick condition="IsEmpty(Skin.String(StartupPlaylist))">Skin.SetFile(StartupPlaylist,.mp4|.avi|.mkv|.xvid|.wmv|.mov|.xsp|.mp3|.wma|.flac|.m3u)</onclick>
                         <onclick condition="!IsEmpty(Skin.String(StartupPlaylist))">Skin.Reset(StartupPlaylist)</onclick>
                     </control>
                     <control type="button" id="9279" description="Set Custom Colour">

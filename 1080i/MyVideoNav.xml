@@ -186,17 +186,6 @@
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(51)</visible>
                 </control>
-
-                <!-- <control type="radiobutton" id="9014" description="Big Wide Classic (51)">
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>31245</label>
-                    <selected>Skin.HasSetting(51bigwide.showclassic)</selected>
-                    <onclick>Skin.ToggleSetting(51bigwide.showclassic)</onclick>
-                    <onclick>Skin.Reset(51bigwide.showinfo)</onclick>
-                    <onclick>ReloadSkin()</onclick>
-                    <visible>Control.IsVisible(51)</visible>
-                </control> -->
                 
                 <control type="radiobutton" id="9011" description="Banner show poster (54)">
                     <include>DefContextButton</include>
@@ -223,6 +212,15 @@
                     <label>31255</label>
                     <selected>Skin.HasSetting(furniture.overlayinfo)</selected>
                     <onclick>Skin.ToggleSetting(furniture.overlayinfo)</onclick>
+                </control>
+
+                <control type="radiobutton" id="9022" description="Enable Extra Fanart">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31259</label>
+                    <selected>Skin.HasSetting(SkinHelper.EnableExtraFanart)</selected>
+                    <onclick>Skin.ToggleSetting(SkinHelper.EnableExtraFanart)</onclick>
+                    <visible>System.HasAddon(script.skin.helper.service)</visible>
                 </control>
 
                 <!-- Other Options -->
