@@ -434,7 +434,7 @@
                                 <textcolor>Dark2</textcolor>
                                 <label fallback="19055">19055</label>
                                 <aligny>center</aligny>
-                                <visible>IsEmpty(Window(movieinformation).Property(AudioLanguage.1)) + IsEmpty(Window(movieinformation).Property(SubtitleLanguage.1))</visible>
+                                <visible>IsEmpty(Window(movieinformation).Property(AudioLanguage.1)) + IsEmpty(Window(movieinformation).Property(SubtitleLanguage.1)) + IsEmpty(ListItem.AudioLanguage) + IsEmpty(ListItem.SubtitlesLanguage)</visible>
                             </control>
                             <control type="grouplist">
                                 <orientation>horizontal</orientation>
@@ -442,6 +442,12 @@
                                 <right>420</right>
                                 <top>2</top>
                                 <height>28</height>
+                                <control type="image">
+                                    <width>28</width>
+                                    <height>28</height>
+                                    <texture>$INFO[ListItem.AudioLanguage,flags/lang/,.png]</texture>
+                                    <visible>IsEmpty(Window(movieinformation).Property(AudioLanguage.1)) + !IsEmpty(ListItem.AudioLanguage)</visible>
+                                </control>
                                 <control type="image">
                                     <width>28</width>
                                     <height>28</height>
@@ -471,6 +477,13 @@
                                     <height>28</height>
                                     <texture>$INFO[Window(movieinformation).Property(AudioLanguage.5),flags/lang/,.png]</texture>
                                     <visible>!IsEmpty(Window(movieinformation).Property(AudioLanguage.5))</visible>
+                                </control>
+                                <control type="image">
+                                    <width>28</width>
+                                    <height>28</height>
+                                    <texture>$INFO[ListItem.SubtitlesLanguage,flags/lang/,.png]</texture>
+                                    <visible>IsEmpty(Window(movieinformation).Property(SubtitleLanguage.1)) + !IsEmpty(ListItem.SubtitlesLanguage)</visible>
+                                    <colordiffuse>ff777777</colordiffuse>
                                 </control>
                                 <control type="image">
                                     <width>28</width>

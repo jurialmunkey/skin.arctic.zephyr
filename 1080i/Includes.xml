@@ -113,7 +113,7 @@
         <value condition="Window.IsVisible(home) + !IsEmpty(Skin.String(weather.fanart)) + Skin.HasSetting(home.showweatherfanart) + [IsEmpty(Container(300).ListItem.Property(widget)) | Container(301).IsUpdating]">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Current.FanartCode)]/</value>
         <value condition="Window.IsVisible(home) + !Container(301).IsUpdating + !IsEmpty(Skin.String(fanart.fallback))">$INFO[Skin.String(fanart.fallback)]</value>
         <value condition="Window.IsVisible(home) + !Container(301).IsUpdating">pvr/background.jpg</value>
-        <value condition="!IsEmpty(Window(Home).Property(SkinHelper.ExtraFanArtPath)) + Skin.HasSetting(SkinHelper.EnableExtraFanart) + System.HasAddon(script.skin.helper.service)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArtPath)]</value>
+        <value condition="!IsEmpty(Window(Home).Property(SkinHelper.ExtraFanArtPath)) + Skin.HasSetting(SkinHelper.EnableExtraFanart) + System.HasAddon(script.skin.helper.service) + Window.IsVisible(MyVideoNav.xml)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArtPath)]</value>
         <value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
         <value condition="!IsEmpty(Container(9500).ListItem.Art(fanart))">$INFO[Container(9500).ListItem.Art(fanart)]</value>
         <value condition="!IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
@@ -183,6 +183,17 @@
             <randomize>true</randomize>
             <aspectratio>scale</aspectratio>
             <imagepath background="true">$VAR[GlobalFanart]</imagepath>
+            <animation effect="zoom" start="110" end="120" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
+            <animation effect="slide" start="-20,-20" end="20,20" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
+        </control>
+        <control type="image" description="Fanart Fallback always">
+            <include>GlobalBackgroundFade</include>
+            <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio]</visible>
+            <include>Dimensions_Fullscreen</include>
+            <visible>!Window.IsVisible(home) + Skin.HasSetting(global.hidefanart) + !IsEmpty(Skin.String(fanart.fallback))</visible>
+            <include>Animation.FadeFromHome</include>
+            <aspectratio>scale</aspectratio>
+            <texture background="true">$INFO[Skin.String(fanart.fallback)]</texture>
             <animation effect="zoom" start="110" end="120" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
             <animation effect="slide" start="-20,-20" end="20,20" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(Fanart.Animate)">Conditional</animation>
         </control>
