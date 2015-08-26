@@ -303,6 +303,10 @@
         <value condition="[Skin.HasSetting(osd.usetheme)] | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)]">Dark1</value>
         <value>PanelWhite70</value>
     </variable>
+    <variable name="OSDPanelWhite70-Kaitoast">
+        <value condition="stringcompare(Control.GetLabel(400),kaitoast/info.png)">$VAR[OSDPanelWhite70]</value>
+        <value>FFffffff</value>
+    </variable>
     <variable name="OSDPanelWhite100">
         <value condition="[Skin.HasSetting(osd.usetheme)] | [!Window.IsVisible(fullscreenvideo) + !Window.IsVisible(visualisation)]">Dark1</value>
         <value>PanelWhite100</value>

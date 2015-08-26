@@ -3,6 +3,10 @@
 <window id="12">
     <defaultcontrol always="true">3</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
+    <onunload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(osd.usetheme)</onunload>
+    <onunload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(global.hidecirles)</onunload>
+    <onunload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(home.classicwidgets)</onunload>
+    <onunload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(startup.init)</onunload>
     <controls>
 
         <include>GlobalBackground</include>

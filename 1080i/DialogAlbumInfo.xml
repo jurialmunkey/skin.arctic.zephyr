@@ -85,6 +85,15 @@
                         <visible>Container.Content(albums)</visible>
                     </control>
 
+                    <control type="button" id ="9003">
+                        <description>Youtube</description>
+                        <label>31141</label>
+                        <width>260</width>
+                        <onclick>Close</onclick>
+                        <onclick>ActivateWindow(videos,plugin://plugin.video.youtube/search/?q=$INFO[ListItem.Artist],return)</onclick>
+                        <include>DefInfoButtons</include>
+                    </control>
+
                     <control type="button" id ="6">
                         <description>Refresh</description>
                         <label>184</label>
