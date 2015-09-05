@@ -58,13 +58,13 @@
         <value condition="StringCompare(Container(300).ListItem.Property(widget),RandomAlbums)">plugin://service.library.data.provider?type=randomalbums&amp;reload=$INFO[Window.Property(randomalbums)]</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),RecentlyPlayedAlbums)">musicdb://recentlyplayedalbums/</value>
         <value condition="StringCompare(Container(300).ListItem.Property(widget),Top100Albums)">musicdb://top100/albums/</value>
-        <value condition="substring(Container(300).ListItem.Property(widget),Weather,left) + !IsEmpty(Skin.String(weather.fanart))">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Current.FanartCode)]/</value>
+        <value condition="substring(Container(300).ListItem.Property(widget),Weather,left) + !IsEmpty(Skin.String(weather.fanart))">noop</value>
         
         <!-- Background -->
-        <value condition="!IsEmpty(Container(300).ListItem.Property(Background))">$INFO[Container(300).ListItem.Property(Background)]</value>
+        <value condition="!IsEmpty(Container(300).ListItem.Property(Background))">noop</value>
         
         <!-- Slideshow -->
-        <value condition="!IsEmpty(Skin.String(home.slideshowpath)) + IsEmpty(Container(300).ListItem.Property(widget))">$INFO[Skin.String(home.slideshowpath)]</value>
+        <value condition="!IsEmpty(Skin.String(home.slideshowpath)) + IsEmpty(Container(300).ListItem.Property(widget))">noop</value>
         
         <!-- Global Widget -->
         <value condition="StringCompare(Window(home).Property(widget),RandomMovies) + IsEmpty(Container(300).ListItem.Property(widget))">plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window.Property(randommovies)]</value>

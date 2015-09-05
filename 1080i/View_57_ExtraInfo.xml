@@ -95,13 +95,15 @@
                     <animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
                 </control>
             </control>
-            <include>LowList_Info</include>
+            <include name="LowList_Info">
+                <param name="left" value="70" />
+            </include>
         </control>
     </include>
 
     <include name="LowList_Info">
         <control type="group">
-            <right>70</right>
+            <left>$PARAM[left]</left>
             <width>645</width>
             <top>206</top>
             <height>660</height>
