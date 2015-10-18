@@ -257,4 +257,8 @@
         <value condition="!Skin.HasSetting(home.classicwidgets) + Skin.HasSetting(home.vertical)">$LOCALIZE[31250]</value>
         <value condition="Skin.HasSetting(home.classicwidgets)">$LOCALIZE[31249]</value>
     </variable>
+    <variable name="OSDChapterLabel" description="Chapter label in  DialogSeekBar">
+      <value condition="Player.ChapterCount + !IsEmpty(Player.ChapterName)">$INFO[Player.ChapterName]  -  $INFO[Player.Chapter]$INFO[Player.ChapterCount, / ]</value>
+      <value condition="Player.ChapterCount">$LOCALIZE[21396]  -  $INFO[Player.Chapter]$INFO[Player.ChapterCount, / ]</value>
+    </variable>
 </includes>
