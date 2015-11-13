@@ -416,6 +416,8 @@
                 <visible>!StringCompare(Container(300).ListItem.Property(widget),Favourites)</visible>
                 <width>1</width>
                 <height>1</height>
+                <oninfo condition="IsEmpty(Container(301).ListItem.TvShowTitle) + IsEmpty(Container(301).ListItem.Artist)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[Container(301).ListItem.Title],imdb_id=$INFO[Container(301).ListItem.IMDBNumber])</oninfo>
+                <oninfo condition="!IsEmpty(Container(301).ListItem.TvShowTitle)">RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[Container(301).ListItem.TvShowTitle],imdb_id=$INFO[Container(301).ListItem.IMDBNumber])</oninfo>
                 <onup condition="IsEmpty(Container(300).ListItem.Property(widget))">303</onup>
                 <onup condition="!IsEmpty(Container(300).ListItem.Property(widget))">300</onup>
                 <ondown>300</ondown>
@@ -439,6 +441,8 @@
                 <visible>StringCompare(Container(300).ListItem.Property(widget),NextAired) | StringCompare(Container(300).ListItem.Property(widget),Favourites)</visible>
                 <width>1</width>
                 <height>1</height>
+                <oninfo condition="IsEmpty(Container(301).ListItem.TvShowTitle) + IsEmpty(Container(301).ListItem.Artist)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[Container(301).ListItem.Title],imdb_id=$INFO[Container(301).ListItem.IMDBNumber])</oninfo>
+                <oninfo condition="!IsEmpty(Container(301).ListItem.TvShowTitle)">RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[Container(301).ListItem.TvShowTitle],imdb_id=$INFO[Container(301).ListItem.IMDBNumber])</oninfo>
                 <onup condition="IsEmpty(Container(300).ListItem.Property(widget))">303</onup>
                 <onup condition="!IsEmpty(Container(300).ListItem.Property(widget))">300</onup>
                 <ondown>300</ondown>
@@ -987,6 +991,8 @@
                         <right>70</right>
                         <top>20</top>
                         <bottom>20</bottom>
+                        <oninfo condition="IsEmpty(Container(301).ListItem.TvShowTitle) + IsEmpty(Container(301).ListItem.Artist)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[Container(301).ListItem.Title],imdb_id=$INFO[Container(301).ListItem.IMDBNumber])</oninfo>
+                        <oninfo condition="!IsEmpty(Container(301).ListItem.TvShowTitle)">RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[Container(301).ListItem.TvShowTitle],imdb_id=$INFO[Container(301).ListItem.IMDBNumber])</oninfo>
                         <onup condition="IsEmpty(Container(300).ListItem.Property(widget))">303</onup>
                         <onup condition="!IsEmpty(Container(300).ListItem.Property(widget))">300</onup>
                         <ondown>300</ondown>
@@ -1084,6 +1090,8 @@
                         <right>70</right>
                         <top>20</top>
                         <bottom>20</bottom>
+                        <oninfo condition="IsEmpty(Container(301).ListItem.TvShowTitle) + IsEmpty(Container(301).ListItem.Artist)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[Container(301).ListItem.Title],imdb_id=$INFO[Container(301).ListItem.IMDBNumber])</oninfo>
+                        <oninfo condition="!IsEmpty(Container(301).ListItem.TvShowTitle)">RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[Container(301).ListItem.TvShowTitle],imdb_id=$INFO[Container(301).ListItem.IMDBNumber])</oninfo>
                         <onup condition="IsEmpty(Container(300).ListItem.Property(widget))">303</onup>
                         <onup condition="!IsEmpty(Container(300).ListItem.Property(widget))">300</onup>
                         <ondown>300</ondown>
@@ -2113,6 +2121,8 @@
                         <onleft>300</onleft>
                         <onup>300</onup>
                         <ondown>300</ondown>
+                        <oninfo condition="IsEmpty(Container(301).ListItem.TvShowTitle) + IsEmpty(Container(301).ListItem.Artist)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[Container(301).ListItem.Title],imdb_id=$INFO[Container(301).ListItem.IMDBNumber])</oninfo>
+                        <oninfo condition="!IsEmpty(Container(301).ListItem.TvShowTitle)">RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[Container(301).ListItem.TvShowTitle],imdb_id=$INFO[Container(301).ListItem.IMDBNumber])</oninfo>
                         <focusposition>0</focusposition>
                         <preloaditems>2</preloaditems>
                         <orientation>horizontal</orientation>
@@ -2277,6 +2287,8 @@
                         <onleft>300</onleft>
                         <onup>300</onup>
                         <ondown>300</ondown>
+                        <oninfo condition="IsEmpty(Container(301).ListItem.TvShowTitle) + IsEmpty(Container(301).ListItem.Artist)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[Container(301).ListItem.Title],imdb_id=$INFO[Container(301).ListItem.IMDBNumber])</oninfo>
+                        <oninfo condition="!IsEmpty(Container(301).ListItem.TvShowTitle)">RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[Container(301).ListItem.TvShowTitle],imdb_id=$INFO[Container(301).ListItem.IMDBNumber])</oninfo>
                         <focusposition>0</focusposition>
                         <preloaditems>2</preloaditems>
                         <orientation>horizontal</orientation>
