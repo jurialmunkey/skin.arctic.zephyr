@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
 <window id="136">
-    <allowoverlay>no</allowoverlay>
+    
 
     <controls>
 
@@ -16,9 +16,19 @@
                 <description>Busy animation</description>
                 <centerleft>50%</centerleft>
                 <centertop>47%</centertop>
-                <width>48</width>
-                <height>48</height>
-                <texture colordiffuse="$VAR[ColorHighlight]" fallback="special://skin/extras/spinners/flower.gif">$INFO[Skin.String(busyloader)]</texture>
+                <width>100</width>
+                <height>100</height>
+                <texture>dialog/loading-back.png</texture>
+                <aspectratio>keep</aspectratio>
+            </control>
+            <control type="image">
+                <description>Busy animation</description>
+                <centerleft>50%</centerleft>
+                <centertop>47%</centertop>
+                <width>100</width>
+                <height>100</height>
+                <animation effect="rotate" condition="true" start="0" end="360" loop="true" time="1000" center="auto">Conditional</animation>
+                <texture colordiffuse="$VAR[ColorHighlight]">dialog/loading-spinner.png</texture>
                 <aspectratio>keep</aspectratio>
             </control>
 

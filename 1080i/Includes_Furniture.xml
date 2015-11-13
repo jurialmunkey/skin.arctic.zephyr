@@ -1043,13 +1043,25 @@
                     <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
                 </control>
                 <control type="image">
-                    <centertop>40</centertop>
+                    <description>Busy animation</description>
                     <centerleft>40</centerleft>
-                    <width>48</width>
-                    <height>48</height>
-                    <texture colordiffuse="PanelWhite100" fallback="special://skin/extras/spinners/flower.gif">$INFO[Skin.String(busyloader)]</texture>
+                    <centertop>40</centertop>
+                    <width>100</width>
+                    <height>100</height>
+                    <texture>dialog/loading-back.png</texture>
+                    <aspectratio>keep</aspectratio>
                     <visible>Skin.HasSetting(hide.busydialog) + Window.IsVisible(DialogBusy.xml)</visible>
-                    <animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
+                </control>
+                <control type="image">
+                    <description>Busy animation</description>
+                    <centerleft>40</centerleft>
+                    <centertop>40</centertop>
+                    <width>100</width>
+                    <height>100</height>
+                    <animation effect="rotate" condition="true" start="0" end="360" loop="true" time="1000" center="auto">Conditional</animation>
+                    <texture colordiffuse="$VAR[ColorHighlight]">dialog/loading-spinner.png</texture>
+                    <aspectratio>keep</aspectratio>
+                    <visible>Skin.HasSetting(hide.busydialog) + Window.IsVisible(DialogBusy.xml)</visible>
                 </control>
             </control>
             <control type="group">

@@ -1,6 +1,6 @@
 <window>
     <defaultcontrol always="true">52</defaultcontrol>
-    <allowoverlay>no</allowoverlay>
+    
     <backgroundcolor>0</backgroundcolor>
     <onload condition="IsEmpty(Window(home).Property(SkinInitStarted)) + !IsEmpty(Skin.String(StartupPlaylist))">PlayMedia($ESCINFO[Skin.String(StartupPlaylist)])</onload>
     <onload>SetProperty(SkinInitStarted,1,home)</onload>

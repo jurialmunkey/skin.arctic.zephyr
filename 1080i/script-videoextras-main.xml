@@ -5,7 +5,7 @@
     <onload condition="IsEmpty(ListItem.TvShowTitle)">SetProperty("TvTunesSupported", "Movies")</onload>
     <onload condition="Skin.HasSetting(ActivateTvTunes) + System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
     <defaultcontrol always="true">51</defaultcontrol>
-    <allowoverlay>yes</allowoverlay>
+    
     <controls>
         <include>GlobalBackground</include>
         <control type="group">

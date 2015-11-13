@@ -1,6 +1,6 @@
 <window>
     <defaultcontrol>30</defaultcontrol>
-    <allowoverlay>yes</allowoverlay>
+    
     <defaultcontrol always="true">9101</defaultcontrol>
 
     <controls>
@@ -114,12 +114,6 @@
                         <label>31132</label>
                         <onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
                     </control>
-                    <!-- <control type="button" id="9532" description="Tester">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
-                        <include>DefSettingsButton</include>
-                        <onclick>RunScript(script.skin.helper.service,action=searchtrailer,title=Deftones)</onclick>
-                    </control> -->
                     <control type="button" id="9214" description="Home Style">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
@@ -530,25 +524,6 @@
                         <selected>!Skin.HasSetting(global.hidecirles)</selected>
                         <onclick>Skin.ToggleSetting(global.hidecirles)</onclick>
                     </control>
-                    
-                    <!-- <control type="radiobutton" id="9275" description="TV Tunes">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9107)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31151</label>
-                        <selected>Skin.HasSetting(ActivateTvTunes)</selected>
-                        <onclick>Skin.ToggleSetting(ActivateTvTunes)</onclick>
-                        <enable>System.HasAddon(script.tvtunes)</enable>
-                    </control> -->
-                    <!-- <control type="radiobutton" id="9276" description="Update Next Aired on Startup">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9107)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31180</label>
-                        <selected>Skin.HasSetting(NextAired.Update)</selected>
-                        <onclick>Skin.ToggleSetting(NextAired.Update)</onclick>
-                        <enable>System.HasAddon(script.tv.show.next.aired)</enable>
-                    </control> -->
                     <control type="radiobutton" id="9277" description="Busy Loader Minimal">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9107)</visible>
@@ -556,14 +531,6 @@
                         <label>31237</label>
                         <selected>Skin.HasSetting(hide.busydialog)</selected>
                         <onclick>Skin.ToggleSetting(hide.busydialog)</onclick>
-                    </control>
-                    <control type="button" id="9274" description="Busy Loader Image">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9107)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31216</label>
-                        <label2>$INFO[Skin.String(busyloader)]</label2>
-                        <onclick>Skin.SetFile(busyloader,.gif,special://skin/extras/spinners)</onclick>
                     </control>
                     
                 </control>

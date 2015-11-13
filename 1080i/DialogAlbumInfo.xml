@@ -2,7 +2,7 @@
 <!-- Foundation -->
 <window id="2001">
     <defaultcontrol always="true">9000</defaultcontrol>
-    <allowoverlay>no</allowoverlay>
+    
     <onload>ClearProperty(content)</onload>
     <onload>ClearProperty(tracklist)</onload>
     <onload>Dialog.Close(135)</onload>
@@ -511,12 +511,22 @@
                     <include>Animation.FadeIn</include>
                     <include>Animation.FadeOut</include>
                     <control type="image">
+                    <description>Busy animation</description>
+                        <centerleft>54</centerleft>
+                        <centertop>54</centertop>
+                        <width>100</width>
+                        <height>100</height>
+                        <texture>dialog/loading-back.png</texture>
+                        <aspectratio>keep</aspectratio>
+                    </control>
+                    <control type="image">
                         <description>Busy animation</description>
-                        <posx>30</posx>
-                        <posy>30</posy>
-                        <width>48</width>
-                        <height>48</height>
-                        <texture colordiffuse="$VAR[ColorHighlight]" fallback="special://skin/extras/spinners/flower.gif">$INFO[Skin.String(busyloader)]</texture>
+                        <centerleft>54</centerleft>
+                        <centertop>54</centertop>
+                        <width>100</width>
+                        <height>100</height>
+                        <animation effect="rotate" condition="true" start="0" end="360" loop="true" time="1000" center="auto">Conditional</animation>
+                        <texture colordiffuse="$VAR[ColorHighlight]">dialog/loading-spinner.png</texture>
                         <aspectratio>keep</aspectratio>
                     </control>
                     <control type="label">
