@@ -202,9 +202,8 @@
                         <visible>ControlGroup(9100).HasFocus(9102)</visible>
                         <include>DefSettingsButton</include>
                         <label>31143</label>
-                        <label2>$INFO[Skin.String(weather.fanart)]</label2>
-                        <onclick condition="IsEmpty(Skin.String(weather.fanart))">Skin.SetPath(weather.fanart)</onclick>
-                        <onclick condition="!IsEmpty(Skin.String(weather.fanart))">Skin.Reset(weather.fanart)</onclick>
+                        <label2>$INFO[Skin.String(weather.fanart.name)]</label2>
+                        <onclick>RunScript(script.image.resource.select,property=weather.fanart&amp;type=resource.images.weatherfanart)</onclick>
                     </control>
                     <control type="radiobutton" id="9221" description="Show video in background">
                         <width>1310</width>

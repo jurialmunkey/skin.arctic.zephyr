@@ -35,7 +35,7 @@
                         <randomize>true</randomize>
                         <aspectratio>scale</aspectratio>
                         <animation effect="fade" start="100" end="10" condition="true">Conditional</animation>
-                        <imagepath background="true">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Current.FanartCode)]/</imagepath>
+                        <imagepath background="true">$INFO[Skin.String(weather.fanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]/</imagepath>
                     </control>
                     <control type="image">
                         <centertop>35%</centertop>
@@ -43,8 +43,8 @@
                         <width>285</width>
                         <height>285</height>
                         <aspectratio align="center" aligny="center">keep</aspectratio>
-                        <texture>$INFO[Window(weather).Property(Current.FanartCode),weather/,.png]</texture>
-                        <visible>Skin.HasSetting(weather.useflaticons)</visible>
+                        <texture>$INFO[Skin.String(weather.icons.path),,/]$INFO[Window(weather).Property(Current.FanartCode),,.png]</texture>
+                        <visible>!IsEmpty(Skin.String(weather.icons.path))</visible>
                     </control>
                     <control type="image">
                         <centertop>35%</centertop>
@@ -53,7 +53,7 @@
                         <height>240</height>
                         <aspectratio align="center" aligny="center">keep</aspectratio>
                         <texture>$INFO[Window(weather).Property(Current.ConditionIcon)]</texture>
-                        <visible>!Skin.HasSetting(weather.useflaticons)</visible>
+                        <visible>IsEmpty(Skin.String(weather.icons.path))</visible>
                     </control>
                     <control type="label">
                         <top>20</top>
@@ -100,7 +100,7 @@
                         <randomize>true</randomize>
                         <aspectratio>scale</aspectratio>
                         <animation effect="fade" start="100" end="10" condition="true">Conditional</animation>
-                        <imagepath background="true">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Day0.FanartCode)]/</imagepath>
+                        <imagepath background="true">$INFO[Skin.String(weather.fanart.path)]$INFO[Window(Weather).Property(Day0.FanartCode)]/</imagepath>
                     </control>
                     <control type="image">
                         <centertop>35%</centertop>
@@ -108,8 +108,8 @@
                         <width>285</width>
                         <height>285</height>
                         <aspectratio align="center" aligny="center">keep</aspectratio>
-                        <texture>$INFO[Window(weather).Property(Day0.FanartCode),weather/,.png]</texture>
-                        <visible>Skin.HasSetting(weather.useflaticons)</visible>
+                        <texture>$INFO[Skin.String(weather.icons.path),,/]$INFO[Window(weather).Property(Day0.FanartCode),,.png]</texture>
+                        <visible>!IsEmpty(Skin.String(weather.icons.path))</visible>
                     </control>
                     <control type="image">
                         <centertop>35%</centertop>
@@ -118,7 +118,7 @@
                         <height>240</height>
                         <aspectratio align="center" aligny="center">keep</aspectratio>
                         <texture>$INFO[Window(weather).Property(Day0.OutlookIcon)]</texture>
-                        <visible>!Skin.HasSetting(weather.useflaticons)</visible>
+                        <visible>IsEmpty(Skin.String(weather.icons.path))</visible>
                     </control>
                     <control type="label">
                         <top>20</top>
@@ -165,7 +165,7 @@
                         <randomize>true</randomize>
                         <aspectratio>scale</aspectratio>
                         <animation effect="fade" start="100" end="10" condition="true">Conditional</animation>
-                        <imagepath background="true">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Day1.FanartCode)]/</imagepath>
+                        <imagepath background="true">$INFO[Skin.String(weather.fanart.path)]$INFO[Window(Weather).Property(Day1.FanartCode)]/</imagepath>
                     </control>
                     <control type="image">
                         <centertop>35%</centertop>
@@ -173,8 +173,8 @@
                         <width>285</width>
                         <height>285</height>
                         <aspectratio align="center" aligny="center">keep</aspectratio>
-                        <texture>$INFO[Window(weather).Property(Day1.FanartCode),weather/,.png]</texture>
-                        <visible>Skin.HasSetting(weather.useflaticons)</visible>
+                        <texture>$INFO[Skin.String(weather.icons.path),,/]$INFO[Window(weather).Property(Day1.FanartCode),,.png]</texture>
+                        <visible>!IsEmpty(Skin.String(weather.icons.path))</visible>
                     </control>
                     <control type="image">
                         <centertop>35%</centertop>
@@ -183,7 +183,7 @@
                         <height>240</height>
                         <aspectratio align="center" aligny="center">keep</aspectratio>
                         <texture>$INFO[Window(weather).Property(Day1.OutlookIcon)]</texture>
-                        <visible>!Skin.HasSetting(weather.useflaticons)</visible>
+                        <visible>IsEmpty(Skin.String(weather.icons.path))</visible>
                     </control>
                     <control type="label">
                         <top>20</top>
@@ -230,7 +230,7 @@
                         <randomize>true</randomize>
                         <aspectratio>scale</aspectratio>
                         <animation effect="fade" start="100" end="10" condition="true">Conditional</animation>
-                        <imagepath background="true">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Day2.FanartCode)]/</imagepath>
+                        <imagepath background="true">$INFO[Skin.String(weather.fanart.path)]$INFO[Window(Weather).Property(Day2.FanartCode)]/</imagepath>
                     </control>
                     <control type="image">
                         <centertop>35%</centertop>
@@ -238,8 +238,8 @@
                         <width>285</width>
                         <height>285</height>
                         <aspectratio align="center" aligny="center">keep</aspectratio>
-                        <texture>$INFO[Window(weather).Property(Day2.FanartCode),weather/,.png]</texture>
-                        <visible>Skin.HasSetting(weather.useflaticons)</visible>
+                        <texture>$INFO[Skin.String(weather.icons.path),,/]$INFO[Window(weather).Property(Day2.FanartCode),,.png]</texture>
+                        <visible>!IsEmpty(Skin.String(weather.icons.path))</visible>
                     </control>
                     <control type="image">
                         <centertop>35%</centertop>
@@ -248,7 +248,7 @@
                         <height>240</height>
                         <aspectratio align="center" aligny="center">keep</aspectratio>
                         <texture>$INFO[Window(weather).Property(Day2.OutlookIcon)]</texture>
-                        <visible>!Skin.HasSetting(weather.useflaticons)</visible>
+                        <visible>IsEmpty(Skin.String(weather.icons.path))</visible>
                     </control>
                     <control type="label">
                         <top>20</top>
@@ -295,7 +295,7 @@
                         <randomize>true</randomize>
                         <aspectratio>scale</aspectratio>
                         <animation effect="fade" start="100" end="10" condition="true">Conditional</animation>
-                        <imagepath background="true">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Day3.FanartCode)]/</imagepath>
+                        <imagepath background="true">$INFO[Skin.String(weather.fanart.path)]$INFO[Window(Weather).Property(Day3.FanartCode)]/</imagepath>
                     </control>
                     <control type="image">
                         <centertop>35%</centertop>
@@ -303,8 +303,8 @@
                         <width>285</width>
                         <height>285</height>
                         <aspectratio align="center" aligny="center">keep</aspectratio>
-                        <texture>$INFO[Window(weather).Property(Day3.FanartCode),weather/,.png]</texture>
-                        <visible>Skin.HasSetting(weather.useflaticons)</visible>
+                        <texture>$INFO[Skin.String(weather.icons.path),,/]$INFO[Window(weather).Property(Day3.FanartCode),,.png]</texture>
+                        <visible>!IsEmpty(Skin.String(weather.icons.path))</visible>
                     </control>
                     <control type="image">
                         <centertop>35%</centertop>
@@ -313,7 +313,7 @@
                         <height>240</height>
                         <aspectratio align="center" aligny="center">keep</aspectratio>
                         <texture>$INFO[Window(weather).Property(Day3.OutlookIcon)]</texture>
-                        <visible>!Skin.HasSetting(weather.useflaticons)</visible>
+                        <visible>IsEmpty(Skin.String(weather.icons.path))</visible>
                     </control>
                     <control type="label">
                         <top>20</top>
@@ -360,7 +360,7 @@
                         <randomize>true</randomize>
                         <aspectratio>scale</aspectratio>
                         <animation effect="fade" start="100" end="10" condition="true">Conditional</animation>
-                        <imagepath background="true">$INFO[Skin.String(weather.fanart)]$INFO[Window(Weather).Property(Day4.FanartCode)]/</imagepath>
+                        <imagepath background="true">$INFO[Skin.String(weather.fanart.path)]$INFO[Window(Weather).Property(Day4.FanartCode)]/</imagepath>
                     </control>
                     <control type="image">
                         <centertop>35%</centertop>
@@ -368,8 +368,8 @@
                         <width>285</width>
                         <height>285</height>
                         <aspectratio align="center" aligny="center">keep</aspectratio>
-                        <texture>$INFO[Window(weather).Property(Day4.FanartCode),weather/,.png]</texture>
-                        <visible>Skin.HasSetting(weather.useflaticons)</visible>
+                        <texture>$INFO[Skin.String(weather.icons.path),,/]$INFO[Window(weather).Property(Day4.FanartCode),,.png]</texture>
+                        <visible>!IsEmpty(Skin.String(weather.icons.path))</visible>
                     </control>
                     <control type="image">
                         <centertop>35%</centertop>
@@ -378,7 +378,7 @@
                         <height>240</height>
                         <aspectratio align="center" aligny="center">keep</aspectratio>
                         <texture>$INFO[Window(weather).Property(Day4.OutlookIcon)]</texture>
-                        <visible>!Skin.HasSetting(weather.useflaticons)</visible>
+                        <visible>IsEmpty(Skin.String(weather.icons.path))</visible>
                     </control>
                     <control type="label">
                         <top>20</top>
@@ -449,35 +449,30 @@
                     <label2>$INFO[Weather.Location]</label2>
                     <onclick>Weather.LocationNext</onclick>
                 </control>
-                <control type="radiobutton" id="9001" description="Use flat icons">
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>31233</label>
-                    <selected>Skin.HasSetting(weather.useflaticons)</selected>
-                    <onclick>Skin.ToggleSetting(weather.useflaticons)</onclick>
-                </control>
+                
                 <control type="radiobutton" id="9002" description="Show weather overlay">
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31234</label>
-                    <enable>!IsEmpty(Skin.String(weather.fanart))</enable>
+                    <enable>!IsEmpty(Skin.String(weather.fanart.path))</enable>
                     <selected>!Skin.HasSetting(weather.hidefanart)</selected>
                     <onclick>Skin.ToggleSetting(weather.hidefanart)</onclick>
+                </control>
+                <control type="button" id="9001" description="Set Icons">
+                    <include>DefContextButton</include>
+                    <align>left</align>
+                    <label>31260</label>
+                    <!-- <selected>!IsEmpty(Skin.String(weather.icons.path))</selected>
+                    <onclick>Skin.ToggleSetting(weather.useflaticons)</onclick> -->
+                    <onclick>RunScript(script.image.resource.select,property=weather.icons&amp;type=resource.images.weathericons)</onclick>
                 </control>
                 <control type="button" id="9004" description="Set Weather Fanart">
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31143</label>
-                    <onclick>Skin.SetPath(weather.fanart)</onclick>
+                    <!-- <onclick>Skin.SetPath(weather.fanart)</onclick> -->
+                    <onclick>RunScript(script.image.resource.select,property=weather.fanart&amp;type=resource.images.weatherfanart)</onclick>
                 </control>
-                <!-- <control type="button" id="9005" description="Set Weather Fanart">
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>31232</label>
-                    <onclick>Skin.Reset(weather.fanart)</onclick>
-                    <onclick>SetFocus(9004)</onclick>
-                    <enable>!IsEmpty(Skin.String(weather.fanart))</enable>
-                </control> -->
                 <control type="button" id="9003" description="Weather Settings">
                     <include>DefContextButton</include>
                     <align>left</align>
