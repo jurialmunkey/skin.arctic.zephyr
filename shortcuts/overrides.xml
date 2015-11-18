@@ -1,52 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <overrides>
-    <!-- Movies -->
-    <widget label="31124">RecentMovies</widget>
-    <widget label="31127">RandomMovies</widget>
-    <widget label="31123">RecommendedMovies</widget>
-    
-    <!-- Episodes -->
-    <widget label="31126">RandomEpisodes</widget>
-    <widget label="31125">RecentEpisodes</widget>
-    <widget label="31122">RecommendedEpisodes</widget>
-    
-    <!-- Albums -->
-    <widget label="31188">RecentAlbums</widget>
-    <widget label="31187">RandomAlbums</widget>
-    <widget label="31189">RecommendedAlbums</widget>
     
     <!-- Weather Widget -->
-    <widget label="31251" condition="!IsEmpty(Skin.String(weather.fanart))">Weather</widget>
-    <!-- <widget label="31252">WeatherForecast</widget> -->
-    
-    <!-- Next Aired -->
-    <widget label="31220" condition="System.HasAddon(script.tv.show.next.aired)">NextAired</widget>
-    
-    <!-- Favourites -->
-    <widget label="1036" condition="System.HasAddon(script.favourites)">Favourites</widget>
-
-    <!-- Extended Info Trakt.tv -->
-    <widget label="31134">TrendingMovies</widget>
-    <widget label="31135">TrendingShows</widget>
-
-    <!-- Extended Info themoviedb.org -->
-    <widget label="31208">InCinemas</widget>
-    <widget label="31223">Upcoming</widget>
-    <widget label="31224">PopularMovies</widget>
-    <widget label="31225">TopRatedMovies</widget>
-    <widget label="31226">PopularTvShows</widget>
-    <widget label="31227">TopRatedTvShows</widget>
-    <widget label="31228">OnAirTvShows</widget>
-    <widget label="31229">AiringTodayTvShows</widget>
+    <widget label="31251" condition="!IsEmpty(Skin.String(weather.fanart.path))">Weather</widget>
 
     <!-- Playlist -->
     <widgetPlaylists>True</widgetPlaylists>
-    
-    <!-- Custom Widgets -->
-    <widget label="31128">Custom1</widget>
-    <widget label="31129">Custom2</widget>
-    <widget label="31230">Custom3</widget>
-    <widget label="31231">Custom4</widget>
     
     <!-- Additional Common Items -->
     <shortcut label="31193" type="TVHub" grouping="common" icon="special://skin/extras/icons/tv.png">ActivateWindow(1102)</shortcut>

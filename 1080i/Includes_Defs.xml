@@ -30,34 +30,8 @@
     
     <variable name="DefWidgetContent">
         <!-- Individual Widget Paths -->
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),Playlist)">$INFO[Container(300).ListItem.Property(widgetPlaylist)]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RandomMovies)">plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window.Property(randommovies)]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RandomEpisodes)">plugin://service.library.data.provider?type=randomepisodes&amp;reload=$INFO[Window.Property(randomepisodes)]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RecentEpisodes)">plugin://service.library.data.provider?type=recentepisodes&amp;reload=$INFO[Window.Property(recentepisodes)]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RecentMovies)">plugin://service.library.data.provider?type=recentmovies&amp;reload=$INFO[Window.Property(recentmovies)]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RecommendedEpisodes)">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window.Property(recommendedepisodes)]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RecommendedMovies)">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window.Property(recommendedmovies)]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),Custom1)">$INFO[Skin.String(CustomWidget1)]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),Custom2)">$INFO[Skin.String(CustomWidget2)]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),Custom3)">$INFO[Skin.String(CustomWidget3)]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),Custom4)">$INFO[Skin.String(CustomWidget4)]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),TrendingMovies)">plugin://script.extendedinfo?info=trendingmovies</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),TrendingShows)">plugin://script.extendedinfo?info=trendingshows</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),AiringShows)">plugin://script.extendedinfo?info=airingshows</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),PremiereShows)">plugin://script.extendedinfo?info=premiereshows</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),InCinemas)">plugin://script.extendedinfo?info=incinemas</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),Upcoming)">plugin://script.extendedinfo?info=upcoming</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),PopularMovies)">plugin://script.extendedinfo?info=popularmovies</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),TopRatedMovies)">plugin://script.extendedinfo?info=topratedmovies</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),PopularTvShows)">plugin://script.extendedinfo?info=populartvshows</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),TopRatedTvShows)">plugin://script.extendedinfo?info=topratedtvshows</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),OnAirTvShows)">plugin://script.extendedinfo?info=onairtvshows</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),AiringTodayTvShows)">plugin://script.extendedinfo?info=airingtodaytvshows</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RecentAlbums)">plugin://service.library.data.provider?type=recentalbums&amp;reload=$INFO[Window.Property(recentalbums)]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RecommendedAlbums)">plugin://service.library.data.provider?type=recommendedalbums&amp;reload=$INFO[Window.Property(recommendedalbums)]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RandomAlbums)">plugin://service.library.data.provider?type=randomalbums&amp;reload=$INFO[Window.Property(randomalbums)]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RecentlyPlayedAlbums)">musicdb://recentlyplayedalbums/</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),Top100Albums)">musicdb://top100/albums/</value>
+        <value condition="!IsEmpty(Container(300).ListItem.Property(widgetPath))">$INFO[Container(300).ListItem.Property(widgetPath)]</value>
+        
         <value condition="substring(Container(300).ListItem.Property(widget),Weather,left) + !IsEmpty(Skin.String(weather.fanart))">noop</value>
         
         <!-- Background -->

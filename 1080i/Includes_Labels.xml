@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+    <variable name="LabelWidgetType">
+        <value condition="IsEmpty(Container(211).ListItem.Property(widgetaspect)) | StringCompare(Container(211).ListItem.Property(widgetaspect),Poster)">$LOCALIZE[31262]</value>
+        <value condition="StringCompare(Container(211).ListItem.Property(widgetaspect),Square)">$LOCALIZE[31263]</value>
+        <value condition="StringCompare(Container(211).ListItem.Property(widgetaspect),Fanart)">$LOCALIZE[31265]</value>
+        <value condition="StringCompare(Container(211).ListItem.Property(widgetaspect),Thumbnail)">$LOCALIZE[31264]</value>
+    </variable>
+
     <variable name="LabelTitle">
         <value condition="Container.Content(episodes) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
         <value>$INFO[ListItem.Label]</value>
@@ -125,31 +132,7 @@
     </variable>
     
     <variable name="WidgetLabel">
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RecommendedMovies)">$LOCALIZE[31123]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RecommendedEpisodes)">$LOCALIZE[31122]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RecentEpisodes)">$LOCALIZE[31125]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RecentMovies)">$LOCALIZE[31124]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RandomEpisodes)">$LOCALIZE[31126]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RandomMovies)">$LOCALIZE[31127]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),TrendingMovies)">$LOCALIZE[31134]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),TrendingShows)">$LOCALIZE[31135]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),AiringShows)">$LOCALIZE[31136]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),PremiereShows)">$LOCALIZE[31137]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),InCinemas)">$LOCALIZE[31208]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),Upcoming)">$LOCALIZE[31223]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),PopularMovies)">$LOCALIZE[31224]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),TopRatedMovies)">$LOCALIZE[31225]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),PopularTvShows)">$LOCALIZE[31226]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),TopRatedTvShows)">$LOCALIZE[31227]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),OnAirTvShows)">$LOCALIZE[31228]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),AiringTodayTvShows)">$LOCALIZE[31229]</value>
-        <value condition="substring(Container(300).ListItem.Property(widget),Weather,left)">$LOCALIZE[8]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RandomAlbums)">$LOCALIZE[31187]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RecentAlbums)">$LOCALIZE[31188]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),RecommendedAlbums)">$LOCALIZE[31189]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),NextAired)">$LOCALIZE[31220]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),Favourites)">$LOCALIZE[1036]</value>
-        <value condition="StringCompare(Container(300).ListItem.Property(widget),Playlist)">$INFO[Container(300).ListItem.Property(widgetName)]</value>
+        <value condition="!IsEmpty(Container(300).ListItem.Property(widgetName))">$INFO[Container(300).ListItem.Property(widgetName)]</value>
         <value condition="StringCompare(Window(home).Property(widget),RecommendedMovies) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31123]</value>
         <value condition="StringCompare(Window(home).Property(widget),RecommendedEpisodes) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31122]</value>
         <value condition="StringCompare(Window(home).Property(widget),RecentEpisodes) + IsEmpty(Container(300).ListItem.Property(widget))">$LOCALIZE[31125]</value>
