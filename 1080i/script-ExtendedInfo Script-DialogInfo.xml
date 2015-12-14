@@ -36,7 +36,7 @@
                         <height>PosterH</height>
                         <fadetime>100</fadetime>
                         <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-                        <texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$INFO[Window.Property(movie.thumb)]</texture>
+                        <texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$INFO[Window.Property(thumb)]</texture>
                         <visible>Skin.HasSetting(show.reflections)</visible>
                     </control>
                     <control type="image">
@@ -57,7 +57,7 @@
                         <height>PosterH</height>
                         <fadetime>100</fadetime>
                         <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-                        <texture diffuse="diffuse/listposter.png" background="true">$INFO[Window.Property(actor.thumb)]</texture>
+                        <texture diffuse="diffuse/listposter.png" background="true">$INFO[Window.Property(thumb)]</texture>
                     </control>
                     <control type="image">
                         <left>-24</left>
@@ -152,7 +152,7 @@
                     <description>Header Label</description>
                     <textcolor>Dark2</textcolor>
                     <font>Small</font>
-                    <label>$INFO[Window.Property(actor.title)] $ADDON[script.extendedinfo 32010]</label>
+                    <label>$INFO[Window.Property(title)] $ADDON[script.extendedinfo 32010]</label>
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">
@@ -180,7 +180,7 @@
                     <description>Header Label</description>
                     <textcolor>Dark2</textcolor>
                     <font>Small</font>
-                    <label>$INFO[Window.Property(actor.title)] $ADDON[script.extendedinfo 32031]</label>
+                    <label>$INFO[Window.Property(title)] $ADDON[script.extendedinfo 32031]</label>
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">
@@ -208,7 +208,7 @@
                     <description>Header Label</description>
                     <textcolor>Dark2</textcolor>
                     <font>Small</font>
-                    <label>$INFO[Window.Property(actor.title)] $ADDON[script.extendedinfo 32118]</label>
+                    <label>$INFO[Window.Property(title)] $ADDON[script.extendedinfo 32118]</label>
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">
@@ -236,7 +236,7 @@
                     <description>Header Label</description>
                     <textcolor>Dark2</textcolor>
                     <font>Small</font>
-                    <label>$INFO[Window.Property(actor.title)] $ADDON[script.extendedinfo 32115]</label>
+                    <label>$INFO[Window.Property(title)] $ADDON[script.extendedinfo 32115]</label>
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">
@@ -268,7 +268,7 @@
                             <description>Header Label</description>
                             <textcolor>Dark1</textcolor>
                             <include>DefDialogInfoHeader</include>
-                            <label>$INFO[Window.Property(actor.title)]</label>
+                            <label>$INFO[Window.Property(title)]</label>
                         </control>
                         <control type="group">
                             <height>50</height>
@@ -278,13 +278,13 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window.Property(actor.AlsoKnownAs)]</label>
+                                <label fallback="19055">$INFO[Window.Property(AlsoKnownAs)]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
                         <control type="group">
                             <visible>IsEmpty(Window.Property(content))</visible>
-                            <visible>!IsEmpty(Window.Property(actor.Birthday))</visible>
+                            <visible>!IsEmpty(Window.Property(Birthday))</visible>
                             <height>36</height>
                             <control type="label">
                                 <width>100%</width>
@@ -300,13 +300,13 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window.Property(actor.Birthday)]</label>
+                                <label fallback="19055">$INFO[Window.Property(Birthday)]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
                         <control type="group">
                             <visible>IsEmpty(Window.Property(content))</visible>
-                            <visible>!IsEmpty(Window.Property(actor.PlaceOfBirth))</visible>
+                            <visible>!IsEmpty(Window.Property(PlaceOfBirth))</visible>
                             <height>36</height>
                             <control type="label">
                                 <width>100%</width>
@@ -322,13 +322,13 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window.Property(actor.PlaceOfBirth)]</label>
+                                <label fallback="19055">$INFO[Window.Property(PlaceOfBirth)]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
                         <control type="group">
                             <visible>IsEmpty(Window.Property(content))</visible>
-                            <visible>!IsEmpty(Window.Property(actor.DeathDay))</visible>
+                            <visible>!IsEmpty(Window.Property(DeathDay))</visible>
                             <height>36</height>
                             <control type="label">
                                 <width>100%</width>
@@ -344,13 +344,13 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window.Property(actor.DeathDay)]</label>
+                                <label fallback="19055">$INFO[Window.Property(DeathDay)]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
                         <control type="group">
                             <visible>IsEmpty(Window.Property(content))</visible>
-                            <visible>!IsEmpty(Window.Property(actor.Age))</visible>
+                            <visible>!IsEmpty(Window.Property(Age))</visible>
                             <height>36</height>
                             <control type="label">
                                 <width>100%</width>
@@ -366,7 +366,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window.Property(actor.Age)]</label>
+                                <label fallback="19055">$INFO[Window.Property(Age)]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -388,7 +388,7 @@
                             <font>Tiny</font>
                             <textcolor>Dark2</textcolor>
                             <align>justify</align>
-                            <label>$INFO[Window.Property(actor.Biography)]</label>
+                            <label>$INFO[Window.Property(Biography)]</label>
                         </control>
                         
                     </control>
