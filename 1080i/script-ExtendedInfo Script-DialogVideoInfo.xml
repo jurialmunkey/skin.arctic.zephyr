@@ -38,7 +38,7 @@
                         <height>PosterH</height>
                         <fadetime>100</fadetime>
                         <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-                        <texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$INFO[Window.Property(movie.thumb)]</texture>
+                        <texture flipy="true" diffuse="diffuse/listposter-ref.png" background="true">$INFO[Window.Property(thumb)]</texture>
                         <visible>Skin.HasSetting(show.reflections)</visible>
                     </control>
                     <control type="image">
@@ -59,7 +59,7 @@
                         <height>PosterH</height>
                         <fadetime>100</fadetime>
                         <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-                        <texture diffuse="diffuse/listposter.png" background="true">$INFO[Window.Property(movie.thumb)]</texture>
+                        <texture diffuse="diffuse/listposter.png" background="true">$INFO[Window.Property(thumb)]</texture>
                     </control>
                     <control type="image">
                         <left>-24</left>
@@ -116,7 +116,7 @@
                         <description>Play</description>
                         <label>208</label>
                         <include>DefInfoButtons</include>
-                        <visible>!IsEmpty(Window.Property(movie.DBID)) + !Stringcompare(Window.Property(Type),tvshow)</visible>
+                        <visible>!IsEmpty(Window.Property(DBID)) + !Stringcompare(Window.Property(Type),tvshow)</visible>
                         <visible>IsEmpty(Window(home).Property(globalsearch))</visible>
                     </control>
 
@@ -124,7 +124,7 @@
                         <description>Browse</description>
                         <label>21385</label>
                         <include>DefInfoButtons</include>
-                        <visible>!IsEmpty(Window.Property(movie.DBID)) + Stringcompare(Window.Property(Type),tvshow)</visible>
+                        <visible>!IsEmpty(Window.Property(DBID)) + Stringcompare(Window.Property(Type),tvshow)</visible>
                         <visible>IsEmpty(Window(home).Property(globalsearch))</visible>
                     </control>
 
@@ -170,7 +170,7 @@
                     <description>Header Label</description>
                     <textcolor>Dark2</textcolor>
                     <font>Small</font>
-                    <label>$INFO[Window.Property(movie.title)] $LOCALIZE[206]</label>
+                    <label>$INFO[Window.Property(title)] $LOCALIZE[206]</label>
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">
@@ -196,7 +196,7 @@
                     <description>Header Label</description>
                     <textcolor>Dark2</textcolor>
                     <font>Small</font>
-                    <label>$INFO[Window.Property(movie.title),$LOCALIZE[31204] ,]</label>
+                    <label>$INFO[Window.Property(title),$LOCALIZE[31204] ,]</label>
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">
@@ -222,7 +222,7 @@
                     <description>Header Label</description>
                     <textcolor>Dark2</textcolor>
                     <font>Small</font>
-                    <label>$INFO[Window.Property(movie.title)] $ADDON[script.extendedinfo 32118]</label>
+                    <label>$INFO[Window.Property(title)] $ADDON[script.extendedinfo 32118]</label>
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">
@@ -248,7 +248,7 @@
                     <description>Header Label</description>
                     <textcolor>Dark2</textcolor>
                     <font>Small</font>
-                    <label>$INFO[Window.Property(movie.title)] $ADDON[script.extendedinfo 32115]</label>
+                    <label>$INFO[Window.Property(title)] $ADDON[script.extendedinfo 32115]</label>
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">
@@ -281,7 +281,7 @@
                             <description>Header Label</description>
                             <textcolor>Dark1</textcolor>
                             <include>DefDialogInfoHeader</include>
-                            <label>$INFO[Window.Property(movie.Title)]</label>
+                            <label>$INFO[Window.Property(Title)]</label>
                         </control>
                         <control type="group">
                             <height>50</height>
@@ -291,7 +291,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window.Property(movie.Tagline)]</label>
+                                <label fallback="19055">$INFO[Window.Property(Tagline)]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -312,7 +312,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window.Property(movie.ReleaseDate),, ]$INFO[Window.Property(movie.Status),(,)]</label>
+                                <label fallback="19055">$INFO[Window.Property(ReleaseDate),, ]$INFO[Window.Property(Status),(,)]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -333,7 +333,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window.Property(movie.mpaa)]</label>
+                                <label fallback="19055">$INFO[Window.Property(mpaa)]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -354,7 +354,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window.Property(movie.duration),, $LOCALIZE[12391]]</label>
+                                <label fallback="19055">$INFO[Window.Property(duration),, $LOCALIZE[12391]]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -375,7 +375,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window.Property(movie.Budget),$,]</label>
+                                <label fallback="19055">$INFO[Window.Property(Budget),$,]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -396,7 +396,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window.Property(movie.Revenue),$,]</label>
+                                <label fallback="19055">$INFO[Window.Property(Revenue),$,]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -417,7 +417,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window.Property(movie.studio)]</label>
+                                <label fallback="19055">$INFO[Window.Property(studio)]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -438,7 +438,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window.Property(movie.genre)]</label>
+                                <label fallback="19055">$INFO[Window.Property(genre)]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -459,7 +459,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[Window.Property(movie.director)]</label>
+                                <label fallback="19055">$INFO[Window.Property(director)]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -479,7 +479,7 @@
                             <font>Tiny</font>
                             <textcolor>Dark2</textcolor>
                             <align>justify</align>
-                            <label>$INFO[Window.Property(movie.plot)]</label>
+                            <label>$INFO[Window.Property(plot)]</label>
                         </control>
                         
                     </control>
