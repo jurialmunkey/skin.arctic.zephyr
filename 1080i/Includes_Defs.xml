@@ -30,7 +30,6 @@
     
     <variable name="DefWidgetContent">
         <!-- Individual Widget Paths -->
-        <value condition="!IsEmpty(Container(300).ListItem.Property(widgetPath))">$INFO[Container(300).ListItem.Property(widgetPath)]</value>
         
         <value condition="substring(Container(300).ListItem.Property(widget),Weather,left) + !IsEmpty(Skin.String(weather.fanart))">noop</value>
         
