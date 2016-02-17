@@ -5,6 +5,15 @@
     
 
     <controls>
+        <control type="image">
+            <width>100%</width>
+            <height>100%</height>
+            <animation effect="fade" start="100" end="90" condition="Skin.HasSetting(osd.usetheme)">Conditional</animation>
+            <texture colordiffuse="$VAR[OSDPanel]">common/white.png</texture>
+            <visible>Window.IsVisible(fullscreenvideo)</visible>
+            <visible>!Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
+            <visible>!Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml)</visible>
+        </control>
         <control type="group">
             <animation type="Conditional" reversible="true" condition="Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogProgress.xml) | Window.IsVisible(DialogYesNo.xml) | Window.IsVisible(DialogOK.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml)">
                 <effect type="zoom" end="95" start="100" time="200" center="auto" tween="quadratic" easing="in" />
@@ -75,11 +84,39 @@
                     <onup condition="Control.IsVisible(9501)">9501</onup>
                     <orientation>horizontal</orientation>
 
-                    <control type="button" id ="10">
-                        <description>Ok</description>
-                        <label>186</label>
+                    
+                    <control type="button" id="4">
+                        <align>center</align>
+                        <width>260</width>
+                        <label>19003</label>
+                        <include>DefInfoButtons</include>
+                        <visible>Window.IsActive(PVRGuideInfo)</visible>
+                    </control>
+                    <control type="button" id="5">
+                        <align>center</align>
+                        <width>260</width>
+                        <label>19165</label>
+                        <include>DefInfoButtons</include>
+                        <visible>Window.IsActive(PVRGuideInfo)</visible>
+                    </control>
+                    <control type="button" id="6">
+                        <align>center</align>
                         <width>260</width>
                         <include>DefInfoButtons</include>
+                        <visible>Window.IsActive(PVRGuideInfo)</visible>
+                    </control>
+                    <control type="button" id="7">
+                        <align>center</align>
+                        <width>260</width>
+                        <label>186</label>
+                        <include>DefInfoButtons</include>
+                    </control>
+                    <control type="button" id="8">
+                        <align>center</align>
+                        <width>260</width>
+                        <label>19687</label>
+                        <include>DefInfoButtons</include>
+                        <visible>Window.IsActive(PVRGuideInfo)</visible>
                     </control>
 
                 </control>
