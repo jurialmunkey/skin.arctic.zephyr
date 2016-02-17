@@ -92,7 +92,7 @@
                                 <font>SmallBold</font>
                                 <textcolor>Dark1</textcolor>
                                 <selectedcolor>Dark1</selectedcolor>
-                                <animation effect="slide" start="0" end="50" condition="IntegerGreaterThan(ListItem.Episode,99)">Conditional</animation>
+                                <animation effect="slide" start="0" end="50" condition="IntegerGreaterThan(ListItem.Episode,99) | [IntegerGreaterThan(ListItem.Episode,9) + substring(ListItem.Episode,S)]">Conditional</animation>
                             </control>
                             <control type="image">
                                 <left>647</left>
@@ -102,7 +102,7 @@
                                 <aspectratio aligny="top">keep</aspectratio>
                                 <texture>$VAR[PercentWatched]</texture>
                                 <visible>!stringcompare(ListItem.Label,..)</visible>
-                                <animation effect="slide" start="0" end="50" condition="IntegerGreaterThan(ListItem.Episode,99)">Conditional</animation>
+                                <animation effect="slide" start="0" end="50" condition="IntegerGreaterThan(ListItem.Episode,99) | [IntegerGreaterThan(ListItem.Episode,9) + substring(ListItem.Episode,S)]">Conditional</animation>
                             </control>
                             <control type="label">
                                 <top>85</top>
@@ -115,7 +115,7 @@
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
                                 <selectedcolor>Dark2</selectedcolor>
-                                <animation effect="slide" start="0" end="50" condition="IntegerGreaterThan(ListItem.Episode,99)">Conditional</animation>
+                                <animation effect="slide" start="0" end="50" condition="IntegerGreaterThan(ListItem.Episode,99) | [IntegerGreaterThan(ListItem.Episode,9) + substring(ListItem.Episode,S)]">Conditional</animation>
                             </control>
                         </control>
                     </itemlayout>
@@ -416,7 +416,7 @@
                                 <font>SmallBold</font>
                                 <textcolor>Light1</textcolor>
                                 <selectedcolor>Light1</selectedcolor>
-                                <animation effect="slide" start="0" end="50" condition="IntegerGreaterThan(ListItem.Episode,99)">Conditional</animation>
+                                <animation effect="slide" start="0" end="50" condition="IntegerGreaterThan(ListItem.Episode,99) | [IntegerGreaterThan(ListItem.Episode,9) + substring(ListItem.Episode,S)]">Conditional</animation>
                             </control>
                             <control type="image">
                                 <left>647</left>
@@ -426,7 +426,7 @@
                                 <aspectratio aligny="top">keep</aspectratio>
                                 <texture>$VAR[PercentWatched]</texture>
                                 <visible>!stringcompare(ListItem.Label,..)</visible>
-                                <animation effect="slide" start="0" end="50" condition="IntegerGreaterThan(ListItem.Episode,99)">Conditional</animation>
+                                <animation effect="slide" start="0" end="50" condition="IntegerGreaterThan(ListItem.Episode,99) | [IntegerGreaterThan(ListItem.Episode,9) + substring(ListItem.Episode,S)]">Conditional</animation>
                             </control>
                             <control type="label">
                                 <top>85</top>
@@ -439,7 +439,7 @@
                                 <font>Tiny</font>
                                 <textcolor>Light1</textcolor>
                                 <selectedcolor>Light1</selectedcolor>
-                                <animation effect="slide" start="0" end="50" condition="IntegerGreaterThan(ListItem.Episode,99)">Conditional</animation>
+                                <animation effect="slide" start="0" end="50" condition="IntegerGreaterThan(ListItem.Episode,99) | [IntegerGreaterThan(ListItem.Episode,9) + substring(ListItem.Episode,S)]">Conditional</animation>
                             </control>
                             <control type="textbox">
                                 <top>140</top>
