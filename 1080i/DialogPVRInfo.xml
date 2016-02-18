@@ -30,7 +30,6 @@
                 <control type="group" description="Poster">
                     <left>SidePad</left>
                     <top>PosterPad</top>
-                    <visible>!IsEmpty(ListItem.Icon)</visible>
                
                     <control type="image">
                         <centertop>PosterH</centertop>
@@ -50,7 +49,7 @@
                         <height>PosterH</height>
                         <fadetime>100</fadetime>
                         <aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
-                        <texture diffuse="diffuse/listposter.png" background="true">$VAR[PosterImage]</texture>
+                        <texture diffuse="diffuse/listposter.png" background="true">$VAR[PVRThumb]</texture>
                     </control>
                     <control type="image">
                         <left>-24</left>
