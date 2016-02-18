@@ -411,7 +411,7 @@
                         <ondown>32</ondown>
                     </control>
                 </control>
-                <control type="grouplist">
+                <control type="grouplist" id="8001">
                     <posy>340</posy>
                     <orientation>horizontal</orientation>
                     <itemgap>10</itemgap>
@@ -420,7 +420,7 @@
                         <width>370</width>
                         <label>20177</label>
                         <onup>307</onup>
-                        <ondown>309</ondown>
+                        <ondown>8000</ondown>
                         <include>DefKeyboardKeys</include>
                     </control>
                     
@@ -429,7 +429,7 @@
                         <width>655</width>
                         <label>20182</label>
                         <onup>160</onup>
-                        <ondown>100</ondown>
+                        <ondown>8000</ondown>
                         <include>DefKeyboardKeys</include>
                     </control>
                     <control type="button" id="8">
@@ -437,7 +437,7 @@
                         <width>275</width>
                         <label>20181</label>
                         <onup>169</onup>
-                        <ondown>109</ondown>
+                        <ondown>8000</ondown>
                         <include>DefKeyboardKeys</include>
                     </control>
                     <control type="button" id="305">
@@ -445,17 +445,80 @@
                         <description>Layout</description>
                         <include>DefKeyboardKeys</include>
                         <onup>170</onup>
-                        <ondown>110</ondown>
+                        <ondown>8000</ondown>
                     </control>
                     <control type="button" id="306">
                         <label>&gt;</label>
                         <description>Layout</description>
                         <include>DefKeyboardKeys</include>
                         <onup>171</onup>
-                        <ondown>111</ondown>
+                        <ondown>8000</ondown>
                     </control>
                 </control>
             
+            </control>
+        
+            <control type="group">
+                <width>100%</width>
+                <height>89</height>
+                <bottom>-129</bottom>
+                <control type="image">
+                    <top>-18</top>
+                    <bottom>-18</bottom>
+                    <left>-18</left>
+                    <right>-18</right>
+                    <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
+                    <visible>IntegerGreaterThan(Container(8000).NumItems,0)</visible>
+                </control>
+                <control type="panel" id="8000">
+                    <height>69</height>
+                    <top>10</top>
+                    <left>10</left>
+                    <right>0</right>
+                    <onup>8001</onup>
+                    <orientation>horizontal</orientation>
+                    <itemlayout height="69" width="304">
+                        <control type="group">
+                            <left>0</left>
+                            <right>10</right>
+                            <control type="image">
+                                <width>100%</width>
+                                <height>100%</height>
+                                <texture colordiffuse="Black12" border="10">common/box.png</texture>
+                            </control>
+                            <control type="label">
+                                <left>20</left>
+                                <right>20</right>
+                                <height>100%</height>
+                                <aligny>center</aligny>
+                                <align>center</align>
+                                <textcolor>Black70</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                            </control>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="69" width="304">
+                        <control type="group">
+                            <left>0</left>
+                            <right>10</right>
+                            <control type="image">
+                                <width>100%</width>
+                                <height>100%</height>
+                                <texture colordiffuse="$VAR[ColorHighlight]" border="10">common/box.png</texture>
+                            </control>
+                            <control type="label">
+                                <left>20</left>
+                                <right>20</right>
+                                <height>100%</height>
+                                <aligny>center</aligny>
+                                <align>center</align>
+                                <textcolor>Selected</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                            </control>
+                        </control>
+                    </focusedlayout>
+                    <content>plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Control.GetLabel(312).index(1)]&amp;&amp;limit=9</content>
+                </control>
             </control>
         </control>
 
