@@ -127,15 +127,7 @@
                         <include>DefSettingsButton</include>
                         <label>31269</label>
                         <label2>$VAR[LabelFallbackWidgetName]</label2>
-                        <onclick>SetProperty(Dialog.1.Label,$LOCALIZE[16018])</onclick>
-                        <onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(home.slideshowpath,pvr/background.jpg))</onclick>
-                        <onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31271])</onclick>
-                        <onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetImage(home.slideshowpath))</onclick>
-                        <onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31272])</onclick>
-                        <onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetPath(home.slideshowpath))</onclick>
-                        <onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31105])</onclick>
-                        <onclick>SetProperty(Dialog.4.BuiltIn,Skin.Reset(home.slideshowpath))</onclick>
-                        <onclick>RunScript(script.toolbox,info=selectdialog,header=$LOCALIZE[31269])</onclick> 
+                        <onclick>ActivateWindow(1106)</onclick> 
                     </control>
                     
                     
@@ -155,7 +147,6 @@
                         <include>DefSettingsButton</include>
                         <label>31149</label>
                         <selected>Skin.HasSetting(home.dontshowfanart)</selected>
-                        <!-- <onclick condition="!Skin.HasSetting(home.dontshowfanart) + IsEmpty(Skin.String(home.slideshowpath))">Skin.SetPath(home.slideshowpath)</onclick> -->
                         <onclick>Skin.ToggleSetting(home.dontshowfanart)</onclick>
                     </control>
                     <control type="radiobutton" id="9242" description="Classic Widget Auto show">
@@ -163,7 +154,7 @@
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
                         <label>31200</label>
-                        <enable>Skin.HasSetting(home.classicwidgets)</enable>
+                        <enable>!Skin.HasSetting(home.vertical)</enable>
                         <selected>Skin.HasSetting(home.dontautoshowwidget)</selected>
                         <onclick>Skin.ToggleSetting(home.dontautoshowwidget)</onclick>
                     </control>

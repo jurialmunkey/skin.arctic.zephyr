@@ -177,9 +177,7 @@
             <control type="fixedlist" id="301">
                 <skinshortcuts>visibility</skinshortcuts>
                 <visible>!substring(Container(300).ListItem.Property(widget),Weather,left)</visible>
-                <visible>IntegerGreaterThan(Container(301).NumItems,0) | Container(301).IsUpdating</visible>
                 <animation effect="fade" start="100" end="66" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
-                <include>Animation.FadeIn</include>
                 <autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
                 <top>330</top>
                 <left>518</left>
