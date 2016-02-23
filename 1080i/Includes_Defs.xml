@@ -1073,14 +1073,12 @@
             <align>left</align>
             <include>DefDialogButtons</include>
             <label2>$INFO[Skin.String(Widget.$PARAM[hubid].Label)]</label2>
-            <visible>stringcompare(Window.Property(groupname),mainmenu)</visible>
             <visible>stringcompare(Container(211).ListItem.Label2,Hub $PARAM[hubid]) | stringcompare(Container(211).ListItem.Property(Path),ActivateWindow($PARAM[hubid]))</visible>
             <onclick>RunScript(script.skinshortcuts,type=shortcuts&amp;grouping=widget&amp;skinList=Widget.$PARAM[hubid]&amp;skinLabel=Widget.$PARAM[hubid].Label&amp;skinType=Widget.$PARAM[hubid].Type)</onclick>
         </control>
         <control type="button" id="$PARAM[buttonid1]" description="Set HUB">
             <width>100%</width>
             <label>31178</label>
-            <visible>stringcompare(Window.Property(groupname),mainmenu)</visible>
             <height>66</height>
             <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
             <align>left</align>
