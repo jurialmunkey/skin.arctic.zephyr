@@ -35,11 +35,11 @@
         <value condition="IsEmpty(ListItem.Episode)">$NUMBER[0]$NUMBER[0]</value>
     </variable>
     <variable name="LabelDirector">
-        <value condition="Container.Content(songs)">$INFO[ListItem.Label]</value>
-        <value condition="Container.Content(albums)">$INFO[ListItem.Artist]</value>
-        <value condition="Container.Content(artists)">$INFO[ListItem.Artist]</value>
-        <value condition="Container.Content(episodes) | Container.Content(seasons) | Container.Content(tvshows)">$INFO[ListItem.TvShowTitle]</value>
-        <value condition="Control.IsVisible(55)">$INFO[ListItem.Label]</value>
+        <value condition="!IsEmpty(ListItem.Label) + Container.Content(songs)">$INFO[ListItem.Label]</value>
+        <value condition="!IsEmpty(ListItem.Artist) + Container.Content(albums)">$INFO[ListItem.Artist]</value>
+        <value condition="!IsEmpty(ListItem.Artist) + Container.Content(artists)">$INFO[ListItem.Artist]</value>
+        <value condition="!IsEmpty(ListItem.TvShowTitle) + [Container.Content(episodes) | Container.Content(seasons) | Container.Content(tvshows)]">$INFO[ListItem.TvShowTitle]</value>
+        <value condition="!IsEmpty(ListItem.Label) + Control.IsVisible(55)">$INFO[ListItem.Label]</value>
         <value condition="!IsEmpty(ListItem.Director)">$INFO[ListItem.Director]</value>
         <value condition="!IsEmpty(Window(home).Property(SkinHelper.MovieSet.Director))">$INFO[Window(home).Property(SkinHelper.MovieSet.Director)]</value>
         <value condition="!IsEmpty(Window(home).Property(Set.Movies.Director))">$INFO[Window(home).Property(Set.Movies.Director)]</value>
