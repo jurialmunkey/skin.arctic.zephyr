@@ -158,6 +158,15 @@
                         <selected>Skin.HasSetting(home.dontautoshowwidget)</selected>
                         <onclick>Skin.ToggleSetting(home.dontautoshowwidget)</onclick>
                     </control>
+
+                    <control type="radiobutton" id="9218" description="Allow Widget Reloading">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31274</label>
+                        <selected>Skin.HasSetting(NoPersistentWidgets)</selected>
+                        <onclick>Skin.ToggleSetting(NoPersistentWidgets)</onclick>
+                    </control>
                     
                     <control type="radiobutton" id="9216" description="Show Icons">
                         <width>1310</width>
@@ -167,7 +176,7 @@
                         <selected>Skin.HasSetting(home.showicons)</selected>
                         <onclick>Skin.ToggleSetting(home.showicons)</onclick>
                     </control>
-                
+                    
                     <control type="radiobutton" id="9217" description="Always Show Weather Widget">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
