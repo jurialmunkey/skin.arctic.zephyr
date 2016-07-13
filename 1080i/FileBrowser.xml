@@ -92,7 +92,7 @@
                         <textcolor>Black70</textcolor>
                         <selectedcolor>Black70</selectedcolor>
                         <info>ListItem.Label</info>
-                        <animation effect="slide" end="0,18" condition="IsEmpty(ListItem.Property(Addon.Summary))">Conditional</animation>
+                        <animation effect="slide" end="0,18" condition="IsEmpty(ListItem.AddonSummary)">Conditional</animation>
                     </control>
                     <control type="label">
                         <posx>170</posx>
@@ -102,7 +102,7 @@
                         <font>Mini</font>
                         <textcolor>Black70</textcolor>
                         <selectedcolor>Black70</selectedcolor>
-                        <label>$INFO[ListItem.Property(Addon.Summary)]</label>
+                        <label>$INFO[ListItem.AddonSummary]</label>
                     </control>
 
                 </itemlayout>

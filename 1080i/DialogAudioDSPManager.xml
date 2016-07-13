@@ -73,43 +73,6 @@
                             <font>Button</font>
                         </control>
                     </focusedlayout>
-                    <content>
-                        <item id="91">
-                            <label>1. $LOCALIZE[15057]</label>
-                            <label2>$LOCALIZE[15114]</label2>
-                            <visible>true</visible>
-                            <onclick>noop</onclick>
-                            <property name="currentMode">InputResampling</property>
-                        </item>
-                        <item id="92">
-                            <label>2. $LOCALIZE[15058]</label>
-                            <label2>$LOCALIZE[15113]</label2>
-                            <visible>true</visible>
-                            <onclick>noop</onclick>
-                            <property name="currentMode">Preprocessing</property>
-                        </item>
-                        <item id="93">
-                            <label>3. $LOCALIZE[15059]</label>
-                            <label2>$LOCALIZE[15115]</label2>
-                            <visible>true</visible>
-                            <onclick>noop</onclick>
-                            <property name="currentMode">Masterprocessing</property>
-                        </item>
-                        <item id="94">
-                            <label>4. $LOCALIZE[15060]</label>
-                            <label2>$LOCALIZE[15117]</label2>
-                            <visible>true</visible>
-                            <onclick>noop</onclick>
-                            <property name="currentMode">Postprocessing</property>
-                        </item>
-                        <item id="95">
-                            <label>5. $LOCALIZE[15061]</label>
-                            <label2>$LOCALIZE[15116]</label2>
-                            <visible>true</visible>
-                            <onclick>noop</onclick>
-                            <property name="currentMode">OutputResampling</property>
-                        </item>
-                    </content>
                 </control>
             </control>
             
@@ -152,9 +115,9 @@
                                 <left>10</left>
                                 <width>118</width>
                                 <height>118</height>
-                                <texture>$INFO[ListItem.Property(Icon)]</texture>
+                                <texture>$INFO[ListItem.Icon]</texture>
                                 <aspectratio aligny="center" align="left">keep</aspectratio>
-                                <visible>!StringCompare(ListItem.Property(Icon),"")</visible>
+                                <visible>!StringCompare(ListItem.Icon,"")</visible>
                             </control>
                             <control type="image">
                                 <top>10</top>
@@ -163,14 +126,14 @@
                                 <height>118</height>
                                 <texture>DefaultAudioDSP.png</texture>
                                 <aspectratio aligny="center" align="left">keep</aspectratio>
-                                <visible>StringCompare(ListItem.Property(Icon),"")</visible>
+                                <visible>StringCompare(ListItem.Icon,"")</visible>
                             </control>
                             <control type="label">
                                 <left>150</left>
                                 <top>20</top>
                                 <right>20</right>
                                 <height>60</height>
-                                <label>$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]</label>
+                                <label>$INFO[ListItem.Label2]: $INFO[ListItem.Label]</label>
                                 <font>Tiny</font>
                                 <textcolor>Black70</textcolor>
                             </control>
@@ -195,9 +158,9 @@
                                 <left>10</left>
                                 <width>118</width>
                                 <height>118</height>
-                                <texture>$INFO[ListItem.Property(Icon)]</texture>
+                                <texture>$INFO[ListItem.Icon]</texture>
                                 <aspectratio aligny="center" align="left">keep</aspectratio>
-                                <visible>!StringCompare(ListItem.Property(Icon),"")</visible>
+                                <visible>!StringCompare(ListItem.Icon,"")</visible>
                             </control>
                             <control type="image">
                                 <top>10</top>
@@ -206,7 +169,7 @@
                                 <height>118</height>
                                 <texture>DefaultAudioDSP.png</texture>
                                 <aspectratio aligny="center" align="left">keep</aspectratio>
-                                <visible>StringCompare(ListItem.Property(Icon),"")</visible>
+                                <visible>StringCompare(ListItem.Icon,"")</visible>
                             </control>
                             <control type="label">
                                 <left>150</left>
@@ -214,7 +177,7 @@
                                 <right>20</right>
                                 <height>60</height>
                                 <textcolor>Selected</textcolor>
-                                <label>$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]</label>
+                                <label>$INFO[ListItem.Label2]: $INFO[ListItem.Label]</label>
                                 <font>Tiny</font>
                             </control>
                             <control type="label">
@@ -262,9 +225,9 @@
                                 <left>10</left>
                                 <width>118</width>
                                 <height>118</height>
-                                <texture>$INFO[ListItem.Property(Icon)]</texture>
+                                <texture>$INFO[ListItem.Icon]</texture>
                                 <aspectratio aligny="center" align="left">keep</aspectratio>
-                                <visible>!StringCompare(ListItem.Property(Icon),"")</visible>
+                                <visible>!StringCompare(ListItem.Icon,"")</visible>
                             </control>
                             <control type="image">
                                 <top>10</top>
@@ -273,14 +236,14 @@
                                 <height>118</height>
                                 <texture>DefaultAudioDSP.png</texture>
                                 <aspectratio aligny="center" align="left">keep</aspectratio>
-                                <visible>StringCompare(ListItem.Property(Icon),"")</visible>
+                                <visible>StringCompare(ListItem.Icon,"")</visible>
                             </control>
                             <control type="label">
                                 <left>150</left>
                                 <top>20</top>
                                 <right>20</right>
                                 <height>60</height>
-                                <label>$INFO[ListItem.Property(Number)].  $INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]</label>
+                                <label>$INFO[ListItem.Property(Number)].  $INFO[ListItem.Label2]: $INFO[ListItem.Label]</label>
                                 <textcolor>Black70</textcolor>
                                 <font>Tiny</font>
                             </control>
@@ -305,9 +268,9 @@
                                 <left>10</left>
                                 <width>118</width>
                                 <height>118</height>
-                                <texture>$INFO[ListItem.Property(Icon)]</texture>
+                                <texture>$INFO[ListItem.Icon]</texture>
                                 <aspectratio aligny="center" align="left">keep</aspectratio>
-                                <visible>!StringCompare(ListItem.Property(Icon),"")</visible>
+                                <visible>!StringCompare(ListItem.Icon,"")</visible>
                             </control>
                             <control type="image">
                                 <top>10</top>
@@ -316,7 +279,7 @@
                                 <height>118</height>
                                 <texture>DefaultAudioDSP.png</texture>
                                 <aspectratio aligny="center" align="left">keep</aspectratio>
-                                <visible>StringCompare(ListItem.Property(Icon),"")</visible>
+                                <visible>StringCompare(ListItem.Icon,"")</visible>
                             </control>
                             <control type="label">
                                 <left>150</left>
@@ -324,7 +287,7 @@
                                 <right>20</right>
                                 <height>60</height>
                                 <textcolor>Selected</textcolor>
-                                <label>$INFO[ListItem.Property(Number)].  $INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]</label>
+                                <label>$INFO[ListItem.Property(Number)].  $INFO[ListItem.Label2]: $INFO[ListItem.Label]</label>
                                 <font>Tiny</font>
                             </control>
                             <control type="label">

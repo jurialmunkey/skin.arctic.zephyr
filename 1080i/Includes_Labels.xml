@@ -69,7 +69,7 @@
         <value condition="!IsEmpty(Window(home).Property(Set.Movies.ExtendedPlot)) + [Container.Content(Sets) | substring(ListItem.Path,videodb://movies/sets,left)]">$INFO[Window(home).Property(Set.Movies.ExtendedPlot)]</value>
         <value condition="!IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
         <value condition="!IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
-        <value condition="!IsEmpty(ListItem.Property(Addon.Description))">$INFO[ListItem.Property(Addon.Description)]</value>
+        <value condition="!IsEmpty(ListItem.AddonDescription)">$INFO[ListItem.AddonDescription]</value>
         <value condition="Container.Content(songs)">$INFO[ListItem.Artist,[B],[/B][CR]]$INFO[ListItem.Album]$INFO[ListItem.Year,  (,)]</value>
         <value condition="Container.Content(episodes)">$INFO[ListItem.Title,[B],[/B][CR],]$INFO[ListItem.Plot]</value>
         <value>$INFO[ListItem.Plot]</value>
@@ -79,7 +79,7 @@
         <value condition="!IsEmpty(Window(home).Property(Set.Movies.ExtendedPlot)) + [Container.Content(Sets) | substring(ListItem.Path,videodb://movies/sets,left)]">$INFO[Window(home).Property(Set.Movies.ExtendedPlot)]</value>
         <value condition="!IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
         <value condition="!IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
-        <value condition="!IsEmpty(ListItem.Property(Addon.Description))">$INFO[ListItem.Property(Addon.Description)]</value>
+        <value condition="!IsEmpty(ListItem.AddonDescription)">$INFO[ListItem.AddonDescription]</value>
         <value condition="Container.Content(songs)">$INFO[ListItem.Artist,[B],[/B][CR]]$INFO[ListItem.Album]$INFO[ListItem.Year,  (,)]</value>
         <value condition="Container.Content(episodes)">$INFO[ListItem.Title,[B],[/B][CR][CR],]$INFO[ListItem.Plot]</value>
         <value>$INFO[ListItem.Tagline,[B],[/B][CR][CR]]$INFO[ListItem.Plot]</value>
@@ -140,6 +140,9 @@
         <value condition="Window.IsActive(profiles)">$LOCALIZE[13200]</value>
         <value condition="Window.IsActive(videossettings)">$LOCALIZE[157]</value>
         <value condition="Window.IsActive(servicesettings)">$LOCALIZE[14036]</value>
+        <value condition="Window.IsActive(interfacesettings)">$LOCALIZE[14206]</value>
+        <value condition="Window.IsActive(librarysettings)">$LOCALIZE[14202]</value>
+        <value condition="Window.IsActive(playersettings)">$LOCALIZE[14200]</value>
         <value>$LOCALIZE[480]</value>
     </variable>
     
@@ -160,7 +163,7 @@
         <value condition="substring(Container(300).ListItem.Property(widgetType),music) + !IsEmpty(Container(301).ListItem.Property(Album_Description))">$INFO[Container(301).ListItem.Property(Album_Description)]</value>
         <value condition="substring(Container(300).ListItem.Property(widget),Weather,left)">$INFO[Weather.Conditions]</value>
         <value condition="!IsEmpty(Container(301).ListItem.Plot)">$INFO[Container(301).ListItem.Plot]</value>
-        <value condition="!IsEmpty(Container(301).ListItem.Property(Addon.Description))">$INFO[Container(301).ListItem.Property(Addon.Description)]</value>
+        <value condition="!IsEmpty(Container(301).ListItem.AddonDescription)">$INFO[Container(301).ListItem.AddonDescription]</value>
         <value>$LOCALIZE[19055]</value>
     </variable>
     <variable name="WidgetSubLabel">

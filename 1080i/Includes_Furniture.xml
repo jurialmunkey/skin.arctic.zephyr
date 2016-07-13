@@ -866,7 +866,7 @@
     </include>
 
     <variable name="HeaderIcon">
-        <value condition="Window.IsVisible(DialogMuteBug.xml)">special://skin/extras/icons/mute.png</value>
+        <value condition="Player.Muted">special://skin/extras/icons/mute.png</value>
         <value condition="Window.IsVisible(DialogButtonMenu.xml)">special://skin/extras/icons/power.png</value>
         <value condition="Window.IsVisible(DialogFavourites.xml)">special://skin/extras/icons/favourites.png</value>
         <value condition="Window.IsVisible(EventLog.xml)">special://skin/extras/icons/antenna.png</value>
@@ -1146,9 +1146,9 @@
             <visible>!Skin.HasSetting(furniture.weather)</visible>
             <visible>Skin.HasSetting(furniture.topweather) | [Window.IsActive(home) + substring(Container(300).ListItem.Property(widget),Weather,left)]</visible>
             <visible>!Window.IsVisible(DialogVolumeBar.xml)</visible>
-            <visible>!Window.IsVisible(DialogKaiToast.xml)</visible>
+            <visible>!Window.IsVisible(DialogNotification.xml)</visible>
             <visible>!Window.IsVisible(DialogExtendedProgressBar.xml)</visible>
-            <visible>!Window.IsActive(DialogKaiToast.xml)</visible>
+            <visible>!Window.IsActive(DialogNotification.xml)</visible>
             <visible>Skin.HasSetting(furniture.nowplaying) | [!Skin.HasSetting(furniture.nowplaying) + IsEmpty(Player.Duration) + !Player.HasAudio]</visible>
             <top>70</top>
             <right>62</right>
@@ -1196,11 +1196,11 @@
         <control type="grouplist">
             <visible>!Skin.HasSetting(furniture.nowplaying)</visible>
             <visible>!Window.IsVisible(DialogVolumeBar.xml)</visible>
-            <visible>!Window.IsVisible(DialogKaiToast.xml)</visible>
+            <visible>!Window.IsVisible(DialogNotification.xml)</visible>
             <visible>!Window.IsVisible(DialogExtendedProgressBar.xml)</visible>
             <include>Animation.FurnitureFadeInOut</include>
             <visible>IsEmpty(Window(10025).Property(TvTunesIsAlive))</visible>
-            <visible>!Window.IsActive(DialogKaiToast.xml)</visible>
+            <visible>!Window.IsActive(DialogNotification.xml)</visible>
             <visible>Player.HasMedia</visible>
             <visible>!IsEmpty(Player.Duration) | Player.HasAudio</visible>
             <animation effect="slide" start="0" end="0,-250" time="150" condition="Control.HasFocus(301) + !Skin.HasSetting(home.classicwidgets) + !Skin.HasSetting(home.vertical)">Conditional</animation>
@@ -1301,7 +1301,7 @@
 
         <control type="group">
             <visible>[System.IdleTime(3) + Skin.HasSetting(furniture.overlayinfo)] | Control.HasFocus(9601)</visible>
-            <visible>![Window.IsVisible(script-skinshortcuts.xml) | Window.IsVisible(DialogSongInfo.xml) | Window.IsVisible(DialogPictureInfo.xml) | Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogProgress.xml) | Window.IsVisible(DialogYesNo.xml) | Window.IsVisible(DialogOK.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml) | ControlGroup(9000).HasFocus()]</visible>
+            <visible>![Window.IsVisible(script-skinshortcuts.xml) | Window.IsVisible(DialogSongInfo.xml) | Window.IsVisible(DialogPictureInfo.xml) | Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogConfirm.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml) | ControlGroup(9000).HasFocus()]</visible>
             <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
             <visible>!Window.IsVisible(script-ExtendedInfo Script-VideoList.xml) + !Window.IsVisible(script-globalsearch-main.xml) + !Window.IsVisible(script-globalsearch-infodialog.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
             <visible>[!IsEmpty(Window(home).Property(Set.Movies.ExtendedPlot)) + [Container.Content(Sets) | substring(ListItem.Path,videodb://movies/sets,left)]] | !IsEmpty(ListItem.Plot)</visible>
@@ -1328,7 +1328,7 @@
             <top>PosterPad</top>
             <height>650</height>
             <visible>[System.IdleTime(3) + Skin.HasSetting(furniture.overlayinfo)] | Control.HasFocus(9601)</visible>
-            <visible>![Window.IsVisible(script-skinshortcuts.xml) | Window.IsVisible(DialogSongInfo.xml) | Window.IsVisible(DialogPictureInfo.xml) | Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogProgress.xml) | Window.IsVisible(DialogYesNo.xml) | Window.IsVisible(DialogOK.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml) | ControlGroup(9000).HasFocus()]</visible>
+            <visible>![Window.IsVisible(script-skinshortcuts.xml) | Window.IsVisible(DialogSongInfo.xml) | Window.IsVisible(DialogPictureInfo.xml) | Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogConfirm.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml) | ControlGroup(9000).HasFocus()]</visible>
             <visible>!Window.IsVisible(DialogVideoInfo.xml)</visible>
             <visible>!Window.IsVisible(script-ExtendedInfo Script-VideoList.xml) + !Window.IsVisible(script-globalsearch-main.xml) + !Window.IsVisible(script-globalsearch-infodialog.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
             <visible>[!IsEmpty(Window(home).Property(Set.Movies.ExtendedPlot)) + [Container.Content(Sets) | substring(ListItem.Path,videodb://movies/sets,left)]] | !IsEmpty(ListItem.Plot)</visible>

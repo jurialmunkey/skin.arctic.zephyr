@@ -17,7 +17,7 @@
             
             <control type="group">
                 <!-- <visible>!Window.IsVisible(script-globalsearch-infodialog.xml)</visible>-->
-                <visible>!Window.IsVisible(script-ExtendedInfo Script-VideoList.xml) + !Window.IsVisible(DialogAddonInfo.xml) + !Window.IsVisible(DialogPVRRecordingInfo.xml) + !Window.IsVisible(DialogPVRGuideInfo.xml) + !Window.IsVisible(DialogAlbumInfo.xml) + !Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
+                <visible>!Window.IsVisible(script-ExtendedInfo Script-VideoList.xml) + !Window.IsVisible(DialogAddonInfo.xml) + !Window.IsVisible(DialogPVRRecordingInfo.xml) + !Window.IsVisible(DialogPVRGuideInfo.xml) + !Window.IsVisible(DialogMusicInfo.xml) + !Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogInfo.xml) + !Window.IsVisible(script-ExtendedInfo Script-DialogVideoInfo.xml)</visible>
                 <animation type="WindowOpen" reversible="false">
                     <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
                     <effect type="zoom" start="50" end="100" time="300" center="auto" tween="quadratic" easing="out" />
@@ -34,7 +34,7 @@
                     <effect type="zoom" start="100" end="115" center="auto" tween="sine" delay="0" easing="out" time="300" />
                     <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
                 </animation>
-                <animation type="Conditional" reversible="true" condition="Window.IsVisible(script-skinshortcuts.xml) | Window.IsVisible(DialogSongInfo.xml) | Window.IsVisible(DialogPictureInfo.xml) | Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogProgress.xml) | Window.IsVisible(DialogYesNo.xml) | Window.IsVisible(DialogOK.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml) | ControlGroup(9000).HasFocus()">
+                <animation type="Conditional" reversible="true" condition="Window.IsVisible(script-skinshortcuts.xml) | Window.IsVisible(DialogSongInfo.xml) | Window.IsVisible(DialogPictureInfo.xml) | Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogConfirm.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml) | ControlGroup(9000).HasFocus()">
                     <effect type="zoom" end="95" start="100" time="200" center="auto" tween="quadratic" easing="in" />
                 </animation>
                 <left>SidePad</left>
@@ -74,7 +74,7 @@
                     <itemgap>0</itemgap>
                     <pagecontrol>60</pagecontrol>
                     <orientation>vertical</orientation>
-                    <include name="GlobalSearchListGroupParams">
+                    <include content="GlobalSearchListGroupParams">
                         <param name="buttonclick" value="ActivateWindow(videos,movieactors,return)" />
                         <param name="iconimage" value="special://skin/extras/icons/actor.png" />
                         <param name="buttonid" value="9601" />
@@ -85,7 +85,7 @@
                         <param name="onleft" value="181" />
                         <param name="onright" value="111" />
                     </include>
-                    <include name="GlobalSearchListGroupParams">
+                    <include content="GlobalSearchListGroupParams">
                         <param name="buttonclick" value="ActivateWindow(videos,movietitles,return)" />
                         <param name="iconimage" value="special://skin/extras/icons/film.png" />
                         <param name="buttonid" value="9602" />
@@ -96,7 +96,7 @@
                         <param name="onleft" value="211" />
                         <param name="onright" value="121" />
                     </include>
-                    <include name="GlobalSearchListGroupParams">
+                    <include content="GlobalSearchListGroupParams">
                         <param name="buttonclick" value="ActivateWindow(videos,tvshowtitles,return)" />
                         <param name="iconimage" value="special://skin/extras/icons/tv.png" />
                         <param name="buttonid" value="9603" />
@@ -107,7 +107,7 @@
                         <param name="onleft" value="111" />
                         <param name="onright" value="131" />
                     </include>
-                    <include name="GlobalSearchListGroupParams">
+                    <include content="GlobalSearchListGroupParams">
                         <param name="buttonclick" value="ActivateWindow(videos,tvshowtitles,return)" />
                         <param name="iconimage" value="special://skin/extras/icons/video.png" />
                         <param name="buttonid" value="9604" />
@@ -118,7 +118,7 @@
                         <param name="onleft" value="121" />
                         <param name="onright" value="141" />
                     </include>
-                    <include name="GlobalSearchListGroupParams">
+                    <include content="GlobalSearchListGroupParams">
                         <param name="buttonclick" value="ActivateWindow(videos,tvshowtitles,return)" />
                         <param name="iconimage" value="special://skin/extras/icons/video.png" />
                         <param name="buttonid" value="9605" />
@@ -129,7 +129,7 @@
                         <param name="onleft" value="131" />
                         <param name="onright" value="151" />
                     </include>
-                    <include name="GlobalSearchListGroupParams">
+                    <include content="GlobalSearchListGroupParams">
                         <param name="buttonclick" value="ActivateWindow(videos,tvshowtitles,return)" />
                         <param name="iconimage" value="special://skin/extras/icons/video.png" />
                         <param name="buttonid" value="9606" />
@@ -140,7 +140,7 @@
                         <param name="onleft" value="141" />
                         <param name="onright" value="161" />
                     </include>
-                    <include name="GlobalSearchListGroupParams">
+                    <include content="GlobalSearchListGroupParams">
                         <param name="buttonclick" value="ActivateWindow(music,artists,return)" />
                         <param name="iconimage" value="special://skin/extras/icons/artist.png" />
                         <param name="buttonid" value="9607" />
@@ -151,7 +151,7 @@
                         <param name="onleft" value="151" />
                         <param name="onright" value="171" />
                     </include>
-                    <include name="GlobalSearchListGroupParams">
+                    <include content="GlobalSearchListGroupParams">
                         <param name="buttonclick" value="ActivateWindow(music,albums,return)" />
                         <param name="iconimage" value="special://skin/extras/icons/songs.png" />
                         <param name="buttonid" value="9608" />
@@ -162,7 +162,7 @@
                         <param name="onleft" value="161" />
                         <param name="onright" value="181" />
                     </include>
-                    <include name="GlobalSearchListGroupParams">
+                    <include content="GlobalSearchListGroupParams">
                         <param name="buttonclick" value="ActivateWindow(music,songs,return)" />
                         <param name="iconimage" value="special://skin/extras/icons/song.png" />
                         <param name="buttonid" value="9609" />

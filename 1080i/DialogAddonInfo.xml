@@ -6,7 +6,7 @@
 
     <controls>
         <control type="group">
-            <animation type="Conditional" reversible="true" condition="Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogProgress.xml) | Window.IsVisible(DialogYesNo.xml) | Window.IsVisible(DialogOK.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml)">
+            <animation type="Conditional" reversible="true" condition="Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogConfirm.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml)">
                 <effect type="zoom" end="95" start="100" time="200" center="auto" tween="quadratic" easing="in" />
             </animation>
 
@@ -86,15 +86,6 @@
                         <visible>!Skin.HasSetting(global.kioskmode)</visible>
                         <visible>Control.IsEnabled(8)</visible>
                     </control>
-
-                    <control type="button" id ="10">
-                        <description>Changelog</description>
-                        <label>24036</label>
-                        <width>260</width>
-                        <include>DefInfoButtons</include>
-                        <visible>!Skin.HasSetting(global.kioskmode)</visible>
-                        <visible>Control.IsEnabled(10)</visible>
-                    </control>
                 </control>
 
                 
@@ -113,7 +104,7 @@
                             <description>Header Label</description>
                             <textcolor>Dark1</textcolor>
                             <include>DefDialogInfoHeader</include>
-                            <label>$INFO[ListItem.Property(Addon.Name)]</label>
+                            <label>$INFO[ListItem.AddonName]</label>
                         </control>
                         <control type="group">
                             <height>50</height>
@@ -123,7 +114,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[ListItem.Property(Addon.Summary)]</label>
+                                <label fallback="19055">$INFO[ListItem.AddonSummary]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -143,7 +134,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[ListItem.Property(Addon.Type)]</label>
+                                <label fallback="19055">$INFO[ListItem.AddonType]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -163,7 +154,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[ListItem.Property(Addon.Version)]</label>
+                                <label fallback="19055">$INFO[ListItem.AddonVersion]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -183,7 +174,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[ListItem.Property(Addon.Creator)]</label>
+                                <label fallback="19055">$INFO[ListItem.AddonCreator]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -203,7 +194,7 @@
                                 <height>36</height>
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
-                                <label fallback="19055">$INFO[ListItem.Property(Addon.ID)]</label>
+                                <label fallback="19055">$INFO[ListItem.AddonID]</label>
                                 <aligny>center</aligny>
                             </control>
                         </control>
@@ -222,7 +213,7 @@
                                 <textcolor>Dark2</textcolor>
                                 <scroll>false</scroll>
                                 <align>justify</align>
-                                <info>ListItem.Property(Addon.Description)</info>
+                                <info>ListItem.AddonDescription</info>
                                 <aligny>top</aligny>
                             </control>
                         </control>

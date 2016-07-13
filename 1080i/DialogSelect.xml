@@ -123,7 +123,7 @@
                         <textcolor>Black70</textcolor>
                         <selectedcolor>Black70</selectedcolor>
                         <info>ListItem.Label</info>
-                        <animation effect="slide" end="0,18" condition="IsEmpty(ListItem.Property(Addon.Summary))">Conditional</animation>
+                        <animation effect="slide" end="0,18" condition="IsEmpty(ListItem.AddonSummary)">Conditional</animation>
                     </control>
                     <control type="label">
                         <posx>170</posx>
@@ -133,7 +133,7 @@
                         <font>Mini</font>
                         <textcolor>Black70</textcolor>
                         <selectedcolor>Black70</selectedcolor>
-                        <label>$INFO[ListItem.Property(Addon.Summary)]</label>
+                        <label>$INFO[ListItem.AddonSummary]</label>
                     </control>
 
                 </itemlayout>
@@ -169,7 +169,7 @@
                             <textcolor>Black70</textcolor>
                             <selectedcolor>Black70</selectedcolor>
                             <info>ListItem.Label</info>
-                            <animation effect="slide" end="0,18" condition="IsEmpty(ListItem.Property(Addon.Summary))">Conditional</animation>
+                            <animation effect="slide" end="0,18" condition="IsEmpty(ListItem.AddonSummary)">Conditional</animation>
                         </control>
                         <control type="label">
                             <posx>170</posx>
@@ -179,7 +179,7 @@
                             <font>Mini</font>
                             <textcolor>Black70</textcolor>
                             <selectedcolor>Black70</selectedcolor>
-                            <label>$INFO[ListItem.Property(Addon.Summary)]</label>
+                            <label>$INFO[ListItem.AddonSummary]</label>
                         </control>
                     </control>
                     <control type="group">
@@ -219,7 +219,7 @@
                             <textcolor>Selected</textcolor>
                             <selectedcolor>Selected</selectedcolor>
                             <info>ListItem.Label</info>
-                            <animation effect="slide" end="0,18" condition="IsEmpty(ListItem.Property(Addon.Summary))">Conditional</animation>
+                            <animation effect="slide" end="0,18" condition="IsEmpty(ListItem.AddonSummary)">Conditional</animation>
                         </control>
                         <control type="label">
                             <left>170</left>
@@ -229,7 +229,7 @@
                             <font>Mini</font>
                             <textcolor>Selected</textcolor>
                             <selectedcolor>Selected</selectedcolor>
-                            <label>$INFO[ListItem.Property(Addon.Summary)]</label>
+                            <label>$INFO[ListItem.AddonSummary]</label>
                         </control>
                     </control>
 
@@ -249,13 +249,30 @@
                 <onleft>3</onleft>
                 <onright>3</onright>
                 <onup>3</onup>
-                <ondown>3</ondown>
+                <ondown>7</ondown>
                 <font>Button</font>
                 <textcolor>Black70</textcolor>
                 <texturefocus colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</texturefocus>
                 <animation effect="slide" start="0" end="22,-100" condition="!Control.IsVisible(6)">Conditional</animation>
             </control>
-            
+            <control type="button" id="7">
+                <description>Cancel</description>
+                <posx>738</posx>
+                <posy>200</posy>
+                <width>300</width>
+                <height>70</height>
+                <align>center</align>
+                <label>222</label>
+                <onleft>3</onleft>
+                <onright>3</onright>
+                <onup>5</onup>
+                <ondown>3</ondown>
+                <font>Button</font>
+                <textcolor>Black70</textcolor>
+                <texturefocus colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</texturefocus>
+                <animation effect="slide" start="0" end="22,-100" condition="!Control.IsVisible(6)">Conditional</animation>
+                <visible>Control.IsVisible(6)</visible>
+            </control>
 
             <control type="image">
                 <description>Large Icon Image</description>
