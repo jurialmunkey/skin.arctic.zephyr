@@ -462,22 +462,13 @@
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31260</label>
-                    <!-- <selected>!IsEmpty(Skin.String(weather.icons.path))</selected>
-                    <onclick>Skin.ToggleSetting(weather.useflaticons)</onclick> -->
                     <onclick>RunScript(script.image.resource.select,property=weather.icons&amp;type=resource.images.weathericons)</onclick>
                 </control>
                 <control type="button" id="9004" description="Set Weather Fanart">
                     <include>DefContextButton</include>
                     <align>left</align>
                     <label>31143</label>
-                    <!-- <onclick>Skin.SetPath(weather.fanart)</onclick> -->
                     <onclick>RunScript(script.image.resource.select,property=weather.fanart&amp;type=resource.images.weatherfanart)</onclick>
-                </control>
-                <control type="button" id="9003" description="Weather Settings">
-                    <include>DefContextButton</include>
-                    <align>left</align>
-                    <label>$LOCALIZE[5]</label>
-                    <onclick>activatewindow(WeatherSettings)</onclick>
                 </control>
             </control>
         </control>
