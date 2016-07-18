@@ -44,25 +44,13 @@
                         <include>DefSettingsButton</include>
                         <label>10000</label>
                     </control>
-                    <!-- <control type="togglebutton" id="9104" description="Widgets">
-                        <usealttexture>ControlGroup(9100).HasFocus(9104)</usealttexture>
-                        <alttexturenofocus colordiffuse="$VAR[ColorHighlight]">common/white.png</alttexturenofocus>
-                        <include>DefSettingsButton</include>
-                        <label>31144</label>
-                    </control> -->
-
                     <control type="togglebutton" id="9102" description="Background">
                         <usealttexture>ControlGroup(9100).HasFocus(9102)</usealttexture>
                         <alttexturenofocus colordiffuse="$VAR[ColorHighlight]">common/white.png</alttexturenofocus>
                         <include>DefSettingsButton</include>
                         <label>31110</label>
                     </control>
-                    <!-- <control type="togglebutton" id="9105" description="Hub Items">
-                        <usealttexture>ControlGroup(9100).HasFocus(9105)</usealttexture>
-                        <alttexturenofocus colordiffuse="$VAR[ColorHighlight]">common/white.png</alttexturenofocus>
-                        <include>DefSettingsButton</include>
-                        <label>31178</label>
-                    </control> -->
+
                     <control type="togglebutton" id="9106" description="Furniture">
                         <usealttexture>ControlGroup(9100).HasFocus(9106)</usealttexture>
                         <alttexturenofocus colordiffuse="$VAR[ColorHighlight]">common/white.png</alttexturenofocus>
@@ -309,41 +297,6 @@
                         <selected>Skin.HasSetting(ShowClearArtOSD)</selected>
                         <onclick>Skin.ToggleSetting(ShowClearArtOSD)</onclick>
                     </control>                    
-                    
-                    
-                    <!-- Hubs -->
-                    <control type="button" id="9251" description="Select Movies Hub Widget">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9105)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31182</label>
-                        <label2>$INFO[Skin.String(MovieHubWidget)]</label2>
-                        <onclick condition="IsEmpty(Skin.String(MovieHubWidget))">Skin.SetFile(MovieHubWidget,.xsp|.m3u,special://profile/playlists/video/)</onclick>
-                        <onclick condition="!IsEmpty(Skin.String(MovieHubWidget))">Skin.Reset(MovieHubWidget)</onclick>
-                    </control>
-                    <control type="button" id="9252" description="Select Movies Hub Items">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9105)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31256</label>
-                        <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=movieshub)</onclick>
-                    </control>
-                    <control type="button" id="9253" description="Select TV Shows Hub Widget">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9105)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31183</label>
-                        <label2>$INFO[Skin.String(TVHubWidget)]</label2>
-                        <onclick condition="IsEmpty(Skin.String(TVHubWidget))">Skin.SetFile(TVHubWidget,.xsp|.m3u,special://profile/playlists/video/)</onclick>
-                        <onclick condition="!IsEmpty(Skin.String(TVHubWidget))">Skin.Reset(TVHubWidget)</onclick>
-                    </control>
-                    <control type="button" id="9254" description="Select TV Hub Items">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9105)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31257</label>
-                        <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=episodeshub)</onclick>
-                    </control>
                     
                     
                     <!-- Furniture -->
