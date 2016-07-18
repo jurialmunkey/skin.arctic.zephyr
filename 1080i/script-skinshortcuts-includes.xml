@@ -20,14 +20,15 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<label>$LOCALIZE[20342]</label>
-			<label2>Hub 1101</label2>
+			<label2>Common Shortcut</label2>
 			<icon>special://skin/extras/icons/film.png</icon>
 			<thumb />
 			<property name="labelID">20342</property>
-			<property name="defaultID">x1101</property>
-			<onclick>ActivateWindow(1101)</onclick>
-			<property name="path">ActivateWindow(1101)</property>
-			<property name="list">1101</property>
+			<property name="defaultID">movies</property>
+			<visible>Library.HasContent(Movies)</visible>
+			<onclick>ActivateWindow(Videos,MovieTitles,return)</onclick>
+			<property name="path">ActivateWindow(Videos,MovieTitles,return)</property>
+			<property name="list">MovieTitles</property>
 			<visible>StringCompare(System.ProfileName,Master user)</visible>
 			<property name="submenuVisibility">num-20342</property>
 			<property name="group">mainmenu</property>
@@ -36,14 +37,15 @@
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
 			<label>$LOCALIZE[20343]</label>
-			<label2>Hub 1102</label2>
+			<label2>Common Shortcut</label2>
 			<icon>special://skin/extras/icons/tv.png</icon>
 			<thumb />
 			<property name="labelID">tvshows</property>
-			<property name="defaultID">x1102</property>
-			<onclick>ActivateWindow(1102)</onclick>
-			<property name="path">ActivateWindow(1102)</property>
-			<property name="list">1102</property>
+			<property name="defaultID">tvshows</property>
+			<visible>Library.HasContent(TVShows)</visible>
+			<onclick>ActivateWindow(Videos,TVShowTitles,return)</onclick>
+			<property name="path">ActivateWindow(Videos,TVShowTitles,return)</property>
+			<property name="list">TVShowTitles</property>
 			<visible>StringCompare(System.ProfileName,Master user)</visible>
 			<property name="submenuVisibility">tvshows</property>
 			<property name="group">mainmenu</property>
@@ -67,18 +69,17 @@
 		</item>
 		<item id="5">
 			<property name="id">$NUMBER[5]</property>
-			<label>Live TV</label>
+			<label>$LOCALIZE[31103]</label>
 			<label2>Common Shortcut</label2>
 			<icon>special://skin/extras/icons/livetv.png</icon>
 			<thumb />
-			<property name="labelID">31015</property>
+			<property name="labelID">31103</property>
 			<property name="defaultID">livetv</property>
-			<visible>PVR.HasTVChannels</visible>
-			<onclick>ActivateWindow(TVChannels)</onclick>
-			<property name="path">ActivateWindow(TVChannels)</property>
-			<property name="list">TVChannels</property>
+			<onclick>ActivateWindow(MyPVR)</onclick>
+			<property name="path">ActivateWindow(MyPVR)</property>
+			<property name="list">MyPVR</property>
 			<visible>StringCompare(System.ProfileName,Master user)</visible>
-			<property name="submenuVisibility">num-31015</property>
+			<property name="submenuVisibility">num-31103</property>
 			<property name="group">mainmenu</property>
 			<property name="hasSubmenu">True</property>
 		</item>
@@ -116,23 +117,6 @@
 		</item>
 		<item id="8">
 			<property name="id">$NUMBER[8]</property>
-			<label>$LOCALIZE[8]</label>
-			<label2>Common Shortcut</label2>
-			<icon>special://skin/extras/icons/sun.png</icon>
-			<thumb />
-			<property name="labelID">8</property>
-			<property name="defaultID">weather</property>
-			<visible>!IsEmpty(Weather.Plugin)</visible>
-			<onclick>ActivateWindow(Weather)</onclick>
-			<property name="path">ActivateWindow(Weather)</property>
-			<property name="list">Weather</property>
-			<visible>StringCompare(System.ProfileName,Master user)</visible>
-			<property name="submenuVisibility">num-8</property>
-			<property name="group">mainmenu</property>
-			<property name="hasSubmenu">False</property>
-		</item>
-		<item id="9">
-			<property name="id">$NUMBER[9]</property>
 			<label>$LOCALIZE[10004]</label>
 			<label2>Common Shortcut</label2>
 			<icon>special://skin/extras/icons/settings.png</icon>
@@ -147,8 +131,8 @@
 			<property name="group">mainmenu</property>
 			<property name="hasSubmenu">True</property>
 		</item>
-		<item id="10">
-			<property name="id">$NUMBER[10]</property>
+		<item id="9">
+			<property name="id">$NUMBER[9]</property>
 			<label>$LOCALIZE[33060]</label>
 			<label2>Common Shortcut</label2>
 			<icon>special://skin/extras/icons/power.png</icon>
@@ -676,12 +660,12 @@
 			<thumb />
 			<property name="labelID">22020</property>
 			<property name="defaultID">22020</property>
-			<visible>[PVR.HasTVChannels] + StringCompare(Container(300).ListItem.Property(submenuVisibility),num-31015)</visible>
+			<visible>[PVR.HasTVChannels] + StringCompare(Container(300).ListItem.Property(submenuVisibility),num-31103)</visible>
 			<onclick>ActivateWindow(TVGuide)</onclick>
 			<property name="path">ActivateWindow(TVGuide)</property>
 			<property name="list">TVGuide</property>
 			<visible>StringCompare(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
+			<property name="group">31103</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="2">
@@ -692,12 +676,12 @@
 			<thumb />
 			<property name="labelID">19163</property>
 			<property name="defaultID">19163</property>
-			<visible>[PVR.HasTVChannels] + StringCompare(Container(300).ListItem.Property(submenuVisibility),num-31015)</visible>
+			<visible>[PVR.HasTVChannels] + StringCompare(Container(300).ListItem.Property(submenuVisibility),num-31103)</visible>
 			<onclick>ActivateWindow(TVRecordings)</onclick>
 			<property name="path">ActivateWindow(TVRecordings)</property>
 			<property name="list">TVRecordings</property>
 			<visible>StringCompare(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
+			<property name="group">31103</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="3">
@@ -708,12 +692,12 @@
 			<thumb />
 			<property name="labelID">19040</property>
 			<property name="defaultID">19040</property>
-			<visible>[PVR.HasTVChannels] + StringCompare(Container(300).ListItem.Property(submenuVisibility),num-31015)</visible>
+			<visible>[PVR.HasTVChannels] + StringCompare(Container(300).ListItem.Property(submenuVisibility),num-31103)</visible>
 			<onclick>ActivateWindow(TVTimers)</onclick>
 			<property name="path">ActivateWindow(TVTimers)</property>
 			<property name="list">TVTimers</property>
 			<visible>StringCompare(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
+			<property name="group">31103</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="4">
@@ -724,12 +708,12 @@
 			<thumb />
 			<property name="labelID">137</property>
 			<property name="defaultID">137</property>
-			<visible>[PVR.HasTVChannels] + StringCompare(Container(300).ListItem.Property(submenuVisibility),num-31015)</visible>
+			<visible>[PVR.HasTVChannels] + StringCompare(Container(300).ListItem.Property(submenuVisibility),num-31103)</visible>
 			<onclick>ActivateWindow(TVSearch)</onclick>
 			<property name="path">ActivateWindow(TVSearch)</property>
 			<property name="list">TVSearch</property>
 			<visible>StringCompare(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
+			<property name="group">31103</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="1">
@@ -2213,7 +2197,7 @@
 			<property name="isSubmenu">True</property>
 		</item>
 	</include>
-	<include name="skinshortcuts-group-num-31015">
+	<include name="skinshortcuts-group-num-31103">
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<label>$LOCALIZE[22020]</label>
@@ -2227,7 +2211,7 @@
 			<property name="path">ActivateWindow(TVGuide)</property>
 			<property name="list">TVGuide</property>
 			<visible>StringCompare(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
+			<property name="group">31103</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="2">
@@ -2243,7 +2227,7 @@
 			<property name="path">ActivateWindow(TVRecordings)</property>
 			<property name="list">TVRecordings</property>
 			<visible>StringCompare(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
+			<property name="group">31103</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="3">
@@ -2259,7 +2243,7 @@
 			<property name="path">ActivateWindow(TVTimers)</property>
 			<property name="list">TVTimers</property>
 			<visible>StringCompare(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
+			<property name="group">31103</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="4">
@@ -2275,11 +2259,11 @@
 			<property name="path">ActivateWindow(TVSearch)</property>
 			<property name="list">TVSearch</property>
 			<visible>StringCompare(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
+			<property name="group">31103</property>
 			<property name="isSubmenu">True</property>
 		</item>
 	</include>
-	<include name="skinshortcuts-group-alt-num-31015">
+	<include name="skinshortcuts-group-alt-num-31103">
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<label>$LOCALIZE[22020]</label>
@@ -2288,12 +2272,12 @@
 			<thumb />
 			<property name="labelID">22020</property>
 			<property name="defaultID">22020</property>
-			<visible>[PVR.HasTVChannels] + StringCompare(Window(10000).Property(submenuVisibility),num-31015)</visible>
+			<visible>[PVR.HasTVChannels] + StringCompare(Window(10000).Property(submenuVisibility),num-31103)</visible>
 			<onclick>ActivateWindow(TVGuide)</onclick>
 			<property name="path">ActivateWindow(TVGuide)</property>
 			<property name="list">TVGuide</property>
 			<visible>StringCompare(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
+			<property name="group">31103</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="2">
@@ -2304,12 +2288,12 @@
 			<thumb />
 			<property name="labelID">19163</property>
 			<property name="defaultID">19163</property>
-			<visible>[PVR.HasTVChannels] + StringCompare(Window(10000).Property(submenuVisibility),num-31015)</visible>
+			<visible>[PVR.HasTVChannels] + StringCompare(Window(10000).Property(submenuVisibility),num-31103)</visible>
 			<onclick>ActivateWindow(TVRecordings)</onclick>
 			<property name="path">ActivateWindow(TVRecordings)</property>
 			<property name="list">TVRecordings</property>
 			<visible>StringCompare(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
+			<property name="group">31103</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="3">
@@ -2320,12 +2304,12 @@
 			<thumb />
 			<property name="labelID">19040</property>
 			<property name="defaultID">19040</property>
-			<visible>[PVR.HasTVChannels] + StringCompare(Window(10000).Property(submenuVisibility),num-31015)</visible>
+			<visible>[PVR.HasTVChannels] + StringCompare(Window(10000).Property(submenuVisibility),num-31103)</visible>
 			<onclick>ActivateWindow(TVTimers)</onclick>
 			<property name="path">ActivateWindow(TVTimers)</property>
 			<property name="list">TVTimers</property>
 			<visible>StringCompare(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
+			<property name="group">31103</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="4">
@@ -2336,12 +2320,12 @@
 			<thumb />
 			<property name="labelID">137</property>
 			<property name="defaultID">137</property>
-			<visible>[PVR.HasTVChannels] + StringCompare(Window(10000).Property(submenuVisibility),num-31015)</visible>
+			<visible>[PVR.HasTVChannels] + StringCompare(Window(10000).Property(submenuVisibility),num-31103)</visible>
 			<onclick>ActivateWindow(TVSearch)</onclick>
 			<property name="path">ActivateWindow(TVSearch)</property>
 			<property name="list">TVSearch</property>
 			<visible>StringCompare(System.ProfileName,Master user)</visible>
-			<property name="group">31015</property>
+			<property name="group">31103</property>
 			<property name="isSubmenu">True</property>
 		</item>
 	</include>
@@ -2383,12 +2367,6 @@
 		<description>No items</description>
 	</include>
 	<include name="skinshortcuts-group-alt-num-0">
-		<description>No items</description>
-	</include>
-	<include name="skinshortcuts-group-num-8">
-		<description>No items</description>
-	</include>
-	<include name="skinshortcuts-group-alt-num-8">
 		<description>No items</description>
 	</include>
 	<include name="skinshortcuts-group-settings">
@@ -3382,7 +3360,7 @@
 	</include>
 	<include name="skinshortcuts-template-widget-classic-Master user">
 		<control id="301" type="list">
-			<visible>StringCompare(Container(300).ListItem.Property(submenuVisibility),num-3) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-20342) | StringCompare(Container(300).ListItem.Property(submenuVisibility),tvshows) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-2) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-31015) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-1) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-0) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-8) | StringCompare(Container(300).ListItem.Property(submenuVisibility),settings) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-33060)</visible>
+			<visible>StringCompare(Container(300).ListItem.Property(submenuVisibility),num-3) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-20342) | StringCompare(Container(300).ListItem.Property(submenuVisibility),tvshows) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-2) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-31103) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-1) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-0) | StringCompare(Container(300).ListItem.Property(submenuVisibility),settings) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-33060)</visible>
 			<description>Plugin Content Widget</description>
 			<left>70</left>
 			<right>70</right>
@@ -3516,7 +3494,7 @@
 	</include>
 	<include name="skinshortcuts-template-widget-featured-Master user">
 		<control id="301" type="wraplist">
-			<visible>StringCompare(Container(300).ListItem.Property(submenuVisibility),num-3) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-20342) | StringCompare(Container(300).ListItem.Property(submenuVisibility),tvshows) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-2) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-31015) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-1) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-0) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-8) | StringCompare(Container(300).ListItem.Property(submenuVisibility),settings) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-33060)</visible>
+			<visible>StringCompare(Container(300).ListItem.Property(submenuVisibility),num-3) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-20342) | StringCompare(Container(300).ListItem.Property(submenuVisibility),tvshows) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-2) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-31103) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-1) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-0) | StringCompare(Container(300).ListItem.Property(submenuVisibility),settings) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-33060)</visible>
 			<description>Widget</description>
 			<width>1</width>
 			<height>1</height>
@@ -3546,7 +3524,7 @@
 	</include>
 	<include name="skinshortcuts-template-widget-vertical-Master user">
 		<control id="301" type="fixedlist">
-			<visible>StringCompare(Container(300).ListItem.Property(submenuVisibility),num-3) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-20342) | StringCompare(Container(300).ListItem.Property(submenuVisibility),tvshows) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-2) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-31015) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-1) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-0) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-8) | StringCompare(Container(300).ListItem.Property(submenuVisibility),settings) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-33060)</visible>
+			<visible>StringCompare(Container(300).ListItem.Property(submenuVisibility),num-3) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-20342) | StringCompare(Container(300).ListItem.Property(submenuVisibility),tvshows) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-2) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-31103) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-1) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-0) | StringCompare(Container(300).ListItem.Property(submenuVisibility),settings) | StringCompare(Container(300).ListItem.Property(submenuVisibility),num-33060)</visible>
 			<visible>!substring(Container(300).ListItem.Property(widget),Weather,left)</visible>
 			<animation condition="!Control.HasFocus(301)" effect="fade" end="66" start="100" time="400">Conditional</animation>
 			<autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
