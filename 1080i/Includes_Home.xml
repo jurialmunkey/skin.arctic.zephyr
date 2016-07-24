@@ -344,7 +344,7 @@
                 </itemlayout>
                 <focusedlayout width="1" height="1">
                 </focusedlayout>
-                <content target="video">$VAR[DefWidgetContent]</content>
+                <content target="$VAR[DefWidgetTarget]">$VAR[DefWidgetContent]</content>
             </control>
     </include>
     <include name="HomeWidgetInfo">
@@ -1056,7 +1056,7 @@
                     </animation>
                 </control>
             </focusedlayout>
-            <content target="video" limit="10">$VAR[DefWidgetContent]</content>
+            <content target="$VAR[DefWidgetTarget]" limit="10">$VAR[DefWidgetContent]</content>
         </control>
     </include>
 
@@ -2446,7 +2446,7 @@
                 </control>
                   
             </focusedlayout>
-            <content target="video">$VAR[DefWidgetContent]</content>
+            <content target="$VAR[DefWidgetTarget]">$VAR[DefWidgetContent]</content>
         </control>
     </include>
 </includes>

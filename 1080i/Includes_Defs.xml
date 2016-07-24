@@ -13,6 +13,11 @@
         <value condition="!IsEmpty(Skin.String(home.fallbackwidget))">$INFO[Skin.String(home.fallbackwidget)]</value>
         <value>plugin://service.library.data.provider?type=randommovies&amp;reload=$INFO[Window.Property(randommovies)]</value>
     </variable>
+
+    <variable name="DefWidgetTarget">
+        <value condition="!IsEmpty(Container(300).ListItem.Property(widgetTarget))">$INFO[Container(300).ListItem.Property(widgetTarget)]</value>
+        <value>videos</value>
+    </variable>
     
     <include name="DefNextAiredWidget">
         <item id="1">
@@ -919,7 +924,7 @@
         <value condition="Window.IsVisible(1117) + !IsEmpty(Skin.String(Widget.1117)) + !IsEmpty(Skin.String(Widget.1117.Type))">$INFO[Skin.String(Widget.1117.Type)]</value>
         <value condition="Window.IsVisible(1118) + !IsEmpty(Skin.String(Widget.1118)) + !IsEmpty(Skin.String(Widget.1118.Type))">$INFO[Skin.String(Widget.1118.Type)]</value>
         <value condition="Window.IsVisible(1119) + !IsEmpty(Skin.String(Widget.1119)) + !IsEmpty(Skin.String(Widget.1119.Type))">$INFO[Skin.String(Widget.1119.Type)]</value>
-        <value>video</value>
+        <value>videos</value>
     </variable>
 
     <include name="Defs_Shortcuts_SetHub">
