@@ -201,7 +201,7 @@
         <control type="group">
             <visible>Player.Muted</visible>
             <control type="group">
-                <visible>VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)</visible>
+                <visible>VideoPlayer.IsFullscreen | Window.IsVisible(visualisation) | [Window.IsVisible(home) + !Skin.HasSetting(home.showheader) + !Skin.HasSetting(home.vertical)] | Skin.HasSetting(furniture.header)</visible>
                 <visible>!Skin.HasSetting(osd.usetheme)</visible>
                 <left>SidePad</left>
                 <top>SidePad</top>
@@ -229,7 +229,7 @@
 
             </control>
             <control type="group">
-                <visible>VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)</visible>
+                <visible>VideoPlayer.IsFullscreen | Window.IsVisible(visualisation) | [Window.IsVisible(home) + !Skin.HasSetting(home.showheader) + !Skin.HasSetting(home.vertical)] | Skin.HasSetting(furniture.header)</visible>
                 <visible>Skin.HasSetting(osd.usetheme)</visible>
                 <left>SidePad</left>
                 <top>SidePad</top>

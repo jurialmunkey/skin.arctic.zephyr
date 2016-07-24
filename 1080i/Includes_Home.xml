@@ -1619,7 +1619,7 @@
         <!-- <include>Furniture_Home_Flags</include> -->
 
         <control type="group">
-            
+            <animation effect="slide" start="0" end="-450" time="300" delay="0" center="auto" tween="sine" easing="out" condition="Control.HasFocus(301)">Conditional</animation>
             <!-- LEFT SIDE -->
             <control type="group">
                 <visible>!Window.IsVisible(script-script.extendedinfo-VideoList.xml) + !Window.IsVisible(script-globalsearch-main.xml) + !Window.IsVisible(script-globalsearch-infodialog.xml) + !Window.IsVisible(DialogAddonInfo.xml) + !Window.IsVisible(DialogPVRRecordingInfo.xml) + !Window.IsVisible(DialogPVRGuideInfo.xml) + !Window.IsVisible(DialogMusicInfo.xml) + !Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)</visible>
@@ -1643,7 +1643,7 @@
                     <effect type="zoom" end="95" start="100" time="200" center="auto" tween="quadratic" easing="in" />
                 </animation>
                 <!-- Home List -->
-                <control type="list" id="300">    
+                <control type="panel" id="300">    
                     <animation effect="fade" start="100" end="33" time="400" condition="Control.HasFocus(301)">Conditional</animation>
                     <animation effect="slide" start="-500" end="0" time="200" delay="100" tween="quadratic" easing="out">Visible</animation>
                     <visible allowhiddenfocus="true">!Control.HasFocus(302)</visible>
@@ -1698,7 +1698,7 @@
                             <aligny>center</aligny>
                             <height>100%</height>
                             <textcolor>Dark1</textcolor>
-                            <font>Home</font>
+                            <font>HomeFO</font>
                             <label>$INFO[ListItem.Label]</label>
                             <visible>!Skin.HasSetting(home.showicons)</visible>
                         </control>
@@ -1709,7 +1709,7 @@
                             <aligny>center</aligny>
                             <height>100%</height>
                             <textcolor>Dark1</textcolor>
-                            <font>Home</font>
+                            <font>HomeFO</font>
                             <label>$INFO[ListItem.Label]</label>
                             <visible>Skin.HasSetting(home.showicons)</visible>
                         </control>
@@ -2210,7 +2210,7 @@
         </control>
     </include>
     <include name="Home-Widget-Vertical">
-        <control type="fixedlist" id="301">
+        <control type="list" id="301">
             <visible>!substring(Container(300).ListItem.Property(widget),Weather,left)</visible>
             <visible allowhiddenfocus="true">IntegerGreaterThan(Container(301).NumItems,0) | Container(301).IsUpdating</visible>
             <animation effect="fade" start="100" end="66" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
@@ -2218,12 +2218,13 @@
             <autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
             <top>330</top>
             <left>518</left>
-            <width>1554</width>
+            <width>1776</width>
             <height>325</height>
             <onback>300</onback>
             <onleft>300</onleft>
             <onup>300</onup>
             <ondown>300</ondown>
+            <onright>noop</onright>
             <oninfo condition="IsEmpty(Container(301).ListItem.TvShowTitle) + IsEmpty(Container(301).ListItem.Artist)">RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[Container(301).ListItem.Title],imdb_id=$INFO[Container(301).ListItem.IMDBNumber])</oninfo>
             <oninfo condition="!IsEmpty(Container(301).ListItem.TvShowTitle)">RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[Container(301).ListItem.TvShowTitle],imdb_id=$INFO[Container(301).ListItem.IMDBNumber])</oninfo>
             <focusposition>0</focusposition>

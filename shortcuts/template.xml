@@ -174,15 +174,16 @@
         <property name="content">$VAR[DefWidgetContent]</property>
         <property name="target" tag="property" attribute="name|widgetTarget" />
         <controls>
-            <control type="fixedlist" id="301">
+            <control type="list" id="301">
                 <skinshortcuts>visibility</skinshortcuts>
                 <visible>!substring(Container(300).ListItem.Property(widget),Weather,left)</visible>
                 <animation effect="fade" start="100" end="66" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
                 <autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
                 <top>330</top>
                 <left>518</left>
-                <width>1554</width>
+                <width>1776</width>
                 <height>325</height>
+                <onright>noop</onright>
                 <onback>300</onback>
                 <onleft>300</onleft>
                 <onup>300</onup>
