@@ -12,7 +12,6 @@
             <include>Def9000Background</include>
             <control type="grouplist" id="9000">
                 <height>700</height>
-                <onback condition="Window.IsVisible(MyPVRGuide.xml) + Control.IsVisible(10)">ActivateWindow(home)</onback>
                 <include>Def9000GroupList</include>
                 <control type="button" id="9001">
                     <description>Channels</description>
@@ -315,6 +314,32 @@
                     <scrolltime>200</scrolltime>
                     <orientation>vertical</orientation>
                     <itemlayout height="128" width="1100">
+                        <control type="image">
+                            <width>100%</width>
+                            <height>100%</height>
+                            <texture colordiffuse="Dark1">common/selected.png</texture>
+                            <animation effect="fade" start="100" end="5" condition="true">Conditional</animation>
+                            <visible>ListItem.IsPlaying</visible>
+                        </control>
+                        <control type="image">
+                            <left>150</left>
+                            <top>28</top>
+                            <width>16</width>
+                            <height>100</height>
+                            <aspectratio>keep</aspectratio>
+                            <texture colordiffuse="Selected">pvr/recording-selected.png</texture>
+                            <visible>ListItem.IsRecording</visible>
+                        </control>
+                        <control type="image">
+                            <animation effect="slide" end="30" time="0" condition="ListItem.IsRecording">Conditional</animation>
+                            <left>106</left>
+                            <top>28</top>
+                            <width>100</width>
+                            <height>100</height>
+                            <aspectratio>keep</aspectratio>
+                            <texture colordiffuse="$VAR[ColorHighlight]">progress/play.png</texture>
+                            <visible>ListItem.IsPlaying</visible>
+                        </control>
                         <control type="image">                                
                             <left>10</left>
                             <centertop>50%</centertop>
@@ -345,6 +370,8 @@
                                 <label>$INFO[ListItem.ChannelNumberLabel,,  ]$INFO[ListItem.ChannelName]</label>
                             </control>
                             <control type="label">
+                                <animation effect="slide" end="30" time="0" condition="ListItem.IsPlaying">Conditional</animation>
+                                <animation effect="slide" end="30" time="0" condition="ListItem.IsRecording">Conditional</animation>
                                 <posx>150</posx>
                                 <bottom>20</bottom>
                                 <right>100</right>
@@ -444,12 +471,39 @@
                     
                     
                     <focusedlayout height="128" width="1100">
+
                         <control type="group">
                             <visible>Control.HasFocus(50)</visible>
                             <control type="image">
                                 <width>100%</width>
                                 <height>100%</height>
                                 <texture colordiffuse="Dark1" border="5">common/box.png</texture>
+                            </control>
+                            <control type="image">
+                                <width>100%</width>
+                                <height>100%</height>
+                                <texture colordiffuse="Light1">common/selected.png</texture>
+                                <animation effect="fade" start="100" end="5" condition="true">Conditional</animation>
+                                <visible>ListItem.IsPlaying</visible>
+                            </control>
+                            <control type="image">
+                                <left>150</left>
+                                <top>28</top>
+                                <width>16</width>
+                                <height>100</height>
+                                <aspectratio>keep</aspectratio>
+                                <texture colordiffuse="Selected">pvr/recording-selected.png</texture>
+                                <visible>ListItem.IsRecording</visible>
+                            </control>
+                            <control type="image">
+                                <animation effect="slide" end="30" time="0" condition="ListItem.IsRecording">Conditional</animation>
+                                <left>106</left>
+                                <top>28</top>
+                                <width>100</width>
+                                <height>100</height>
+                                <aspectratio>keep</aspectratio>
+                                <texture colordiffuse="$VAR[ColorHighlight]">progress/play.png</texture>
+                                <visible>ListItem.IsPlaying</visible>
                             </control>
                             <control type="image">                                
                                 <left>10</left>
@@ -491,6 +545,8 @@
                                     <textcolor>Light2</textcolor>
                                     <selectedcolor>Light2</selectedcolor>
                                     <label>$INFO[ListItem.Title]</label>
+                                    <animation effect="slide" end="30" time="0" condition="ListItem.IsRecording">Conditional</animation>
+                                    <animation effect="slide" end="30" time="0" condition="ListItem.IsPlaying">Conditional</animation>
                                 </control>
                                 <control type="label">
                                     <right>30</right>
@@ -579,6 +635,32 @@
                         </control>
                         <control type="group">
                             <visible>!Control.HasFocus(50)</visible>
+                            <control type="image">
+                                <width>100%</width>
+                                <height>100%</height>
+                                <texture colordiffuse="Dark1">common/selected.png</texture>
+                                <animation effect="fade" start="100" end="5" condition="true">Conditional</animation>
+                                <visible>ListItem.IsPlaying</visible>
+                            </control>
+                            <control type="image">
+                                <left>150</left>
+                                <top>28</top>
+                                <width>16</width>
+                                <height>100</height>
+                                <aspectratio>keep</aspectratio>
+                                <texture colordiffuse="Selected">pvr/recording-selected.png</texture>
+                                <visible>ListItem.IsRecording</visible>
+                            </control>
+                            <control type="image">
+                                <animation effect="slide" end="30" time="0" condition="ListItem.IsRecording">Conditional</animation>
+                                <left>106</left>
+                                <top>28</top>
+                                <width>100</width>
+                                <height>100</height>
+                                <aspectratio>keep</aspectratio>
+                                <texture colordiffuse="$VAR[ColorHighlight]">progress/play.png</texture>
+                                <visible>ListItem.IsPlaying</visible>
+                            </control>
                             <control type="image">                                
                                 <left>10</left>
                                 <centertop>50%</centertop>
@@ -619,6 +701,8 @@
                                     <textcolor>Dark2</textcolor>
                                     <selectedcolor>Dark2</selectedcolor>
                                     <label>$INFO[ListItem.Title]</label>
+                                    <animation effect="slide" end="30" time="0" condition="ListItem.IsRecording">Conditional</animation>
+                                    <animation effect="slide" end="30" time="0" condition="ListItem.IsPlaying">Conditional</animation>
                                 </control>
                                 <control type="label">
                                     <right>30</right>
