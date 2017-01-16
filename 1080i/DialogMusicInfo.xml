@@ -2,7 +2,7 @@
 <!-- Foundation -->
 <window id="2001">
     <defaultcontrol always="true">9000</defaultcontrol>
-    
+
     <onload>ClearProperty(content)</onload>
     <onload>ClearProperty(tracklist)</onload>
     <onload>Dialog.Close(135)</onload>
@@ -31,7 +31,7 @@
                 <animation effect="slide" start="0" end="1920" time="300" tween="quadratic" easing="in">WindowClose</animation>
                 <animation effect="slide" start="1920" end="0" delay="0" time="300" tween="quadratic" easing="out">Visible</animation>
                 <animation effect="slide" start="0" end="1920" time="300" tween="quadratic" easing="in">Hidden</animation>
-          
+
                 <control type="group">
                     <include>Animation.DelayFadeIn</include>
                     <visible>Control.HasFocus(51) | [Control.HasFocus(9501) + Control.IsVisible(9501)]</visible>
@@ -120,7 +120,7 @@
                     </control> -->
                 </control>
 
-                
+
 
                 <!-- Album Info -->
                 <control type="group">
@@ -152,7 +152,7 @@
                                 <aligny>center</aligny>
                             </control>
                         </control>
-                        
+
                         <control type="group">
                             <height>36</height>
                             <control type="label">
@@ -568,7 +568,7 @@
                     <visible>Control.IsVisible(9501)</visible>
                     <include>Animation.DelayFadeIn</include>
                 </control>
-                
+
 
                 <!-- Content List -->
                 <control type="list" id="9501">

@@ -1,6 +1,6 @@
 <window>
     <defaultcontrol always="true">52</defaultcontrol>
-    
+
     <backgroundcolor>0</backgroundcolor>
     <onload condition="IsEmpty(Window(home).Property(SkinInitStarted)) + !IsEmpty(Skin.String(StartupPlaylist))">PlayMedia($ESCINFO[Skin.String(StartupPlaylist)])</onload>
     <onload>SetProperty(SkinInitStarted,1,home)</onload>
@@ -47,7 +47,7 @@
                     </control>
                 </itemlayout>
                 <focusedlayout height="120">
-                    <control type="image">                                
+                    <control type="image">
                         <left>8</left>
                         <centertop>50%</centertop>
                         <width>111</width>
@@ -58,7 +58,7 @@
                         <animation effect="slide" start="0,-120" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(52).OnNext">Focus</animation>
                         <visible>!Skin.HasSetting(global.hidecirles)</visible>
                     </control>
-                    <control type="image">                                
+                    <control type="image">
                         <left>8</left>
                         <centertop>50%</centertop>
                         <width>111</width>
@@ -69,7 +69,7 @@
                         <animation effect="slide" start="0,-120" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(52).OnNext">Focus</animation>
                         <visible>Skin.HasSetting(global.hidecirles)</visible>
                     </control>
-          
+
                     <control type="group">
                         <animation type="Focus" condition="Container(52).OnNext | Container(52).OnPrevious" reversible="false">
                             <effect type="fade" start="50" end="100" time="300" tween="sine" easing="inout" />

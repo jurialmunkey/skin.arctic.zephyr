@@ -4,7 +4,7 @@
     <defaultcontrol always="true">50</defaultcontrol>
     <menucontrol>9000</menucontrol>
     <views>50,505,506,507,500,503,54,57,51</views>
-    
+
     <controls>
 
         <include>GlobalBackground</include>
@@ -21,7 +21,7 @@
         <include>View_54_Banner</include>
         <include condition="!Skin.HasSetting(57list.low)">View_57_ExtraInfo</include>
         <include condition="Skin.HasSetting(57list.low)">View_57_ExtraInfo_LowList</include>
-        
+
         <control type="group">
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
@@ -34,7 +34,7 @@
             <control type="grouplist" id="9000">
                 <include>Def9000GroupList</include>
                 <include>Def9000MusicSide</include>
-                
+
                 <control type="radiobutton" id="9007" description="Low List (57)">
                     <include>DefContextButton</include>
                     <align>left</align>
@@ -44,7 +44,7 @@
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(57)</visible>
                 </control>
-                
+
                 <control type="radiobutton" id="9008" description="Big Wide Info (51)">
                     <include>DefContextButton</include>
                     <align>left</align>
@@ -54,7 +54,7 @@
                     <onclick>ReloadSkin()</onclick>
                     <visible>Control.IsVisible(51)</visible>
                 </control>
-              
+
                 <control type="button" id="9091">
                     <description>Global Search</description>
                     <include>DefContextButton</include>
@@ -89,7 +89,7 @@
                 </control>
             </control>
         </control>
-        
+
 
     </controls>
 

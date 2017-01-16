@@ -15,7 +15,7 @@
             <animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
         </control>
     </include>
-    
+
     <include name="Furniture_Scrollbar_Horizontal">
         <control type="scrollbar" id="60">
             <onback>50</onback>
@@ -32,8 +32,8 @@
             <animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
         </control>
     </include>
-    
-    
+
+
     <include name="Furniture_ButtonBack">
         <width>64</width>
         <height>64</height>
@@ -41,13 +41,13 @@
             <effect type="zoom" start="75" end="100" center="auto" time="200"/>
         </animation>
     </include>
-    
+
     <include name="Furniture_ButtonBack_Circle">
         <width>64</width>
         <height>64</height>
         <texture colordiffuse="Dark1">common/circle.png</texture>
     </include>
-    
+
     <!-- Flags -->
     <variable name="Flagstar1">
         <value condition="IntegerGreaterThan(ListItem.Rating,1)">star10</value>
@@ -99,7 +99,7 @@
         <value condition="IntegerGreaterThan(Container(9500).ListItem.Rating,8)">star5</value>
         <value>star0</value>
     </variable>
-    
+
     <variable name="HomeFlagstar1">
         <value condition="IntegerGreaterThan(Container(301).ListItem.Rating,1)">star10</value>
         <value condition="IntegerGreaterThan(Container(301).ListItem.Rating,0)">star5</value>
@@ -125,7 +125,7 @@
         <value condition="IntegerGreaterThan(Container(301).ListItem.Rating,8)">star5</value>
         <value>star0</value>
     </variable>
-    
+
     <!-- MusicFlags -->
     <variable name="MusicFlagstar5">
         <value condition="StringCompare(ListItem.StarRating,rating5.png)">star10</value>
@@ -157,7 +157,7 @@
         <value condition="StringCompare(ListItem.StarRating,rating1.png)">star10</value>
         <value>star0</value>
     </variable>
-    
+
     <!-- MusicOSDFlags -->
     <variable name="OSDMusicFlagstar5">
         <value condition="StringCompare(Player.StarRating,rating5.png)">star10</value>
@@ -247,7 +247,7 @@
                 <aspectratio align="center">keep</aspectratio>
                 <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.VideoResolution) + !substring(ListItem.Path,videodb://movies/sets,left)</visible>
             </control>
-            
+
             <control type="image">
                 <width>64</width>
                 <height>64</height>
@@ -298,7 +298,7 @@
                 <textcolor>Dark1</textcolor>
                 <visible>Skin.HasSetting(furniture.numericrating)</visible>
             </control>
-            
+
             <control type="image">
                 <width>48</width>
                 <height>64</height>
@@ -351,9 +351,9 @@
                 <aspectratio align="center">keep</aspectratio>
                 <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.AudioChannels)</visible>
             </control>
-            
-            
-            
+
+
+
             <control type="image">
                 <width>48</width>
                 <height>64</height>
@@ -418,7 +418,7 @@
                 <texture colordiffuse="Dark1">flags/3D.png</texture>
                 <visible>ListItem.IsStereoscopic</visible>
             </control>
-            
+
             <control type="image">
                 <width>64</width>
                 <centertop>50%</centertop>
@@ -440,7 +440,7 @@
                 <texture colordiffuse="Dark1">flags/dvd.png</texture>
                 <visible>substring(ListItem.FilenameAndPath,dvd) + !substring(ListItem.FilenameAndPath,hddvd)</visible>
             </control>
-            
+
             <control type="image">
                 <width>64</width>
                 <centertop>50%</centertop>
@@ -448,7 +448,7 @@
                 <texture colordiffuse="Dark1">flags/imdb.png</texture>
                 <visible>!IsEmpty(ListItem.Top250)</visible>
             </control>
-            
+
         </control>
     </include>
     <include name="Furniture_Hub_Flags">
@@ -498,7 +498,7 @@
                 <aspectratio align="center">keep</aspectratio>
                 <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(9500).ListItem.VideoResolution)</visible>
             </control>
-            
+
             <control type="image">
                 <width>64</width>
                 <height>64</height>
@@ -582,7 +582,7 @@
                 <aspectratio align="center">keep</aspectratio>
                 <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(9500).ListItem.AudioChannels)</visible>
             </control>
-            
+
             <control type="image">
                 <width>48</width>
                 <height>64</height>
@@ -617,7 +617,7 @@
                 <textcolor>Dark1</textcolor>
                 <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(9500).ListItem.AudioCodec)</visible>
             </control>
-            
+
             <control type="image">
                 <width>64</width>
                 <height>64</height>
@@ -644,7 +644,7 @@
                 <texture colordiffuse="Dark1">flags/dvd.png</texture>
                 <visible>substring(Container(9500).ListItem.FilenameAndPath,dvd) + !substring(Container(9500).ListItem.FilenameAndPath,hddvd)</visible>
             </control>
-            
+
             <control type="image">
                 <width>64</width>
                 <centertop>50%</centertop>
@@ -653,8 +653,8 @@
                 <visible>!IsEmpty(Container(9500).ListItem.Top250)</visible>
             </control>
 
-            
-            
+
+
         </control>
     </include>
     <include name="Furniture_Home_Flags">
@@ -705,7 +705,7 @@
                 <aspectratio align="center">keep</aspectratio>
                 <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(301).ListItem.VideoResolution)</visible>
             </control>
-            
+
             <control type="image">
                 <width>64</width>
                 <height>64</height>
@@ -789,7 +789,7 @@
                 <aspectratio align="center">keep</aspectratio>
                 <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(301).ListItem.AudioChannels)</visible>
             </control>
-            
+
             <control type="image">
                 <width>48</width>
                 <height>64</height>
@@ -824,7 +824,7 @@
                 <textcolor>Dark1</textcolor>
                 <visible>!Skin.HasSetting(furniture.flagicons) + !IsEmpty(Container(301).ListItem.AudioCodec)</visible>
             </control>
-            
+
             <control type="image">
                 <width>64</width>
                 <height>64</height>
@@ -851,7 +851,7 @@
                 <texture colordiffuse="Dark1">flags/dvd.png</texture>
                 <visible>substring(Container(301).ListItem.FilenameAndPath,dvd) + !substring(Container(301).ListItem.FilenameAndPath,hddvd)</visible>
             </control>
-            
+
             <control type="image">
                 <width>64</width>
                 <centertop>50%</centertop>
@@ -860,8 +860,8 @@
                 <visible>!IsEmpty(Container(301).ListItem.Top250)</visible>
             </control>
 
-            
-            
+
+
         </control>
     </include>
 
@@ -925,7 +925,7 @@
         <value condition="Control.HasFocus(181)">[COLOR=$VAR[ColorHighlight]]$INFO[Control.GetLabel(180)][/COLOR] $LOCALIZE[134]</value>
 
     </variable>
-    
+
     <variable name="MainHeaderLabel">
         <value condition="Skin.HasSetting(hide.busydialog) + Window.IsVisible(DialogBusy.xml)">$LOCALIZE[20186]...</value>
         <value condition="Window.IsVisible(Custom_SetCustomColor.xml)">$LOCALIZE[31238]</value>
@@ -944,7 +944,7 @@
         <value condition="Window.IsVisible(MyVideoNav.xml) + SubString(Container.FolderPath,videodb://tvshows/,Left) + Container.Content(episodes) + !IsEmpty(ListItem.TvShowTitle)">$INFO[ListItem.TvShowTitle]$INFO[Container.FolderName, - ,]</value>
         <value condition="Window.IsVisible(MyVideoNav.xml) + SubString(Container.FolderPath,videodb://tvshows/,Left)">$INFO[Container.FolderName]</value>
         <value condition="Window.IsVisible(MyVideoNav.xml) + !IsEmpty(Container.FolderName)">$INFO[Container.FolderName]</value>
-        <value condition="Window.IsVisible(MyVideoNav.xml)">$LOCALIZE[3]</value>                                                                          
+        <value condition="Window.IsVisible(MyVideoNav.xml)">$LOCALIZE[3]</value>
         <value condition="Window.IsVisible(MyPVRChannels.xml)">$LOCALIZE[19019]</value>
         <value condition="Window.IsVisible(MyPVRGuide.xml)">$LOCALIZE[4]</value>
         <value condition="Window.IsVisible(MyPVRRecordings.xml)">$LOCALIZE[19017]</value>
@@ -989,7 +989,7 @@
         <value condition="IsEmpty(Pvr.BackendChannels)">[COLOR=$VAR[ColorHighlight]]$INFO[Window(home).Property(Movies.Count)][/COLOR] $LOCALIZE[20342]  •  [COLOR=$VAR[ColorHighlight]]$INFO[Window(home).Property(Episodes.Count)][/COLOR] $LOCALIZE[20360]  •  [COLOR=$VAR[ColorHighlight]]$INFO[Window(home).Property(Music.SongsCount)][/COLOR] $LOCALIZE[134]</value>
         <value>[COLOR=$VAR[ColorHighlight]]$INFO[Window(home).Property(Movies.Count)][/COLOR] $LOCALIZE[20342]  •  [COLOR=$VAR[ColorHighlight]]$INFO[Window(home).Property(Episodes.Count)][/COLOR] $LOCALIZE[20360]  •  [COLOR=$VAR[ColorHighlight]]$INFO[Window(home).Property(Music.SongsCount)][/COLOR] $LOCALIZE[134]  •  [COLOR=$VAR[ColorHighlight]]$INFO[Pvr.BackendChannels][/COLOR] $LOCALIZE[19019]</value>
     </variable>
-  
+
     <include name="Furniture_Header">
         <control type="image" description="clearlogo">
             <include>Animation.FadeIn</include>
@@ -1110,7 +1110,7 @@
                 <width>120</width>
                 <label>$INFO[System.Time(xx)]</label>
                 <visible>!IsEmpty(System.Time(xx))</visible>
-            </control>  
+            </control>
             <control type="label">
                 <centertop>64</centertop>
                 <right>SidePad</right>
@@ -1130,9 +1130,9 @@
                 <visible>Skin.HasSetting(furniture.weather)</visible>
                 <label>[COLOR=$VAR[ColorHighlight]]$INFO[Weather.Temperature][/COLOR]  $INFO[Weather.Conditions]</label>
             </control>
-      
+
         </control>
-        
+
     </include>
 
     <include name="Furniture_Weather">
@@ -1277,7 +1277,7 @@
                     <aspectratio align="center">keep</aspectratio>
                     <visible>!IsEmpty(Player.Duration)</visible>
                 </control>
-              
+
             </control>
         </control>
     </include>
@@ -1355,5 +1355,5 @@
         </control>
     </include>
 
-    
+
 </includes>

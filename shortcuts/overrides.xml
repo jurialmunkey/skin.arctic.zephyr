@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <overrides>
-    
+
     <!-- Weather Widget -->
     <widget label="31251" condition="!IsEmpty(Skin.String(weather.fanart.path))">Weather</widget>
 
     <!-- Playlist -->
     <widgetPlaylists>True</widgetPlaylists>
-    
+
     <!-- Additional Common Items -->
     <shortcut label="Hub 1119" type="Hub 1119" grouping="common" icon="special://skin/extras/icons/addon.png">ActivateWindow(1119)</shortcut>
     <shortcut label="Hub 1118" type="Hub 1118" grouping="common" icon="special://skin/extras/icons/addon.png">ActivateWindow(1118)</shortcut>
@@ -19,7 +19,7 @@
     <shortcut label="31192" type="MovieHub" grouping="common" icon="special://skin/extras/icons/film.png">ActivateWindow(1111)</shortcut>
     <shortcut label="31212" type="themoviedb.org episodes" grouping="common" icon="special://skin/extras/icons/director.png">ActivateWindow(1105)</shortcut>
     <shortcut label="31208" type="themoviedb.org movies" grouping="common" icon="special://skin/extras/icons/director.png">ActivateWindow(1104)</shortcut>
-    
+
     <!-- Override Actions Because Im A Dummy Who Doesnt Know The Correct Window IDs To Use -->
     <override action="ActivateWindow(3201)">
         <condition>true</condition>
@@ -37,14 +37,14 @@
         <condition>true</condition>
         <action>ActivateWindow(1105)</action>
     </override>
-    
+
     <!-- Browse for Backgrounds -->
     <backgroundBrowse>True</backgroundBrowse>
     <background label="::PLAYLIST::">playlistBackground</background>
-    
+
     <!-- Warning to Remove Settings -->
     <warn heading="31176" message="31177">ActivateWindow(Settings)</warn>
-    
+
     <!-- Icon Overrides -->
     <icon labelID="tvhub">special://skin/extras/icons/tv.png</icon>
     <icon labelID="moviehub">special://skin/extras/icons/film.png</icon>
@@ -123,7 +123,7 @@
     <icon image="DefaultAddonVideo.png">special://skin/extras/icons/video-addons.png</icon>
     <icon image="DefaultAddonMusic.png">special://skin/extras/icons/songs.png</icon>
     <icon image="DefaultAddonProgram.png">special://skin/extras/icons/addons.png</icon>
-    
+
     <!-- Thumbs -->
     <thumbnail label="3dtv.png">special://skin/extras/icons/3dtv.png</thumbnail>
     <thumbnail label="actor.png">special://skin/extras/icons/actor.png</thumbnail>
@@ -352,7 +352,7 @@
             <content>addon-video</content>
         </node>
         <content>video</content>
-        
+
     </video-groupings>
-    
+
 </overrides>

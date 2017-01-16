@@ -3,7 +3,7 @@
 <includes>
 
    <include name="View_54_Banner">
-    
+
         <control type="group">
             <include>Animation.Common</include>
             <visible>Control.IsVisible(54)</visible>
@@ -119,11 +119,11 @@
                             </control>
                         </control>
                     </itemlayout>
-                    
+
                     <itemlayout width="1140" height="106" condition="Container.Content(albums)">
                         <control type="group">
                             <posy>-35</posy>
-                          
+
                             <control type="label">
                                 <top>47</top>
                                 <left>320</left>
@@ -219,7 +219,7 @@
                         </control>
                     </itemlayout>
 
-                    
+
                     <focusedlayout width="1288" height="330" condition="!Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + Skin.HasSetting(54banner.showinfo)">
                         <control type="image">
                             <left>110</left>
@@ -228,7 +228,7 @@
                             <bottom>10</bottom>
                             <texture colordiffuse="Dark1" border="5">common/box.png</texture>
                         </control>
-                        <control type="image">                                
+                        <control type="image">
                             <left>110</left>
                             <top>10</top>
                             <width>207</width>
@@ -339,8 +339,8 @@
                                 <textcolor>Light1</textcolor>
                             </control>
                         </control>
-                        
-                        
+
+
                         <control type="label">
                             <centerbottom>48</centerbottom>
                             <left>44</left>
@@ -366,7 +366,7 @@
                             <selectedcolor>Light1</selectedcolor>
                             <visible>!Container.Content(seasons)</visible>
                         </control>
-                        
+
                     </focusedlayout>
                     <focusedlayout width="1560" height="322" condition="Container.Content(episodes)">
                         <control type="group">
@@ -392,7 +392,7 @@
                                 <texture diffuse="diffuse/banner.png" background="true">$VAR[FanartImage]</texture>
                                 <aspectratio scalediffuse="false">scale</aspectratio>
                             </control>
-                            
+
                             <control type="label">
                                 <font>EpisodeNumber</font>
                                 <top>15</top>
@@ -479,7 +479,7 @@
                                 <texture diffuse="diffuse/banner.png" background="true">$VAR[MusicImage]</texture>
                                 <aspectratio scalediffuse="false">scale</aspectratio>
                             </control>
-                    
+
                             <control type="label">
                                 <top>47</top>
                                 <left>320</left>
@@ -516,7 +516,7 @@
                                 <textcolor>Light1</textcolor>
                                 <selectedcolor>Light1</selectedcolor>
                             </control>
-                            
+
                         </control>
                     </focusedlayout>
                     <focusedlayout width="1140" height="322" condition="Container.Content(songs)">
@@ -655,9 +655,9 @@
                             </control>
                         </control>
                     </focusedlayout>
-                
+
                 </control>
-                
+
                 <include>Furniture_Scrollbar</include>
             </control>
         </control>

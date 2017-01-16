@@ -4,7 +4,7 @@
         <value condition="!IsEmpty(Skin.String(focuscolor.name))">$INFO[Skin.String(focuscolor.name)]</value>
         <value>Highlight</value>
     </variable>
-    
+
     <variable name="DefWidgetContent">
         <value condition="!IsEmpty(Container(300).ListItem.Property(widgetPath)) + Skin.HasSetting(NoPersistentWidgets)">$INFO[Container(300).ListItem.Property(widgetPath)]</value>
         <value condition="substring(Container(300).ListItem.Property(widget),Weather,left) + !IsEmpty(Skin.String(weather.fanart))">noop</value>
@@ -18,7 +18,7 @@
         <value condition="!IsEmpty(Container(300).ListItem.Property(widgetTarget))">$INFO[Container(300).ListItem.Property(widgetTarget)]</value>
         <value>videos</value>
     </variable>
-    
+
     <include name="DefNextAiredWidget">
         <item id="1">
             <onclick>ActivateWindow(Videos,$INFO[Window.Property(NextAired.1.Library)],return)</onclick>
@@ -172,8 +172,8 @@
             <onclick>$INFO[Window(Home).Property(favourite.7.path)]</onclick>
         </item>
     </include>
-    
-    
+
+
     <include name="DefWidgetSelector">
         <align>center</align>
         <aligny>center</aligny>
@@ -187,7 +187,7 @@
         <font>WidgetSelector</font>
         <texturefocus>noop</texturefocus>
     </include>
-    
+
     <include name="DefDialogButtons">
         <width>300</width>
         <font>Button</font>
@@ -206,7 +206,7 @@
         <alttexturenofocus colordiffuse="Dark4" border="5">common/box.png</alttexturenofocus>
         <alttexturefocus colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</alttexturefocus>
     </include>
-    
+
     <include name="DefDialogInfoPanel">
         <include>Animation.FadeIn.Slide</include>
         <include>Animation.FadeOut</include>
@@ -224,7 +224,7 @@
             <texture colordiffuse="White100" border="16">common/box.png</texture>
         </control>
     </include>
-    
+
     <include name="DefDialogInfoHeader">
         <left>30</left>
         <right>320</right>
@@ -235,7 +235,7 @@
         <textureradiofocus colordiffuse="Black70">buttons/radio-on.png</textureradiofocus>
         <textureradionofocus colordiffuse="Black30">buttons/radio-off.png</textureradionofocus>
     </include>
-    
+
     <include name="DefDialogHeader">
         <description>header label</description>
         <centerleft>50%</centerleft>
@@ -245,7 +245,7 @@
         <font>MediumBold</font>
         <textcolor>Black70</textcolor>
     </include>
-    
+
     <include name="DefDialogBackground">
         <include>Animation.ZoomIn</include>
         <centerleft>50%</centerleft>
@@ -258,7 +258,7 @@
             <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
         </control>
     </include>
-    
+
     <include name="DefDialogOK">
         <centerleft>50%</centerleft>
         <posy>360</posy>
@@ -298,9 +298,9 @@
             <height>300</height>
         </control>
 
-        
+
     </include>
-    
+
     <include name="DefPVRDialogButton">
         <width>600</width>
         <height>66</height>
@@ -309,7 +309,7 @@
         <radioposx>540</radioposx>
         <textcolor>Black70</textcolor>
     </include>
-    
+
     <include name="DefKeyboardKeys">
         <width>85</width>
         <height>75</height>
@@ -404,7 +404,7 @@
         <centerleft>50%</centerleft>
         <height>382</height>
         <width>466</width>
-        
+
         <control type="image">
             <description>background image</description>
             <posx>0</posx>
@@ -414,8 +414,8 @@
             <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
         </control>
     </include>
-    
-    
+
+
     <include name="Def9000MusicSide">
         <control type="button" id="2">
             <description>View</description>
@@ -446,7 +446,7 @@
             <visible>Window.IsVisible(MyMusicSongs.xml)</visible>
             <visible>!stringcompare(Container.FolderPath,special://musicplaylists/)</visible>
         </control>
-        
+
         <control type="button" id="9098">
             <description>Now Playing</description>
             <include>DefContextButton</include>
@@ -456,9 +456,9 @@
             <visible>IntegerGreaterThan(Playlist.Length(music),1)</visible>
         </control>
 
-        
+
     </include>
-    
+
     <include name="DefDialogSelectManual6">
         <posx>738</posx>
         <posy>120</posy>
@@ -472,7 +472,7 @@
         <ondown>3</ondown>
         <font>Button</font>
         <textcolor>Black70</textcolor>
-        <texturefocus colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</texturefocus>    
+        <texturefocus colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</texturefocus>
     </include>
     <include name="DefDialogSelectManual3">
         <description>Manual</description>
@@ -491,7 +491,7 @@
         <texturefocus colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</texturefocus>
         <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
     </include>
-    
+
     <include name="DefVideoInfoCastWithDirector">
         <top>171</top>
         <height>639</height>
@@ -500,7 +500,7 @@
         <top>100</top>
         <height>710</height>
     </include>
-    
+
     <include name="DefHomeRight520"><right>520</right></include>
     <include name="DefHomeRightSidePad"><right>SidePad</right></include>
 
@@ -509,20 +509,20 @@
         <value condition="stringcompare(Window.Property(content),2)">plugin://script.extendedinfo?info=similarmovies&amp;&amp;dbid=$INFO[ListItem.DBID]</value>
         <value>plugin://script.extendedinfo?info=directormovies&amp;&amp;director=$INFO[ListItem.Director]</value>
     </variable>
-    
+
     <variable name="DefDirectorWindowContent">
         <value condition="stringcompare(Window(1103).Property(content),1)">plugin://script.extendedinfo?info=studio&amp;&amp;studio=$INFO[Window(home).Property(ExtStudio)]</value>
         <value condition="stringcompare(Window(1103).Property(content),2)">plugin://script.extendedinfo?info=similarmovies&amp;&amp;dbid=$INFO[Window(home).Property(ExtDBID)]</value>
         <value>plugin://script.extendedinfo?info=directormovies&amp;&amp;director=$INFO[Window(home).Property(ExtDirector)]</value>
     </variable>
-    
+
     <variable name="DefMovieDBMoviesContent">
         <value condition="stringcompare(Window(1104).Property(content),1)">plugin://script.extendedinfo?info=topratedmovies</value>
         <value condition="stringcompare(Window(1104).Property(content),2)">plugin://script.extendedinfo?info=popularmovies</value>
         <value condition="stringcompare(Window(1104).Property(content),3)">plugin://script.extendedinfo?info=upcomingmovies</value>
         <value>plugin://script.extendedinfo?info=incinemamovies</value>
     </variable>
-    
+
     <variable name="DefMovieDBEpisodesContent">
         <value condition="stringcompare(Window(1105).Property(content),1)">plugin://script.extendedinfo?info=topratedtvshows</value>
         <value condition="stringcompare(Window(1105).Property(content),2)">plugin://script.extendedinfo?info=populartvshows</value>
@@ -586,7 +586,7 @@
             <aspectratio scalediffuse="false">scale</aspectratio>
             <texture diffuse="diffuse/wall.png" background="true" fallback="DefaultPicture.png">$INFO[ListItem.Icon]</texture>
         </control>
-     
+
         <control type="image">
             <left>10</left>
             <right>10</right>
@@ -798,7 +798,7 @@
                         <visible>Control.HasFocus(9500)</visible>
                     </control>
                 </control>
-                
+
                 <control type="group">
                     <control type="list" id="9501">
                         <description>Widget</description>
@@ -882,7 +882,7 @@
                         <content><include>$PARAM[list]</include></content>
                     </control>
                 </control>
-                
+
             </control>
             <control type="scrollbar" id="60">
                 <onback>9501</onback>

@@ -141,7 +141,7 @@
         <value condition="Window.IsActive(playersettings)">$LOCALIZE[14200]</value>
         <value>$LOCALIZE[480]</value>
     </variable>
-    
+
     <variable name="WidgetLabel">
         <value condition="!IsEmpty(Container(300).ListItem.Property(widgetName))">$INFO[Container(300).ListItem.Property(widgetName)]</value>
         <value condition="!IsEmpty(Skin.String(home.fallbackwidget.name))">$INFO[Skin.String(home.fallbackwidget.name)]</value>
@@ -232,7 +232,7 @@
         <value condition="!IsEmpty(Window(Home).Property(NextAired.NextDate))">[COLOR=Dark1][B]$INFO[Window(Home).Property(NextAired.NextTitle),,  ][/B][/COLOR]$INFO[Window(Home).Property(NextAired.AirTime),, • ]$INFO[Window(Home).Property(NextAired.NextDate)]</value>
         <value condition="IsEmpty(Window(Home).Property(NextAired.NextDate)) + !IsEmpty(Window(Home).Property(NextAired.LatestTitle))">[COLOR=Dark1][B]$INFO[Window(Home).Property(NextAired.LatestTitle),,  ][/B][/COLOR]$INFO[Window(Home).Property(NextAired.Status),, • ]$INFO[Window(Home).Property(NextAired.LatestDate)]</value>
     </variable>
-    
+
     <variable name="LabelVideoInfoCastDirector">
         <value condition="StringCompare(Window.Property(content),1)">$INFO[ListItem.Studio,$LOCALIZE[31205] ,]</value>
         <value condition="StringCompare(Window.Property(content),2)">$INFO[ListItem.Title,$LOCALIZE[31204] ,]</value>

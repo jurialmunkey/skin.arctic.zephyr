@@ -3,7 +3,7 @@
 <window id="2901">
     <include condition="!Player.PauseEnabled">OSDFocusStop</include>
     <include condition="Player.PauseEnabled">OSDFocusPause</include>
-    
+
     <onunload>ClearProperty(osdshowinfo,home)</onunload>
     <controls>
         <control type="group">
@@ -71,9 +71,9 @@
                         <usealttexture>!VideoPlayer.SubtitlesEnabled</usealttexture>
                     </control>
                 </control>
-            
+
             </control>
-            
+
             <control type="grouplist" id="100">
                 <top>13</top>
                 <left>50</left>
@@ -86,8 +86,8 @@
                 <onright condition="Player.CanRecord + VideoPlayer.Content(LiveTV)">9003</onright>
                 <include>DefOSDUpDown</include>
                 <usecontrolcoords>true</usecontrolcoords>
-        
-                
+
+
 
                 <control type="button" id="1">
                     <description>Audio</description>
@@ -104,7 +104,7 @@
                     <onclick>ActivateWindow(123)</onclick>
                     <include>DefOSDButtons</include>
                 </control>
-                
+
                 <control type="button" id="3">
                     <onup>9302</onup>
                     <ondown>9301</ondown>
@@ -116,7 +116,7 @@
                 </control>
             </control>
             <control type="grouplist" id="101">
-            
+
                 <top>13</top>
                 <width>100%</width>
                 <height>48</height>
@@ -128,9 +128,9 @@
                 <ondown>noop</ondown>
                 <include condition="!Skin.HasSetting(osd.usetheme)">OSDVideoControls</include>
                 <include condition="Skin.HasSetting(osd.usetheme)">OSDVideoControlsFlip</include>
-            
+
             </control>
-            
+
             <control type="grouplist" id="102">
                 <top>13</top>
                 <right>50</right>
@@ -142,16 +142,16 @@
                 <onright>1</onright>
                 <include>DefOSDUpDown</include>
                 <usecontrolcoords>true</usecontrolcoords>
-                
+
                 <include condition="!VideoPlayer.Content(livetv) + [VideoPlayer.HasMenu | [!VideoPlayer.Content(movies) + !VideoPlayer.Content(episodes)]]">OSDDVDMenu</include>
                 <include condition="!VideoPlayer.HasMenu + VideoPlayer.Content(episodes)">OSDExtraInfoTV</include>
                 <include condition="!VideoPlayer.HasMenu + VideoPlayer.Content(movies)">OSDExtraInfoMOVIES</include>
-                
+
                 <include condition="!VideoPlayer.Content(livetv)">OSDVideosRight</include>
                 <include condition="VideoPlayer.Content(livetv)">OSDPVRRight</include>
             </control>
         </control>
-    
+
     </controls>
 
 </window>

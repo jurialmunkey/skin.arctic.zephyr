@@ -23,7 +23,7 @@
                 <scrolltime tween="quadratic">400</scrolltime>
                 <itemlayout width="270">
                     <control type="group">
-                        
+
                         <animation effect="Conditional" condition="true">
                             <effect type="zoom" end="60" time="0" center="213,452" />
                         </animation>
@@ -49,7 +49,7 @@
                         <control type="group">
                             <visible>!stringcompare(ListItem.Label,..)</visible>
                             <visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
-                            
+
                             <control type="image">
                                 <left>379</left>
                                 <centertop>32</centertop>
@@ -96,7 +96,7 @@
                         <control type="group">
                             <visible>!stringcompare(ListItem.Label,..)</visible>
                             <visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
-                          
+
                             <control type="image">
                                 <left>379</left>
                                 <centertop>32</centertop>
@@ -113,17 +113,17 @@
                             <height>PosterShadowW</height>
                             <texture border="32">common/shadow-24.png</texture>
                         </control>
-                        
+
                     </control>
                 </focusedlayout>
-    
+
             </control>
 
             <control type="group">
                 <animation effect="fade" condition="!Control.HasFocus(60)" time="200" start="100" end="0">Conditional</animation>
                 <include>Furniture_Scrollbar_Horizontal</include>
             </control>
-            
+
             <control type="grouplist">
                 <left>540</left>
                 <right>SidePad</right>
@@ -150,4 +150,4 @@
     </include>
 
 </includes>
- 
+

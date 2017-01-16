@@ -6,7 +6,7 @@
             <width>1630</width>
             <height>798</height>
             <include>DefDialogInfoPanel</include>
-            
+
             <!-- Header -->
             <control type="label" id="100">
                 <description>Header Label</description>
@@ -17,7 +17,7 @@
                 <posy>15</posy>
                 <font>MediumBold</font>
             </control>
-            
+
             <!-- Header Image -->
             <control type="image" id="110">
                 <posx>15</posx>
@@ -26,11 +26,11 @@
                 <height>60</height>
                 <aspectratio align="left" aligny="top">keep</aspectratio>
             </control>
-            
-            
-            
 
-            
+
+
+
+
             <!-- Subs List -->
             <control type="list" id="120">
                 <left>15</left>
@@ -169,12 +169,12 @@
                         <font>Small</font>
                         <scroll>true</scroll>
                     </control>
-         
+
                 </focusedlayout>
 
             </control>
-            
-            
+
+
             <!-- Search Labels -->
             <control type="label" id="140">
                 <description>Content Picker label</description>
@@ -185,7 +185,7 @@
                 <textcolor>Black30</textcolor>
                 <visible>false</visible>
             </control>
-            
+
             <control type="label">
                 <description>Content Picker label</description>
                 <left>45</left>
@@ -196,7 +196,7 @@
                 <textcolor>Black70</textcolor>
                 <label>$INFO[Control.GetLabel(140),,   ]$INFO[Player.FileName]</label>
             </control>
-            
+
             <!-- Manual Search -->
             <control type="button" id="160">
                 <posx>1130</posx>
@@ -212,7 +212,7 @@
                 <texturefocus border="5" colordiffuse="$VAR[ColorHighlight]">common/box.png</texturefocus>
                 <texturenofocus border="5" colordiffuse="Black12">common/box.png</texturenofocus>
             </control>
-            
+
             <!-- Providers -->
             <control type="list" id="150">
                 <description>Button Area</description>
@@ -277,15 +277,15 @@
                         <selectedcolor>Highlight2</selectedcolor>
                         <visible>Control.HasFocus(150)</visible>
                     </control>
-                    
+
                 </focusedlayout>
             </control>
-            
-            
-            
-                
-            
-            
+
+
+
+
+
+
         </control>
     </controls>
 </window>

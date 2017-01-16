@@ -2,12 +2,12 @@
 <!-- Foundation -->
 <window>
     <defaultcontrol always="true">9000</defaultcontrol>
-      
+
     <onload>SetProperty(150_onback,SetFocus(9000))</onload>
     <onload>SetProperty(250_onback,SetFocus(9000))</onload>
     <onload>SetProperty(350_onback,SetFocus(9000))</onload>
     <onload>SetProperty(550_onback,SetFocus(9000))</onload>
-    <onload>ClearProperty(content)</onload>  
+    <onload>ClearProperty(content)</onload>
     <onload>Dialog.Close(2003)</onload>
     <controls>
         <control type="image">
@@ -45,7 +45,7 @@
                         <height>48</height>
                         <aspectratio>stretch</aspectratio>
                         <texture>diffuse/shadowspot.png</texture>
-                        
+
                     </control>
                     <control type="image">
                         <width>PosterW</width>
@@ -75,7 +75,7 @@
                 <animation effect="slide" start="0" end="1920" time="300" tween="quadratic" easing="in">WindowClose</animation>
                 <animation effect="slide" start="1920" end="0" delay="0" time="300" tween="quadratic" easing="out">Visible</animation>
                 <animation effect="slide" start="0" end="1920" time="300" tween="quadratic" easing="in">Hidden</animation>
-          
+
                 <!-- Arrows -->
                 <control type="group">
                     <include>Animation.DelayFadeIn</include>
@@ -139,7 +139,7 @@
                         <include>DefInfoButtons</include>
                         <onclick>SetProperty(content,550)</onclick>
                         <onclick>SetFocus(550)</onclick>
-                    </control>  
+                    </control>
                 </control>
 
                 <control type="label">
@@ -370,9 +370,9 @@
                                 <aligny>center</aligny>
                             </control>
                         </control>
-                        
-                        
-                      
+
+
+
                         <control type="label">
                             <width>100%</width>
                             <height>36</height>
@@ -390,7 +390,7 @@
                             <align>justify</align>
                             <label>$INFO[Window.Property(Biography)]</label>
                         </control>
-                        
+
                     </control>
                 </control>
 
@@ -411,7 +411,7 @@
                     <onleft>350</onleft>
                     <onright>350</onright>
                     <include>DefExtendedInfoListWide</include>
-                </control>                
+                </control>
                 <control type="list" id="450"><visible>false</visible></control>
                 <control type="list" id="550">
                     <visible allowhiddenfocus="true">StringCompare(Window.Property(content),550)</visible>
