@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-    
+
     <zorder>1</zorder>
     <controls>
         <control type="group">
             <include>Animation.FadeIn</include>
             <include>Animation.FadeOut</include>
             <control type="group">
-    
+
                 <control type="group">
                     <animation effect="slide" end="334" start="0" time="75" tween="quadratic" condition="Window.IsActive(musicosd)">Conditional</animation>
                     <top>200</top>
                     <bottom>180</bottom>
                     <width>100%</width>
-                    
+
                     <!-- ** Required ** Do not change <id> or <type> (Smooth scrolling list for lyrics) -->
                     <control type="list" id="110">
                         <left>350</left>
@@ -78,16 +78,16 @@
                             </control>
                         </focusedlayout>
                     </control>
-                    
+
                     <control type="label" id="200">
                         <description>Scraper label</description>
                         <visible>false</visible>
                     </control>
-                
+
                 </control>
-              
+
             </control>
-       
+
         </control>
     </controls>
 </window>

@@ -2,7 +2,7 @@
 <!-- Foundation -->
 <window type="window" id="1103">
     <defaultcontrol always="true">9500</defaultcontrol>
-    
+
     <onunload>ClearProperty(content)</onunload>
     <controls>
         <include>GlobalBackground</include>
@@ -64,7 +64,7 @@
                 <visible>Container(9500).IsUpdating</visible>
                 <include>Animation.FadeIn</include>
                 <include>Animation.FadeOut</include>
-          
+
                 <control type="image">
                     <description>Busy animation</description>
                     <centerleft>54</centerleft>
@@ -196,17 +196,17 @@
                             <effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
                         </animation>
                     </control>
-                      
+
                 </focusedlayout>
                 <content>$VAR[DefDirectorWindowContent]</content>
             </control>
-        
+
             <control type="grouplist">
                 <visible>!Container(9500).IsUpdating</visible>
                 <include>Animation.FadeIn</include>
                 <include>Animation.FadeOut</include>
                 <left>SidePad</left>
-                
+
                 <right>SidePad</right>
                 <orientation>vertical</orientation>
                 <top>695</top>

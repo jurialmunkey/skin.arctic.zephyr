@@ -74,9 +74,9 @@
                         <aspectratio align="center">keep</aspectratio>
                         <visible>!IsEmpty(Player.Duration)</visible>
                     </control>
-                  
+
                 </control>
-        
+
                 <control type="label">
                     <left>30</left>
                     <right>30</right>
@@ -117,7 +117,7 @@
                     <itemgap>12</itemgap>
                     <visible>true</visible>
                     <usecontrolcoords>true</usecontrolcoords>
-                    
+
                     <control type="label" description="Artist">
                         <top>0</top>
                         <width>100%</width>
@@ -127,7 +127,7 @@
                         <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                         <label>$VAR[PlayerBigTitle]</label>
                     </control>
-                    
+
                     <control type="label" description="Song">
                         <width>100%</width>
                         <height>40</height>
@@ -182,7 +182,7 @@
                             <texture>flags/$VAR[OSDMusicFlagstar5].png</texture>
                         </control>
                     </control>
-                    
+
                     <control type="label" description="AlbumYear">
                         <width>100%</width>
                         <height>40</height>
@@ -464,7 +464,7 @@
                             <onclick>Playlist.PlayOffset(-1)</onclick>
                             <visible>MusicPlayer.offset(-1).Exists</visible>
                         </item>
-                        
+
                         <item id="21">
                             <label>$INFO[MusicPlayer.offset(0).Title]</label>
                             <label2>$INFO[MusicPlayer.offset(0).Duration]</label2>
@@ -617,7 +617,7 @@
                 </control>
             </control>
 
-            
+
             <control type="group">
                 <height>64</height>
                 <bottom>64</bottom>
@@ -634,12 +634,12 @@
                     <include condition="Skin.HasSetting(osd.usetheme)">OSDAudioControlsFlip</include>
                 </control>
 
-                
+
             </control>
         </control>
-        
-        
-    
+
+
+
     </controls>
 
 </window>

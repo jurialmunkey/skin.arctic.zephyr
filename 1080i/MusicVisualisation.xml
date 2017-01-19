@@ -2,7 +2,7 @@
 <!-- Foundation -->
 <window id="2006">
     <defaultcontrol always="true">-</defaultcontrol>
-    
+
     <onload condition="Skin.HasSetting(osd.alwaysshowmusicosd)">ActivateWindow(musicosd)</onload>
 
     <controls>
@@ -34,9 +34,9 @@
             <animation effect="zoom" start="110" end="130" center="auto" time="10000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
             <animation effect="slide" start="-30,-30" end="30,30" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
         </control>
-        
 
-        
+
+
         <control type="image">
             <height>100%</height>
             <width>100%</width>
@@ -67,7 +67,7 @@
                 <top>110r</top>
                 <bottom>0</bottom>
                 <width>100%</width>
-                
+
                 <control type="group">
                     <left>SidePad</left>
                     <right>SidePad</right>
@@ -92,7 +92,7 @@
                         <textcolor>$VAR[OSDPanelWhite70]</textcolor>
                         <label>$INFO[Player.Time]$INFO[Player.Duration,  /  ,]</label>
                     </control>
-          
+
                     <control type="progress" description="cache">
                         <description>Progress Bar</description>
                         <width>100%</width>
@@ -115,8 +115,8 @@
                 </control>
             </control>
         </control>
-        
-    
+
+
         <control type="group">
             <visible>Player.ShowCodec</visible>
             <visible>!Window.IsVisible(script-cu-lrclyrics-main.xml)</visible>
@@ -146,8 +146,8 @@
                 <textcolor>$VAR[OSDPanelWhite100]</textcolor>
             </control>
         </control>
-        
-        
+
+
     </controls>
 
 </window>

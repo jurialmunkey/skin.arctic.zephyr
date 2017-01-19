@@ -48,8 +48,8 @@
                     <include>DefContextButton</include>
                     <align>left</align>
                 </control>
-                
-                
+
+
                 <!-- PVR options -->
                 <!-- <control type="label" id="9010">
                     <description>Channels</description>
@@ -103,14 +103,14 @@
                     <align>left</align>
                     <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
                 </control>
-                
+
             </control>
         </control>
     </include>
 
     <include name="PVRInfoPanel">
 
-      
+
         <control type="group">
             <left>70</left>
             <width>645</width>
@@ -156,7 +156,7 @@
                 <right>20</right>
                 <posy>370</posy>
                 <height>290</height>
-                
+
                 <control type="label">
                     <top>8</top>
                     <aligny>center</aligny>
@@ -185,7 +185,7 @@
                     <label fallback="19055">$INFO[ListItem.Plot]</label>
                 </control>
             </control>
-        
+
         </control>
     </include>
     <variable name="ProgressPercent">
@@ -299,8 +299,8 @@
                 <width>1100</width>
                 <top>PosterPad</top>
                 <height>640</height>
-               
-                <control type="list" id="50" description="TV CHANNELS">     
+
+                <control type="list" id="50" description="TV CHANNELS">
                     <right>0</right>
                     <width>1100</width>
                     <top>0</top>
@@ -340,7 +340,7 @@
                             <texture colordiffuse="$VAR[ColorHighlight]">progress/play.png</texture>
                             <visible>ListItem.IsPlaying</visible>
                         </control>
-                        <control type="image">                                
+                        <control type="image">
                             <left>10</left>
                             <centertop>50%</centertop>
                             <width>111</width>
@@ -466,10 +466,10 @@
                                 <visible>!stringcompare(ListItem.Label,..)</visible>
                             </control>
                         </control>
-                    
+
                     </itemlayout>
-                    
-                    
+
+
                     <focusedlayout height="128" width="1100">
 
                         <control type="group">
@@ -505,7 +505,7 @@
                                 <texture colordiffuse="$VAR[ColorHighlight]">progress/play.png</texture>
                                 <visible>ListItem.IsPlaying</visible>
                             </control>
-                            <control type="image">                                
+                            <control type="image">
                                 <left>10</left>
                                 <centertop>50%</centertop>
                                 <width>111</width>
@@ -513,7 +513,7 @@
                                 <aspectratio align="left">keep</aspectratio>
                                 <texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
                             </control>
-                            
+
                             <control type="group">
                                 <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
                                 <control type="progress">
@@ -661,7 +661,7 @@
                                 <texture colordiffuse="$VAR[ColorHighlight]">progress/play.png</texture>
                                 <visible>ListItem.IsPlaying</visible>
                             </control>
-                            <control type="image">                                
+                            <control type="image">
                                 <left>10</left>
                                 <centertop>50%</centertop>
                                 <width>111</width>
@@ -671,7 +671,7 @@
                             </control>
                             <control type="group">
                                 <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
-                                
+
                                 <control type="progress">
                                     <posx>150</posx>
                                     <bottom>14</bottom>
@@ -780,11 +780,11 @@
                                     <label>$INFO[ListItem.ChannelName]</label>
                                 </control>
                             </control>
-                        
-                        
+
+
                         </control>
-                    
-                        
+
+
                     </focusedlayout>
                 </control>
             </control>
@@ -798,9 +798,9 @@
             <visible>Control.IsVisible(51)</visible>
             <include>Animation.Common</include>
             <control type="group">
-          
-                
-                <control type="panel" id="51" description="TV CHANNELS">     
+
+
+                <control type="panel" id="51" description="TV CHANNELS">
                     <top>206</top>
                     <height>660</height>
                     <left>70</left>
@@ -821,10 +821,10 @@
                             <bottom>10</bottom>
                             <texture colordiffuse="Dark4" border="5">common/box.png</texture>
                         </control>
-                        
+
                         <control type="group">
                             <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
-                            <control type="image">                                
+                            <control type="image">
                                 <left>20</left>
                                 <top>20</top>
                                 <width>220</width>
@@ -906,7 +906,7 @@
                         </control>
                         <control type="group">
                             <visible>!Window.IsVisible(MyPVRChannels.xml)</visible>
-                            <control type="image">                                
+                            <control type="image">
                                 <left>20</left>
                                 <top>20</top>
                                 <width>290</width>
@@ -961,11 +961,11 @@
                                 <selectedcolor>Dark1</selectedcolor>
                                 <label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime,$COMMA  ,]</label>
                             </control>
-                            
-                        
+
+
                         </control>
-                        
-                        
+
+
                     </itemlayout>
                     <focusedlayout height="330" width="890">
                         <control type="image">
@@ -977,7 +977,7 @@
                         </control>
                         <control type="group">
                             <visible>Window.IsVisible(MyPVRChannels.xml)</visible>
-                            <control type="image">                                
+                            <control type="image">
                                 <left>20</left>
                                 <top>20</top>
                                 <width>220</width>
@@ -1058,7 +1058,7 @@
                         </control>
                         <control type="group">
                             <visible>!Window.IsVisible(MyPVRChannels.xml)</visible>
-                            <control type="image">                                
+                            <control type="image">
                                 <left>20</left>
                                 <top>20</top>
                                 <width>290</width>
@@ -1112,13 +1112,13 @@
                                 <selectedcolor>Light1</selectedcolor>
                                 <label>$INFO[ListItem.StartDate]$INFO[ListItem.StartTime,$COMMA  ,]</label>
                             </control>
-                            
-                        
+
+
                         </control>
-                        
+
                     </focusedlayout>
                 </control>
-                
+
             </control>
             <include>Furniture_Scrollbar</include>
         </control>
@@ -1132,8 +1132,8 @@
     <include name="PVRView_52">
         <control type="group">
             <visible>Control.IsVisible(52)</visible>
-            <include>Animation.Common</include>     
-            <control type="panel" id="52" description="TV CHANNELS">     
+            <include>Animation.Common</include>
+            <control type="panel" id="52" description="TV CHANNELS">
                 <top>206</top>
                 <height>495</height>
                 <left>70</left>
@@ -1154,7 +1154,7 @@
                         <bottom>10</bottom>
                         <texture colordiffuse="Dark4" border="5">common/box.png</texture>
                     </control>
-                    <control type="image">                                
+                    <control type="image">
                         <right>20</right>
                         <top>20</top>
                         <width>100</width>
@@ -1242,7 +1242,7 @@
                         <bottom>10</bottom>
                         <texture colordiffuse="Dark1" border="5">common/box.png</texture>
                     </control>
-                    <control type="image">                                
+                    <control type="image">
                         <right>20</right>
                         <top>20</top>
                         <width>100</width>

@@ -32,7 +32,7 @@
             <visible>!Window.IsVisible(script-globalsearch-main.xml) + !Window.IsVisible(script-globalsearch-infodialog.xml) + !Window.IsVisible(DialogAddonInfo.xml) + !Window.IsVisible(DialogPVRRecordingInfo.xml) + !Window.IsVisible(DialogPVRGuideInfo.xml) + !Window.IsVisible(DialogMusicInfo.xml) + !Window.IsVisible(DialogVideoInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) + !Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml)</visible>
             <visible>Control.IsVisible(500)</visible>
 
-            
+
 
             <animation type="Conditional" reversible="true" condition="ControlGroup(9000).HasFocus()">
                 <effect type="slide" end="444" start="0" time="200" tween="quadratic"/>
@@ -215,7 +215,7 @@
                 <include>Animation.FadeIn</include>
                 <include>Animation.FadeOut</include>
                 <visible allowhiddenfocus="true">ControlGroup(9000).HasFocus()</visible>
-            
+
                 <control type="grouplist" id="9000">
                     <top>0</top>
                     <bottom>0</bottom>
@@ -294,8 +294,8 @@
                     </control>
                 </control>
             </control>
-            
-        </control> 
+
+        </control>
         <control type="button" id="600">
             <onfocus>SetFocus(500)</onfocus>
             <width>1</width>

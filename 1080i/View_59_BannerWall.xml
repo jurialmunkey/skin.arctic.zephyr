@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Foundation -->
 <includes>
-  
-    <include name="View_59_BannerWall">    
+
+    <include name="View_59_BannerWall">
         <control type="group">
             <include>Animation.Common</include>
             <visible>Control.IsVisible(59)</visible>
@@ -36,7 +36,7 @@
                         <aspectratio scalediffuse="false">scale</aspectratio>
                         <texture diffuse="diffuse/wall-fanart.png" background="true">$VAR[BannerImage]</texture>
                     </control>
-                    
+
                     <control type="image">
                         <centerright>32</centerright>
                         <centertop>38</centertop>
@@ -45,7 +45,7 @@
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
                         <visible>!stringcompare(ListItem.Label,..)</visible>
-                        
+
                     </control>
                     <control type="image">
                         <centerright>32</centerright>
@@ -55,7 +55,7 @@
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture>$VAR[PosterPercentWatched]</texture>
                         <visible>!stringcompare(ListItem.Label,..)</visible>
-                        
+
                     </control>
                 </itemlayout>
                 <focusedlayout height="133" width="593">
@@ -74,7 +74,7 @@
                         <aspectratio scalediffuse="false">scale</aspectratio>
                         <texture diffuse="diffuse/wall-fanart.png" background="true">$VAR[BannerImage]</texture>
                     </control>
-                    
+
                     <control type="image">
                         <centerright>32</centerright>
                         <centertop>38</centertop>
@@ -83,7 +83,7 @@
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
                         <visible>!stringcompare(ListItem.Label,..)</visible>
-                        
+
                     </control>
                     <control type="image">
                         <centerright>32</centerright>
@@ -93,7 +93,7 @@
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture>$VAR[PosterPercentWatched]</texture>
                         <visible>!stringcompare(ListItem.Label,..)</visible>
-                        
+
                     </control>
                     <control type="image">
                         <left>3</left>
@@ -110,11 +110,11 @@
                             <effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
                         </animation>
                     </control>
-                      
+
                 </focusedlayout>
             </control>
             <include>Furniture_Scrollbar</include>
-            
-        </control>   
+
+        </control>
     </include>
 </includes>

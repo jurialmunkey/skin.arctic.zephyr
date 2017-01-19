@@ -5,13 +5,13 @@
     <onload condition="IsEmpty(ListItem.TvShowTitle)">SetProperty("TvTunesSupported", "Movies")</onload>
     <onload condition="Skin.HasSetting(ActivateTvTunes) + System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
     <defaultcontrol always="true">51</defaultcontrol>
-    
+
     <controls>
         <include>GlobalBackground</include>
         <control type="group">
             <height>866</height>
             <include>DefDialogInfoPanel</include>
-            
+
             <control type="label">
                 <description>Header Label</description>
                 <centerleft>50%</centerleft>
@@ -21,7 +21,7 @@
                 <posy>15</posy>
                 <font>MediumBold</font>
             </control>
-  
+
             <control type="list" id="51">
                 <description>Control Area</description>
                 <left>15</left>
@@ -51,10 +51,10 @@
                         <font>Small</font>
                         <label>$INFO[ListItem.Label2]</label>
                     </control>
-                
+
                 </itemlayout>
                 <focusedlayout width="1260" height="69">
-                    <control type="image">                                
+                    <control type="image">
                         <width>100%</width>
                         <height>100%</height>
                         <texture border="8" colordiffuse="$VAR[ColorHighlight]">common/box.png</texture>
