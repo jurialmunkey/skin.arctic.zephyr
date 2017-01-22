@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+    <variable name="LabelImageList">
+        <value condition="!IsEmpty(ListItem.Property(job))">$INFO[ListItem.Property(job)]</value>
+        <value condition="!IsEmpty(ListItem.Property(character))">$INFO[ListItem.Property(character)]</value>
+        <value>$INFO[ListItem.Label2]</value>
+    </variable>
+
     <variable name="LabelWidgetShortcutsName">
         <value condition="!IsEmpty(Container(211).ListItem.Property(widgetName))">$INFO[Container(211).ListItem.Property(widgetName)]</value>
         <value condition="!IsEmpty(Container(211).ListItem.Property(background))">$LOCALIZE[31110]</value>

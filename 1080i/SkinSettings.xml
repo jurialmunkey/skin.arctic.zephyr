@@ -421,6 +421,14 @@
                         <selected>Skin.HasSetting(global.kioskmode)</selected>
                         <onclick>Skin.ToggleSetting(global.kioskmode)</onclick>
                     </control>
+                    <control type="radiobutton" id="9278" description="Dont use extendedinfo for cast in info">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9107)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31278</label>
+                        <selected>!Skin.HasSetting(noextendedinfoforcast)</selected>
+                        <onclick>Skin.ToggleSetting(noextendedinfoforcast)</onclick>
+                    </control>
                     <control type="radiobutton" id="9274" description="Dont use circle icons">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9107)</visible>
