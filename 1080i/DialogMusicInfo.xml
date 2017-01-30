@@ -5,7 +5,7 @@
 
     <onload>ClearProperty(content)</onload>
     <onload>ClearProperty(tracklist)</onload>
-    <onload>Dialog.Close(135)</onload>
+    <!-- <onload>Dialog.Close(135)</onload> -->
     <controls>
         <control type="group">
             <animation type="Conditional" reversible="true" condition="Window.IsVisible(FileBrowser.xml) | Window.IsVisible(DialogConfirm.xml) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogButtonMenu.xml)">
@@ -71,6 +71,7 @@
                         <onclick>SetProperty(content,1)</onclick>
                         <onclick>SetFocus(9501)</onclick>
                         <include>DefInfoButtons</include>
+                        <visible>Container.Content(artists)</visible>
                     </control>
 
                     <control type="togglebutton" id ="9002">
@@ -82,7 +83,7 @@
                         <onclick condition="IsEmpty(Window.Property(tracklist))">SetProperty(tracklist,1)</onclick>
                         <onclick condition="!IsEmpty(Window.Property(tracklist))">ClearProperty(tracklist)</onclick>
                         <include>DefInfoButtons</include>
-                        <visible>Container.Content(albums)</visible>
+                        <visible>!Container.Content(artists)</visible>
                     </control>
 
                     <control type="button" id ="9003">
@@ -110,21 +111,21 @@
                         <visible>!Skin.HasSetting(global.kioskmode)</visible>
                     </control>
 
-                    <!-- <control type="button" id ="12">
+                    <control type="button" id ="12">
                         <description>Get Fanart</description>
                         <label>20413</label>
                         <width>260</width>
                         <include>DefInfoButtons</include>
                         <visible>!Skin.HasSetting(global.kioskmode)</visible>
                         <visible>Container.Content(artists)</visible>
-                    </control> -->
+                    </control>
                 </control>
 
 
 
                 <!-- Album Info -->
                 <control type="group">
-                    <visible>Container.Content(albums)</visible>
+                    <visible>!Container.Content(artists)</visible>
                     <visible>!Control.IsVisible(50) + IsEmpty(Window.Property(content))</visible>
                     <left>ListSquareX</left>
                     <right>SidePad</right>
@@ -234,37 +235,10 @@
                             </control>
                         </control>
 
-                        <!-- Twitter -->
-                        <control type="group">
-                            <height>36</height>
-                            <width>100%</width>
-                            <control type="label">
-                                <width>150</width>
-                                <height>36</height>
-                                <font>Tiny</font>
-                                <textcolor>Dark1</textcolor>
-                                <label>[B]Twitter[/B]</label>
-                                <aligny>center</aligny>
-                            </control>
-                            <control type="label">
-                                <left>150</left>
-                                <top>6</top>
-                                <width>100%</width>
-                                <height>24</height>
-                                <font>Tiny</font>
-                                <textcolor>Dark2</textcolor>
-                                <scroll>true</scroll>
-                                <wrapmultiline>false</wrapmultiline>
-                                <scrollspeed>40</scrollspeed>
-                                <scrollsuffix>  ••  </scrollsuffix>
-                                <label fallback="19055">$INFO[Container(9301).ListItem.Property(author),[B],[/B]]$INFO[Container(9301).ListItem.Property(date), ,]$INFO[Container(9301).ListItem.Property(comment),  -  ","]$INFO[Container(9301).ListItem(1).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(1).Property(date), ,]$INFO[Container(9301).ListItem(1).Property(comment),  -  ","]$INFO[Container(9301).ListItem(2).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(2).Property(date), ,]$INFO[Container(9301).ListItem(2).Property(comment),  -  ","]$INFO[Container(9301).ListItem(3).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(3).Property(date), ,]$INFO[Container(9301).ListItem(3).Property(comment),  -  ","]$INFO[Container(9301).ListItem(4).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(4).Property(date), ,]$INFO[Container(9301).ListItem(4).Property(comment),  -  ","]$INFO[Container(9301).ListItem(5).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(5).Property(date), ,]$INFO[Container(9301).ListItem(5).Property(comment),  -  ","]$INFO[Container(9301).ListItem(6).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(6).Property(date), ,]$INFO[Container(9301).ListItem(6).Property(comment),  -  ","]$INFO[Container(9301).ListItem(7).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(7).Property(date), ,]$INFO[Container(9301).ListItem(7).Property(comment),  -  ","]$INFO[Container(9301).ListItem(8).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(8).Property(date), ,]$INFO[Container(9301).ListItem(8).Property(comment),  -  ","]$INFO[Container(9301).ListItem(9).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(9).Property(date), ,]$INFO[Container(9301).ListItem(9).Property(comment),  -  ","]$INFO[Container(9301).ListItem(10).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(10).Property(date), ,]$INFO[Container(9301).ListItem(10).Property(comment),  -  ","]$INFO[Container(9301).ListItem(11).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(11).Property(date), ,]$INFO[Container(9301).ListItem(11).Property(comment),  -  ","]$INFO[Container(9301).ListItem(12).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(12).Property(date), ,]$INFO[Container(9301).ListItem(12).Property(comment),  -  ","]$INFO[Container(9301).ListItem(13).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(13).Property(date), ,]$INFO[Container(9301).ListItem(13).Property(comment),  -  ","]$INFO[Container(9301).ListItem(14).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(14).Property(date), ,]$INFO[Container(9301).ListItem(14).Property(comment),  -  ","]$INFO[Container(9301).ListItem(15).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(15).Property(date), ,]$INFO[Container(9301).ListItem(15).Property(comment),  -  ","]$INFO[Container(9301).ListItem(16).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(16).Property(date), ,]$INFO[Container(9301).ListItem(16).Property(comment),  -  ","]$INFO[Container(9301).ListItem(17).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(17).Property(date), ,]$INFO[Container(9301).ListItem(17).Property(comment),  -  ","]$INFO[Container(9301).ListItem(18).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(18).Property(date), ,]$INFO[Container(9301).ListItem(18).Property(comment),  -  ","]$INFO[Container(9301).ListItem(19).Property(author),  ••  [B],[/B]]$INFO[Container(9301).ListItem(19).Property(date), ,]$INFO[Container(9301).ListItem(19).Property(comment),  -  ","]</label>
-                                <aligny>center</aligny>
-                            </control>
-                        </control>
                         <control type="group">
                             <height>auto</height>
                             <width>100%</width>
-                            <visible>!Container.Content(Albums) | IsEmpty(Window.Property(tracklist))</visible>
+                            <visible>!!Container.Content(artists) | IsEmpty(Window.Property(tracklist))</visible>
                             <control type="label">
                                 <width>150</width>
                                 <height>36</height>
@@ -273,7 +247,7 @@
                                 <label>[B]$LOCALIZE[183][/B]</label>
                                 <aligny>center</aligny>
                             </control>
-                            <control type="textbox" id="4">
+                            <control type="textbox">
                                 <left>150</left>
                                 <right>0</right>
                                 <height>240</height>
@@ -281,10 +255,11 @@
                                 <textcolor>Dark2</textcolor>
                                 <scroll>false</scroll>
                                 <aligny>top</aligny>
+                                <label>$VAR[LabelPlotBox]</label>
                             </control>
                         </control>
                         <control type="group">
-                            <visible>Container.Content(Albums) + [IsEmpty(Control.GetLabel(4)) | !IsEmpty(Window.Property(tracklist))]</visible>
+                            <visible>!Container.Content(artists) + [!IsEmpty(Window.Property(tracklist))]</visible>
                             <height>auto</height>
                             <width>100%</width>
                             <control type="label">
@@ -302,17 +277,7 @@
                                 <font>Tiny</font>
                                 <textcolor>Dark2</textcolor>
                                 <scroll>false</scroll>
-                                <label fallback="19055">$INFO[Window(home).Property(Album.Song.1.Title),[B]1.[/B] ,]$INFO[Window(home).Property(Album.Song.2.Title),[CR][B]2.[/B] ,]$INFO[Window(home).Property(Album.Song.3.Title),[CR][B]3.[/B] ,]$INFO[Window(home).Property(Album.Song.4.Title),[CR][B]4.[/B] ,]$INFO[Window(home).Property(Album.Song.5.Title),[CR][B]5.[/B] ,]$INFO[Window(home).Property(Album.Song.6.Title),[CR][B]6.[/B] ,]$INFO[Window(home).Property(Album.Song.7.Title),[CR][B]7.[/B] ,]$INFO[Window(home).Property(Album.Song.8.Title),[CR][B]8.[/B] ,]</label>
-                                <aligny>top</aligny>
-                            </control>
-                            <control type="label">
-                                <left>589</left>
-                                <width>439</width>
-                                <height>250</height>
-                                <font>Tiny</font>
-                                <textcolor>Dark2</textcolor>
-                                <scroll>false</scroll>
-                                <label fallback="19055">$INFO[Window(home).Property(Album.Song.9.Title),[B]9.[/B] ,]$INFO[Window(home).Property(Album.Song.10.Title),[CR][B]10.[/B] ,]$INFO[Window(home).Property(Album.Song.11.Title),[CR][B]11.[/B] ,]$INFO[Window(home).Property(Album.Song.12.Title),[CR][B]12.[/B] ,]$INFO[Window(home).Property(Album.Song.13.Title),[CR][B]13.[/B] ,]$INFO[Window(home).Property(Album.Song.14.Title),[CR][B]14.[/B] ,]$INFO[Window(home).Property(Album.Song.15.Title),[CR][B]15.[/B] ,]$INFO[Window(home).Property(Album.Song.16.Title),[CR][B]16.[/B] ,]</label>
+                                <label fallback="19055">$INFO[Window(Home).Property(SkinHelper.Music.TrackList)]</label>
                                 <aligny>top</aligny>
                             </control>
                         </control>
@@ -572,6 +537,7 @@
 
                 <!-- Content List -->
                 <control type="list" id="9501">
+                    <visible>Container.Content(artists)</visible>
                     <include>Animation.FadeIn.Slide</include>
                     <visible allowhiddenfocus="true">!IsEmpty(Window.Property(content)) + !Container(9501).IsUpdating + !Control.IsVisible(50)</visible>
                     <bottom>60</bottom>
@@ -686,21 +652,21 @@
                             </control>
                         </control>
                     </focusedlayout>
-                    <content>plugin://script.extendedinfo?info=discography&amp;&amp;artistname=$INFO[ListItem.Artist]</content>
+                    <content target="Music">$INFO[ListItem.DBID,musicdb://artists/,/]</content>
                 </control>
             </control>
         </control>
 
 
         <!-- Twitter Feed Fake List-->
-        <control type="list" id="9301">
+        <!-- <control type="list" id="9301">
             <height>36</height>
             <orientation>horizontal</orientation>
             <autoscroll time="8000">false</autoscroll>
             <itemlayout width="1" height="1"></itemlayout>
             <focusedlayout width="1" height="1"></focusedlayout>
             <content>plugin://script.extendedinfo?info=artistshouts&amp;&amp;artistname=$INFO[ListItem.Artist]</content>
-        </control>
+        </control> -->
 
     </controls>
 
