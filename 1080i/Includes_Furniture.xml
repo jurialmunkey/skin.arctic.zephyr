@@ -440,6 +440,20 @@
                 <texture colordiffuse="Dark1">flags/dvd.png</texture>
                 <visible>substring(ListItem.FilenameAndPath,dvd) + !substring(ListItem.FilenameAndPath,hddvd)</visible>
             </control>
+            <control type="image">
+                <width>64</width>
+                <centertop>50%</centertop>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/tv.png</texture>
+                <visible>substring(ListItem.FilenameAndPath,hdtv) | substring(ListItem.FilenameAndPath,dsr) | substring(ListItem.FilenameAndPath,pdtv) | substring(ListItem.FilenameAndPath,satrip) | substring(ListItem.FilenameAndPath,dthrip) | substring(ListItem.FilenameAndPath,dvbrip) | substring(ListItem.FilenameAndPath,tvrip)</visible>
+            </control>
+            <control type="image">
+                <width>64</width>
+                <centertop>50%</centertop>
+                <height>64</height>
+                <texture colordiffuse="Dark1">flags/web-dl.png</texture>
+                <visible>substring(ListItem.FilenameAndPath,web-dl) | substring(ListItem.FilenameAndPath,webdl) | substring(ListItem.FilenameAndPath,web-rip) | substring(ListItem.FilenameAndPath,webrip) | substring(ListItem.FilenameAndPath,web dl) | substring(ListItem.FilenameAndPath,web rip)</visible>
+            </control>
 
             <control type="image">
                 <width>64</width>

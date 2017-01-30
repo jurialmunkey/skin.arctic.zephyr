@@ -256,4 +256,9 @@
       <value condition="Player.ChapterCount + !IsEmpty(Player.ChapterName)">$INFO[Player.ChapterName]  -  $INFO[Player.Chapter]$INFO[Player.ChapterCount, / ]</value>
       <value condition="Player.ChapterCount">$LOCALIZE[21396]  -  $INFO[Player.Chapter]$INFO[Player.ChapterCount, / ]</value>
     </variable>
+
+    <variable name="VideoHWDecoder">
+        <value condition="Player.Process(videohwdecoder)">HW</value>
+        <value>SW</value>
+    </variable>
 </includes>
