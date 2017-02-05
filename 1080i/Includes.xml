@@ -114,7 +114,7 @@
         <value condition="Window.IsVisible(home) + !IsEmpty(Skin.String(weather.fanart.path)) + Skin.HasSetting(home.showweatherfanart) + [IsEmpty(Container(300).ListItem.Property(widget)) | Container(301).IsUpdating]">$INFO[Skin.String(weather.fanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]/</value>
         <value condition="Window.IsVisible(home) + !Container(301).IsUpdating + !IsEmpty(Skin.String(fanart.fallback))">$INFO[Skin.String(fanart.fallback)]</value>
         <value condition="Window.IsVisible(home) + !Container(301).IsUpdating">pvr/background.jpg</value>
-        <value condition="!IsEmpty(Window(Home).Property(SkinHelper.ExtraFanArtPath)) + Skin.HasSetting(SkinHelper.EnableExtraFanart) + System.HasAddon(script.skin.helper.service) + Window.IsVisible(MyVideoNav.xml)">$INFO[Window(Home).Property(SkinHelper.ExtraFanArtPath)]</value>
+        <value condition="!IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt)) + Skin.HasSetting(SkinHelper.EnableExtraFanart) + System.HasAddon(script.skin.helper.service) + Window.IsVisible(MyVideoNav.xml)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt)]</value>
         <value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
         <value condition="!IsEmpty(Container(9500).ListItem.Art(fanart))">$INFO[Container(9500).ListItem.Art(fanart)]</value>
         <value condition="!IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
