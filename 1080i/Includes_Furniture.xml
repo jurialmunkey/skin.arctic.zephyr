@@ -891,7 +891,7 @@
         <value condition="Player.HasVideo + VideoPlayer.Content(episodes) + [Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation) | Window.IsVisible(home)]">special://skin/extras/icons/tv.png</value>
         <value condition="Player.HasVideo + [Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation) | Window.IsVisible(home)]">special://skin/extras/icons/eye.png</value>
         <value condition="Window.IsVisible(script-script.extendedinfo-YoutubeList.xml)">special://skin/extras/icons/youtube.png</value>
-        <value condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)">special://skin/extras/icons/info.png</value>
+        <value condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml)">special://skin/extras/icons/info.png</value>
         <value condition="Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">special://skin/extras/icons/tvguide.png</value>
         <value condition="SubString(Container.FolderPath,sources://,Left)">special://skin/extras/icons/files.png</value>
         <value condition="SubString(Container.FolderPath,special://videoplaylists/,Left)">special://skin/extras/icons/playlist.png</value>
@@ -951,7 +951,7 @@
         <value condition="Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">[CAPITALIZE]$LOCALIZE[4][/CAPITALIZE]</value>
         <value condition="[Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-info.xml)] + IsEmpty(Control.GetLabel(190)) + IsEmpty(Control.GetLabel(191)) + IsEmpty(Control.GetLabel(199))">$LOCALIZE[283]</value>
         <value condition="Window.IsVisible(script-script.extendedinfo-YoutubeList.xml)">$LOCALIZE[31141]</value>
-        <value condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)">$LOCALIZE[31241]</value>
+        <value condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)| Window.IsVisible(DialogMusicInfo.xml) | Window.IsVisible(DialogAddonInfo.xml)">$LOCALIZE[31241]</value>
         <value condition="Window.IsVisible(MyVideoNav.xml) + StringCompare(Container.FolderPath,videodb://movies/titles/)">$LOCALIZE[20342]</value>
         <value condition="Window.IsVisible(MyVideoNav.xml) + StringCompare(Container.FolderPath,videodb://tvshows/titles/)">$LOCALIZE[20343]</value>
         <value condition="Window.IsVisible(MyVideoNav.xml) + SubString(Container.FolderPath,videodb://movies/,Left)">$INFO[Container.FolderName]</value>
@@ -991,6 +991,8 @@
         <value condition="Window.IsVisible(script-script.extendedinfo-YoutubeList.xml)">$INFO[Window.Property(Filter_Label),,  ]$INFO[Window.Property(TotalItems),, $LOCALIZE[31101]]</value>
         <value condition="Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">[COLOR=$VAR[ColorHighlight]]$INFO[Window(home).Property(NextAired.Total),,[/COLOR] $LOCALIZE[20343]]</value>
         <value condition="Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-VideoList.xml) | Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml)">$LOCALIZE[31242]</value>
+        <value condition="Window.IsVisible(DialogAddonInfo.xml)">$LOCALIZE[24000] $LOCALIZE[19033]</value>
+        <value condition="Window.IsVisible(DialogMusicInfo.xml)">$LOCALIZE[2] $LOCALIZE[19033]</value>
         <value condition="[Window.IsVisible(script-globalsearch-main.xml) | Window.IsVisible(script-globalsearch-info.xml)] + IsEmpty(Control.GetLabel(190)) + IsEmpty(Control.GetLabel(191)) + IsEmpty(Control.GetLabel(199))">$VAR[GlobalSearchHeaderLabel]</value>
         <value condition="Window.IsVisible(LoginScreen.xml)">$LOCALIZE[10029]</value>
         <value condition="Window.IsVisible(Custom_SetCustomColor.xml)">$LOCALIZE[31239] [COLOR=$VAR[ColorHighlight]]$VAR[ColorHighlight][/COLOR]  •  $LOCALIZE[31240] [COLOR=$INFO[Control.GetLabel(9500)]]$INFO[Control.GetLabel(9500)][/COLOR]</value>
