@@ -200,11 +200,10 @@
                     <height>66</height>
                     <label>31266</label>
                     <label2>$VAR[LabelWidgetShortcutsName]</label2>
-                    <visible>stringcompare(Window.Property(groupname),mainmenu)</visible>
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <align>left</align>
                     <include>DefDialogButtons</include>
-                    <visible>stringcompare(Window.Property(groupname),mainmenu)</visible>
+                    <visible>stringcompare(Window.Property(groupname),mainmenu) | String.Contains(Window.Property(groupname),x111)</visible>
                 </control>
                 <control type="button" id="9401" description="Widget Aspect">
                     <width>100%</width>

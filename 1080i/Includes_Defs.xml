@@ -694,37 +694,8 @@
                         <texture background="true" diffuse="diffuse/home-fanart.png">pvr/background.jpg</texture>
                         <visible>!IntegerGreaterThan(Container(9500).NumItems,0)</visible>
                     </control>
-                    <control type="wraplist" id="9500">
-                        <description>Widget</description>
-                        <left>0</left>
-                        <width>1122</width>
-                        <top>0</top>
-                        <bottom>0</bottom>
-                        <onright>9501</onright>
-                        <onup>9500</onup>
-                        <ondown>9500</ondown>
-                        <preloaditems>1</preloaditems>
-                        <orientation>vertical</orientation>
-                        <autoscroll time="10000">!Control.HasFocus(9500)</autoscroll>
-                        <scrolltime tween="quadratic">400</scrolltime>
-                        <include>Animation.FadeIn</include>
-                        <include>Animation.FadeOut</include>
-                        <itemlayout width="1122" height="640">
-                            <control type="image">
-                                <width>100%</width>
-                                <height>100%</height>
-                                <texture background="true" diffuse="diffuse/home-fanart.png">$VAR[FanartImage]</texture>
-                            </control>
-                        </itemlayout>
-                        <focusedlayout width="1122" height="640">
-                            <control type="image">
-                                <width>100%</width>
-                                <height>100%</height>
-                                <texture background="true" diffuse="diffuse/home-fanart.png">$VAR[FanartImage]</texture>
-                            </control>
-                        </focusedlayout>
-                        <content target="$VAR[DefHubWidgetTarget]">$VAR[DefHubWidget]</content>
-                    </control>
+                    <include>DefHubWidgetInclude</include>
+                    
                     <control type="group">
                         <left>0</left>
                         <width>1122</width>
@@ -898,6 +869,207 @@
                 <animation effect="fade" start="100" end="33" time="400" condition="!Control.HasFocus(60) + !Container.Scrolling">Conditional</animation>
             </control>
         </control>
+    </include>
+
+    <!-- HUB WIDGET -->
+    <include name="DefHubWidgetContent">
+        <param name="target" default="$VAR[DefHubWidgetTarget]" />
+        <param name="content" default="$VAR[DefHubWidget]" />
+        <definition>
+            <control type="wraplist" id="9500">
+                <description>Widget</description>
+                <left>0</left>
+                <width>1122</width>
+                <top>0</top>
+                <bottom>0</bottom>
+                <onright>9501</onright>
+                <onup>9500</onup>
+                <ondown>9500</ondown>
+                <preloaditems>1</preloaditems>
+                <orientation>vertical</orientation>
+                <autoscroll time="10000">!Control.HasFocus(9500)</autoscroll>
+                <scrolltime tween="quadratic">400</scrolltime>
+                <include>Animation.FadeIn</include>
+                <include>Animation.FadeOut</include>
+                <visible>$PARAM[visible]</visible>
+                <itemlayout width="1122" height="640">
+                    <control type="image">
+                        <width>100%</width>
+                        <height>100%</height>
+                        <texture background="true" diffuse="diffuse/home-fanart.png">$VAR[FanartImage]</texture>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="1122" height="640">
+                    <control type="image">
+                        <width>100%</width>
+                        <height>100%</height>
+                        <texture background="true" diffuse="diffuse/home-fanart.png">$VAR[FanartImage]</texture>
+                    </control>
+                </focusedlayout>
+                <content target="$PARAM[target]">$PARAM[content]</content>
+            </control>
+        </definition>
+    </include>
+
+    <include name="DefHubWidgetInclude">
+        <include content="DefHubWidgetContent">
+            <param name="visible" value="[String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(0).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(0).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(1).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(1).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(2).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(2).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(3).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(3).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(4).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(4).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(5).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(5).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(6).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(6).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(7).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(7).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(8).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(8).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(9).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(9).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(10).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(10).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(11).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(11).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(12).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(12).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(13).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(13).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(14).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(14).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(15).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(15).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(16).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(16).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(17).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(17).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(18).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(18).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(19).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(19).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(20).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(20).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(21).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(21).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(22).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(22).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(23).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(23).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(24).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(24).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(25).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(25).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(26).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(26).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(27).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(27).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(28).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(28).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(29).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(29).Property(widgetPath))] | [String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(30).Label) + String.IsEmpty(Container(9501).ListItemAbsolute(30).Property(widgetPath))]" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(0).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(0).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(0).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(0).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(1).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(1).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(1).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(1).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(2).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(2).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(2).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(2).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(3).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(3).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(3).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(3).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(4).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(4).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(4).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(4).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(5).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(5).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(5).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(5).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(6).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(6).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(6).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(6).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(7).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(7).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(7).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(7).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(8).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(8).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(8).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(8).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(9).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(9).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(9).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(9).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(10).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(10).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(10).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(10).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(11).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(11).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(11).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(11).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(12).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(12).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(12).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(12).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(13).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(13).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(13).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(13).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(14).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(14).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(14).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(14).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(15).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(15).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(15).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(15).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(16).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(16).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(16).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(16).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(17).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(17).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(17).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(17).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(18).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(18).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(18).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(18).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(19).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(19).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(19).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(19).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(20).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(20).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(20).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(20).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(21).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(21).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(21).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(21).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(22).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(22).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(22).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(22).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(23).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(23).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(23).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(23).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(24).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(24).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(24).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(24).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(25).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(25).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(25).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(25).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(26).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(26).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(26).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(26).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(27).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(27).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(27).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(27).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(28).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(28).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(28).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(28).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(29).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(29).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(29).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(29).Property(widgetPath))" />
+        </include>
+        <include content="DefHubWidgetContent">
+            <param name="target" value="$INFO[Container(9501).ListItemAbsolute(30).Property(widgetTarget)]" />
+            <param name="content" value="$INFO[Container(9501).ListItemAbsolute(30).Property(widgetPath)]" />
+            <param name="visible" value="String.IsEqual(Container(9501).ListItem.Label,Container(9501).ListItemAbsolute(30).Label) + !String.IsEmpty(Container(9501).ListItemAbsolute(30).Property(widgetPath))" />
+        </include>
     </include>
 
     <variable name="DefHubWidget">
