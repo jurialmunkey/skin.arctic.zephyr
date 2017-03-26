@@ -353,8 +353,9 @@
             <animation type="WindowClose">
                 <effect type="fade" start="100" end="0" time="150"/>
             </animation>
-            <include condition="Skin.HasSetting(NoPersistentWidgets)">Home-Widget-Featured</include>
-            <include condition="!Skin.HasSetting(NoPersistentWidgets)">skinshortcuts-template-widget-featured</include>
+            <!-- <include condition="Skin.HasSetting(NoPersistentWidgets)">Home-Widget-Featured</include> -->
+            <!-- <include condition="!Skin.HasSetting(NoPersistentWidgets)">skinshortcuts-template-widget-featured</include> -->
+            <include>skinshortcuts-template-widget-featured</include>
 
             <!-- Normal Widget -->
             <control type="group">
@@ -1106,8 +1107,9 @@
                     <control type="group">
                         <animation effect="fade" start="100" end="0" time="0" reversible="false" condition="![!substring(Container(300).ListItem.Property(widget),Weather,left) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + [IsEmpty(Skin.String(home.slideshowpath))]]]]]">Conditional</animation>
                         <animation effect="fade" start="0" end="100" time="0" delay="0" reversible="false" condition="!substring(Container(300).ListItem.Property(widget),Weather,left) + [!IsEmpty(Container(300).ListItem.Property(widget)) | [IsEmpty(Container(300).ListItem.Property(widget)) + [IsEmpty(Container(300).ListItem.Property(Background)) + [IsEmpty(Skin.String(home.slideshowpath))]]]]">Conditional</animation>
-                        <include condition="Skin.HasSetting(NoPersistentWidgets)">Home-Widget-Classic</include>
-                        <include condition="!Skin.HasSetting(NoPersistentWidgets)">skinshortcuts-template-widget-classic</include>
+                        <!-- <include condition="Skin.HasSetting(NoPersistentWidgets)">Home-Widget-Classic</include>
+                        <include condition="!Skin.HasSetting(NoPersistentWidgets)">skinshortcuts-template-widget-classic</include> -->
+                        <include>skinshortcuts-template-widget-classic</include>
                     </control>
 
                     <!-- Weather Widget -->
@@ -2203,8 +2205,9 @@
                         </control>
                     </control>
                     <!-- Widget -->
-                    <include condition="Skin.HasSetting(NoPersistentWidgets)">Home-Widget-Vertical</include>
-                    <include condition="!Skin.HasSetting(NoPersistentWidgets)">skinshortcuts-template-widget-vertical</include>
+                    <!-- <include condition="Skin.HasSetting(NoPersistentWidgets)">Home-Widget-Vertical</include>
+                    <include condition="!Skin.HasSetting(NoPersistentWidgets)">skinshortcuts-template-widget-vertical</include> -->
+                    <include>skinshortcuts-template-widget-vertical</include>
                 </control>
             </control>
         </control>
