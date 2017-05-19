@@ -1,6 +1,5 @@
 <window>
-    <defaultcontrol>30</defaultcontrol>
-
+    <onclick condition="String.IsEmpty(Skin.String(WidgetLimit))">Skin.SetString(WidgetLimit,10)</onclick>
     <defaultcontrol always="true">9101</defaultcontrol>
 
     <controls>
@@ -116,16 +115,17 @@
                         <onclick>ActivateWindow(1106)</onclick>
                     </control>
 
-
-
-
-                    <!-- <control type="button" id="9212" description="Reset Home to Defaults">
+                    <control type="button" id="9212" description="Set Slideshow Path">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
-                        <label>31132</label>
-                        <onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
-                    </control> -->
+                        <label>$LOCALIZE[31000]</label>
+                        <label2>$INFO[Skin.String(WidgetLimit)]</label2>
+                        <onclick condition="String.IsEqual(Skin.String(WidgetLimit),$LOCALIZE[37030])">Skin.SetString(WidgetLimit,10)</onclick>
+                        <onclick condition="String.IsEqual(Skin.String(WidgetLimit),50)">Skin.SetString(WidgetLimit,$LOCALIZE[37030])</onclick>
+                        <onclick condition="String.IsEqual(Skin.String(WidgetLimit),25)">Skin.SetString(WidgetLimit,50)</onclick>
+                        <onclick condition="!String.IsEqual(Skin.String(WidgetLimit),$LOCALIZE[37030]) + !String.IsEqual(Skin.String(WidgetLimit),25) + !String.IsEqual(Skin.String(WidgetLimit),50)">Skin.SetString(WidgetLimit,25)</onclick>
+                    </control>
 
                     <control type="radiobutton" id="9243" description="Show slideshow instead of fanart">
                         <width>1310</width>
@@ -154,15 +154,6 @@
                         <onclick>Skin.ToggleSetting(NoPersistentWidgets)</onclick>
                     </control> -->
 
-                    <control type="radiobutton" id="9216" description="Show Icons">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31190</label>
-                        <selected>Skin.HasSetting(home.showicons)</selected>
-                        <onclick>Skin.ToggleSetting(home.showicons)</onclick>
-                    </control>
-
                     <control type="radiobutton" id="9217" description="Always Show Weather Widget">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
@@ -172,6 +163,34 @@
                         <selected>Skin.HasSetting(home.showweatherfanart)</selected>
                         <onclick>Skin.ToggleSetting(home.showweatherfanart)</onclick>
                     </control>
+
+                    <control type="radiobutton" id="9216" description="Show Icons">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31190</label>
+                        <selected>Skin.HasSetting(home.showicons)</selected>
+                        <onclick>Skin.ToggleSetting(home.showicons)</onclick>
+                    </control>
+                    <control type="radiobutton" id="9277" description="Show Header">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>$LOCALIZE[31115]</label>
+                        <selected>Skin.HasSetting(home.showheader)</selected>
+                        <onclick>Skin.ToggleSetting(home.showheader)</onclick>
+                        <enable>!Skin.HasSetting(home.vertical)</enable>
+                    </control>
+                    <control type="radiobutton" id="9276" description="Horz Sub">
+                        <width>1310</width>
+                        <visible>ControlGroup(9100).HasFocus(9101)</visible>
+                        <include>DefSettingsButton</include>
+                        <label>31202</label>
+                        <enable>!Skin.HasSetting(home.showicons) + !Skin.HasSetting(home.vertical)</enable>
+                        <selected>Skin.HasSetting(home.submenu2)</selected>
+                        <onclick>Skin.ToggleSetting(home.submenu2)</onclick>
+                    </control>
+                    
 
                     <!-- Fanart -->
                     <control type="radiobutton" id="9223" description="Show fanart">
@@ -445,24 +464,7 @@
                         <selected>Skin.HasSetting(hide.busydialog)</selected>
                         <onclick>Skin.ToggleSetting(hide.busydialog)</onclick>
                     </control>
-                    <control type="radiobutton" id="9276" description="Horz Sub">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9107)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>31202</label>
-                        <enable>!Skin.HasSetting(home.showicons) + !Skin.HasSetting(home.vertical)</enable>
-                        <selected>Skin.HasSetting(home.submenu2)</selected>
-                        <onclick>Skin.ToggleSetting(home.submenu2)</onclick>
-                    </control>
-                    <control type="radiobutton" id="9277" description="Show Header">
-                        <width>1310</width>
-                        <visible>ControlGroup(9100).HasFocus(9107)</visible>
-                        <include>DefSettingsButton</include>
-                        <label>$LOCALIZE[31115] ($LOCALIZE[10000])</label>
-                        <selected>Skin.HasSetting(home.showheader)</selected>
-                        <onclick>Skin.ToggleSetting(home.showheader)</onclick>
-                        <enable>!Skin.HasSetting(home.vertical)</enable>
-                    </control>
+                    
 
                 </control>
 
