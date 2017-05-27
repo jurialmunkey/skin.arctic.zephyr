@@ -174,7 +174,7 @@
         <property name="content">$VAR[DefWidgetContent]</property>
         <property name="target" tag="property" attribute="name|widgetTarget" />
         <controls>
-            <control type="list" id="301">
+            <control type="fixedlist" id="301">
                 <skinshortcuts>visibility</skinshortcuts>
                 <visible>!substring(Container(300).ListItem.Property(widget),Weather,left)</visible>
                 <animation effect="fade" start="100" end="66" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
