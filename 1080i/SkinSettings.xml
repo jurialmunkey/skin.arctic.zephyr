@@ -113,13 +113,13 @@
                         <onclick condition="!Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.classicwidgets)">Skin.SetBool(home.classicwidgets)</onclick>
                     </control>
 
-                    <control type="button" id="9241" description="Set Slideshow Path">
+                    <control type="button" id="9241" description="Set Fallback widget">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
                         <label>31269</label>
                         <label2>$VAR[LabelFallbackWidgetName]</label2>
-                        <onclick>ActivateWindow(1106)</onclick>
+                        <onclick>ActivateWindow(1126)</onclick>
                     </control>
 
                     <control type="button" id="9212" description="Set Slideshow Path">
@@ -437,7 +437,7 @@
                         <include>DefSettingsButton</include>
                         <label>$LOCALIZE[31238]</label>
                         <label2>$INFO[Skin.String(focuscolor.name)]</label2>
-                        <onclick>ActivateWindow(1107)</onclick>
+                        <onclick>ActivateWindow(1127)</onclick>
                     </control>
                     <control type="radiobutton" id="9273" description="Kiosk Mode">
                         <width>1310</width>

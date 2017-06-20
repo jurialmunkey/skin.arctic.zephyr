@@ -60,8 +60,8 @@
                         <width>66</width>
                         <height>66</height>
                         <texture colordiffuse="Black30">$INFO[ListItem.Icon]</texture>
-                        <visible>substring(ListItem.Icon,special://skin/extras/icons)</visible>
-                        <visible>Skin.HasSetting(home.showicons) | substring(Window.Property(groupname),x111)</visible>
+                        <visible>String.Contains(ListItem.Icon,special://skin/extras/icons)</visible>
+                        <visible>Skin.HasSetting(home.showicons) | String.Contains(Window.Property(groupname),x11)</visible>
                     </control>
                 </itemlayout>
                 <focusedlayout width="600" height="69">
@@ -94,8 +94,8 @@
                         <width>66</width>
                         <height>66</height>
                         <texture colordiffuse="Black30">$INFO[ListItem.Icon]</texture>
-                        <visible>substring(ListItem.Icon,special://skin/extras/icons)</visible>
-                        <visible>Skin.HasSetting(home.showicons) | substring(Window.Property(groupname),x111)</visible>
+                        <visible>String.Contains(ListItem.Icon,special://skin/extras/icons)</visible>
+                        <visible>Skin.HasSetting(home.showicons) | String.Contains(Window.Property(groupname),x11)</visible>
                     </control>
                 </focusedlayout>
             </control>
@@ -110,7 +110,7 @@
                 <onup>Control.Move(211,-1)</onup>
                 <ondown>Control.Move(211,1)</ondown>
                 <orientation>horizontal</orientation>
-                <animation effect="slide" end="-48" condition="Skin.HasSetting(home.showicons) | substring(Window.Property(groupname),x111)">Conditional</animation>
+                <animation effect="slide" end="-48" condition="Skin.HasSetting(home.showicons) | String.Contains(Window.Property(groupname),x11)">Conditional</animation>
                 <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,0)">Conditional</animation>
                 <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,1)">Conditional</animation>
                 <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,2)">Conditional</animation>
@@ -203,7 +203,7 @@
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <align>left</align>
                     <include>DefDialogButtons</include>
-                    <visible>stringcompare(Window.Property(groupname),mainmenu) | String.Contains(Window.Property(groupname),x111)</visible>
+                    <visible>stringcompare(Window.Property(groupname),mainmenu) | String.Contains(Window.Property(groupname),x11)</visible>
                 </control>
                 <control type="button" id="9401" description="Widget Aspect">
                     <width>100%</width>
@@ -238,7 +238,7 @@
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <align>left</align>
                     <include>DefDialogButtons</include>
-                    <visible>substring(Window.Property(groupname),x111) | Skin.HasSetting(home.showicons)</visible>
+                    <visible>String.Contains(Window.Property(groupname),x11) | Skin.HasSetting(home.showicons)</visible>
                 </control>
                 <control type="button" id="405" description="Set Submenu">
                     <width>100%</width>
@@ -251,49 +251,94 @@
                     <visible>!stringcompare(Container(211).ListItem.Label2,MovieHub) + !stringcompare(Container(211).ListItem.Label2,TVHub)</visible>
                 </control>
                 <include content="Defs_Shortcuts_SetHub">
-                    <param name="hubid" value="1111" />
+                    <param name="hubid" value="1101" />
                     <param name="buttonid1" value="9301" />
                     <param name="buttonid2" value="9501" />
                 </include>
                 <include content="Defs_Shortcuts_SetHub">
-                    <param name="hubid" value="1112" />
+                    <param name="hubid" value="1102" />
                     <param name="buttonid1" value="9302" />
                     <param name="buttonid2" value="9502" />
                 </include>
                 <include content="Defs_Shortcuts_SetHub">
-                    <param name="hubid" value="1113" />
+                    <param name="hubid" value="1103" />
                     <param name="buttonid1" value="9303" />
                     <param name="buttonid2" value="9503" />
                 </include>
                 <include content="Defs_Shortcuts_SetHub">
-                    <param name="hubid" value="1114" />
+                    <param name="hubid" value="1104" />
                     <param name="buttonid1" value="9304" />
                     <param name="buttonid2" value="9504" />
                 </include>
                 <include content="Defs_Shortcuts_SetHub">
-                    <param name="hubid" value="1115" />
+                    <param name="hubid" value="1105" />
                     <param name="buttonid1" value="9305" />
                     <param name="buttonid2" value="9505" />
                 </include>
                 <include content="Defs_Shortcuts_SetHub">
-                    <param name="hubid" value="1116" />
+                    <param name="hubid" value="1106" />
                     <param name="buttonid1" value="9306" />
                     <param name="buttonid2" value="9506" />
                 </include>
                 <include content="Defs_Shortcuts_SetHub">
-                    <param name="hubid" value="1117" />
+                    <param name="hubid" value="1107" />
                     <param name="buttonid1" value="9307" />
                     <param name="buttonid2" value="9507" />
                 </include>
                 <include content="Defs_Shortcuts_SetHub">
-                    <param name="hubid" value="1118" />
+                    <param name="hubid" value="1108" />
                     <param name="buttonid1" value="9308" />
                     <param name="buttonid2" value="9508" />
                 </include>
                 <include content="Defs_Shortcuts_SetHub">
-                    <param name="hubid" value="1119" />
+                    <param name="hubid" value="1109" />
                     <param name="buttonid1" value="9309" />
                     <param name="buttonid2" value="9509" />
+                </include>
+                <include content="Defs_Shortcuts_SetHub">
+                    <param name="hubid" value="1111" />
+                    <param name="buttonid1" value="9311" />
+                    <param name="buttonid2" value="9511" />
+                </include>
+                <include content="Defs_Shortcuts_SetHub">
+                    <param name="hubid" value="1112" />
+                    <param name="buttonid1" value="9312" />
+                    <param name="buttonid2" value="9512" />
+                </include>
+                <include content="Defs_Shortcuts_SetHub">
+                    <param name="hubid" value="1113" />
+                    <param name="buttonid1" value="9313" />
+                    <param name="buttonid2" value="9513" />
+                </include>
+                <include content="Defs_Shortcuts_SetHub">
+                    <param name="hubid" value="1114" />
+                    <param name="buttonid1" value="9314" />
+                    <param name="buttonid2" value="9514" />
+                </include>
+                <include content="Defs_Shortcuts_SetHub">
+                    <param name="hubid" value="1115" />
+                    <param name="buttonid1" value="9315" />
+                    <param name="buttonid2" value="9515" />
+                </include>
+                <include content="Defs_Shortcuts_SetHub">
+                    <param name="hubid" value="1116" />
+                    <param name="buttonid1" value="9316" />
+                    <param name="buttonid2" value="9516" />
+                </include>
+                <include content="Defs_Shortcuts_SetHub">
+                    <param name="hubid" value="1117" />
+                    <param name="buttonid1" value="9317" />
+                    <param name="buttonid2" value="9517" />
+                </include>
+                <include content="Defs_Shortcuts_SetHub">
+                    <param name="hubid" value="1118" />
+                    <param name="buttonid1" value="9318" />
+                    <param name="buttonid2" value="9518" />
+                </include>
+                <include content="Defs_Shortcuts_SetHub">
+                    <param name="hubid" value="1119" />
+                    <param name="buttonid1" value="9319" />
+                    <param name="buttonid2" value="9519" />
                 </include>
 
                 <control type="button" id="308" description="Reset">

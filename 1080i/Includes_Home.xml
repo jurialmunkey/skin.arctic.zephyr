@@ -1478,9 +1478,7 @@
                 </animation>
                 <!-- Home List -->
                 <control type="list" id="300">
-                    <animation effect="slide" start="0" end="30" time="300" delay="0" center="auto" tween="sine" easing="out" condition="Control.HasFocus(301) + Skin.HasSetting(home.showicons)">Conditional</animation>
-                    <animation effect="slide" start="0" end="-30" time="300" delay="0" center="auto" tween="sine" easing="out" condition="Control.HasFocus(301) + !Skin.HasSetting(home.showicons)">Conditional</animation>
-                    <animation effect="fade" start="100" end="33" time="400" condition="Control.HasFocus(301) + !Skin.HasSetting(home.showicons)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="300" condition="Control.HasFocus(301)">Conditional</animation>
                     <animation effect="slide" start="-500" end="0" time="200" delay="100" tween="quadratic" easing="out">Visible</animation>
                     <visible allowhiddenfocus="true">!Control.HasFocus(302)</visible>
                     <include>Animation.FadeIn</include>
