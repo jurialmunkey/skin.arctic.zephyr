@@ -147,26 +147,27 @@
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
                         <label>31200</label>
-                        <enable>!Skin.HasSetting(home.vertical)</enable>
+                        <visible>!Skin.HasSetting(home.vertical)</visible>
                         <selected>Skin.HasSetting(home.dontautoshowwidget)</selected>
                         <onclick>Skin.ToggleSetting(home.dontautoshowwidget)</onclick>
                     </control>
 
-                    <!-- <control type="radiobutton" id="9218" description="Allow Widget Reloading">
+                    <control type="radiobutton" id="9218" description="Disable Auto Scroll for Vertical">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
-                        <label>31274</label>
-                        <selected>Skin.HasSetting(NoPersistentWidgets)</selected>
-                        <onclick>Skin.ToggleSetting(NoPersistentWidgets)</onclick>
-                    </control> -->
+                        <label>$LOCALIZE[31005]</label>
+                        <visible>Skin.HasSetting(home.vertical)</visible>
+                        <selected>!Skin.HasSetting(NoAutoScroll)</selected>
+                        <onclick>Skin.ToggleSetting(NoAutoScroll)</onclick>
+                    </control>
 
                     <control type="radiobutton" id="9217" description="Always Show Weather Widget">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
                         <label>31145</label>
-                        <enable>!Skin.HasSetting(home.vertical) + !Skin.HasSetting(furniture.weather)</enable>
+                        <visible>!Skin.HasSetting(home.vertical) + !Skin.HasSetting(furniture.weather)</visible>
                         <selected>Skin.HasSetting(home.showweatherfanart)</selected>
                         <onclick>Skin.ToggleSetting(home.showweatherfanart)</onclick>
                     </control>
@@ -186,14 +187,14 @@
                         <label>$LOCALIZE[31115]</label>
                         <selected>Skin.HasSetting(home.showheader)</selected>
                         <onclick>Skin.ToggleSetting(home.showheader)</onclick>
-                        <enable>!Skin.HasSetting(home.vertical)</enable>
+                        <visible>!Skin.HasSetting(home.vertical)</visible>
                     </control>
                     <control type="radiobutton" id="9276" description="Horz Sub">
                         <width>1310</width>
                         <visible>ControlGroup(9100).HasFocus(9101)</visible>
                         <include>DefSettingsButton</include>
                         <label>31202</label>
-                        <enable>!Skin.HasSetting(home.showicons) + !Skin.HasSetting(home.vertical)</enable>
+                        <visible>!Skin.HasSetting(home.showicons) + !Skin.HasSetting(home.vertical)</visible>
                         <selected>Skin.HasSetting(home.submenu2)</selected>
                         <onclick>Skin.ToggleSetting(home.submenu2)</onclick>
                     </control>

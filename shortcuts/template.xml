@@ -178,13 +178,16 @@
                 <skinshortcuts>visibility</skinshortcuts>
                 <visible>!substring(Container(300).ListItem.Property(widget),Weather,left)</visible>
                 <animation effect="fade" start="100" end="66" time="400" condition="!Control.HasFocus(301)">Conditional</animation>
-                <autoscroll time="10000">!Control.HasFocus(301)</autoscroll>
+                <autoscroll time="10000">!Control.HasFocus(301) + !Skin.HasSetting(NoAutoScroll)</autoscroll>
                 <top>330</top>
                 <left>518</left>
                 <width>1776</width>
                 <height>325</height>
                 <onright>noop</onright>
-                <onback>300</onback>
+                <onback condition="!Integer.IsEqual(Container(301).Position,0) | Container(301).HasPrevious">PageUp</onback>
+                <onback condition="!Integer.IsEqual(Container(301).Position,0) | Container(301).HasPrevious">PageUp</onback>
+                <onback condition="!Integer.IsEqual(Container(301).Position,0) | Container(301).HasPrevious">PageUp</onback>
+                <onback condition="Integer.IsEqual(Container(301).Position,0) + !Container(301).HasPrevious">300</onback>
                 <onleft>300</onleft>
                 <onup>300</onup>
                 <ondown>300</ondown>
