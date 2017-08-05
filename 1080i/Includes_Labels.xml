@@ -214,8 +214,8 @@
     </variable>
     <variable name="HDSD">
         <value condition="Container.Content(tvshows) | Container.Content(seasons)">$INFO[ListItem.Property(UnWatchedEpisodes)]</value>
-        <value condition="stringcompare(Container(9500).ListItem.VideoResolution,4k) | stringcompare(ListItem.VideoResolution,4k)">4K</value>
-        <value condition="IntegerGreaterThan(Container(9500).ListItem.VideoResolution,719) | IntegerGreaterThan(ListItem.VideoResolution,719)">HD</value>
+        <value condition="stringcompare(Container(9500).ListItem.VideoResolution,4k) | stringcompare(ListItem.VideoResolution,4k) | [[String.Contains(ListItem.FileNameAndPath,.disc) | String.Contains(ListItem.FileNameAndPath,.stub)] + String.Contains(ListItem.FilenameAndPath,uhd)]">4K</value>
+        <value condition="IntegerGreaterThan(Container(9500).ListItem.VideoResolution,719) | IntegerGreaterThan(ListItem.VideoResolution,719) | [[String.Contains(ListItem.FileNameAndPath,.disc) | String.Contains(ListItem.FileNameAndPath,.stub)] + String.Contains(ListItem.FilenameAndPath,bluray)]">HD</value>
         <value>SD</value>
     </variable>
     <variable name="PlayerTitle">
