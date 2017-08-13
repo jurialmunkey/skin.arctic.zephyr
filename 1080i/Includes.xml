@@ -123,6 +123,19 @@
         <value condition="!IsEmpty(Skin.String(fanart.fallback))">$INFO[Skin.String(fanart.fallback)]</value>
         <value>common/null.png</value>
     </variable>
+	
+    <include name="TopSpaceSettings">
+	<include condition="System.HasAddon(service.libreelec.settings)">TopSpaceSettings120</include>
+	<include condition="!System.HasAddon(service.libreelec.settings)">TopSpaceSettings10</include>
+    </include>
+	
+    <include name="TopSpaceSettings120">
+	<top>120</top>
+    </include>
+
+    <include name="TopSpaceSettings10">
+	<top>10</top>
+    </include>
 
     <include name="GlobalVideoWindow">
         <control type="image" description="Background">
