@@ -16,6 +16,7 @@
     <include file="View_58_Cards.xml" />
     <include file="View_59_BannerWall.xml" />
     <include file="View_500_Thumbnails.xml" />
+    <include file="View_501_BannerWall2.xml" />
     <include file="View_503_Poster_Square.xml" />
     <include file="View_505_Wall_Square.xml" />
 
@@ -122,6 +123,19 @@
         <value condition="!IsEmpty(Skin.String(fanart.fallback))">$INFO[Skin.String(fanart.fallback)]</value>
         <value>common/null.png</value>
     </variable>
+	
+    <include name="TopSpaceSettings">
+	<include condition="System.HasAddon(service.libreelec.settings)">TopSpaceSettings120</include>
+	<include condition="!System.HasAddon(service.libreelec.settings)">TopSpaceSettings10</include>
+    </include>
+	
+    <include name="TopSpaceSettings120">
+	<top>120</top>
+    </include>
+
+    <include name="TopSpaceSettings10">
+	<top>10</top>
+    </include>
 
     <include name="GlobalVideoWindow">
         <control type="image" description="Background">

@@ -11,7 +11,7 @@
         <include>Furniture_Weather</include>
         <control type="group">
             <left>SidePad</left>
-            <width>1760</width>
+            <width>1725</width>
             <top>PosterPad</top>
             <height>652</height>
             <include>Animation.Common</include>
@@ -23,7 +23,7 @@
                 <texture border="16" colordiffuse="Panel">common/rounded-shadow8.png</texture>
             </control>
             <control type="group">
-                <top>10</top>
+		<include>TopSpaceSettings</include>
                 <bottom>10</bottom>
                 <right>10</right>
                 <left>1160</left>
@@ -71,7 +71,8 @@
             </control>
             <control type="Panel" id="9100">
                 <left>0</left>
-                <width>1150</width>
+                <!--<width>1150</width>-->
+				<width>1725</width>
                 <top>10</top>
                 <height>642</height>
                 <orientation>horizontal</orientation>
@@ -193,7 +194,13 @@
                         <icon>special://skin/extras/icons/livetv.png</icon>
                         <onclick>activatewindow(pvrsettings)</onclick>
                     </item>
-
+                    <item id="12">
+                        <label>31282</label>
+                        <label2>31283</label2>
+                        <icon>special://skin/extras/icons/libreelec.png</icon>
+                        <onclick>RunAddon(service.libreelec.settings)</onclick>
+                        <visible>System.HasAddon(service.libreelec.settings)</visible>
+                    </item>
 
                 </content>
             </control>
