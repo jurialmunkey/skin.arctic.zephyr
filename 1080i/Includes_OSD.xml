@@ -60,7 +60,7 @@
                 <width>88</width>
                 <height>64</height>
                 <centertop>50%</centertop>
-                <texture colordiffuse="$VAR[OSDPanelWhite70]" fallback="flags/fallback.png">$INFO[VideoPlayer.AudioCodec,flags/audio/,.png]</texture>
+                <texture colordiffuse="$VAR[OSDPanelWhite70]" fallback="flags/fallback.png">$VAR[VideoPlayerAudioCodecPlusFilenameFlags,flags/audio/,.png]</texture>
                 <aspectratio align="center">keep</aspectratio>
                 <visible>!IsEmpty(VideoPlayer.AudioCodec)</visible>
             </control>

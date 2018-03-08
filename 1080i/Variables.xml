@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<includes>
+	<variable name="ListItemAudioCodecPlusFilenameFlags">
+		<value condition="String.Contains(ListItem.Filenameandpath,atmos)">atmos</value>
+		<value condition="String.Contains(ListItem.Filenameandpath,Atmos)">atmos</value>
+		<value condition="String.Contains(ListItem.Filenameandpath,ATMOS)">atmos</value>
+		<value condition="String.Contains(ListItem.Filenameandpath,dts-x)">dts-x</value>
+		<value condition="String.Contains(ListItem.Filenameandpath,DTS-X)">dts-x</value>
+		<value condition="String.Contains(ListItem.Filenameandpath,dtsx)">dts-x</value>
+		<value condition="String.Contains(ListItem.Filenameandpath,DTSX)">dts-x</value>
+		<value>$INFO[ListItem.AudioCodec]</value>
+	</variable>
+	<variable name="VideoPlayerAudioCodecPlusFilenameFlags">
+		<value condition="String.Contains(Player.Filenameandpath,atmos)">atmos</value>
+		<value condition="String.Contains(Player.Filenameandpath,Atmos)">atmos</value>
+		<value condition="String.Contains(Player.Filenameandpath,ATMOS)">atmos</value>
+		<value condition="String.Contains(Player.Filenameandpath,dts-x)">dts-x</value>
+		<value condition="String.Contains(Player.Filenameandpath,DTS-X)">dts-x</value>
+		<value condition="String.Contains(Player.Filenameandpath,dtsx)">dts-x</value>
+		<value condition="String.Contains(Player.Filenameandpath,DTSX)">dts-x</value>
+		<value>$INFO[VideoPlayer.AudioCodec]</value>
+	</variable>
+</includes>
