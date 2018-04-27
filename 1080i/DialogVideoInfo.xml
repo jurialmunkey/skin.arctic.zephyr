@@ -111,6 +111,16 @@
                         <include>DefInfoButtons</include>
                         <visible>!IsEmpty(ListItem.Trailer)</visible>
                     </control>
+                    
+                    <control type="button" id="146">
+                        <description>Special Features button</description>
+                        <label>31282</label>
+                        <include>DefInfoButtons</include>
+                        <visible>System.HasAddon(plugin.video.specialfeatures)</visible>
+                        <visible>String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)</visible>
+                        <onclick>Action(close)</onclick>
+                        <onclick>RunScript(plugin.video.specialfeatures,listitem)</onclick>
+                    </control>
 
                     <control type="button" id="53">
                         <include>DefInfoButtons</include>
