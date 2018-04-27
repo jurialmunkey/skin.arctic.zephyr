@@ -339,7 +339,7 @@
                 <width>88</width>
                 <height>64</height>
                 <centertop>50%</centertop>
-                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+                <texture colordiffuse="Dark1" fallback="flags/fallback.png">$VAR[ListItemAudioCodecPlusFilenameFlags,flags/audio/,.png]</texture>
                 <aspectratio align="center">keep</aspectratio>
                 <visible>Skin.HasSetting(furniture.flagicons) + !IsEmpty(ListItem.AudioCodec)</visible>
             </control>
