@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
     <variable name="GlobalSearchArt">
-        <value condition="!IsEmpty(ListItem.Property(Fanart))">$INFO[ListItem.Property(Fanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Property(Fanart))">$INFO[ListItem.Property(Fanart)]</value>
         <value>$INFO[ListItem.Thumb]</value>
     </variable>
     <variable name="GlobalSearchPoster">
@@ -9,17 +9,17 @@
         <value>$INFO[Container(100).ListItem.Icon]</value>
     </variable>
     <variable name="GlobalSearchArtInfo">
-        <value condition="!IsEmpty(Container(100).ListItem.Property(Fanart))">$INFO[Container(100).ListItem.Property(Fanart)]</value>
-        <value condition="Control.HasFocus(111) + !IsEmpty(Container(111).ListItem.Property(Fanart))">$INFO[Container(111).ListItem.Property(Fanart)]</value>
-        <value condition="Control.HasFocus(121) + !IsEmpty(Container(121).ListItem.Property(Fanart))">$INFO[Container(121).ListItem.Property(Fanart)]</value>
-        <value condition="Control.HasFocus(131) + !IsEmpty(Container(131).ListItem.Property(Fanart))">$INFO[Container(131).ListItem.Property(Fanart)]</value>
-        <value condition="Control.HasFocus(141) + !IsEmpty(Container(141).ListItem.Property(Fanart))">$INFO[Container(141).ListItem.Property(Fanart)]</value>
-        <value condition="Control.HasFocus(151) + !IsEmpty(Container(151).ListItem.Property(Fanart))">$INFO[Container(151).ListItem.Property(Fanart)]</value>
-        <value condition="Control.HasFocus(161) + !IsEmpty(Container(161).ListItem.Property(Fanart))">$INFO[Container(161).ListItem.Property(Fanart)]</value>
-        <value condition="Control.HasFocus(171) + !IsEmpty(Container(171).ListItem.Property(Fanart))">$INFO[Container(171).ListItem.Property(Fanart)]</value>
-        <value condition="Control.HasFocus(181) + !IsEmpty(Container(181).ListItem.Property(Fanart))">$INFO[Container(181).ListItem.Property(Fanart)]</value>
-        <value condition="Control.HasFocus(191) + !IsEmpty(Container(191).ListItem.Property(Fanart))">$INFO[Container(191).ListItem.Property(Fanart)]</value>
-        <value condition="Control.HasFocus(211) + !IsEmpty(Container(211).ListItem.Property(Fanart))">$INFO[Container(211).ListItem.Property(Fanart)]</value>
+        <value condition="!String.IsEmpty(Container(100).ListItem.Property(Fanart))">$INFO[Container(100).ListItem.Property(Fanart)]</value>
+        <value condition="Control.HasFocus(111) + !String.IsEmpty(Container(111).ListItem.Property(Fanart))">$INFO[Container(111).ListItem.Property(Fanart)]</value>
+        <value condition="Control.HasFocus(121) + !String.IsEmpty(Container(121).ListItem.Property(Fanart))">$INFO[Container(121).ListItem.Property(Fanart)]</value>
+        <value condition="Control.HasFocus(131) + !String.IsEmpty(Container(131).ListItem.Property(Fanart))">$INFO[Container(131).ListItem.Property(Fanart)]</value>
+        <value condition="Control.HasFocus(141) + !String.IsEmpty(Container(141).ListItem.Property(Fanart))">$INFO[Container(141).ListItem.Property(Fanart)]</value>
+        <value condition="Control.HasFocus(151) + !String.IsEmpty(Container(151).ListItem.Property(Fanart))">$INFO[Container(151).ListItem.Property(Fanart)]</value>
+        <value condition="Control.HasFocus(161) + !String.IsEmpty(Container(161).ListItem.Property(Fanart))">$INFO[Container(161).ListItem.Property(Fanart)]</value>
+        <value condition="Control.HasFocus(171) + !String.IsEmpty(Container(171).ListItem.Property(Fanart))">$INFO[Container(171).ListItem.Property(Fanart)]</value>
+        <value condition="Control.HasFocus(181) + !String.IsEmpty(Container(181).ListItem.Property(Fanart))">$INFO[Container(181).ListItem.Property(Fanart)]</value>
+        <value condition="Control.HasFocus(191) + !String.IsEmpty(Container(191).ListItem.Property(Fanart))">$INFO[Container(191).ListItem.Property(Fanart)]</value>
+        <value condition="Control.HasFocus(211) + !String.IsEmpty(Container(211).ListItem.Property(Fanart))">$INFO[Container(211).ListItem.Property(Fanart)]</value>
         <value>$INFO[Container(100).ListItem.Thumb]</value>
     </variable>
     <include name="GlobalSearchListItem">
@@ -143,7 +143,7 @@
                 <height>16</height>
                 <include>Animation.DelayFadeIn</include>
                 <include>Animation.FadeOut</include>
-                <visible>Control.HasFocus($PARAM[listid]) + IntegerGreaterThan(Container($PARAM[listid]).NumItems,4)</visible>
+                <visible>Control.HasFocus($PARAM[listid]) + Integer.IsGreater(Container($PARAM[listid]).NumItems,4)</visible>
                 <texture colordiffuse="Dark2" flipx="false">common/arrow-small-right.png</texture>
             </control>
         </control>

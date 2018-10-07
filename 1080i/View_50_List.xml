@@ -8,7 +8,7 @@
             <visible>Control.IsVisible(50)</visible>
             <control type="group">
                 <control type="list" id="50">
-                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left) + !stringcompare(Container.FolderPath,library://video/movies/) + !stringcompare(Container.FolderPath,library://video/tvshows/) + !stringcompare(Container.FolderPath,special://videoplaylists/)] | Container.Content(episodes)</visible>
+                    <visible>String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(files) + !String.Contains(Container.FolderPath,plugin://,left) + !String.IsEqual(Container.FolderPath,library://video/movies/) + !String.IsEqual(Container.FolderPath,library://video/tvshows/) + !String.IsEqual(Container.FolderPath,special://videoplaylists/)] | Container.Content(episodes)</visible>
                     <top>PosterPad</top>
                     <height>PosterH</height>
                     <left>ListX</left>
@@ -78,7 +78,7 @@
             <control type="group">
                 <posy>320</posy>
                 <control type="fixedlist" id="50">
-                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left) + !stringcompare(Container.FolderPath,library://video/movies/) + !stringcompare(Container.FolderPath,library://video/tvshows/) + !stringcompare(Container.FolderPath,special://videoplaylists/)] | Container.Content(episodes)</visible>
+                    <visible>String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | [Container.Content(files) + !String.Contains(Container.FolderPath,plugin://,left) + !String.IsEqual(Container.FolderPath,library://video/movies/) + !String.IsEqual(Container.FolderPath,library://video/tvshows/) + !String.IsEqual(Container.FolderPath,special://videoplaylists/)] | Container.Content(episodes)</visible>
                     <top>PosterPad</top>
                     <height>320</height>
                     <left>ListX</left>
@@ -128,7 +128,7 @@
         <control type="group" description="Poster">
             <left>SidePad</left>
             <top>PosterPad</top>
-            <visible>!IsEmpty(ListItem.Icon)</visible>
+            <visible>!String.IsEmpty(ListItem.Icon)</visible>
             <control type="image">
                 <top>PosterH</top>
                 <width>PosterW</width>
@@ -173,7 +173,7 @@
         <control type="group" description="Poster">
             <left>SidePad</left>
             <top>PosterPad</top>
-            <visible>!IsEmpty(ListItem.Icon)</visible>
+            <visible>!String.IsEmpty(ListItem.Icon)</visible>
             <control type="image">
                 <top>PosterH</top>
                 <width>PosterH</width>
@@ -257,7 +257,7 @@
             <visible>Control.IsVisible(550)</visible>
             <control type="group">
                 <control type="list" id="550">
-                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | ![Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | Container.Content(episodes) | [Container.Content(files) + !substring(Container.FolderPath,plugin://,left) + !stringcompare(Container.FolderPath,library://video/movies/) + !stringcompare(Container.FolderPath,library://video/tvshows/) + !stringcompare(Container.FolderPath,special://videoplaylists/)]]</visible>
+                    <visible>String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | ![Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons) | Container.Content(episodes) | [Container.Content(files) + !String.Contains(Container.FolderPath,plugin://,left) + !String.IsEqual(Container.FolderPath,library://video/movies/) + !String.IsEqual(Container.FolderPath,library://video/tvshows/) + !String.IsEqual(Container.FolderPath,special://videoplaylists/)]]</visible>
                     <top>PosterPad</top>
                     <height>PosterH</height>
                     <left>ListSquareX</left>
@@ -388,7 +388,7 @@
             <height>32</height>
             <aspectratio aligny="top">keep</aspectratio>
             <texture>$VAR[PercentWatched]</texture>
-            <visible>!stringcompare(ListItem.Label,..)</visible>
+            <visible>!String.IsEqual(ListItem.Label,..)</visible>
             <animation effect="slide" start="0" end="64" time="0" condition="Container.Content(Seasons)">Conditional</animation>
         </control>
         <control type="label">
@@ -401,7 +401,7 @@
             <textcolor>Light1</textcolor>
             <selectedcolor>Light1</selectedcolor>
             <label fallback="0.0">$INFO[ListItem.Rating]</label>
-            <visible>!stringcompare(ListItem.Label,..)</visible>
+            <visible>!String.IsEqual(ListItem.Label,..)</visible>
             <visible>!Container.Content(seasons)</visible>
         </control>
     </include>
@@ -459,7 +459,7 @@
             <height>32</height>
             <aspectratio aligny="top">keep</aspectratio>
             <texture>$VAR[PercentWatched]</texture>
-            <visible>!stringcompare(ListItem.Label,..)</visible>
+            <visible>!String.IsEqual(ListItem.Label,..)</visible>
             <animation effect="slide" start="0" end="64" time="0" condition="Container.Content(Seasons)">Conditional</animation>
         </control>
         <control type="label">
@@ -472,7 +472,7 @@
             <textcolor>Dark1</textcolor>
             <selectedcolor>Dark1</selectedcolor>
             <label fallback="0.0">$INFO[ListItem.Rating]</label>
-            <visible>!stringcompare(ListItem.Label,..)</visible>
+            <visible>!String.IsEqual(ListItem.Label,..)</visible>
             <visible>!Container.Content(seasons)</visible>
         </control>
     </include>

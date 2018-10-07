@@ -1,5 +1,5 @@
 <window>
-    <onclick condition="String.IsEmpty(Skin.String(WidgetLimit))">Skin.SetString(WidgetLimit,10)</onclick>
+    <onclick condition="String.String.IsEmpty(Skin.String(WidgetLimit))">Skin.SetString(WidgetLimit,10)</onclick>
     <defaultcontrol always="true">9101</defaultcontrol>
 
     <controls>
@@ -429,8 +429,8 @@
                         <include>DefSettingsButton</include>
                         <label>31168</label>
                         <label2>$INFO[Skin.String(StartupPlaylist)]</label2>
-                        <onclick condition="IsEmpty(Skin.String(StartupPlaylist))">Skin.SetFile(StartupPlaylist,.mp4|.avi|.mkv|.xvid|.wmv|.mov|.xsp|.mp3|.wma|.flac|.m3u)</onclick>
-                        <onclick condition="!IsEmpty(Skin.String(StartupPlaylist))">Skin.Reset(StartupPlaylist)</onclick>
+                        <onclick condition="String.IsEmpty(Skin.String(StartupPlaylist))">Skin.SetFile(StartupPlaylist,.mp4|.avi|.mkv|.xvid|.wmv|.mov|.xsp|.mp3|.wma|.flac|.m3u)</onclick>
+                        <onclick condition="!String.IsEmpty(Skin.String(StartupPlaylist))">Skin.Reset(StartupPlaylist)</onclick>
                     </control>
                     <control type="button" id="9272" description="Set Custom Colour">
                         <width>1310</width>

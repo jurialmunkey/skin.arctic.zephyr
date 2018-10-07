@@ -8,7 +8,7 @@
             <visible>Control.IsVisible(57)</visible>
             <control type="group">
                 <control type="list" id="57">
-                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
+                    <visible>String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
                     <top>PosterPad</top>
                     <height>PosterH</height>
                     <right>SidePad</right>
@@ -52,7 +52,7 @@
             <control type="group">
                 <posy>320</posy>
                 <control type="fixedlist" id="57">
-                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(movies) | Container.Content(tvshows) | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)] | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
+                    <visible>String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(movies) | Container.Content(tvshows) | [Container.Content(episodes) + !String.Contains(Container.FolderPath,plugin://,left)] | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
                     <top>PosterPad</top>
                     <height>320</height>
                     <right>SidePad</right>

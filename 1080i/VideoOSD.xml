@@ -82,8 +82,8 @@
                 <orientation>horizontal</orientation>
                 <align>left</align>
                 <onleft>6</onleft>
-                <onright condition="!Player.CanRecord | !VideoPlayer.Content(LiveTV)">12</onright>
-                <onright condition="Player.CanRecord + VideoPlayer.Content(LiveTV)">9003</onright>
+                <onright condition="!PVR.CanRecordPlayingChannel | !VideoPlayer.Content(LiveTV)">12</onright>
+                <onright condition="PVR.CanRecordPlayingChannel + VideoPlayer.Content(LiveTV)">9003</onright>
                 <include>DefOSDUpDown</include>
                 <usecontrolcoords>true</usecontrolcoords>
 

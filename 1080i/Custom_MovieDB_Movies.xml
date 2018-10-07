@@ -145,8 +145,8 @@
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture>$VAR[PercentWatched]</texture>
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
-                        <visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
+                        <visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
                     </control>
                 </itemlayout>
                 <focusedlayout height="337" width="222">
@@ -172,8 +172,8 @@
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture>$VAR[PercentWatched]</texture>
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
-                        <visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
+                        <visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
                     </control>
                     <control type="image">
                         <centerleft>50%</centerleft>
@@ -190,7 +190,7 @@
                             <effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
                             <effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
                         </animation>
-                        <visible>!substring(ListItem.Path,script.extendedinfo)</visible>
+                        <visible>!String.Contains(ListItem.Path,script.extendedinfo)</visible>
                     </control>
                     <control type="image">
                         <left>3</left>

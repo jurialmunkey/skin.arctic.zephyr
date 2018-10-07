@@ -8,7 +8,7 @@
             <visible>Control.IsVisible(56)</visible>
             <control type="group">
                 <control type="fixedlist" id="56">
-                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)] | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
+                    <visible>String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | [Container.Content(episodes) + !String.Contains(Container.FolderPath,plugin://,left)] | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
                     <top>PosterPad</top>
                     <height>448</height>
                     <left>ListX</left>
@@ -121,7 +121,7 @@
             <visible>Control.IsVisible(56)</visible>
             <control type="group">
                 <control type="list" id="56">
-                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)] | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
+                    <visible>String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | [Container.Content(episodes) + !String.Contains(Container.FolderPath,plugin://,left)] | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
                     <top>PosterPad</top>
                     <height>PosterH</height>
                     <right>731</right>
@@ -168,7 +168,7 @@
             <control type="group">
                 <posy>320</posy>
                 <control type="fixedlist" id="56">
-                    <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | [Container.Content(episodes) + !substring(Container.FolderPath,plugin://,left)] | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
+                    <visible>String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | [Container.Content(episodes) + !String.Contains(Container.FolderPath,plugin://,left)] | Container.Content(actors) | Container.Content(sets) | Container.Content(seasons)</visible>
                     <top>PosterPad</top>
                     <height>320</height>
                     <right>731</right>
@@ -241,7 +241,7 @@
             <height>32</height>
             <aspectratio aligny="top">keep</aspectratio>
             <texture>$VAR[PercentWatched]</texture>
-            <visible>!stringcompare(ListItem.Label,..)</visible>
+            <visible>!String.IsEqual(ListItem.Label,..)</visible>
         </control>
         <control type="label">
             <right>70</right>
@@ -274,7 +274,7 @@
             <height>32</height>
             <aspectratio aligny="top">keep</aspectratio>
             <texture>$VAR[PercentWatched]</texture>
-            <visible>!stringcompare(ListItem.Label,..)</visible>
+            <visible>!String.IsEqual(ListItem.Label,..)</visible>
         </control>
         <control type="label">
             <right>70</right>

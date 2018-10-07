@@ -109,7 +109,7 @@
                         <description>Trailer button</description>
                         <label>20410</label>
                         <include>DefInfoButtons</include>
-                        <visible>!IsEmpty(ListItem.Trailer)</visible>
+                        <visible>!String.IsEmpty(ListItem.Trailer)</visible>
                     </control>
                     
                     <control type="button" id="146">
@@ -129,7 +129,7 @@
                         <onclick>ClearProperty(content)</onclick>
                         <onclick condition="!Skin.HasSetting(noextendedinfoforcast)">SetFocus(51)</onclick>
                         <onclick condition="Skin.HasSetting(noextendedinfoforcast)">SetFocus(50)</onclick>
-                        <visible>!substring(Container.FolderPath,plugin://,left)</visible>
+                        <visible>!String.Contains(Container.FolderPath,plugin://,left)</visible>
                     </control>
 
                     <control type="button" id="9011">
@@ -139,7 +139,7 @@
                         <onclick>SetProperty(content,3)</onclick>
                         <onclick>SetFocus(9501)</onclick>
                         <visible>Container.Content(movies)</visible>
-                        <visible>!IsEmpty(ListItem.Director)</visible>
+                        <visible>!String.IsEmpty(ListItem.Director)</visible>
                     </control>
 
                     <control type="button" id="9012">
@@ -164,7 +164,7 @@
                         <include>DefInfoButtons</include>
                         <label>31171</label>
                         <onclick>RunScript(script.videoextras,display,"$INFO[ListItem.FilenameAndPath]")</onclick>
-                        <visible>System.HasAddon(script.videoextras) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(TVShows) | Container.Content(musicvideos)] + IsEmpty(Window(movieinformation).Property("HideVideoExtrasButton"))</visible>
+                        <visible>System.HasAddon(script.videoextras) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(TVShows) | Container.Content(musicvideos)] + String.IsEmpty(Window(movieinformation).Property("HideVideoExtrasButton"))</visible>
                     </control>
 
                     <control type="button" id ="6">
@@ -235,7 +235,7 @@
                     <include>Animation.FadeIn</include>
                 </control>
                 <control type="label">
-                    <visible>Control.IsVisible(50) | [!IsEmpty(Window.Property(content)) + !Container(9501).IsUpdating]</visible>
+                    <visible>Control.IsVisible(50) | [!String.IsEmpty(Window.Property(content)) + !Container(9501).IsUpdating]</visible>
                     <left>540</left>
                     <right>SidePad</right>
                     <top>260</top>
@@ -247,7 +247,7 @@
                 </control>
 
                 <control type="group">
-                    <visible>!Control.IsVisible(50) + IsEmpty(Window.Property(content))</visible>
+                    <visible>!Control.IsVisible(50) + String.IsEmpty(Window.Property(content))</visible>
                     <left>540</left>
                     <right>SidePad</right>
                     <bottom>224</bottom>
@@ -446,7 +446,7 @@
                                 <textcolor>Dark2</textcolor>
                                 <label fallback="19055">19055</label>
                                 <aligny>center</aligny>
-                                <visible>IsEmpty(ListItem.AudioLanguage) + IsEmpty(ListItem.SubtitlesLanguage)</visible>
+                                <visible>String.IsEmpty(ListItem.AudioLanguage) + String.IsEmpty(ListItem.SubtitlesLanguage)</visible>
                             </control>
                             <control type="grouplist">
                                 <orientation>horizontal</orientation>
@@ -458,65 +458,65 @@
                                     <width>28</width>
                                     <height>28</height>
                                     <texture>$INFO[ListItem.AudioLanguage,flags/lang/,.png]</texture>
-                                    <visible>!IsEmpty(ListItem.AudioLanguage)</visible>
+                                    <visible>!String.IsEmpty(ListItem.AudioLanguage)</visible>
                                 </control>
                                 <control type="image">
                                     <width>28</width>
                                     <height>28</height>
                                     <texture>$INFO[ListItem.Property(AudioLanguage.2),flags/lang/,.png]</texture>
-                                    <visible>!IsEmpty(ListItem.Property(AudioLanguage.2))</visible>
+                                    <visible>!String.IsEmpty(ListItem.Property(AudioLanguage.2))</visible>
                                 </control>
                                 <control type="image">
                                     <width>28</width>
                                     <height>28</height>
                                     <texture>$INFO[ListItem.Property(AudioLanguage.3),flags/lang/,.png]</texture>
-                                    <visible>!IsEmpty(ListItem.Property(AudioLanguage.3))</visible>
+                                    <visible>!String.IsEmpty(ListItem.Property(AudioLanguage.3))</visible>
                                 </control>
                                 <control type="image">
                                     <width>28</width>
                                     <height>28</height>
                                     <texture>$INFO[ListItem.Property(AudioLanguage.4),flags/lang/,.png]</texture>
-                                    <visible>!IsEmpty(ListItem.Property(AudioLanguage.4))</visible>
+                                    <visible>!String.IsEmpty(ListItem.Property(AudioLanguage.4))</visible>
                                 </control>
                                 <control type="image">
                                     <width>28</width>
                                     <height>28</height>
                                     <texture>$INFO[ListItem.Property(AudioLanguage.5),flags/lang/,.png]</texture>
-                                    <visible>!IsEmpty(ListItem.Property(AudioLanguage.5))</visible>
+                                    <visible>!String.IsEmpty(ListItem.Property(AudioLanguage.5))</visible>
                                 </control>
                                 <control type="image">
                                     <width>28</width>
                                     <height>28</height>
                                     <texture>$INFO[ListItem.SubtitlesLanguage,flags/lang/,.png]</texture>
-                                    <visible>!IsEmpty(ListItem.SubtitlesLanguage)</visible>
+                                    <visible>!String.IsEmpty(ListItem.SubtitlesLanguage)</visible>
                                     <colordiffuse>ff777777</colordiffuse>
                                 </control>
                                 <control type="image">
                                     <width>28</width>
                                     <height>28</height>
                                     <texture>$INFO[ListItem.Property(SubtitleLanguage.2),flags/lang/,.png]</texture>
-                                    <visible>!IsEmpty(ListItem.Property(SubtitleLanguage.2))</visible>
+                                    <visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.2))</visible>
                                     <colordiffuse>ff777777</colordiffuse>
                                 </control>
                                 <control type="image">
                                     <width>28</width>
                                     <height>28</height>
                                     <texture>$INFO[ListItem.Property(SubtitleLanguage.3),flags/lang/,.png]</texture>
-                                    <visible>!IsEmpty(ListItem.Property(SubtitleLanguage.3))</visible>
+                                    <visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.3))</visible>
                                     <colordiffuse>ff777777</colordiffuse>
                                 </control>
                                 <control type="image">
                                     <width>28</width>
                                     <height>28</height>
                                     <texture>$INFO[ListItem.Property(SubtitleLanguage.4),flags/lang/,.png]</texture>
-                                    <visible>!IsEmpty(ListItem.Property(SubtitleLanguage.4))</visible>
+                                    <visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.4))</visible>
                                     <colordiffuse>ff777777</colordiffuse>
                                 </control>
                                 <control type="image">
                                     <width>28</width>
                                     <height>28</height>
                                     <texture>$INFO[ListItem.Property(SubtitleLanguage.5),flags/lang/,.png]</texture>
-                                    <visible>!IsEmpty(ListItem.Property(SubtitleLanguage.5))</visible>
+                                    <visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.5))</visible>
                                     <colordiffuse>ff777777</colordiffuse>
                                 </control>
                             </control>
@@ -674,7 +674,7 @@
                     <centerbottom>51%</centerbottom>
                     <width>450</width>
                     <height>117</height>
-                    <visible>!IsEmpty(Window.Property(content)) + Container(9501).IsUpdating + !Control.IsVisible(50)</visible>
+                    <visible>!String.IsEmpty(Window.Property(content)) + Container(9501).IsUpdating + !Control.IsVisible(50)</visible>
                     <include>Animation.FadeIn</include>
                     <include>Animation.FadeOut</include>
 
@@ -712,7 +712,7 @@
                 </control>
                 <control type="list" id="9501">
                     <include>Animation.FadeIn.Slide</include>
-                    <visible allowhiddenfocus="true">!IsEmpty(Window.Property(content)) + !Container(9501).IsUpdating + !Control.IsVisible(50)</visible>
+                    <visible allowhiddenfocus="true">!String.IsEmpty(Window.Property(content)) + !Container(9501).IsUpdating + !Control.IsVisible(50)</visible>
                     <bottom>80</bottom>
                     <left>530</left>
                     <width>1320</width>
@@ -795,7 +795,7 @@
                                 <effect type="zoom" start="100" end="90" time="150" tween="sine" easing="inout" center="auto" />
                                 <effect type="fade" start="100" end="0" time="150" tween="sine" easing="out" />
                             </animation>
-                            <visible>!substring(ListItem.Path,script.extendedinfo)</visible>
+                            <visible>!String.Contains(ListItem.Path,script.extendedinfo)</visible>
                             <visible>Control.HasFocus(9501)</visible>
                         </control>
                         <control type="group">

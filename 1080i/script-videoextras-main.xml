@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window id="3001">
     <!-- The following property allows TvTunes to keep playing when this window is displayed -->
-    <onload condition="!IsEmpty(ListItem.TvShowTitle)">SetProperty("TvTunesSupported", "TvShows")</onload>
-    <onload condition="IsEmpty(ListItem.TvShowTitle)">SetProperty("TvTunesSupported", "Movies")</onload>
+    <onload condition="!String.IsEmpty(ListItem.TvShowTitle)">SetProperty("TvTunesSupported", "TvShows")</onload>
+    <onload condition="String.IsEmpty(ListItem.TvShowTitle)">SetProperty("TvTunesSupported", "Movies")</onload>
     <onload condition="Skin.HasSetting(ActivateTvTunes) + System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
     <defaultcontrol always="true">51</defaultcontrol>
 

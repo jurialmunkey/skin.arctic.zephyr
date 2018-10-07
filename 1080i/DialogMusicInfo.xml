@@ -79,9 +79,9 @@
                         <label>182</label>
                         <altlabel>183</altlabel>
                         <width>260</width>
-                        <usealttexture>!IsEmpty(Window.Property(tracklist))</usealttexture>
-                        <onclick condition="IsEmpty(Window.Property(tracklist))">SetProperty(tracklist,1)</onclick>
-                        <onclick condition="!IsEmpty(Window.Property(tracklist))">ClearProperty(tracklist)</onclick>
+                        <usealttexture>!String.IsEmpty(Window.Property(tracklist))</usealttexture>
+                        <onclick condition="String.IsEmpty(Window.Property(tracklist))">SetProperty(tracklist,1)</onclick>
+                        <onclick condition="!String.IsEmpty(Window.Property(tracklist))">ClearProperty(tracklist)</onclick>
                         <include>DefInfoButtons</include>
                         <visible>!Container.Content(artists)</visible>
                     </control>
@@ -126,7 +126,7 @@
                 <!-- Album Info -->
                 <control type="group">
                     <visible>!Container.Content(artists)</visible>
-                    <visible>!Control.IsVisible(50) + IsEmpty(Window.Property(content))</visible>
+                    <visible>!Control.IsVisible(50) + String.IsEmpty(Window.Property(content))</visible>
                     <left>ListSquareX</left>
                     <right>SidePad</right>
                     <bottom>224</bottom>
@@ -238,7 +238,7 @@
                         <control type="group">
                             <height>auto</height>
                             <width>100%</width>
-                            <visible>!!Container.Content(artists) | IsEmpty(Window.Property(tracklist))</visible>
+                            <visible>!!Container.Content(artists) | String.IsEmpty(Window.Property(tracklist))</visible>
                             <control type="label">
                                 <width>150</width>
                                 <height>36</height>
@@ -259,7 +259,7 @@
                             </control>
                         </control>
                         <control type="group">
-                            <visible>!Container.Content(artists) + [!IsEmpty(Window.Property(tracklist))]</visible>
+                            <visible>!Container.Content(artists) + [!String.IsEmpty(Window.Property(tracklist))]</visible>
                             <height>auto</height>
                             <width>100%</width>
                             <control type="label">
@@ -287,7 +287,7 @@
                 <!-- Artist Info -->
                 <control type="group">
                     <visible>Container.Content(artists)</visible>
-                    <visible>!Control.IsVisible(50) + IsEmpty(Window.Property(content))</visible>
+                    <visible>!Control.IsVisible(50) + String.IsEmpty(Window.Property(content))</visible>
                     <left>ListSquareX</left>
                     <right>SidePad</right>
                     <bottom>224</bottom>
@@ -343,7 +343,7 @@
                                 <textcolor>Dark1</textcolor>
                                 <label>[B]$LOCALIZE[21893][/B]</label>
                                 <aligny>center</aligny>
-                                <visible>!IsEmpty(ListItem.Property(Artist_Born))</visible>
+                                <visible>!String.IsEmpty(ListItem.Property(Artist_Born))</visible>
                             </control>
                             <control type="label">
                                 <width>100%</width>
@@ -352,7 +352,7 @@
                                 <textcolor>Dark1</textcolor>
                                 <label>[B]$LOCALIZE[21894][/B]</label>
                                 <aligny>center</aligny>
-                                <visible>IsEmpty(ListItem.Property(Artist_Born))</visible>
+                                <visible>String.IsEmpty(ListItem.Property(Artist_Born))</visible>
                             </control>
                             <control type="label">
                                 <left>150</left>
@@ -373,7 +373,7 @@
                                 <textcolor>Dark1</textcolor>
                                 <label>[B]$LOCALIZE[21897][/B]</label>
                                 <aligny>center</aligny>
-                                <visible>!IsEmpty(ListItem.Property(Artist_Died))</visible>
+                                <visible>!String.IsEmpty(ListItem.Property(Artist_Died))</visible>
                             </control>
                             <control type="label">
                                 <width>150</width>
@@ -382,7 +382,7 @@
                                 <textcolor>Dark1</textcolor>
                                 <label>[B]$LOCALIZE[21896][/B]</label>
                                 <aligny>center</aligny>
-                                <visible>IsEmpty(ListItem.Property(Artist_Died))</visible>
+                                <visible>String.IsEmpty(ListItem.Property(Artist_Died))</visible>
                             </control>
                             <control type="label">
                                 <left>150</left>
@@ -472,7 +472,7 @@
                     <centerbottom>51%</centerbottom>
                     <width>450</width>
                     <height>117</height>
-                    <visible>!IsEmpty(Window.Property(content)) + Container(9501).IsUpdating + !Control.IsVisible(50)</visible>
+                    <visible>!String.IsEmpty(Window.Property(content)) + Container(9501).IsUpdating + !Control.IsVisible(50)</visible>
                     <include>Animation.FadeIn</include>
                     <include>Animation.FadeOut</include>
                     <control type="image">
@@ -508,7 +508,7 @@
 
                 <!-- Content Labels -->
                 <control type="label">
-                    <visible>Control.IsVisible(50) | [!IsEmpty(Window.Property(content)) + !Container(9501).IsUpdating]</visible>
+                    <visible>Control.IsVisible(50) | [!String.IsEmpty(Window.Property(content)) + !Container(9501).IsUpdating]</visible>
                     <left>ListSquareX</left>
                     <right>SidePad</right>
                     <textoffsetx>5</textoffsetx>
@@ -539,7 +539,7 @@
                 <control type="list" id="9501">
                     <visible>Container.Content(artists)</visible>
                     <include>Animation.FadeIn.Slide</include>
-                    <visible allowhiddenfocus="true">!IsEmpty(Window.Property(content)) + !Container(9501).IsUpdating + !Control.IsVisible(50)</visible>
+                    <visible allowhiddenfocus="true">!String.IsEmpty(Window.Property(content)) + !Container(9501).IsUpdating + !Control.IsVisible(50)</visible>
                     <bottom>60</bottom>
                     <left>742</left>
                     <width>1108</width>

@@ -111,43 +111,43 @@
                 <ondown>Control.Move(211,1)</ondown>
                 <orientation>horizontal</orientation>
                 <animation effect="slide" end="-48" condition="Skin.HasSetting(home.showicons) | String.Contains(Window.Property(groupname),x11)">Conditional</animation>
-                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,0)">Conditional</animation>
-                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,1)">Conditional</animation>
-                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,2)">Conditional</animation>
-                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,3)">Conditional</animation>
-                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,4)">Conditional</animation>
-                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,5)">Conditional</animation>
-                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,6)">Conditional</animation>
-                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,7)">Conditional</animation>
-                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,8)">Conditional</animation>
-                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,9)">Conditional</animation>
-                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,10)">Conditional</animation>
-                <animation effect="slide" end="0,69" condition="IntegerGreaterThan(Container(211).Position,11)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="Integer.IsGreater(Container(211).Position,0)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="Integer.IsGreater(Container(211).Position,1)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="Integer.IsGreater(Container(211).Position,2)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="Integer.IsGreater(Container(211).Position,3)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="Integer.IsGreater(Container(211).Position,4)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="Integer.IsGreater(Container(211).Position,5)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="Integer.IsGreater(Container(211).Position,6)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="Integer.IsGreater(Container(211).Position,7)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="Integer.IsGreater(Container(211).Position,8)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="Integer.IsGreater(Container(211).Position,9)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="Integer.IsGreater(Container(211).Position,10)">Conditional</animation>
+                <animation effect="slide" end="0,69" condition="Integer.IsGreater(Container(211).Position,11)">Conditional</animation>
                 <control type="button" id="302" description="Delete">
                     <width>64</width>
                     <height>64</height>
-                    <font>-</font>
+                    <font></font>
                     <texturenofocus colordiffuse="Black30">buttons/delete.png</texturenofocus>
                     <texturefocus colordiffuse="Selected">buttons/delete.png</texturefocus>
                 </control>
                 <control type="button" id="301" description="Add">
                     <width>64</width>
                     <height>64</height>
-                    <font>-</font>
+                    <font></font>
                     <texturenofocus colordiffuse="Black30">buttons/add.png</texturenofocus>
                     <texturefocus colordiffuse="Selected">buttons/add.png</texturefocus>
                 </control>
                 <control type="button" id="303" description="Up">
                     <width>64</width>
                     <height>64</height>
-                    <font>-</font>
+                    <font></font>
                     <texturenofocus colordiffuse="Black30">buttons/moveup.png</texturenofocus>
                     <texturefocus colordiffuse="Selected">buttons/moveup.png</texturefocus>
                 </control>
                 <control type="button" id="304" description="Down">
                     <width>64</width>
                     <height>64</height>
-                    <font>-</font>
+                    <font></font>
                     <texturenofocus colordiffuse="Black30" flipy="true">buttons/moveup.png</texturenofocus>
                     <texturefocus colordiffuse="Selected" flipy="true">buttons/moveup.png</texturefocus>
                 </control>
@@ -203,22 +203,22 @@
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <align>left</align>
                     <include>DefDialogButtons</include>
-                    <visible>stringcompare(Window.Property(groupname),mainmenu) | String.Contains(Window.Property(groupname),x11)</visible>
+                    <visible>String.IsEqual(Window.Property(groupname),mainmenu) | String.Contains(Window.Property(groupname),x11)</visible>
                 </control>
                 <control type="button" id="9401" description="Widget Aspect">
                     <width>100%</width>
                     <height>66</height>
                     <label>$LOCALIZE[31261]</label>
                     <label2>$VAR[LabelWidgetType]</label2>
-                    <visible>stringcompare(Window.Property(groupname),mainmenu)</visible>
+                    <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <align>left</align>
                     <include>DefDialogButtons</include>
                     <onclick>SetProperty(customProperty,widgetaspect)</onclick>
-                    <onclick condition="IsEmpty(Container(211).ListItem.Property(widgetaspect)) | StringCompare(Container(211).ListItem.Property(widgetaspect),Poster)">SetProperty(customValue,Square)</onclick>
-                    <onclick condition="StringCompare(Container(211).ListItem.Property(widgetaspect),Square)">SetProperty(customValue,Fanart)</onclick>
-                    <onclick condition="StringCompare(Container(211).ListItem.Property(widgetaspect),Fanart)">SetProperty(customValue,Thumbnail)</onclick>
-                    <onclick condition="StringCompare(Container(211).ListItem.Property(widgetaspect),Thumbnail)">SetProperty(customValue,Poster)</onclick>
+                    <onclick condition="String.IsEmpty(Container(211).ListItem.Property(widgetaspect)) | String.IsEqual(Container(211).ListItem.Property(widgetaspect),Poster)">SetProperty(customValue,Square)</onclick>
+                    <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetaspect),Square)">SetProperty(customValue,Fanart)</onclick>
+                    <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetaspect),Fanart)">SetProperty(customValue,Thumbnail)</onclick>
+                    <onclick condition="String.IsEqual(Container(211).ListItem.Property(widgetaspect),Thumbnail)">SetProperty(customValue,Poster)</onclick>
                     <onclick>SendClick(404)</onclick>
                 </control>
                 <control type="button" id="310" description="Background">
@@ -226,7 +226,7 @@
                     <height>66</height>
                     <label>31110</label>
                     <label2>$INFO[Container(211).ListItem.Property(background)]</label2>
-                    <visible>stringcompare(Window.Property(groupname),mainmenu)</visible>
+                    <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <align>left</align>
                     <include>DefDialogButtons</include>
@@ -244,11 +244,11 @@
                     <width>100%</width>
                     <height>66</height>
                     <label>31112</label>
-                    <visible>stringcompare(Window.Property(groupname),mainmenu)</visible>
+                    <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
                     <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
                     <align>left</align>
                     <include>DefDialogButtons</include>
-                    <visible>!stringcompare(Container(211).ListItem.Label2,MovieHub) + !stringcompare(Container(211).ListItem.Label2,TVHub)</visible>
+                    <visible>!String.IsEqual(Container(211).ListItem.Label2,MovieHub) + !String.IsEqual(Container(211).ListItem.Label2,TVHub)</visible>
                 </control>
                 <include content="Defs_Shortcuts_SetHub">
                     <param name="hubid" value="1101" />

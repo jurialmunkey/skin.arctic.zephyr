@@ -131,7 +131,7 @@
             <height>32</height>
             <aspectratio aligny="top">keep</aspectratio>
             <texture>$VAR[PercentWatched]</texture>
-            <visible>!stringcompare(ListItem.Label,..)</visible>
+            <visible>!String.IsEqual(ListItem.Label,..)</visible>
         </control>
     </include>
 
@@ -199,7 +199,7 @@
             <height>32</height>
             <aspectratio aligny="top">keep</aspectratio>
             <texture>$VAR[PercentWatched]</texture>
-            <visible>!stringcompare(ListItem.Label,..)</visible>
+            <visible>!String.IsEqual(ListItem.Label,..)</visible>
         </control>
     </include>
 
