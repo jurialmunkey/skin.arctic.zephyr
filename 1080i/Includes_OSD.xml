@@ -36,7 +36,7 @@
                 <centertop>50%</centertop>
                 <texture colordiffuse="$VAR[OSDPanelWhite70]" fallback="flags/fallback.png">$INFO[VideoPlayer.VideoResolution,flags/resolution/,.png]</texture>
                 <aspectratio align="center">keep</aspectratio>
-                <visible>!IsEmpty(VideoPlayer.VideoResolution)</visible>
+                <visible>!String.IsEmpty(VideoPlayer.VideoResolution)</visible>
             </control>
 
             <control type="image">
@@ -45,7 +45,7 @@
                 <centertop>50%</centertop>
                 <texture colordiffuse="$VAR[OSDPanelWhite70]" fallback="flags/fallback.png">$INFO[VideoPlayer.VideoCodec,flags/source/,.png]</texture>
                 <aspectratio align="center">keep</aspectratio>
-                <visible>!IsEmpty(VideoPlayer.VideoCodec)</visible>
+                <visible>!String.IsEmpty(VideoPlayer.VideoCodec)</visible>
             </control>
             <control type="image">
                 <width>88</width>
@@ -53,7 +53,7 @@
                 <centertop>50%</centertop>
                 <texture colordiffuse="$VAR[OSDPanelWhite70]" fallback="flags/fallback.png">$INFO[VideoPlayer.VideoAspect,flags/aspectratio/,.png]</texture>
                 <aspectratio align="center">keep</aspectratio>
-                <visible>!IsEmpty(VideoPlayer.VideoAspect)</visible>
+                <visible>!String.IsEmpty(VideoPlayer.VideoAspect)</visible>
             </control>
 
             <control type="image">
@@ -62,7 +62,7 @@
                 <centertop>50%</centertop>
                 <texture colordiffuse="$VAR[OSDPanelWhite70]" fallback="flags/fallback.png">$INFO[VideoPlayer.AudioCodec,flags/audio/,.png]</texture>
                 <aspectratio align="center">keep</aspectratio>
-                <visible>!IsEmpty(VideoPlayer.AudioCodec)</visible>
+                <visible>!String.IsEmpty(VideoPlayer.AudioCodec)</visible>
             </control>
 
             <control type="image">
@@ -71,7 +71,7 @@
                 <centertop>50%</centertop>
                 <texture colordiffuse="$VAR[OSDPanelWhite70]" fallback="flags/fallback.png">$INFO[VideoPlayer.AudioChannels,flags/channels/,.png]</texture>
                 <aspectratio align="center">keep</aspectratio>
-                <visible>!IsEmpty(VideoPlayer.AudioChannels)</visible>
+                <visible>!String.IsEmpty(VideoPlayer.AudioChannels)</visible>
             </control>
 
             <control type="image">
@@ -209,10 +209,10 @@
     </include>
 
     <include name="DefOSDUpDown">
-        <onup condition="IsEmpty(Window(home).Property(osdshowinfo)) + !Window.IsVisible(MusicOSD.xml)">SetProperty(osdshowinfo,1,home)</onup>
-        <onup condition="!IsEmpty(Window(home).Property(osdshowinfo)) + !Window.IsVisible(MusicOSD.xml)">ClearProperty(osdshowinfo,home)</onup>
-        <ondown condition="IsEmpty(Window(home).Property(osdshowinfo)) + !Window.IsVisible(MusicOSD.xml)">SetProperty(osdshowinfo,1,home)</ondown>
-        <ondown condition="!IsEmpty(Window(home).Property(osdshowinfo)) + !Window.IsVisible(MusicOSD.xml)">ClearProperty(osdshowinfo,home)</ondown>
+        <onup condition="String.IsEmpty(Window(home).Property(osdshowinfo)) + !Window.IsVisible(MusicOSD.xml)">SetProperty(osdshowinfo,1,home)</onup>
+        <onup condition="!String.IsEmpty(Window(home).Property(osdshowinfo)) + !Window.IsVisible(MusicOSD.xml)">ClearProperty(osdshowinfo,home)</onup>
+        <ondown condition="String.IsEmpty(Window(home).Property(osdshowinfo)) + !Window.IsVisible(MusicOSD.xml)">SetProperty(osdshowinfo,1,home)</ondown>
+        <ondown condition="!String.IsEmpty(Window(home).Property(osdshowinfo)) + !Window.IsVisible(MusicOSD.xml)">ClearProperty(osdshowinfo,home)</ondown>
         <onup condition="Window.IsVisible(MusicOSD.xml)">9100</onup>
         <ondown condition="Window.IsVisible(MusicOSD.xml)">9100</ondown>
         <!-- <onup condition="Window.IsVisible(MusicOSD.xml)">IncreaseRating</onup>
@@ -314,7 +314,7 @@
         <value>PanelWhite70</value>
     </variable>
     <variable name="OSDPanelWhite70-Kaitoast">
-        <value condition="stringcompare(Control.GetLabel(400),kaitoast/info.png)">$VAR[OSDPanelWhite70]</value>
+        <value condition="String.IsEqual(Control.GetLabel(400),kaitoast/info.png)">$VAR[OSDPanelWhite70]</value>
         <value>FFffffff</value>
     </variable>
     <variable name="OSDPanelWhite100">
@@ -837,13 +837,13 @@
             <include>DefOSDUpDown</include>
             <texturefocus colordiffuse="$VAR[ColorHighlight]" flipx="true">osd/record.png</texturefocus>
             <texturenofocus colordiffuse="PanelWhite70" flipx="true">osd/record.png</texturenofocus>
-            <usealttexture>Player.Recording</usealttexture>
+            <usealttexture>PVR.IsRecordingPlayingChannel</usealttexture>
             <alttexturefocus colordiffuse="$VAR[ColorHighlight]" flipx="true">osd/record-on.png</alttexturefocus>
             <alttexturenofocus colordiffuse="PanelWhite70" flipx="true">osd/record-on.png</alttexturenofocus>
             <onclick>PlayerControl(Record)</onclick>
-            <enable>Player.CanRecord</enable>
+            <enable>PVR.CanRecordPlayingChannel</enable>
             <visible>VideoPlayer.Content(LiveTV)</visible>
-            <animation effect="fade" start="100" end="33" time="100" condition="!Player.CanRecord">Conditional</animation>
+            <animation effect="fade" start="100" end="33" time="100" condition="!PVR.CanRecordPlayingChannel">Conditional</animation>
         </control>
 
         <control type="button" id="12">
@@ -949,7 +949,7 @@
             <include>DefOSDUpDown</include>
             <texturefocus colordiffuse="$VAR[ColorHighlight]" flipx="true">osd/record.png</texturefocus>
             <texturenofocus colordiffuse="Dark1" flipx="true">osd/record.png</texturenofocus>
-            <usealttexture>Player.Recording</usealttexture>
+            <usealttexture>PVR.IsRecordingPlayingChannel</usealttexture>
             <alttexturefocus colordiffuse="$VAR[ColorHighlight]" flipx="true">osd/record-on.png</alttexturefocus>
             <alttexturenofocus colordiffuse="Dark1" flipx="true">osd/record-on.png</alttexturenofocus>
             <onclick>PlayerControl(Record)</onclick>

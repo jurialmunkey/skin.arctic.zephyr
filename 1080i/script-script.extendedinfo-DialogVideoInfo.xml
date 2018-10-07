@@ -80,7 +80,7 @@
 
                 <control type="group">
                     <include>Animation.DelayFadeIn</include>
-                    <visible>!IsEmpty(Window.Property(content))</visible>
+                    <visible>!String.IsEmpty(Window.Property(content))</visible>
                     <visible>[Control.HasFocus(150) + !Container(150).IsUpdating] | [Control.HasFocus(250) + !Container(250).IsUpdating] | [Control.HasFocus(350) + !Container(350).IsUpdating] | [Control.HasFocus(550) + !Container(550).IsUpdating] | [Control.HasFocus(750) + !Container(750).IsUpdating] | [Control.HasFocus(1000) + !Container(1000).IsUpdating] | [Control.HasFocus(1150) + !Container(1150).IsUpdating] | [Control.HasFocus(50) + !Container(50).IsUpdating] | [Control.HasFocus(9501) + !Container(9501).IsUpdating]</visible>
                     <centerbottom>366</centerbottom>
                     <height>16</height>
@@ -116,16 +116,16 @@
                         <description>Play</description>
                         <label>208</label>
                         <include>DefInfoButtons</include>
-                        <visible>!IsEmpty(Window.Property(DBID)) + !Stringcompare(Window.Property(Type),tvshow)</visible>
-                        <visible>IsEmpty(Window(home).Property(globalsearch))</visible>
+                        <visible>!String.IsEmpty(Window.Property(DBID)) + !String.IsEqual(Window.Property(Type),tvshow)</visible>
+                        <visible>String.IsEmpty(Window(home).Property(globalsearch))</visible>
                     </control>
 
                     <control type="button" id ="120">
                         <description>Browse</description>
                         <label>21385</label>
                         <include>DefInfoButtons</include>
-                        <visible>!IsEmpty(Window.Property(DBID)) + Stringcompare(Window.Property(Type),tvshow)</visible>
-                        <visible>IsEmpty(Window(home).Property(globalsearch))</visible>
+                        <visible>!String.IsEmpty(Window.Property(DBID)) + String.IsEqual(Window.Property(Type),tvshow)</visible>
+                        <visible>String.IsEmpty(Window(home).Property(globalsearch))</visible>
                     </control>
 
                     <control type="button" id ="9002">
@@ -162,7 +162,7 @@
 
                 <!-- List Headers -->
                 <control type="label">
-                    <visible>stringcompare(Window.Property(content),1000)</visible>
+                    <visible>String.IsEqual(Window.Property(content),1000)</visible>
                     <visible>Control.HasFocus(1000)</visible>
                     <left>540</left>
                     <right>SidePad</right>
@@ -188,7 +188,7 @@
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">
-                    <visible>stringcompare(Window.Property(content),150)</visible>
+                    <visible>String.IsEqual(Window.Property(content),150)</visible>
                     <visible>Control.HasFocus(150)</visible>
                     <left>540</left>
                     <right>SidePad</right>
@@ -214,7 +214,7 @@
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">
-                    <visible>stringcompare(Window.Property(content),350)</visible>
+                    <visible>String.IsEqual(Window.Property(content),350)</visible>
                     <visible>Control.HasFocus(350)</visible>
                     <left>540</left>
                     <right>SidePad</right>
@@ -240,7 +240,7 @@
                     <include>Animation.DelayFadeIn</include>
                 </control>
                 <control type="label">
-                    <visible>stringcompare(Window.Property(content),750)</visible>
+                    <visible>String.IsEqual(Window.Property(content),750)</visible>
                     <visible>Control.HasFocus(750)</visible>
                     <left>540</left>
                     <right>SidePad</right>
@@ -272,7 +272,7 @@
                     <right>SidePad</right>
                     <bottom>224</bottom>
                     <top>PosterPad</top>
-                    <visible>IsEmpty(Window.Property(content))</visible>
+                    <visible>String.IsEmpty(Window.Property(content))</visible>
                     <control type="grouplist">
                         <left>30</left>
                         <right>30</right>
@@ -296,7 +296,7 @@
                             </control>
                         </control>
                         <control type="group">
-                            <visible>IsEmpty(Window.Property(content))</visible>
+                            <visible>String.IsEmpty(Window.Property(content))</visible>
                             <height>36</height>
                             <control type="label">
                                 <width>100%</width>
@@ -317,7 +317,7 @@
                             </control>
                         </control>
                         <control type="group">
-                            <visible>IsEmpty(Window.Property(content))</visible>
+                            <visible>String.IsEmpty(Window.Property(content))</visible>
                             <height>36</height>
                             <control type="label">
                                 <width>100%</width>
@@ -338,7 +338,7 @@
                             </control>
                         </control>
                         <control type="group">
-                            <visible>IsEmpty(Window.Property(content))</visible>
+                            <visible>String.IsEmpty(Window.Property(content))</visible>
                             <height>36</height>
                             <control type="label">
                                 <width>100%</width>
@@ -359,7 +359,7 @@
                             </control>
                         </control>
                         <control type="group">
-                            <visible>IsEmpty(Window.Property(content))</visible>
+                            <visible>String.IsEmpty(Window.Property(content))</visible>
                             <height>36</height>
                             <control type="label">
                                 <width>100%</width>
@@ -380,7 +380,7 @@
                             </control>
                         </control>
                         <control type="group">
-                            <visible>IsEmpty(Window.Property(content))</visible>
+                            <visible>String.IsEmpty(Window.Property(content))</visible>
                             <height>36</height>
                             <control type="label">
                                 <width>100%</width>
@@ -401,7 +401,7 @@
                             </control>
                         </control>
                         <control type="group">
-                            <visible>IsEmpty(Window.Property(content))</visible>
+                            <visible>String.IsEmpty(Window.Property(content))</visible>
                             <height>36</height>
                             <control type="label">
                                 <width>100%</width>
@@ -422,7 +422,7 @@
                             </control>
                         </control>
                         <control type="group">
-                            <visible>IsEmpty(Window.Property(content))</visible>
+                            <visible>String.IsEmpty(Window.Property(content))</visible>
                             <height>36</height>
                             <control type="label">
                                 <width>100%</width>
@@ -443,7 +443,7 @@
                             </control>
                         </control>
                         <control type="group">
-                            <visible>IsEmpty(Window.Property(content))</visible>
+                            <visible>String.IsEmpty(Window.Property(content))</visible>
                             <height>36</height>
                             <control type="label">
                                 <width>100%</width>
@@ -473,7 +473,7 @@
                             <aligny>center</aligny>
                         </control>
                         <control type="textbox">
-                            <visible>IsEmpty(Window.Property(content))</visible>
+                            <visible>String.IsEmpty(Window.Property(content))</visible>
                             <width>100%</width>
                             <height>94</height>
                             <font>Tiny</font>
@@ -486,14 +486,14 @@
                 </control>
 
                 <control type="list" id="150">
-                    <visible allowhiddenfocus="true">StringCompare(Window.Property(content),150)</visible>
+                    <visible allowhiddenfocus="true">String.IsEqual(Window.Property(content),150)</visible>
                     <onleft>150</onleft>
                     <onright>150</onright>
                     <include>DefExtendedInfoList</include>
                 </control>
                 <control type="list" id="250"><visible>false</visible></control>
                 <control type="list" id="350">
-                    <visible allowhiddenfocus="true">StringCompare(Window.Property(content),350)</visible>
+                    <visible allowhiddenfocus="true">String.IsEqual(Window.Property(content),350)</visible>
                     <onleft>350</onleft>
                     <onright>350</onright>
                     <include>DefExtendedInfoListWide</include>
@@ -502,7 +502,7 @@
                 <control type="list" id="550"><visible>false</visible></control>
                 <control type="list" id="650"><visible>false</visible></control>
                 <control type="list" id="750">
-                    <visible allowhiddenfocus="true">StringCompare(Window.Property(content),750)</visible>
+                    <visible allowhiddenfocus="true">String.IsEqual(Window.Property(content),750)</visible>
                     <onleft>750</onleft>
                     <onright>750</onright>
                     <include>DefExtendedInfoList</include>
@@ -510,14 +510,14 @@
                 <control type="list" id="850"><visible>false</visible></control>
                 <control type="list" id="950"><visible>false</visible></control>
                 <control type="list" id="1000">
-                    <visible allowhiddenfocus="true">StringCompare(Window.Property(content),1000)</visible>
+                    <visible allowhiddenfocus="true">String.IsEqual(Window.Property(content),1000)</visible>
                     <onleft>1000</onleft>
                     <onright>1000</onright>
                     <include>DefExtendedInfoList</include>
                 </control>
                 <control type="list" id="1050"><visible>false</visible></control>
                 <control type="list" id="1150">
-                    <visible allowhiddenfocus="true">StringCompare(Window.Property(content),1150)</visible>
+                    <visible allowhiddenfocus="true">String.IsEqual(Window.Property(content),1150)</visible>
                     <onleft>1150</onleft>
                     <onright>1150</onright>
                     <include>DefExtendedInfoListWide</include>

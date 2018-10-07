@@ -44,7 +44,7 @@
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
 
                     </control>
                     <control type="image">
@@ -54,7 +54,7 @@
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture>$VAR[PosterPercentWatched]</texture>
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
 
                     </control>
                 </itemlayout>
@@ -82,7 +82,7 @@
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
 
                     </control>
                     <control type="image">
@@ -92,7 +92,7 @@
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture>$VAR[PosterPercentWatched]</texture>
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
 
                     </control>
                     <control type="image">

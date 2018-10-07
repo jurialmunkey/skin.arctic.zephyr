@@ -27,7 +27,7 @@
                 <height>128</height>
                 <texture>special://skin/extras/icons/livetv.png</texture>
                 <colordiffuse>$VAR[OSDPanelWhite100]</colordiffuse>
-                <visible>IsEmpty(Player.Art(thumb))</visible>
+                <visible>String.IsEmpty(Player.Art(thumb))</visible>
             </control>
             <control type="image">
                 <posx>498</posx>
@@ -71,7 +71,7 @@
                         <texture>common/selected.png</texture>
                         <aspectratio aligny="top">center</aspectratio>
                         <animation effect="fade" start="100" end="15" condition="true">Conditional</animation>
-                        <visible>StringCompare(ListItem.Title,VideoPlayer.Title) + StringCompare(ListItem.ChannelNumberLabel,VideoPlayer.ChannelNumberLabel) + StringCompare(ListItem.EndTime,VideoPlayer.EndTime)</visible>
+                        <visible>String.IsEqual(ListItem.Title,VideoPlayer.Title) + String.IsEqual(ListItem.ChannelNumberLabel,VideoPlayer.ChannelNumberLabel) + String.IsEqual(ListItem.EndTime,VideoPlayer.EndTime)</visible>
                         <colordiffuse>$VAR[OSDPanelWhite100]</colordiffuse>
                     </control>
                     <control type="label">
@@ -117,7 +117,7 @@
                         <texture>common/selected.png</texture>
                         <aspectratio aligny="top">center</aspectratio>
                         <animation effect="fade" start="100" end="30" condition="true">Conditional</animation>
-                        <visible>StringCompare(ListItem.Title,VideoPlayer.Title) + StringCompare(ListItem.ChannelNumberLabel,VideoPlayer.ChannelNumberLabel) + StringCompare(ListItem.EndTime,VideoPlayer.EndTime)</visible>
+                        <visible>String.IsEqual(ListItem.Title,VideoPlayer.Title) + String.IsEqual(ListItem.ChannelNumberLabel,VideoPlayer.ChannelNumberLabel) + String.IsEqual(ListItem.EndTime,VideoPlayer.EndTime)</visible>
                     </control>
                     <control type="image">
                         <centertop>54</centertop>

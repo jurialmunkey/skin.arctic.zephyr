@@ -74,8 +74,8 @@
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture>$VAR[PercentWatched]</texture>
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
-                        <visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
+                        <visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
                     </control>
                     <control type="label">
                         <font>TinyBold</font>
@@ -137,8 +137,8 @@
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture>$VAR[PercentWatched]</texture>
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
-                        <visible>stringcompare(ListItem.Overlay,OverlayWatched.png)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
+                        <visible>String.IsEqual(ListItem.Overlay,OverlayWatched.png)</visible>
                     </control>
                     <control type="image">
                         <left>3</left>

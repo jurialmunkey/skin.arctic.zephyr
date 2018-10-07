@@ -40,9 +40,9 @@
         <posy>-20</posy>
         <width>1</width>
         <height>1</height>
-        <label>-</label>
-        <texturenofocus>-</texturenofocus>
-        <texturefocus>-</texturefocus>
+        <label></label>
+        <texturenofocus></texturenofocus>
+        <texturefocus></texturefocus>
     </include>
 
     <include name="Dimensions_Fullscreen">
@@ -101,25 +101,25 @@
 
     <variable name="GlobalFanart">
         <value condition="Window.IsActive(script-globalsearch-infodialog.xml) | Window.IsActive(script-globalsearch-main.xml)">$VAR[GlobalSearchArtInfo]</value>
-        <value condition="[Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + IsEmpty(Window(home).Property(ExtendedInfo_fanart))] | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">actorbg.jpg</value>
-        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !IsEmpty(Window(home).Property(ExtendedInfo_fanart))">$INFO[Window(home).Property(ExtendedInfo_fanart)]</value>
-        <value condition="Window.IsVisible(weather) + !IsEmpty(Skin.String(weather.fanart.path))">$INFO[Skin.String(weather.fanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]/</value>
-        <value condition="Window.IsVisible(home) + !IsEmpty(Skin.String(weather.fanart.path)) + substring(Container(300).ListItem.Property(widget),Weather,left) + !Skin.HasSetting(home.dontshowfanart)">$INFO[Skin.String(weather.fanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]/</value>
-        <value condition="Window.IsVisible(home) + !IsEmpty(Container(301).ListItem.Art(fanart)) + [!Skin.HasSetting(home.dontshowfanart) | Control.HasFocus(301)] + Control.IsVisible(301)">$INFO[Container(301).ListItem.Art(fanart)]</value>
-        <value condition="Window.IsVisible(home) + !IsEmpty(Container(301).ListItem.Property(fanart)) + [!Skin.HasSetting(home.dontshowfanart) | Control.HasFocus(301)] + Control.IsVisible(301)">$INFO[Container(301).ListItem.Property(fanart)]</value>
+        <value condition="[Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + String.IsEmpty(Window(home).Property(ExtendedInfo_fanart))] | Window.IsVisible(script-script.extendedinfo-DialogInfo.xml) | Window.IsVisible(script-NextAired-TVGuide.xml) | Window.IsVisible(script-NextAired-TVGuide2.xml)">actorbg.jpg</value>
+        <value condition="Window.IsVisible(script-script.extendedinfo-DialogVideoInfo.xml) + !String.IsEmpty(Window(home).Property(ExtendedInfo_fanart))">$INFO[Window(home).Property(ExtendedInfo_fanart)]</value>
+        <value condition="Window.IsVisible(weather) + !String.IsEmpty(Skin.String(weather.fanart.path))">$INFO[Skin.String(weather.fanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]/</value>
+        <value condition="Window.IsVisible(home) + !String.IsEmpty(Skin.String(weather.fanart.path)) + String.Contains(Container(300).ListItem.Property(widget),Weather,left) + !Skin.HasSetting(home.dontshowfanart)">$INFO[Skin.String(weather.fanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]/</value>
+        <value condition="Window.IsVisible(home) + !String.IsEmpty(Container(301).ListItem.Art(fanart)) + [!Skin.HasSetting(home.dontshowfanart) | Control.HasFocus(301)] + Control.IsVisible(301)">$INFO[Container(301).ListItem.Art(fanart)]</value>
+        <value condition="Window.IsVisible(home) + !String.IsEmpty(Container(301).ListItem.Property(fanart)) + [!Skin.HasSetting(home.dontshowfanart) | Control.HasFocus(301)] + Control.IsVisible(301)">$INFO[Container(301).ListItem.Property(fanart)]</value>
 
-        <value condition="Window.IsVisible(home) + StringCompare(Container(300).ListItem.Property(background),playlistBackground)">$INFO[Container(9988).ListItem.Art(fanart)]</value>
-        <value condition="Window.IsVisible(home) + !IsEmpty(Container(300).ListItem.Property(Background))">$INFO[Container(300).ListItem.Property(Background)]</value>
-        <value condition="Window.IsVisible(home) + !IsEmpty(Skin.String(home.slideshowpath)) + [substring(Container(300).ListItem.Property(widget),Weather,left) | IsEmpty(Container(300).ListItem.Property(widget)) | Container(301).IsUpdating |  Skin.HasSetting(home.dontshowfanart)]">$INFO[Skin.String(home.slideshowpath)]</value>
-        <value condition="Window.IsVisible(home) + !IsEmpty(Skin.String(weather.fanart.path)) + Skin.HasSetting(home.showweatherfanart) + [IsEmpty(Container(300).ListItem.Property(widget)) | Container(301).IsUpdating]">$INFO[Skin.String(weather.fanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]/</value>
-        <value condition="Window.IsVisible(home) + !Container(301).IsUpdating + !IsEmpty(Skin.String(fanart.fallback))">$INFO[Skin.String(fanart.fallback)]</value>
+        <value condition="Window.IsVisible(home) + String.IsEqual(Container(300).ListItem.Property(background),playlistBackground)">$INFO[Container(9988).ListItem.Art(fanart)]</value>
+        <value condition="Window.IsVisible(home) + !String.IsEmpty(Container(300).ListItem.Property(Background))">$INFO[Container(300).ListItem.Property(Background)]</value>
+        <value condition="Window.IsVisible(home) + !String.IsEmpty(Skin.String(home.slideshowpath)) + [String.Contains(Container(300).ListItem.Property(widget),Weather,left) | String.IsEmpty(Container(300).ListItem.Property(widget)) | Container(301).IsUpdating |  Skin.HasSetting(home.dontshowfanart)]">$INFO[Skin.String(home.slideshowpath)]</value>
+        <value condition="Window.IsVisible(home) + !String.IsEmpty(Skin.String(weather.fanart.path)) + Skin.HasSetting(home.showweatherfanart) + [String.IsEmpty(Container(300).ListItem.Property(widget)) | Container(301).IsUpdating]">$INFO[Skin.String(weather.fanart.path)]$INFO[Window(Weather).Property(Current.FanartCode)]/</value>
+        <value condition="Window.IsVisible(home) + !Container(301).IsUpdating + !String.IsEmpty(Skin.String(fanart.fallback))">$INFO[Skin.String(fanart.fallback)]</value>
         <value condition="Window.IsVisible(home) + !Container(301).IsUpdating">pvr/background.jpg</value>
-        <value condition="!IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt)) + Skin.HasSetting(SkinHelper.EnableExtraFanart) + System.HasAddon(script.skin.helper.service) + Window.IsVisible(MyVideoNav.xml)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt)]</value>
-        <value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
-        <value condition="!IsEmpty(Container(9500).ListItem.Art(fanart))">$INFO[Container(9500).ListItem.Art(fanart)]</value>
-        <value condition="!IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
-        <value condition="!IsEmpty(ListItem.Property(Fanart))">$INFO[ListItem.Property(Fanart)]</value>
-        <value condition="!IsEmpty(Skin.String(fanart.fallback))">$INFO[Skin.String(fanart.fallback)]</value>
+        <value condition="!String.IsEmpty(Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt)) + Skin.HasSetting(SkinHelper.EnableExtraFanart) + System.HasAddon(script.skin.helper.service) + Window.IsVisible(MyVideoNav.xml)">$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ExtraFanArt)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(Container(9500).ListItem.Art(fanart))">$INFO[Container(9500).ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
+        <value condition="!String.IsEmpty(ListItem.Property(Fanart))">$INFO[ListItem.Property(Fanart)]</value>
+        <value condition="!String.IsEmpty(Skin.String(fanart.fallback))">$INFO[Skin.String(fanart.fallback)]</value>
         <value>common/null.png</value>
     </variable>
 
@@ -191,7 +191,7 @@
             <include>GlobalBackgroundFade</include>
             <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio]</visible>
             <include>Dimensions_Fullscreen</include>
-            <visible>!Window.IsVisible(home) + Skin.HasSetting(global.hidefanart) + !IsEmpty(Skin.String(fanart.fallback))</visible>
+            <visible>!Window.IsVisible(home) + Skin.HasSetting(global.hidefanart) + !String.IsEmpty(Skin.String(fanart.fallback))</visible>
             <include>Animation.FadeFromHome</include>
             <aspectratio>scale</aspectratio>
             <texture background="true">$INFO[Skin.String(fanart.fallback)]</texture>

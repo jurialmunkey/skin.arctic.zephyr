@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog">
     <onload condition="Library.IsScanningVideo + Skin.HasSetting(UpdateArt.Enabled)">SetProperty(UpdateArt,1)</onload>
-    <onunload condition="!IsEmpty(Window.Property(UpdateArt)) + Skin.HasSetting(UpdateArt.Enabled)">XBMC.RunScript(script.artwork.downloader,mode=custom,silent=true,landscape,clearlogo,clearart)</onunload>
-    <onunload condition="!IsEmpty(Window.Property(UpdateArt)) + Skin.HasSetting(UpdateArt.Enabled)">ClearProperty(UpdateArt)</onunload>
+    <onunload condition="!String.IsEmpty(Window.Property(UpdateArt)) + Skin.HasSetting(UpdateArt.Enabled)">XBMC.RunScript(script.artwork.downloader,mode=custom,silent=true,landscape,clearlogo,clearart)</onunload>
+    <onunload condition="!String.IsEmpty(Window.Property(UpdateArt)) + Skin.HasSetting(UpdateArt.Enabled)">ClearProperty(UpdateArt)</onunload>
     <controls>
         <control type="group">
             <right>72</right>
@@ -74,10 +74,10 @@
         </control>
 
         <control type="progress" id="32">
-            <texturebg>-</texturebg>
-            <lefttexture>-</lefttexture>
-            <midtexture>-</midtexture>
-            <righttexture>-</righttexture>
+            <texturebg></texturebg>
+            <lefttexture></lefttexture>
+            <midtexture></midtexture>
+            <righttexture></righttexture>
             <info>Player.Progress</info>
             <animation effect="fade" start="0" end="0" condition="true">Conditional</animation>
         </control>

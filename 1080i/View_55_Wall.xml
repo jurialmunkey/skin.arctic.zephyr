@@ -6,7 +6,7 @@
             <include>Animation.Common</include>
             <visible>Control.IsVisible(55)</visible>
             <control type="panel" id="55">
-                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+                <visible>String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
                 <top>206</top>
                 <right>70</right>
                 <width>1332</width>
@@ -42,7 +42,7 @@
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
                     </control>
                     <control type="image">
                         <centerright>32</centerright>
@@ -51,7 +51,7 @@
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture>$VAR[PosterPercentWatched]</texture>
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
                     </control>
                 </itemlayout>
                 <focusedlayout height="335" width="222">
@@ -78,7 +78,7 @@
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
 
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
                     </control>
                     <control type="image">
                         <centerright>32</centerright>
@@ -87,7 +87,7 @@
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture>$VAR[PosterPercentWatched]</texture>
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
 
                     </control>
                     <control type="image">
@@ -119,7 +119,7 @@
             <include>Animation.Common</include>
             <visible>Control.IsVisible(55)</visible>
             <control type="panel" id="55">
-                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+                <visible>String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
                 <top>206</top>
                 <right>70</right>
                 <width>1135</width>
@@ -154,7 +154,7 @@
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
 
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
                     </control>
                     <control type="image">
                         <centerright>32</centerright>
@@ -163,7 +163,7 @@
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture>$VAR[PosterPercentWatched]</texture>
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
 
                     </control>
                 </itemlayout>
@@ -190,7 +190,7 @@
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
 
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
                     </control>
                         <control type="image">
                             <centerright>32</centerright>
@@ -199,7 +199,7 @@
                             <height>32</height>
                             <aspectratio aligny="top">keep</aspectratio>
                             <texture>$VAR[PosterPercentWatched]</texture>
-                            <visible>!stringcompare(ListItem.Label,..)</visible>
+                            <visible>!String.IsEqual(ListItem.Label,..)</visible>
 
                         </control>
                         <control type="image">
@@ -234,7 +234,7 @@
             <include>Animation.Common</include>
             <visible>Control.IsVisible(55)</visible>
             <control type="panel" id="55">
-                <visible>substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+                <visible>String.Contains(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left) | Container.Content(musicvideos) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
                 <top>206</top>
                 <right>70</right>
                 <left>70</left>
@@ -271,7 +271,7 @@
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
 
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
                     </control>
                     <control type="image">
                         <centerright>32</centerright>
@@ -280,7 +280,7 @@
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture>$VAR[PosterPercentWatched]</texture>
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
 
                     </control>
                 </itemlayout>
@@ -308,7 +308,7 @@
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
 
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
                     </control>
                     <control type="image">
                         <centerright>32</centerright>
@@ -317,7 +317,7 @@
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture>$VAR[PosterPercentWatched]</texture>
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
 
                     </control>
                     <control type="image">
@@ -384,7 +384,7 @@
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
                     </control>
                     <control type="image">
                         <centerright>32</centerright>
@@ -393,7 +393,7 @@
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture>$VAR[PosterPercentWatched]</texture>
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
                     </control>
                     <control type="label">
                         <font>TinyBold</font>
@@ -455,7 +455,7 @@
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture colordiffuse="$VAR[ColorHighlight]">$VAR[PosterPercentWatchedBacking]</texture>
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
                     </control>
                     <control type="image">
                         <centerright>32</centerright>
@@ -464,7 +464,7 @@
                         <height>32</height>
                         <aspectratio aligny="top">keep</aspectratio>
                         <texture>$VAR[PosterPercentWatched]</texture>
-                        <visible>!stringcompare(ListItem.Label,..)</visible>
+                        <visible>!String.IsEqual(ListItem.Label,..)</visible>
                     </control>
                     <control type="image">
                         <left>3</left>
