@@ -18,7 +18,7 @@
             <include>NextAiredGroup</include>
             <control type="label">
                 <include>NextAiredLabel</include>
-                <label>$INFO[Window(home).Property(NextAired.$PARAM[id].Weekday)]$INFO[Window(home).Property(NextAired.$PARAM[id].Date), - ,]</label>
+                <label>$INFO[Window(home).Property(NextAired.$PARAM[id].Weekday)]$INFO[Window(home).Property(NextAired.$PARAM[id].Date), - ,] ($INFO[Container($PARAM[id]).NumItems])</label>
             </control>
             <control type="list" id="$PARAM[id]">
                 <top>40</top>
