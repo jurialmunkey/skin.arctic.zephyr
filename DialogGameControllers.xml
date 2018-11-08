@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">10</defaultcontrol>
+    <controls>
+
+        <include>GlobalOverlay</include>
+
+        <control type="group">
+            <centerleft>50%</centerleft>
+            <width>1800</width>
+            <posy>83</posy>
+            <height>915</height>
+            <include>Animation.FadeIn.Slide</include>
+
+            <control type="image">
+                <posx>-30</posx>
+                <posy>-30</posy>
+                <width>1860</width>
+                <height>975</height>
+                <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
+            </control>
+
+            <control type="label">
+                <description>Header Label</description>
+                <posx>15</posx>
+                <posy>-15</posy>
+                <align>center</align>
+                <font>MediumBold</font>
+                <width>1770</width>
+                <label>35058</label>
+            </control>
+
+            <control type="grouplist" id="3">
+                <left>20</left>
+                <width>380</width>
+                <top>20</top>
+                <height>668</height>
+                <onright>5</onright>
+                <onleft>8000</onleft>
+                <ondown>8000</ondown>
+                <itemgap>20</itemgap>
+            </control>
+            <control type="gamecontroller" id="31">
+                <centerleft>50%</centerleft>
+                <top>120</top>
+                <width>740</width>
+                <height>450</height>
+                <aspectratio>scale</aspectratio>
+            </control>
+            <control type="grouplist" id="5">
+                <width>380</width>
+                <right>20</right>
+                <top>20</top>
+                <height>668</height>
+                <onleft>3</onleft>
+                <onright>8000</onright>
+                <ondown>8000</ondown>
+                <itemgap>20</itemgap>
+            </control>
+
+            <control type="grouplist" id="8000">
+                <left>0</left>
+                <right>0</right>
+                <align>center</align>
+                <height>66</height>
+                <bottom>20</bottom>
+                <itemgap>20</itemgap>
+                <orientation>horizontal</orientation>
+                <onup>5</onup>
+                <onleft>3</onleft>
+                <onright>5</onright>
+              <control type="button" id="18">
+                <description>OK</description>
+                <align>center</align>
+                <width>200</width>
+                <texturefocus colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</texturefocus>
+                <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                <include>DefDialogButtons</include>
+                <label>$LOCALIZE[186]</label>
+              </control>
+              <control type="button" id="19">
+                <description>Reset</description>
+                <align>center</align>
+                <width>200</width>
+                <texturefocus colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</texturefocus>
+                <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                <include>DefDialogButtons</include>
+                <label>$LOCALIZE[13007]</label>
+              </control>
+              <control type="button" id="20">
+                <description>Install More Controllers</description>
+                <align>center</align>
+                <width>200</width>
+                <texturefocus colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</texturefocus>
+                <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                <include>DefDialogButtons</include>
+                <label>$LOCALIZE[21452]</label>
+              </control>
+              <control type="button" id="22">
+                <description>Install All</description>
+                <align>center</align>
+                <width>200</width>
+                <texturefocus colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</texturefocus>
+                <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                <include>DefDialogButtons</include>
+                <label>$LOCALIZE[35021]</label>
+              </control>
+              <control type="button" id="21">
+                <description>Fix Skipping</description>
+                <align>center</align>
+                <width>200</width>
+                <texturefocus colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</texturefocus>
+                <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                <include>DefDialogButtons</include>
+                <label>$LOCALIZE[35019]</label>
+              </control>
+              <control type="button" id="17">
+                <description>Help</description>
+                <align>center</align>
+                <width>200</width>
+                <texturefocus colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</texturefocus>
+                <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+                <include>DefDialogButtons</include>
+                <label>$LOCALIZE[10043]</label>
+              </control>
+            </control>
+        </control>
+      <control type="label" id="8">
+        <description>Default Controller Types Label</description>
+        <width>262</width>
+        <height>35</height>
+        <align>center</align>
+        <font>MediumBold</font>
+        <textcolor>DefaultColor2</textcolor>
+        <aligny>center</aligny>
+      </control>
+        <control type="button" id="7">
+            <align>center</align>
+            <width>380</width>
+            <texturefocus colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</texturefocus>
+            <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+            <include>DefDialogButtons</include>
+        </control>
+        <control type="button" id="10">
+            <align>center</align>
+            <width>380</width>
+            <texturefocus colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</texturefocus>
+            <texturenofocus colordiffuse="Black12" border="5">common/box.png</texturenofocus>
+            <include>DefDialogButtons</include>
+        </control>
+    </controls>
+
+</window>
