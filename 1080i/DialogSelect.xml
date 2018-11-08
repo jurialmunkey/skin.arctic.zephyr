@@ -8,6 +8,7 @@
         <include>GlobalOverlay</include>
 
         <control type="group">
+          <visible>![Window.IsActive(GameStretchMode) | Window.IsActive(gamevideofilter) | Window.IsActive(gamevideorotation)]</visible>
             <include>DefDialogBackground</include>
 
             <control type="label" id="1">
@@ -295,7 +296,162 @@
             </control>
 
         </control>
+      
+      <control type="group">
+        <visible>Window.IsActive(GameStretchMode) | Window.IsActive(gamevideofilter) | Window.IsActive(gamevideorotation)</visible>
+        <include>DefDialogBackground</include>
 
-    </controls>
+        <control type="label" id="1">
+          <include>DefDialogHeader</include>
+          <label>13406</label>
+        </control>
 
+        <control type="list" id="11">
+          <posx>8</posx>
+          <posy>120</posy>
+          <width>600</width>
+          <height>690</height>
+          <onleft>7</onleft>
+          <onright>7</onright>
+          <onup>11</onup>
+          <ondown>11</ondown>
+
+          <itemlayout height="138">
+
+            <control type="image">
+              <posx>32</posx>
+              <posy>12</posy>
+              <width>111</width>
+              <height>111</height>
+              <aspectratio scalediffuse="false">scale</aspectratio>
+              <texture diffuse="diffuse/dialogselect.png" fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
+              <visible>!Skin.HasSetting(global.hidecirles)</visible>
+            </control>
+            <control type="image">
+              <posx>32</posx>
+              <posy>12</posy>
+              <width>111</width>
+              <height>111</height>
+              <aspectratio scalediffuse="false">keep</aspectratio>
+              <texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
+              <visible>Skin.HasSetting(global.hidecirles)</visible>
+            </control>
+
+            <control type="label">
+              <posy>-18</posy>
+              <posx>170</posx>
+              <width>496</width>
+              <height>135</height>
+              <font>SmallBold</font>
+              <textcolor>Black70</textcolor>
+              <selectedcolor>Black70</selectedcolor>
+              <info>ListItem.Label</info>
+              <animation effect="slide" end="0,18" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
+            </control>
+            <control type="label">
+              <posx>170</posx>
+              <posy>18</posy>
+              <width>496</width>
+              <height>135</height>
+              <font>Mini</font>
+              <textcolor>Black70</textcolor>
+              <selectedcolor>Black70</selectedcolor>
+              <label>$INFO[ListItem.Label2]</label>
+            </control>
+
+          </itemlayout>
+
+          <focusedlayout height="138">
+              <control type="image">
+                <width>696</width>
+                <height>135</height>
+                <texture border="5" colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
+              </control>
+
+
+              <control type="image">
+                <posx>32</posx>
+                <posy>12</posy>
+                <width>111</width>
+                <height>111</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture diffuse="diffuse/dialogselect.png" fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
+                <visible>!Skin.HasSetting(global.hidecirles)</visible>
+              </control>
+              <control type="image">
+                <posx>32</posx>
+                <posy>12</posy>
+                <width>111</width>
+                <height>111</height>
+                <aspectratio scalediffuse="false">keep</aspectratio>
+                <texture fallback="DefaultAddonNone.png">$INFO[Listitem.Icon]</texture>
+                <visible>Skin.HasSetting(global.hidecirles)</visible>
+              </control>
+
+              <control type="label">
+                <posy>-18</posy>
+                <posx>170</posx>
+                <width>496</width>
+                <height>135</height>
+                <font>SmallBold</font>
+                <textcolor>Selected</textcolor>
+                <selectedcolor>Selected</selectedcolor>
+                <info>ListItem.Label</info>
+                <animation effect="slide" end="0,18" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
+              </control>
+              <control type="label">
+                <left>170</left>
+                <posy>18</posy>
+                <width>496</width>
+                <height>135</height>
+                <font>Mini</font>
+                <textcolor>Selected</textcolor>
+                <selectedcolor>Selected</selectedcolor>
+                <label>$INFO[ListItem.Label2]</label>
+              </control>
+
+          </focusedlayout>
+
+        </control>
+
+        <control type="button" id="7">
+          <description>Cancel</description>
+          <posx>638</posx>
+          <posy>120</posy>
+          <width>350</width>
+          <height>70</height>
+          <align>center</align>
+          <label>222</label>
+          <onleft>11</onleft>
+          <onright>11</onright>
+          <onup>11</onup>
+          <ondown>11</ondown>
+          <font>Button</font>
+          <textcolor>Black70</textcolor>
+          <onclick>Action(close)</onclick>
+          <texturefocus colordiffuse="$VAR[ColorHighlight]" border="5">common/box.png</texturefocus>
+          <animation effect="slide" start="0" end="22,-100" condition="!Control.IsVisible(11)">Conditional</animation>
+          <visible>Control.IsVisible(11)</visible>
+        </control>
+
+        <control type="gamewindow">
+          <posx>638</posx>
+          <posy>357</posy>
+          <width>367</width>
+          <height>250</height>
+          <videofilter>$INFO[Container(11).ListItem.Property(game.videofilter)]</videofilter>
+          <stretchmode>$INFO[Container(11).ListItem.Property(game.stretchmode)]</stretchmode>
+          <rotation>$INFO[Container(11).ListItem.Property(game.videorotation)]</rotation>
+        </control>
+
+        <control type="image">
+          <posx>605</posx>
+          <top>120</top>
+          <height>687</height>
+          <width>1</width>
+          <texture colordiffuse="Black12">common/white.png</texture>
+          <visible>Control.IsVisible(11)</visible>
+        </control>
+    </control>
+  </controls>
 </window>

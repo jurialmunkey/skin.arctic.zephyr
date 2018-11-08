@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Foundation -->
+<window type="dialog" id="1120">
+  <defaultcontrol always="true">101</defaultcontrol>
+
+
+  <coordinates>
+    <origin x="0" y="0" />
+  </coordinates>
+
+  <controls>
+
+    <include>GlobalOverlay</include>
+    <control type="group">
+      <visible>!Window.IsActive(GameVideoFilter) + !Window.IsActive(GameStretchMode) + !Window.IsActive(GameVideoRotation) + !Window.IsActive(GameControllers) + !Window.IsActive(AddonSettings) + !Window.IsActive(OKDialog)</visible>
+      <include>Animation.ZoomIn</include>
+      <include>Animation.FadeOut</include>
+      <top>350</top>
+      <centerleft>50%</centerleft>
+      <width>466</width>
+      <control type="image" id="999">
+        <description>background image</description>
+        <posx>0</posx>
+        <posy>-16</posy>
+        <width>466</width>
+        <height>400</height>
+        <texture border="16" colordiffuse="White100">common/rounded-shadow8.png</texture>
+      </control>
+
+      <control type="grouplist" id="996">
+        <description>grouplist for context buttons</description>
+        <posx>8</posx>
+        <posy>0</posy>
+        <width>510</width>
+        <height max="400">auto</height>
+        <itemgap>0</itemgap>
+        <control type="button" id="101">
+          <include>DefContextButton</include>
+          <label>$LOCALIZE[35225]</label>
+          <onclick>ActivateWindow(GameVideoFilter)</onclick>
+        </control>
+        <control type="button" id="102">
+          <include>DefContextButton</include>
+          <label>$LOCALIZE[35233]</label>
+          <onclick>ActivateWindow(GameStretchMode)</onclick>
+        </control>
+        <control type="button" id="103">
+          <include>DefContextButton</include>
+          <label>$LOCALIZE[35227]</label>
+          <onclick>ActivateWindow(GameVideoRotation)</onclick>
+        </control>
+        <control type="button" id="104">
+          <include>DefContextButton</include>
+          <label>$LOCALIZE[35234]</label>
+          <onclick>ActivateWindow(GameControllers)</onclick>
+        </control>
+        <control type="button" id="105">
+          <include>DefContextButton</include>
+          <label>$LOCALIZE[10140]</label>
+          <onclick>ActivateWindow(GameAdvancedSettings)</onclick>
+        </control>
+      </control>
+    </control>
+  </controls>
+</window>
