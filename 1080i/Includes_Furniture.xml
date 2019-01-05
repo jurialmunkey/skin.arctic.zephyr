@@ -398,7 +398,7 @@
                 <centertop>50%</centertop>
                 <texture colordiffuse="Dark1">flags/time.png</texture>
                 <aspectratio align="left">scale</aspectratio>
-                <visible>!String.IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(55)]</visible>
+                <visible>!String.IsEmpty(ListItem.Duration(mins)) + [Control.IsVisible(500) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(55)]</visible>
             </control>
             <control type="label">
                 <width>auto</width>
@@ -406,10 +406,10 @@
                 <height>64</height>
                 <align>left</align>
                 <aligny>center</aligny>
-                <label>$INFO[ListItem.Duration,, $LOCALIZE[31102]  ]</label>
+                <label>$INFO[ListItem.Duration(mins),, $LOCALIZE[31102]  ]</label>
                 <font>Flag</font>
                 <textcolor>Dark1</textcolor>
-                <visible>!String.IsEmpty(ListItem.Duration) + [Control.IsVisible(500) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(55)]</visible>
+                <visible>!String.IsEmpty(ListItem.Duration(mins)) + [Control.IsVisible(500) | Control.IsVisible(53) | Control.IsVisible(52) | Control.IsVisible(55)]</visible>
             </control>
             <control type="image">
                 <width>64</width>
