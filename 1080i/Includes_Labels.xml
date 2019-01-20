@@ -263,4 +263,14 @@
         <value condition="Player.Process(videohwdecoder)">HW</value>
         <value>SW</value>
     </variable>
+    
+    	<variable name="LabelOSDPlayerTime">
+        <value condition="VideoPlayer.Content(LiveTV)">$INFO[PVR.EpgEventElapsedTime]  /  $INFO[PVR.EpgEventDuration]</value>
+        <value>$INFO[Player.Time]  /  $INFO[Player.Duration]</value>
+    </variable>
+
+	<variable name="LabelOSDPlayerEndTime">
+        <value condition="VideoPlayer.Content(LiveTV)">$INFO[PVR.EpgEventFinishTime]</value>
+        <value>$INFO[Player.FinishTime]</value>
+    </variable>	
 </includes>
