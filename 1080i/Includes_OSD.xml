@@ -166,9 +166,7 @@
             <textcolor>$VAR[OSDPanelWhite70]</textcolor>
             <label>$VAR[OSDChapterLabel]</label>
         </control>
-        <!-- Video NOT LiveTV -->
         <control type="label" description="Total Time">
-            <visible>!VideoPlayer.Content(LiveTV)</visible>
             <right>0</right>
             <align>right</align>
             <width>400</width>
@@ -176,18 +174,7 @@
             <height>40</height>
             <font>Tiny</font>
             <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-            <label>$INFO[Player.Time]  /  $INFO[Player.Duration]</label>
-        </control>
-        <!-- Video IS LiveTV -->
-        <control type="label" description="Total Time">
-            <visible>VideoPlayer.Content(LiveTV)</visible>
-            <right>0</right>
-            <align>right</align>
-            <width>400</width>
-            <bottom>30</bottom>
-            <height>40</height>
-            <font>Tiny</font>
-            <label>$INFO[PVR.EpgEventElapsedTime]  /  $INFO[PVR.EpgEventDuration]</label>
+            <label>$VAR[LabelOSDPlayerTime]</label>
         </control>
         <!-- Video NOT LiveTV -->
         <control type="group">
@@ -1168,23 +1155,8 @@
                     <colordiffuse>$VAR[OSDPanelWhite70]</colordiffuse>
                     <texture>kaitoast/finishtime.png</texture>
                     <visible>Player.HasVideo</visible>
-                </control>         
-                <!-- Video NOT LiveTV -->
-                <control type="label">
-                    <visible>!VideoPlayer.Content(LiveTV)</visible>
-                    <right>80</right>
-                    <left>55%</left>
-                    <height>100%</height>
-                    <align>center</align>
-                    <aligny>center</aligny>
-                    <font>Small</font>
-                    <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                    <label>$INFO[Player.FinishTime]</label>
-                    <visible>Player.HasVideo</visible>
                 </control>
-                <!-- Video IS LiveTV -->
                 <control type="label">
-                    <visible>VideoPlayer.Content(LiveTV)</visible>
                     <right>80</right>
                     <left>55%</left>
                     <height>100%</height>
@@ -1192,7 +1164,7 @@
                     <aligny>center</aligny>
                     <font>Small</font>
                     <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                    <label>$INFO[PVR.EpgEventFinishTime]</label>
+                    <label>$VAR[LabelOSDPlayerEndTime]</label>
                     <visible>Player.HasVideo</visible>
                 </control>
             </control>
