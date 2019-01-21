@@ -174,27 +174,54 @@
             <height>40</height>
             <font>Tiny</font>
             <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-            <label>$INFO[Player.Time]  /  $INFO[Player.Duration]</label>
+            <label>$VAR[LabelOSDPlayerTime]</label>
         </control>
-        <control type="progress" description="cache">
-            <description>Progress Bar</description>
-            <width>100%</width>
-            <bottom>10</bottom>
-            <height>8</height>
-            <info>Player.ProgressCache</info>
-            <visible>true</visible>
-            <texturebg colordiffuse="00ffffff">osd/progress-bg.png</texturebg>
-            <lefttexture colordiffuse="Highlight2">osd/progress-end.png</lefttexture>
-            <midtexture colordiffuse="Highlight2">osd/progress-end.png</midtexture>
-            <righttexture colordiffuse="Highlight2">osd/progress-end.png</righttexture>
+        <!-- Video NOT LiveTV -->
+        <control type="group">
+        <visible>!VideoPlayer.Content(LiveTV)</visible>
+            <control type="progress" description="cache">
+                <description>Progress Bar</description>
+                <width>100%</width>
+                <bottom>10</bottom>
+                <height>8</height>
+                <info>Player.ProgressCache</info>
+                <visible>true</visible>
+                <texturebg colordiffuse="00ffffff">osd/progress-bg.png</texturebg>
+                <lefttexture colordiffuse="Highlight2">osd/progress-end.png</lefttexture>
+                <midtexture colordiffuse="Highlight2">osd/progress-end.png</midtexture>
+                <righttexture colordiffuse="Highlight2">osd/progress-end.png</righttexture>
+            </control>
+            <control type="progress" id="23">
+                <description>Progress Bar</description>
+                <width>100%</width>
+                <bottom>10</bottom>
+                <height>8</height>
+                <info>Player.Progress</info>
+            </control>
         </control>
-        <control type="progress" id="23">
-            <description>Progress Bar</description>
-            <width>100%</width>
-            <bottom>10</bottom>
-            <height>8</height>
-            <info>Player.Progress</info>
-        </control>
+        <!-- Video IS LiveTV -->
+        <control type="group">
+        <visible>VideoPlayer.Content(LiveTV)</visible>
+            <control type="progress" description="cache">
+                <description>Progress Bar</description>
+                <width>100%</width>
+                <bottom>10</bottom>
+                <height>8</height>
+                <info>PVR.TimeshiftProgressBufferStart</info>
+                <visible>true</visible>
+                <texturebg colordiffuse="00ffffff">osd/progress-bg.png</texturebg>
+                <lefttexture colordiffuse="Highlight2">osd/progress-end.png</lefttexture>
+                <midtexture colordiffuse="Highlight2">osd/progress-end.png</midtexture>
+                <righttexture colordiffuse="Highlight2">osd/progress-end.png</righttexture>
+            </control>
+            <control type="progress" id="23">
+                <description>Progress Bar</description>
+                <width>100%</width>
+                <bottom>10</bottom>
+                <height>8</height>
+                <info>PVR.TimeshiftProgressPlayPos</info>
+            </control>			
+        </control>			      
     </include>
     <include name="DefOSDButtons">
         <aligny>center</aligny>
@@ -1137,13 +1164,10 @@
                     <aligny>center</aligny>
                     <font>Small</font>
                     <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                    <label>$INFO[Player.FinishTime]</label>
+                    <label>$VAR[LabelOSDPlayerEndTime]</label>
                     <visible>Player.HasVideo</visible>
                 </control>
-
             </control>
         </control>
-
     </include>
-
 </includes>
